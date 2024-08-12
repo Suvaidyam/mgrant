@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestmGrantContact(FrappeTestCase):
+class TestOutcome(FrappeTestCase):
 	pass

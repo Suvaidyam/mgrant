@@ -1,54 +1,44 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:CONT-{######}",
- "creation": "2024-08-12 16:15:24.831961",
+ "autoname": "format:BT-{######}",
+ "creation": "2024-08-12 17:48:40.695531",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "user",
-  "email",
-  "mobile_number",
-  "contact"
+  "budget",
+  "as_on_date",
+  "transaction"
  ],
  "fields": [
   {
-   "fieldname": "email",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Email",
-   "options": "Email",
-   "reqd": 1
-  },
-  {
-   "fieldname": "user",
+   "fieldname": "budget",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "User",
-   "options": "SVA User",
+   "label": "Budget",
+   "options": "Budget",
    "reqd": 1
   },
   {
-   "fieldname": "contact",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Contact"
+   "fieldname": "as_on_date",
+   "fieldtype": "Date",
+   "label": "As on date",
+   "reqd": 1
   },
   {
-   "fieldname": "mobile_number",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Mobile Number",
-   "options": "Phone",
+   "fieldname": "transaction",
+   "fieldtype": "Int",
+   "label": "Transaction",
+   "non_negative": 1,
    "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-12 16:18:48.379343",
+ "modified": "2024-08-12 17:49:54.036757",
  "modified_by": "Administrator",
  "module": "Mgrant",
- "name": "mGrant Contact",
+ "name": "Budget Transaction",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [

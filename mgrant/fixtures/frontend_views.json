@@ -1,0 +1,50 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Frontend Views",
+  "document_type": "Donor",
+  "enabled": 1,
+  "icon": "accounting",
+  "is_default": 0,
+  "label": "Donors",
+  "modified": "2024-08-12 18:12:00.592725",
+  "name": "Donor",
+  "tabs": []
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Frontend Views",
+  "document_type": "Project",
+  "enabled": 1,
+  "icon": "projects",
+  "is_default": 1,
+  "label": "Project",
+  "modified": "2024-08-12 18:11:00.733709",
+  "name": "Project",
+  "tabs": []
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Frontend Views",
+  "document_type": "NGO",
+  "enabled": 1,
+  "icon": "workflow",
+  "is_default": 0,
+  "label": "NGO",
+  "modified": "2024-08-12 18:14:51.430060",
+  "name": "NGO",
+  "tabs": []
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Frontend Views",
+  "document_type": "Contact",
+  "enabled": 1,
+  "icon": "customer",
+  "is_default": 0,
+  "label": "Contact",
+  "modified": "2024-08-12 18:16:43.707977",
+  "name": "Contact",
+  "tabs": []
+ }
+]

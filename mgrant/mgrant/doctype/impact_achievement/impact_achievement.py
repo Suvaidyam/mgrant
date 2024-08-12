@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class mGrantContact(Document):
+class ImpactAchievement(Document):
 	pass

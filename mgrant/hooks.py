@@ -4,11 +4,12 @@ app_publisher = "Suvaidyam"
 app_description = "No Description"
 app_email = "tech@suvaidyam.com"
 app_license = "mit"
-# required_apps = []
+required_apps = ['SVA Frappe','CRM']
 
 # Includes in <head>
 # ------------------
 
+fixtures = ['Frontend Views']
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"
 # app_include_js = "/assets/mgrant/js/mgrant.js"
