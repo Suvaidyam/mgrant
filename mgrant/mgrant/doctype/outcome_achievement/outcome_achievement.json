@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "outcome",
+  "project",
   "as_on_date",
   "achievement"
  ],
@@ -31,11 +32,20 @@
    "label": "Outcome",
    "options": "Outcome",
    "reqd": 1
+  },
+  {
+   "fetch_from": "outcome.project",
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Project",
+   "options": "Project"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-12 17:52:05.651044",
+ "modified": "2024-08-13 14:39:34.537518",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcome Achievement",

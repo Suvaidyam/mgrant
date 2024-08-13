@@ -6,6 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "project",
   "budget_name",
   "allocation"
  ],
@@ -23,11 +24,23 @@
    "label": "Allocation",
    "non_negative": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-08-12 17:47:59.669945",
+ "links": [
+  {
+   "link_doctype": "Budget Transaction",
+   "link_fieldname": "budget"
+  }
+ ],
+ "modified": "2024-08-13 14:49:11.271375",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget",

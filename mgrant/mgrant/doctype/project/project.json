@@ -42,8 +42,49 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-08-12 17:53:56.101112",
+ "links": [
+  {
+   "group": "Budget",
+   "link_doctype": "Budget",
+   "link_fieldname": "project"
+  },
+  {
+   "group": "Budget",
+   "link_doctype": "Budget Transaction",
+   "link_fieldname": "project"
+  },
+  {
+   "group": "Output",
+   "link_doctype": "Output",
+   "link_fieldname": "project"
+  },
+  {
+   "group": "Output",
+   "link_doctype": "Output Achievement",
+   "link_fieldname": "project"
+  },
+  {
+   "group": "Impact",
+   "link_doctype": "Impact",
+   "link_fieldname": "project"
+  },
+  {
+   "group": "Impact",
+   "link_doctype": "Impact Achievement",
+   "link_fieldname": "project"
+  },
+  {
+   "group": "Outcome",
+   "link_doctype": "Outcome",
+   "link_fieldname": "project"
+  },
+  {
+   "group": "Outcome",
+   "link_doctype": "Outcome Achievement",
+   "link_fieldname": "Project"
+  }
+ ],
+ "modified": "2024-08-13 14:51:23.725468",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Project",

@@ -6,6 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "project",
   "outcome_name",
   "target"
  ],
@@ -23,11 +24,23 @@
    "in_list_view": 1,
    "label": "Outcome Name",
    "reqd": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-08-12 17:51:43.408860",
+ "links": [
+  {
+   "link_doctype": "Outcome Achievement",
+   "link_fieldname": "outcome"
+  }
+ ],
+ "modified": "2024-08-13 14:47:57.440293",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcome",

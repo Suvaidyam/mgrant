@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "impact",
+  "project",
   "as_on_date",
   "achievement"
  ],
@@ -31,11 +32,19 @@
    "label": "Impact",
    "options": "Impact",
    "reqd": 1
+  },
+  {
+   "fetch_from": "impact.project",
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Project",
+   "options": "Project"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-12 17:50:20.251674",
+ "modified": "2024-08-13 14:41:07.932190",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact Achievement",

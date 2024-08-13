@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "budget",
+  "project",
   "as_on_date",
   "transaction"
  ],
@@ -31,11 +32,19 @@
    "label": "Transaction",
    "non_negative": 1,
    "reqd": 1
+  },
+  {
+   "fetch_from": "budget.project",
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Project",
+   "options": "Project"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-12 17:49:54.036757",
+ "modified": "2024-08-13 14:42:57.128314",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Transaction",

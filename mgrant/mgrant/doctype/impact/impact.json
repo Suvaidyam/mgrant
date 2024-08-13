@@ -6,6 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "project",
   "impact_name",
   "target"
  ],
@@ -23,11 +24,23 @@
    "in_list_view": 1,
    "label": "Impact Name",
    "reqd": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-08-12 17:50:42.116215",
+ "links": [
+  {
+   "link_doctype": "Impact Achievement",
+   "link_fieldname": "impact"
+  }
+ ],
+ "modified": "2024-08-13 14:48:37.740317",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact",
