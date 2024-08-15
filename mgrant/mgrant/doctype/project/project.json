@@ -9,7 +9,8 @@
   "project_name",
   "start_date",
   "end_date",
-  "contact"
+  "contact",
+  "type"
  ],
  "fields": [
   {
@@ -39,6 +40,12 @@
    "label": "Contact",
    "options": "Contact",
    "reqd": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Health\nEducation\nAgriculture"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -84,7 +91,7 @@
    "link_fieldname": "Project"
   }
  ],
- "modified": "2024-08-13 14:51:23.725468",
+ "modified": "2024-08-15 18:34:43.044600",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Project",

@@ -1,0 +1,79 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"9wJXkSD19X\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Masters</span>\",\"col\":12}},{\"id\":\"OEToC5aDLN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Budget Transaction\",\"col\":3}},{\"id\":\"MwWDTTMWzV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Output Achievement\",\"col\":3}},{\"id\":\"wNhG12beT5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Outcome Achievement\",\"col\":3}},{\"id\":\"KKeBp1DMjE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Impact Achievement\",\"col\":3}},{\"id\":\"rDr6p8kgLD\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Geography Masters</b></span>\",\"col\":12}},{\"id\":\"HAmd5nix6p\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"State\",\"col\":4}},{\"id\":\"nqDQDcFr2x\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"District\",\"col\":4}},{\"id\":\"tQSxIUCody\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Block\",\"col\":4}},{\"id\":\"iLzV9hi-ks\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Village\",\"col\":4}}]",
+ "creation": "2024-08-15 17:05:20.162609",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "table",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Masters",
+ "links": [],
+ "modified": "2024-08-15 17:09:24.946894",
+ "modified_by": "Administrator",
+ "module": "Mgrant",
+ "name": "Masters",
+ "number_cards": [
+  {
+   "label": "State",
+   "number_card_name": "Sva State"
+  },
+  {
+   "label": "District",
+   "number_card_name": "Sva District"
+  },
+  {
+   "label": "Block",
+   "number_card_name": "Sva Block"
+  },
+  {
+   "label": "Village",
+   "number_card_name": "Sva Village"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 2.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Budget Transaction",
+   "link_to": "Budget Transaction",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Output Achievement",
+   "link_to": "Output Achievement",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "label": "Outcome Achievement",
+   "link_to": "Outcome Achievement",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Impact Achievement",
+   "link_to": "Impact Achievement",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Masters"
+}

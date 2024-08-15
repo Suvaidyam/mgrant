@@ -1,0 +1,67 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"pj_imGhC1a\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Projects</span>\",\"col\":12}},{\"id\":\"O_uq10uAsA\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Projects\",\"col\":4}},{\"id\":\"129Vw1ok16\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Modules</b></span>\",\"col\":12}},{\"id\":\"Kav2LuLp26\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Budget\",\"col\":3}},{\"id\":\"K6duJcd_Ob\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Output\",\"col\":3}},{\"id\":\"lGHhZkOtLb\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Outcome\",\"col\":3}},{\"id\":\"PMgTcylx6M\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Impact\",\"col\":3}}]",
+ "creation": "2024-08-15 16:59:47.066540",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "projects",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Projects",
+ "links": [],
+ "modified": "2024-08-15 17:05:23.866084",
+ "modified_by": "Administrator",
+ "module": "Mgrant",
+ "name": "Projects",
+ "number_cards": [
+  {
+   "label": "Projects",
+   "number_card_name": "Projects"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Budget",
+   "link_to": "Budget",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Output",
+   "link_to": "Output",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "label": "Outcome",
+   "link_to": "Outcome",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Yellow",
+   "doc_view": "List",
+   "label": "Impact",
+   "link_to": "Impact",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Projects"
+}
