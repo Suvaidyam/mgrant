@@ -1,0 +1,58 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"-0qwiX7bO7\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Programmes</span>\",\"col\":12}},{\"id\":\"VvbDkMYxY_\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Programmes\",\"col\":4}},{\"id\":\"nZUA8pFRgB\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Entities\",\"col\":4}},{\"id\":\"jhXB0au_Qu\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"xcXaz_203z\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Themes\",\"col\":4}},{\"id\":\"YRfabZ3H4Z\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Budget Heads\",\"col\":4}},{\"id\":\"F7XiGmZRJm\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"SDGs\",\"col\":4}},{\"id\":\"CAolUHxkYf\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Cost Centres\",\"col\":4}},{\"id\":\"cI6aSJXN72\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Financial Years\",\"col\":4}}]",
+ "creation": "2024-09-26 16:44:30.606340",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "project-1",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Programmes",
+ "links": [],
+ "modified": "2024-09-26 17:16:06.928234",
+ "modified_by": "Administrator",
+ "module": "Programmes",
+ "name": "Programmes",
+ "number_cards": [
+  {
+   "label": "Programmes",
+   "number_card_name": "Programmes"
+  },
+  {
+   "label": "Themes",
+   "number_card_name": "Themes"
+  },
+  {
+   "label": "Entities",
+   "number_card_name": "Entity"
+  },
+  {
+   "label": "Budget Heads",
+   "number_card_name": "Budget Heads"
+  },
+  {
+   "label": "SDGs",
+   "number_card_name": "SDGs"
+  },
+  {
+   "label": "Cost Centres",
+   "number_card_name": "Cost Centres"
+  },
+  {
+   "label": "Financial Years",
+   "number_card_name": "Financial Years"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [],
+ "title": "Programmes"
+}
