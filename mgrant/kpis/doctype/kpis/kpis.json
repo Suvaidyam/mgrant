@@ -1,0 +1,85 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:KPI-{type}-{####}",
+ "creation": "2024-09-26 16:36:10.394302",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "theme",
+  "type",
+  "column_break_vghm",
+  "kpi_name",
+  "unit",
+  "section_break_aeup",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "theme",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Theme",
+   "options": "Themes",
+   "reqd": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Link",
+   "label": "Type",
+   "options": "KPI Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "kpi_name",
+   "fieldtype": "Data",
+   "label": "KPI Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unit",
+   "options": "Units",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_vghm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_aeup",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-26 16:41:54.907562",
+ "modified_by": "Administrator",
+ "module": "KPIs",
+ "name": "KPIs",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

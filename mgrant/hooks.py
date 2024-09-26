@@ -4,7 +4,7 @@ app_publisher = "Suvaidyam"
 app_description = "No Description"
 app_email = "tech@suvaidyam.com"
 app_license = "mit"
-required_apps = ["Suvaidyam/sva_frappe","Suvaidyam/crm"]
+required_apps = ["Suvaidyam/sva_frappe","Suvaidyam/crm","Suvaidyam/frappe_theme"]
 
 # Includes in <head>
 # ------------------
