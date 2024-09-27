@@ -22,7 +22,7 @@ const gallery_image = async (frm) => {
         },
         limit: 1000,
     });
-    
+
     gallery.innerHTML = '';
     files.forEach(file => {
         gallery.innerHTML += `
