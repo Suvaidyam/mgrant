@@ -6,7 +6,7 @@ from frappe.model.document import Document
 
 
 class BudgetTransaction(Document):
-	def on_update(self):
+	def after_insert(self):
 		budget = frappe.get_doc("Budget", self.budget)
 		if self.transaction:
 			budget.expense += self.transaction
