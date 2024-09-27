@@ -56,7 +56,6 @@ frappe.ui.form.on("Project", {
                             layout: 'fluid',      // Fluid layout
                             height: 500        // Set table height (optional)
                         });
-                        console.log("data:",fields,rows);
                     }
                 }
             }

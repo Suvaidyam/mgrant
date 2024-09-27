@@ -62,16 +62,19 @@
    "label": "Budget"
   },
   {
+   "default": "output",
    "fieldname": "output_tab",
    "fieldtype": "Tab Break",
    "label": "Output"
   },
   {
+   "default": "outcome",
    "fieldname": "outcome_tab",
    "fieldtype": "Tab Break",
    "label": "Outcome"
   },
   {
+   "default": "impact",
    "fieldname": "impact_tab",
    "fieldtype": "Tab Break",
    "label": "Impact"
@@ -144,7 +147,7 @@
    "link_fieldname": "Project"
   }
  ],
- "modified": "2024-09-27 00:58:58.311519",
+ "modified": "2024-09-27 10:38:07.854971",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Project",
