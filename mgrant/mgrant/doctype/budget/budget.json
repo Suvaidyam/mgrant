@@ -8,7 +8,8 @@
  "field_order": [
   "project",
   "budget_name",
-  "allocation"
+  "allocation",
+  "expense"
  ],
  "fields": [
   {
@@ -20,7 +21,7 @@
   },
   {
    "fieldname": "allocation",
-   "fieldtype": "Int",
+   "fieldtype": "Currency",
    "label": "Allocation",
    "non_negative": 1,
    "reqd": 1
@@ -31,6 +32,12 @@
    "label": "Project",
    "options": "Project",
    "reqd": 1
+  },
+  {
+   "fieldname": "expense",
+   "fieldtype": "Currency",
+   "label": "Expense",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -40,7 +47,7 @@
    "link_fieldname": "budget"
   }
  ],
- "modified": "2024-08-13 14:49:11.271375",
+ "modified": "2024-09-27 18:04:49.069537",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget",
