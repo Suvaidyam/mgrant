@@ -39,6 +39,9 @@ frappe.ui.form.on("Project", {
 	async refresh(frm) {
         $('a[data-toggle="tab"]').on('shown.bs.tab', async function (e) {
             let target = $(e.target).attr("data-fieldname");
+            if(target === 'gallery_tab'){
+                gallery_image(frm);
+            }
             let field = frm.meta?.fields?.find(f=> f.fieldname == target)
             let _fields = frm.meta?.fields?.filter(f=> field?.default?.split(',')?.includes(f.fieldname))
             for(let _f of _fields){
