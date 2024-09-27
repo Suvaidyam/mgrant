@@ -64,6 +64,9 @@ const tabContent = async(frm, tab_field)=>{
                 });
             }
         }
+        if(_f.default === 'tasks'){
+            getTaskList(_f,frm)
+        }
     }
 }
 frappe.ui.form.on("Project", {
