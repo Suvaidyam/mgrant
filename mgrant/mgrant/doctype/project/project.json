@@ -18,7 +18,9 @@
   "outcome_tab",
   "outcome",
   "impact_tab",
-  "impact"
+  "impact",
+  "email_tab",
+  "email"
  ],
  "fields": [
   {
@@ -102,6 +104,18 @@
    "fieldname": "impact",
    "fieldtype": "HTML",
    "options": "<div id=\"impact\"></div>"
+  },
+  {
+   "default": "email",
+   "fieldname": "email_tab",
+   "fieldtype": "Tab Break",
+   "label": "Email"
+  },
+  {
+   "default": "Communication",
+   "fieldname": "email",
+   "fieldtype": "HTML",
+   "options": "<div id=\"email\"></div>"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -145,9 +159,19 @@
    "group": "Outcome",
    "link_doctype": "Outcome Achievement",
    "link_fieldname": "Project"
+  },
+  {
+   "group": "Communication",
+   "link_doctype": "Communication",
+   "link_fieldname": "reference_doctype"
+  },
+  {
+   "group": "Files",
+   "link_doctype": "File",
+   "link_fieldname": "attached_to_doctype"
   }
  ],
- "modified": "2024-09-27 10:38:07.854971",
+ "modified": "2024-09-27 15:45:46.695004",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Project",
