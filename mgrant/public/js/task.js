@@ -1,4 +1,4 @@
-const getTaskList = async(_f,frm) => {
+const getTaskList = async (_f, frm) => {
     let task_form = new frappe.ui.Dialog({
         title: 'New Task',
         fields: [
@@ -26,17 +26,32 @@ const getTaskList = async(_f,frm) => {
                     if (r.message) {
                         frappe.show_alert({ message: __(`Task created successfully`), indicator: 'green' })
                         task_form.hide();
-                        getTaskList(_f,frm)
+                        getTaskList(_f, frm); // Refresh the task list
                     }
                 }
-            })
+            });
         }
     });
+
     let task_list = await getDocList(_f.description, [
-        ['CRM Task', 'reference_docname', '=', frm.doc.name]
-    ], ['*'])
-    $('#tasks').html(
-        `<div class="container">
+    ], ['*']);
+    if (task_list.length == 0) {
+        $('#tasks').html(
+            `<div class="container">
+                <div class="d-flex justify-content-end align-items-center mb-3">
+                    <button class="btn btn-dark btn-sm" id="createTask">
+                        <i class="bi bi-plus
+                        "></i> New Task
+                    </button>
+                </div>
+                <div class=" d-flex justify-content-center align-items-center">
+                    <h4 class="">No tasks found</h4>
+                </div>
+            </div>`
+        );
+    } else {
+        $('#tasks').html(
+            `<div class="container">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h6></h6>
                 <button class="btn btn-dark btn-sm" id="createTask">
@@ -48,41 +63,40 @@ const getTaskList = async(_f,frm) => {
                 <div class="card p-2 mb-2">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center" style="gap:8px">
-                            <span class="badge bg-light text-dark me-2">${task.title}</span>
+                            <span class="py-1 px-2 rounded bg-light text-dark me-2">${task.title}</span>
                             <span class="text-muted medium">${task?.assigned_to ?? '--'}</span>
                             <i class="bi bi-calendar ms-2 me-1"></i>
                             <span class="text-muted small">${task?.due_date ?? '--'}</span>
                             <span class="mx-2">•</span>
                             <span class="text-muted small">${task.priority}</span>
+                            <button class="btn btn-sm btn-light">
+                            ${task.reference_doctype}
+                            </button>
                         </div>
-                       <div class="d-flex" style="gap:10px">
-                         <div class="d-flex align-items-center justify-content-center">
-                            <p class="pointer" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-circle-o"></i>
-                            </p>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" id="deleteBtn" value=${task.name}>Delete</a>
+                        
+                        <div class="d-flex" style="gap:10px">
+                            <div class="d-flex align-items-center justify-content-center">
+                            <p class="pointer pt-2" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-circle-o"></i>
+                                    <i class="fa fa-ellipsis-h"></i>
+                                </p>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item delete-btn" data-task="${task.name}">Delete</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center justify-content-center">
-                            <p class="pointer" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-ellipsis-h"></i>
-                            </p>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" id="deleteBtn" value=${task.name}>Delete</a>
-                            </div>
-                        </div>
-                       </div>
                     </div>
                 </div>`;
             }).join('')}
         </div>`
-    );
-    $('#createTask').on('click', function (e) {
-        task_form.show()
+        );
+    }
+    $('#createTask').on('click', function () {
+        task_form.show();
     });
-    $('#deleteBtn').on('click', function (e) {
-       console.log(e.target)
+
+    $('.delete-btn').on('click', function (e) {
+        const taskName = $(this).data('task');
+        console.log('Deleting task:', taskName);
     });
-    
-}
+};
