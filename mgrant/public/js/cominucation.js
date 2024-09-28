@@ -59,11 +59,11 @@ const cominucation = async (frm) => {
                 <div class="d-flex justify-content-end align-items-center mb-3">
                     <button class="btn btn-dark btn-sm" id="createCominucation">
                         <i class="bi bi-plus
-                        "></i> New Cominucation
+                        "></i> New Email
                     </button>
                 </div>
                 <div class=" d-flex justify-content-center align-items-center">
-                    <h4 class="">No cominucation found</h4>
+                    <h4 class="">No email found</h4>
                 </div>
             </div>`
         );
