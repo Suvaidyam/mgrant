@@ -28,7 +28,7 @@
   },
   {
    "fieldname": "transaction",
-   "fieldtype": "Int",
+   "fieldtype": "Currency",
    "label": "Transaction",
    "non_negative": 1,
    "reqd": 1
@@ -44,7 +44,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-13 14:42:57.128314",
+ "modified": "2024-09-27 18:05:14.092589",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Transaction",

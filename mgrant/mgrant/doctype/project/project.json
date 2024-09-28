@@ -128,7 +128,8 @@
    "label": "Tasks"
   },
   {
-   "default": "CRM Task",
+   "default": "tasks",
+   "description": "CRM Task",
    "fieldname": "tasks",
    "fieldtype": "HTML",
    "options": "<div id=\"tasks\"></div>"
@@ -140,7 +141,8 @@
    "label": "Gallery"
   },
   {
-   "default": "File",
+   "default": "gallery",
+   "description": "File",
    "fieldname": "gallery",
    "fieldtype": "HTML",
    "options": "<div id=\"gallery\"></div>"
@@ -204,7 +206,7 @@
    "link_fieldname": "reference_doctype"
   }
  ],
- "modified": "2024-09-27 16:56:18.272722",
+ "modified": "2024-09-27 18:59:10.231169",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Project",
