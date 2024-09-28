@@ -1,0 +1,23 @@
+[
+ {
+  "cost_centre_name": "57464",
+  "docstatus": 0,
+  "doctype": "Cost Centre",
+  "modified": "2024-09-28 11:12:05.542128",
+  "name": "57464"
+ },
+ {
+  "cost_centre_name": "67489",
+  "docstatus": 0,
+  "doctype": "Cost Centre",
+  "modified": "2024-09-28 11:18:50.263854",
+  "name": "67489"
+ },
+ {
+  "cost_centre_name": "34566",
+  "docstatus": 0,
+  "doctype": "Cost Centre",
+  "modified": "2024-09-28 11:20:08.345855",
+  "name": "34566"
+ }
+]

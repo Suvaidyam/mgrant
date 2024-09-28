@@ -1,0 +1,107 @@
+[
+ {
+  "annual_budget_table": [
+   {
+    "amount": 20000000.0,
+    "financial_year": "2024-25"
+   },
+   {
+    "amount": 10000000.0,
+    "financial_year": "2023-24"
+   }
+  ],
+  "cost_centre": "57464",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Entity",
+  "entity_code": "NGA",
+  "entity_programmes": [],
+  "entity_thematics": [
+   {
+    "theme": "Disaster Relief"
+   },
+   {
+    "theme": "Skilling and Livelihood"
+   },
+   {
+    "theme": "Sustainability and Climate"
+   }
+  ],
+  "key_person_contact_number": null,
+  "key_person_email": "nextgenautomotive@gmail.com",
+  "key_person_name": "NextGen Automotive",
+  "modified": "2024-09-28 11:22:50.955882",
+  "name": "NGA",
+  "name_of_entity": "NextGen Automotive",
+  "team_members": []
+ },
+ {
+  "annual_budget_table": [
+   {
+    "amount": 30000000.0,
+    "financial_year": "2024-25"
+   },
+   {
+    "amount": 40000000.0,
+    "financial_year": "2023-24"
+   }
+  ],
+  "cost_centre": "67489",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Entity",
+  "entity_code": "NGF",
+  "entity_programmes": [],
+  "entity_thematics": [
+   {
+    "theme": "Entrepreneurship"
+   },
+   {
+    "theme": "Rural Development"
+   },
+   {
+    "theme": "Health"
+   }
+  ],
+  "key_person_contact_number": null,
+  "key_person_email": "nextgenfinance@gmail.com",
+  "key_person_name": "NextGen Finance",
+  "modified": "2024-09-28 11:23:35.972555",
+  "name": "NGF",
+  "name_of_entity": "NextGen Finance",
+  "team_members": []
+ },
+ {
+  "annual_budget_table": [
+   {
+    "amount": 50000000.0,
+    "financial_year": "2024-25"
+   },
+   {
+    "amount": 30000000.0,
+    "financial_year": "2023-24"
+   }
+  ],
+  "cost_centre": "34566",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Entity",
+  "entity_code": "NGT",
+  "entity_programmes": [],
+  "entity_thematics": [
+   {
+    "theme": "Education"
+   },
+   {
+    "theme": "Women Empowerment"
+   }
+  ],
+  "key_person_contact_number": null,
+  "key_person_email": "nextgentechnology@gmail.com",
+  "key_person_name": "NextGen Technology",
+  "modified": "2024-09-28 11:24:10.452711",
+  "name": "NGT",
+  "name_of_entity": "NextGen Technology",
+  "team_members": []
+ }
+]
