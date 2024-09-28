@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:unit_name",
  "creation": "2024-09-26 16:34:40.731221",
@@ -20,7 +21,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-26 16:35:13.420412",
+ "modified": "2024-09-28 10:26:11.426509",
  "modified_by": "Administrator",
  "module": "KPIs",
  "name": "Units",

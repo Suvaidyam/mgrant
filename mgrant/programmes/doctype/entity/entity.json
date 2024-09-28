@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:entity_code",
  "creation": "2024-08-12 15:49:55.427917",
@@ -126,7 +127,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-26 16:31:20.270939",
+ "modified": "2024-09-28 10:24:11.909783",
  "modified_by": "Administrator",
  "module": "Programmes",
  "name": "Entity",
