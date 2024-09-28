@@ -1,0 +1,520 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.445195",
+  "name": "Index",
+  "unit_name": "Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.469653",
+  "name": "AQI Index",
+  "unit_name": "AQI Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.480803",
+  "name": "Agricultural Productivity Index",
+  "unit_name": "Agricultural Productivity Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.491374",
+  "name": "Awareness Index",
+  "unit_name": "Awareness Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.501842",
+  "name": "Biodiversity Index",
+  "unit_name": "Biodiversity Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.513461",
+  "name": "Business Index",
+  "unit_name": "Business Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.524177",
+  "name": "Carbon Footprint Index",
+  "unit_name": "Carbon Footprint Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.534966",
+  "name": "Development Index",
+  "unit_name": "Development Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.545470",
+  "name": "Economic Empowerment Index",
+  "unit_name": "Economic Empowerment Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.555671",
+  "name": "Economic Index",
+  "unit_name": "Economic Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.569995",
+  "name": "Employment Rate",
+  "unit_name": "Employment Rate"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.580755",
+  "name": "Energy Efficiency Index",
+  "unit_name": "Energy Efficiency Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.591360",
+  "name": "Environmental Quality Index",
+  "unit_name": "Environmental Quality Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.602071",
+  "name": "Gender Equality Index",
+  "unit_name": "Gender Equality Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.612079",
+  "name": "Governance Index",
+  "unit_name": "Governance Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.622034",
+  "name": "Health Equality Index",
+  "unit_name": "Health Equality Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.632141",
+  "name": "Health Index",
+  "unit_name": "Health Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.642676",
+  "name": "Health Systems Index",
+  "unit_name": "Health Systems Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.653021",
+  "name": "Healthcare Cost Index",
+  "unit_name": "Healthcare Cost Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.662847",
+  "name": "INR (₹)",
+  "unit_name": "INR (₹)"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.673102",
+  "name": "Income Index",
+  "unit_name": "Income Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.695417",
+  "name": "Infrastructure Index",
+  "unit_name": "Infrastructure Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.705769",
+  "name": "Metric tons",
+  "unit_name": "Metric tons"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.717169",
+  "name": "Mortality Rate",
+  "unit_name": "Mortality Rate"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.728923",
+  "name": "Number of SHGs",
+  "unit_name": "Number of SHGs"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.740316",
+  "name": "Number of apprenticeships",
+  "unit_name": "Number of apprenticeships"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.751868",
+  "name": "Number of buildings",
+  "unit_name": "Number of buildings"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.762821",
+  "name": "Number of campaigns",
+  "unit_name": "Number of campaigns"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.773505",
+  "name": "Number of camps",
+  "unit_name": "Number of camps"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.784335",
+  "name": "Number of cases",
+  "unit_name": "Number of cases"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.795566",
+  "name": "Number of centers",
+  "unit_name": "Number of centers"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.809081",
+  "name": "Number of classrooms",
+  "unit_name": "Number of classrooms"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.819883",
+  "name": "Number of communities",
+  "unit_name": "Number of communities"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.830216",
+  "name": "Number of deaths",
+  "unit_name": "Number of deaths"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.840374",
+  "name": "Number of enterprises",
+  "unit_name": "Number of enterprises"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.851178",
+  "name": "Number of entrepreneurs",
+  "unit_name": "Number of entrepreneurs"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.861629",
+  "name": "Number of houses",
+  "unit_name": "Number of houses"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.872462",
+  "name": "Number of jobs",
+  "unit_name": "Number of jobs"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.883239",
+  "name": "Number of kits",
+  "unit_name": "Number of kits"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.893554",
+  "name": "Number of patents",
+  "unit_name": "Number of patents"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.903825",
+  "name": "Number of people",
+  "unit_name": "Number of people"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.914174",
+  "name": "Number of programs",
+  "unit_name": "Number of programs"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.924366",
+  "name": "Number of projects",
+  "unit_name": "Number of projects"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.934389",
+  "name": "Number of resources",
+  "unit_name": "Number of resources"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.944483",
+  "name": "Number of roads",
+  "unit_name": "Number of roads"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.955001",
+  "name": "Number of schools",
+  "unit_name": "Number of schools"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.968206",
+  "name": "Number of sessions",
+  "unit_name": "Number of sessions"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.984150",
+  "name": "Number of shelters",
+  "unit_name": "Number of shelters"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:43.997789",
+  "name": "Number of startups",
+  "unit_name": "Number of startups"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.012232",
+  "name": "Number of students",
+  "unit_name": "Number of students"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.027046",
+  "name": "Number of systems",
+  "unit_name": "Number of systems"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.039686",
+  "name": "Number of teachers",
+  "unit_name": "Number of teachers"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.051648",
+  "name": "Number of trees",
+  "unit_name": "Number of trees"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.063399",
+  "name": "Number of volunteers",
+  "unit_name": "Number of volunteers"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.075246",
+  "name": "Number of women",
+  "unit_name": "Number of women"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.089381",
+  "name": "Number of workers",
+  "unit_name": "Number of workers"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.101768",
+  "name": "Percentage (%)",
+  "unit_name": "Percentage (%)"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.116099",
+  "name": "Poverty Index",
+  "unit_name": "Poverty Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.128438",
+  "name": "Productivity Index",
+  "unit_name": "Productivity Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.140809",
+  "name": "Quality of Life Index",
+  "unit_name": "Quality of Life Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.155733",
+  "name": "Ratio",
+  "unit_name": "Ratio"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.168484",
+  "name": "Resilience Index",
+  "unit_name": "Resilience Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.185176",
+  "name": "Resource Depletion Index",
+  "unit_name": "Resource Depletion Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.199826",
+  "name": "Safety Index",
+  "unit_name": "Safety Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.213134",
+  "name": "Satisfaction Index",
+  "unit_name": "Satisfaction Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.225216",
+  "name": "Social Index",
+  "unit_name": "Social Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.239462",
+  "name": "Social Mobility Index",
+  "unit_name": "Social Mobility Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.251827",
+  "name": "Sustainability Index",
+  "unit_name": "Sustainability Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.264900",
+  "name": "Time (days)",
+  "unit_name": "Time (days)"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.278227",
+  "name": "Time (hours)",
+  "unit_name": "Time (hours)"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.291210",
+  "name": "Vulnerability Index",
+  "unit_name": "Vulnerability Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.303956",
+  "name": "Women's Rights Index",
+  "unit_name": "Women's Rights Index"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.315624",
+  "name": "Workforce Participation Rate",
+  "unit_name": "Workforce Participation Rate"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Units",
+  "modified": "2024-09-28 10:51:44.327406",
+  "name": "Years",
+  "unit_name": "Years"
+ }
+]

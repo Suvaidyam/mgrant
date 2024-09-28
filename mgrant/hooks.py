@@ -19,7 +19,7 @@ fixtures = [
     'Programme',
     'Themes',
     'SDGs',
-    'Budget Heads',
+    'Budget heads',
     'Entity',
     'Quarters'
 ]
