@@ -2,29 +2,29 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:budget_head_name",
- "creation": "2024-09-26 15:51:37.278232",
+ "autoname": "field:quarter_name",
+ "creation": "2024-09-28 10:35:34.247332",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "budget_head_name"
+  "quarter_name"
  ],
  "fields": [
   {
-   "fieldname": "budget_head_name",
+   "fieldname": "quarter_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Budget Head Name",
+   "label": "Quarter Name",
    "reqd": 1,
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-28 10:24:32.175639",
+ "modified": "2024-09-28 10:36:29.190571",
  "modified_by": "Administrator",
- "module": "Programmes",
- "name": "Budget heads",
+ "module": "KPIs",
+ "name": "Quarters",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
@@ -41,7 +41,7 @@
    "write": 1
   }
  ],
- "sort_field": "modified",
+ "sort_field": "creation",
  "sort_order": "DESC",
  "states": []
 }
