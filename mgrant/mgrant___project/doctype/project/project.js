@@ -38,6 +38,9 @@ const tabContent = async(frm, tab_field)=>{
     if(tab_field === 'gallery_tab'){
         gallery_image(frm);
     }
+    if(tab_field === 'email_tab'){
+        cominucation(frm);
+    }
     let field = frm.meta?.fields?.find(f=> f.fieldname == tab_field)
     let _fields = frm.meta?.fields?.filter(f=> field?.default?.split(',')?.includes(f.fieldname))
     for(let _f of _fields){
