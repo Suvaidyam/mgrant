@@ -20,7 +20,11 @@
   "impact_tab",
   "impact",
   "email_tab",
-  "email"
+  "email",
+  "tasks_tab",
+  "tasks",
+  "gallery_tab",
+  "gallery"
  ],
  "fields": [
   {
@@ -116,6 +120,32 @@
    "fieldname": "email",
    "fieldtype": "HTML",
    "options": "<div id=\"email\"></div>"
+  },
+  {
+   "default": "tasks",
+   "fieldname": "tasks_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tasks"
+  },
+  {
+   "default": "tasks",
+   "description": "CRM Task",
+   "fieldname": "tasks",
+   "fieldtype": "HTML",
+   "options": "<div id=\"tasks\"></div>"
+  },
+  {
+   "default": "gallery",
+   "fieldname": "gallery_tab",
+   "fieldtype": "Tab Break",
+   "label": "Gallery"
+  },
+  {
+   "default": "gallery",
+   "description": "File",
+   "fieldname": "gallery",
+   "fieldtype": "HTML",
+   "options": "<div id=\"gallery\"></div>"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -169,9 +199,14 @@
    "group": "Files",
    "link_doctype": "File",
    "link_fieldname": "attached_to_doctype"
+  },
+  {
+   "group": "Tasks",
+   "link_doctype": "CRM Task",
+   "link_fieldname": "reference_doctype"
   }
  ],
- "modified": "2024-09-27 15:45:46.695004",
+ "modified": "2024-09-27 18:59:10.231169",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Project",
