@@ -8,7 +8,8 @@ const getDocList = (doctype, filters, fields=['*'])=>{
             args: {
                 doctype,
                 filters,
-                fields
+                fields,
+                order_by: 'creation desc'
             },
             callback: function(response) {
                 resolve(response.message);
