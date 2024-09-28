@@ -7,10 +7,24 @@
  "engine": "InnoDB",
  "field_order": [
   "project_name",
+  "type",
+  "theme",
+  "sdgs",
+  "contact",
+  "column_break_qmgi",
   "start_date",
   "end_date",
-  "contact",
-  "type",
+  "project_duration_in_months",
+  "project_geography_section",
+  "column_break_shct",
+  "states",
+  "districts",
+  "blocks",
+  "demography_focus_and_projected_beneficiary_reach_numbers_section",
+  "demography_focus",
+  "section_break_nbbo",
+  "total_programme_cost",
+  "total_amount_requested_from_donor",
   "budget_tab",
   "budget",
   "output_tab",
@@ -116,6 +130,84 @@
    "fieldname": "email",
    "fieldtype": "HTML",
    "options": "<div id=\"email\"></div>"
+  },
+  {
+   "fieldname": "theme",
+   "fieldtype": "Link",
+   "label": "Theme",
+   "options": "Themes"
+  },
+  {
+   "fieldname": "project_duration_in_months",
+   "fieldtype": "Int",
+   "label": "Project Duration in months",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "sdgs",
+   "fieldtype": "Table MultiSelect",
+   "label": "SDGs",
+   "options": "SDG Child"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "project_geography_section",
+   "fieldtype": "Section Break",
+   "label": "Project Geography"
+  },
+  {
+   "fieldname": "states",
+   "fieldtype": "Table MultiSelect",
+   "label": "States",
+   "options": "State Child"
+  },
+  {
+   "fieldname": "column_break_shct",
+   "fieldtype": "Column Break",
+   "options": "Block Child"
+  },
+  {
+   "fieldname": "districts",
+   "fieldtype": "Table",
+   "label": "Districts",
+   "options": "District Child"
+  },
+  {
+   "fieldname": "blocks",
+   "fieldtype": "Table",
+   "label": "Blocks",
+   "options": "Block Child"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "demography_focus_and_projected_beneficiary_reach_numbers_section",
+   "fieldtype": "Section Break",
+   "label": "Demography Focus and Projected Beneficiary reach (Numbers)"
+  },
+  {
+   "fieldname": "demography_focus",
+   "fieldtype": "Table",
+   "label": "Demography Focus",
+   "options": "Demography Focus Child"
+  },
+  {
+   "fieldname": "column_break_qmgi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_nbbo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_programme_cost",
+   "fieldtype": "Currency",
+   "label": "Total Programme Cost"
+  },
+  {
+   "fieldname": "total_amount_requested_from_donor",
+   "fieldtype": "Currency",
+   "label": "Total amount requested from Donor"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -171,7 +263,7 @@
    "link_fieldname": "attached_to_doctype"
   }
  ],
- "modified": "2024-09-28 09:29:44.006822",
+ "modified": "2024-09-28 11:16:29.420290",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Project",
