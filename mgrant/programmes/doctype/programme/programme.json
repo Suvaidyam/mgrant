@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:programme_name",
  "creation": "2024-09-26 15:57:05.088297",
@@ -29,7 +30,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-26 15:57:58.020002",
+ "modified": "2024-09-28 10:23:47.308187",
  "modified_by": "Administrator",
  "module": "Programmes",
  "name": "Programme",

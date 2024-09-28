@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:KPI-{type}-{####}",
  "creation": "2024-09-26 16:36:10.394302",
@@ -59,7 +60,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-26 16:41:54.907562",
+ "modified": "2024-09-28 10:25:59.954819",
  "modified_by": "Administrator",
  "module": "KPIs",
  "name": "KPIs",
