@@ -12,9 +12,6 @@ class OutputAchievement(Document):
 		total_achievement = 0
 		for achievement in achievements:
 			total_achievement += achievement.achievement if achievement.achievement else 0
-		# if Output.allocation < total_achievement:
-		# 	frappe.throw("Total expense cannot be greater than allocation")
-		# else:
 		output.achievement = total_achievement
 		output.save(ignore_permissions=True)
   
