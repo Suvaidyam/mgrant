@@ -1,6 +1,7 @@
 {
+ "app": "mgrant",
  "charts": [],
- "content": "[{\"id\":\"pj_imGhC1a\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Projects</span>\",\"col\":12}},{\"id\":\"O_uq10uAsA\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Projects\",\"col\":4}},{\"id\":\"129Vw1ok16\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Modules</b></span>\",\"col\":12}},{\"id\":\"Kav2LuLp26\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Budget\",\"col\":3}},{\"id\":\"K6duJcd_Ob\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Output\",\"col\":3}},{\"id\":\"lGHhZkOtLb\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Outcome\",\"col\":3}},{\"id\":\"PMgTcylx6M\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Impact\",\"col\":3}}]",
+ "content": "[{\"id\":\"pj_imGhC1a\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Projects</span>\",\"col\":12}},{\"id\":\"O_uq10uAsA\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Projects\",\"col\":4}},{\"id\":\"HC19ttsXsB\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Budget</b></span>\",\"col\":12}},{\"id\":\"6bgM3dhoTq\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Budget\",\"col\":4}},{\"id\":\"igXfPtywQl\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Transaction\",\"col\":4}},{\"id\":\"G77pf7rQUi\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Output</b></span>\",\"col\":12}},{\"id\":\"EKJ9HeCROK\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Target\",\"col\":4}},{\"id\":\"WWBDXX594r\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Achievement\",\"col\":4}},{\"id\":\"suEcrXoqYB\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"Rr5lFgkyVt\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Outcome</b></span>\",\"col\":12}},{\"id\":\"MAkLIn005h\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Target\",\"col\":4}},{\"id\":\"LR929fibV1\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Achievement\",\"col\":4}}]",
  "creation": "2024-08-15 16:59:47.066540",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +14,7 @@
  "is_hidden": 0,
  "label": "Projects",
  "links": [],
- "modified": "2024-09-26 20:01:59.719529",
+ "modified": "2024-09-30 17:43:08.079901",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Projects",
@@ -21,6 +22,22 @@
   {
    "label": "Projects",
    "number_card_name": "Projects"
+  },
+  {
+   "label": "Total Budget",
+   "number_card_name": "Total Budget"
+  },
+  {
+   "label": "Total Transaction",
+   "number_card_name": "Total Transaction"
+  },
+  {
+   "label": "Total Target",
+   "number_card_name": "Total Target -1"
+  },
+  {
+   "label": "Total Achievement",
+   "number_card_name": "Total Achievement-1"
   }
  ],
  "owner": "Administrator",
@@ -29,39 +46,6 @@
  "quick_lists": [],
  "roles": [],
  "sequence_id": 3.0,
- "shortcuts": [
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Budget",
-   "link_to": "Budget",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Green",
-   "doc_view": "List",
-   "label": "Output",
-   "link_to": "Output",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Red",
-   "doc_view": "List",
-   "label": "Outcome",
-   "link_to": "Outcome",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Yellow",
-   "doc_view": "List",
-   "label": "Impact",
-   "link_to": "Impact",
-   "stats_filter": "[]",
-   "type": "DocType"
-  }
- ],
+ "shortcuts": [],
  "title": "Projects"
 }
