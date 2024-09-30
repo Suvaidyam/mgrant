@@ -21,7 +21,7 @@
   },
   {
    "fieldname": "allocation",
-   "fieldtype": "Currency",
+   "fieldtype": "Int",
    "label": "Allocation",
    "non_negative": 1,
    "reqd": 1
@@ -35,7 +35,7 @@
   },
   {
    "fieldname": "expense",
-   "fieldtype": "Currency",
+   "fieldtype": "Int",
    "label": "Expense",
    "read_only": 1
   }
@@ -47,7 +47,7 @@
    "link_fieldname": "budget"
   }
  ],
- "modified": "2024-09-27 18:04:49.069537",
+ "modified": "2024-09-30 17:41:02.143845",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget",
