@@ -7,8 +7,10 @@
  "engine": "InnoDB",
  "field_order": [
   "project",
+  "financial_year",
   "output_name",
-  "target"
+  "target",
+  "achievement"
  ],
  "fields": [
   {
@@ -19,6 +21,7 @@
    "reqd": 1
   },
   {
+   "default": "0",
    "fieldname": "target",
    "fieldtype": "Int",
    "label": "Target",
@@ -32,6 +35,21 @@
    "label": "Project",
    "options": "Project",
    "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "achievement",
+   "fieldtype": "Int",
+   "label": "Achievement",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "label": "Financial Year",
+   "options": "Financial Year",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -41,7 +59,7 @@
    "link_fieldname": "output"
   }
  ],
- "modified": "2024-08-13 14:47:28.683658",
+ "modified": "2024-09-30 18:29:43.168046",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output",

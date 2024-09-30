@@ -1,6 +1,7 @@
 {
+ "app": "mgrant",
  "charts": [],
- "content": "[{\"id\":\"9wJXkSD19X\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Masters</span>\",\"col\":12}},{\"id\":\"OEToC5aDLN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Budget Transaction\",\"col\":3}},{\"id\":\"MwWDTTMWzV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Output Achievement\",\"col\":3}},{\"id\":\"wNhG12beT5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Outcome Achievement\",\"col\":3}},{\"id\":\"KKeBp1DMjE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Impact Achievement\",\"col\":3}},{\"id\":\"rDr6p8kgLD\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Geography Masters</b></span>\",\"col\":12}},{\"id\":\"HAmd5nix6p\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"State\",\"col\":4}},{\"id\":\"nqDQDcFr2x\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"District\",\"col\":4}},{\"id\":\"tQSxIUCody\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Block\",\"col\":4}},{\"id\":\"iLzV9hi-ks\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Village\",\"col\":4}}]",
+ "content": "[{\"id\":\"2QiJ-Zf5qS\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Themes\",\"col\":4}},{\"id\":\"nYv5erSD8q\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Programmes\",\"col\":4}},{\"id\":\"HuQEKjXA8B\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"SDGs\",\"col\":4}},{\"id\":\"ygE6xNQDJN\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mOdu-GnBjh\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Entities\",\"col\":4}},{\"id\":\"fdtab6XsVp\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Cost Centres\",\"col\":4}},{\"id\":\"VRaXnfbWsd\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Financial Years\",\"col\":4}},{\"id\":\"twzQV6c88p\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Budget Heads\",\"col\":4}},{\"id\":\"cEEEnIriFD\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Units\",\"col\":4}},{\"id\":\"JGdYDcqtyq\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kW5wuOxuis\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"KPI Types\",\"col\":4}},{\"id\":\"mF7gPsm9l8\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"KPIs\",\"col\":4}},{\"id\":\"rDr6p8kgLD\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Geography Masters</b></span>\",\"col\":12}},{\"id\":\"HAmd5nix6p\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"State\",\"col\":4}},{\"id\":\"nqDQDcFr2x\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"District\",\"col\":4}},{\"id\":\"tQSxIUCody\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Block\",\"col\":4}},{\"id\":\"iLzV9hi-ks\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Village\",\"col\":4}}]",
  "creation": "2024-08-15 17:05:20.162609",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +14,7 @@
  "is_hidden": 0,
  "label": "Masters",
  "links": [],
- "modified": "2024-09-26 20:01:59.810290",
+ "modified": "2024-09-30 17:05:06.050315",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Masters",
@@ -23,16 +24,56 @@
    "number_card_name": "Sva State"
   },
   {
+   "label": "Programmes",
+   "number_card_name": "Programmes"
+  },
+  {
+   "label": "Units",
+   "number_card_name": "Units"
+  },
+  {
    "label": "District",
    "number_card_name": "Sva District"
+  },
+  {
+   "label": "Themes",
+   "number_card_name": "Themes"
+  },
+  {
+   "label": "KPI Types",
+   "number_card_name": "KPI Types"
   },
   {
    "label": "Block",
    "number_card_name": "Sva Block"
   },
   {
+   "label": "Entities",
+   "number_card_name": "Entity"
+  },
+  {
+   "label": "KPIs",
+   "number_card_name": "KPIs"
+  },
+  {
    "label": "Village",
    "number_card_name": "Sva Village"
+  },
+  {
+   "label": "SDGs",
+   "number_card_name": "SDGs"
+  },
+  {
+   "label": "Financial Years",
+   "number_card_name": "Financial Years"
+  },
+  {
+   "label": "Cost Centres",
+   "number_card_name": "Cost Centres"
+  },
+  {
+   "label": "Budget Heads",
+   "number_card_name": "Budget Heads"
   }
  ],
  "owner": "Administrator",
@@ -41,39 +82,6 @@
  "quick_lists": [],
  "roles": [],
  "sequence_id": 4.0,
- "shortcuts": [
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Budget Transaction",
-   "link_to": "Budget Transaction",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Green",
-   "doc_view": "List",
-   "label": "Output Achievement",
-   "link_to": "Output Achievement",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Red",
-   "doc_view": "List",
-   "label": "Outcome Achievement",
-   "link_to": "Outcome Achievement",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Impact Achievement",
-   "link_to": "Impact Achievement",
-   "stats_filter": "[]",
-   "type": "DocType"
-  }
- ],
+ "shortcuts": [],
  "title": "Masters"
 }

@@ -1,0 +1,66 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Programme",
+  "modified": "2024-09-28 10:54:37.882236",
+  "name": "Vidya",
+  "programme_name": "Vidya",
+  "theme": "Education"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Programme",
+  "modified": "2024-09-28 10:54:37.904639",
+  "name": "Pragati",
+  "programme_name": "Pragati",
+  "theme": "Skilling and Livelihood"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Programme",
+  "modified": "2024-09-28 10:54:37.916236",
+  "name": "Udyam",
+  "programme_name": "Udyam",
+  "theme": "Entrepreneurship"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Programme",
+  "modified": "2024-09-28 10:54:37.927083",
+  "name": "Disaster Relief",
+  "programme_name": "Disaster Relief",
+  "theme": "Disaster Relief"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Programme",
+  "modified": "2024-09-28 10:54:37.938670",
+  "name": "Prakriti",
+  "programme_name": "Prakriti",
+  "theme": "Sustainability and Climate"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Programme",
+  "modified": "2024-09-28 10:54:37.949650",
+  "name": "Sashaktikaran",
+  "programme_name": "Sashaktikaran",
+  "theme": "Women Empowerment"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Programme",
+  "modified": "2024-09-28 10:54:37.960820",
+  "name": "Gramin Vikas",
+  "programme_name": "Gramin Vikas",
+  "theme": "Rural Development"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Programme",
+  "modified": "2024-09-28 10:54:37.971929",
+  "name": "Swasthya",
+  "programme_name": "Swasthya",
+  "theme": "Health"
+ }
+]

@@ -7,8 +7,10 @@
  "engine": "InnoDB",
  "field_order": [
   "project",
+  "financial_year",
   "impact_name",
-  "target"
+  "target",
+  "achievement"
  ],
  "fields": [
   {
@@ -31,6 +33,19 @@
    "label": "Project",
    "options": "Project",
    "reqd": 1
+  },
+  {
+   "fieldname": "achievement",
+   "fieldtype": "Int",
+   "label": "Achievement",
+   "read_only": 1
+  },
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "label": "Financial Year",
+   "options": "Financial Year",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -40,7 +55,7 @@
    "link_fieldname": "impact"
   }
  ],
- "modified": "2024-08-13 14:48:37.740317",
+ "modified": "2024-09-30 18:30:35.659680",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact",

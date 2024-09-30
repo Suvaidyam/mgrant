@@ -2,31 +2,18 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "format:B-{#####}",
- "creation": "2024-08-12 17:42:18.555778",
+ "creation": "2024-09-30 18:47:14.816361",
+ "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "project",
   "financial_year",
-  "budget_name",
-  "allocation",
-  "expense"
+  "tranch_name",
+  "amount",
+  "disbursement"
  ],
  "fields": [
-  {
-   "fieldname": "budget_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Budget Name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "allocation",
-   "fieldtype": "Int",
-   "label": "Allocation",
-   "non_negative": 1,
-   "reqd": 1
-  },
   {
    "fieldname": "project",
    "fieldtype": "Link",
@@ -35,30 +22,39 @@
    "reqd": 1
   },
   {
-   "fieldname": "expense",
-   "fieldtype": "Int",
-   "label": "Expense",
-   "read_only": 1
-  },
-  {
    "fieldname": "financial_year",
    "fieldtype": "Link",
    "label": "Financial Year",
    "options": "Financial Year",
    "reqd": 1
+  },
+  {
+   "fieldname": "tranch_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tranch Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Int",
+   "label": "Amount",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "disbursement",
+   "fieldtype": "Int",
+   "label": "Disbursement",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [
-  {
-   "link_doctype": "Budget Transaction",
-   "link_fieldname": "budget"
-  }
- ],
- "modified": "2024-09-30 18:28:41.319131",
+ "links": [],
+ "modified": "2024-09-30 18:56:32.373346",
  "modified_by": "Administrator",
  "module": "Mgrant",
- "name": "Budget",
+ "name": "Tranches",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
@@ -75,7 +71,9 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "tranch_name"
 }
