@@ -28,6 +28,8 @@
   "section_break_nbbo",
   "total_programme_cost",
   "total_amount_requested_from_donor",
+  "tranche_tab",
+  "tranche",
   "budget_tab",
   "budget",
   "output_tab",
@@ -255,6 +257,18 @@
   {
    "fieldname": "section_break_psro",
    "fieldtype": "Section Break"
+  },
+  {
+   "default": "tranche",
+   "fieldname": "tranche_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tranche"
+  },
+  {
+   "default": "Tranches",
+   "fieldname": "tranche",
+   "fieldtype": "HTML",
+   "options": "<div id=\"tranche\"></div>"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -320,7 +334,7 @@
    "link_fieldname": "attached_to_doctype"
   }
  ],
- "modified": "2024-09-30 18:07:08.832041",
+ "modified": "2024-09-30 19:04:52.955503",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Project",
