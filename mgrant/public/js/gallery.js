@@ -10,8 +10,8 @@ const gallery_image = async (frm) => {
             margin-bottom: 20px;
         }
         .cus_style {
-           min-height: 700px;
-           max-height: 700px;
+           min-height: 500px;
+           max-height: 500px;
            overflow-y: auto;
         }    
     `;
