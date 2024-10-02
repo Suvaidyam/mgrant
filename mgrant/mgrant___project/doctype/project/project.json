@@ -41,7 +41,7 @@
   "email_tab",
   "email",
   "tasks_tab",
-  "html_idyz",
+  "tasks",
   "gallery_tab",
   "gallery"
  ],
@@ -248,13 +248,6 @@
    "reqd": 1
   },
   {
-   "default": "tasks",
-   "description": "CRM Task",
-   "fieldname": "html_idyz",
-   "fieldtype": "HTML",
-   "options": "<div id=\"tasks\"></div>"
-  },
-  {
    "fieldname": "section_break_psro",
    "fieldtype": "Section Break"
   },
@@ -269,6 +262,13 @@
    "fieldname": "tranche",
    "fieldtype": "HTML",
    "options": "<div id=\"tranche\"></div>"
+  },
+  {
+   "default": "tasks",
+   "description": "CRM Task",
+   "fieldname": "tasks",
+   "fieldtype": "HTML",
+   "options": "<div id=\"tasks\"></div>"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -334,7 +334,7 @@
    "link_fieldname": "attached_to_doctype"
   }
  ],
- "modified": "2024-09-30 19:04:52.955503",
+ "modified": "2024-10-01 13:06:35.899016",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Project",

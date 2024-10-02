@@ -57,9 +57,10 @@ const cominucation = async (frm) => {
         $('#email').html(
             `<div class="container">
                 <div class="d-flex justify-content-end align-items-center mb-3">
-                    <button class="btn btn-dark btn-sm" id="createCominucation">
-                        <i class="bi bi-plus
-                        "></i> New Email
+                    <button class="btn btn-default btn-sm" id="createCominucation">
+                        <svg class="es-icon es-line  icon-xs" style="" aria-hidden="true">
+                            <use class="" href="#es-line-add"></use>
+                        </svg> New Email
                     </button>
                 </div>
                 <div class=" d-flex justify-content-center align-items-center">
@@ -81,7 +82,6 @@ const cominucation = async (frm) => {
         <div class="container my-4">
             <div class="timeline">
                 <div class="timeline-dot"></div>
-                <!--  -->
                 ${cominucation.map((item) => {
                 return `
                     <div class="timeline-icon my-2">
@@ -89,18 +89,18 @@ const cominucation = async (frm) => {
                 </div>
                 <div class="ml-4 p-3 card">
                     <div class="">
-                        <span class="sender">Administrator <span
-                                class="email-address">&lt;admin@example.com&gt;</span></span>
+                        <span class="sender">${frappe.db.get_value('Task', item?.sender, 'full_name')} <span
+                                class="email-address">&lt;${item?.sender}&gt;</span></span>
                         <span class="time">just now</span>
                     </div>
                     <div class="email-body">
                         <div class="">
-                            <strong>To:</strong> rkrahul00011@gmail.com
+                            <strong>To:</strong>${item?.recipients ?? '--'}
                             <br>
-                            <strong>Subject:</strong> Test
+                            ${item?.subject ?? '--'}
                         </div>
                         <div class="border-top">
-                            Test
+                            ${item?.content ?? '--'}
                         </div>
                     </div>
                 </div>
