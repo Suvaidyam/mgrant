@@ -12,7 +12,8 @@
   "column_break_gieo",
   "address",
   "diligence",
-  "logo"
+  "logo",
+  "column_break_xktm"
  ],
  "fields": [
   {
@@ -59,11 +60,15 @@
   {
    "fieldname": "column_break_gieo",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_xktm",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-12 16:19:15.713274",
+ "modified": "2024-10-02 16:01:41.230688",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "NGO",

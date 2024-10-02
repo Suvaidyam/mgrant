@@ -14,6 +14,7 @@
   "email",
   "mobile_number",
   "logo",
+  "column_break_rkla",
   "bank_details_section",
   "bank_name",
   "account_holder_name",
@@ -24,7 +25,8 @@
   "state",
   "swift_code",
   "city",
-  "street"
+  "street",
+  "column_break_ndif"
  ],
  "fields": [
   {
@@ -148,11 +150,19 @@
    "fieldname": "logo",
    "fieldtype": "Attach Image",
    "label": "Logo"
+  },
+  {
+   "fieldname": "column_break_rkla",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ndif",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-12 16:09:16.155828",
+ "modified": "2024-10-02 16:02:31.937850",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Donor",
