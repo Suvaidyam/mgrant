@@ -1,365 +1,365 @@
 {
- "actions": [],
- "allow_rename": 1,
- "autoname": "format:P-{###}",
- "creation": "2024-08-12 17:29:52.004077",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "section_break_cerd",
-  "organisation",
-  "section_break_psro",
-  "project_name",
-  "contact",
-  "column_break_qmgi",
-  "start_date",
-  "end_date",
-  "project_duration_in_months",
-  "column_break_nwys",
-  "theme",
-  "sdgs",
-  "project_geography_section",
-  "column_break_shct",
-  "states",
-  "districts",
-  "blocks",
-  "demography_focus_and_projected_beneficiary_reach_numbers_section",
-  "demography_focus",
-  "section_break_nbbo",
-  "total_programme_cost",
-  "total_amount_requested_from_donor",
-  "tranche_tab",
-  "tranche",
-  "budget_tab",
-  "budget",
-  "output_tab",
-  "output",
-  "outcome_tab",
-  "outcome",
-  "impact_tab",
-  "impact",
-  "email_tab",
-  "email",
-  "tasks_tab",
-  "html_idyz",
-  "gallery_tab",
-  "gallery"
- ],
- "fields": [
-  {
-   "fieldname": "project_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Project Name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "start_date",
-   "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "Start Date",
-   "reqd": 1
-  },
-  {
-   "fieldname": "end_date",
-   "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "End Date",
-   "reqd": 1
-  },
-  {
-   "fieldname": "contact",
-   "fieldtype": "Link",
-   "label": "Contact",
-   "options": "Contact",
-   "reqd": 1
-  },
-  {
-   "default": "budget",
-   "fieldname": "budget_tab",
-   "fieldtype": "Tab Break",
-   "label": "Budget"
-  },
-  {
-   "default": "Budget",
-   "fieldname": "budget",
-   "fieldtype": "HTML",
-   "options": "<div id=\"budget\"></div>"
-  },
-  {
-   "default": "output",
-   "fieldname": "output_tab",
-   "fieldtype": "Tab Break",
-   "label": "Output"
-  },
-  {
-   "default": "Output",
-   "fieldname": "output",
-   "fieldtype": "HTML",
-   "options": "<div id=\"output\"></div>"
-  },
-  {
-   "default": "outcome",
-   "fieldname": "outcome_tab",
-   "fieldtype": "Tab Break",
-   "label": "Outcome"
-  },
-  {
-   "default": "Outcome",
-   "fieldname": "outcome",
-   "fieldtype": "HTML",
-   "options": "<div id=\"outcome\"></div>"
-  },
-  {
-   "default": "impact",
-   "fieldname": "impact_tab",
-   "fieldtype": "Tab Break",
-   "label": "Impact"
-  },
-  {
-   "default": "Impact",
-   "fieldname": "impact",
-   "fieldtype": "HTML",
-   "options": "<div id=\"impact\"></div>"
-  },
-  {
-   "default": "email",
-   "fieldname": "email_tab",
-   "fieldtype": "Tab Break",
-   "label": "Email"
-  },
-  {
-   "default": "Communication",
-   "fieldname": "email",
-   "fieldtype": "HTML",
-   "options": "<div id=\"email\"></div>"
-  },
-  {
-   "fieldname": "theme",
-   "fieldtype": "Link",
-   "label": "Theme",
-   "options": "Themes",
-   "reqd": 1
-  },
-  {
-   "fieldname": "project_duration_in_months",
-   "fieldtype": "Int",
-   "label": "Project Duration in months",
-   "non_negative": 1,
-   "reqd": 1
-  },
-  {
-   "fieldname": "sdgs",
-   "fieldtype": "Table MultiSelect",
-   "label": "SDGs",
-   "options": "SDG Child"
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "project_geography_section",
-   "fieldtype": "Section Break",
-   "label": "Project Geography"
-  },
-  {
-   "fieldname": "states",
-   "fieldtype": "Table MultiSelect",
-   "label": "States",
-   "options": "State Child"
-  },
-  {
-   "fieldname": "column_break_shct",
-   "fieldtype": "Column Break",
-   "options": "Block Child"
-  },
-  {
-   "fieldname": "districts",
-   "fieldtype": "Table",
-   "label": "Districts",
-   "options": "District Child"
-  },
-  {
-   "fieldname": "blocks",
-   "fieldtype": "Table",
-   "label": "Blocks",
-   "options": "Block Child"
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "demography_focus_and_projected_beneficiary_reach_numbers_section",
-   "fieldtype": "Section Break",
-   "label": "Demography Focus and Projected Beneficiary reach (Numbers)"
-  },
-  {
-   "fieldname": "demography_focus",
-   "fieldtype": "Table",
-   "label": "Demography Focus",
-   "options": "Demography Focus Child"
-  },
-  {
-   "fieldname": "column_break_qmgi",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_nbbo",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "total_programme_cost",
-   "fieldtype": "Currency",
-   "label": "Total Programme Cost"
-  },
-  {
-   "fieldname": "total_amount_requested_from_donor",
-   "fieldtype": "Currency",
-   "label": "Total amount requested from Donor"
-  },
-  {
-   "default": "tasks",
-   "fieldname": "tasks_tab",
-   "fieldtype": "Tab Break",
-   "label": "Tasks"
-  },
-  {
-   "default": "gallery",
-   "fieldname": "gallery_tab",
-   "fieldtype": "Tab Break",
-   "label": "Gallery"
-  },
-  {
-   "default": "gallery",
-   "description": "File",
-   "fieldname": "gallery",
-   "fieldtype": "HTML",
-   "options": "<div id=\"gallery\"></div>"
-  },
-  {
-   "fieldname": "column_break_nwys",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_cerd",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "organisation",
-   "fieldtype": "Link",
-   "label": "Organisation",
-   "options": "Organisation",
-   "reqd": 1
-  },
-  {
-   "default": "tasks",
-   "description": "CRM Task",
-   "fieldname": "html_idyz",
-   "fieldtype": "HTML",
-   "options": "<div id=\"tasks\"></div>"
-  },
-  {
-   "fieldname": "section_break_psro",
-   "fieldtype": "Section Break"
-  },
-  {
-   "default": "tranche",
-   "fieldname": "tranche_tab",
-   "fieldtype": "Tab Break",
-   "label": "Tranche"
-  },
-  {
-   "default": "Tranches",
-   "fieldname": "tranche",
-   "fieldtype": "HTML",
-   "options": "<div id=\"tranche\"></div>"
-  }
- ],
- "index_web_pages_for_search": 1,
- "links": [
-  {
-   "group": "Budget",
-   "hidden": 1,
-   "link_doctype": "Budget",
-   "link_fieldname": "project"
-  },
-  {
-   "group": "Budget",
-   "hidden": 1,
-   "link_doctype": "Budget Transaction",
-   "link_fieldname": "project"
-  },
-  {
-   "group": "Output",
-   "hidden": 1,
-   "link_doctype": "Output",
-   "link_fieldname": "project"
-  },
-  {
-   "group": "Output",
-   "hidden": 1,
-   "link_doctype": "Output Achievement",
-   "link_fieldname": "project"
-  },
-  {
-   "group": "Impact",
-   "hidden": 1,
-   "link_doctype": "Impact",
-   "link_fieldname": "project"
-  },
-  {
-   "group": "Impact",
-   "hidden": 1,
-   "link_doctype": "Impact Achievement",
-   "link_fieldname": "project"
-  },
-  {
-   "group": "Outcome",
-   "hidden": 1,
-   "link_doctype": "Outcome",
-   "link_fieldname": "project"
-  },
-  {
-   "group": "Outcome",
-   "hidden": 1,
-   "link_doctype": "Outcome Achievement",
-   "link_fieldname": "Project"
-  },
-  {
-   "group": "Communication",
-   "hidden": 1,
-   "link_doctype": "Communication",
-   "link_fieldname": "reference_doctype"
-  },
-  {
-   "group": "Files",
-   "hidden": 1,
-   "link_doctype": "File",
-   "link_fieldname": "attached_to_doctype"
-  }
- ],
- "modified": "2024-10-01 18:35:38.836792",
- "modified_by": "Administrator",
- "module": "mGrant - Project",
- "name": "Project",
- "naming_rule": "Expression",
- "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  }
- ],
- "show_title_field_in_link": 1,
- "sort_field": "creation",
- "sort_order": "DESC",
- "states": [],
- "title_field": "project_name",
- "track_changes": 1,
- "track_seen": 1,
- "track_views": 1
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "format:P-{###}",
+    "creation": "2024-08-12 17:29:52.004077",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "section_break_cerd",
+        "organisation",
+        "section_break_psro",
+        "project_name",
+        "contact",
+        "column_break_qmgi",
+        "start_date",
+        "end_date",
+        "project_duration_in_months",
+        "column_break_nwys",
+        "theme",
+        "sdgs",
+        "project_geography_section",
+        "column_break_shct",
+        "states",
+        "districts",
+        "blocks",
+        "demography_focus_and_projected_beneficiary_reach_numbers_section",
+        "demography_focus",
+        "section_break_nbbo",
+        "total_programme_cost",
+        "total_amount_requested_from_donor",
+        "tranche_tab",
+        "tranche",
+        "budget_tab",
+        "budget",
+        "output_tab",
+        "output",
+        "outcome_tab",
+        "outcome",
+        "impact_tab",
+        "impact",
+        "email_tab",
+        "email",
+        "tasks_tab",
+        "tasks",
+        "gallery_tab",
+        "gallery"
+    ],
+    "fields": [
+        {
+            "fieldname": "project_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Project Name",
+            "reqd": 1
+        },
+        {
+            "fieldname": "start_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "Start Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "end_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "End Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "contact",
+            "fieldtype": "Link",
+            "label": "Contact",
+            "options": "Contact",
+            "reqd": 1
+        },
+        {
+            "default": "budget",
+            "fieldname": "budget_tab",
+            "fieldtype": "Tab Break",
+            "label": "Budget"
+        },
+        {
+            "default": "Budget",
+            "fieldname": "budget",
+            "fieldtype": "HTML",
+            "options": "<div id=\"budget\"></div>"
+        },
+        {
+            "default": "output",
+            "fieldname": "output_tab",
+            "fieldtype": "Tab Break",
+            "label": "Output"
+        },
+        {
+            "default": "Output",
+            "fieldname": "output",
+            "fieldtype": "HTML",
+            "options": "<div id=\"output\"></div>"
+        },
+        {
+            "default": "outcome",
+            "fieldname": "outcome_tab",
+            "fieldtype": "Tab Break",
+            "label": "Outcome"
+        },
+        {
+            "default": "Outcome",
+            "fieldname": "outcome",
+            "fieldtype": "HTML",
+            "options": "<div id=\"outcome\"></div>"
+        },
+        {
+            "default": "impact",
+            "fieldname": "impact_tab",
+            "fieldtype": "Tab Break",
+            "label": "Impact"
+        },
+        {
+            "default": "Impact",
+            "fieldname": "impact",
+            "fieldtype": "HTML",
+            "options": "<div id=\"impact\"></div>"
+        },
+        {
+            "default": "email",
+            "fieldname": "email_tab",
+            "fieldtype": "Tab Break",
+            "label": "Email"
+        },
+        {
+            "default": "Communication",
+            "fieldname": "email",
+            "fieldtype": "HTML",
+            "options": "<div id=\"email\"></div>"
+        },
+        {
+            "fieldname": "theme",
+            "fieldtype": "Link",
+            "label": "Theme",
+            "options": "Themes",
+            "reqd": 1
+        },
+        {
+            "fieldname": "project_duration_in_months",
+            "fieldtype": "Int",
+            "label": "Project Duration in months",
+            "non_negative": 1,
+            "reqd": 1
+        },
+        {
+            "fieldname": "sdgs",
+            "fieldtype": "Table MultiSelect",
+            "label": "SDGs",
+            "options": "SDG Child"
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "project_geography_section",
+            "fieldtype": "Section Break",
+            "label": "Project Geography"
+        },
+        {
+            "fieldname": "states",
+            "fieldtype": "Table MultiSelect",
+            "label": "States",
+            "options": "State Child"
+        },
+        {
+            "fieldname": "column_break_shct",
+            "fieldtype": "Column Break",
+            "options": "Block Child"
+        },
+        {
+            "fieldname": "districts",
+            "fieldtype": "Table",
+            "label": "Districts",
+            "options": "District Child"
+        },
+        {
+            "fieldname": "blocks",
+            "fieldtype": "Table",
+            "label": "Blocks",
+            "options": "Block Child"
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "demography_focus_and_projected_beneficiary_reach_numbers_section",
+            "fieldtype": "Section Break",
+            "label": "Demography Focus and Projected Beneficiary reach (Numbers)"
+        },
+        {
+            "fieldname": "demography_focus",
+            "fieldtype": "Table",
+            "label": "Demography Focus",
+            "options": "Demography Focus Child"
+        },
+        {
+            "fieldname": "column_break_qmgi",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "section_break_nbbo",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "total_programme_cost",
+            "fieldtype": "Currency",
+            "label": "Total Programme Cost"
+        },
+        {
+            "fieldname": "total_amount_requested_from_donor",
+            "fieldtype": "Currency",
+            "label": "Total amount requested from Donor"
+        },
+        {
+            "default": "tasks",
+            "fieldname": "tasks_tab",
+            "fieldtype": "Tab Break",
+            "label": "Tasks"
+        },
+        {
+            "default": "gallery",
+            "fieldname": "gallery_tab",
+            "fieldtype": "Tab Break",
+            "label": "Gallery"
+        },
+        {
+            "default": "gallery",
+            "description": "File",
+            "fieldname": "gallery",
+            "fieldtype": "HTML",
+            "options": "<div id=\"gallery\"></div>"
+        },
+        {
+            "fieldname": "column_break_nwys",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "section_break_cerd",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "organisation",
+            "fieldtype": "Link",
+            "label": "Organisation",
+            "options": "Organisation",
+            "reqd": 1
+        },
+        {
+            "fieldname": "section_break_psro",
+            "fieldtype": "Section Break"
+        },
+        {
+            "default": "tranche",
+            "fieldname": "tranche_tab",
+            "fieldtype": "Tab Break",
+            "label": "Tranche"
+        },
+        {
+            "default": "Tranches",
+            "fieldname": "tranche",
+            "fieldtype": "HTML",
+            "options": "<div id=\"tranche\"></div>"
+        },
+        {
+            "default": "tasks",
+            "description": "CRM Task",
+            "fieldname": "tasks",
+            "fieldtype": "HTML",
+            "options": "<div id=\"tasks\"></div>"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [
+        {
+            "group": "Budget",
+            "hidden": 1,
+            "link_doctype": "Budget",
+            "link_fieldname": "project"
+        },
+        {
+            "group": "Budget",
+            "hidden": 1,
+            "link_doctype": "Budget Transaction",
+            "link_fieldname": "project"
+        },
+        {
+            "group": "Output",
+            "hidden": 1,
+            "link_doctype": "Output",
+            "link_fieldname": "project"
+        },
+        {
+            "group": "Output",
+            "hidden": 1,
+            "link_doctype": "Output Achievement",
+            "link_fieldname": "project"
+        },
+        {
+            "group": "Impact",
+            "hidden": 1,
+            "link_doctype": "Impact",
+            "link_fieldname": "project"
+        },
+        {
+            "group": "Impact",
+            "hidden": 1,
+            "link_doctype": "Impact Achievement",
+            "link_fieldname": "project"
+        },
+        {
+            "group": "Outcome",
+            "hidden": 1,
+            "link_doctype": "Outcome",
+            "link_fieldname": "project"
+        },
+        {
+            "group": "Outcome",
+            "hidden": 1,
+            "link_doctype": "Outcome Achievement",
+            "link_fieldname": "Project"
+        },
+        {
+            "group": "Communication",
+            "hidden": 1,
+            "link_doctype": "Communication",
+            "link_fieldname": "reference_doctype"
+        },
+        {
+            "group": "Files",
+            "hidden": 1,
+            "link_doctype": "File",
+            "link_fieldname": "attached_to_doctype"
+        }
+    ],
+    "modified": "2024-10-01 13:06:35.899016",
+    "modified_by": "Administrator",
+    "module": "mGrant - Project",
+    "name": "Project",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "show_title_field_in_link": 1,
+    "sort_field": "creation",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "project_name",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
 }

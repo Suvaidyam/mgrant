@@ -9,11 +9,15 @@ const gallery_image = async (frm) => {
         .gallery {
             margin-bottom: 20px;
         }
+        .cus_style {
+           min-height: 500px;
+           max-height: 500px;
+           overflow-y: auto;
+        }    
     `;
     document.head.appendChild(style);
 
-    let gallery = document.querySelector('#gallery');
-    gallery.classList.add('row');
+    $('#gallery').addClass('row cus_style')
 
     let files = await frappe.db.get_list('File', {
         fields: ['file_name', 'file_url', 'is_folder'],
@@ -24,14 +28,23 @@ const gallery_image = async (frm) => {
         limit: 1000,
     });
 
-    gallery.innerHTML = '';
-    files.forEach(file => {
-        gallery.innerHTML += `
-            <div class="col-12 col-sm-6 col-md-3">
-                <div class="card gallery">
-                    <img src="${file.file_url}" class="card-img-top" alt="${file.file_name}">
-                </div>
+    if (!files.length) {
+        $('#gallery').html(`
+            <div class=" d-flex justify-content-center text-muted align-items-center" style="width: 100%;">
+                <h4>No images found</h4>
             </div>
-        `;
-    });
+
+        `);
+    } else {
+        $('#gallery').html(
+            files.map(file => `
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="card gallery">
+                        <img src="${file.file_url}" class="card-img-top" alt="${file.file_name}">
+                    </div>
+                </div>
+            `).join('')
+        );
+    }
+
 };
