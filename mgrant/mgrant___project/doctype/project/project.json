@@ -248,13 +248,6 @@
    "reqd": 1
   },
   {
-   "default": "tasks",
-   "description": "CRM Task",
-   "fieldname": "html_idyz",
-   "fieldtype": "HTML",
-   "options": "<div id=\"tasks\"></div>"
-  },
-  {
    "fieldname": "section_break_psro",
    "fieldtype": "Section Break"
   },
@@ -263,6 +256,13 @@
    "fieldname": "tranche_tab",
    "fieldtype": "Tab Break",
    "label": "Tranche"
+  },
+  {
+   "default": "tasks",
+   "description": "CRM Task",
+   "fieldname": "html_idyz",
+   "fieldtype": "HTML",
+   "options": "<div id=\"tasks\"></div>"
   },
   {
    "default": "Tranches",
@@ -332,9 +332,13 @@
    "hidden": 1,
    "link_doctype": "File",
    "link_fieldname": "attached_to_doctype"
+  },
+  {
+   "link_doctype": "Tranches",
+   "link_fieldname": "project"
   }
  ],
- "modified": "2024-09-30 19:04:52.955503",
+ "modified": "2024-10-02 15:06:12.555420",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Project",
@@ -358,5 +362,8 @@
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],
- "title_field": "project_name"
+ "title_field": "project_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
 }
