@@ -50,8 +50,13 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-09-30 18:53:30.608272",
+ "links": [
+  {
+   "link_doctype": "Disbursement",
+   "link_fieldname": "tranche"
+  }
+ ],
+ "modified": "2024-10-02 15:06:52.150070",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Tranches",
