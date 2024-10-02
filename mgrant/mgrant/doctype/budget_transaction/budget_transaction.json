@@ -7,9 +7,11 @@
  "engine": "InnoDB",
  "field_order": [
   "budget",
-  "project",
   "as_on_date",
-  "transaction"
+  "project",
+  "transaction",
+  "column_break_umcp",
+  "column_break_xlhr"
  ],
  "fields": [
   {
@@ -40,11 +42,19 @@
    "hidden": 1,
    "label": "Project",
    "options": "Project"
+  },
+  {
+   "fieldname": "column_break_umcp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_xlhr",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-27 18:05:14.092589",
+ "modified": "2024-10-02 15:59:27.689427",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Transaction",

@@ -9,7 +9,9 @@
   "impact",
   "project",
   "as_on_date",
-  "achievement"
+  "achievement",
+  "column_break_ixjx",
+  "column_break_wufe"
  ],
  "fields": [
   {
@@ -40,11 +42,19 @@
    "hidden": 1,
    "label": "Project",
    "options": "Project"
+  },
+  {
+   "fieldname": "column_break_ixjx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wufe",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-13 14:41:07.932190",
+ "modified": "2024-10-02 16:00:04.056526",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact Achievement",

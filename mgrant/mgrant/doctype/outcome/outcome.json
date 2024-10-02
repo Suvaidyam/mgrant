@@ -7,10 +7,10 @@
  "engine": "InnoDB",
  "field_order": [
   "project",
-  "financial_year",
   "outcome_name",
   "target",
-  "achievement"
+  "column_break_qllv",
+  "column_break_ilmo"
  ],
  "fields": [
   {
@@ -35,17 +35,12 @@
    "reqd": 1
   },
   {
-   "fieldname": "achievement",
-   "fieldtype": "Int",
-   "label": "Achievement",
-   "read_only": 1
+   "fieldname": "column_break_qllv",
+   "fieldtype": "Column Break"
   },
   {
-   "fieldname": "financial_year",
-   "fieldtype": "Link",
-   "label": "Financial Year",
-   "options": "Financial Year",
-   "reqd": 1
+   "fieldname": "column_break_ilmo",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -55,7 +50,7 @@
    "link_fieldname": "outcome"
   }
  ],
- "modified": "2024-09-30 18:30:10.925668",
+ "modified": "2024-10-02 16:00:53.003905",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcome",

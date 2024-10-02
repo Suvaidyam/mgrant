@@ -6,7 +6,9 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "focus_area_name"
+  "focus_area_name",
+  "column_break_qofu",
+  "column_break_havy"
  ],
  "fields": [
   {
@@ -15,11 +17,19 @@
    "in_list_view": 1,
    "label": "Focus Area Name",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_qofu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_havy",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-12 15:52:41.439887",
+ "modified": "2024-10-02 16:02:13.033849",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Focus Area",
