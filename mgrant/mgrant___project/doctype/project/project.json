@@ -334,7 +334,7 @@
    "link_fieldname": "attached_to_doctype"
   }
  ],
- "modified": "2024-09-30 19:04:52.955503",
+ "modified": "2024-10-01 18:35:38.836792",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Project",
@@ -358,5 +358,8 @@
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],
- "title_field": "project_name"
+ "title_field": "project_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
 }
