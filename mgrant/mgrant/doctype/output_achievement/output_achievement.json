@@ -9,7 +9,9 @@
   "output",
   "project",
   "as_on_date",
-  "achievement"
+  "achievement",
+  "column_break_cgas",
+  "column_break_tlgg"
  ],
  "fields": [
   {
@@ -41,11 +43,19 @@
    "in_list_view": 1,
    "label": "Project",
    "options": "Project"
+  },
+  {
+   "fieldname": "column_break_cgas",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_tlgg",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-13 14:39:49.079771",
+ "modified": "2024-10-02 16:01:07.733561",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output Achievement",

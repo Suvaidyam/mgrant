@@ -1,7 +1,6 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:ORG-{####}",
  "creation": "2024-09-27 17:17:49.731779",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -9,7 +8,13 @@
   "name_of_the_organisation",
   "year_of_establishment",
   "registration_of_the_organisaiton",
+  "primary_domain",
   "website",
+  "themes",
+  "column_break_bhnv",
+  "budget_of_last_three_fys",
+  "major_donorscsrs",
+  "column_break_qnhh",
   "contact",
   "signatory",
   "director",
@@ -17,6 +22,7 @@
   "about_organisation_tab",
   "about_organisation",
   "work_reference_tab",
+  "theme",
   "work_references",
   "impact_tab",
   "impact"
@@ -100,21 +106,58 @@
    "label": "What was the impact your organization created in last 3 years (Number of outreach (People), Tangible and Intangible impacts"
   },
   {
-   "default": "Pending",
+   "fieldname": "themes",
+   "fieldtype": "Table MultiSelect",
+   "label": "Themes",
+   "options": "Themes Child"
+  },
+  {
+   "fieldname": "budget_of_last_three_fys",
+   "fieldtype": "Table",
+   "label": "Budget of last three FYs",
+   "options": "Organisation Budget Child"
+  },
+  {
+   "fieldname": "major_donorscsrs",
+   "fieldtype": "Table",
+   "label": "Major Donors/CSRs",
+   "options": "Donor Child"
+  },
+  {
+   "fieldname": "theme",
+   "fieldtype": "Link",
+   "label": "Theme (Area of work)",
+   "options": "Themes"
+  },
+  {
+   "fieldname": "column_break_bhnv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qnhh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "primary_domain",
+   "fieldtype": "Link",
+   "label": "Primary Domain",
+   "options": "Themes",
+   "reqd": 1
+  },
+  {
+   "default": "Active",
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Pending\nApproved\nRejected",
-   "read_only": 1
+   "options": "Active\nInactive"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-28 16:27:33.550030",
+ "modified": "2024-10-02 17:13:17.724131",
  "modified_by": "Administrator",
  "module": "mGrant - Organisation",
  "name": "Organisation",
- "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -130,9 +173,7 @@
    "write": 1
   }
  ],
- "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": [],
- "title_field": "name_of_the_organisation"
+ "states": []
 }

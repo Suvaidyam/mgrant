@@ -1,7 +1,11 @@
 {
- "app": "mgrant",
- "charts": [],
- "content": "[{\"id\":\"pj_imGhC1a\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Projects</span>\",\"col\":12}},{\"id\":\"O_uq10uAsA\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Projects\",\"col\":4}},{\"id\":\"HC19ttsXsB\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Budget</b></span>\",\"col\":12}},{\"id\":\"6bgM3dhoTq\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Budget\",\"col\":4}},{\"id\":\"igXfPtywQl\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Transaction\",\"col\":4}},{\"id\":\"G77pf7rQUi\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Output</b></span>\",\"col\":12}},{\"id\":\"EKJ9HeCROK\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Target\",\"col\":4}},{\"id\":\"WWBDXX594r\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Achievement\",\"col\":4}},{\"id\":\"suEcrXoqYB\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"Rr5lFgkyVt\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Outcome</b></span>\",\"col\":12}},{\"id\":\"MAkLIn005h\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Target\",\"col\":4}},{\"id\":\"LR929fibV1\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Achievement\",\"col\":4}}]",
+ "charts": [
+  {
+   "chart_name": "Projects by Domain",
+   "label": "Projects by Domain"
+  }
+ ],
+ "content": "[{\"id\":\"O_uq10uAsA\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Projects\",\"col\":4}},{\"id\":\"vwMy2dOQYL\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Projects\",\"col\":4}},{\"id\":\"OTTiSOAWZn\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"# of Projects with delayed reporting\",\"col\":4}},{\"id\":\"Bugpvz3Q38\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"aqlIAWaRs5\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Disbursement\",\"col\":4}},{\"id\":\"6bgM3dhoTq\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Allocation\",\"col\":4}},{\"id\":\"HJnwCVF7Mf\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Utilisation\",\"col\":4}},{\"id\":\"M-3lI35a4h\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"EKJ9HeCROK\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Target (Output)\",\"col\":4}},{\"id\":\"WWBDXX594r\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Achievement (Output)\",\"col\":4}},{\"id\":\"mfAqB66BE8\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"MAkLIn005h\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Target (Outcome)\",\"col\":4}},{\"id\":\"LR929fibV1\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Achievement (Outcome)\",\"col\":4}},{\"id\":\"nPELarLpd5\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Projects by Domain\",\"col\":12}}]",
  "creation": "2024-08-15 16:59:47.066540",
  "custom_blocks": [],
  "docstatus": 0,
@@ -14,29 +18,49 @@
  "is_hidden": 0,
  "label": "Projects",
  "links": [],
- "modified": "2024-09-30 17:43:08.079901",
+ "modified": "2024-10-02 18:51:42.346213",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Projects",
  "number_cards": [
   {
+   "label": "Active Projects",
+   "number_card_name": "Active Projects"
+  },
+  {
+   "label": "# of Projects with delayed reporting",
+   "number_card_name": "Projects"
+  },
+  {
+   "label": "Total Target (Output)",
+   "number_card_name": "Total Target"
+  },
+  {
+   "label": "Total Allocation",
+   "number_card_name": "Total Budget"
+  },
+  {
+   "label": "Total Utilisation",
+   "number_card_name": "Total Expense"
+  },
+  {
+   "label": "Total Disbursement",
+   "number_card_name": "Total Disbursement"
+  },
+  {
    "label": "Projects",
    "number_card_name": "Projects"
   },
   {
-   "label": "Total Budget",
-   "number_card_name": "Total Budget"
+   "label": "Total Achievement (Output)",
+   "number_card_name": "Total Achievement"
   },
   {
-   "label": "Total Transaction",
-   "number_card_name": "Total Transaction"
-  },
-  {
-   "label": "Total Target",
+   "label": "Total Target (Outcome)",
    "number_card_name": "Total Target -1"
   },
   {
-   "label": "Total Achievement",
+   "label": "Total Achievement (Outcome)",
    "number_card_name": "Total Achievement-1"
   }
  ],

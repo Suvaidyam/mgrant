@@ -8,6 +8,8 @@
  "field_order": [
   "section_break_cerd",
   "organisation",
+  "column_break_pyvg",
+  "column_break_rsvl",
   "section_break_psro",
   "project_name",
   "contact",
@@ -27,7 +29,10 @@
   "demography_focus",
   "section_break_nbbo",
   "total_programme_cost",
+  "column_break_judq",
   "total_amount_requested_from_donor",
+  "column_break_ypir",
+  "status",
   "tranche_tab",
   "tranche",
   "budget_tab",
@@ -41,7 +46,7 @@
   "email_tab",
   "email",
   "tasks_tab",
-  "html_idyz",
+  "tasks",
   "gallery_tab",
   "gallery"
  ],
@@ -258,17 +263,40 @@
    "label": "Tranche"
   },
   {
-   "default": "tasks",
-   "description": "CRM Task",
-   "fieldname": "html_idyz",
-   "fieldtype": "HTML",
-   "options": "<div id=\"tasks\"></div>"
-  },
-  {
    "default": "Tranches",
    "fieldname": "tranche",
    "fieldtype": "HTML",
    "options": "<div id=\"tranche\"></div>"
+  },
+  {
+   "fieldname": "column_break_pyvg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_rsvl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "tasks",
+   "description": "CRM Task",
+   "fieldname": "tasks",
+   "fieldtype": "HTML",
+   "options": "<div id=\"tasks\"></div>"
+  },
+  {
+   "fieldname": "column_break_judq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ypir",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -334,11 +362,12 @@
    "link_fieldname": "attached_to_doctype"
   },
   {
+   "hidden": 1,
    "link_doctype": "Tranches",
    "link_fieldname": "project"
   }
  ],
- "modified": "2024-10-02 15:06:12.555420",
+ "modified": "2024-10-02 17:26:38.341665",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Project",
