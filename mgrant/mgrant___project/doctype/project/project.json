@@ -8,6 +8,8 @@
  "field_order": [
   "section_break_cerd",
   "organisation",
+  "column_break_pyvg",
+  "column_break_rsvl",
   "section_break_psro",
   "project_name",
   "contact",
@@ -269,6 +271,14 @@
    "fieldname": "tranche",
    "fieldtype": "HTML",
    "options": "<div id=\"tranche\"></div>"
+  },
+  {
+   "fieldname": "column_break_pyvg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_rsvl",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -334,11 +344,12 @@
    "link_fieldname": "attached_to_doctype"
   },
   {
+   "hidden": 1,
    "link_doctype": "Tranches",
    "link_fieldname": "project"
   }
  ],
- "modified": "2024-10-02 15:06:12.555420",
+ "modified": "2024-10-02 15:38:09.109805",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Project",
