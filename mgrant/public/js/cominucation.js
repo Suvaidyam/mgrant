@@ -100,8 +100,8 @@ const cominucation = async (frm) => {
                             ${item?.subject ?? '--'}
                         </div>
                         <div class="border-top">
-                            <span class="dropdown-toggle"  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"></span>
-                            <div class="collapse" id="collapseExample">
+                            <span class="dropdown-toggle"  data-toggle="collapse" data-target="#collapseExample-${item?.name}" aria-expanded="false" aria-controls="collapseExample-${item?.name}"></span>
+                            <div class="collapse" id="collapseExample-${item?.name}">
                                 ${item?.content ?? '--'}
                             </div>
                         </div>
