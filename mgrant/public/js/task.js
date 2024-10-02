@@ -5,12 +5,12 @@ const taskList =(task_list)=>{
             taskList(task_list.filter(task => task.name !== taskName));
         });
     }
-    const updateTaskStatus = (taskName, status) => {
-        frappe.db.set_value('CRM Task', taskName, 'status', status).then(() => {
-            frappe.show_alert({ message: __('Task status updated successfully'), indicator: 'green' });
+    const updateTaskStatus = (taskName, status,key) => {
+        frappe.db.set_value('CRM Task', taskName, key, status).then(() => {
+            frappe.show_alert({ message: __(`Task ${key} updated successfully`), indicator: 'green' });
             const updatedTaskList = task_list.map(task => {
                 if (task.name === taskName) {
-                    return { ...task, status };
+                    return { ...task, [key]:status };
                 }
                 return task;
             });
@@ -34,20 +34,39 @@ const taskList =(task_list)=>{
                 return `
                 <div class="card p-2 mb-2">
                     <div class="d-flex border-bottom mb-1 justify-content-between align-items-center w-100">
-                        <span title="task title" class="py-1 px-2 rounded bg-light text-dark me-2">${task?.title}</span>
-                        <div>
-                            <i class="bi bi-calendar ms-2 me-1"></i>
-                            <span class="text-warning small ">${task?.due_date ?? '--'}</span>
-                            <span class="mx-2 badge bg-light ${task?.priority == 'High' ? 'text-danger' : task.priority == 'Medium' ? 'text-warning' : 'text-muted'}">•</span>
-                            <span data-priority="${task.name}" title="Priority" class="small pointer task-priority ${task?.priority == 'High' ? 'text-danger' : task?.priority == 'Medium' ? 'text-warning' : 'text-muted'}">${task?.priority}</span>
+                        <span title="task title" class="py-1 px-2 text-dark me-2">${task?.title}</span>
+                        <div class="d-flex align-items-center justify-content-center"  style="gap:20px">
+                            <div class="d-flex" style="gap:10px"> 
+                            <div class="dropdown">
+                                <span title="Priority" id="dropPriority-${task.name}" class="small badge bg-light pointer ${task?.priority == 'High' ? 'text-danger' : task?.priority == 'Medium' ? 'text-warning' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    ${task?.priority ?? 'Low'}
+                                </span>
+                                <div class="dropdown-menu" aria-labelledby="dropPriority-${task.name}">
+                                    <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="Low">Low</a>
+                                    <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="Medium">Medium</a>
+                                    <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="High">High</a> 
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <span title="status" id="dropStatus-${task.name}" class="small bg-light pointer badge ${task?.status == 'Canceled' ? 'text-danger' : task.status == 'In Progress' ? 'text-warning' : task.status == 'Done'?'text-success': 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    ${task?.status ?? 'Status'}
+                                </span>
+                                <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
+                                    <a class="dropdown-item task-status" data-task="${task.name}" data-status="Backlog">Backlog</a>
+                                    <a class="dropdown-item task-status" data-task="${task.name}" data-status="Todo">Todo</a>
+                                    <a class="dropdown-item task-status" data-task="${task.name}" data-status="In Progress">In Progress</a>
+                                    <a class="dropdown-item task-status" data-task="${task.name}" data-status="Done">Done</a>
+                                    <a class="dropdown-item task-status" data-task="${task.name}" data-status="Canceled">Canceled</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="d-flex align-items-center justify-content-center">
                             <div class="dropdown">
                                 <p title="action" class="pointer pt-2" id="dropdownMenuButton-${task.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-ellipsis-h"></i>
                                 </p>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-${task.name}">
                                     <a class="dropdown-item delete-btn" data-task="${task.name}">Delete</a>
+                                    <a class="dropdown-item edit-btn" data-task="${task.name}">Edit</a>
                                 </div>
                             </div>
                         </div>
@@ -56,17 +75,9 @@ const taskList =(task_list)=>{
                         <div class="d-flex align-items-center" style="gap:8px">
                             <span class="text-muted medium">${task?.assigned_to ?? '--'}</span>
                         </div> 
-                        <div class="dropdown">
-                            <span title="status" id="dropStatus-${task.name}" class="small bg-light pointer badge ${task?.status == 'Canceled' ? 'text-danger' : task.status == 'In Progress' ? 'text-warning' : task.status == 'Done'?'text-success': 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                ${task?.status ?? 'Status'}
-                            </span>
-                            <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
-                                <a class="dropdown-item" data-task="${task.name}" data-status="Backlog">Backlog</a>
-                                <a class="dropdown-item" data-task="${task.name}" data-status="Todo">Todo</a>
-                                <a class="dropdown-item" data-task="${task.name}" data-status="In Progress">In Progress</a>
-                                <a class="dropdown-item" data-task="${task.name}" data-status="Done">Done</a>
-                                <a class="dropdown-item" data-task="${task.name}" data-status="Canceled">Canceled</a>
-                            </div>
+                        <div>
+                            <i class="bi bi-calendar ms-2 me-1"></i>
+                            <span title="due date" class="text-warning small ">${task?.due_date?.split(' ')[0] ?? '--'}</span>
                         </div>
                         <span class="badge bg-light">
                             ${task.reference_doctype}
@@ -82,13 +93,18 @@ const taskList =(task_list)=>{
             deleteTask(taskName);
         }); 
     });
-    $('.dropdown-item').on('click', function () {
+    $('.task-status').on('click', function () {
         const taskName = $(this).data('task');
         const newStatus = $(this).data('status');
-        updateTaskStatus(taskName, newStatus);
+        updateTaskStatus(taskName, newStatus,'status');
     });
     $('.task-priority').on('click', function () {
-        const taskName = $(this).data('priority');
+        const taskName = $(this).data('task');
+        const newStatus = $(this).data('priority');
+        updateTaskStatus(taskName, newStatus,'priority');
+    });
+    $('.edit-btn').on('click', function () {
+        const taskName = $(this).data('task');
         let data = task_list.filter(task => task.name == taskName);
         form(data[0], 'Edit Task');
     });
@@ -101,7 +117,7 @@ const getTaskList = async (_f, frm) => {
     ], ['*']);
     $('#tasks').html(`
         <div class="d-flex justify-content-end align-items-center mb-3">
-            <button class="btn btn-default btn-sm" id="createTask">
+            <button class="btn btn-primary btn-sm" id="createTask">
                <svg class="es-icon es-line  icon-xs" style="" aria-hidden="true">
                     <use class="" href="#es-line-add"></use>
                 </svg> New Tasks
@@ -160,12 +176,11 @@ const form = async(data = null, action) => {
                 // Update existing task
                 frappe.db.set_value('CRM Task', data.name, values).then(updated_doc => {
                     if (updated_doc) {
-                        console.log(updated_doc);
                         frappe.show_alert({ message: __('Task updated successfully'), indicator: 'green' });
                         task_form.hide();
                         // Optionally update the task list with the updated document
                         let updatedTaskList = task_list.map(task => 
-                            task.name === updated_doc.message.name ? updated_doc : task
+                            task.name === updated_doc.message.name ? updated_doc.message : task
                         );
                         taskList(updatedTaskList);
                     }
