@@ -6,7 +6,9 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "bank_name"
+  "bank_name",
+  "column_break_htxd",
+  "column_break_lika"
  ],
  "fields": [
   {
@@ -16,11 +18,19 @@
    "in_standard_filter": 1,
    "label": "Bank Name",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_htxd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_lika",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-12 15:55:00.683475",
+ "modified": "2024-10-02 16:02:00.847195",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Bank",
