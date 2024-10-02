@@ -9,6 +9,8 @@
   "project",
   "outcome_name",
   "target",
+  "financial_year",
+  "achievement",
   "column_break_qllv",
   "column_break_ilmo"
  ],
@@ -41,6 +43,20 @@
   {
    "fieldname": "column_break_ilmo",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "achievement",
+   "fieldtype": "Int",
+   "label": "Achievement",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "label": "Financial Year",
+   "options": "Financial Year",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -50,7 +66,7 @@
    "link_fieldname": "outcome"
   }
  ],
- "modified": "2024-10-02 16:00:53.003905",
+ "modified": "2024-10-02 19:40:02.452370",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcome",

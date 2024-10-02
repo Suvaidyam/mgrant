@@ -9,6 +9,8 @@
   "project",
   "impact_name",
   "target",
+  "financial_year",
+  "achievement",
   "column_break_syqs",
   "column_break_fltl"
  ],
@@ -41,6 +43,20 @@
   {
    "fieldname": "column_break_fltl",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "label": "Financial Year",
+   "options": "Financial Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "achievement",
+   "fieldtype": "Int",
+   "label": "Achievement",
+   "non_negative": 1,
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -50,7 +66,7 @@
    "link_fieldname": "impact"
   }
  ],
- "modified": "2024-10-02 16:00:19.059873",
+ "modified": "2024-10-02 19:40:54.705289",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact",
