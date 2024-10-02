@@ -8,6 +8,7 @@
  "field_order": [
   "project",
   "budget_name",
+  "financial_year",
   "allocation",
   "expense",
   "column_break_jmgg",
@@ -48,6 +49,13 @@
   {
    "fieldname": "column_break_eaok",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "label": "Financial Year",
+   "options": "Financial Year",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -57,7 +65,7 @@
    "link_fieldname": "budget"
   }
  ],
- "modified": "2024-10-02 15:59:52.343324",
+ "modified": "2024-10-02 19:34:41.177711",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget",
