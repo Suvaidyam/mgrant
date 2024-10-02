@@ -1,0 +1,34 @@
+{
+ "add_total_row": 0,
+ "columns": [
+  {
+   "fieldname": "total_expense",
+   "fieldtype": "Currency",
+   "label": "Total Expense",
+   "width": 0
+  }
+ ],
+ "creation": "2024-10-02 18:37:12.561593",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2024-10-02 18:39:00.620724",
+ "modified_by": "Administrator",
+ "module": "mGrant - Project",
+ "name": "Total Expense",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    SUM(transaction) as total_expense\nFROM\n    `tabBudget Transaction`",
+ "ref_doctype": "Budget Transaction",
+ "report_name": "Total Expense",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ]
+}

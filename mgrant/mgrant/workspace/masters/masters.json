@@ -1,5 +1,4 @@
 {
- "app": "mgrant",
  "charts": [],
  "content": "[{\"id\":\"2QiJ-Zf5qS\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Themes\",\"col\":4}},{\"id\":\"nYv5erSD8q\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Programmes\",\"col\":4}},{\"id\":\"HuQEKjXA8B\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"SDGs\",\"col\":4}},{\"id\":\"ygE6xNQDJN\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mOdu-GnBjh\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Entities\",\"col\":4}},{\"id\":\"fdtab6XsVp\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Cost Centres\",\"col\":4}},{\"id\":\"VRaXnfbWsd\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Financial Years\",\"col\":4}},{\"id\":\"twzQV6c88p\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Budget Heads\",\"col\":4}},{\"id\":\"cEEEnIriFD\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Units\",\"col\":4}},{\"id\":\"JGdYDcqtyq\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kW5wuOxuis\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"KPI Types\",\"col\":4}},{\"id\":\"mF7gPsm9l8\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"KPIs\",\"col\":4}},{\"id\":\"rDr6p8kgLD\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Geography Masters</b></span>\",\"col\":12}},{\"id\":\"HAmd5nix6p\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"State\",\"col\":4}},{\"id\":\"nqDQDcFr2x\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"District\",\"col\":4}},{\"id\":\"tQSxIUCody\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Block\",\"col\":4}},{\"id\":\"iLzV9hi-ks\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Village\",\"col\":4}}]",
  "creation": "2024-08-15 17:05:20.162609",
@@ -14,7 +13,7 @@
  "is_hidden": 0,
  "label": "Masters",
  "links": [],
- "modified": "2024-09-30 17:05:06.050315",
+ "modified": "2024-10-02 16:08:09.384624",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Masters",
@@ -81,7 +80,7 @@
  "public": 1,
  "quick_lists": [],
  "roles": [],
- "sequence_id": 4.0,
+ "sequence_id": 5.0,
  "shortcuts": [],
  "title": "Masters"
 }

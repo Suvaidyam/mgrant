@@ -8,6 +8,7 @@
   "name_of_the_organisation",
   "year_of_establishment",
   "registration_of_the_organisaiton",
+  "primary_domain",
   "website",
   "themes",
   "column_break_bhnv",
@@ -17,6 +18,7 @@
   "contact",
   "signatory",
   "director",
+  "status",
   "about_organisation_tab",
   "about_organisation",
   "work_reference_tab",
@@ -134,11 +136,25 @@
   {
    "fieldname": "column_break_qnhh",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "primary_domain",
+   "fieldtype": "Link",
+   "label": "Primary Domain",
+   "options": "Themes",
+   "reqd": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-02 16:08:06.615448",
+ "modified": "2024-10-02 17:13:17.724131",
  "modified_by": "Administrator",
  "module": "mGrant - Organisation",
  "name": "Organisation",

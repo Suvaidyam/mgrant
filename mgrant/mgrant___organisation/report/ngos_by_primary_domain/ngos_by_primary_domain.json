@@ -1,0 +1,40 @@
+{
+ "add_total_row": 0,
+ "columns": [
+  {
+   "fieldname": "primary_domain",
+   "fieldtype": "Data",
+   "label": "Primary Domain",
+   "width": 0
+  },
+  {
+   "fieldname": "ngo_count",
+   "fieldtype": "Int",
+   "label": "NGO Count",
+   "width": 0
+  }
+ ],
+ "creation": "2024-10-02 17:21:31.789239",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2024-10-02 17:22:27.544855",
+ "modified_by": "Administrator",
+ "module": "mGrant - Organisation",
+ "name": "NGOs by primary domain",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    tm.name AS primary_domain,\n    COUNT(DISTINCT org.name) AS ngo_count\nFROM\n    `tabThemes` AS tm\nLEFT JOIN `tabOrganisation` AS org ON tm.name = org.primary_domain\nGROUP BY tm.name;",
+ "ref_doctype": "Organisation",
+ "report_name": "NGOs by primary domain",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ]
+}
