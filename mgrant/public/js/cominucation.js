@@ -57,7 +57,7 @@ const cominucation = async (frm) => {
         $('#email').html(
             `<div class="container">
                 <div class="d-flex justify-content-end align-items-center mb-3">
-                    <button class="btn btn-default btn-sm" id="createCominucation">
+                    <button class="btn btn-primary btn-sm" id="createCominucation">
                         <svg class="es-icon es-line  icon-xs" style="" aria-hidden="true">
                             <use class="" href="#es-line-add"></use>
                         </svg> New Email
@@ -74,7 +74,7 @@ const cominucation = async (frm) => {
             `<div class="container" style="max-width:700px">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h6></h6>
-            <button class="btn btn-dark btn-sm" id="createCominucation">
+            <button class="btn btn-primary btn-sm" id="createCominucation">
                 <i class="bi bi-plus
                 "></i> New Email
             </button>
@@ -89,9 +89,9 @@ const cominucation = async (frm) => {
                 </div>
                 <div class="ml-4 p-3 card">
                     <div class="">
-                        <span class="sender">${frappe.db.get_value('Task', item?.sender, 'full_name')} <span
+                        <span class="sender">Administrator<span
                                 class="email-address">&lt;${item?.sender}&gt;</span></span>
-                        <span class="time">just now</span>
+                        <span class="time">${item?.communication_date ?? '--'}</span>
                     </div>
                     <div class="email-body">
                         <div class="">
@@ -100,7 +100,10 @@ const cominucation = async (frm) => {
                             ${item?.subject ?? '--'}
                         </div>
                         <div class="border-top">
-                            ${item?.content ?? '--'}
+                            <span class="dropdown-toggle"  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"></span>
+                            <div class="collapse" id="collapseExample">
+                                ${item?.content ?? '--'}
+                            </div>
                         </div>
                     </div>
                 </div>
