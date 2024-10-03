@@ -22,7 +22,7 @@
  "idx": 0,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-10-02 17:22:27.544855",
+ "modified": "2024-10-03 13:05:08.692612",
  "modified_by": "Administrator",
  "module": "mGrant - Organisation",
  "name": "NGOs by primary domain",
@@ -35,6 +35,9 @@
  "roles": [
   {
    "role": "System Manager"
+  },
+  {
+   "role": "Admin"
   }
  ]
 }
