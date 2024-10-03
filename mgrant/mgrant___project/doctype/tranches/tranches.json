@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:TRAN-{########}",
+ "autoname": "format:B-{#####}",
  "creation": "2024-09-30 18:47:14.816361",
  "default_view": "List",
  "doctype": "DocType",
@@ -52,12 +52,11 @@
  "index_web_pages_for_search": 1,
  "links": [
   {
-   "group": "Tranche",
    "link_doctype": "Disbursement",
    "link_fieldname": "tranche"
   }
  ],
- "modified": "2024-10-03 12:19:20.508405",
+ "modified": "2024-10-03 13:20:05.284673",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Tranches",
@@ -75,9 +74,23 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin",
+   "share": 1,
+   "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "tranch_name"
 }
