@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:BT-{######}",
+ "autoname": "format:DISB-{######}",
  "creation": "2024-09-30 18:51:02.814953",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -44,7 +44,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-30 18:55:09.323154",
+ "modified": "2024-10-03 12:14:49.995926",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Disbursement",
