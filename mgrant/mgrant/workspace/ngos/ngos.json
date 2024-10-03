@@ -22,7 +22,7 @@
  "is_hidden": 0,
  "label": "NGOs",
  "links": [],
- "modified": "2024-10-02 17:25:02.528586",
+ "modified": "2024-10-03 12:33:33.620495",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "NGOs",
@@ -40,7 +40,17 @@
  "parent_page": "",
  "public": 1,
  "quick_lists": [],
- "roles": [],
+ "roles": [
+  {
+   "role": "Admin"
+  },
+  {
+   "role": "Administrator"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
  "sequence_id": 4.0,
  "shortcuts": [],
  "title": "NGOs"
