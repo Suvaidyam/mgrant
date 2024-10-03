@@ -17,12 +17,17 @@
   "themes",
   "budget_of_last_three_fys",
   "major_donorscsrs",
+  "section_break_qhpb",
+  "total_programme_cost",
+  "column_break_rthw",
+  "total_amount_requested_from_donor",
+  "column_break_xnzm",
   "section_break_uqeh",
   "contact",
-  "signatory",
-  "director",
   "column_break_ryew",
+  "signatory",
   "column_break_qzrp",
+  "director",
   "section_break_ftil",
   "stages",
   "column_break_wklt",
@@ -173,7 +178,8 @@
   },
   {
    "fieldname": "section_break_uqeh",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Contacts"
   },
   {
    "fieldname": "column_break_ryew",
@@ -202,11 +208,38 @@
   {
    "fieldname": "column_break_ucvw",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_programme_cost",
+   "fieldtype": "Int",
+   "label": "Total Programme Cost",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_amount_requested_from_donor",
+   "fieldtype": "Int",
+   "label": "Total amount requested from Donor",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_qhpb",
+   "fieldtype": "Section Break",
+   "label": "Costing"
+  },
+  {
+   "fieldname": "column_break_rthw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_xnzm",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-02 16:04:57.932243",
+ "modified": "2024-10-03 08:12:04.984765",
  "modified_by": "Administrator",
  "module": "mGrant - Organisation",
  "name": "Proposal",
