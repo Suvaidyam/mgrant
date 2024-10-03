@@ -117,80 +117,81 @@ const cominucation = async (frm) => {
         );
     }
     $('#createCominucation').on('click', () => {
-        let cominucation_form = new frappe.ui.Dialog({
-            title: 'New Cominucation',
-            fields: [
-                {
-                    label: 'Subject',
-                    fieldname: 'subject',
-                    fieldtype: 'Data',
-                    reqd: 1
-                },
-                {
-                    label: 'Communication Type',
-                    fieldname: 'communication_type',
-                    fieldtype: 'Select',
-                    options: ['Communication', 'Comment'],
-                    reqd: 1
-                },
-                {
-                    label: 'Communication Date',
-                    fieldname: 'communication_date',
-                    fieldtype: 'Date',
-                    reqd: 1
-                },
-                {
-                    label: 'Communication Medium',
-                    fieldname: 'communication_medium',
-                    fieldtype: 'Select',
-                    options: ['Email', 'Phone', 'SMS'],
-                    reqd: 1
-                },
-                {
-                    label: 'Sender',
-                    fieldname: 'sender',
-                    fieldtype: 'Data',
-                    reqd: 1
-                },
-                {
-                    label: 'Recipient',
-                    fieldname: 'recipient',
-                    fieldtype: 'Data',
-                    reqd: 1
-                },
-                {
-                    label: 'Communication Status',
-                    fieldname: 'communication_status',
-                    fieldtype: 'Select',
-                    options: ['Open', 'Closed'],
-                    reqd: 1
-                },
-                {
-                    label: 'Content',
-                    fieldname: 'content',
-                    fieldtype: 'Text',
-                    reqd: 1
-                }
-            ],
-            primary_action_label: 'Create',
-            primary_action(values) {
-                frappe.call({
-                    method: 'mgrant.mgrant.doctype.communication.communication.create_cominucation',
-                    args: {
-                        doctype: frm.doctype,
-                        docname: frm.doc.name,
-                        values
-                    },
-                    callback: function (r) {
-                        if (r.message) {
-                            frappe.show_alert({ message: __(`Cominucation created successfully`), indicator: 'green' })
-                            cominucation_form.hide();
-                            cominucation(frm);
-                        }
-                    }
-                });
-            }
-        });
-        cominucation_form.show();
+        console.log('first')
+        // let cominucation_form = new frappe.ui.Dialog({
+        //     title: 'New Cominucation',
+        //     fields: [
+        //         {
+        //             label: 'Subject',
+        //             fieldname: 'subject',
+        //             fieldtype: 'Data',
+        //             reqd: 1
+        //         },
+        //         {
+        //             label: 'Communication Type',
+        //             fieldname: 'communication_type',
+        //             fieldtype: 'Select',
+        //             options: ['Communication', 'Comment'],
+        //             reqd: 1
+        //         },
+        //         {
+        //             label: 'Communication Date',
+        //             fieldname: 'communication_date',
+        //             fieldtype: 'Date',
+        //             reqd: 1
+        //         },
+        //         {
+        //             label: 'Communication Medium',
+        //             fieldname: 'communication_medium',
+        //             fieldtype: 'Select',
+        //             options: ['Email', 'Phone', 'SMS'],
+        //             reqd: 1
+        //         },
+        //         {
+        //             label: 'Sender',
+        //             fieldname: 'sender',
+        //             fieldtype: 'Data',
+        //             reqd: 1
+        //         },
+        //         {
+        //             label: 'Recipient',
+        //             fieldname: 'recipient',
+        //             fieldtype: 'Data',
+        //             reqd: 1
+        //         },
+        //         {
+        //             label: 'Communication Status',
+        //             fieldname: 'communication_status',
+        //             fieldtype: 'Select',
+        //             options: ['Open', 'Closed'],
+        //             reqd: 1
+        //         },
+        //         {
+        //             label: 'Content',
+        //             fieldname: 'content',
+        //             fieldtype: 'Text',
+        //             reqd: 1
+        //         }
+        //     ],
+        //     primary_action_label: 'Create',
+        //     primary_action(values) {
+        //         frappe.call({
+        //             method: 'mgrant.mgrant.doctype.communication.communication.create_cominucation',
+        //             args: {
+        //                 doctype: frm.doctype,
+        //                 docname: frm.doc.name,
+        //                 values
+        //             },
+        //             callback: function (r) {
+        //                 if (r.message) {
+        //                     frappe.show_alert({ message: __(`Cominucation created successfully`), indicator: 'green' })
+        //                     cominucation_form.hide();
+        //                     cominucation(frm);
+        //                 }
+        //             }
+        //         });
+        //     }
+        // });
+        // cominucation_form.show();
     });
 }
