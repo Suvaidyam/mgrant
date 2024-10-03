@@ -67,7 +67,7 @@
    "link_fieldname": "output"
   }
  ],
- "modified": "2024-10-02 19:38:52.901281",
+ "modified": "2024-10-03 12:08:44.999504",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output",
@@ -83,6 +83,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin",
    "share": 1,
    "write": 1
   }

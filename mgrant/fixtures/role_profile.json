@@ -1,0 +1,14 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-10-03 11:51:26.788061",
+  "name": "Admin",
+  "role_profile": "Admin",
+  "roles": [
+   {
+    "role": "Admin"
+   }
+  ]
+ }
+]
