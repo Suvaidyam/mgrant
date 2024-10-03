@@ -49,6 +49,11 @@ style.innerHTML = `
     }
       `;
 document.head.appendChild(style);
+const sender_name= async(sender)=>{
+    return await frappe.db.get_value('User', sender, 'full_name').then(r => {
+        return r.message.full_name;
+    })
+}
 const cominucation = async (frm) => {
     let cominucation = await getDocList('Communication', [
         ['Communication', 'reference_name', '=', frm.doc.name]
@@ -82,14 +87,14 @@ const cominucation = async (frm) => {
         <div class="container my-4">
             <div class="timeline">
                 <div class="timeline-dot"></div>
-                ${cominucation.map((item) => {
+                ${cominucation.map(async(item) => {
                 return `
                     <div class="timeline-icon my-2">
                     <i class="fa fa-envelope"></i>
                 </div>
                 <div class="ml-4 p-3 card">
                     <div class="">
-                        <span class="sender">Administrator<span
+                        <span class="sender">${await sender_name(item?.sender) ?? 'Administrator'}<span
                                 class="email-address">&lt;${item?.sender}&gt;</span></span>
                         <span class="time">${item?.communication_date ?? '--'}</span>
                     </div>
