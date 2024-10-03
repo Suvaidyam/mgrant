@@ -38,7 +38,7 @@ const taskList =(task_list)=>{
                         <div class="d-flex align-items-center justify-content-center"  style="gap:20px">
                             <div class="d-flex" style="gap:10px"> 
                             <div class="dropdown">
-                                <span title="Priority" id="dropPriority-${task.name}" class="small badge bg-light pointer ${task?.priority == 'High' ? 'text-danger' : task?.priority == 'Medium' ? 'text-warning' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span title="Priority" id="dropPriority-${task.name}" class="small dropdown-toggle badge bg-light pointer ${task?.priority == 'High' ? 'text-danger' : task?.priority == 'Medium' ? 'text-warning' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     ${task?.priority ?? 'Low'}
                                 </span>
                                 <div class="dropdown-menu" aria-labelledby="dropPriority-${task.name}">
@@ -48,7 +48,7 @@ const taskList =(task_list)=>{
                                 </div>
                             </div>
                             <div class="dropdown">
-                                <span title="status" id="dropStatus-${task.name}" class="small bg-light pointer badge ${task?.status == 'Canceled' ? 'text-danger' : task.status == 'In Progress' ? 'text-warning' : task.status == 'Done'?'text-success': 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span title="status" id="dropStatus-${task.name}" class="small dropdown-toggle bg-light pointer badge ${task?.status == 'Canceled' ? 'text-danger' : task.status == 'In Progress' ? 'text-warning' : task.status == 'Done'?'text-success': 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     ${task?.status ?? 'Status'}
                                 </span>
                                 <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
