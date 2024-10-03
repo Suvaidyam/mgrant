@@ -18,7 +18,7 @@
  "is_hidden": 0,
  "label": "Projects",
  "links": [],
- "modified": "2024-10-02 18:51:42.346213",
+ "modified": "2024-10-03 12:33:07.462882",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Projects",
@@ -68,7 +68,17 @@
  "parent_page": "",
  "public": 1,
  "quick_lists": [],
- "roles": [],
+ "roles": [
+  {
+   "role": "Administrator"
+  },
+  {
+   "role": "Admin"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
  "sequence_id": 3.0,
  "shortcuts": [],
  "title": "Projects"

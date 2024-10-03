@@ -10,7 +10,6 @@ required_apps = ["Suvaidyam/sva_frappe","Suvaidyam/crm","Suvaidyam/frappe_theme"
 # ------------------
 
 fixtures = [
-    'Frontend Views',
     'KPIs',
     'Units',
     'KPI Type',
@@ -21,7 +20,10 @@ fixtures = [
     'SDGs',
     'Budget heads',
     'Entity',
-    'Quarters'
+    'Quarters',
+    'Role',
+    'Role Profile',
+    'Frontend Views'
 ]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"
