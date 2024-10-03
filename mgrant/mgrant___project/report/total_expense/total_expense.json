@@ -16,7 +16,7 @@
  "idx": 0,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-10-02 18:39:00.620724",
+ "modified": "2024-10-03 13:06:58.480297",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Total Expense",
@@ -29,6 +29,9 @@
  "roles": [
   {
    "role": "System Manager"
+  },
+  {
+   "role": "Admin"
   }
  ]
 }

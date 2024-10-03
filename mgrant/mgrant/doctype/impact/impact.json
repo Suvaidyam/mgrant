@@ -66,7 +66,7 @@
    "link_fieldname": "impact"
   }
  ],
- "modified": "2024-10-02 19:40:54.705289",
+ "modified": "2024-10-03 13:11:08.599026",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact",
@@ -82,6 +82,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin",
    "share": 1,
    "write": 1
   }
