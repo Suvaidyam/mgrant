@@ -34,7 +34,7 @@ const taskList =(task_list)=>{
                 return `
                 <div class="card p-2 mb-2">
                     <div class="d-flex border-bottom mb-1 justify-content-between align-items-center w-100">
-                        <span title="task title" class="py-1 px-2 text-dark me-2">${task?.title}</span>
+                        <span title="task title" class=" text-dark me-2">${task?.title}</span>
                         <div class="d-flex align-items-center justify-content-center"  style="gap:20px">
                             <div class="d-flex" style="gap:10px"> 
                             <div class="dropdown">
@@ -65,8 +65,8 @@ const taskList =(task_list)=>{
                                     <i class="fa fa-ellipsis-h"></i>
                                 </p>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-${task.name}">
-                                    <a class="dropdown-item delete-btn" data-task="${task.name}">Delete</a>
                                     <a class="dropdown-item edit-btn" data-task="${task.name}">Edit</a>
+                                    <a class="dropdown-item delete-btn" data-task="${task.name}">Delete</a>
                                 </div>
                             </div>
                         </div>
