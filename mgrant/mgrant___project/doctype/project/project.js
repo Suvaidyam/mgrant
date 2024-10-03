@@ -21,20 +21,26 @@ const getDocList = (doctype, filters, fields=['*'])=>{
     })
 }
 
-const getViewSettings = (doctype)=>{
-    return new Promise((resolve, reject)=>{
+const getViewSettings = (doctype) => {
+    return new Promise((resolve, reject) => {
         frappe.call({
-            method: "frappe.desk.listview.get_list_settings",
-            args: {doctype: doctype},
+            method: "frappe_theme.api.get_my_list_settings",
+            args: { doctype: doctype},
             callback: function(response) {
-                resolve(response.message)
+                if (response.message) {
+                    resolve(response.message);
+                } else {
+                    reject(new Error('No message returned from server.'));
+                }
             },
-            error:(err)=>{
-                reject(err)
+            error: (err) => {
+                console.error('Permission error:', err);
+                reject(new Error('You do not have permission to access this resource.'));
             }
         });
     });
 }
+
 const tabContent = async(frm, tab_field)=>{
     if(tab_field === 'gallery_tab'){
         gallery_image(frm);
