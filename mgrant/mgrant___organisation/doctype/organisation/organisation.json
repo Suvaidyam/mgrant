@@ -25,7 +25,9 @@
   "theme",
   "work_references",
   "impact_tab",
-  "impact"
+  "impact",
+  "grants_tab",
+  "grants"
  ],
  "fields": [
   {
@@ -150,11 +152,29 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "Active\nInactive"
+  },
+  {
+   "default": "grants",
+   "fieldname": "grants_tab",
+   "fieldtype": "Tab Break",
+   "label": "Grants"
+  },
+  {
+   "default": "Project",
+   "fieldname": "grants",
+   "fieldtype": "HTML",
+   "options": "<div id=\"grants\"><div></div></div>"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-10-03 12:15:05.327101",
+ "links": [
+  {
+   "hidden": 1,
+   "link_doctype": "Project",
+   "link_fieldname": "organisation"
+  }
+ ],
+ "modified": "2024-10-19 15:11:21.525662",
  "modified_by": "Administrator",
  "module": "mGrant - Organisation",
  "name": "Organisation",

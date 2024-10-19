@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:P-{###}",
+ "autoname": "format:Grant-{####}",
  "creation": "2024-08-12 17:29:52.004077",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -367,7 +367,7 @@
    "link_fieldname": "project"
   }
  ],
- "modified": "2024-10-03 12:02:53.518526",
+ "modified": "2024-10-19 15:17:43.282239",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Project",
