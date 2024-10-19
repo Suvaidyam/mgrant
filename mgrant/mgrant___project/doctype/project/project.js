@@ -56,14 +56,20 @@ const tabContent = async(frm, tab_field)=>{
         if(link){
             let settings = await getViewSettings(link.link_doctype);
             if(settings?.fields){
-                let fields = JSON.parse(settings.fields);
+                let fields = JSON.parse(settings.fields)?.map(e=> e.fieldname);;
+                let columns = await frappe.call('frappe_theme.api.get_meta_fields', { doctype: link.link_doctype });
+                let _columns = [{
+                    fieldname:'name',
+                    label:'ID'
+                },...columns?.message?.filter(f=> fields.includes(f.fieldname))]
+                
                 let rows = await getDocList(link.link_doctype,[
                     [link.link_doctype, link.link_fieldname,'=', frm.doc.name]
-                ], fields.map(e=> e.fieldname))
+                ], ['*'])
 
                 let datatable = new SvaDataTable({
                     wrapper:document.querySelector(`#${_f.fieldname}`), // Wrapper element
-                    columns: fields,   // Define columns
+                    columns: _columns,   // Define columns
                     rows: rows,      // Pass your data
                     doctype: link.link_doctype, // Doctype name
                     crud:true,      // Enable CRUD operations (optional)

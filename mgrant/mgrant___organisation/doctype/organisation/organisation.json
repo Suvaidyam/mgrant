@@ -27,7 +27,11 @@
   "impact_tab",
   "impact",
   "grants_tab",
-  "grants"
+  "grants",
+  "applications_tab",
+  "applications",
+  "contacts_tab",
+  "contacts"
  ],
  "fields": [
   {
@@ -163,7 +167,31 @@
    "default": "Project",
    "fieldname": "grants",
    "fieldtype": "HTML",
-   "options": "<div id=\"grants\"><div></div></div>"
+   "options": "<div id=\"grants\"></div>"
+  },
+  {
+   "default": "applications",
+   "fieldname": "applications_tab",
+   "fieldtype": "Tab Break",
+   "label": "Applications"
+  },
+  {
+   "default": "Proposal",
+   "fieldname": "applications",
+   "fieldtype": "HTML",
+   "options": "<div id=\"applications\"></div>"
+  },
+  {
+   "default": "contacts",
+   "fieldname": "contacts_tab",
+   "fieldtype": "Tab Break",
+   "label": "Contacts"
+  },
+  {
+   "default": "Contact",
+   "fieldname": "contacts",
+   "fieldtype": "HTML",
+   "options": "<div id=\"contacts\"></div>"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -172,9 +200,19 @@
    "hidden": 1,
    "link_doctype": "Project",
    "link_fieldname": "organisation"
+  },
+  {
+   "hidden": 1,
+   "link_doctype": "Proposal",
+   "link_fieldname": "organisation"
+  },
+  {
+   "hidden": 1,
+   "link_doctype": "Contact",
+   "link_fieldname": "custom_organization"
   }
  ],
- "modified": "2024-10-19 15:11:21.525662",
+ "modified": "2024-10-19 17:16:42.453858",
  "modified_by": "Administrator",
  "module": "mGrant - Organisation",
  "name": "Organisation",

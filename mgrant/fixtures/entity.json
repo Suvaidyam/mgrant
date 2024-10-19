@@ -3,11 +3,17 @@
   "annual_budget_table": [
    {
     "amount": 20000000.0,
-    "financial_year": "2024-25"
+    "financial_year": "2024-25",
+    "parent": "NGA",
+    "parentfield": "annual_budget_table",
+    "parenttype": "Entity"
    },
    {
     "amount": 10000000.0,
-    "financial_year": "2023-24"
+    "financial_year": "2023-24",
+    "parent": "NGA",
+    "parentfield": "annual_budget_table",
+    "parenttype": "Entity"
    }
   ],
   "cost_centre": "57464",
@@ -18,12 +24,21 @@
   "entity_programmes": [],
   "entity_thematics": [
    {
+    "parent": "NGA",
+    "parentfield": "entity_thematics",
+    "parenttype": "Entity",
     "theme": "Disaster Relief"
    },
    {
+    "parent": "NGA",
+    "parentfield": "entity_thematics",
+    "parenttype": "Entity",
     "theme": "Skilling and Livelihood"
    },
    {
+    "parent": "NGA",
+    "parentfield": "entity_thematics",
+    "parenttype": "Entity",
     "theme": "Sustainability and Climate"
    }
   ],
@@ -39,11 +54,17 @@
   "annual_budget_table": [
    {
     "amount": 30000000.0,
-    "financial_year": "2024-25"
+    "financial_year": "2024-25",
+    "parent": "NGF",
+    "parentfield": "annual_budget_table",
+    "parenttype": "Entity"
    },
    {
     "amount": 40000000.0,
-    "financial_year": "2023-24"
+    "financial_year": "2023-24",
+    "parent": "NGF",
+    "parentfield": "annual_budget_table",
+    "parenttype": "Entity"
    }
   ],
   "cost_centre": "67489",
@@ -54,12 +75,21 @@
   "entity_programmes": [],
   "entity_thematics": [
    {
+    "parent": "NGF",
+    "parentfield": "entity_thematics",
+    "parenttype": "Entity",
     "theme": "Entrepreneurship"
    },
    {
+    "parent": "NGF",
+    "parentfield": "entity_thematics",
+    "parenttype": "Entity",
     "theme": "Rural Development"
    },
    {
+    "parent": "NGF",
+    "parentfield": "entity_thematics",
+    "parenttype": "Entity",
     "theme": "Health"
    }
   ],
@@ -75,11 +105,17 @@
   "annual_budget_table": [
    {
     "amount": 50000000.0,
-    "financial_year": "2024-25"
+    "financial_year": "2024-25",
+    "parent": "NGT",
+    "parentfield": "annual_budget_table",
+    "parenttype": "Entity"
    },
    {
     "amount": 30000000.0,
-    "financial_year": "2023-24"
+    "financial_year": "2023-24",
+    "parent": "NGT",
+    "parentfield": "annual_budget_table",
+    "parenttype": "Entity"
    }
   ],
   "cost_centre": "34566",
@@ -90,9 +126,15 @@
   "entity_programmes": [],
   "entity_thematics": [
    {
+    "parent": "NGT",
+    "parentfield": "entity_thematics",
+    "parenttype": "Entity",
     "theme": "Education"
    },
    {
+    "parent": "NGT",
+    "parentfield": "entity_thematics",
+    "parenttype": "Entity",
     "theme": "Women Empowerment"
    }
   ],

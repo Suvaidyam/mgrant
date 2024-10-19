@@ -23,7 +23,8 @@ fixtures = [
     'Quarters',
     'Role',
     'Role Profile',
-    'Frontend Views'
+    'Frontend Views',
+    'Custom Field'
 ]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"

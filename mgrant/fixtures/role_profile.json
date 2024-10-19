@@ -7,6 +7,9 @@
   "role_profile": "Admin",
   "roles": [
    {
+    "parent": "Admin",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
     "role": "Admin"
    }
   ]
