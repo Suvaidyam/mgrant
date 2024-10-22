@@ -1,13 +1,13 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:OP-{#####}",
- "creation": "2024-08-12 17:35:13.735108",
+ "autoname": "format:INPUT-{#####}",
+ "creation": "2024-10-22 12:45:23.112178",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "project",
-  "output_name",
+  "input_name",
   "target",
   "financial_year",
   "achievement",
@@ -15,20 +15,6 @@
   "column_break_uvzb"
  ],
  "fields": [
-  {
-   "fieldname": "output_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Output Name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "target",
-   "fieldtype": "Int",
-   "label": "Target",
-   "non_negative": 1,
-   "reqd": 1
-  },
   {
    "fieldname": "project",
    "fieldtype": "Link",
@@ -38,12 +24,11 @@
    "reqd": 1
   },
   {
-   "fieldname": "column_break_xixe",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_uvzb",
-   "fieldtype": "Column Break"
+   "fieldname": "target",
+   "fieldtype": "Int",
+   "label": "Target",
+   "non_negative": 1,
+   "reqd": 1
   },
   {
    "fieldname": "financial_year",
@@ -58,19 +43,35 @@
    "label": "Achievement",
    "non_negative": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_xixe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_uvzb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "input_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Input Name",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [
   {
-   "link_doctype": "Output Achievement",
-   "link_fieldname": "output"
+   "hidden": 1,
+   "link_doctype": "Input Achievement",
+   "link_fieldname": "input"
   }
  ],
- "modified": "2024-10-22 13:11:58.415959",
+ "modified": "2024-10-22 12:58:48.249980",
  "modified_by": "Administrator",
  "module": "Mgrant",
- "name": "Output",
+ "name": "Input",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [

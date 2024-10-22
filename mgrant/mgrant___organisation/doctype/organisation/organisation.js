@@ -69,6 +69,7 @@ const tabContent = async(frm, tab_field)=>{
                     crud: ['Project','Proposal'].includes(link.link_doctype) ? false : true,      // Enable CRUD operations (optional)
                     frm: frm,       // Pass the current form object (optional)
                     options:{
+                        connection: link,
                         serialNumberColumn: true, // Enable serial number column (optional)
                         editable: false,      // Enable editing (optional),
                     }

@@ -56,7 +56,7 @@
    "fieldtype": "Int",
    "label": "Achievement",
    "non_negative": 1,
-   "reqd": 1
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -66,7 +66,7 @@
    "link_fieldname": "impact"
   }
  ],
- "modified": "2024-10-03 13:11:08.599026",
+ "modified": "2024-10-22 13:11:20.591529",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact",

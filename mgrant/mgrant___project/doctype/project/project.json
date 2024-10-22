@@ -37,6 +37,8 @@
   "tranche",
   "budget_tab",
   "budget",
+  "input_tab",
+  "input",
   "output_tab",
   "output",
   "outcome_tab",
@@ -297,6 +299,18 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "Active\nInactive"
+  },
+  {
+   "default": "input",
+   "fieldname": "input_tab",
+   "fieldtype": "Tab Break",
+   "label": "Input"
+  },
+  {
+   "default": "Input",
+   "fieldname": "input",
+   "fieldtype": "HTML",
+   "options": "<div id=\"input\"></div>"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -365,9 +379,14 @@
    "hidden": 1,
    "link_doctype": "Tranches",
    "link_fieldname": "project"
+  },
+  {
+   "hidden": 1,
+   "link_doctype": "Input",
+   "link_fieldname": "project"
   }
  ],
- "modified": "2024-10-19 15:17:43.282239",
+ "modified": "2024-10-22 12:52:55.132314",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Project",

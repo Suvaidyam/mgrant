@@ -1,0 +1,93 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:INPUT-A-{######}",
+ "creation": "2024-10-22 12:46:46.975405",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "input",
+  "project",
+  "as_on_date",
+  "achievement",
+  "column_break_cgas",
+  "column_break_tlgg"
+ ],
+ "fields": [
+  {
+   "fetch_from": "output.project",
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "as_on_date",
+   "fieldtype": "Date",
+   "label": "As on date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "achievement",
+   "fieldtype": "Int",
+   "label": "Achievement",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_cgas",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_tlgg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "input",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Input",
+   "options": "Input",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-22 12:47:05.820320",
+ "modified_by": "Administrator",
+ "module": "Mgrant",
+ "name": "Input Achievement",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
