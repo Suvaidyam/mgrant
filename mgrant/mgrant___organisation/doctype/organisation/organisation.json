@@ -212,7 +212,7 @@
    "link_fieldname": "custom_organization"
   }
  ],
- "modified": "2024-10-19 17:16:42.453858",
+ "modified": "2024-10-23 14:25:56.964049",
  "modified_by": "Administrator",
  "module": "mGrant - Organisation",
  "name": "Organisation",
@@ -243,7 +243,9 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "name_of_the_organisation"
 }
