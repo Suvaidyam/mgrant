@@ -33,7 +33,8 @@
   "theme",
   "work_references",
   "impact_tab",
-  "impact"
+  "impact",
+  "amended_from"
  ],
  "fields": [
   {
@@ -202,11 +203,22 @@
   {
    "fieldname": "column_break_ucvw",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Proposal",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-10-02 16:04:57.932243",
+ "modified": "2024-10-28 15:00:48.606177",
  "modified_by": "Administrator",
  "module": "mGrant - Organisation",
  "name": "Proposal",

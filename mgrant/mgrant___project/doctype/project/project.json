@@ -9,6 +9,7 @@
   "section_break_cerd",
   "organisation",
   "column_break_pyvg",
+  "proposal",
   "column_break_rsvl",
   "section_break_psro",
   "project_name",
@@ -50,7 +51,8 @@
   "tasks_tab",
   "tasks",
   "gallery_tab",
-  "gallery"
+  "gallery",
+  "amended_from"
  ],
  "fields": [
   {
@@ -72,14 +74,14 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "End Date",
-   "reqd": 1
+   "mandatory_depends_on": "eval:(doc.__islocal || (doc.proposal && !doc.__islocal))"
   },
   {
    "fieldname": "contact",
    "fieldtype": "Link",
    "label": "Contact",
-   "options": "Contact",
-   "reqd": 1
+   "mandatory_depends_on": "eval:(doc.__islocal || (doc.proposal && !doc.__islocal))",
+   "options": "Contact"
   },
   {
    "default": "budget",
@@ -145,15 +147,15 @@
    "fieldname": "theme",
    "fieldtype": "Link",
    "label": "Theme",
-   "options": "Themes",
-   "reqd": 1
+   "mandatory_depends_on": "eval:(doc.__islocal || (doc.proposal && !doc.__islocal))",
+   "options": "Themes"
   },
   {
    "fieldname": "project_duration_in_months",
    "fieldtype": "Int",
    "label": "Project Duration in months",
-   "non_negative": 1,
-   "reqd": 1
+   "mandatory_depends_on": "eval:(doc.__islocal || (doc.proposal && !doc.__islocal))",
+   "non_negative": 1
   },
   {
    "fieldname": "sdgs",
@@ -311,6 +313,23 @@
    "fieldname": "input",
    "fieldtype": "HTML",
    "options": "<div id=\"input\"></div>"
+  },
+  {
+   "fieldname": "proposal",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Proposal",
+   "options": "Proposal"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Project",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -386,7 +405,7 @@
    "link_fieldname": "project"
   }
  ],
- "modified": "2024-10-22 12:52:55.132314",
+ "modified": "2024-10-28 15:22:11.636192",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Project",
