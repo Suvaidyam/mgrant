@@ -1,0 +1,141 @@
+{
+ "actions": [],
+ "autoname": "field:year_",
+ "creation": "2024-10-02 17:55:02.804873",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "year",
+  "year_",
+  "annual_table",
+  "monthly_table",
+  "quarterly_table",
+  "miscellaneous_table"
+ ],
+ "fields": [
+  {
+   "depends_on": "eval:doc.__islocal == true;",
+   "fieldname": "year",
+   "fieldtype": "Select",
+   "label": "Year",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "year_",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Year",
+   "unique": 1
+  },
+  {
+   "fieldname": "annual_table",
+   "fieldtype": "Table",
+   "label": "Set due date for each annual compliances\t\t",
+   "options": "Annual Compliance Child"
+  },
+  {
+   "fieldname": "monthly_table",
+   "fieldtype": "Table",
+   "label": "Set Due Date for each month",
+   "options": "Monthly Compliance Child"
+  },
+  {
+   "fieldname": "quarterly_table",
+   "fieldtype": "Table",
+   "label": "Set Due Date for each quarter",
+   "options": "Quarterly Compliance Child"
+  },
+  {
+   "fieldname": "miscellaneous_table",
+   "fieldtype": "Table",
+   "label": "Set Due Date for each miscellaneous compliance\t\t",
+   "options": "Miscellaneous Compliance Child"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-30 11:33:17.621859",
+ "modified_by": "Administrator",
+ "module": "Compliance Calendar",
+ "name": "Compliance Annual Plan",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Finance",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CSU",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "L&D",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

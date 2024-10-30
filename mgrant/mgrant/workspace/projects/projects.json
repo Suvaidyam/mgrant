@@ -18,7 +18,7 @@
  "is_hidden": 0,
  "label": "Projects",
  "links": [],
- "modified": "2024-10-03 12:33:07.462882",
+ "modified": "2024-10-30 11:28:05.335815",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Projects",
@@ -79,7 +79,7 @@
    "role": "System Manager"
   }
  ],
- "sequence_id": 3.0,
+ "sequence_id": 1.0,
  "shortcuts": [],
  "title": "Projects"
 }
