@@ -312,7 +312,7 @@ frappe.ui.form.on("Compliance Annual Plan", {
                 frm.refresh_field('annual_table');
 
                 compliance_due_date.forEach(item => {
-                    if ((item.frequency === 'One time' || (item.type === '5-Year' && parseInt(item.start_year, 10) <= frm.doc.year.split("-")[0])) &&
+                    if ((item.type === '5-Year' && parseInt(item.start_year, 10) <= frm.doc.year.split("-")[0]) &&
                         !year_valid_log.some(log => log.compliance === item.name)) {
                         const childRow = frm.add_child('miscellaneous_table');
                         Object.assign(childRow, {
