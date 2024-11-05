@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class OrganisationWorkReferenceChild(Document):
+class NGOWorkReferenceChild(Document):
 	pass

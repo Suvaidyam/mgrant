@@ -63,7 +63,7 @@ const tabContent = async (frm, tab_field) => {
     }
 }
 
-frappe.ui.form.on("Organisation", {
+frappe.ui.form.on("NGO", {
     refresh(frm) {
         let tab_field = frm.get_active_tab()?.df?.fieldname;
         tabContent(frm, tab_field)

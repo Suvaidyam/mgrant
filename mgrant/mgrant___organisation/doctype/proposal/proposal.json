@@ -1,13 +1,14 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:PROPOSAL-{####}",
  "creation": "2024-09-28 15:21:17.944887",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "details_tab",
   "organisation_information_section",
-  "organisation",
+  "ngo",
   "registration_of_the_organisaiton",
   "column_break_dmhe",
   "year_of_establishment",
@@ -27,10 +28,10 @@
   "stages",
   "column_break_wklt",
   "column_break_ucvw",
-  "about_organisation_tab",
+  "about_ngo_tab",
   "about_organisation",
   "work_reference_tab",
-  "theme",
+  "work_ref_themes",
   "work_references",
   "impact_tab",
   "impact",
@@ -38,7 +39,7 @@
  ],
  "fields": [
   {
-   "fetch_from": "organisation.year_of_establishment",
+   "fetch_from": "ngo.year_of_establishment",
    "fieldname": "year_of_establishment",
    "fieldtype": "Select",
    "in_list_view": 1,
@@ -49,7 +50,7 @@
    "reqd": 1
   },
   {
-   "fetch_from": "organisation.registration_of_the_organisaiton",
+   "fetch_from": "ngo.registration_of_the_organisaiton",
    "fieldname": "registration_of_the_organisaiton",
    "fieldtype": "Select",
    "in_list_view": 1,
@@ -59,7 +60,7 @@
    "reqd": 1
   },
   {
-   "fetch_from": "organisation.website",
+   "fetch_from": "ngo.website",
    "fieldname": "website",
    "fieldtype": "Data",
    "label": "Website",
@@ -101,11 +102,6 @@
    "label": "Name of the CEO/Executive Director"
   },
   {
-   "fieldname": "about_organisation_tab",
-   "fieldtype": "Tab Break",
-   "label": "About Organisation"
-  },
-  {
    "fetch_from": "organisation.about_organisation",
    "fetch_if_empty": 1,
    "fieldname": "about_organisation",
@@ -118,16 +114,10 @@
    "label": "Work References"
   },
   {
-   "fieldname": "theme",
-   "fieldtype": "Link",
-   "label": "Theme (Area of work)",
-   "options": "Themes"
-  },
-  {
    "fieldname": "work_references",
    "fieldtype": "Table",
    "label": "Please list top 3 projects related to proposed theme of work with references: ",
-   "options": "Organisation Work Reference Child"
+   "options": "NGO Work Reference Child"
   },
   {
    "fieldname": "impact_tab",
@@ -140,14 +130,6 @@
    "fieldname": "impact",
    "fieldtype": "Text Editor",
    "label": "What was the impact your organization created in last 3 years (Number of outreach (People), Tangible and Intangible impacts"
-  },
-  {
-   "fieldname": "organisation",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Name of the Organisation",
-   "options": "Organisation",
-   "reqd": 1
   },
   {
    "fieldname": "organisation_information_section",
@@ -213,15 +195,35 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "about_ngo_tab",
+   "fieldtype": "Tab Break",
+   "label": "About NGO"
+  },
+  {
+   "fieldname": "work_ref_themes",
+   "fieldtype": "Table MultiSelect",
+   "label": "Theme (Area of work)",
+   "options": "Themes Child"
+  },
+  {
+   "fieldname": "ngo",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "NGO",
+   "options": "NGO",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-10-28 15:00:48.606177",
+ "modified": "2024-11-05 15:40:40.888227",
  "modified_by": "Administrator",
  "module": "mGrant - Organisation",
  "name": "Proposal",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -241,5 +243,5 @@
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],
- "title_field": "organisation"
+ "title_field": "ngo"
 }

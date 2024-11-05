@@ -1,11 +1,11 @@
 {
  "actions": [],
- "allow_rename": 1,
+ "autoname": "format:NGO-{####}",
  "creation": "2024-09-27 17:17:49.731779",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "name_of_the_organisation",
+  "ngo_name",
   "year_of_establishment",
   "registration_of_the_organisaiton",
   "primary_domain",
@@ -34,13 +34,6 @@
   "contacts"
  ],
  "fields": [
-  {
-   "fieldname": "name_of_the_organisation",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Name of the Organisation",
-   "reqd": 1
-  },
   {
    "fieldname": "year_of_establishment",
    "fieldtype": "Select",
@@ -99,7 +92,7 @@
    "fieldname": "work_references",
    "fieldtype": "Table",
    "label": "Please list top 3 projects related to proposed theme of work with references: ",
-   "options": "Organisation Work Reference Child"
+   "options": "NGO Work Reference Child"
   },
   {
    "fieldname": "impact_tab",
@@ -192,6 +185,13 @@
    "fieldname": "contacts",
    "fieldtype": "HTML",
    "options": "<div id=\"contacts\"></div>"
+  },
+  {
+   "fieldname": "ngo_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "NGO Name",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -212,10 +212,11 @@
    "link_fieldname": "custom_organization"
   }
  ],
- "modified": "2024-10-23 14:25:56.964049",
+ "modified": "2024-11-05 15:40:40.529720",
  "modified_by": "Administrator",
  "module": "mGrant - Organisation",
- "name": "Organisation",
+ "name": "NGO",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -247,5 +248,5 @@
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],
- "title_field": "name_of_the_organisation"
+ "title_field": "ngo_name"
 }

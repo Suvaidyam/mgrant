@@ -8,14 +8,18 @@ from frappe.utils import today
 
 class Proposal(Document):
 	def on_update(self):
-		org = frappe.get_doc("Organisation", self.organisation)
 		if self.stages == "Grant Letter Signed" and self.docstatus == 0:
+			ngo = frappe.get_doc("NGO", self.ngo)
 			project = frappe.new_doc("Project")
 			project.proposal = self.name
-			project.organisation = self.organisation
+			project.ngo = self.ngo
 			project.contact = self.contact
-			project.project_name = org.name_of_the_organisation
-			project.theme = self.theme
+			project.project_name = ngo.ngo_name
+			if len(self.themes) > 0:
+				for theme in self.themes:
+					project.append("themes", {
+						"theme": theme.theme
+					})
 			project.start_date = today()
-			project.save(ignore_permissions=True)
+			project.insert(ignore_permissions=True,ignore_mandatory=True)
 			self.submit()
