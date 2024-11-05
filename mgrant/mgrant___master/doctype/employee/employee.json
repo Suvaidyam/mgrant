@@ -1,0 +1,105 @@
+{
+ "actions": [],
+ "autoname": "format:EMP-{#####}",
+ "creation": "2024-11-04 14:53:15.202520",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "contact",
+  "first_name",
+  "last_name",
+  "full_name",
+  "date_of_birth",
+  "department",
+  "designation",
+  "state",
+  "district",
+  "gram_panchayat"
+ ],
+ "fields": [
+  {
+   "fieldname": "contact",
+   "fieldtype": "Link",
+   "label": "Contact",
+   "length": 50,
+   "options": "Contact"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name",
+   "length": 50
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name",
+   "length": 50
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "length": 100
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District"
+  },
+  {
+   "fieldname": "gram_panchayat",
+   "fieldtype": "Data",
+   "label": "Gram Panchayat"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-04 15:58:28.898385",
+ "modified_by": "Administrator",
+ "module": "mGrant - Master",
+ "name": "Employee",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "full_name"
+}

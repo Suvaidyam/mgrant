@@ -49,6 +49,8 @@ doctype_js = {
     "Project" : ["public/js/gallery.js","public/js/task.js","public/js/cominucation.js"],
     "Compliance" :[ "public/js/utils.js"],
     "Compliance Annual Plan" :[ "public/js/utils.js"],
+    "FDR" :[ "public/js/utils.js"],
+    "Training Record" :[ "public/js/utils.js"],
     }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}

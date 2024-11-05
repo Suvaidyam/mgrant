@@ -1,0 +1,126 @@
+{
+ "actions": [],
+ "autoname": "format:TR-{#####}",
+ "creation": "2024-11-03 20:06:42.204505",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "training_name",
+  "theme",
+  "from_date",
+  "to_date",
+  "total_days",
+  "column_break_owdl",
+  "trainer_type",
+  "trainer",
+  "trainer_name",
+  "number_of_participants",
+  "participants",
+  "locationvirtual"
+ ],
+ "fields": [
+  {
+   "fieldname": "training_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Training name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "theme",
+   "fieldtype": "Link",
+   "label": "Theme",
+   "options": "Themes",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_days",
+   "fieldtype": "Int",
+   "label": "Total Days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "trainer_type",
+   "fieldtype": "Select",
+   "label": "Trainer Type",
+   "options": "\nInternal\nExternal"
+  },
+  {
+   "depends_on": "eval:doc.trainer_type === 'Internal';",
+   "fieldname": "trainer",
+   "fieldtype": "Table MultiSelect",
+   "label": "Trainer",
+   "mandatory_depends_on": "eval:doc.trainer_type === 'Internal';",
+   "options": "Employee Child"
+  },
+  {
+   "fieldname": "column_break_owdl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.trainer_type === 'External';",
+   "fieldname": "trainer_name",
+   "fieldtype": "Data",
+   "label": "Trainer Name",
+   "mandatory_depends_on": "eval:doc.trainer_type === 'External';"
+  },
+  {
+   "fieldname": "number_of_participants",
+   "fieldtype": "Int",
+   "label": "Number of participants",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "participants",
+   "fieldtype": "Data",
+   "label": "Participants",
+   "reqd": 1
+  },
+  {
+   "fieldname": "locationvirtual",
+   "fieldtype": "Data",
+   "label": "Location/Virtual",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-04 16:23:43.423073",
+ "modified_by": "Administrator",
+ "module": "Training & L&D",
+ "name": "Training Record",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
