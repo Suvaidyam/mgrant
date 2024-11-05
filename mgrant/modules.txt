@@ -2,6 +2,6 @@ Mgrant
 Programmes
 KPIs
 mGrant - Proposal
-mGrant - Organisation
 mGrant - Project
 mGrant - Master
+mGrant - NGO
