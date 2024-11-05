@@ -22,7 +22,7 @@
  "idx": 0,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-10-03 13:03:57.223785",
+ "modified": "2024-11-05 16:26:30.945877",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Projects by Domain",
@@ -39,5 +39,6 @@
   {
    "role": "Admin"
   }
- ]
+ ],
+ "timeout": 0
 }
