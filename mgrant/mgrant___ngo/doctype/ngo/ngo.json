@@ -11,15 +11,22 @@
   "primary_domain",
   "website",
   "themes",
+  "pan_number_and_pan_copy_upload",
   "column_break_bhnv",
-  "budget_of_last_three_fys",
-  "major_donorscsrs",
-  "column_break_qnhh",
-  "contact",
+  "12aa_registration_number_and_certificate_upload",
+  "csr_1_number_and_certificate_upload",
   "signatory",
   "director",
-  "status",
+  "contact",
   "source_document",
+  "status",
+  "column_break_qnhh",
+  "state",
+  "district",
+  "address_1",
+  "address_2",
+  "address_3",
+  "pincode",
   "about_organisation_tab",
   "about_organisation",
   "work_reference_tab",
@@ -55,7 +62,7 @@
    "fieldname": "registration_of_the_organisaiton",
    "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Registration of the Organisaiton",
+   "label": "Registration of the Organisation",
    "options": "\nTrust\nSociety\nSection 8",
    "reqd": 1
   },
@@ -80,18 +87,6 @@
   {
    "fieldname": "column_break_bhnv",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "budget_of_last_three_fys",
-   "fieldtype": "Table",
-   "label": "Budget of last three FYs",
-   "options": "NGO Budget Child"
-  },
-  {
-   "fieldname": "major_donorscsrs",
-   "fieldtype": "Table",
-   "label": "Major Donors/CSRs",
-   "options": "Donor Child"
   },
   {
    "fieldname": "column_break_qnhh",
@@ -199,6 +194,56 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Source Document"
+  },
+  {
+   "fieldname": "pan_number_and_pan_copy_upload",
+   "fieldtype": "Int",
+   "label": "PAN Number and PAN copy upload"
+  },
+  {
+   "fieldname": "12aa_registration_number_and_certificate_upload",
+   "fieldtype": "Data",
+   "label": "12AA Registration Number and Certificate Upload"
+  },
+  {
+   "fieldname": "csr_1_number_and_certificate_upload",
+   "fieldtype": "Data",
+   "label": "CSR 1 Number and Certificate Upload"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address_1",
+   "fieldtype": "Data",
+   "label": "Address 1"
+  },
+  {
+   "fieldname": "address_2",
+   "fieldtype": "Data",
+   "label": "Address 2"
+  },
+  {
+   "fieldname": "address_3",
+   "fieldtype": "Data",
+   "label": "Address 3"
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Int",
+   "label": "Pincode",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -219,7 +264,7 @@
    "link_fieldname": "custom_organization"
   }
  ],
- "modified": "2024-11-09 12:12:43.536272",
+ "modified": "2024-11-09 17:33:10.420335",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",
