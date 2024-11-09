@@ -19,6 +19,7 @@
   "signatory",
   "director",
   "status",
+  "source_document",
   "about_organisation_tab",
   "about_organisation",
   "work_reference_tab",
@@ -192,6 +193,12 @@
    "fieldname": "contacts",
    "fieldtype": "HTML",
    "options": "<div id=\"contacts\"></div>"
+  },
+  {
+   "fieldname": "source_document",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Source Document"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -212,7 +219,7 @@
    "link_fieldname": "custom_organization"
   }
  ],
- "modified": "2024-11-05 16:15:10.781488",
+ "modified": "2024-11-09 12:12:43.536272",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",

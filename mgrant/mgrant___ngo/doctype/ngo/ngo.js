@@ -46,7 +46,7 @@ const tabContent = async (frm, tab_field) => {
     for (let _f of _fields) {
         let link = frm.meta.links?.find(f => f.link_doctype == _f.default)
         if (link) {
-            let datatable = new SvaDataTable({
+            new SvaDataTable({
                 wrapper: document.querySelector(`#${_f.fieldname}`), // Wrapper element
                 doctype: link.link_doctype, // Doctype name
                 crud: ['Project', 'Proposal'].includes(link.link_doctype) ? false : true,      // Enable CRUD operations (optional)
@@ -63,6 +63,17 @@ const tabContent = async (frm, tab_field) => {
 
 frappe.ui.form.on("NGO", {
     refresh(frm) {
+        if(!frm.is_new() && !frm.doc.source_document) {
+            frm.add_custom_button(__('Add to Central Repository'), async function() {
+                let response = await frappe.call({
+                    method: "mgrant.apis.ngo.ngo.add_ngo_to_central_repo",
+                    args:{
+                        ngo_id: frm.doc.name
+                    },
+                });
+                frappe.msgprint(response.message);
+            });
+        }
         let tab_field = frm.get_active_tab()?.df?.fieldname;
         tabContent(frm, tab_field)
         $('a[data-toggle="tab"]').on('shown.bs.tab', async function (e) {
