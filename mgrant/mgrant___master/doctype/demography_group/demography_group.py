@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class DemographyFocusChild(Document):
+class DemographyGroup(Document):
 	pass
