@@ -1,0 +1,40 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-09 14:42:43.810432",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "financial_year",
+  "budget"
+ ],
+ "fields": [
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Financial Year",
+   "options": "Financial Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "budget",
+   "fieldtype": "Currency",
+   "label": "Budget",
+   "non_negative": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-11-09 14:44:31.591693",
+ "modified_by": "Administrator",
+ "module": "mGrant - Master",
+ "name": "Organisation Budget Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
