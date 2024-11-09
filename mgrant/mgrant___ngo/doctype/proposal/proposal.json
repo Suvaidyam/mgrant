@@ -61,7 +61,7 @@
    "fieldname": "registration_of_the_organisaiton",
    "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Registration of the Organisaiton",
+   "label": "Registration of the Organisation",
    "options": "\nTrust\nSociety\nSection 8",
    "read_only": 1,
    "reqd": 1
@@ -219,7 +219,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-05 16:15:11.161241",
+ "modified": "2024-11-09 14:17:04.182339",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "Proposal",

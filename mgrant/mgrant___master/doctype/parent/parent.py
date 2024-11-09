@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class AnnualBudgetChild(Document):
+class Parent(Document):
 	pass

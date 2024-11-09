@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestDemographyFocusChild(FrappeTestCase):
+class TestDesignation(FrappeTestCase):
 	pass
