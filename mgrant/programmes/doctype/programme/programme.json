@@ -7,8 +7,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "programme_name",
-  "theme"
+  "programme_name"
  ],
  "fields": [
   {
@@ -18,19 +17,11 @@
    "label": "Programme Name",
    "reqd": 1,
    "unique": 1
-  },
-  {
-   "fieldname": "theme",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Theme",
-   "options": "Themes",
-   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-03 12:17:07.574905",
+ "modified": "2024-11-09 09:34:10.691014",
  "modified_by": "Administrator",
  "module": "Programmes",
  "name": "Programme",
