@@ -3,7 +3,7 @@
 
 frappe.ui.form.on("Donor", {
 	refresh(frm) {
-        if(!frm.is_new()) {
+        if(!frm.is_new() && !frm.doc.source_document) {
             frm.add_custom_button(__('Add to Central Repository'), async function() {
                 let response = await frappe.call({
                     method: "mgrant.apis.ngo.donor.add_donor_to_central_repo",

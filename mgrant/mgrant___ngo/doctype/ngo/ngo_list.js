@@ -1,18 +1,15 @@
-// Copyright (c) 2024, Suvaidyam and contributors
-// For license information, please see license.txt
-
-frappe.listview_settings['Donor'] = {
+frappe.listview_settings['NGO'] = {
     onload: function(listview) {
-        listview.page.add_inner_button(__("Import Donors From Central Repository"), async function() {
+        listview.page.add_inner_button(__("Import NGOs From Central Repository"), async function() {
             let res = await frappe.call({
-                method:"mgrant.apis.ngo.donor.sync_donors_from_central_repo",
+                method:"mgrant.apis.ngo.ngo.sync_ngos_from_central_repo",
             })
             if (res.message && res.message.length) {
                 let fields = []
-                res.message.forEach(donor => {
+                res.message.forEach(ngo => {
                     fields.push({
-                        "fieldname": donor.name,
-                        "label": donor.donor_name,
+                        "fieldname": ngo.name,
+                        "label": ngo.ngo_name,
                         "fieldtype": "Check",
                         "default": 0
                     })
@@ -22,18 +19,18 @@ frappe.listview_settings['Donor'] = {
                     fields: fields,
                     primary_action_label: __("Import"),
                     primary_action: async function(values) {
-                        let donors = []
-                        for(donor_id of Object.keys(values)) {
-                            if(values[donor_id]) {
-                                let donor = res.message.find(d => d.name === donor_id);
-                                donors.push(donor);
+                        let ngos = []
+                        for(ngo_id of Object.keys(values)) {
+                            if(values[ngo_id]) {
+                                let ngo = res.message.find(d => d.name === ngo_id);
+                                ngos.push(ngo);
                             }
                         }
-                        if (donors.length > 0){
+                        if (ngos.length > 0){
                             let response = await frappe.call({
-                                method: "mgrant.apis.ngo.donor.sync_selected_donors_from_central_repo",
+                                method: "mgrant.apis.ngo.ngo.sync_selected_ngos_from_central_repo",
                                 args: {
-                                    donors: donors
+                                    ngos: ngos
                                 }
                             });
                             frappe.msgprint(response.message);
