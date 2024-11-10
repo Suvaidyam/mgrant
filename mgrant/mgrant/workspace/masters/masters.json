@@ -1,6 +1,7 @@
 {
+ "app": "mgrant",
  "charts": [],
- "content": "[{\"id\":\"2QiJ-Zf5qS\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Themes\",\"col\":4}},{\"id\":\"nYv5erSD8q\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Programmes\",\"col\":4}},{\"id\":\"HuQEKjXA8B\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"SDGs\",\"col\":4}},{\"id\":\"ygE6xNQDJN\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mOdu-GnBjh\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Entities\",\"col\":4}},{\"id\":\"fdtab6XsVp\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Cost Centres\",\"col\":4}},{\"id\":\"VRaXnfbWsd\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Financial Years\",\"col\":4}},{\"id\":\"twzQV6c88p\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Budget Heads\",\"col\":4}},{\"id\":\"cEEEnIriFD\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Units\",\"col\":4}},{\"id\":\"JGdYDcqtyq\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kW5wuOxuis\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"KPI Types\",\"col\":4}},{\"id\":\"mF7gPsm9l8\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"KPIs\",\"col\":4}},{\"id\":\"rDr6p8kgLD\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Geography Masters</b></span>\",\"col\":12}},{\"id\":\"HAmd5nix6p\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"State\",\"col\":4}},{\"id\":\"nqDQDcFr2x\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"District\",\"col\":4}},{\"id\":\"tQSxIUCody\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Block\",\"col\":4}},{\"id\":\"iLzV9hi-ks\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Village\",\"col\":4}}]",
+ "content": "[{\"id\":\"2QiJ-Zf5qS\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Themes\",\"col\":4}},{\"id\":\"nYv5erSD8q\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Programmes\",\"col\":4}},{\"id\":\"HuQEKjXA8B\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"SDGs\",\"col\":4}},{\"id\":\"ygE6xNQDJN\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mOdu-GnBjh\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Entities\",\"col\":4}},{\"id\":\"VRaXnfbWsd\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Financial Years\",\"col\":4}},{\"id\":\"twzQV6c88p\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Budget Heads\",\"col\":4}},{\"id\":\"cEEEnIriFD\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Units\",\"col\":4}},{\"id\":\"JGdYDcqtyq\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kW5wuOxuis\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"KPI Types\",\"col\":4}},{\"id\":\"mF7gPsm9l8\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"KPIs\",\"col\":4}},{\"id\":\"rDr6p8kgLD\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Geography Masters</b></span>\",\"col\":12}},{\"id\":\"HAmd5nix6p\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"State\",\"col\":4}},{\"id\":\"nqDQDcFr2x\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"District\",\"col\":4}},{\"id\":\"tQSxIUCody\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Block\",\"col\":4}},{\"id\":\"iLzV9hi-ks\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Village\",\"col\":4}}]",
  "creation": "2024-08-15 17:05:20.162609",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +14,7 @@
  "is_hidden": 0,
  "label": "Masters",
  "links": [],
- "modified": "2024-10-30 11:28:05.639240",
+ "modified": "2024-11-10 12:28:14.484675",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Masters",
@@ -67,10 +68,6 @@
    "number_card_name": "Financial Years"
   },
   {
-   "label": "Cost Centres",
-   "number_card_name": "Cost Centres"
-  },
-  {
    "label": "Budget Heads",
    "number_card_name": "Budget Heads"
   }
@@ -92,5 +89,6 @@
  ],
  "sequence_id": 4.0,
  "shortcuts": [],
- "title": "Masters"
+ "title": "Masters",
+ "type": "Workspace"
 }

@@ -10,20 +10,20 @@ required_apps = ["Suvaidyam/sva_frappe","Suvaidyam/crm","Suvaidyam/frappe_theme"
 # ------------------
 
 fixtures = [
-    'KPIs',
-    'Units',
-    'KPI Type',
-    'Financial Year',
-    'Cost Centre',
-    'Programme',
-    'Themes',
-    'SDGs',
-    'Budget heads',
-    'Entity',
-    'Quarters',
-    'Role',
-    'Role Profile',
-    'Frontend Views',
+    # 'KPIs',
+    # 'Units',
+    # 'KPI Type',
+    # 'Financial Year',
+    # 'Cost Centre',
+    # 'Programme',
+    # 'Themes',
+    # 'SDGs',
+    # 'Budget heads',
+    # 'Entity',
+    # 'Quarters',
+    # 'Role',
+    # 'Role Profile',
+    # 'Frontend Views',
     'Custom Field'
 ]
 # include js, css files in header of desk.html

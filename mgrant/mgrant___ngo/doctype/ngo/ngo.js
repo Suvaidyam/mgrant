@@ -63,6 +63,12 @@ const tabContent = async (frm, tab_field) => {
 
 frappe.ui.form.on("NGO", {
     refresh(frm) {
+        let tab_field = frm.get_active_tab()?.df?.fieldname;
+        tabContent(frm, tab_field)
+        $('a[data-toggle="tab"]').on('shown.bs.tab', async function (e) {
+            let tab_field = frm.get_active_tab()?.df?.fieldname;
+            tabContent(frm, tab_field)
+        });
         if(!frm.is_new() && !frm.doc.source_document) {
             frm.add_custom_button(__('Add to Central Repository'), async function() {
                 let response = await frappe.call({
@@ -74,11 +80,5 @@ frappe.ui.form.on("NGO", {
                 frappe.msgprint(response.message);
             });
         }
-        let tab_field = frm.get_active_tab()?.df?.fieldname;
-        tabContent(frm, tab_field)
-        $('a[data-toggle="tab"]').on('shown.bs.tab', async function (e) {
-            let tab_field = frm.get_active_tab()?.df?.fieldname;
-            tabContent(frm, tab_field)
-        });
     },
 });

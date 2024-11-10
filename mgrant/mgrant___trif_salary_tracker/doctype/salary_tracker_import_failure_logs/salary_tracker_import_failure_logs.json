@@ -1,0 +1,220 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-11-10 14:56:11.702033",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "employee_code",
+  "employee",
+  "volac_code",
+  "organization_left",
+  "organization_leaving_date",
+  "designation",
+  "practice",
+  "state",
+  "district",
+  "block",
+  "total_salary",
+  "budget_code_fc_1",
+  "project_fc_1",
+  "salary_fc_1",
+  "budget_code_fc_2",
+  "project_fc_2",
+  "column_break_atpq",
+  "salary_fc_2",
+  "budget_code_fc_3",
+  "project_fc_3",
+  "salary_fc_3",
+  "budget_code_in_1",
+  "project_in_1",
+  "salary_in_1",
+  "budget_code_in_2",
+  "project_in_2",
+  "salary_in_2",
+  "budget_code_in_3",
+  "project_in_3",
+  "salary_in_3",
+  "reason_of_failure"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Code"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee"
+  },
+  {
+   "fieldname": "volac_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Volac Code"
+  },
+  {
+   "fieldname": "organization_left",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Organization Left"
+  },
+  {
+   "fieldname": "organization_leaving_date",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Organization Leaving Date"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Designation"
+  },
+  {
+   "fieldname": "practice",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Practice"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "State"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "District"
+  },
+  {
+   "fieldname": "block",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Block"
+  },
+  {
+   "fieldname": "total_salary",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Total Salary"
+  },
+  {
+   "fieldname": "budget_code_fc_1",
+   "fieldtype": "Data",
+   "label": "Budget code FC 1"
+  },
+  {
+   "fieldname": "project_fc_1",
+   "fieldtype": "Data",
+   "label": "Project FC 1"
+  },
+  {
+   "fieldname": "salary_fc_1",
+   "fieldtype": "Percent",
+   "label": "Salary FC 1"
+  },
+  {
+   "fieldname": "budget_code_fc_2",
+   "fieldtype": "Data",
+   "label": "Budget code FC 2"
+  },
+  {
+   "fieldname": "project_fc_2",
+   "fieldtype": "Data",
+   "label": "Project FC 2"
+  },
+  {
+   "fieldname": "salary_fc_2",
+   "fieldtype": "Percent",
+   "label": "Salary FC 2"
+  },
+  {
+   "fieldname": "column_break_atpq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "budget_code_fc_3",
+   "fieldtype": "Data",
+   "label": "Budget code FC 3"
+  },
+  {
+   "fieldname": "project_fc_3",
+   "fieldtype": "Data",
+   "label": "Project FC 3"
+  },
+  {
+   "fieldname": "salary_fc_3",
+   "fieldtype": "Percent",
+   "label": "Salary FC 3"
+  },
+  {
+   "fieldname": "budget_code_in_1",
+   "fieldtype": "Data",
+   "label": "Budget code IN 1"
+  },
+  {
+   "fieldname": "project_in_1",
+   "fieldtype": "Data",
+   "label": "Project IN 1"
+  },
+  {
+   "fieldname": "salary_in_1",
+   "fieldtype": "Percent",
+   "label": "Salary IN 1"
+  },
+  {
+   "fieldname": "budget_code_in_2",
+   "fieldtype": "Data",
+   "label": "Budget code IN 2"
+  },
+  {
+   "fieldname": "project_in_2",
+   "fieldtype": "Data",
+   "label": "Project IN 2"
+  },
+  {
+   "fieldname": "salary_in_2",
+   "fieldtype": "Percent",
+   "label": "Salary IN 2"
+  },
+  {
+   "fieldname": "budget_code_in_3",
+   "fieldtype": "Data",
+   "label": "Budget code IN 3"
+  },
+  {
+   "fieldname": "project_in_3",
+   "fieldtype": "Data",
+   "label": "Project IN 3"
+  },
+  {
+   "fieldname": "salary_in_3",
+   "fieldtype": "Percent",
+   "label": "Salary IN 3"
+  },
+  {
+   "fieldname": "reason_of_failure",
+   "fieldtype": "Small Text",
+   "label": "Reason Of Failure"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-11-10 15:10:16.591881",
+ "modified_by": "Administrator",
+ "module": "mGrant - Trif Salary Tracker",
+ "name": "Salary Tracker Import Failure Logs",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

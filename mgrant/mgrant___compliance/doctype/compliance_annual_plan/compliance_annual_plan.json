@@ -1,0 +1,72 @@
+{
+ "actions": [],
+ "autoname": "field:financial_year",
+ "creation": "2024-11-09 18:25:13.182427",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "financial_year",
+  "annual_table",
+  "monthly_table",
+  "quarterly_table",
+  "miscellaneous_table"
+ ],
+ "fields": [
+  {
+   "fieldname": "annual_table",
+   "fieldtype": "Table",
+   "label": "Set due date for each annual compliances",
+   "options": "Annual Compliance Child"
+  },
+  {
+   "fieldname": "monthly_table",
+   "fieldtype": "Table",
+   "label": "Set Due Date for each month",
+   "options": "Monthly Compliance Child"
+  },
+  {
+   "fieldname": "quarterly_table",
+   "fieldtype": "Table",
+   "label": "Set Due Date for each quarter",
+   "options": "Quarterly Compliance Child"
+  },
+  {
+   "fieldname": "miscellaneous_table",
+   "fieldtype": "Table",
+   "label": "Set Due Date for each miscellaneous compliance",
+   "options": "Miscellaneous Compliance Child"
+  },
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "label": "Financial Year",
+   "options": "Financial Year",
+   "unique": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-09 18:54:15.211806",
+ "modified_by": "Administrator",
+ "module": "mGrant - Compliance",
+ "name": "Compliance Annual Plan",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

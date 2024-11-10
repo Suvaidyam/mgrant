@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "autoname": "format:{financial_year}-{month}",
+ "creation": "2024-11-10 15:13:52.022062",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "financial_year",
+  "month",
+  "trif_salary_tracker",
+  "html_jekh"
+ ],
+ "fields": [
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "label": "Financial Year",
+   "options": "Financial Year"
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Select",
+   "label": "Month",
+   "options": "\nJanuary\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember"
+  },
+  {
+   "fieldname": "html_jekh",
+   "fieldtype": "HTML",
+   "options": "<div id=\"trif_salary_tracker\"></div>"
+  },
+  {
+   "fieldname": "trif_salary_tracker",
+   "fieldtype": "Table",
+   "label": "Trif Salary Tracker",
+   "options": "Salary Tracker Child"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-10 15:20:24.125732",
+ "modified_by": "Administrator",
+ "module": "mGrant - Trif Salary Tracker",
+ "name": "Monthly Salary Tracker",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

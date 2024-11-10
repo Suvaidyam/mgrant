@@ -1,0 +1,51 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-09 18:42:56.450398",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "compliance",
+  "compliance_name",
+  "frequency",
+  "due_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "compliance",
+   "fieldtype": "Link",
+   "label": "Compliance",
+   "options": "Compliance"
+  },
+  {
+   "fieldname": "compliance_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Compliance Name"
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "label": "Frequency"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Due Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-11-09 18:50:06.251568",
+ "modified_by": "Administrator",
+ "module": "mGrant - Compliance",
+ "name": "Miscellaneous Compliance Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
