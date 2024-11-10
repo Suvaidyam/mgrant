@@ -23,7 +23,11 @@
   "address_1",
   "address_2",
   "address_3",
-  "pincode"
+  "pincode",
+  "projects_tab",
+  "projects",
+  "donor_budget_heads_tab",
+  "dbhs"
  ],
  "fields": [
   {
@@ -132,11 +136,45 @@
    "fieldname": "contract_last_name",
    "fieldtype": "Data",
    "label": "Contract Last Name"
+  },
+  {
+   "default": "projects",
+   "fieldname": "projects_tab",
+   "fieldtype": "Tab Break",
+   "label": "Projects"
+  },
+  {
+   "default": "Project",
+   "fieldname": "projects",
+   "fieldtype": "HTML",
+   "options": "<div id=\"projects\"></div>"
+  },
+  {
+   "default": "dbhs",
+   "fieldname": "donor_budget_heads_tab",
+   "fieldtype": "Tab Break",
+   "label": " Donor Budget Heads"
+  },
+  {
+   "default": "Donor Budget Head",
+   "fieldname": "dbhs",
+   "fieldtype": "HTML",
+   "options": "<div id=\"dbhs\"></div>"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-11-09 17:50:37.198719",
+ "links": [
+  {
+   "link_doctype": "Project",
+   "link_fieldname": "donor"
+  },
+  {
+   "hidden": 1,
+   "link_doctype": "Donor Budget Head",
+   "link_fieldname": "donor"
+  }
+ ],
+ "modified": "2024-11-10 15:58:47.347271",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Donor",
