@@ -64,7 +64,7 @@
    "fieldname": "sdg",
    "fieldtype": "Link",
    "label": "SDG",
-   "options": "Focus Area",
+   "options": "SDGs",
    "reqd": 1
   },
   {
@@ -83,7 +83,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-09 10:20:28.454985",
+ "modified": "2024-11-11 12:25:46.925361",
  "modified_by": "Administrator",
  "module": "KPIs",
  "name": "KPIs",

@@ -184,7 +184,7 @@
   {
    "fieldname": "work_ref_themes",
    "fieldtype": "Table MultiSelect",
-   "label": "Theme (Area of work)",
+   "label": "Themes (Area of work)",
    "options": "Themes Child"
   },
   {
@@ -219,7 +219,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-09 14:17:04.182339",
+ "modified": "2024-11-11 12:33:25.743283",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "Proposal",
