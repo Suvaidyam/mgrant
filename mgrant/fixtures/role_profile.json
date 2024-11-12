@@ -7,10 +7,19 @@
   "role_profile": "Admin",
   "roles": [
    {
-    "parent": "Admin",
-    "parentfield": "roles",
-    "parenttype": "Role Profile",
     "role": "Admin"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-11-12 12:31:39.426614",
+  "name": "NGO",
+  "role_profile": "NGO",
+  "roles": [
+   {
+    "role": "NGO"
    }
   ]
  }
