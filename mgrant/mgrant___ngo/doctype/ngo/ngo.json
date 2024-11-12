@@ -9,6 +9,7 @@
   "year_of_establishment",
   "registration_of_the_organisaiton",
   "primary_domain",
+  "email",
   "website",
   "themes",
   "pan_number_and_pan_copy_upload",
@@ -244,6 +245,13 @@
    "fieldtype": "Int",
    "label": "Pincode",
    "reqd": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -264,7 +272,7 @@
    "link_fieldname": "custom_ref_document"
   }
  ],
- "modified": "2024-11-10 15:11:28.737008",
+ "modified": "2024-11-12 12:21:46.161741",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",
