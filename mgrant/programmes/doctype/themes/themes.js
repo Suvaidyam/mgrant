@@ -5,7 +5,6 @@
 const tabContent = async (frm, tab_field) => {
     let field = frm.meta?.fields?.find(f => f.fieldname == tab_field)
     let _fields = frm.meta?.fields?.filter(f => field?.default?.split(',')?.includes(f.fieldname))
-    console.log(_fields, 'fields', field, 'field')
     for (let _f of _fields) {
         let link = frm.meta.links?.find(f => f.link_doctype == _f.default)
         if (link) {
