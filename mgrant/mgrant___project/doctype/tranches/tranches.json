@@ -11,7 +11,7 @@
   "financial_year",
   "tranch_name",
   "amount",
-  "disbursement"
+  "total_disbursement"
  ],
  "fields": [
   {
@@ -43,9 +43,10 @@
    "reqd": 1
   },
   {
-   "fieldname": "disbursement",
+   "fieldname": "total_disbursement",
    "fieldtype": "Int",
-   "label": "Disbursement",
+   "label": "Total Disbursement",
+   "non_negative": 1,
    "read_only": 1
   }
  ],
@@ -56,7 +57,7 @@
    "link_fieldname": "tranche"
   }
  ],
- "modified": "2024-10-03 13:20:05.284673",
+ "modified": "2024-11-15 11:05:30.295973",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Tranches",

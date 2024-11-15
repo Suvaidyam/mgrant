@@ -15,7 +15,7 @@ class Disbursement(Document):
 		if tranche.amount < total_disbursement:
 			frappe.throw("Total disbursement cannot be greater than amount allocated")
 		else:
-			tranche.disbursement = total_disbursement
+			tranche.total_disbursement = total_disbursement
 		tranche.save(ignore_permissions=True)
   
 	def on_trash(self):
@@ -24,5 +24,5 @@ class Disbursement(Document):
 		total_disbursement = 0
 		for disbursement in disbursements:
 			total_disbursement += disbursement.disbursement if (disbursement.disbursement and disbursement.name != self.name) else 0
-		tranche.disbursement = total_disbursement
+		tranche.total_disbursement = total_disbursement
 		tranche.save(ignore_permissions=True)
