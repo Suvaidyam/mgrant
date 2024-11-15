@@ -45,82 +45,92 @@ const taskList = (task_list) => {
                 // <i class="fa fa-circle-o"></i>
                 return `
                 
-               <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-4">
-        <div class="card border-light shadow-sm p-3 h-100 ">
-        <!-- Task Header -->
-        <div class="d-flex justify-content-between align-items-center">
-            <span title="task title" class="text-dark me-2" style="font-size: 16px;">${task?.title}</span>
-            
-            <div class="d-flex align-items-center" style="gap: 28px;">
-                <div class="dropdown">
-                    <p title="action" class="pointer pt-3" id="dropdownMenuButton-${task.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-ellipsis-h" style="transform: rotate(90deg); font-size: 20px; width: 20px; height: 20px;"></i>
+               <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-4" >
+                <div class="card border-light shadow-sm  h-100 " style="padding: 16px" >
+                    <!-- Task Header -->
+                            <div class="d-flex justify-content-between align-items-center"  >
+                               <span title="task title"
+                                    class="text-dark me-2"
+                                    style="font-size: 16px; font-weight: 400; line-height: 17.6px; letter-spacing: 0.5%; color: #000;">
+                                    
+                                    ${task?.title}
+                                </span>
 
-                    </p>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-${task.name}">
-                        <a class="dropdown-item edit-btn" data-task="${task.name}">Edit</a>
-                        <a class="dropdown-item delete-btn" data-task="${task.name}">Delete</a>
-                    </div>
-                </div>
-              <input type="checkbox" class="toggleCheckbox form-check-input mb-2" data-id="task1" style="width: 20px !important; height: 20px !important;">
-            </div>
-        </div>
+                                
+                                <div class="d-flex align-items-center " style="gap: 24px; " >
+                                    <div class="dropdown">
+                                        <p title="action" class="pointer pt-3" id="dropdownMenuButton-${task.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-h  mt-2" style="transform: rotate(90deg); font-size: 20px; width: 20px; height: 20px;"></i>
 
-        <!-- User Info -->
-        <div class="d-flex align-items-center text-muted small mb-3" style="gap: 6px;">
-            <div class="avatar bg-primary text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 24px; height: 24px;">A</div>
-          <span style="color: #6E7073; font-size: 12px; font-weight: 400; line-height: 13.2px;">admin@dhwani.com</span>
-        </div>
+                                        </p>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-${task.name}">
+                                            <a class="dropdown-item edit-btn" data-task="${task.name}">Edit</a>
+                                            <a class="dropdown-item delete-btn" data-task="${task.name}">Delete</a>
+                                        </div>
+                                    </div>
+                                <input type="checkbox" class="toggleCheckbox form-check-input" data-id="task1" style="width: 20px !important; height: 20px !important;">
+                                </div>
+                            </div>
 
-        <!-- Task Description -->
-         <p class="card-text text-muted" style="font-weight: 400; font-size: 14px; line-height: 15.4px;">
-         ${task.description ?? 'No description available'}
-        </p>
+                            <!-- User Info -->
+                            <div class="d-flex align-items-center text-muted small " style="gap: 6px;">
+                                <div class="avatar bg-primary text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 24px; height: 24px;">A</div>
+                            <span style="color: #6E7073; font-size: 12px; font-weight: 400; line-height: 13.2px;">admin@dhwani.com</span>
+                            </div>
+
+                         <p
+                            class="card-text text-muted"
+                            style="width: 200px; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%;
+                                    ">
+                            ${task.description ?? 'No description available'}
+                        </p>
 
 
-        <!-- Task Priority and Status -->
-        <div class="d-flex align-items-center justify-content-between my-3"  style="gap: 12px;">
-            <div class="d-flex" style="gap: 10px;">
-                <!-- Priority Dropdown -->
-                <div class="dropdown">
-                    <span title="Priority" id="dropPriority-${task.name}" class=" small dropdown-toggle badge bg-light pointer ${task?.priority === 'High' ? 'text-danger' : task?.priority === 'Medium' ? 'text-warning' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                        ${task?.priority ?? 'Low'}
+
+
+                            <!-- Task Priority and Status -->
+                            <div class="d-flex align-items-center justify-content-between "  style="gap: 12px;">
+                                <div class="d-flex" style="gap: 10px;">
+                                    <!-- Priority Dropdown -->
+                                    <div class="dropdown" style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
+                                        <span title="Priority" id="dropPriority-${task.name}" class=" small dropdown-toggle badge bg-light pointer ${task?.priority === 'High' ? 'text-danger' : task?.priority === 'Medium' ? 'text-warning' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                            ${task?.priority ?? 'Low'}
+                                        </span>
+                                        <div class="dropdown-menu" aria-labelledby="dropPriority-${task.name}">
+                                            <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="Low">Low</a>
+                                            <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="Medium">Medium</a>
+                                            <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="High">High</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Status Dropdown -->
+                                    <div class="dropdown" style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
+                                        <span title="status" id="dropStatus-${task.name}" class="small dropdown-toggle bg-light pointer badge ${task?.status === 'Canceled' ? 'text-danger' : task?.status === 'In Progress' ? 'text-warning' : task?.status === 'Done' ? 'text-success' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            ${task?.status ?? 'Status'}
+                                        </span>
+                                        <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
+                                            <a class="dropdown-item task-status" data-task="${task.name}" data-status="Backlog">Backlog</a>
+                                            <a class="dropdown-item task-status" data-task="${task.name}" data-status="Todo">Todo</a>
+                                            <a class="dropdown-item task-status" data-task="${task.name}" data-status="In Progress">In Progress</a>
+                                            <a class="dropdown-item task-status" data-task="${task.name}" data-status="Done">Done</a>
+                                            <a class="dropdown-item task-status" data-task="${task.name}" data-status="Canceled">Canceled</a>
+                                    </div>
+                                    </div>
+                                </div>
+
+                                <!-- Document Type -->
+                            <span class="ms-auto small" style="color: #6E7073; font-size: 12px;">
+                        Doc Type: <span style="color: #0E1116;">Project</span>
                     </span>
-                    <div class="dropdown-menu" aria-labelledby="dropPriority-${task.name}">
-                        <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="Low">Low</a>
-                        <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="Medium">Medium</a>
-                        <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="High">High</a>
+
+                            </div>
+
+                            <!-- Due Date -->
+                            <p class="small " style="color: #6E7073; padding-top: 16px;">
+                                Due Date: <span class="text-danger">${task.due_date ?? '--:--'}</span>
+                            </p>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Status Dropdown -->
-                <div class="dropdown">
-                    <span title="status" id="dropStatus-${task.name}" class="small dropdown-toggle bg-light pointer badge ${task?.status === 'Canceled' ? 'text-danger' : task?.status === 'In Progress' ? 'text-warning' : task?.status === 'Done' ? 'text-success' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        ${task?.status ?? 'Status'}
-                    </span>
-                    <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
-                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Backlog">Backlog</a>
-                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Todo">Todo</a>
-                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="In Progress">In Progress</a>
-                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Done">Done</a>
-                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Canceled">Canceled</a>
-                </div>
-                </div>
-            </div>
-
-            <!-- Document Type -->
-        <span class="ms-auto small" style="color: #6E7073; font-size: 12px;">
-    Doc Type: <span style="color: #0E1116;">Project</span>
-</span>
-
-        </div>
-
-        <!-- Due Date -->
-        <p class="small mb-0" style="color: #6E7073;">
-            Due Date: <span class="text-danger">${task.due_date ?? '--:--'}</span>
-        </p>
-    </div>
-</div>
 
                `
             }).join('')} `
@@ -188,16 +198,30 @@ const taskList = (task_list) => {
     </td>
     <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Reporting</td>
     <td>
-        <div style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
-            ${task.status}
-            <i class="fa fa-chevron-down" style="font-size: 8px; margin-left: 5px;"></i>
-        </div>
+          <div class="dropdown"style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
+                    <span title="status" id="dropStatus-${task.name}" class="small dropdown-toggle bg-light pointer badge ${task?.status === 'Canceled' ? 'text-danger' : task?.status === 'In Progress' ? 'text-warning' : task?.status === 'Done' ? 'text-success' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ${task?.status ?? 'Status'}
+                    </span>
+                    <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
+                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Backlog">Backlog</a>
+                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Todo">Todo</a>
+                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="In Progress">In Progress</a>
+                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Done">Done</a>
+                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Canceled">Canceled</a>
+                </div>
+                </div>
     </td>
     <td>
-        <div style="width: 90px; height: 26px; border-radius: 4px; background-color: #FFEDEC; color: #FA4032; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
-            ${task.priority}
-            <i class="fa fa-chevron-down" style="font-size: 8px; margin-left: 5px; color: #FA4032"></i>
-        </div>
+        <div class="dropdown" style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
+                    <span title="Priority" id="dropPriority-${task.name}" class=" small dropdown-toggle badge bg-light pointer ${task?.priority === 'High' ? 'text-danger' : task?.priority === 'Medium' ? 'text-warning' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                        ${task?.priority ?? 'Low'}
+                    </span>
+                    <div class="dropdown-menu" aria-labelledby="dropPriority-${task.name}">
+                        <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="Low">Low</a>
+                        <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="Medium">Medium</a>
+                        <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="High">High</a>
+                    </div>
+                </div>
     </td>
     <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">${task.start_date}</td>
     <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #FA4032;">${task.due_date}</td>
