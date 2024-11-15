@@ -117,7 +117,7 @@ const taskList = (task_list) => {
 
         <!-- Due Date -->
         <p class="small mb-0" style="color: #6E7073;">
-            Due Date: <span class="text-danger">${task.due_date}</span>
+            Due Date: <span class="text-danger">${task.due_date ?? '--:--'}</span>
         </p>
     </div>
 </div>
@@ -316,7 +316,7 @@ const getTaskList = async (_f, frm) => {
 </button>
         <!-- Card View Button -->
        <div class="dropdown">
-   <button class="btn btn-light dropdown-toggle" type="button" id="viewDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   <button class="btn btn-light" type="button" id="viewDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="fa fa-th-large" style="color: #6E7073;"></i> ${view}
     <i class="fa fa-sort" style="color: #6E7073;"></i>
   </button>
