@@ -1,0 +1,132 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-10 13:32:19.468642",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_2a3n",
+  "financial_year",
+  "total_project_expenditure",
+  "total",
+  "amended_from",
+  "column_break_hfhm",
+  "total_capital_expenditure",
+  "total_salary",
+  "column_break_unks",
+  "total_overhead",
+  "total_travel",
+  "section_break_xwpg",
+  "monthly_expenditure"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_2a3n",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Projected Annual Expenditure",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "FInancial Year",
+   "options": "Financial Year",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_project_expenditure",
+   "fieldtype": "Currency",
+   "label": "Total Project Expenditure",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "label": "Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_hfhm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_capital_expenditure",
+   "fieldtype": "Currency",
+   "label": "Total Capital Expenditure",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_salary",
+   "fieldtype": "Currency",
+   "label": "Total Salary",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_overhead",
+   "fieldtype": "Currency",
+   "label": "Total Overhead",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_travel",
+   "fieldtype": "Currency",
+   "label": "Total Travel",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_unks",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_xwpg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "monthly_expenditure",
+   "fieldtype": "Table",
+   "label": "Monthly Expenditure",
+   "options": "Monthly  Expenditure Child"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-11-10 13:50:38.675106",
+ "modified_by": "Administrator",
+ "module": "mGrant - Annual Expenditure",
+ "name": "Projected Annual Expenditure",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

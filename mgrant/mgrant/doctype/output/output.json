@@ -57,7 +57,7 @@
    "fieldtype": "Int",
    "label": "Achievement",
    "non_negative": 1,
-   "reqd": 1
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -67,7 +67,7 @@
    "link_fieldname": "output"
   }
  ],
- "modified": "2024-10-03 12:08:44.999504",
+ "modified": "2024-10-22 13:11:58.415959",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output",

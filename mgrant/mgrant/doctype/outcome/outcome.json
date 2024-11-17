@@ -49,7 +49,7 @@
    "fieldtype": "Int",
    "label": "Achievement",
    "non_negative": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "financial_year",
@@ -66,7 +66,7 @@
    "link_fieldname": "outcome"
   }
  ],
- "modified": "2024-10-03 12:10:55.325116",
+ "modified": "2024-10-22 13:11:42.544740",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcome",

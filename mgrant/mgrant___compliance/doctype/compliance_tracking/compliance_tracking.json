@@ -1,0 +1,94 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-09 18:52:01.712488",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "monthly_tab",
+  "financial_year",
+  "monthly_table",
+  "quarterly_tab",
+  "quarterly",
+  "annual_tab",
+  "quarterly_table",
+  "miscellaneous_tab",
+  "miscellaneous"
+ ],
+ "fields": [
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "label": "Financial Year",
+   "options": "Financial Year"
+  },
+  {
+   "fieldname": "monthly_tab",
+   "fieldtype": "Tab Break",
+   "label": "Monthly"
+  },
+  {
+   "fieldname": "monthly_table",
+   "fieldtype": "Table",
+   "label": "Monthly",
+   "options": "Compliance Tracking Child"
+  },
+  {
+   "fieldname": "annual_tab",
+   "fieldtype": "Tab Break",
+   "label": "Annual"
+  },
+  {
+   "fieldname": "quarterly_table",
+   "fieldtype": "Table",
+   "label": "Annual",
+   "options": "Compliance Tracking Child"
+  },
+  {
+   "fieldname": "quarterly_tab",
+   "fieldtype": "Tab Break",
+   "label": "Quarterly"
+  },
+  {
+   "fieldname": "quarterly",
+   "fieldtype": "Table",
+   "label": "Quarterly",
+   "options": "Compliance Tracking Child"
+  },
+  {
+   "fieldname": "miscellaneous_tab",
+   "fieldtype": "Tab Break",
+   "label": "Miscellaneous"
+  },
+  {
+   "fieldname": "miscellaneous",
+   "fieldtype": "Table",
+   "label": "Miscellaneous",
+   "options": "Compliance Tracking Child"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-09 19:02:13.142313",
+ "modified_by": "Administrator",
+ "module": "mGrant - Compliance",
+ "name": "Compliance Tracking",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

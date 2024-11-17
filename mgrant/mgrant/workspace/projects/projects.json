@@ -1,10 +1,6 @@
 {
- "charts": [
-  {
-   "chart_name": "Projects by Domain",
-   "label": "Projects by Domain"
-  }
- ],
+ "app": "mgrant",
+ "charts": [],
  "content": "[{\"id\":\"O_uq10uAsA\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Projects\",\"col\":4}},{\"id\":\"vwMy2dOQYL\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Projects\",\"col\":4}},{\"id\":\"OTTiSOAWZn\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"# of Projects with delayed reporting\",\"col\":4}},{\"id\":\"Bugpvz3Q38\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"aqlIAWaRs5\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Disbursement\",\"col\":4}},{\"id\":\"6bgM3dhoTq\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Allocation\",\"col\":4}},{\"id\":\"HJnwCVF7Mf\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Utilisation\",\"col\":4}},{\"id\":\"M-3lI35a4h\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"EKJ9HeCROK\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Target (Output)\",\"col\":4}},{\"id\":\"WWBDXX594r\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Achievement (Output)\",\"col\":4}},{\"id\":\"mfAqB66BE8\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"MAkLIn005h\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Target (Outcome)\",\"col\":4}},{\"id\":\"LR929fibV1\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Achievement (Outcome)\",\"col\":4}},{\"id\":\"nPELarLpd5\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Projects by Domain\",\"col\":12}}]",
  "creation": "2024-08-15 16:59:47.066540",
  "custom_blocks": [],
@@ -18,7 +14,7 @@
  "is_hidden": 0,
  "label": "Projects",
  "links": [],
- "modified": "2024-10-03 12:33:07.462882",
+ "modified": "2024-11-05 17:58:27.740338",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Projects",
@@ -79,7 +75,8 @@
    "role": "System Manager"
   }
  ],
- "sequence_id": 3.0,
+ "sequence_id": 1.0,
  "shortcuts": [],
- "title": "Projects"
+ "title": "Projects",
+ "type": "Workspace"
 }

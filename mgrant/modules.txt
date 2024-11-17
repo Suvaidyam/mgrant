@@ -2,6 +2,12 @@ Mgrant
 Programmes
 KPIs
 mGrant - Proposal
-mGrant - Organisation
 mGrant - Project
 mGrant - Master
+mGrant - NGO
+Mgrant - Integrations
+mGrant - Compliance
+mGrant - FDR
+mGrant - Training & L&D
+mGrant - Annual Expenditure
+mGrant - Trif Salary Tracker

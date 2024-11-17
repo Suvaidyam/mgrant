@@ -10,20 +10,21 @@ required_apps = ["Suvaidyam/sva_frappe","Suvaidyam/crm","Suvaidyam/frappe_theme"
 # ------------------
 
 fixtures = [
-    'KPIs',
-    'Units',
-    'KPI Type',
-    'Financial Year',
-    'Cost Centre',
-    'Programme',
-    'Themes',
-    'SDGs',
-    'Budget heads',
-    'Entity',
-    'Quarters',
-    'Role',
-    'Role Profile',
-    'Frontend Views'
+    # 'KPIs',
+    # 'Units',
+    # 'KPI Type',
+    # 'Financial Year',
+    # 'Cost Centre',
+    # 'Programme',
+    # 'Themes',
+    # 'SDGs',
+    # 'Budget heads',
+    # 'Entity',
+    # 'Quarters',
+    # 'Role',
+    # 'Role Profile',
+    # 'Frontend Views',
+    'Custom Field'
 ]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"
@@ -44,7 +45,11 @@ fixtures = [
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-doctype_js = {"Project" : ["public/js/gallery.js","public/js/task.js","public/js/cominucation.js"]}
+doctype_js = {
+    "Project" : ["public/js/gallery.js","public/js/task.js","public/js/cominucation.js"],
+    "Compliance" :[ "public/js/utils.js"],
+    "Compliance Annual Plan" :[ "public/js/utils.js"],
+    }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
