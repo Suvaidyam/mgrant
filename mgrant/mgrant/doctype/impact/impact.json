@@ -8,7 +8,11 @@
  "field_order": [
   "project",
   "impact_name",
-  "target"
+  "target",
+  "financial_year",
+  "achievement",
+  "column_break_syqs",
+  "column_break_fltl"
  ],
  "fields": [
   {
@@ -31,6 +35,28 @@
    "label": "Project",
    "options": "Project",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_syqs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_fltl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "label": "Financial Year",
+   "options": "Financial Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "achievement",
+   "fieldtype": "Int",
+   "label": "Achievement",
+   "non_negative": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -40,7 +66,7 @@
    "link_fieldname": "impact"
   }
  ],
- "modified": "2024-08-13 14:48:37.740317",
+ "modified": "2024-10-22 13:11:20.591529",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact",
@@ -56,6 +82,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin",
    "share": 1,
    "write": 1
   }

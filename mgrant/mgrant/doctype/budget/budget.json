@@ -8,7 +8,11 @@
  "field_order": [
   "project",
   "budget_name",
-  "allocation"
+  "financial_year",
+  "allocation",
+  "expense",
+  "column_break_jmgg",
+  "column_break_eaok"
  ],
  "fields": [
   {
@@ -20,7 +24,7 @@
   },
   {
    "fieldname": "allocation",
-   "fieldtype": "Int",
+   "fieldtype": "Currency",
    "label": "Allocation",
    "non_negative": 1,
    "reqd": 1
@@ -31,6 +35,27 @@
    "label": "Project",
    "options": "Project",
    "reqd": 1
+  },
+  {
+   "fieldname": "expense",
+   "fieldtype": "Currency",
+   "label": "Expense",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_jmgg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_eaok",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "label": "Financial Year",
+   "options": "Financial Year",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -40,7 +65,7 @@
    "link_fieldname": "budget"
   }
  ],
- "modified": "2024-08-13 14:49:11.271375",
+ "modified": "2024-10-03 13:09:05.252458",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget",
@@ -56,6 +81,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin",
    "share": 1,
    "write": 1
   }

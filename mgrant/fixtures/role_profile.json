@@ -1,0 +1,26 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-10-03 11:51:26.788061",
+  "name": "Admin",
+  "role_profile": "Admin",
+  "roles": [
+   {
+    "role": "Admin"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-11-12 12:31:39.426614",
+  "name": "NGO",
+  "role_profile": "NGO",
+  "roles": [
+   {
+    "role": "NGO"
+   }
+  ]
+ }
+]

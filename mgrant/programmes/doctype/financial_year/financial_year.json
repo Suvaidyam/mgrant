@@ -1,7 +1,8 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:financial_year_name",
+ "autoname": "format:FY-{financial_year_name}",
  "creation": "2024-09-26 16:12:36.326885",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -20,11 +21,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-26 16:13:11.324365",
+ "modified": "2024-10-30 11:23:57.166755",
  "modified_by": "Administrator",
  "module": "Programmes",
  "name": "Financial Year",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -36,6 +37,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin",
    "share": 1,
    "write": 1
   }

@@ -1,6 +1,7 @@
 {
+ "app": "mgrant",
  "charts": [],
- "content": "[{\"id\":\"pj_imGhC1a\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Projects</span>\",\"col\":12}},{\"id\":\"O_uq10uAsA\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Projects\",\"col\":4}},{\"id\":\"129Vw1ok16\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Modules</b></span>\",\"col\":12}},{\"id\":\"Kav2LuLp26\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Budget\",\"col\":3}},{\"id\":\"K6duJcd_Ob\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Output\",\"col\":3}},{\"id\":\"lGHhZkOtLb\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Outcome\",\"col\":3}},{\"id\":\"PMgTcylx6M\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Impact\",\"col\":3}}]",
+ "content": "[{\"id\":\"O_uq10uAsA\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Projects\",\"col\":4}},{\"id\":\"vwMy2dOQYL\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Projects\",\"col\":4}},{\"id\":\"OTTiSOAWZn\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"# of Projects with delayed reporting\",\"col\":4}},{\"id\":\"Bugpvz3Q38\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"aqlIAWaRs5\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Disbursement\",\"col\":4}},{\"id\":\"6bgM3dhoTq\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Allocation\",\"col\":4}},{\"id\":\"HJnwCVF7Mf\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Utilisation\",\"col\":4}},{\"id\":\"M-3lI35a4h\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"EKJ9HeCROK\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Target (Output)\",\"col\":4}},{\"id\":\"WWBDXX594r\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Achievement (Output)\",\"col\":4}},{\"id\":\"mfAqB66BE8\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"MAkLIn005h\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Target (Outcome)\",\"col\":4}},{\"id\":\"LR929fibV1\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Achievement (Outcome)\",\"col\":4}},{\"id\":\"nPELarLpd5\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Projects by Domain\",\"col\":12}}]",
  "creation": "2024-08-15 16:59:47.066540",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,55 +14,69 @@
  "is_hidden": 0,
  "label": "Projects",
  "links": [],
- "modified": "2024-09-26 20:01:59.719529",
+ "modified": "2024-11-05 17:58:27.740338",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Projects",
  "number_cards": [
   {
+   "label": "Active Projects",
+   "number_card_name": "Active Projects"
+  },
+  {
+   "label": "# of Projects with delayed reporting",
+   "number_card_name": "Projects"
+  },
+  {
+   "label": "Total Target (Output)",
+   "number_card_name": "Total Target"
+  },
+  {
+   "label": "Total Allocation",
+   "number_card_name": "Total Budget"
+  },
+  {
+   "label": "Total Utilisation",
+   "number_card_name": "Total Expense"
+  },
+  {
+   "label": "Total Disbursement",
+   "number_card_name": "Total Disbursement"
+  },
+  {
    "label": "Projects",
    "number_card_name": "Projects"
+  },
+  {
+   "label": "Total Achievement (Output)",
+   "number_card_name": "Total Achievement"
+  },
+  {
+   "label": "Total Target (Outcome)",
+   "number_card_name": "Total Target -1"
+  },
+  {
+   "label": "Total Achievement (Outcome)",
+   "number_card_name": "Total Achievement-1"
   }
  ],
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
  "quick_lists": [],
- "roles": [],
- "sequence_id": 3.0,
- "shortcuts": [
+ "roles": [
   {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Budget",
-   "link_to": "Budget",
-   "stats_filter": "[]",
-   "type": "DocType"
+   "role": "Administrator"
   },
   {
-   "color": "Green",
-   "doc_view": "List",
-   "label": "Output",
-   "link_to": "Output",
-   "stats_filter": "[]",
-   "type": "DocType"
+   "role": "Admin"
   },
   {
-   "color": "Red",
-   "doc_view": "List",
-   "label": "Outcome",
-   "link_to": "Outcome",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Yellow",
-   "doc_view": "List",
-   "label": "Impact",
-   "link_to": "Impact",
-   "stats_filter": "[]",
-   "type": "DocType"
+   "role": "System Manager"
   }
  ],
- "title": "Projects"
+ "sequence_id": 1.0,
+ "shortcuts": [],
+ "title": "Projects",
+ "type": "Workspace"
 }

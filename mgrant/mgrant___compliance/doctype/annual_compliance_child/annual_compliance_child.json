@@ -1,0 +1,45 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-09 18:31:38.713993",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "compliance",
+  "compliance_name",
+  "due_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "compliance",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Compliance",
+   "options": "Compliance"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "compliance_name",
+   "fieldtype": "Data",
+   "label": "Compliance Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-11-09 18:32:55.728409",
+ "modified_by": "Administrator",
+ "module": "mGrant - Compliance",
+ "name": "Annual Compliance Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

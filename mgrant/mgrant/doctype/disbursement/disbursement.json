@@ -1,0 +1,70 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:BT-{######}",
+ "creation": "2024-09-30 18:51:02.814953",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tranche",
+  "project",
+  "as_on_date",
+  "disbursement"
+ ],
+ "fields": [
+  {
+   "fetch_from": "budget.project",
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "as_on_date",
+   "fieldtype": "Date",
+   "label": "As on date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tranche",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tranche",
+   "options": "Tranches",
+   "reqd": 1
+  },
+  {
+   "fieldname": "disbursement",
+   "fieldtype": "Int",
+   "label": "Disbursement",
+   "non_negative": 1,
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-30 18:56:41.935031",
+ "modified_by": "Administrator",
+ "module": "Mgrant",
+ "name": "Disbursement",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,12 +1,15 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:theme_name",
+ "autoname": "format:THEME-{###}",
  "creation": "2024-09-26 15:50:36.041804",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "theme_name"
+  "theme_name",
+  "kpis_tab",
+  "kpis"
  ],
  "fields": [
   {
@@ -16,15 +19,33 @@
    "label": "Theme Name",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "default": "kpis",
+   "fieldname": "kpis_tab",
+   "fieldtype": "Tab Break",
+   "label": "KPIs"
+  },
+  {
+   "default": "KPIs",
+   "fieldname": "kpis",
+   "fieldtype": "HTML",
+   "options": "<div id=\"kpis\"><div>"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-09-26 15:51:07.409671",
+ "links": [
+  {
+   "hidden": 1,
+   "link_doctype": "KPIs",
+   "link_fieldname": "theme"
+  }
+ ],
+ "modified": "2024-11-11 12:31:29.037390",
  "modified_by": "Administrator",
  "module": "Programmes",
  "name": "Themes",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -36,6 +57,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin",
    "share": 1,
    "write": 1
   }

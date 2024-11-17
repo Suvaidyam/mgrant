@@ -7,7 +7,9 @@
  "field_order": [
   "project",
   "document_name",
-  "image"
+  "image",
+  "column_break_byog",
+  "column_break_jmwq"
  ],
  "fields": [
   {
@@ -30,11 +32,19 @@
    "fieldtype": "Attach Image",
    "label": "Image",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_byog",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_jmwq",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-15 17:51:23.255360",
+ "modified": "2024-10-02 15:59:03.537098",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Gallery",

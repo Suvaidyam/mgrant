@@ -9,7 +9,9 @@
   "outcome",
   "project",
   "as_on_date",
-  "achievement"
+  "achievement",
+  "column_break_mlym",
+  "column_break_lykz"
  ],
  "fields": [
   {
@@ -41,11 +43,19 @@
    "in_list_view": 1,
    "label": "Project",
    "options": "Project"
+  },
+  {
+   "fieldname": "column_break_mlym",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_lykz",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-13 14:39:34.537518",
+ "modified": "2024-10-03 12:13:49.497480",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcome Achievement",
@@ -61,6 +71,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin",
    "share": 1,
    "write": 1
   }

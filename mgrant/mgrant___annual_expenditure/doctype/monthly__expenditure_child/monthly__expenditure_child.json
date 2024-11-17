@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "creation": "2024-11-10 13:45:11.454982",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "month",
+  "project_expenditure",
+  "capital_expenditure",
+  "salary",
+  "overhead",
+  "travel",
+  "total"
+ ],
+ "fields": [
+  {
+   "fieldname": "month",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Month",
+   "options": "\nJanuary\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember"
+  },
+  {
+   "fieldname": "project_expenditure",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Project Expenditure",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "capital_expenditure",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Capital Expenditure",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "salary",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Salary",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "overhead",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Overhead",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "travel",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Travel",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total",
+   "non_negative": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-11-10 14:40:43.573521",
+ "modified_by": "Administrator",
+ "module": "mGrant - Annual Expenditure",
+ "name": "Monthly  Expenditure Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
