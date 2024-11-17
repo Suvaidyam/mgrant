@@ -68,7 +68,7 @@ const taskList = (task_list) => {
                                             <a class="dropdown-item delete-btn" data-task="${task.name}">Delete</a>
                                         </div>
                                     </div>
-                                <input type="checkbox" class="toggleCheckbox form-check-input" data-id="task1" style="width: 20px !important; height: 20px !important;">
+                                <input type="checkbox" class="toggleCheckbox form-check-input" data-id="${task.name}" style="width: 20px !important; height: 20px !important;">
                                 </div>
                             </div>
 
