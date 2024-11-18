@@ -1,3 +1,62 @@
+function timeAgo(timestamp) {
+    if (!timestamp) return '--:--';
+    const now = Date.now();
+    timestamp = new Date(timestamp);
+    const diff = now - timestamp;
+    const second = 1000;
+    const minute = second * 60;
+    const hour = minute * 60;
+    const day = hour * 24;
+    const week = day * 7;
+    const month = day * 30;
+    const year = day * 365;
+
+    // If the timestamp is less than 1 minute ago
+    if (diff < minute) {
+        const seconds = Math.round(diff / second);
+        return seconds === 1 ? "1 second ago" : `${seconds} seconds ago`;
+    }
+
+    // If the timestamp is less than 1 hour ago
+    if (diff < hour) {
+        const minutes = Math.round(diff / minute);
+        return minutes === 1 ? "1 minute ago" : `${minutes} minutes ago`;
+    }
+
+    // If the timestamp is less than 1 day ago
+    if (diff < day) {
+        const hours = Math.round(diff / hour);
+        return hours === 1 ? "1 hour ago" : `${hours} hours ago`;
+    }
+
+    // If the timestamp is less than 2 days ago
+    if (diff < day * 2) {
+        return "Yesterday";
+    }
+
+    // If the timestamp is less than 1 week ago
+    if (diff < week) {
+        const days = Math.round(diff / day);
+        return days === 1 ? "1 day ago" : `${days} days ago`;
+    }
+
+    // If the timestamp is less than 1 month ago
+    if (diff < month) {
+        const weeks = Math.round(diff / week);
+        return weeks === 1 ? "1 week ago" : `${weeks} weeks ago`;
+    }
+
+    // If the timestamp is less than 1 year ago
+    if (diff < year) {
+        const months = Math.round(diff / month);
+        return months === 1 ? "1 month ago" : `${months} months ago`;
+    }
+
+    // If the timestamp is more than 1 year ago
+    const years = Math.round(diff / year);
+    return years === 1 ? "1 year ago" : `${years} years ago`;
+}
+
 const style = document.createElement('style');
 style.innerHTML = `
  .timeline {
@@ -51,34 +110,98 @@ style.innerHTML = `
 document.head.appendChild(style);
 const cominucation = async (frm) => {
     let cominucation = await getDocList('Communication', [
-        ['Communication', 'reference_name', '=', frm.doc.name]
+        ['Communication', 'reference_name', '=', frm.doc.name],
+        ['Communication', 'in_reply_to', '=', '']
     ], ['*']);
-    if (cominucation.length == 0) {
+    if (cominucation.length > 0) {
         $('#email').html(
-            `<div class="container">
-                <div class="row d-flex justify-content-end align-items-center mb-3">
-                    <button class="btn btn-primary btn-sm" id="createCominucation">
-                        <svg class="es-icon es-line  icon-xs" style="" aria-hidden="true">
-                            <use class="" href="#es-line-add"></use>
-                        </svg> New Email
-                    </button>
-                </div>
-             <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
-        <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
-        <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
-    </svg>
-    <h4 style="font-weight: 500; font-size: 33px; line-height: 36.3px; letter-spacing: 0.25%;">Enable Email Viewing on Portal</h4>
-    <p style="font-weight: 400; color: #6E7073; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; text-align: center;">
-        Please adjust your email app settings to allow external access, so you can view your emails
-    </p>
-    <span style="font-weight: 400; color: #6E7073; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; text-align: center;">
-        directly within the portal.
-    </span>
-</div>
+            `
+             <div class="container" style="display: flex; height: 100%;overflow:auto;">
+        <div
+            style="width: 335px; background-color: rgb(255, 255, 255); display: flex; justify-content: flex-start; flex-direction: column; align-items: start; border: solid 1px #D9D9D9; gap: 16px;">
+            <!-- tab section -->
+            <div
+                style="display: flex; width: 334px; height: 40px; border: 1px solid #D9D9D9; gap: 12px; padding-left: 20px;">
+                <div
+                    style="display: flex; align-items: center; width: 55px; height: 33px; border-bottom: 1px solid #E55219; gap: 0px; padding: 6px 0 1px 0;">
+                    <span style="margin-right: 4px;">📧</span> <!-- Email icon -->
+                    <span
+                        style="font-weight: 400; font-size: 12px; line-height: 13.2px; letter-spacing: 0.4%; color: #0E1116;">All</span>
 
-               
+                </div>
+
+                <div
+                    style="display: flex; align-items: center; width: 83px; height: 33px; gap: 2px; padding: 6px 0 1px 0;">
+                    <span style="margin-right: 4px;">📧</span> <!-- Email icon -->
+                    <span
+                        style="font-weight: 400; font-size: 12px; line-height: 13.2px; letter-spacing: 0.4%; color: #6E7073;">Unread</span>
+
+                </div>
+                <div
+                    style="display: flex; align-items: center; width: 55px; height: 33px; gap: 2px; padding: 6px 0 1px 0;">
+                    <span style="margin-right: 4px;">📧</span> <!-- Email icon -->
+                    <span
+                        style="font-weight: 400; font-size: 12px; line-height: 13.2px; letter-spacing: 0.4%; color: #6E7073;">Read</span>
+
+                </div>
             </div>
+            <!--tab section close-->
+
+            <!-- Today Section Open -->
+            <div style="width: 335px; margin: 0 auto; border-radius: 8px;">
+                <h3
+                    style="margin: 0 0 8px; padding-left: 20px; color: #6E7073; font-size: 10px; font-weight: 500; line-height: 11px; letter-spacing: 1.5%;">
+                    TODAY</h3>
+                ${cominucation.map((item) => {
+                return `
+                        <div class="emailListCard" emailId="${item.name}" style="max-height: 120px;height: 120px; display: flex;  border-bottom: 1px solid #e5e5e5; padding: 10px 20px; overflow: hidden;">
+                        <!-- Avatar -->
+                        <div class="avatar"
+                            style="width: 24px; height: 24px; border-radius:  50%; background-color: #3f51b5; color: #fff; display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: 400 ; line-height: 12.2px; ; text-align: center;">
+                            ${item?.sender[0]?.toUpperCase()}
+                        </div>
+                        <div style="margin-left: 10px; flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; ">
+                                <h4
+                                    style="margin: 0; font-size: 12px; color: #6E7073; font-weight: 400; line-height: 12px; letter-spacing: 0.4%;">
+                ${item?.sender_full_name}</h4>
+                                <span
+                                    style="font-size: 10px; color: #0E1116; font-weight: 400; line-height: 11px; padding-right: 19px;">${timeAgo(item?.communication_date)}</span>
+                            </div>
+                            <p
+                                style="margin: 8px 0 0; font-size: 14px; color: #0E1116; font-weight: 500; line-height: 15px; letter-spacing: 0.25%;">
+                                ${item?.subject}
+                            </p>
+                            <p
+                                class="text-truncate"
+                                style="font-size: 10px; font-weight: 400; line-height: 11px; color: #6E7073; margin: 0; padding-top: 4px;">
+                                ${item?.content}
+                            </p>
+    
+                            <p style="margin: 8px 0; font-size: 12px; color: #888;">
+                                <span style="font-size: 12px; color: #6E7073; height: 12px; width: 12px;">📎</span> <span
+                                    style="font-size: 10px; font-weight: 400; line-height: 11px; color: #0E1116;"> 0
+                                    Attachment</span>
+                            </p>
+                        </div>
+                    </div>`
+            }).join('')
+            }
+            </div>
+        </div>
+        <div id="emailBodyContent" style="flex-grow: 1; background-color: white; display: flex;width="100% !important;">
+            <div style="flex-grow: 1; background-color: white; display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 0px;">
+                <h3 style="margin: 0px; margin-top: 12px; font-size: 19px; font-weight: 500; line-height: 20.9px; letter-spacing: 0.15%; color: #0E1116; text-align: center;">
+                    Select an item to read
+                </h3>
+
+                <p style="margin: 0px; margin-top: 6px; color: #808080; font-size: 12px; line-height: 13.2px; letter-spacing: 0.4%; text-align: center;">
+                    Nothing is selected
+                </p>
+            </div>
+        </div>
+    </div>
+
             
             `
         );
@@ -86,126 +209,61 @@ const cominucation = async (frm) => {
     else {
         $('#email').html(
             `<div class="container" style="max-width:700px">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h6></h6>
-            <button class="btn btn-primary btn-sm" id="createCominucation">
-                <i class="bi bi-plus
-                "></i> New Email
-            </button>
-        </div>
-        <div class="container my-4">
-            <div class="timeline">
-                <div class="timeline-dot"></div>
-                ${cominucation.map((item) => {
-                return `
-                    <div class="timeline-icon my-2">
-                    <i class="fa fa-envelope"></i>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4>No Emails Found</h4>
                 </div>
-                <div class="ml-4 p-3 card">
-                    <div class="">
-                        <span class="sender">Administrator<span
-                                class="email-address">&lt;${item?.sender}&gt;</span></span>
-                        <span class="time">${item?.communication_date ?? '--'}</span>
-                    </div>
-                    <div class="email-body">
-                        <div class="">
-                            <strong>To:</strong>${item?.recipients ?? '--'}
-                            <br>
-                            ${item?.subject ?? '--'}
-                        </div>
-                        <div class="border-top">
-                            <span class="dropdown-toggle"  data-toggle="collapse" data-target="#collapseExample-${item?.name}" aria-expanded="false" aria-controls="collapseExample-${item?.name}"></span>
-                            <div class="collapse" id="collapseExample-${item?.name}">
-                                ${item?.content ?? '--'}
+            </div>`
+        );
+    }
+    $('.emailListCard').on('click', async (e) => {
+        let docName = e.currentTarget.getAttribute('emailId');
+        let replies = await getDocList('Communication', [
+            ['Communication', 'in_reply_to', '=', docName]
+        ], ['subject','content','communication_date']);
+        let emailDoc = cominucation.find(item => item.name === docName);
+        const emails = [...replies, emailDoc];
+        let emailBody = `
+            <div id="emailContent" style="width:100%;">
+                <div id="header">
+                    <div
+                        class="d-flex justify-content-between align-items-center"
+                        style="border-bottom: 1px solid #ddd; padding: 10px 15px; font-family: Arial, sans-serif; background-color: #f8f9fa;"
+                    >
+                        <!-- Left Section -->
+                        <div class="d-flex align-items-center">
+                            <div
+                                class="avatar"
+                                style="width: 40px; height: 40px; background-color: #d9b2d9; color: #fff; font-weight: bold; font-size: 20px; text-align: center; line-height: 40px; border-radius: 50%; margin-right: 10px;"
+                            >
+                                ${emailDoc?.sender[0]?.toUpperCase()}
+                            </div>
+                            <div>
+                                <div style="font-weight: bold;">
+                                ${emailDoc?.sender_full_name} &lt;${emailDoc?.sender}&gt;
+                                </div>
+                                <div>To: ${emailDoc?.recipients}</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                    `
-            }).join('')
-            }
-                <!--  -->
+                <div id="body" style="padding: 15px;">
+                    ${emails.map((email) => {
+                        return `<div class="d-flex justify-content-between align-items-center">
+                                    <h4>Subject : ${email?.subject}</h4>
+                                    <div class="d-flex align-items-center">
+                                        <span style="font-size: 12px; color: #6c757d; margin-right: 10px;">
+                                            ${timeAgo(email?.communication_date)}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div  style="border-bottom:1px solid gray;">${email?.content}</div>`
+                    }).join('\n')}
+                </div>
             </div>
-        </div>
-    </div>`
-        );
-    }
+        `;
+        document.getElementById('emailBodyContent').innerHTML = emailBody;
+    });
     $('#createCominucation').on('click', () => {
-        console.log('first')
-        // let cominucation_form = new frappe.ui.Dialog({
-        //     title: 'New Cominucation',
-        //     fields: [
-        //         {
-        //             label: 'Subject',
-        //             fieldname: 'subject',
-        //             fieldtype: 'Data',
-        //             reqd: 1
-        //         },
-        //         {
-        //             label: 'Communication Type',
-        //             fieldname: 'communication_type',
-        //             fieldtype: 'Select',
-        //             options: ['Communication', 'Comment'],
-        //             reqd: 1
-        //         },
-        //         {
-        //             label: 'Communication Date',
-        //             fieldname: 'communication_date',
-        //             fieldtype: 'Date',
-        //             reqd: 1
-        //         },
-        //         {
-        //             label: 'Communication Medium',
-        //             fieldname: 'communication_medium',
-        //             fieldtype: 'Select',
-        //             options: ['Email', 'Phone', 'SMS'],
-        //             reqd: 1
-        //         },
-        //         {
-        //             label: 'Sender',
-        //             fieldname: 'sender',
-        //             fieldtype: 'Data',
-        //             reqd: 1
-        //         },
-        //         {
-        //             label: 'Recipient',
-        //             fieldname: 'recipient',
-        //             fieldtype: 'Data',
-        //             reqd: 1
-        //         },
-        //         {
-        //             label: 'Communication Status',
-        //             fieldname: 'communication_status',
-        //             fieldtype: 'Select',
-        //             options: ['Open', 'Closed'],
-        //             reqd: 1
-        //         },
-        //         {
-        //             label: 'Content',
-        //             fieldname: 'content',
-        //             fieldtype: 'Text',
-        //             reqd: 1
-        //         }
-        //     ],
-        //     primary_action_label: 'Create',
-        //     primary_action(values) {
-        //         frappe.call({
-        //             method: 'mgrant.mgrant.doctype.communication.communication.create_cominucation',
-        //             args: {
-        //                 doctype: frm.doctype,
-        //                 docname: frm.doc.name,
-        //                 values
-        //             },
-        //             callback: function (r) {
-        //                 if (r.message) {
-        //                     frappe.show_alert({ message: __(`Cominucation created successfully`), indicator: 'green' })
-        //                     cominucation_form.hide();
-        //                     cominucation(frm);
-        //                 }
-        //             }
-        //         });
-        //     }
-        // });
-        // cominucation_form.show();
+        cur_frm.email_doc();
     });
 }

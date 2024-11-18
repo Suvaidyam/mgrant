@@ -46,7 +46,7 @@ const taskList = (task_list) => {
                 return `
                 
                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-4" >
-                <div class="card border-light shadow-sm  h-100 " style="padding: 16px" >
+                <div class="card border-light shadow-sm" style="padding: 16px; " >
                     <!-- Task Header -->
                             <div class="d-flex justify-content-between align-items-center"  >
                                <span title="task title"
@@ -75,18 +75,15 @@ const taskList = (task_list) => {
                             <!-- User Info -->
                             <div class="d-flex align-items-center text-muted small " style="gap: 6px;">
                                 <div class="avatar bg-primary text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 24px; height: 24px;">A</div>
-                            <span style="color: #6E7073; font-size: 12px; font-weight: 400; line-height: 13.2px;">admin@dhwani.com</span>
+                            <span style="color: #6E7073; font-size: 12px; font-weight: 400; line-height: 13.2px;">${task.assigned_to ?? 'No assigned available'}</span>
                             </div>
 
-                         <p
-                            class="card-text text-muted"
-                            style="width: 200px; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%;
-                                    ">
-                            ${task.description ?? 'No description available'}
-                        </p>
-
-
-
+                     <p
+                        class="card-text text-muted"
+                        style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%;
+                                overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 108px;">
+                        ${task.description ?? 'No description available'}
+                    </p>
 
                             <!-- Task Priority and Status -->
                             <div class="d-flex align-items-center justify-content-between "  style="gap: 12px;">
@@ -120,7 +117,7 @@ const taskList = (task_list) => {
 
                                 <!-- Document Type -->
                             <span class="ms-auto small" style="color: #6E7073; font-size: 12px;">
-                        Doc Type: <span style="color: #0E1116;">Project</span>
+                        ${task.reference_doctype}: <span style="color: #0E1116;">${task.reference_docname ?? 'No available'}</span>
                     </span>
 
                             </div>
@@ -154,19 +151,16 @@ const taskList = (task_list) => {
             // Show or hide the delete button based on the checkbox state
             const anyChecked = selectedIds.length > 0;
             if (anyChecked) {
-                $('.deleteButton').show();  // Show delete button if any checkbox is checked
+                document.getElementById('bulkDeleteButton').style.display = 'block';
             } else {
-                $('.deleteButton').hide();  // Hide delete button if no checkboxes are checked
+                document.getElementById('bulkDeleteButton').style.display = 'none';
             }
-
-            // For demonstration, log the array of selected IDs
-            console.log(selectedIds);
         });
 
         // List view
         $('#task-list').html(
             `
-                <div class="table-responsive">
+<div class="table-responsive">
     <table class="table table-bordered">
         <thead class="thead-light">
             <tr>
@@ -185,18 +179,18 @@ const taskList = (task_list) => {
         <tbody>
             ${task_list.map(task => {
                 return `
-<tr>
-    <td><input type="checkbox" class="taskCheckbox"></td>
-    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073; text-align: center;">${task.title}</td>
+<tr >
+    <td><input type="checkbox" class="taskCheckbox" ></td>
+    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073; display: flex; justify-content: center; align-items: center; ">${task.title}</td>
     <td>
         <div class="d-flex align-items-center" style="gap: 4px">
             <div class="avatar bg-primary text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 20px; height: 20px;">A</div>
             <span style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">
-                admin@dhwani.com
+                ${task.assigned_to ?? 'No assigned available'}
             </span>
         </div>
     </td>
-    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Reporting</td>
+    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;"> ${task.reference_doctype ?? 'NO available'}</td>
     <td>
           <div class="dropdown"style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
                     <span title="status" id="dropStatus-${task.name}" class="small dropdown-toggle bg-light pointer badge ${task?.status === 'Canceled' ? 'text-danger' : task?.status === 'In Progress' ? 'text-warning' : task?.status === 'Done' ? 'text-success' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -225,9 +219,18 @@ const taskList = (task_list) => {
     </td>
     <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">${task.start_date}</td>
     <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #FA4032;">${task.due_date}</td>
-    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Project</td>
-    <td class="text-center align-middle">
-        <i class="fa fa-ellipsis-h" style="transform: rotate(90deg); font-size: 20px; width: 20px; height: 20px; color: #0E1116"></i>
+    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">${task.reference_docname ?? 'No available'}</td>
+    <td class="">
+      <div class="dropdown">
+            <p title="action" class="pointer " id="dropdownMenuButton-${task.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-ellipsis-h " style="transform: rotate(90deg); font-size: 20px; width: 20px; height: 20px;"></i>
+
+            </p>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-${task.name}">
+                <a class="dropdown-item edit-btn" data-task="${task.name}">Edit</a>
+                <a class="dropdown-item delete-btn" data-task="${task.name}">Delete</a>
+            </div>
+        </div>
     </td>
 </tr>
                 `;
@@ -238,6 +241,16 @@ const taskList = (task_list) => {
 
               `
         );
+
+        $('#bulkDeleteButton').on('click', function () {
+            frappe.confirm('Are you sure you want to delete the selected tasks?', () => {
+                selectedIds.forEach(async taskName => {
+                    await frappe.db.delete_doc('CRM Task', taskName)
+                });
+                taskList(task_list.filter(task => !selectedIds.includes(task.name)));
+                frappe.show_alert({ message: __(`Tasks deleted successfully`), indicator: 'green' });
+            });
+        });
 
     }
 
@@ -287,8 +300,6 @@ const getTaskList = async (_f, frm) => {
 
             <div class="form-check">
              <input class="form-check-input" type="radio" name="priority" id="priorityHigh" value="High">
-
-
                 <span style="display: inline-block; width: 8px; height: 8px; background-color: red; border-radius: 50%; margin-bottom: 2px;"></span>
                 <label class="form-check-label" for="priorityHigh">High</label>
             </div>
@@ -331,11 +342,10 @@ const getTaskList = async (_f, frm) => {
         </li>
             </div>
         </div>
-
     <!-- Action Buttons Group -->
         <div class="d-flex flex-wrap mt-2 mt-md-0" style="gap: 16px">
         <!-- Delete Button -->
- <button class="deleteButton btn btn-light mx-8" style="color: #6E7073; display: none;">
+ <button id="bulkDeleteButton" class="btn btn-light mx-8" style="color: #6E7073; display: none;">
     <i class="fa fa-trash" style="color: #6E7073;"></i>
 </button>
         <!-- Card View Button -->
