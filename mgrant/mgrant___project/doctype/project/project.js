@@ -165,14 +165,12 @@ frappe.ui.form.on("Project", {
         frm.timeline.doc_info.versions.forEach(item => {
             const changes = JSON.parse(item.data).changed.map(change => `
         <tr>
-            <td>${change[0]}</td>
+            <td>${change[0].split("_").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}</td>
             <td style="background-color:rgb(253,241,241)">${change[1]}</td>
             <td style="background-color:rgb(229,245,232)">${change[2]}</td>
         </tr>
     `).join('');
             let creationDate = new Date(item.creation);
-            // let formattedTime = `${creationDate.getHours().toString().padStart(2, '0')}:${creationDate.getMinutes().toString().padStart(2, '0')}:${creationDate.getSeconds().toString().padStart(2, '0')}`;
-            // let formattedDate = `${creationDate.getDate().toString().padStart(2, '0')}/${(creationDate.getMonth() + 1).toString().padStart(2, '0')}/${creationDate.getFullYear().toString().slice(-2)}`;
             timelineHTML += `
         <div class="card mb-3">
             <div class="card-header"><div>${item.owner}</div> <div><p><strong>Creation:</strong> ${creationDate.toLocaleDateString('en-GB')} ${creationDate.toLocaleTimeString()}</p></div></div>
