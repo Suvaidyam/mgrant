@@ -55,30 +55,272 @@ const cominucation = async (frm) => {
     ], ['*']);
     if (cominucation.length == 0) {
         $('#email').html(
-            `<div class="container">
-                <div class="row d-flex justify-content-end align-items-center mb-3">
-                    <button class="btn btn-primary btn-sm" id="createCominucation">
-                        <svg class="es-icon es-line  icon-xs" style="" aria-hidden="true">
-                            <use class="" href="#es-line-add"></use>
-                        </svg> New Email
-                    </button>
-                </div>
-             <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
-        <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
-        <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
-    </svg>
-    <h4 style="font-weight: 500; font-size: 33px; line-height: 36.3px; letter-spacing: 0.25%;">Enable Email Viewing on Portal</h4>
-    <p style="font-weight: 400; color: #6E7073; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; text-align: center;">
-        Please adjust your email app settings to allow external access, so you can view your emails
-    </p>
-    <span style="font-weight: 400; color: #6E7073; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; text-align: center;">
-        directly within the portal.
-    </span>
-</div>
+            `
 
-               
+             <div class="container" style="display: flex; height: 100%">
+        <div
+            style="width: 335px; background-color: rgb(255, 255, 255); display: flex; justify-content: flex-start; flex-direction: column; align-items: start; border: solid 1px #D9D9D9; gap: 16px;">
+            <!-- tab section -->
+            <div
+                style="display: flex; width: 334px; height: 40px; border: 1px solid #D9D9D9; gap: 12px; padding-left: 20px;">
+                <div
+                    style="display: flex; align-items: center; width: 55px; height: 33px; border-bottom: 1px solid #E55219; gap: 0px; padding: 6px 0 1px 0;">
+                    <span style="margin-right: 4px;">📧</span> <!-- Email icon -->
+                    <span
+                        style="font-weight: 400; font-size: 12px; line-height: 13.2px; letter-spacing: 0.4%; color: #0E1116;">All</span>
+
+                </div>
+
+                <div
+                    style="display: flex; align-items: center; width: 83px; height: 33px; gap: 2px; padding: 6px 0 1px 0;">
+                    <span style="margin-right: 4px;">📧</span> <!-- Email icon -->
+                    <span
+                        style="font-weight: 400; font-size: 12px; line-height: 13.2px; letter-spacing: 0.4%; color: #6E7073;">Unread</span>
+
+                </div>
+                <div
+                    style="display: flex; align-items: center; width: 55px; height: 33px; gap: 2px; padding: 6px 0 1px 0;">
+                    <span style="margin-right: 4px;">📧</span> <!-- Email icon -->
+                    <span
+                        style="font-weight: 400; font-size: 12px; line-height: 13.2px; letter-spacing: 0.4%; color: #6E7073;">Read</span>
+
+                </div>
             </div>
+            <!--tab section close-->
+
+            <!-- Today Section Open -->
+            <div style="width: 335px; margin: 0 auto; background: #ffffff;  border-radius: 8px;">
+                <h3
+                    style="margin: 0 0 8px; padding-left: 20px; color: #6E7073; font-size: 10px; font-weight: 500; line-height: 11px; letter-spacing: 1.5%;">
+                    TODAY</h3>
+
+                <!-- Notification 1 -->
+                <div style="height: 110px; display: flex;  border-bottom: 1px solid #e5e5e5; position: relative; padding-left: 20px; margin-top: 22px;"
+                    onmouseover="this.querySelector('.avatar').style.display='none'; this.querySelector('.checkbox').style.display='flex';"
+                    onmouseout="this.querySelector('.avatar').style.display='flex'; this.querySelector('.checkbox').style.display='none';">
+                    <!-- Avatar -->
+                    <div class="avatar"
+                        style=" width: 24px; height: 24px; border-radius:  50%; background-color: #3f51b5; color: #fff; display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: 400 ; line-height: 12.2px; ; text-align: center;">
+                        A
+                    </div>
+                    <!-- Checkbox -->
+                    <input type="checkbox" class="checkbox"
+                        style="display: none; width: 20px !important;  height: 20px !important; cursor: pointer;">
+                    <div style="margin-left: 10px; flex: 1;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; ">
+                            <h4
+                                style="margin: 0; font-size: 12px; color: #6E7073; font-weight: 400; line-height: 12px; letter-spacing: 0.4%;">
+                                Aakash Sharma</h4>
+                            <span
+                                style="font-size: 10px; color: #0E1116; font-weight: 400; line-height: 11px; padding-right: 19px;">1
+                                hr
+                                ago</span>
+                        </div>
+                        <p
+                            style="margin: 8px 0 0; font-size: 14px; color: #0E1116; font-weight: 400; line-height: 15px; letter-spacing: 0.25%;">
+                            Lorem ipsum dolor sit amet, consec...
+                        </p>
+                        <p
+                            style="font-size: 10px; font-weight: 400; line-height: 11px; color: #6E7073; margin: 0; padding-top: 4px;">
+                            Duis aute irure dolor in reprehenderit in voluptate velit
+                            esse cillum dolore eu fugiat nulla pariatur...
+                        </p>
+
+                        <p style="margin: 8px 0; font-size: 12px; color: #888;">
+                            <span style="font-size: 12px; color: #6E7073; height: 12px; width: 12px;">📎</span> <span
+                                style="font-size: 10px; font-weight: 400; line-height: 11px; color: #0E1116;"> 1
+                                Attachment</span>
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- Notification 2 -->
+                <div style="height: 79px; display: flex;  border-bottom: 1px solid #e5e5e5; padding: 0 20px; position: relative; padding-top: 14px;"
+                    onmouseover="this.querySelector('.avatar').style.display='none'; this.querySelector('.checkbox').style.display='flex';"
+                    onmouseout="this.querySelector('.avatar').style.display='flex'; this.querySelector('.checkbox').style.display='none';">
+                    <!-- Avatar -->
+                    <div class="avatar"
+                        style="margin-bottom: 30px; width: 24px; height: 24px; border-radius: 50%; background-color: #9c27b0; color: #fff; display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: 400; text-align: center;">
+                        A
+                    </div>
+                    <!-- Checkbox -->
+                    <input type="checkbox" class="checkbox"
+                        style="display: none; width: 20px; height: 20px; cursor: pointer; margin-bottom: 30px;">
+                    <div style="margin-left: 10px; flex: 1;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h4 style="margin: 0; font-size: 12px; color: #333; font-weight: 400;">Aayush Kumar</h4>
+                            <span style="font-size: 10px; color: #0E1116; font-weight: 400;">1 hr ago</span>
+                        </div>
+                        <p style="margin: 8px 0 0; font-size: 14px; color: #0E1116; font-weight: 400;">Lorem ipsum dolor
+                            sit amet,
+                            consec...</p>
+                        <p style="margin: 4px 0 0; font-size: 10px; color: #6E7073; font-weight: 400;">Duis aute irure
+                            dolor in
+                            reprehenderit in voluptate vel...</p>
+                    </div>
+                </div>
+
+
+
+                <!-- Notification 3 -->
+                <div style="height: 110px; display: flex; border-bottom: 1px solid #e5e5e5; position: relative; padding-left: 20px; padding-top: 14px;"
+                    onmouseover="this.querySelector('.avatar').style.display='none'; this.querySelector('.checkbox').style.display='flex';"
+                    onmouseout="this.querySelector('.avatar').style.display='flex'; this.querySelector('.checkbox').style.display='none';">
+                    <!-- Avatar -->
+                    <div class="avatar"
+                        style="width: 24px; height: 24px; border-radius: 50%; background-color: #ffc107; color: #fff; display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: 400 ; line-height: 12.2px; ; text-align: center;">
+                        B
+                    </div>
+                    <!-- Checkbox -->
+                    <input type="checkbox" class="checkbox"
+                        style="display: none; width: 20px; height: 20px; cursor: pointer;">
+                    <div style="margin-left: 10px; flex: 1;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h4
+                                style="margin: 0; font-size: 12px; color: #6E7073; font-weight: 400; line-height: 12px; letter-spacing: 0.4%; color: #333;">
+                                Binod Yadav</h4>
+                            <span
+                                style="font-size: 10px; color: #0E1116; font-weight: 400; line-height: 11px; padding-right: 19px;">2
+                                hr ago</span>
+                        </div>
+                        <p
+                            style="margin: 8px 0 0; font-size: 14px; color: #0E1116; font-weight: 400; line-height: 15px; letter-spacing: 0.25%;">
+                            Lorem ipsum dolor sit amet, consec...
+                        </p>
+                        <p
+                            style="font-size: 10px; font-weight: 400; line-height: 11px; color: #6E7073; margin: 0; padding-top: 4px;">
+                            Duis aute irure dolor in reprehenderit in voluptate velit
+                            esse cillum dolore eu fugiat nulla pariatur...
+                        </p>
+
+                        <p style="margin: 8px 0; font-size: 12px; color: #888;">
+                            <span style="font-size: 12px; color: #6E7073; height: 12px; width: 12px;">📎</span> <span
+                                style="font-size: 10px; font-weight: 400; line-height: 11px; color: #0E1116;"> 1
+                                Attachment</span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Today Sectioin Close -->
+            <!-- This Week Open -->
+            <div style="width: 335px; margin: 0 auto; background: #ffffff;  border-radius: 8px;">
+                <h3
+                    style=" margin: 0 0 15px; padding-left: 20px; color: #6E7073; font-size: 10px; font-weight: 500; line-height: 11px; letter-spacing: 1.5%;">
+                    THIS WEEK</h3>
+
+                <!-- Notification 1 -->
+                <div
+                    style="height: 110px; display: flex;  border-bottom: 1px solid #e5e5e5; padding-left: 20px; margin-top: 22px;">
+                    <div
+                        style="width: 24px; height: 24px; border-radius: 50%; background-color: #3f51b5; color: #fff; display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: 400 ; line-height: 12.2px; ; text-align: center;">
+                        A
+                    </div>
+                    <div style="margin-left: 10px; flex: 1;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h4
+                                style="margin: 0; font-size: 12px; color: #6E7073; font-weight: 400; line-height: 12px; letter-spacing: 0.4%; color: #333;">
+                                Aakash Sharma</h4>
+                            <span
+                                style="font-size: 10px; color: #0E1116; font-weight: 400; line-height: 11px; padding-right: 19px;">07/11/2024</span>
+                        </div>
+                        <p
+                            style="margin: 8px 0 0; font-size: 14px; color: #0E1116; font-weight: 400; line-height: 15px; letter-spacing: 0.25%;">
+                            Lorem ipsum dolor sit amet, consec...
+                        </p>
+                        <p
+                            style="font-size: 10px; font-weight: 400; line-height: 11px; color: #6E7073; margin: 0; padding-top: 4px;">
+                            Duis aute irure dolor in reprehenderit in voluptate velit
+                            esse cillum dolore eu fugiat nulla pariatur...
+                        </p>
+                        <p style="margin: 4px 0; font-size: 12px; color: #888;">
+                            <span style="font-size: 12px; color: #6E7073; height: 12px; width: 12px;">📎</span> <span
+                                style="font-size: 10px; font-weight: 400; line-height: 11px; color: #0E1116;"> 1
+                                Attachment</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Notification 2 -->
+                <div
+                    style="height: 79px; display: flex;  border-bottom: 1px solid #e5e5e5; padding-left: 20px; padding-top: 14px;">
+                    <div
+                        style="width: 24px; height: 24px; border-radius: 50%; background-color: #9A19E5; color: #fff; display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: 400 ; line-height: 12.2px; ; text-align: center;">
+                        A
+                    </div>
+                    <div style="margin-left: 10px; flex: 1;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h4
+                                style="margin: 0; font-size: 12px; color: #6E7073; font-weight: 400; line-height: 12px; letter-spacing: 0.4%; color: #333;">
+                                Aayush Kumar</h4>
+                            <span
+                                style="font-size: 10px; color: #0E1116; font-weight: 400; line-height: 11px; padding-right: 19px;">09/11/2024</span>
+                        </div>
+                        <p
+                            style="margin: 8px 0 0; font-size: 14px; color: #0E1116; font-weight: 400; line-height: 15px; letter-spacing: 0.25%;">
+                            Lorem ipsum dolor sit amet, consec...
+                        </p>
+                        <p
+                            style="font-size: 10px; font-weight: 400; line-height: 11px; color: #6E7073; margin: 0; padding-top: 4px;">
+                            Duis aute irure dolor in reprehenderit in voluptate vel...
+                        </p>
+
+                    </div>
+                </div>
+
+                <!-- Notification 3 -->
+                <div
+                    style="height: 110px; display: flex;  border-bottom: 1px solid #D9D9D9 ; padding-left: 20px; padding-top: 14px;">
+                    <div
+                        style="width: 24px; height: 24px; border-radius: 50%; background-color: #E5C619; color: #fff; display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: 400 ; line-height: 12.2px; ; text-align: center;">
+                        B
+                    </div>
+                    <div style="margin-left: 10px; flex: 1;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h4
+                                style="margin: 0; font-size: 12px; color: #6E7073; font-weight: 400; line-height: 12px; letter-spacing: 0.4%; color: #333;">
+                                Binod Yadav</h4>
+                            <span
+                                style="font-size: 10px; color: #0E1116; font-weight: 400; line-height: 11px; padding-right: 19px;">10/11/2024</span>
+                        </div>
+                        <p
+                            style="margin: 8px 0 0; font-size: 14px; color: #0E1116; font-weight: 400; line-height: 15px; letter-spacing: 0.25%;">
+                            Lorem ipsum dolor sit amet, consec...
+                        </p>
+                        <p
+                            style="font-size: 10px; font-weight: 400; line-height: 11px; color: #6E7073; margin: 0; padding-top: 4px;">
+                            Duis aute irure dolor in reprehenderit in voluptate velit
+                            esse cillum dolore eu fugiat nulla pariatur...
+                        </p>
+
+                        <p style="margin: 8px 0; font-size: 12px; color: #888;">
+                            <span style="font-size: 12px; color: #6E7073; height: 12px; width: 12px;">📎</span> <span
+                                style="font-size: 10px; font-weight: 400; line-height: 11px; color: #0E1116;"> 1
+                                Attachment</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- this week close  -->
+        </div>
+
+        <div
+            style="flex-grow: 1; background-color: white; display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 0px;">
+            <img src="/Group 18805.png" alt="">
+            <h3
+                style="margin: 0px; margin-top: 12px; font-size: 19px; font-weight: 500; line-height: 20.9px; letter-spacing: 0.15%; color: #0E1116; text-align: center;">
+                Select an item to read
+            </h3>
+
+            <p
+                style="margin: 0px; margin-top: 6px; color: #808080; font-size: 12px; line-height: 13.2px; letter-spacing: 0.4%; text-align: center;">
+                Nothing is selected
+            </p>
+
+        </div>
+    </div>
+
             
             `
         );
