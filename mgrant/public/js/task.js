@@ -154,19 +154,16 @@ const taskList = (task_list) => {
             // Show or hide the delete button based on the checkbox state
             const anyChecked = selectedIds.length > 0;
             if (anyChecked) {
-                $('.deleteButton').show();  // Show delete button if any checkbox is checked
+                document.getElementById('bulkDeleteButton').style.display = 'block';
             } else {
-                $('.deleteButton').hide();  // Hide delete button if no checkboxes are checked
+                document.getElementById('bulkDeleteButton').style.display = 'none';    
             }
-
-            // For demonstration, log the array of selected IDs
-            console.log(selectedIds);
         });
 
         // List view
         $('#task-list').html(
             `
-                <div class="table-responsive">
+<div class="table-responsive">
     <table class="table table-bordered">
         <thead class="thead-light">
             <tr>
@@ -239,6 +236,16 @@ const taskList = (task_list) => {
               `
         );
 
+        $('#bulkDeleteButton').on('click', function () {
+            frappe.confirm('Are you sure you want to delete the selected tasks?', () => {
+                selectedIds.forEach(async taskName => {
+                    await frappe.db.delete_doc('CRM Task', taskName)
+                });
+                taskList(task_list.filter(task => !selectedIds.includes(task.name)));
+                frappe.show_alert({ message: __(`Tasks deleted successfully`), indicator: 'green' });
+            });
+        });
+
     }
 
     $('.delete-btn').on('click', function (e) {
@@ -287,8 +294,6 @@ const getTaskList = async (_f, frm) => {
 
             <div class="form-check">
              <input class="form-check-input" type="radio" name="priority" id="priorityHigh" value="High">
-
-
                 <span style="display: inline-block; width: 8px; height: 8px; background-color: red; border-radius: 50%; margin-bottom: 2px;"></span>
                 <label class="form-check-label" for="priorityHigh">High</label>
             </div>
@@ -331,11 +336,10 @@ const getTaskList = async (_f, frm) => {
         </li>
             </div>
         </div>
-
     <!-- Action Buttons Group -->
         <div class="d-flex flex-wrap mt-2 mt-md-0" style="gap: 16px">
         <!-- Delete Button -->
- <button class="deleteButton btn btn-light mx-8" style="color: #6E7073; display: none;">
+ <button id="bulkDeleteButton" class="btn btn-light mx-8" style="color: #6E7073; display: none;">
     <i class="fa fa-trash" style="color: #6E7073;"></i>
 </button>
         <!-- Card View Button -->
