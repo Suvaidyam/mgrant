@@ -1,3 +1,62 @@
+function timeAgo(timestamp) {
+    if (!timestamp) return '--:--';
+    const now = Date.now();
+    timestamp = new Date(timestamp);
+    const diff = now - timestamp;
+    const second = 1000;
+    const minute = second * 60;
+    const hour = minute * 60;
+    const day = hour * 24;
+    const week = day * 7;
+    const month = day * 30;
+    const year = day * 365;
+
+    // If the timestamp is less than 1 minute ago
+    if (diff < minute) {
+        const seconds = Math.round(diff / second);
+        return seconds === 1 ? "1 second ago" : `${seconds} seconds ago`;
+    }
+
+    // If the timestamp is less than 1 hour ago
+    if (diff < hour) {
+        const minutes = Math.round(diff / minute);
+        return minutes === 1 ? "1 minute ago" : `${minutes} minutes ago`;
+    }
+
+    // If the timestamp is less than 1 day ago
+    if (diff < day) {
+        const hours = Math.round(diff / hour);
+        return hours === 1 ? "1 hour ago" : `${hours} hours ago`;
+    }
+
+    // If the timestamp is less than 2 days ago
+    if (diff < day * 2) {
+        return "Yesterday";
+    }
+
+    // If the timestamp is less than 1 week ago
+    if (diff < week) {
+        const days = Math.round(diff / day);
+        return days === 1 ? "1 day ago" : `${days} days ago`;
+    }
+
+    // If the timestamp is less than 1 month ago
+    if (diff < month) {
+        const weeks = Math.round(diff / week);
+        return weeks === 1 ? "1 week ago" : `${weeks} weeks ago`;
+    }
+
+    // If the timestamp is less than 1 year ago
+    if (diff < year) {
+        const months = Math.round(diff / month);
+        return months === 1 ? "1 month ago" : `${months} months ago`;
+    }
+
+    // If the timestamp is more than 1 year ago
+    const years = Math.round(diff / year);
+    return years === 1 ? "1 year ago" : `${years} years ago`;
+}
+
 const style = document.createElement('style');
 style.innerHTML = `
  .timeline {
@@ -51,13 +110,13 @@ style.innerHTML = `
 document.head.appendChild(style);
 const cominucation = async (frm) => {
     let cominucation = await getDocList('Communication', [
-        ['Communication', 'reference_name', '=', frm.doc.name]
+        ['Communication', 'reference_name', '=', frm.doc.name],
+        ['Communication', 'in_reply_to', '=', '']
     ], ['*']);
-    if (cominucation.length == 0) {
+    if (cominucation.length > 0) {
         $('#email').html(
             `
-
-             <div class="container" style="display: flex; height: 100%">
+             <div class="container" style="display: flex; height: 100%;overflow:auto;">
         <div
             style="width: 335px; background-color: rgb(255, 255, 255); display: flex; justify-content: flex-start; flex-direction: column; align-items: start; border: solid 1px #D9D9D9; gap: 16px;">
             <!-- tab section -->
@@ -89,235 +148,57 @@ const cominucation = async (frm) => {
             <!--tab section close-->
 
             <!-- Today Section Open -->
-            <div style="width: 335px; margin: 0 auto; background: #ffffff;  border-radius: 8px;">
+            <div style="width: 335px; margin: 0 auto; border-radius: 8px;">
                 <h3
                     style="margin: 0 0 8px; padding-left: 20px; color: #6E7073; font-size: 10px; font-weight: 500; line-height: 11px; letter-spacing: 1.5%;">
                     TODAY</h3>
-
-                <!-- Notification 1 -->
-                <div style="height: 110px; display: flex;  border-bottom: 1px solid #e5e5e5; position: relative; padding-left: 20px; margin-top: 22px;"
-                    onmouseover="this.querySelector('.avatar').style.display='none'; this.querySelector('.checkbox').style.display='flex';"
-                    onmouseout="this.querySelector('.avatar').style.display='flex'; this.querySelector('.checkbox').style.display='none';">
-                    <!-- Avatar -->
-                    <div class="avatar"
-                        style=" width: 24px; height: 24px; border-radius:  50%; background-color: #3f51b5; color: #fff; display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: 400 ; line-height: 12.2px; ; text-align: center;">
-                        A
-                    </div>
-                    <!-- Checkbox -->
-                    <input type="checkbox" class="checkbox"
-                        style="display: none; width: 20px !important;  height: 20px !important; cursor: pointer;">
-                    <div style="margin-left: 10px; flex: 1;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; ">
-                            <h4
-                                style="margin: 0; font-size: 12px; color: #6E7073; font-weight: 400; line-height: 12px; letter-spacing: 0.4%;">
-                                Aakash Sharma</h4>
-                            <span
-                                style="font-size: 10px; color: #0E1116; font-weight: 400; line-height: 11px; padding-right: 19px;">1
-                                hr
-                                ago</span>
+                ${cominucation.map((item) => {
+                return `
+                        <div class="emailListCard" emailId="${item.name}" style="max-height: 120px;height: 120px; display: flex;  border-bottom: 1px solid #e5e5e5; padding: 10px 20px; overflow: hidden;">
+                        <!-- Avatar -->
+                        <div class="avatar"
+                            style="width: 24px; height: 24px; border-radius:  50%; background-color: #3f51b5; color: #fff; display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: 400 ; line-height: 12.2px; ; text-align: center;">
+                            ${item?.sender[0]?.toUpperCase()}
                         </div>
-                        <p
-                            style="margin: 8px 0 0; font-size: 14px; color: #0E1116; font-weight: 400; line-height: 15px; letter-spacing: 0.25%;">
-                            Lorem ipsum dolor sit amet, consec...
-                        </p>
-                        <p
-                            style="font-size: 10px; font-weight: 400; line-height: 11px; color: #6E7073; margin: 0; padding-top: 4px;">
-                            Duis aute irure dolor in reprehenderit in voluptate velit
-                            esse cillum dolore eu fugiat nulla pariatur...
-                        </p>
-
-                        <p style="margin: 8px 0; font-size: 12px; color: #888;">
-                            <span style="font-size: 12px; color: #6E7073; height: 12px; width: 12px;">📎</span> <span
-                                style="font-size: 10px; font-weight: 400; line-height: 11px; color: #0E1116;"> 1
-                                Attachment</span>
-                        </p>
-                    </div>
-                </div>
-
-
-                <!-- Notification 2 -->
-                <div style="height: 79px; display: flex;  border-bottom: 1px solid #e5e5e5; padding: 0 20px; position: relative; padding-top: 14px;"
-                    onmouseover="this.querySelector('.avatar').style.display='none'; this.querySelector('.checkbox').style.display='flex';"
-                    onmouseout="this.querySelector('.avatar').style.display='flex'; this.querySelector('.checkbox').style.display='none';">
-                    <!-- Avatar -->
-                    <div class="avatar"
-                        style="margin-bottom: 30px; width: 24px; height: 24px; border-radius: 50%; background-color: #9c27b0; color: #fff; display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: 400; text-align: center;">
-                        A
-                    </div>
-                    <!-- Checkbox -->
-                    <input type="checkbox" class="checkbox"
-                        style="display: none; width: 20px; height: 20px; cursor: pointer; margin-bottom: 30px;">
-                    <div style="margin-left: 10px; flex: 1;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <h4 style="margin: 0; font-size: 12px; color: #333; font-weight: 400;">Aayush Kumar</h4>
-                            <span style="font-size: 10px; color: #0E1116; font-weight: 400;">1 hr ago</span>
+                        <div style="margin-left: 10px; flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; ">
+                                <h4
+                                    style="margin: 0; font-size: 12px; color: #6E7073; font-weight: 400; line-height: 12px; letter-spacing: 0.4%;">
+                ${item?.sender_full_name}</h4>
+                                <span
+                                    style="font-size: 10px; color: #0E1116; font-weight: 400; line-height: 11px; padding-right: 19px;">${timeAgo(item?.communication_date)}</span>
+                            </div>
+                            <p
+                                style="margin: 8px 0 0; font-size: 14px; color: #0E1116; font-weight: 500; line-height: 15px; letter-spacing: 0.25%;">
+                                ${item?.subject}
+                            </p>
+                            <p
+                                class="text-truncate"
+                                style="font-size: 10px; font-weight: 400; line-height: 11px; color: #6E7073; margin: 0; padding-top: 4px;">
+                                ${item?.content}
+                            </p>
+    
+                            <p style="margin: 8px 0; font-size: 12px; color: #888;">
+                                <span style="font-size: 12px; color: #6E7073; height: 12px; width: 12px;">📎</span> <span
+                                    style="font-size: 10px; font-weight: 400; line-height: 11px; color: #0E1116;"> 0
+                                    Attachment</span>
+                            </p>
                         </div>
-                        <p style="margin: 8px 0 0; font-size: 14px; color: #0E1116; font-weight: 400;">Lorem ipsum dolor
-                            sit amet,
-                            consec...</p>
-                        <p style="margin: 4px 0 0; font-size: 10px; color: #6E7073; font-weight: 400;">Duis aute irure
-                            dolor in
-                            reprehenderit in voluptate vel...</p>
-                    </div>
-                </div>
-
-
-
-                <!-- Notification 3 -->
-                <div style="height: 110px; display: flex; border-bottom: 1px solid #e5e5e5; position: relative; padding-left: 20px; padding-top: 14px;"
-                    onmouseover="this.querySelector('.avatar').style.display='none'; this.querySelector('.checkbox').style.display='flex';"
-                    onmouseout="this.querySelector('.avatar').style.display='flex'; this.querySelector('.checkbox').style.display='none';">
-                    <!-- Avatar -->
-                    <div class="avatar"
-                        style="width: 24px; height: 24px; border-radius: 50%; background-color: #ffc107; color: #fff; display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: 400 ; line-height: 12.2px; ; text-align: center;">
-                        B
-                    </div>
-                    <!-- Checkbox -->
-                    <input type="checkbox" class="checkbox"
-                        style="display: none; width: 20px; height: 20px; cursor: pointer;">
-                    <div style="margin-left: 10px; flex: 1;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <h4
-                                style="margin: 0; font-size: 12px; color: #6E7073; font-weight: 400; line-height: 12px; letter-spacing: 0.4%; color: #333;">
-                                Binod Yadav</h4>
-                            <span
-                                style="font-size: 10px; color: #0E1116; font-weight: 400; line-height: 11px; padding-right: 19px;">2
-                                hr ago</span>
-                        </div>
-                        <p
-                            style="margin: 8px 0 0; font-size: 14px; color: #0E1116; font-weight: 400; line-height: 15px; letter-spacing: 0.25%;">
-                            Lorem ipsum dolor sit amet, consec...
-                        </p>
-                        <p
-                            style="font-size: 10px; font-weight: 400; line-height: 11px; color: #6E7073; margin: 0; padding-top: 4px;">
-                            Duis aute irure dolor in reprehenderit in voluptate velit
-                            esse cillum dolore eu fugiat nulla pariatur...
-                        </p>
-
-                        <p style="margin: 8px 0; font-size: 12px; color: #888;">
-                            <span style="font-size: 12px; color: #6E7073; height: 12px; width: 12px;">📎</span> <span
-                                style="font-size: 10px; font-weight: 400; line-height: 11px; color: #0E1116;"> 1
-                                Attachment</span>
-                        </p>
-                    </div>
-                </div>
-
+                    </div>`
+            }).join('')
+            }
             </div>
-            <!-- Today Sectioin Close -->
-            <!-- This Week Open -->
-            <div style="width: 335px; margin: 0 auto; background: #ffffff;  border-radius: 8px;">
-                <h3
-                    style=" margin: 0 0 15px; padding-left: 20px; color: #6E7073; font-size: 10px; font-weight: 500; line-height: 11px; letter-spacing: 1.5%;">
-                    THIS WEEK</h3>
-
-                <!-- Notification 1 -->
-                <div
-                    style="height: 110px; display: flex;  border-bottom: 1px solid #e5e5e5; padding-left: 20px; margin-top: 22px;">
-                    <div
-                        style="width: 24px; height: 24px; border-radius: 50%; background-color: #3f51b5; color: #fff; display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: 400 ; line-height: 12.2px; ; text-align: center;">
-                        A
-                    </div>
-                    <div style="margin-left: 10px; flex: 1;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <h4
-                                style="margin: 0; font-size: 12px; color: #6E7073; font-weight: 400; line-height: 12px; letter-spacing: 0.4%; color: #333;">
-                                Aakash Sharma</h4>
-                            <span
-                                style="font-size: 10px; color: #0E1116; font-weight: 400; line-height: 11px; padding-right: 19px;">07/11/2024</span>
-                        </div>
-                        <p
-                            style="margin: 8px 0 0; font-size: 14px; color: #0E1116; font-weight: 400; line-height: 15px; letter-spacing: 0.25%;">
-                            Lorem ipsum dolor sit amet, consec...
-                        </p>
-                        <p
-                            style="font-size: 10px; font-weight: 400; line-height: 11px; color: #6E7073; margin: 0; padding-top: 4px;">
-                            Duis aute irure dolor in reprehenderit in voluptate velit
-                            esse cillum dolore eu fugiat nulla pariatur...
-                        </p>
-                        <p style="margin: 4px 0; font-size: 12px; color: #888;">
-                            <span style="font-size: 12px; color: #6E7073; height: 12px; width: 12px;">📎</span> <span
-                                style="font-size: 10px; font-weight: 400; line-height: 11px; color: #0E1116;"> 1
-                                Attachment</span>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Notification 2 -->
-                <div
-                    style="height: 79px; display: flex;  border-bottom: 1px solid #e5e5e5; padding-left: 20px; padding-top: 14px;">
-                    <div
-                        style="width: 24px; height: 24px; border-radius: 50%; background-color: #9A19E5; color: #fff; display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: 400 ; line-height: 12.2px; ; text-align: center;">
-                        A
-                    </div>
-                    <div style="margin-left: 10px; flex: 1;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <h4
-                                style="margin: 0; font-size: 12px; color: #6E7073; font-weight: 400; line-height: 12px; letter-spacing: 0.4%; color: #333;">
-                                Aayush Kumar</h4>
-                            <span
-                                style="font-size: 10px; color: #0E1116; font-weight: 400; line-height: 11px; padding-right: 19px;">09/11/2024</span>
-                        </div>
-                        <p
-                            style="margin: 8px 0 0; font-size: 14px; color: #0E1116; font-weight: 400; line-height: 15px; letter-spacing: 0.25%;">
-                            Lorem ipsum dolor sit amet, consec...
-                        </p>
-                        <p
-                            style="font-size: 10px; font-weight: 400; line-height: 11px; color: #6E7073; margin: 0; padding-top: 4px;">
-                            Duis aute irure dolor in reprehenderit in voluptate vel...
-                        </p>
-
-                    </div>
-                </div>
-
-                <!-- Notification 3 -->
-                <div
-                    style="height: 110px; display: flex;  border-bottom: 1px solid #D9D9D9 ; padding-left: 20px; padding-top: 14px;">
-                    <div
-                        style="width: 24px; height: 24px; border-radius: 50%; background-color: #E5C619; color: #fff; display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: 400 ; line-height: 12.2px; ; text-align: center;">
-                        B
-                    </div>
-                    <div style="margin-left: 10px; flex: 1;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <h4
-                                style="margin: 0; font-size: 12px; color: #6E7073; font-weight: 400; line-height: 12px; letter-spacing: 0.4%; color: #333;">
-                                Binod Yadav</h4>
-                            <span
-                                style="font-size: 10px; color: #0E1116; font-weight: 400; line-height: 11px; padding-right: 19px;">10/11/2024</span>
-                        </div>
-                        <p
-                            style="margin: 8px 0 0; font-size: 14px; color: #0E1116; font-weight: 400; line-height: 15px; letter-spacing: 0.25%;">
-                            Lorem ipsum dolor sit amet, consec...
-                        </p>
-                        <p
-                            style="font-size: 10px; font-weight: 400; line-height: 11px; color: #6E7073; margin: 0; padding-top: 4px;">
-                            Duis aute irure dolor in reprehenderit in voluptate velit
-                            esse cillum dolore eu fugiat nulla pariatur...
-                        </p>
-
-                        <p style="margin: 8px 0; font-size: 12px; color: #888;">
-                            <span style="font-size: 12px; color: #6E7073; height: 12px; width: 12px;">📎</span> <span
-                                style="font-size: 10px; font-weight: 400; line-height: 11px; color: #0E1116;"> 1
-                                Attachment</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- this week close  -->
         </div>
+        <div id="emailBodyContent" style="flex-grow: 1; background-color: white; display: flex;width="100% !important;">
+            <div style="flex-grow: 1; background-color: white; display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 0px;">
+                <h3 style="margin: 0px; margin-top: 12px; font-size: 19px; font-weight: 500; line-height: 20.9px; letter-spacing: 0.15%; color: #0E1116; text-align: center;">
+                    Select an item to read
+                </h3>
 
-        <div
-            style="flex-grow: 1; background-color: white; display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 0px;">
-            <img src="/Group 18805.png" alt="">
-            <h3
-                style="margin: 0px; margin-top: 12px; font-size: 19px; font-weight: 500; line-height: 20.9px; letter-spacing: 0.15%; color: #0E1116; text-align: center;">
-                Select an item to read
-            </h3>
-
-            <p
-                style="margin: 0px; margin-top: 6px; color: #808080; font-size: 12px; line-height: 13.2px; letter-spacing: 0.4%; text-align: center;">
-                Nothing is selected
-            </p>
-
+                <p style="margin: 0px; margin-top: 6px; color: #808080; font-size: 12px; line-height: 13.2px; letter-spacing: 0.4%; text-align: center;">
+                    Nothing is selected
+                </p>
+            </div>
         </div>
     </div>
 
@@ -328,126 +209,61 @@ const cominucation = async (frm) => {
     else {
         $('#email').html(
             `<div class="container" style="max-width:700px">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h6></h6>
-            <button class="btn btn-primary btn-sm" id="createCominucation">
-                <i class="bi bi-plus
-                "></i> New Email
-            </button>
-        </div>
-        <div class="container my-4">
-            <div class="timeline">
-                <div class="timeline-dot"></div>
-                ${cominucation.map((item) => {
-                return `
-                    <div class="timeline-icon my-2">
-                    <i class="fa fa-envelope"></i>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4>No Emails Found</h4>
                 </div>
-                <div class="ml-4 p-3 card">
-                    <div class="">
-                        <span class="sender">Administrator<span
-                                class="email-address">&lt;${item?.sender}&gt;</span></span>
-                        <span class="time">${item?.communication_date ?? '--'}</span>
-                    </div>
-                    <div class="email-body">
-                        <div class="">
-                            <strong>To:</strong>${item?.recipients ?? '--'}
-                            <br>
-                            ${item?.subject ?? '--'}
-                        </div>
-                        <div class="border-top">
-                            <span class="dropdown-toggle"  data-toggle="collapse" data-target="#collapseExample-${item?.name}" aria-expanded="false" aria-controls="collapseExample-${item?.name}"></span>
-                            <div class="collapse" id="collapseExample-${item?.name}">
-                                ${item?.content ?? '--'}
+            </div>`
+        );
+    }
+    $('.emailListCard').on('click', async (e) => {
+        let docName = e.currentTarget.getAttribute('emailId');
+        let replies = await getDocList('Communication', [
+            ['Communication', 'in_reply_to', '=', docName]
+        ], ['subject','content','communication_date']);
+        let emailDoc = cominucation.find(item => item.name === docName);
+        const emails = [...replies, emailDoc];
+        let emailBody = `
+            <div id="emailContent" style="width:100%;">
+                <div id="header">
+                    <div
+                        class="d-flex justify-content-between align-items-center"
+                        style="border-bottom: 1px solid #ddd; padding: 10px 15px; font-family: Arial, sans-serif; background-color: #f8f9fa;"
+                    >
+                        <!-- Left Section -->
+                        <div class="d-flex align-items-center">
+                            <div
+                                class="avatar"
+                                style="width: 40px; height: 40px; background-color: #d9b2d9; color: #fff; font-weight: bold; font-size: 20px; text-align: center; line-height: 40px; border-radius: 50%; margin-right: 10px;"
+                            >
+                                ${emailDoc?.sender[0]?.toUpperCase()}
+                            </div>
+                            <div>
+                                <div style="font-weight: bold;">
+                                ${emailDoc?.sender_full_name} &lt;${emailDoc?.sender}&gt;
+                                </div>
+                                <div>To: ${emailDoc?.recipients}</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                    `
-            }).join('')
-            }
-                <!--  -->
+                <div id="body" style="padding: 15px;">
+                    ${emails.map((email) => {
+                        return `<div class="d-flex justify-content-between align-items-center">
+                                    <h4>Subject : ${email?.subject}</h4>
+                                    <div class="d-flex align-items-center">
+                                        <span style="font-size: 12px; color: #6c757d; margin-right: 10px;">
+                                            ${timeAgo(email?.communication_date)}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div  style="border-bottom:1px solid gray;">${email?.content}</div>`
+                    }).join('\n')}
+                </div>
             </div>
-        </div>
-    </div>`
-        );
-    }
+        `;
+        document.getElementById('emailBodyContent').innerHTML = emailBody;
+    });
     $('#createCominucation').on('click', () => {
-        console.log('first')
-        // let cominucation_form = new frappe.ui.Dialog({
-        //     title: 'New Cominucation',
-        //     fields: [
-        //         {
-        //             label: 'Subject',
-        //             fieldname: 'subject',
-        //             fieldtype: 'Data',
-        //             reqd: 1
-        //         },
-        //         {
-        //             label: 'Communication Type',
-        //             fieldname: 'communication_type',
-        //             fieldtype: 'Select',
-        //             options: ['Communication', 'Comment'],
-        //             reqd: 1
-        //         },
-        //         {
-        //             label: 'Communication Date',
-        //             fieldname: 'communication_date',
-        //             fieldtype: 'Date',
-        //             reqd: 1
-        //         },
-        //         {
-        //             label: 'Communication Medium',
-        //             fieldname: 'communication_medium',
-        //             fieldtype: 'Select',
-        //             options: ['Email', 'Phone', 'SMS'],
-        //             reqd: 1
-        //         },
-        //         {
-        //             label: 'Sender',
-        //             fieldname: 'sender',
-        //             fieldtype: 'Data',
-        //             reqd: 1
-        //         },
-        //         {
-        //             label: 'Recipient',
-        //             fieldname: 'recipient',
-        //             fieldtype: 'Data',
-        //             reqd: 1
-        //         },
-        //         {
-        //             label: 'Communication Status',
-        //             fieldname: 'communication_status',
-        //             fieldtype: 'Select',
-        //             options: ['Open', 'Closed'],
-        //             reqd: 1
-        //         },
-        //         {
-        //             label: 'Content',
-        //             fieldname: 'content',
-        //             fieldtype: 'Text',
-        //             reqd: 1
-        //         }
-        //     ],
-        //     primary_action_label: 'Create',
-        //     primary_action(values) {
-        //         frappe.call({
-        //             method: 'mgrant.mgrant.doctype.communication.communication.create_cominucation',
-        //             args: {
-        //                 doctype: frm.doctype,
-        //                 docname: frm.doc.name,
-        //                 values
-        //             },
-        //             callback: function (r) {
-        //                 if (r.message) {
-        //                     frappe.show_alert({ message: __(`Cominucation created successfully`), indicator: 'green' })
-        //                     cominucation_form.hide();
-        //                     cominucation(frm);
-        //                 }
-        //             }
-        //         });
-        //     }
-        // });
-        // cominucation_form.show();
+        cur_frm.email_doc();
     });
 }
