@@ -26,12 +26,12 @@
  {
   "docstatus": 0,
   "doctype": "Role Profile",
-  "modified": "2024-11-19 17:02:50.679789",
-  "name": "Donor",
-  "role_profile": "Donor",
+  "modified": "2024-11-19 19:51:19.154255",
+  "name": "System Manager",
+  "role_profile": "System Manager",
   "roles": [
    {
-    "role": "Donor"
+    "role": "System Manager"
    }
   ]
  }
