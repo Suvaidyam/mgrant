@@ -22,5 +22,17 @@
     "role": "NGO"
    }
   ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-11-19 17:02:50.679789",
+  "name": "Donor",
+  "role_profile": "Donor",
+  "roles": [
+   {
+    "role": "Donor"
+   }
+  ]
  }
 ]
