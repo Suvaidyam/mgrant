@@ -28,7 +28,11 @@ fixtures = [
 ]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"
-# app_include_js = "/assets/mgrant/js/mgrant.js"
+import time
+app_include_js = [
+    f"/assets/mgrant/utils/date_utils.js?ver={time.time()}"
+    f"/assets/mgrant/utils/time_utils.js?ver={time.time()}"
+]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/mgrant/css/mgrant.css"
