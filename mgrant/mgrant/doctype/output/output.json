@@ -6,6 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "proposal",
   "project",
   "output_name",
   "target",
@@ -34,8 +35,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Project",
-   "options": "Project",
-   "reqd": 1
+   "options": "Project"
   },
   {
    "fieldname": "column_break_xixe",
@@ -58,6 +58,13 @@
    "label": "Achievement",
    "non_negative": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "proposal",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Proposal",
+   "options": "Proposal"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -67,7 +74,7 @@
    "link_fieldname": "output"
   }
  ],
- "modified": "2024-10-22 13:11:58.415959",
+ "modified": "2024-11-20 07:43:51.751108",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output",
