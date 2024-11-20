@@ -1,252 +1,379 @@
 {
-   "actions": [],
-   "allow_rename": 1,
-   "autoname": "format:PROPOSAL-{####}",
-   "creation": "2024-09-28 15:21:17.944887",
-   "doctype": "DocType",
-   "engine": "InnoDB",
-   "field_order": [
-      "details_tab",
-      "organisation_information_section",
-      "ngo",
-      "registration_of_the_organisaiton",
-      "column_break_dmhe",
-      "year_of_establishment",
-      "website",
-      "column_break_yddv",
-      "proposal_information_section",
-      "themes",
-      "budget_of_last_three_fys",
-      "major_donorscsrs",
-      "section_break_qhpb",
-      "total_programme_cost",
-      "column_break_rthw",
-      "total_amount_requested_from_donor",
-      "column_break_xnzm",
-      "section_break_uqeh",
-      "contact",
-      "column_break_ryew",
-      "signatory",
-      "column_break_qzrp",
-      "director",
-      "section_break_ftil",
-      "stages",
-      "column_break_wklt",
-      "column_break_ucvw",
-      "about_ngo_tab",
-      "about_organisation",
-      "work_reference_tab",
-      "work_ref_themes",
-      "work_references",
-      "impact_tab",
-      "impact",
-      "amended_from"
-   ],
-   "fields": [
-      {
-         "fieldname": "details_tab",
-         "fieldtype": "Tab Break",
-         "label": "Details"
-      },
-      {
-         "fieldname": "organisation_information_section",
-         "fieldtype": "Section Break",
-         "label": "Organisation Information"
-      },
-      {
-         "fieldname": "ngo",
-         "fieldtype": "Link",
-         "in_list_view": 1,
-         "label": "NGO",
-         "options": "NGO",
-         "reqd": 1
-      },
-      {
-         "fetch_from": "ngo.registration_of_the_organisaiton",
-         "fieldname": "registration_of_the_organisaiton",
-         "fieldtype": "Select",
-         "in_list_view": 1,
-         "label": "Registration of the Organisation",
-         "options": "\nTrust\nSociety\nSection 8",
-         "read_only": 1,
-         "reqd": 1
-      },
-      {
-         "fieldname": "column_break_dmhe",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fetch_from": "ngo.year_of_establishment",
-         "fieldname": "year_of_establishment",
-         "fieldtype": "Select",
-         "in_list_view": 1,
-         "label": "Year of Establishment",
-         "non_negative": 1,
-         "options": "\n1900\n1901\n1902\n1903\n1904\n1905\n1906\n1907\n1908\n1909\n1910\n1911\n1912\n1913\n1914\n1915\n1916\n1917\n1918\n1919\n1920\n1921\n1922\n1923\n1924\n1925\n1926\n1927\n1928\n1929\n1930\n1931\n1932\n1933\n1934\n1935\n1936\n1937\n1938\n1939\n1940\n1941\n1942\n1943\n1944\n1945\n1946\n1947\n1948\n1949\n1950\n1951\n1952\n1953\n1954\n1955\n1956\n1957\n1958\n1959\n1960\n1961\n1962\n1963\n1964\n1965\n1966\n1967\n1968\n1969\n1970\n1971\n1972\n1973\n1974\n1975\n1976\n1977\n1978\n1979\n1980\n1981\n1982\n1983\n1984\n1985\n1986\n1987\n1988\n1989\n1990\n1991\n1992\n1993\n1994\n1995\n1996\n1997\n1998\n1999\n2000\n2001\n2002\n2003\n2004\n2005\n2006\n2007\n2008\n2009\n2010\n2011\n2012\n2013\n2014\n2015\n2016\n2017\n2018\n2019\n2020\n2021\n2022\n2023\n2024",
-         "read_only": 1,
-         "reqd": 1
-      },
-      {
-         "fetch_from": "ngo.website",
-         "fieldname": "website",
-         "fieldtype": "Data",
-         "label": "Website",
-         "read_only": 1
-      },
-      {
-         "fieldname": "column_break_yddv",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "proposal_information_section",
-         "fieldtype": "Section Break",
-         "label": "Proposal Information"
-      },
-      {
-         "fieldname": "themes",
-         "fieldtype": "Table MultiSelect",
-         "label": "Themes",
-         "options": "Themes Child"
-      },
-      {
-         "fieldname": "budget_of_last_three_fys",
-         "fieldtype": "Table",
-         "label": "Budget of last three FYs",
-         "options": "NGO Budget Child"
-      },
-      {
-         "fieldname": "major_donorscsrs",
-         "fieldtype": "Table",
-         "label": "Major Donors/CSRs",
-         "options": "Donor Child"
-      },
-      {
-         "fieldname": "section_break_uqeh",
-         "fieldtype": "Section Break"
-      },
-      {
-         "fieldname": "contact",
-         "fieldtype": "Link",
-         "label": "Contact",
-         "options": "Contact"
-      },
-      {
-         "fieldname": "signatory",
-         "fieldtype": "Link",
-         "label": "Signatory",
-         "options": "Contact"
-      },
-      {
-         "fieldname": "director",
-         "fieldtype": "Data",
-         "label": "Name of the CEO/Executive Director"
-      },
-      {
-         "fieldname": "column_break_ryew",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "column_break_qzrp",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "section_break_ftil",
-         "fieldtype": "Section Break"
-      },
-      {
-         "default": "Eligible NGO",
-         "fieldname": "stages",
-         "fieldtype": "Select",
-         "label": "Stages",
-         "options": "Eligible NGO\nDue Diligence\nProposal to be submitted\nProposal Submitted\nGrant Letter Signed\nRejected",
-         "reqd": 1
-      },
-      {
-         "fieldname": "column_break_wklt",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "column_break_ucvw",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "about_ngo_tab",
-         "fieldtype": "Tab Break",
-         "label": "About NGO"
-      },
-      {
-         "fetch_from": "organisation.about_organisation",
-         "fetch_if_empty": 1,
-         "fieldname": "about_organisation",
-         "fieldtype": "Text Editor",
-         "label": "Describe your organization\u2019s history, vision/mission, and major areas of intervention"
-      },
-      {
-         "fieldname": "work_reference_tab",
-         "fieldtype": "Tab Break",
-         "label": "Work References"
-      },
-      {
-         "fieldname": "work_ref_themes",
-         "fieldtype": "Table MultiSelect",
-         "label": "Themes (Area of work)",
-         "options": "Themes Child"
-      },
-      {
-         "fieldname": "work_references",
-         "fieldtype": "Table",
-         "label": "Please list top 3 projects related to proposed theme of work with references: ",
-         "options": "NGO Work Reference Child"
-      },
-      {
-         "fieldname": "impact_tab",
-         "fieldtype": "Tab Break",
-         "label": "Impact"
-      },
-      {
-         "fetch_from": "organisation.impact",
-         "fetch_if_empty": 1,
-         "fieldname": "impact",
-         "fieldtype": "Text Editor",
-         "label": "What was the impact your organization created in last 3 years (Number of outreach (People), Tangible and Intangible impacts"
-      },
-      {
-         "fieldname": "amended_from",
-         "fieldtype": "Link",
-         "label": "Amended From",
-         "no_copy": 1,
-         "options": "Proposal",
-         "print_hide": 1,
-         "read_only": 1,
-         "search_index": 1
-      }
-   ],
-   "index_web_pages_for_search": 1,
-   "is_submittable": 1,
-   "links": [],
-   "modified": "2024-11-11 12:33:25.743283",
-   "modified_by": "Administrator",
-   "module": "mGrant - NGO",
-   "name": "Proposal",
-   "naming_rule": "Expression",
-   "owner": "Administrator",
-   "permissions": [
-      {
-         "create": 1,
-         "delete": 1,
-         "email": 1,
-         "export": 1,
-         "print": 1,
-         "read": 1,
-         "report": 1,
-         "role": "System Manager",
-         "share": 1,
-         "write": 1
-      }
-   ],
-   "show_title_field_in_link": 1,
-   "sort_field": "creation",
-   "sort_order": "DESC",
-   "states": [],
-   "title_field": "ngo"
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:PROPOSAL-{####}",
+ "creation": "2024-09-28 15:21:17.944887",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "details_tab",
+  "organisation_information_section",
+  "ngo",
+  "registration_of_the_organisaiton",
+  "column_break_dmhe",
+  "year_of_establishment",
+  "website",
+  "column_break_yddv",
+  "proposal_information_section",
+  "themes",
+  "budget_of_last_three_fys",
+  "major_donorscsrs",
+  "section_break_uqeh",
+  "contact",
+  "column_break_ryew",
+  "signatory",
+  "column_break_qzrp",
+  "director",
+  "section_break_ftil",
+  "stages",
+  "column_break_wklt",
+  "column_break_ucvw",
+  "about_ngo_tab",
+  "about_organisation",
+  "work_reference_tab",
+  "work_ref_themes",
+  "work_references",
+  "impact_tab",
+  "impact",
+  "amended_from",
+  "tasks_tab",
+  "tasks",
+  "email_tab",
+  "emails",
+  "tranche_tab",
+  "tranche",
+  "input_tab",
+  "input",
+  "output_tab",
+  "output",
+  "outcome_tab",
+  "outcome"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "organisation_information_section",
+   "fieldtype": "Section Break",
+   "label": "Organisation Information"
+  },
+  {
+   "fieldname": "ngo",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "NGO",
+   "options": "NGO",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "ngo.registration_of_the_organisaiton",
+   "fieldname": "registration_of_the_organisaiton",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Registration of the Organisation",
+   "options": "\nTrust\nSociety\nSection 8",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_dmhe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "ngo.year_of_establishment",
+   "fieldname": "year_of_establishment",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Year of Establishment",
+   "non_negative": 1,
+   "options": "\n1900\n1901\n1902\n1903\n1904\n1905\n1906\n1907\n1908\n1909\n1910\n1911\n1912\n1913\n1914\n1915\n1916\n1917\n1918\n1919\n1920\n1921\n1922\n1923\n1924\n1925\n1926\n1927\n1928\n1929\n1930\n1931\n1932\n1933\n1934\n1935\n1936\n1937\n1938\n1939\n1940\n1941\n1942\n1943\n1944\n1945\n1946\n1947\n1948\n1949\n1950\n1951\n1952\n1953\n1954\n1955\n1956\n1957\n1958\n1959\n1960\n1961\n1962\n1963\n1964\n1965\n1966\n1967\n1968\n1969\n1970\n1971\n1972\n1973\n1974\n1975\n1976\n1977\n1978\n1979\n1980\n1981\n1982\n1983\n1984\n1985\n1986\n1987\n1988\n1989\n1990\n1991\n1992\n1993\n1994\n1995\n1996\n1997\n1998\n1999\n2000\n2001\n2002\n2003\n2004\n2005\n2006\n2007\n2008\n2009\n2010\n2011\n2012\n2013\n2014\n2015\n2016\n2017\n2018\n2019\n2020\n2021\n2022\n2023\n2024",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "ngo.website",
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_yddv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "proposal_information_section",
+   "fieldtype": "Section Break",
+   "label": "Proposal Information"
+  },
+  {
+   "fieldname": "themes",
+   "fieldtype": "Table MultiSelect",
+   "label": "Themes",
+   "options": "Themes Child"
+  },
+  {
+   "fieldname": "budget_of_last_three_fys",
+   "fieldtype": "Table",
+   "label": "Budget of last three FYs",
+   "options": "NGO Budget Child"
+  },
+  {
+   "fieldname": "major_donorscsrs",
+   "fieldtype": "Table",
+   "label": "Major Donors/CSRs",
+   "options": "Donor Child"
+  },
+  {
+   "fieldname": "section_break_uqeh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "contact",
+   "fieldtype": "Link",
+   "label": "Contact",
+   "options": "Contact"
+  },
+  {
+   "fieldname": "signatory",
+   "fieldtype": "Link",
+   "label": "Signatory",
+   "options": "Contact"
+  },
+  {
+   "fieldname": "director",
+   "fieldtype": "Data",
+   "label": "Name of the CEO/Executive Director"
+  },
+  {
+   "fieldname": "column_break_ryew",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qzrp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_ftil",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "Eligible NGO",
+   "fieldname": "stages",
+   "fieldtype": "Select",
+   "label": "Stages",
+   "options": "Eligible NGO\nDue Diligence\nProposal to be submitted\nProposal Submitted\nGrant Letter Signed\nRejected",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_wklt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ucvw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "about_ngo_tab",
+   "fieldtype": "Tab Break",
+   "label": "About NGO"
+  },
+  {
+   "fetch_from": "organisation.about_organisation",
+   "fetch_if_empty": 1,
+   "fieldname": "about_organisation",
+   "fieldtype": "Text Editor",
+   "label": "Describe your organization\u2019s history, vision/mission, and major areas of intervention"
+  },
+  {
+   "fieldname": "work_reference_tab",
+   "fieldtype": "Tab Break",
+   "label": "Work References"
+  },
+  {
+   "fieldname": "work_ref_themes",
+   "fieldtype": "Table MultiSelect",
+   "label": "Themes (Area of work)",
+   "options": "Themes Child"
+  },
+  {
+   "fieldname": "work_references",
+   "fieldtype": "Table",
+   "label": "Please list top 3 projects related to proposed theme of work with references: ",
+   "options": "NGO Work Reference Child"
+  },
+  {
+   "fieldname": "impact_tab",
+   "fieldtype": "Tab Break",
+   "label": "Impact"
+  },
+  {
+   "fetch_from": "organisation.impact",
+   "fetch_if_empty": 1,
+   "fieldname": "impact",
+   "fieldtype": "Text Editor",
+   "label": "What was the impact your organization created in last 3 years (Number of outreach (People), Tangible and Intangible impacts"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Proposal",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "default": "tranche",
+   "fieldname": "tranche_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tranche"
+  },
+  {
+   "default": "Tranches",
+   "fieldname": "tranche",
+   "fieldtype": "HTML",
+   "options": "<div id=\"tranche\"></div>"
+  },
+  {
+   "default": "input",
+   "fieldname": "input_tab",
+   "fieldtype": "Tab Break",
+   "label": "Input"
+  },
+  {
+   "default": "Input",
+   "fieldname": "input",
+   "fieldtype": "HTML",
+   "options": "<div id=\"input\"></div>"
+  },
+  {
+   "default": "output",
+   "fieldname": "output_tab",
+   "fieldtype": "Tab Break",
+   "label": "Output"
+  },
+  {
+   "default": "Output",
+   "fieldname": "output",
+   "fieldtype": "HTML",
+   "options": "<div id=\"output\"></div>"
+  },
+  {
+   "default": "outcome",
+   "fieldname": "outcome_tab",
+   "fieldtype": "Tab Break",
+   "label": "Outcome"
+  },
+  {
+   "default": "Outcome",
+   "fieldname": "outcome",
+   "fieldtype": "HTML",
+   "options": "<div id=\"outcome\"></div>"
+  },
+  {
+   "fieldname": "impact_tab",
+   "fieldtype": "Tab Break",
+   "label": "Impact"
+  },
+  {
+   "fetch_from": "organisation.impact",
+   "fetch_if_empty": 1,
+   "fieldname": "impact",
+   "fieldtype": "Text Editor",
+   "label": "What was the impact your organization created in last 3 years (Number of outreach (People), Tangible and Intangible impacts"
+  },
+  {
+   "default": "tasks",
+   "fieldname": "tasks_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tasks"
+  },
+  {
+   "default": "tasks",
+   "description": "CRM Task",
+   "fieldname": "tasks",
+   "fieldtype": "HTML",
+   "options": "<div id=\"tasks\"></div>"
+  },
+  {
+   "default": "emails",
+   "fieldname": "email_tab",
+   "fieldtype": "Tab Break",
+   "label": "Email"
+  },
+  {
+   "default": "Communication",
+   "fieldname": "emails",
+   "fieldtype": "HTML",
+   "options": "<div id=\"emails\"></div>"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "group": "Output",
+   "hidden": 1,
+   "link_doctype": "Output",
+   "link_fieldname": "proposal"
+  },
+  {
+   "group": "Impact",
+   "hidden": 1,
+   "link_doctype": "Impact",
+   "link_fieldname": "proposal"
+  },
+  {
+   "group": "Outcome",
+   "hidden": 1,
+   "link_doctype": "Outcome",
+   "link_fieldname": "proposal"
+  },
+  {
+   "hidden": 1,
+   "link_doctype": "Tranches",
+   "link_fieldname": "proposal"
+  },
+  {
+   "hidden": 1,
+   "link_doctype": "Input",
+   "link_fieldname": "proposal"
+  },
+  {
+   "group": "Communication",
+   "hidden": 1,
+   "link_doctype": "Communication",
+   "link_fieldname": "reference_doctype"
+  }
+ ],
+ "modified": "2024-11-20 10:44:23.600897",
+ "modified_by": "Administrator",
+ "module": "mGrant - NGO",
+ "name": "Proposal",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "ngo"
 }

@@ -8,7 +8,8 @@
   "financial_year",
   "month",
   "trif_salary_tracker",
-  "html_jekh"
+  "html_jekh",
+  "amended_from"
  ],
  "fields": [
   {
@@ -33,11 +34,22 @@
    "fieldtype": "Table",
    "label": "Trif Salary Tracker",
    "options": "Salary Tracker Child"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Monthly Salary Tracker",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-11-10 15:20:24.125732",
+ "modified": "2024-11-19 18:11:16.624097",
  "modified_by": "Administrator",
  "module": "mGrant - Trif Salary Tracker",
  "name": "Monthly Salary Tracker",
@@ -59,5 +71,6 @@
  ],
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }
