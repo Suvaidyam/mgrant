@@ -22,5 +22,17 @@
     "role": "NGO"
    }
   ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-11-19 19:51:19.154255",
+  "name": "System Manager",
+  "role_profile": "System Manager",
+  "roles": [
+   {
+    "role": "System Manager"
+   }
+  ]
  }
 ]
