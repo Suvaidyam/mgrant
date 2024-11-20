@@ -40,30 +40,26 @@
    "fieldname": "total_disbursement",
    "fieldtype": "Int",
    "label": "Total Disbursement",
-   "non_negative": 1,
-   "read_only": 1
+   "non_negative": 1
   },
   {
    "fieldname": "proposal",
    "fieldtype": "Link",
    "label": "Proposal",
-   "options": "Proposal"
+   "options": "Proposal",
+   "search_index": 1
   },
   {
    "fieldname": "project",
    "fieldtype": "Link",
    "label": "Project",
-   "options": "Project"
+   "options": "Project",
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [
-  {
-   "link_doctype": "Disbursement",
-   "link_fieldname": "tranche"
-  }
- ],
- "modified": "2024-11-20 07:42:11.888809",
+ "links": [],
+ "modified": "2024-11-20 11:52:45.709565",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Tranches",
