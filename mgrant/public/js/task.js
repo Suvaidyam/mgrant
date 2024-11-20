@@ -147,7 +147,7 @@ const taskList = (task_list) => {
         // Array to store checked checkbox ids
         let selectedIds = [];
 
-        $('#task-list').on('change', '.toggleCheckbox', function () {
+        $('#task-card').on('change', '.toggleCheckbox', function () {
             // Get the id of the clicked checkbox
             const checkboxId = $(this).data('id');
 
@@ -164,7 +164,6 @@ const taskList = (task_list) => {
                 $('#selectAllCheckBox').prop('checked', false);
             }
             // Show or hide the delete button based on the checkbox state
-
 
             const anyChecked = selectedIds.length > 0;
             if (anyChecked) {
@@ -186,11 +185,24 @@ const taskList = (task_list) => {
             }
         });
         // not show delete button if no checkbox is checked card veiw
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleCheckbox = document.querySelector('.toggleCheckbox');
+            const totalTaskDiv = document.querySelector('.total-task');
+            const dropdownDiv = document.querySelector('.dropdown');
 
+            // Initial state
+            dropdownDiv.style.display = 'none'; // Hide dropdown initially
 
-
-
-
+            toggleCheckbox.addEventListener('change', () => {
+                if (toggleCheckbox.checked) {
+                    totalTaskDiv.style.display = 'none'; // Hide Total Task
+                    dropdownDiv.style.display = 'block'; // Show dropdown
+                } else {
+                    totalTaskDiv.style.display = 'flex'; // Show Total Task
+                    dropdownDiv.style.display = 'none'; // Hide dropdown
+                }
+            });
+        });
 
 
         // List view
@@ -326,20 +338,26 @@ const getTaskList = async (_f, frm) => {
     .scrollable-buttons .btn {
         display: inline-block;
     }">
-      <div class="dropdown"  >
-            <button class="btn btn-light dropdown-toggle" type="button" id="viewDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Set Status
-            </button>
-            <div class="dropdown-menu" aria-labelledby="viewDropdown" style=" padding: 12px;">
-                
-                 <li>
-            <h6 class="dropdown-header" style="font-weight: 400; font-size: 10px; line-height: 11px; ; color: #0E1116;">
-    Set Priority
-</h6>
+ <div class="total-task" style="gap: 16px; display: flex;">
+    <span class="text-dark" style="font-weight: 400; font-size: 14px; line-height: 15px; color: #6E7073;">
+        Total Task:
+    </span>
+    <span style="font-weight: 400; font-size: 14px; line-height: 15px; color: #0E1116;">
+        ${task_list.length}
+    </span>
+</div>
 
-
+      <div class="dropdown" style="display: none;">
+    <button class="btn btn-light dropdown-toggle" type="button" id="viewDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Set Status
+    </button>
+    <div class="dropdown-menu" aria-labelledby="viewDropdown" style="padding: 12px;">
+        <li>
+            <h6 class="dropdown-header" style="font-weight: 400; font-size: 10px; line-height: 11px; color: #0E1116;">
+                Set Priority
+            </h6>
             <div class="form-check">
-             <input class="form-check-input" type="radio" name="priority" id="priorityHigh" value="High"  ">
+                <input class="form-check-input" type="radio" name="priority" id="priorityHigh" value="High">
                 <span style="display: inline-block; width: 8px; height: 8px; background-color: red; border-radius: 50%; margin-bottom: 2px;"></span>
                 <label class="form-check-label" for="priorityHigh">High</label>
             </div>
@@ -350,18 +368,15 @@ const getTaskList = async (_f, frm) => {
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="priority" id="priorityLow" value="Low">
-            <span style="display: inline-block; width: 8px; height: 8px; background-color: #03B151; border-radius: 50%; margin-bottom: 2px;"></span>
-
+                <span style="display: inline-block; width: 8px; height: 8px; background-color: #03B151; border-radius: 50%; margin-bottom: 2px;"></span>
                 <label class="form-check-label" for="priorityLow">Low</label>
             </div>
             <hr>
         </li>
         <li>
-        <h6 class="dropdown-header" style="font-weight: 400; font-size: 10px; line-height: 11px;; color: #0E1116;">
-    Set Status
-</h6>
-
-
+            <h6 class="dropdown-header" style="font-weight: 400; font-size: 10px; line-height: 11px; color: #0E1116;">
+                Set Status
+            </h6>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="status" id="statusTodo" value="ToDo">
                 <label class="form-check-label" for="statusTodo">To Do</label>
@@ -383,8 +398,8 @@ const getTaskList = async (_f, frm) => {
                 <label class="form-check-label" for="statusCancelled">Cancelled</label>
             </div>
         </li>
-            </div>
-        </div>
+    </div>
+</div>
     <!-- Action Buttons Group -->
         <div class="d-flex flex-wrap mt-2 mt-md-0" style="gap: 16px">
         <!-- Delete Button -->
