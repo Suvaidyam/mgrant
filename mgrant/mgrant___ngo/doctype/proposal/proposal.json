@@ -40,7 +40,17 @@
       "work_references",
       "impact_tab",
       "impact",
-      "amended_from"
+      "amended_from",
+      "tranche_tab",
+      "tranche",
+      "input_tab",
+      "input",
+      "output_tab",
+      "output",
+      "outcome_tab",
+      "outcome",
+      "impact_tab",
+      "impact"
    ],
    "fields": [
       {
@@ -219,11 +229,100 @@
          "print_hide": 1,
          "read_only": 1,
          "search_index": 1
-      }
+      },
+      {
+         "default": "tranche",
+         "fieldname": "tranche_tab",
+         "fieldtype": "Tab Break",
+         "label": "Tranche"
+        },
+        {
+         "default": "Tranches",
+         "fieldname": "tranche",
+         "fieldtype": "HTML",
+         "options": "<div id=\"tranche\"></div>"
+        },
+        {
+         "default": "input",
+         "fieldname": "input_tab",
+         "fieldtype": "Tab Break",
+         "label": "Input"
+        },
+        {
+         "default": "Input",
+         "fieldname": "input",
+         "fieldtype": "HTML",
+         "options": "<div id=\"input\"></div>"
+        },
+        {
+         "default": "output",
+         "fieldname": "output_tab",
+         "fieldtype": "Tab Break",
+         "label": "Output"
+        },
+        {
+         "default": "Output",
+         "fieldname": "output",
+         "fieldtype": "HTML",
+         "options": "<div id=\"output\"></div>"
+        },
+        {
+         "default": "outcome",
+         "fieldname": "outcome_tab",
+         "fieldtype": "Tab Break",
+         "label": "Outcome"
+        },
+        {
+         "default": "Outcome",
+         "fieldname": "outcome",
+         "fieldtype": "HTML",
+         "options": "<div id=\"outcome\"></div>"
+        },
+        {
+         "default": "impact",
+         "fieldname": "impact_tab",
+         "fieldtype": "Tab Break",
+         "label": "Impact"
+        },
+        {
+         "default": "Impact",
+         "fieldname": "impact",
+         "fieldtype": "HTML",
+         "options": "<div id=\"impact\"></div>"
+        }
    ],
    "index_web_pages_for_search": 1,
    "is_submittable": 1,
-   "links": [],
+   "links": [
+      {
+         "group": "Output",
+         "hidden": 1,
+         "link_doctype": "Output",
+         "link_fieldname": "proposal"
+        },
+        {
+         "group": "Impact",
+         "hidden": 1,
+         "link_doctype": "Impact",
+         "link_fieldname": "proposal"
+        },
+        {
+         "group": "Outcome",
+         "hidden": 1,
+         "link_doctype": "Outcome",
+         "link_fieldname": "proposal"
+        },
+        {
+         "hidden": 1,
+         "link_doctype": "Tranches",
+         "link_fieldname": "proposal"
+        },
+        {
+         "hidden": 1,
+         "link_doctype": "Input",
+         "link_fieldname": "proposal"
+        }
+   ],
    "modified": "2024-11-11 12:33:25.743283",
    "modified_by": "Administrator",
    "module": "mGrant - NGO",
