@@ -86,33 +86,67 @@ frappe.ui.form.on("Project", {
             let tab_field = frm.get_active_tab()?.df?.fieldname;
             tabContent(frm, tab_field)
         });
-        console.log(frm.timeline.doc_info.versions);
+
+
+        // frm.timeline.doc_info.versions.forEach(item => {
+        //     const data = JSON.parse(item.data); // Parse the JSON string into an object
+        //     console.log('item.data :>> ', data);
+        //     if (data && data.added) {
+        //         // Iterate over the "added" array to get the dynamic field values
+        //         data.added.forEach(addedItem => {
+        //             const keys = Object.keys(addedItem[1]); // Get all keys of the object
+        //             // Check if either "theme" or "state" exists in the keys
+        //             const key = keys.find(k => k === 'theme' || k === 'state');
+
+        //             if (key) {
+        //                 const value = addedItem[1][key]; // Dynamically access the value based on the key
+        //                 // console.log('value :>> ', value);
+        //                 // console.log(` Added ${key}: >> ${value}`);
+        //             }
+        //         });
+        //     }
+        //     if (data.removed) {
+        //         data.removed.forEach(removedItem => {
+        //             const keys = Object.keys(removedItem[1]); // Get all keys of the object
+        //             const key = keys.find(k => k === 'theme' || k === 'state');
+
+        //             if (key) {
+        //                 const value = removedItem[1][key]; // Dynamically access the value based on the key
+        //                 console.log(`Removed ${key}: >> ${value}`);
+        //             }
+        //         });
+        //     }
+        // });
 
 
 
         if (frm.timeline?.timeline_wrapper) {
-            let timelineContent = frm.timeline.timeline_wrapper.html();
             document.getElementById('timeline').innerHTML = `
         <style>
             #timeline-container {
-                width:100%;
+                width: 100%;
                 display: flex;
                 justify-content: space-between;
             }
-            #timeline {
-                position: relative;
-                // padding: 20px;
-                // width: 50%; /* Set timeline to 50% width */
-                overflow: auto; /* Handle overflow if needed */
+            #timeline{
+                min-width:450px;
             }
             #data-timeline{
-                width: 70%;
-                // padding-left:40px;
+                width:100%;
+                margin-left:30px;
             }
+            #timeline, #data-timeline {
+                height: 100vh;
+                overflow-y: auto; 
+                // padding: 10px;
+                scrollbar-width: none;
+            }
+                
             .timeline-item {
                 position: relative;
                 margin-bottom: 20px;
-                padding-left: 40px;
+                padding-left: 30px;
+                width: 100%;
                 border-left: 2px solid #0066cc;
             }
             .timeline-item .timeline-content {
@@ -121,9 +155,8 @@ frappe.ui.form.on("Project", {
                 border-radius: 4px;
                 display: inline-block;
                 width: 100%;
-                margin-right:40px;
                 max-width: 400px;
-                box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
             }
             .timeline-item .timeline-date {
                 font-size: 12px;
@@ -135,25 +168,17 @@ frappe.ui.form.on("Project", {
                 padding: 2px 5px;
                 border-radius: 4px;
             }
-            .timeline-item.timeline-odd {
-                border-left: 3px dashed #ccc;
-            }
-            .card {
-                margin-bottom: 10px;
-            }
-            .card-header{
+            .card { margin-bottom: 10px; }
+            .card-header {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
             }
-            .table th, .table td {
-                text-align: left;
-                // padding: 8px;
-            },
-            
+            .table { margin: 0px; }
+            .table th, .table td { text-align: left; }
         </style>
         <div id="timeline-container">
-            <div id="timeline">${timelineContent}</div>
+            <div id="timeline">${frm.timeline.timeline_wrapper.html()}</div>
             <div id="data-timeline"></div>
         </div>
     `;
@@ -161,46 +186,42 @@ frappe.ui.form.on("Project", {
             console.log('Timeline content not available');
         }
 
-        let timelineHTML = '';
-        frm.timeline.doc_info.versions.forEach(item => {
+        document.getElementById('data-timeline').innerHTML = frm.timeline.doc_info.versions.map(item => {
             const changes = JSON.parse(item.data).changed.map(change => `
         <tr>
-            <td>${change[0].split("_").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}</td>
+            <td style="width:35%;">${change[0].split("_").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}</td>
             <td style="background-color:rgb(253,241,241)">${change[1]}</td>
             <td style="background-color:rgb(229,245,232)">${change[2]}</td>
-        </tr>
-    `).join('');
-            let creationDate = new Date(item.creation);
-            timelineHTML += `
+        </tr>`).join('');
+            const creationDate = new Date(item.creation);
+            return `
         <div class="card mb-3">
-            <div class="card-header"><div>${item.owner}</div> <div><p><strong>Creation:</strong> ${creationDate.toLocaleDateString('en-GB')} ${creationDate.toLocaleTimeString()}</p></div></div>
+            <div class="card-header">
+                <div>${item.owner}</div>
+                <div><p><strong>Creation:</strong> ${creationDate.toLocaleDateString('en-GB')} ${creationDate.toLocaleTimeString()}</p></div>
+            </div>
             <div class="card-body">
                 <table class="table table-bordered">
                     <thead>
-                        <tr>
-                            <th>Property</th>
-                            <th>Old Value</th>
-                            <th>New Value</th>
-                        </tr>
+                        <tr><th>Property</th><th>Old Value</th><th>New Value</th></tr>
                     </thead>
-                    <tbody>
-                        ${changes}
-                    </tbody>
+                    <tbody>${changes}</tbody>
                 </table>
             </div>
         </div>
     `;
-        });
+        }).join('');
 
-        document.getElementById('data-timeline').innerHTML = timelineHTML;
+
+
+
+
+
 
 
 
 
         $('.timeline-dot').remove()
         $('.activity-title').remove()
-
     },
-
-
 });

@@ -6,6 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "proposal",
   "project",
   "input_name",
   "target",
@@ -20,8 +21,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Project",
-   "options": "Project",
-   "reqd": 1
+   "options": "Project"
   },
   {
    "fieldname": "target",
@@ -58,6 +58,13 @@
    "in_list_view": 1,
    "label": "Input Name",
    "reqd": 1
+  },
+  {
+   "fieldname": "proposal",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Proposal",
+   "options": "Proposal"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -68,7 +75,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2024-10-22 12:58:48.249980",
+ "modified": "2024-11-20 07:42:59.663281",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Input",

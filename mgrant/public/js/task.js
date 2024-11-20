@@ -329,6 +329,8 @@ let task_list = [];
 let view = 'Card View'
 const getTaskList = async (_f, frm) => {
     task_list = await getDocList(_f.description, [
+        ['CRM Task','reference_doctype', '=', frm.doc.doctype],
+        ['CRM Task','reference_docname', '=', frm.doc.name],
     ], ['*']);
     $('#tasks').html(`
        <div class="d-flex flex-wrap justify-content-between align-items-center mb-3" style=".scrollable-buttons {
@@ -458,7 +460,7 @@ const getTaskList = async (_f, frm) => {
         `);
     taskList(task_list);
     $('#createTask').on('click', function () {
-        form(null, 'New Task');
+        form(null, 'New Task',frm);
     });
     $('#cardViewBtn').on('click', () => {
         view = 'Card View';
@@ -472,7 +474,7 @@ const getTaskList = async (_f, frm) => {
     })
 };
 
-const form = async (data = null, action) => {
+const form = async (data = null, action, frm) => {
     let title = action === 'New Task' ? 'New Task' : 'Edit Task';
     let primaryActionLabel = action === 'New Task' ? 'Save' : 'Update';
 
@@ -492,6 +494,23 @@ const form = async (data = null, action) => {
                 field.default = data[field.fieldname];
             }
         }
+        if(frm){
+            if(field.fieldname === 'reference_doctype'){
+                field.default = frm.doc.doctype;
+                field.read_only = true;
+            }
+            if(field.fieldname === 'reference_docname'){
+                field.default = frm.doc.name;
+                field.read_only = true;
+            }
+        }else{
+            if(field.fieldname === 'reference_doctype'){
+                field.read_only = true;
+            }
+            if(field.fieldname === 'reference_docname'){
+                field.read_only = true;
+            }
+        }
         return field;
     });
     let task_form = new frappe.ui.Dialog({
@@ -502,7 +521,7 @@ const form = async (data = null, action) => {
             if (action === 'New Task') {
                 // Create new task
                 frappe.db.insert({
-                    doctype: 'CRM Task',
+                    doctype: "CRM Task",
                     ...values
                 }).then(new_doc => {
                     if (new_doc) {
