@@ -1,14 +1,39 @@
 // Copyright (c) 2024, Suvaidyam and contributors
 // For license information, please see license.txt
 
+const getDocList = (doctype, filters, fields = ['*']) => {
+    return new Promise((resolve, reject) => {
+        frappe.call({
+            method: "frappe.client.get_list",
+            args: {
+                doctype,
+                filters,
+                fields,
+                order_by: 'creation desc'
+            },
+            callback: function (response) {
+                resolve(response.message);
+            },
+            error: (err) => {
+                reject(err)
+            }
+        });
+    })
+}
+
 const tabContent = async (frm, tab_field) => {
     let field = frm.meta?.fields?.find(f => f.fieldname == tab_field)
     let _fields = frm.meta?.fields?.filter(f => field?.default?.split(',')?.includes(f.fieldname))
-
+    if (tab_field === 'gallery_tab') {
+        gallery_image(frm);
+    }
+    if (tab_field === 'email_tab') {
+        cominucation(frm);
+    }
     for (let _f of _fields) {
         let link = frm.meta.links?.find(f => f.link_doctype == _f.default)
         if (link) {
-            let datatable = new SvaDataTable({
+            new SvaDataTable({
                 wrapper: document.querySelector(`#${_f.fieldname}`), // Wrapper element   // Pass your data
                 doctype: link.link_doctype, // Doctype name
                 crud: true,      // Enable CRUD operations (optional)
@@ -19,6 +44,9 @@ const tabContent = async (frm, tab_field) => {
                     editable: false,      // Enable editing (optional),
                 }
             });
+        }
+        if (_f.default === 'tasks') {
+            getTaskList(_f, frm)
         }
     }
 }
