@@ -87,7 +87,7 @@ const taskList = (task_list) => {
                                 ${task.description ?? 'No description available'}
                             </p>
                             <!-- Task Priority and Status -->
-                            <div class="d-flex align-items-center justify-content-between "  style="gap: 12px;">
+                            <div class="d-flex align-items-center justify-content-between "  style="gap: 12px;display:none !important;">
                                 <div class="d-flex" style="gap: 10px;">
                                     <!-- Priority Dropdown -->
                                     <div class="dropdown" style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
@@ -134,19 +134,16 @@ const taskList = (task_list) => {
             }).join('')} `
         );
         // Array to store checked checkbox ids
-        $('#task-card').on('change', '.toggleCheckbox', function () {
+        $(document).on('change', '.toggleCheckbox', function () {
             // Get the id of the clicked checkbox
             const checkboxId = $(this).data('id');
-            // console.log(checkboxId);
-            // Check if checkbox is checked
+
             if ($(this).is(':checked')) {
                 selectedIds.push(checkboxId);  // Add id to the array
             } else {
                 // Remove the id from the array if unchecked
                 selectedIds = selectedIds.filter(id => id !== checkboxId);
             }
-            console.log("selectedIds:", selectedIds);
-
             if (selectedIds.length === task_list.length) {
                 $('#selectAllCheckBox').prop('checked', true);
             } else {
@@ -154,8 +151,8 @@ const taskList = (task_list) => {
             }
             // Show or hide the delete button based on the checkbox state
             const anyChecked = selectedIds.length > 0;
-            const totalTaskDiv = document.querySelector('.total-task');
-            const dropdownDiv = document.querySelector('.dropdown');
+            const totalTaskDiv = document.querySelector('#total-task');
+            const dropdownDiv = document.querySelector('#viewBulkDropdown');
             // Initial state
             // dropdownDiv.style.display = 'none'; // Hide dropdown initially
             if (anyChecked) {
@@ -174,16 +171,20 @@ const taskList = (task_list) => {
                 $('.toggleCheckbox').prop('checked', true);
                 selectedIds = task_list.map(task => task.name);
                 document.getElementById('bulkDeleteButton').style.display = 'block';
+                document.querySelector('#total-task').style.display = 'none';
+                document.querySelector('#viewBulkDropdown').style.display = 'block';
             } else {
                 $('.toggleCheckbox').prop('checked', false);
                 selectedIds = [];
                 document.getElementById('bulkDeleteButton').style.display = 'none';
+                document.querySelector('#total-task').style.display = 'block';
+                document.querySelector('#viewBulkDropdown').style.display = 'none';
             }
         });
         document.addEventListener('DOMContentLoaded', () => {
             const toggleCheckbox = document.querySelector('.toggleCheckbox');
-            const totalTaskDiv = document.querySelector('.total-task');
-            const dropdownDiv = document.querySelector('.dropdown-task-status');
+            const totalTaskDiv = document.querySelector('#total-task');
+            const dropdownDiv = document.querySelector('#viewBulkDropdown');
 
             toggleCheckbox.addEventListener('change', () => {
                 if (toggleCheckbox.checked) {
@@ -358,7 +359,7 @@ const getTaskList = async (_f, frm) => {
         display: inline-block;
     }">
        
-         <div class="total-task" style="gap: 16px; display: flex;">
+         <div id="total-task" style="gap: 16px; display: flex;">
             <span class="text-dark" style="font-weight: 400; font-size: 14px; line-height: 15px; color: #6E7073;">
                 Total Task:
             </span>
@@ -368,7 +369,7 @@ const getTaskList = async (_f, frm) => {
         </div>
 
     <div class="dropdown-task-status dropdown">
-    <button class="btn btn-light dropdown-toggle" type="button" id="viewDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button class="btn btn-light dropdown-toggle" style="display:none;" type="button" id="viewBulkDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Set Status
     </button>
     <div class="dropdown-menu" aria-labelledby="viewDropdown" style="padding: 12px;">
