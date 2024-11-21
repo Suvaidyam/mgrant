@@ -59,7 +59,7 @@ function timeAgo(timestamp) {
 
 const style = document.createElement('style');
 style.innerHTML = `
- .timeline {
+    .timeline {
         position: relative;
         padding-left: 12px;
     }
@@ -123,7 +123,8 @@ const cominucation = async (frm) => {
             <div
                 style="display: flex; width: 334px; height: 40px; border: 1px solid #D9D9D9; gap: 12px; padding-left: 20px;">
                 <div
-                    style="display: flex; align-items: center; width: 55px; height: 33px; border-bottom: 1px solid #E55219; gap: 0px; padding: 6px 0 1px 0;">
+                    id="allEmailButton"
+                    style="display: flex; align-items: center; width: 55px; height: 33px; border-bottom: 1px solid white; gap: 0px; padding: 6px 0 1px 0;">
                     <span style="margin-right: 4px;">📧</span> <!-- Email icon -->
                     <span
                         style="font-weight: 400; font-size: 12px; line-height: 13.2px; letter-spacing: 0.4%; color: #0E1116;">All</span>
@@ -131,14 +132,16 @@ const cominucation = async (frm) => {
                 </div>
 
                 <div
-                    style="display: flex; align-items: center; width: 83px; height: 33px; gap: 2px; padding: 6px 0 1px 0;">
+                    id="unreadEmailButton"
+                    style="display: flex; align-items: center; width: 83px; height: 33px; border-bottom: 1px solid white; gap: 2px; padding: 6px 0 1px 0;">
                     <span style="margin-right: 4px;">📧</span> <!-- Email icon -->
                     <span
                         style="font-weight: 400; font-size: 12px; line-height: 13.2px; letter-spacing: 0.4%; color: #6E7073;">Unread</span>
 
                 </div>
                 <div
-                    style="display: flex; align-items: center; width: 55px; height: 33px; gap: 2px; padding: 6px 0 1px 0;">
+                    id="readEmailButton"
+                    style="display: flex; align-items: center; width: 55px; height: 33px; border-bottom: 1px solid white; gap: 2px; padding: 6px 0 1px 0;">
                     <span style="margin-right: 4px;">📧</span> <!-- Email icon -->
                     <span
                         style="font-weight: 400; font-size: 12px; line-height: 13.2px; letter-spacing: 0.4%; color: #6E7073;">Read</span>

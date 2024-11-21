@@ -33,8 +33,7 @@
    "fieldname": "project",
    "fieldtype": "Link",
    "label": "Project",
-   "options": "Project",
-   "reqd": 1
+   "options": "Project"
   },
   {
    "fieldname": "expense",
@@ -65,7 +64,7 @@
    "link_fieldname": "budget"
   }
  ],
- "modified": "2024-10-03 13:09:05.252458",
+ "modified": "2024-11-21 15:28:42.577485",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget",
