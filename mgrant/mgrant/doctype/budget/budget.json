@@ -6,6 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "proposal",
   "project",
   "budget_name",
   "financial_year",
@@ -55,6 +56,12 @@
    "label": "Financial Year",
    "options": "Financial Year",
    "reqd": 1
+  },
+  {
+   "fieldname": "proposal",
+   "fieldtype": "Link",
+   "label": "Proposal",
+   "options": "Proposal"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -64,7 +71,7 @@
    "link_fieldname": "budget"
   }
  ],
- "modified": "2024-11-21 15:28:42.577485",
+ "modified": "2024-11-21 17:19:07.554390",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget",
