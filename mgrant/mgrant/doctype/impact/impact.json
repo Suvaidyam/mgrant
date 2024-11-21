@@ -6,6 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "proposal",
   "project",
   "impact_name",
   "target",
@@ -33,8 +34,7 @@
    "fieldname": "project",
    "fieldtype": "Link",
    "label": "Project",
-   "options": "Project",
-   "reqd": 1
+   "options": "Project"
   },
   {
    "fieldname": "column_break_syqs",
@@ -57,6 +57,12 @@
    "label": "Achievement",
    "non_negative": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "proposal",
+   "fieldtype": "Link",
+   "label": "Proposal",
+   "options": "Proposal"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -66,7 +72,7 @@
    "link_fieldname": "impact"
   }
  ],
- "modified": "2024-11-20 11:51:57.809248",
+ "modified": "2024-11-21 17:26:08.106520",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact",
