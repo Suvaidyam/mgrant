@@ -174,7 +174,7 @@
    "link_fieldname": "donor"
   }
  ],
- "modified": "2024-11-10 15:58:47.347271",
+ "modified": "2024-11-21 10:16:48.509467",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Donor",
@@ -194,7 +194,9 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "donor_name"
 }
