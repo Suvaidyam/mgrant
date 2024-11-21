@@ -22,4 +22,10 @@ class Proposal(Document):
 					})
 			project.start_date = today()
 			project.insert(ignore_permissions=True,ignore_mandatory=True)
+			tranches = frappe.get_all("Tranches", filters={"proposal": self.name}, pluck="name")
+			if len(tranches) > 0:
+				for tranche in tranches:
+					tranche_doc = frappe.get_doc("Tranches", tranche)
+					tranche_doc.project = project.name
+					tranche_doc.save(ignore_permissions=True)
 			self.submit()
