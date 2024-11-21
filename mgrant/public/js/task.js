@@ -1,5 +1,5 @@
 
-
+let selectedIds = [];
 const taskList = (task_list) => {
     const deleteTask = (taskName) => {
         frappe.db.delete_doc('CRM Task', taskName).then(() => {
@@ -22,8 +22,6 @@ const taskList = (task_list) => {
             frappe.show_alert({ message: __('Error updating task status'), indicator: 'red' });
         });
     };
-
-
     if (task_list.length == 0) {
         $('#parent-view').html(`
             <div class=" d-flex justify-content-center align-items-center flex-wrap ">
@@ -34,9 +32,6 @@ const taskList = (task_list) => {
         $('.section-body').each(function () {
             this.style.setProperty('padding', '0px', 'important');
         });
-
-
-
         // Card view
         $('#task-card').html(
 
@@ -52,11 +47,8 @@ const taskList = (task_list) => {
                                <span title="task title"
                                     class="text-dark me-2"
                                     style="font-size: 16px; font-weight: 400; line-height: 17.6px; letter-spacing: 0.5%; color: #000;">
-                                    
                                     ${task?.title}
                                 </span>
-
-                                
                                 <div class="d-flex align-items-center " style="gap: 24px; " >
                                     <div class="dropdown">
                                         <p title="action" class="pointer pt-3" id="dropdownMenuButton-${task.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -78,24 +70,22 @@ const taskList = (task_list) => {
                             <span style="color: #6E7073; font-size: 12px; font-weight: 400; line-height: 13.2px;">${task.assigned_to ?? 'No assigned available'}</span>
                             </div>
 
-                  <p
-    class="card-text text-muted"
-    style="
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 15.4px;
-        letter-spacing: 0.25%;
-        width: 300px; /* Adjust to your needs */
-        height: 30.8px; /* Adjust based on line-height for 2 lines */
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 2; /* Limit to 2 lines */
-        -webkit-box-orient: vertical;
-    ">
-    ${task.description ?? 'No description available'}
-</p>
-
+                            <p
+                                class="card-text text-muted"
+                                style="
+                                    font-weight: 400;
+                                    font-size: 14px;
+                                    line-height: 15.4px;
+                                    letter-spacing: 0.25%;
+                                
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    display: -webkit-box;
+                                    -webkit-line-clamp: 2; 
+                                    -webkit-box-orient: vertical;
+                                ">
+                                ${task.description ?? 'No description available'}
+                            </p>
                             <!-- Task Priority and Status -->
                             <div class="d-flex align-items-center justify-content-between "  style="gap: 12px;">
                                 <div class="d-flex" style="gap: 10px;">
@@ -143,14 +133,11 @@ const taskList = (task_list) => {
                `
             }).join('')} `
         );
-
         // Array to store checked checkbox ids
-        let selectedIds = [];
-
         $('#task-card').on('change', '.toggleCheckbox', function () {
             // Get the id of the clicked checkbox
             const checkboxId = $(this).data('id');
-
+            // console.log(checkboxId);
             // Check if checkbox is checked
             if ($(this).is(':checked')) {
                 selectedIds.push(checkboxId);  // Add id to the array
@@ -158,18 +145,27 @@ const taskList = (task_list) => {
                 // Remove the id from the array if unchecked
                 selectedIds = selectedIds.filter(id => id !== checkboxId);
             }
+            console.log("selectedIds:", selectedIds);
+
             if (selectedIds.length === task_list.length) {
                 $('#selectAllCheckBox').prop('checked', true);
             } else {
                 $('#selectAllCheckBox').prop('checked', false);
             }
             // Show or hide the delete button based on the checkbox state
-
             const anyChecked = selectedIds.length > 0;
+            const totalTaskDiv = document.querySelector('.total-task');
+            const dropdownDiv = document.querySelector('.dropdown');
+            // Initial state
+            // dropdownDiv.style.display = 'none'; // Hide dropdown initially
             if (anyChecked) {
                 document.getElementById('bulkDeleteButton').style.display = 'block';
+                totalTaskDiv.style.display = 'none'; // Hide Total Task
+                dropdownDiv.style.display = 'block';
             } else {
                 document.getElementById('bulkDeleteButton').style.display = 'none';
+                totalTaskDiv.style.display = 'flex'; // Show Total Task
+                dropdownDiv.style.display = 'none';
             }
         });
         $('#task-list').on('change', '#selectAllCheckBox', function () {
@@ -184,14 +180,10 @@ const taskList = (task_list) => {
                 document.getElementById('bulkDeleteButton').style.display = 'none';
             }
         });
-        // not show delete button if no checkbox is checked card veiw
         document.addEventListener('DOMContentLoaded', () => {
             const toggleCheckbox = document.querySelector('.toggleCheckbox');
             const totalTaskDiv = document.querySelector('.total-task');
-            const dropdownDiv = document.querySelector('.dropdown');
-
-            // Initial state
-            dropdownDiv.style.display = 'none'; // Hide dropdown initially
+            const dropdownDiv = document.querySelector('.dropdown-task-status');
 
             toggleCheckbox.addEventListener('change', () => {
                 if (toggleCheckbox.checked) {
@@ -203,8 +195,32 @@ const taskList = (task_list) => {
                 }
             });
         });
+        document.querySelectorAll('input[name="priority"]').forEach(input => {
+            input.addEventListener('click', function () {
+                if (selectedIds.length > 0) {
+                    for (id of selectedIds) {
+                        console.log(`Priority selected: ${this.value}, for Task ID: ${id}`);
+                        updateTaskStatus(id, this.value, 'priority');
+                    }
+                } else {
+                    console.error('Task ID (data-id) is missing for the priority input.');
+                }
+            });
+        });
 
-
+        // Add event listeners for status radio buttons
+        document.querySelectorAll('input[name="status"]').forEach(input => {
+            input.addEventListener('click', function () {
+                if (selectedIds.length > 0) {
+                    for (id of selectedIds) {
+                        console.log(`Status selected: ${this.value}, for Task ID: ${id}`);
+                        updateTaskStatus(id, this.value, 'status');
+                    }
+                } else {
+                    console.error('Task ID (data-id) is missing for the status input.');
+                }
+            });
+        });
         // List view
         $('#task-list').html(
             `
@@ -327,10 +343,11 @@ const taskList = (task_list) => {
 }
 let task_list = [];
 let view = 'Card View'
+
 const getTaskList = async (_f, frm) => {
     task_list = await getDocList(_f.description, [
-        ['CRM Task','reference_doctype', '=', frm.doc.doctype],
-        ['CRM Task','reference_docname', '=', frm.doc.name],
+        ['CRM Task', 'reference_doctype', '=', frm.doc.doctype],
+        ['CRM Task', 'reference_docname', '=', frm.doc.name],
     ], ['*']);
     $('#tasks').html(`
        <div class="d-flex flex-wrap justify-content-between align-items-center mb-3" style=".scrollable-buttons {
@@ -340,16 +357,17 @@ const getTaskList = async (_f, frm) => {
     .scrollable-buttons .btn {
         display: inline-block;
     }">
- <div class="total-task" style="gap: 16px; display: flex;">
-    <span class="text-dark" style="font-weight: 400; font-size: 14px; line-height: 15px; color: #6E7073;">
-        Total Task:
-    </span>
-    <span style="font-weight: 400; font-size: 14px; line-height: 15px; color: #0E1116;">
-        ${task_list.length}
-    </span>
-</div>
+       
+         <div class="total-task" style="gap: 16px; display: flex;">
+            <span class="text-dark" style="font-weight: 400; font-size: 14px; line-height: 15px; color: #6E7073;">
+                Total Task:
+            </span>
+            <span style="font-weight: 400; font-size: 14px; line-height: 15px; color: #0E1116;">
+                ${task_list.length}
+            </span>
+        </div>
 
-      <div class="dropdown" style="display: none;">
+    <div class="dropdown-task-status dropdown">
     <button class="btn btn-light dropdown-toggle" type="button" id="viewDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Set Status
     </button>
@@ -430,20 +448,13 @@ const getTaskList = async (_f, frm) => {
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#6E7073" class="bi bi-filter" viewBox="0 0 16 16">
         <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
     </svg>
-    
     <!-- Label -->
     <span class="mx-2" style="color: #6E7073;">Filters</span>
-    
     <!-- Vertical Line Separator -->
    <div style="height: 20px; width: 1px; background-color: #6E7073; margin: 0 8px;"></div>
-    
-    
     <!-- Close Icon -->
     <span aria-hidden="true" style="font-size: 16px; line-height: 16px; display: inline-block; width: 16px; height: 16px; color: #6E7073;">&times;</span>
-
     </button>
-
-
         <!-- New Task Button -->
         <button class="btn btn-primary btn-sm" id="createTask">
             <svg class="es-icon es-line icon-xs" aria-hidden="true">
@@ -452,7 +463,6 @@ const getTaskList = async (_f, frm) => {
         </button>
     </div>
 </div>
-
 <div id="parent-view">
     ${view === 'Card View' ? `<div id="task-card" class="row"></div>` : `<div id="task-list" class=""></div>`}
 </div>
@@ -460,7 +470,7 @@ const getTaskList = async (_f, frm) => {
         `);
     taskList(task_list);
     $('#createTask').on('click', function () {
-        form(null, 'New Task',frm);
+        form(null, 'New Task', frm);
     });
     $('#cardViewBtn').on('click', () => {
         view = 'Card View';
@@ -473,7 +483,6 @@ const getTaskList = async (_f, frm) => {
 
     })
 };
-
 const form = async (data = null, action, frm) => {
     let title = action === 'New Task' ? 'New Task' : 'Edit Task';
     let primaryActionLabel = action === 'New Task' ? 'Save' : 'Update';
@@ -494,20 +503,20 @@ const form = async (data = null, action, frm) => {
                 field.default = data[field.fieldname];
             }
         }
-        if(frm){
-            if(field.fieldname === 'reference_doctype'){
+        if (frm) {
+            if (field.fieldname === 'reference_doctype') {
                 field.default = frm.doc.doctype;
                 field.read_only = true;
             }
-            if(field.fieldname === 'reference_docname'){
+            if (field.fieldname === 'reference_docname') {
                 field.default = frm.doc.name;
                 field.read_only = true;
             }
-        }else{
-            if(field.fieldname === 'reference_doctype'){
+        } else {
+            if (field.fieldname === 'reference_doctype') {
                 field.read_only = true;
             }
-            if(field.fieldname === 'reference_docname'){
+            if (field.fieldname === 'reference_docname') {
                 field.read_only = true;
             }
         }
