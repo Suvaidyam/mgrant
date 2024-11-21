@@ -1,6 +1,15 @@
 
 let selectedIds = [];
+function stripHtmlTags(input) {
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = input;
+    return tempDiv.textContent || tempDiv.innerText || '';
+}
+
 const taskList = (task_list) => {
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
     const deleteTask = (taskName) => {
         frappe.db.delete_doc('CRM Task', taskName).then(() => {
             frappe.show_alert({ message: __(`Task deleted successfully`), indicator: 'green' });
@@ -37,9 +46,10 @@ const taskList = (task_list) => {
 
             `
             ${task_list.map(task => {
-                // <i class="fa fa-circle-o"></i>
                 return `
-                
+                <style>
+                    .tooltip-inner {background-color: white !important;max-width: 320px !important;}
+                </style>
                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-4" >
                 <div class="card border-light shadow-sm" style="padding: 16px; " >
                     <!-- Task Header -->
@@ -69,23 +79,7 @@ const taskList = (task_list) => {
                                 <div class="avatar bg-primary text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 24px; height: 24px;">A</div>
                             <span style="color: #6E7073; font-size: 12px; font-weight: 400; line-height: 13.2px;">${task.assigned_to ?? 'No assigned available'}</span>
                             </div>
-
-                            <p
-                                class="card-text text-muted"
-                                style="
-                                    font-weight: 400;
-                                    font-size: 14px;
-                                    line-height: 15.4px;
-                                    letter-spacing: 0.25%;
-                                
-                                    overflow: hidden;
-                                    text-overflow: ellipsis;
-                                    display: -webkit-box;
-                                    -webkit-line-clamp: 2; 
-                                    -webkit-box-orient: vertical;
-                                ">
-                                ${task.description ?? 'No description available'}
-                            </p>
+                            <p data-toggle="tooltip" data-placement="bottom" title='${task.description ?? "N/A"}' data-html="true">${stripHtmlTags(task.description) ?? "No Description"}</>
                             <!-- Task Priority and Status -->
                             <div class="d-flex align-items-center justify-content-between "  style="gap: 12px;display:none !important;">
                                 <div class="d-flex" style="gap: 10px;">
@@ -568,5 +562,4 @@ const form = async (data = null, action, frm) => {
         task_form.set_values(data);
     }
     task_form.show();
-
 };
