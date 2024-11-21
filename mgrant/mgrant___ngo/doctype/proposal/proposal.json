@@ -8,6 +8,7 @@
  "field_order": [
   "details_tab",
   "organisation_information_section",
+  "proposal_name",
   "ngo",
   "registration_of_the_organisaiton",
   "column_break_dmhe",
@@ -32,10 +33,8 @@
   "about_organisation",
   "work_reference_tab",
   "work_ref_themes",
-  "work_references",
-  "impact_tab",
   "impact",
-  "amended_from",
+  "work_references",
   "tasks_tab",
   "tasks",
   "email_tab",
@@ -47,7 +46,12 @@
   "output_tab",
   "output",
   "outcome_tab",
-  "outcome"
+  "outcome",
+  "budget_tab",
+  "budgets",
+  "impact_tab",
+  "impacts",
+  "amended_from"
  ],
  "fields": [
   {
@@ -206,6 +210,7 @@
    "options": "NGO Work Reference Child"
   },
   {
+   "default": "impacts",
    "fieldname": "impact_tab",
    "fieldtype": "Tab Break",
    "label": "Impact"
@@ -276,6 +281,7 @@
    "options": "<div id=\"outcome\"></div>"
   },
   {
+   "default": "impacts",
    "fieldname": "impact_tab",
    "fieldtype": "Tab Break",
    "label": "Impact"
@@ -311,6 +317,30 @@
    "fieldname": "emails",
    "fieldtype": "HTML",
    "options": "<div id=\"emails\"></div>"
+  },
+  {
+   "fieldname": "proposal_name",
+   "fieldtype": "Data",
+   "label": "Proposal name",
+   "reqd": 1
+  },
+  {
+   "default": "Impact",
+   "fieldname": "impacts",
+   "fieldtype": "HTML",
+   "options": "<div id=\"impacts\"></div>"
+  },
+  {
+   "default": "budgets",
+   "fieldname": "budget_tab",
+   "fieldtype": "Tab Break",
+   "label": "Budget"
+  },
+  {
+   "default": "Budget",
+   "fieldname": "budgets",
+   "fieldtype": "HTML",
+   "options": "<div id=\"budgets\"></div>"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -349,9 +379,14 @@
    "hidden": 1,
    "link_doctype": "Communication",
    "link_fieldname": "reference_doctype"
+  },
+  {
+   "hidden": 1,
+   "link_doctype": "Budget",
+   "link_fieldname": "proposal"
   }
  ],
- "modified": "2024-11-20 10:44:23.600897",
+ "modified": "2024-11-21 17:26:55.399032",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "Proposal",
@@ -375,5 +410,5 @@
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],
- "title_field": "ngo"
+ "title_field": "proposal_name"
 }
