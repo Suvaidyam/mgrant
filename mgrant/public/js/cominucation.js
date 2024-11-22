@@ -63,6 +63,9 @@ style.innerHTML = `
         position: relative;
         padding-left: 12px;
     }
+    .active_tab{
+        border-color:blue !important;
+    }
     .fa-envelope{
         font-size: 13px;
         color: #7c7c7c;
@@ -108,15 +111,12 @@ style.innerHTML = `
     }
       `;
 document.head.appendChild(style);
-const cominucation = async (frm) => {
-    let cominucation = await getDocList('Communication', [
-        ['Communication', 'reference_name', '=', frm.doc.name],
-        ['Communication', 'in_reply_to', '=', '']
-    ], ['*']);
-    if (cominucation.length > 0) {
+var communication_list = []
+function renderEmails(email_list, frm) {
+    if (email_list.length > 0) {
         $('#email').html(
             `
-             <div class="container" style="display: flex; height: 100%;overflow:auto;">
+            <div class="container" style="display: flex; height: 100%;overflow:auto;">
         <div
             style="width: 335px; background-color: rgb(255, 255, 255); display: flex; justify-content: flex-start; flex-direction: column; align-items: start; border: solid 1px #D9D9D9; gap: 16px;">
             <!-- tab section -->
@@ -124,6 +124,7 @@ const cominucation = async (frm) => {
                 style="display: flex; width: 334px; height: 40px; border: 1px solid #D9D9D9; gap: 12px; padding-left: 20px;">
                 <div
                     id="allEmailButton"
+                    class="active_tab"
                     style="display: flex; align-items: center; width: 55px; height: 33px; border-bottom: 1px solid white; gap: 0px; padding: 6px 0 1px 0;">
                     <span style="margin-right: 4px;">📧</span> <!-- Email icon -->
                     <span
@@ -155,7 +156,7 @@ const cominucation = async (frm) => {
                 <h3
                     style="margin: 0 0 8px; padding-left: 20px; color: #6E7073; font-size: 10px; font-weight: 500; line-height: 11px; letter-spacing: 1.5%;">
                     TODAY</h3>
-                ${cominucation.map((item) => {
+                ${email_list.map((item) => {
                 return `
                         <div class="emailListCard" emailId="${item.name}" style="max-height: 120px;height: 120px; display: flex;  border-bottom: 1px solid #e5e5e5; padding: 10px 20px; overflow: hidden;">
                         <!-- Avatar -->
@@ -180,7 +181,6 @@ const cominucation = async (frm) => {
                                 style="font-size: 10px; font-weight: 400; line-height: 11px; color: #6E7073; margin: 0; padding-top: 4px;">
                                 ${item?.content}
                             </p>
-    
                             <p style="margin: 8px 0; font-size: 12px; color: #888;">
                                 <span style="font-size: 12px; color: #6E7073; height: 12px; width: 12px;">📎</span> <span
                                     style="font-size: 10px; font-weight: 400; line-height: 11px; color: #0E1116;"> 0
@@ -204,8 +204,6 @@ const cominucation = async (frm) => {
             </div>
         </div>
     </div>
-
-            
             `
         );
     }
@@ -218,12 +216,56 @@ const cominucation = async (frm) => {
             </div>`
         );
     }
+    $('#allEmailButton').on('click', async () => {
+        try {
+            communication_list = await getDocList('Communication', [
+                ['Communication', 'reference_name', '=', frm.doc.name],
+                ['Communication', 'in_reply_to', '=', '']
+            ], ['*']);
+            renderEmails(communication_list, frm)
+            $('#allEmailButton').addClass('active_tab');
+            $('#unreadEmailButton').removeClass('active_tab');
+            $('#readEmailButton').removeClass('active_tab');
+        } catch (error) {
+            console.error(error)
+        }
+    });
+    $('#unreadEmailButton').on('click', async () => {
+        try {
+            communication_list = await getDocList('Communication', [
+                ['reference_name', '=', frm.doc.name],
+                ['read_by_recipient', '=', 0],
+                ['in_reply_to', '=', '']
+            ], ['*']);
+            renderEmails(communication_list, frm)
+            $('#allEmailButton').removeClass('active_tab');
+            $('#unreadEmailButton').addClass('active_tab');
+            $('#readEmailButton').removeClass('active_tab');
+        } catch (error) {
+            console.error(error)
+        }
+    });
+    $('#readEmailButton').on('click', async () => {
+        try {
+            communication_list = await getDocList('Communication', [
+                ['reference_name', '=', frm.doc.name],
+                ['read_by_recipient', '=', 1],
+                ['in_reply_to', '=', '']
+            ], ['*']);
+            renderEmails(communication_list, frm)
+            $('#allEmailButton').removeClass('active_tab');
+            $('#unreadEmailButton').removeClass('active_tab');
+            $('#readEmailButton').addClass('active_tab');
+        } catch (error) {
+            console.error(error)
+        }
+    });
     $('.emailListCard').on('click', async (e) => {
         let docName = e.currentTarget.getAttribute('emailId');
         let replies = await getDocList('Communication', [
             ['Communication', 'in_reply_to', '=', docName]
-        ], ['subject','content','communication_date']);
-        let emailDoc = cominucation.find(item => item.name === docName);
+        ], ['subject', 'content', 'communication_date']);
+        let emailDoc = communication_list.find(item => item.name === docName);
         const emails = [...replies, emailDoc];
         let emailBody = `
             <div id="emailContent" style="width:100%;">
@@ -251,22 +293,29 @@ const cominucation = async (frm) => {
                 </div>
                 <div id="body" style="padding: 15px;">
                     ${emails.map((email) => {
-                        return `<div class="d-flex justify-content-between align-items-center">
-                                    <h4>Subject : ${email?.subject}</h4>
-                                    <div class="d-flex align-items-center">
-                                        <span style="font-size: 12px; color: #6c757d; margin-right: 10px;">
-                                            ${timeAgo(email?.communication_date)}
-                                        </span>
+            return `<div class="d-flex justify-content-between align-items-center">
+                                        <h4>Subject : ${email?.subject}</h4>
+                                        <div class="d-flex align-items-center">
+                                            <span style="font-size: 12px; color: #6c757d; margin-right: 10px;">
+                                                ${timeAgo(email?.communication_date)}
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div  style="border-bottom:1px solid gray;">${email?.content}</div>`
-                    }).join('\n')}
+                                    <div  style="border-bottom:1px solid gray;">${email?.content}</div>`
+        }).join('\n')}
+                    </div>
                 </div>
-            </div>
-        `;
+            `;
         document.getElementById('emailBodyContent').innerHTML = emailBody;
     });
     $('#createCominucation').on('click', () => {
         cur_frm.email_doc();
     });
+}
+const cominucation = async (frm) => {
+    communication_list = await getDocList('Communication', [
+        ['Communication', 'reference_name', '=', frm.doc.name],
+        ['Communication', 'in_reply_to', '=', '']
+    ], ['*']);
+    renderEmails(communication_list, frm)
 }
