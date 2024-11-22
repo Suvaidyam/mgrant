@@ -48,81 +48,124 @@ const taskList = (task_list) => {
             ${task_list.map(task => {
                 return `
                 <style>
-                    .tooltip-inner {background-color: white !important;max-width: 320px !important;}
+                    .tooltip-inner {
+                        background-color: white !important;
+                        max-width: 320px !important;
+                    }
                 </style>
-               <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-4" >
-                <div class="card border-light shadow-sm" style="padding: 16px; " >
-                    <!-- Task Header -->
-                            <div class="d-flex justify-content-between align-items-center"  >
-                               <span title="task title"
-                                    class="text-dark me-2"
-                                    style="font-size: 16px; font-weight: 400; line-height: 17.6px; letter-spacing: 0.5%; color: #000;">
-                                    ${task?.title}
-                                </span>
-                                <div class="d-flex align-items-center " style="gap: 24px; " >
-                                    <div class="dropdown">
-                                        <p title="action" class="pointer pt-3" id="dropdownMenuButton-${task.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-h  mt-2" style="transform: rotate(90deg); font-size: 20px; width: 20px; height: 20px;"></i>
-
-                                        </p>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-${task.name}">
-                                            <a class="dropdown-item edit-btn" data-task="${task.name}">Edit</a>
-                                            <a class="dropdown-item delete-btn" data-task="${task.name}">Delete</a>
-                                        </div>
-                                    </div>
-                                <input type="checkbox" class="toggleCheckbox form-check-input" data-id="${task.name}" style="width: 20px !important; height: 20px !important;">
-                                </div>
-                            </div>
-
-                            <!-- User Info -->
-                            <div class="d-flex align-items-center text-muted small " style="gap: 6px;">
-                                <div class="avatar bg-primary text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 24px; height: 24px;">A</div>
-                            <span style="color: #6E7073; font-size: 12px; font-weight: 400; line-height: 13.2px;">${task.assigned_to ?? 'No assigned available'}</span>
-                            </div>
-                            <p data-toggle="tooltip" data-placement="bottom" title='${task.description ?? "N/A"}' data-html="true">${stripHtmlTags(task.description) ?? "No Description"}</>
-                            <!-- Task Priority and Status -->
-                            <div class="d-flex align-items-center justify-content-between "  style="gap: 12px;display:none !important;">
-                                <div class="d-flex" style="gap: 10px;">
-                                    <!-- Priority Dropdown -->
-                                    <div class="dropdown" style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
-                                        <span title="Priority" id="dropPriority-${task.name}" class=" small dropdown-toggle badge bg-light pointer ${task?.priority === 'High' ? 'text-danger' : task?.priority === 'Medium' ? 'text-warning' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                                            ${task?.priority ?? 'Low'}
-                                        </span>
-                                        <div class="dropdown-menu" aria-labelledby="dropPriority-${task.name}">
-                                            <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="Low">Low</a>
-                                            <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="Medium">Medium</a>
-                                            <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="High">High</a>
-                                        </div>
-                                    </div>
-
-                                    <!-- Status Dropdown -->
-                                    <div class="dropdown" style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
-                                        <span title="status" id="dropStatus-${task.name}" class="small dropdown-toggle bg-light pointer badge ${task?.status === 'Canceled' ? 'text-danger' : task?.status === 'In Progress' ? 'text-warning' : task?.status === 'Done' ? 'text-success' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            ${task?.status ?? 'Status'}
-                                        </span>
-                                        <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
-                                            <a class="dropdown-item task-status" data-task="${task.name}" data-status="Backlog">Backlog</a>
-                                            <a class="dropdown-item task-status" data-task="${task.name}" data-status="Todo">Todo</a>
-                                            <a class="dropdown-item task-status" data-task="${task.name}" data-status="In Progress">In Progress</a>
-                                            <a class="dropdown-item task-status" data-task="${task.name}" data-status="Done">Done</a>
-                                            <a class="dropdown-item task-status" data-task="${task.name}" data-status="Canceled">Canceled</a>
-                                    </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+                    <div class="card border-light shadow-sm" style="padding: 16px;">
+                        <!-- Task Header -->
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span
+                                title="task title"
+                                class="text-dark me-2"
+                                style="font-size: 16px; font-weight: 400; line-height: 17.6px; letter-spacing: 0.5%; color: #000;">
+                                ${task?.title}
+                            </span>
+                            <div class="d-flex align-items-center" style="gap: 24px;">
+                                <div class="dropdown">
+                                    <p 
+                                        title="action"
+                                        class="pointer pt-3"
+                                        id="dropdownMenuButton-${task.name}"
+                                        data-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false">
+                                        <i class="fa fa-ellipsis-h mt-2" style="transform: rotate(90deg); font-size: 20px; width: 20px; height: 20px;"></i>
+                                    </p>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-${task.name}">
+                                        <a class="dropdown-item edit-btn" data-task="${task.name}">Edit</a>
+                                        <a class="dropdown-item delete-btn" data-task="${task.name}">Delete</a>
                                     </div>
                                 </div>
-
-                                <!-- Document Type -->
-                            <span class="ms-auto small" style="color: #6E7073; font-size: 12px;">
-                        ${task.reference_doctype}: <span style="color: #0E1116;">${task.reference_docname ?? 'No available'}</span>
-                    </span>
-
+                                <input 
+                                    type="checkbox" 
+                                    class="toggleCheckbox form-check-input" 
+                                    data-id="${task.name}" 
+                                    style="width: 20px !important; height: 20px !important;">
                             </div>
-
-                            <!-- Due Date -->
-                            <p class="small " style="color: #6E7073; padding-top: 16px;">
-                                Due Date: <span class="text-danger">${task.due_date ?? '--:--'}</span>
-                            </p>
                         </div>
+
+                        <!-- User Info -->
+                        <div class="d-flex align-items-center text-muted small" style="gap: 6px;">
+                            <div 
+                                class="avatar bg-primary text-white rounded-circle d-flex justify-content-center align-items-center me-2" 
+                                style="width: 24px; height: 24px;">
+                                ${task.assigned_to ? task.assigned_to[0].toUpperCase() : '-'}
+                            </div>
+                            <span style="color: #6E7073; font-size: 12px; font-weight: 400; line-height: 13.2px;">
+                                ${task.assigned_to ?? 'No Assignee'}
+                            </span>
+                        </div>
+                        <p 
+                            style="margin-top: 8px;max-height:40px;min-height:40px;overflow:hidden;" 
+                            data-toggle="tooltip" 
+                            data-placement="bottom" 
+                            title='${task.description ?? "N/A"}' 
+                            data-html="true">
+                            ${stripHtmlTags(task.description) ?? "No Description"}
+                        </p>
+
+                        <!-- Task Priority and Status -->
+                        <div class="d-flex align-items-center justify-content-between" style="gap: 12px;">
+                            <div class="d-flex" style="gap: 10px;">
+                                <!-- Priority Dropdown -->
+                                <div 
+                                    class="dropdown" 
+                                    style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px;">
+                                    <span 
+                                        title="Priority" 
+                                        id="dropPriority-${task.name}" 
+                                        class="small dropdown-toggle badge bg-light pointer ${task?.priority === 'High' ? 'text-danger' : task?.priority === 'Medium' ? 'text-warning' : 'text-muted'}" 
+                                        data-toggle="dropdown" 
+                                        aria-haspopup="true" 
+                                        aria-expanded="false">
+                                        ${task?.priority ?? 'Low'}
+                                    </span>
+                                    <div class="dropdown-menu" aria-labelledby="dropPriority-${task.name}">
+                                        <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="Low">Low</a>
+                                        <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="Medium">Medium</a>
+                                        <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="High">High</a>
+                                    </div>
+                                </div>
+
+                                <!-- Status Dropdown -->
+                                <div 
+                                    class="dropdown" 
+                                    style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px;">
+                                    <span 
+                                        title="status" 
+                                        id="dropStatus-${task.name}" 
+                                        class="small dropdown-toggle bg-light pointer badge ${task?.status === 'Canceled' ? 'text-danger' : task?.status === 'In Progress' ? 'text-warning' : task?.status === 'Done' ? 'text-success' : 'text-muted'}" 
+                                        data-toggle="dropdown" 
+                                        aria-haspopup="true" 
+                                        aria-expanded="false">
+                                        ${task?.status ?? 'Status'}
+                                    </span>
+                                    <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Backlog">Backlog</a>
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Todo">Todo</a>
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="In Progress">In Progress</a>
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Done">Done</a>
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Canceled">Canceled</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Document Type -->
+                            <span class="ms-auto small" style="color: #6E7073; font-size: 12px;">
+                                ${task.reference_doctype ?? 'N/A'}: 
+                                <span style="color: #0E1116;">${task.reference_docname ?? 'N/A'}</span>
+                            </span>
+                        </div>
+
+                        <!-- Due Date -->
+                        <p class="small" style="color: #6E7073; padding-top: 16px;margin: 0;">
+                            Due Date: <span class="text-danger">${task.due_date ?? '--:--'}</span>
+                        </p>
                     </div>
+                </div>
 
                `
             }).join('')} `
