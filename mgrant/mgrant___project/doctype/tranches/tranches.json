@@ -12,7 +12,9 @@
   "financial_year",
   "tranch_name",
   "amount",
-  "total_disbursement"
+  "total_disbursement",
+  "tab_2_tab",
+  "html_xdrd"
  ],
  "fields": [
   {
@@ -57,11 +59,20 @@
    "label": "Project",
    "options": "Project",
    "search_index": 1
+  },
+  {
+   "fieldname": "tab_2_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tab 2"
+  },
+  {
+   "fieldname": "html_xdrd",
+   "fieldtype": "HTML"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-22 09:46:42.648062",
+ "modified": "2024-11-22 12:01:52.557449",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Tranches",

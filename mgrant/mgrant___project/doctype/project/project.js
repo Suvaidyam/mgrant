@@ -88,6 +88,8 @@ frappe.ui.form.on("Project", {
         });
 
 
+        // =================================== TimeLine Tab ===================================
+
         // frm.timeline.doc_info.versions.forEach(item => {
         //     const data = JSON.parse(item.data); // Parse the JSON string into an object
         //     console.log('item.data :>> ', data);
@@ -117,8 +119,6 @@ frappe.ui.form.on("Project", {
         //         });
         //     }
         // });
-
-
 
         if (frm.timeline?.timeline_wrapper) {
             document.getElementById('timeline').innerHTML = `
