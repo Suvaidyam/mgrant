@@ -43,6 +43,7 @@
    "non_negative": 1
   },
   {
+   "depends_on": "eval:(cur_frm.doc.doctype == 'Proposal')",
    "fieldname": "proposal",
    "fieldtype": "Link",
    "label": "Proposal",
@@ -50,6 +51,7 @@
    "search_index": 1
   },
   {
+   "depends_on": "eval:(cur_frm.doc.doctype == 'Project')",
    "fieldname": "project",
    "fieldtype": "Link",
    "label": "Project",
@@ -59,7 +61,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-20 11:52:45.709565",
+ "modified": "2024-11-22 09:46:42.648062",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Tranches",
