@@ -31,6 +31,7 @@
    "reqd": 1
   },
   {
+   "depends_on": "eval:(cur_frm.doc.doctype == 'Project')",
    "fieldname": "project",
    "fieldtype": "Link",
    "label": "Project",
@@ -58,6 +59,7 @@
    "reqd": 1
   },
   {
+   "depends_on": "eval:(cur_frm.doc.doctype == 'Proposal')",
    "fieldname": "proposal",
    "fieldtype": "Link",
    "label": "Proposal",
@@ -71,7 +73,7 @@
    "link_fieldname": "budget"
   }
  ],
- "modified": "2024-11-21 17:19:07.554390",
+ "modified": "2024-11-22 09:38:43.654025",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget",
