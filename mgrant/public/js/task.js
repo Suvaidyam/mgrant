@@ -170,95 +170,37 @@ const taskList = (task_list) => {
                `
             }).join('')} `
         );
-        // Array to store checked checkbox ids
+        let selectedIds = [];
+        const toggleVisibility = (id, show, type = 'block') => (document.getElementById(id).style.display = show ? type : 'none');
+
         $(document).on('change', '.toggleCheckbox', function () {
-            // Get the id of the clicked checkbox
-            const checkboxId = $(this).data('id');
-
-            if ($(this).is(':checked')) {
-                selectedIds.push(checkboxId);  // Add id to the array
-            } else {
-                // Remove the id from the array if unchecked
-                selectedIds = selectedIds.filter(id => id !== checkboxId);
-            }
-            if (selectedIds.length === task_list.length) {
-                $('#selectAllCheckBox').prop('checked', true);
-            } else {
-                $('#selectAllCheckBox').prop('checked', false);
-            }
-            // Show or hide the delete button based on the checkbox state
-            const anyChecked = selectedIds.length > 0;
-            const totalTaskDiv = document.querySelector('#total-task');
-            const dropdownDiv = document.querySelector('#viewBulkDropdown');
-            // Initial state
-            // dropdownDiv.style.display = 'none'; // Hide dropdown initially
-            if (anyChecked) {
-                document.getElementById('bulkDeleteButton').style.display = 'block';
-                totalTaskDiv.style.display = 'none'; // Hide Total Task
-                dropdownDiv.style.display = 'block';
-            } else {
-                document.getElementById('bulkDeleteButton').style.display = 'none';
-                totalTaskDiv.style.display = 'flex'; // Show Total Task
-                dropdownDiv.style.display = 'none';
-            }
+            const id = $(this).data('id');
+            this.checked ? selectedIds.push(id) : (selectedIds = selectedIds.filter(x => x !== id));
+            $('#selectAllCheckBox').prop('checked', selectedIds.length === task_list.length);
+            toggleVisibility('bulkDeleteButton', selectedIds.length > 0);
+            toggleVisibility('total-task', selectedIds.length === 0, 'flex');
+            toggleVisibility('viewBulkDropdown', selectedIds.length > 0);
         });
+
         $('#task-list').on('change', '#selectAllCheckBox', function () {
-            // hanle select all checkbox
-            if ($(this).is(':checked')) {
-                $('.toggleCheckbox').prop('checked', true);
-                selectedIds = task_list.map(task => task.name);
-                document.getElementById('bulkDeleteButton').style.display = 'block';
-                document.querySelector('#total-task').style.display = 'none';
-                document.querySelector('#viewBulkDropdown').style.display = 'block';
-            } else {
-                $('.toggleCheckbox').prop('checked', false);
-                selectedIds = [];
-                document.getElementById('bulkDeleteButton').style.display = 'none';
-                document.querySelector('#total-task').style.display = 'block';
-                document.querySelector('#viewBulkDropdown').style.display = 'none';
-            }
-        });
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggleCheckbox = document.querySelector('.toggleCheckbox');
-            const totalTaskDiv = document.querySelector('#total-task');
-            const dropdownDiv = document.querySelector('#viewBulkDropdown');
-
-            toggleCheckbox.addEventListener('change', () => {
-                if (toggleCheckbox.checked) {
-                    totalTaskDiv.style.display = 'none'; // Hide Total Task
-                    dropdownDiv.style.display = 'block'; // Show dropdown
-                } else {
-                    totalTaskDiv.style.display = 'flex'; // Show Total Task
-                    dropdownDiv.style.display = 'none'; // Hide dropdown
-                }
-            });
-        });
-        document.querySelectorAll('input[name="priority"]').forEach(input => {
-            input.addEventListener('click', function () {
-                if (selectedIds.length > 0) {
-                    for (id of selectedIds) {
-                        console.log(`Priority selected: ${this.value}, for Task ID: ${id}`);
-                        updateTaskStatus(id, this.value, 'priority');
-                    }
-                } else {
-                    console.error('Task ID (data-id) is missing for the priority input.');
-                }
-            });
+            const isChecked = this.checked;
+            $('.toggleCheckbox').prop('checked', isChecked);
+            selectedIds = isChecked ? task_list.map(x => x.name) : [];
+            toggleVisibility('bulkDeleteButton', isChecked);
+            toggleVisibility('total-task', !isChecked, 'flex');
+            toggleVisibility('viewBulkDropdown', isChecked);
         });
 
-        // Add event listeners for status radio buttons
-        document.querySelectorAll('input[name="status"]').forEach(input => {
-            input.addEventListener('click', function () {
-                if (selectedIds.length > 0) {
-                    for (id of selectedIds) {
-                        console.log(`Status selected: ${this.value}, for Task ID: ${id}`);
-                        updateTaskStatus(id, this.value, 'status');
-                    }
-                } else {
-                    console.error('Task ID (data-id) is missing for the status input.');
-                }
-            });
+        ['priority', 'status'].forEach(type => {
+            document.querySelectorAll(`input[name="${type}"]`).forEach(input =>
+                input.addEventListener('click', function () {
+                    selectedIds.length
+                        ? selectedIds.forEach(id => updateTaskStatus(id, this.value, type))
+                        : console.error(`No tasks selected for ${type}.`);
+                })
+            );
         });
+
         // List view
         $('#task-list').html(
             `
