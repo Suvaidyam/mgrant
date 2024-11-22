@@ -113,9 +113,9 @@ style.innerHTML = `
 document.head.appendChild(style);
 var communication_list = []
 function renderEmails(email_list, frm) {
-    if (email_list.length > 0) {
-        $('#email').html(
-            `
+    // if (email_list.length > 0) {
+    $('#email').html(
+        `
             <div class="container" style="display: flex; height: 100%;overflow:auto;">
         <div
             style="width: 335px; background-color: rgb(255, 255, 255); display: flex; justify-content: flex-start; flex-direction: column; align-items: start; border: solid 1px #D9D9D9; gap: 16px;">
@@ -129,7 +129,6 @@ function renderEmails(email_list, frm) {
                     <span style="margin-right: 4px;">📧</span> <!-- Email icon -->
                     <span
                         style="font-weight: 400; font-size: 12px; line-height: 13.2px; letter-spacing: 0.4%; color: #0E1116;">All</span>
-
                 </div>
 
                 <div
@@ -153,12 +152,14 @@ function renderEmails(email_list, frm) {
 
             <!-- Today Section Open -->
             <div style="width: 335px; margin: 0 auto; border-radius: 8px;">
-                <h3
-                    style="margin: 0 0 8px; padding-left: 20px; color: #6E7073; font-size: 10px; font-weight: 500; line-height: 11px; letter-spacing: 1.5%;">
-                    TODAY</h3>
+              ${email_list.length > 0 ?
+            `<h3 style="margin: 0 0 8px; padding-left: 20px; color: #6E7073; font-size: 10px; font-weight: 500; line-height: 11px; letter-spacing: 1.5%;">
+                    TODAY</h3>`
+            :
+            " Data Not Found"}
                 ${email_list.map((item) => {
                 return `
-                        <div class="emailListCard" emailId="${item.name}" style="max-height: 120px;height: 120px; display: flex;  border-bottom: 1px solid #e5e5e5; padding: 10px 20px; overflow: hidden;">
+                        <div class="emailListCard" emailId="${item.name}" cardID=${item.name} style="max-height: 120px;height: 120px; display: flex;  border-bottom: 1px solid #e5e5e5; padding: 10px 20px; overflow: hidden;">
                         <!-- Avatar -->
                         <div class="avatar"
                             style="width: 24px; height: 24px; border-radius:  50%; background-color: #3f51b5; color: #fff; display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: 400 ; line-height: 12.2px; ; text-align: center;">
@@ -189,7 +190,7 @@ function renderEmails(email_list, frm) {
                         </div>
                     </div>`
             }).join('')
-            }
+        }
             </div>
         </div>
         <div id="emailBodyContent" style="flex-grow: 1; background-color: white; display: flex;width="100% !important;">
@@ -205,17 +206,17 @@ function renderEmails(email_list, frm) {
         </div>
     </div>
             `
-        );
-    }
-    else {
-        $('#email').html(
-            `<div class="container" style="max-width:700px">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h4>No Emails Found</h4>
-                </div>
-            </div>`
-        );
-    }
+    );
+    // }
+    // else {
+    //     $('#email').html(
+    //         `<div class="container" style="max-width:700px">
+    //             <div class="d-flex justify-content-between align-items-center">
+    //                 <h4>No Emails Found</h4>
+    //             </div>
+    //         </div>`
+    //     );
+    // }
     $('#allEmailButton').on('click', async () => {
         try {
             communication_list = await getDocList('Communication', [
@@ -234,7 +235,7 @@ function renderEmails(email_list, frm) {
         try {
             communication_list = await getDocList('Communication', [
                 ['reference_name', '=', frm.doc.name],
-                ['read_by_recipient', '=', 0],
+                ['seen', '=', 0],
                 ['in_reply_to', '=', '']
             ], ['*']);
             renderEmails(communication_list, frm)
@@ -249,7 +250,7 @@ function renderEmails(email_list, frm) {
         try {
             communication_list = await getDocList('Communication', [
                 ['reference_name', '=', frm.doc.name],
-                ['read_by_recipient', '=', 1],
+                ['seen', '=', 1],
                 ['in_reply_to', '=', '']
             ], ['*']);
             renderEmails(communication_list, frm)
@@ -265,6 +266,7 @@ function renderEmails(email_list, frm) {
         let replies = await getDocList('Communication', [
             ['Communication', 'in_reply_to', '=', docName]
         ], ['subject', 'content', 'communication_date']);
+        await set_value("Communication", e.currentTarget.getAttribute('cardID'))
         let emailDoc = communication_list.find(item => item.name === docName);
         const emails = [...replies, emailDoc];
         let emailBody = `
