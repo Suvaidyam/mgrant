@@ -109,7 +109,7 @@ style.innerHTML = `
         top: 65px;
         transition: background-color 0.3s; /* Smooth background change */
     }
-      `;
+    `;
 document.head.appendChild(style);
 var communication_list = []
 function renderEmails(email_list, frm) {
@@ -152,11 +152,11 @@ function renderEmails(email_list, frm) {
 
             <!-- Today Section Open -->
             <div style="width: 335px; margin: 0 auto; border-radius: 8px;">
-              ${email_list.length > 0 ?
+            ${email_list.length > 0 ?
             `<h3 style="margin: 0 0 8px; padding-left: 20px; color: #6E7073; font-size: 10px; font-weight: 500; line-height: 11px; letter-spacing: 1.5%;">
                     TODAY</h3>`
             :
-            " Data Not Found"}
+            `<div style ="hight:600px; display: flex; justify-content: center; align-items: center;">Email Not Found</div>`}
                 ${email_list.map((item) => {
                 return `
                         <div class="emailListCard" emailId="${item.name}" cardID=${item.name} style="max-height: 120px;height: 120px; display: flex;  border-bottom: 1px solid #e5e5e5; padding: 10px 20px; overflow: hidden;">
