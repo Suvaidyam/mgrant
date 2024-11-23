@@ -21,6 +21,19 @@ const getDocList = (doctype, filters, fields = ['*']) => {
     })
 }
 
+async function set_value(doctype_name, name) {
+    frappe.call({
+        "method": "frappe.client.set_value",
+        "args": {
+            "doctype": doctype_name,
+            "name": name,
+            "fieldname": {
+                "seen": 1
+            },
+        }
+    });
+}
+
 const getViewSettings = (doctype) => {
     return new Promise((resolve, reject) => {
         frappe.call({
