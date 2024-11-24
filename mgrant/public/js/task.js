@@ -11,13 +11,13 @@ const taskList = (task_list) => {
         $('[data-toggle="tooltip"]').tooltip()
     })
     const deleteTask = (taskName) => {
-        frappe.db.delete_doc('CRM Task', taskName).then(() => {
+        frappe.db.delete_doc('mGrant Task', taskName).then(() => {
             frappe.show_alert({ message: __(`Task deleted successfully`), indicator: 'green' });
             taskList(task_list.filter(task => task.name !== taskName));
         });
     }
     const updateTaskStatus = (taskName, status, key) => {
-        frappe.db.set_value('CRM Task', taskName, key, status).then(() => {
+        frappe.db.set_value('mGrant Task', taskName, key, status).then(() => {
             frappe.show_alert({ message: __(`Task ${key} updated successfully`), indicator: 'green' });
             const updatedTaskList = task_list.map(task => {
                 if (task.name === taskName) {
@@ -348,7 +348,7 @@ const taskList = (task_list) => {
         $('#bulkDeleteButton').on('click', function () {
             frappe.confirm('Are you sure you want to delete the selected tasks?', () => {
                 selectedIds.forEach(async taskName => {
-                    await frappe.db.delete_doc('CRM Task', taskName)
+                    await frappe.db.delete_doc('mGrant Task', taskName)
                 });
                 taskList(task_list.filter(task => !selectedIds.includes(task.name)));
                 frappe.show_alert({ message: __(`Tasks deleted successfully`), indicator: 'green' });
@@ -382,10 +382,10 @@ const taskList = (task_list) => {
 let task_list = [];
 let view = 'Card View'
 
-const getTaskList = async (_f, frm) => {
-    task_list = await getDocList(_f.description, [
-        ['CRM Task', 'reference_doctype', '=', frm.doc.doctype],
-        ['CRM Task', 'reference_docname', '=', frm.doc.name],
+const getTaskList = async (frm) => {
+    task_list = await getDocList('mGrant Task', [
+        ['mGrant Task', 'reference_doctype', '=', frm.doc.doctype],
+        ['mGrant Task', 'reference_docname', '=', frm.doc.name],
     ], ['*']);
     $('#tasks').html(`
        <div class="d-flex flex-wrap justify-content-between align-items-center mb-3" style=".scrollable-buttons {
@@ -512,12 +512,12 @@ const getTaskList = async (_f, frm) => {
     });
     $('#cardViewBtn').on('click', () => {
         view = 'Card View';
-        getTaskList(_f, frm);
+        getTaskList(frm);
 
     })
     $('#listViewBtn').on('click', () => {
         view = 'List View';
-        getTaskList(_f, frm);
+        getTaskList(frm);
 
     })
 };
@@ -528,7 +528,7 @@ const form = async (data = null, action, frm) => {
     let fileds = await frappe.call({
         method: 'frappe.desk.form.load.getdoctype',
         args: {
-            doctype: 'CRM Task',
+            doctype: 'mGrant Task',
             with_parent: 1,
             cached_timestamp: frappe.datetime.now_datetime()
         }
@@ -568,7 +568,7 @@ const form = async (data = null, action, frm) => {
             if (action === 'New Task') {
                 // Create new task
                 frappe.db.insert({
-                    doctype: "CRM Task",
+                    doctype: "mGrant Task",
                     ...values
                 }).then(new_doc => {
                     if (new_doc) {
@@ -583,7 +583,7 @@ const form = async (data = null, action, frm) => {
                 });
             } else if (action === 'Edit Task' && data) {
                 // Update existing task
-                frappe.db.set_value('CRM Task', data.name, values).then(updated_doc => {
+                frappe.db.set_value('mGrant Task', data.name, values).then(updated_doc => {
                     if (updated_doc) {
                         frappe.show_alert({ message: __('Task updated successfully'), indicator: 'green' });
                         task_form.hide();
