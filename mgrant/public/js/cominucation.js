@@ -151,17 +151,27 @@ function renderEmails(email_list, frm) {
 
     // Build email list HTML
     let emailHtml = `
-        <div class="container" style="display: flex; height: 100%; overflow: auto;">
+    <div style="width: 335px; height:30px; margin-left: 15px; padding:0px 10px; border:2px solid rgb(217,217,217); border-bottom: none; display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; gap:4px;align-items: center; justify-content: space-between;">
+            <div><input type="checkbox"></div>
+            <div><i class="fa fa-refresh" id="refresh_email_list" style="font-size: 18px; cursor:pointer;"></i></div>
+        </div>
+        <div>
+            <div><i class="fa fa-plus" id="add_email" style="font-size: 18px; cursor:pointer;"></i></div>
+        </div>
+    </div>
+
+    <div class="container" style="display: flex; height: 100%; overflow: auto;">
             <div style="width: 335px; background-color: #fff; display: flex; flex-direction: column; align-items: start; border: 1px solid #D9D9D9; gap: 16px;">
                 <!-- Tab Section -->
                 <div style="display: flex; width: 334px; height: 40px; border: 1px solid #D9D9D9; gap: 12px; padding-left: 20px;">
-                    <div id="allEmailButton" class="active_tab" style="width: 55px; height: 33px; padding: 6px 0 1px 0;">
+                    <div id="allEmailButton" class="active_tab" style="width: 55px; cursor:pointer; height: 33px; padding: 6px 0 1px 0;">
                         <span>📧</span><span style="font-size: 12px; color: #0E1116;">All</span>
                     </div>
-                    <div id="unreadEmailButton" style="width: 83px; height: 33px; padding: 6px 0 1px 0;">
+                    <div id="unreadEmailButton" style="width: 83px; height: 33px; cursor:pointer; padding: 6px 0 1px 0;">
                         <span>📧</span><span style="font-size: 12px; color: #6E7073;">Unread</span>
                     </div>
-                    <div id="readEmailButton" style="width: 55px; height: 33px; padding: 6px 0 1px 0;">
+                    <div id="readEmailButton" style="width: 55px; height: 33px; cursor:pointer; padding: 6px 0 1px 0;">
                         <span>📧</span><span style="font-size: 12px; color: #6E7073;">Read</span>
                     </div>
                 </div>
@@ -217,6 +227,17 @@ function renderEmails(email_list, frm) {
     //         </div>`
     //     );
     // }
+    $('#refresh_email_list').on('click', async () => {
+        try {
+            communication_list = await getDocList('Communication', [
+                ['Communication', 'reference_name', '=', frm.doc.name],
+                ['Communication', 'in_reply_to', '=', '']
+            ], ['*']);
+            renderEmails(communication_list, frm)
+        } catch (error) {
+            console.error(error)
+        }
+    });
     $('#allEmailButton').on('click', async () => {
         try {
             communication_list = await getDocList('Communication', [
@@ -260,6 +281,9 @@ function renderEmails(email_list, frm) {
         } catch (error) {
             console.error(error)
         }
+    });
+    $('#add_email').on('click', async () => {
+        cur_frm.email_doc("")
     });
     $('.emailListCard').on('click', async (e) => {
         let docName = e.currentTarget.getAttribute('emailId');
