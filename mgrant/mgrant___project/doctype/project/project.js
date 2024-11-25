@@ -61,27 +61,8 @@ const tabContent = async (frm, tab_field) => {
     if (tab_field === 'email_tab') {
         cominucation(frm);
     }
-    let field = frm.meta?.fields?.find(f => f.fieldname == tab_field)
-    let _fields = frm.meta?.fields?.filter(f => field?.default?.split(',')?.includes(f.fieldname))
-
-    for (let _f of _fields) {
-        let link = frm.meta.links?.find(f => f.link_doctype == _f.default)
-        if (link) {
-            let datatable = new SvaDataTable({
-                wrapper: document.querySelector(`#${_f.fieldname}`), // Wrapper element   // Pass your data
-                doctype: link.link_doctype, // Doctype name
-                crud: true,      // Enable CRUD operations (optional)
-                frm: frm,       // Pass the current form object (optional)
-                options: {
-                    connection: link,
-                    serialNumberColumn: true, // Enable serial number column (optional)
-                    editable: false,      // Enable editing (optional),
-                }
-            });
-        }
-        if (_f.default === 'tasks') {
-            getTaskList(_f, frm)
-        }
+    if (tab_field === 'tasks_tab') {
+        getTaskList(frm)
     }
 }
 frappe.ui.form.on("Project", {

@@ -1,0 +1,192 @@
+[
+ {
+  "child_confs": [
+   {
+    "crud_permissions": "[\"read\"]",
+    "link_doctype": "Budget Transaction",
+    "link_fieldname": "budget",
+    "listview_settings": "[\"as_on_date\",\"transaction\"]",
+    "parent_doctype": "Budget"
+   },
+   {
+    "crud_permissions": "[\"read\"]",
+    "link_doctype": "Disbursement",
+    "link_fieldname": "tranche",
+    "listview_settings": "[\"as_on_date\",\"disbursement\"]",
+    "parent_doctype": "Tranches"
+   },
+   {
+    "crud_permissions": "[\"read\"]",
+    "link_doctype": "Input Achievement",
+    "link_fieldname": "input",
+    "listview_settings": "[\"as_on_date\",\"achievement\"]",
+    "parent_doctype": "Input"
+   },
+   {
+    "crud_permissions": "[\"read\"]",
+    "link_doctype": "Output Achievement",
+    "link_fieldname": "output",
+    "listview_settings": "[\"as_on_date\",\"achievement\"]",
+    "parent_doctype": "Output"
+   },
+   {
+    "crud_permissions": "[\"read\"]",
+    "link_doctype": "Outcome Achievement",
+    "link_fieldname": "outcome",
+    "listview_settings": "[\"as_on_date\",\"achievement\"]",
+    "parent_doctype": "Outcome"
+   },
+   {
+    "crud_permissions": "[\"read\"]",
+    "link_doctype": "Impact Achievement",
+    "link_fieldname": "impact",
+    "listview_settings": "[\"as_on_date\",\"achievement\"]",
+    "parent_doctype": "Impact"
+   }
+  ],
+  "child_doctypes": [
+   {
+    "crud_permissions": "[\"read\",\"create\",\"delete\",\"write\"]",
+    "html_field": "tranche",
+    "link_doctype": "Tranches",
+    "link_fieldname": "proposal",
+    "listview_settings": "[\"proposal\",\"financial_year\",\"custom_quarter\",\"tranch_name\",\"amount\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "budgets",
+    "link_doctype": "Budget",
+    "link_fieldname": "proposal",
+    "listview_settings": "[\"custom_budget_head\",\"budget_name\",\"financial_year\",\"allocation\",\"expense\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "impacts",
+    "link_doctype": "Impact",
+    "link_fieldname": "proposal",
+    "listview_settings": "[\"impact_name\",\"target\",\"financial_year\",\"achievement\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "output",
+    "link_doctype": "Output",
+    "link_fieldname": "proposal",
+    "listview_settings": "[\"custom_kpi\",\"output_name\",\"custom_unit\",\"target\",\"financial_year\",\"achievement\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "outcome",
+    "link_doctype": "Outcome",
+    "link_fieldname": "proposal",
+    "listview_settings": "[\"outcome_name\",\"target\",\"financial_year\",\"achievement\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "input",
+    "link_doctype": "Input",
+    "link_fieldname": "proposal",
+    "listview_settings": "[\"input_name\",\"target\",\"financial_year\",\"achievement\"]"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "SVADatatable Configuration",
+  "modified": "2024-11-25 11:45:56.529537",
+  "name": "Proposal",
+  "parent_doctype": "Proposal"
+ },
+ {
+  "child_confs": [
+   {
+    "crud_permissions": "[\"read\",\"create\",\"write\",\"delete\"]",
+    "link_doctype": "Disbursement",
+    "link_fieldname": "tranche",
+    "listview_settings": "[\"as_on_date\",\"disbursement\"]",
+    "parent_doctype": "Tranches"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "link_doctype": "Budget Transaction",
+    "link_fieldname": "budget",
+    "listview_settings": "[\"as_on_date\",\"transaction\"]",
+    "parent_doctype": "Budget"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "link_doctype": "Impact Achievement",
+    "link_fieldname": "impact",
+    "listview_settings": "[\"as_on_date\",\"achievement\"]",
+    "parent_doctype": "Impact"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "link_doctype": "Input Achievement",
+    "link_fieldname": "input",
+    "listview_settings": "[\"project\",\"as_on_date\",\"achievement\"]",
+    "parent_doctype": "Input"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "link_doctype": "Output Achievement",
+    "link_fieldname": "output",
+    "listview_settings": "[\"as_on_date\",\"achievement\"]",
+    "parent_doctype": "Output"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "link_doctype": "Outcome Achievement",
+    "link_fieldname": "outcome",
+    "listview_settings": "[\"as_on_date\",\"achievement\"]",
+    "parent_doctype": "Outcome"
+   }
+  ],
+  "child_doctypes": [
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "tranche",
+    "link_doctype": "Tranches",
+    "link_fieldname": "project",
+    "listview_settings": "[\"project\",\"financial_year\",\"custom_quarter\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "budget",
+    "link_doctype": "Budget",
+    "link_fieldname": "project",
+    "listview_settings": "[\"project\",\"custom_budget_head\",\"budget_name\",\"financial_year\",\"allocation\",\"expense\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "input",
+    "link_doctype": "Input",
+    "link_fieldname": "project",
+    "listview_settings": "[\"input_name\",\"target\",\"financial_year\",\"achievement\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "outcome",
+    "link_doctype": "Outcome",
+    "link_fieldname": "project",
+    "listview_settings": "[\"outcome_name\",\"target\",\"financial_year\",\"achievement\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "output",
+    "link_doctype": "Output",
+    "link_fieldname": "project",
+    "listview_settings": "[\"custom_kpi\",\"output_name\",\"custom_unit\",\"target\",\"financial_year\",\"achievement\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "impact",
+    "link_doctype": "Impact",
+    "link_fieldname": "project",
+    "listview_settings": "[\"impact_name\",\"target\",\"financial_year\",\"achievement\"]"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "SVADatatable Configuration",
+  "modified": "2024-11-25 11:23:18.417815",
+  "name": "Project",
+  "parent_doctype": "Project"
+ }
+]
