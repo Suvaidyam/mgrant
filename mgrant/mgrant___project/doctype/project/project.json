@@ -86,52 +86,40 @@
    "reqd": 1
   },
   {
-   "default": "budget",
    "fieldname": "budget_tab",
    "fieldtype": "Tab Break",
    "label": "Budget"
   },
   {
-   "default": "Budget",
    "fieldname": "budget",
-   "fieldtype": "HTML",
-   "options": "<div id=\"budget\"></div>"
+   "fieldtype": "HTML"
   },
   {
-   "default": "output",
    "fieldname": "output_tab",
    "fieldtype": "Tab Break",
    "label": "Output"
   },
   {
-   "default": "Output",
    "fieldname": "output",
-   "fieldtype": "HTML",
-   "options": "<div id=\"output\"></div>"
+   "fieldtype": "HTML"
   },
   {
-   "default": "outcome",
    "fieldname": "outcome_tab",
    "fieldtype": "Tab Break",
    "label": "Outcome"
   },
   {
-   "default": "Outcome",
    "fieldname": "outcome",
-   "fieldtype": "HTML",
-   "options": "<div id=\"outcome\"></div>"
+   "fieldtype": "HTML"
   },
   {
-   "default": "impact",
    "fieldname": "impact_tab",
    "fieldtype": "Tab Break",
    "label": "Impact"
   },
   {
-   "default": "Impact",
    "fieldname": "impact",
-   "fieldtype": "HTML",
-   "options": "<div id=\"impact\"></div>"
+   "fieldtype": "HTML"
   },
   {
    "default": "email",
@@ -249,16 +237,13 @@
    "fieldtype": "Section Break"
   },
   {
-   "default": "tranche",
    "fieldname": "tranche_tab",
    "fieldtype": "Tab Break",
    "label": "Tranche"
   },
   {
-   "default": "Tranches",
    "fieldname": "tranche",
-   "fieldtype": "HTML",
-   "options": "<div id=\"tranche\"></div>"
+   "fieldtype": "HTML"
   },
   {
    "fieldname": "column_break_pyvg",
@@ -289,16 +274,13 @@
    "options": "Active\nInactive"
   },
   {
-   "default": "input",
    "fieldname": "input_tab",
    "fieldtype": "Tab Break",
    "label": "Input"
   },
   {
-   "default": "Input",
    "fieldname": "input",
-   "fieldtype": "HTML",
-   "options": "<div id=\"input\"></div>"
+   "fieldtype": "HTML"
   },
   {
    "fieldname": "proposal",
@@ -423,7 +405,7 @@
    "link_fieldname": "project"
   }
  ],
- "modified": "2024-11-24 12:39:16.089545",
+ "modified": "2024-11-25 11:32:34.262918",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Project",
