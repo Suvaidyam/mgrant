@@ -64,6 +64,7 @@ style.innerHTML = `
         padding-left: 12px;
     }
     .active_tab{
+        border-bottom: 1px solid blue;
         border-color:blue !important;
     }
     .fa-envelope{
@@ -114,99 +115,98 @@ document.head.appendChild(style);
 var communication_list = []
 function renderEmails(email_list, frm) {
     // if (email_list.length > 0) {
-    $('#email').html(
-        `
-            <div class="container" style="display: flex; height: 100%;overflow:auto;">
-        <div
-            style="width: 335px; background-color: rgb(255, 255, 255); display: flex; justify-content: flex-start; flex-direction: column; align-items: start; border: solid 1px #D9D9D9; gap: 16px;">
-            <!-- tab section -->
-            <div
-                style="display: flex; width: 334px; height: 40px; border: 1px solid #D9D9D9; gap: 12px; padding-left: 20px;">
-                <div
-                    id="allEmailButton"
-                    class="active_tab"
-                    style="display: flex; align-items: center; width: 55px; height: 33px; border-bottom: 1px solid white; gap: 0px; padding: 6px 0 1px 0;">
-                    <span style="margin-right: 4px;">📧</span> <!-- Email icon -->
-                    <span
-                        style="font-weight: 400; font-size: 12px; line-height: 13.2px; letter-spacing: 0.4%; color: #0E1116;">All</span>
-                </div>
 
-                <div
-                    id="unreadEmailButton"
-                    style="display: flex; align-items: center; width: 83px; height: 33px; border-bottom: 1px solid white; gap: 2px; padding: 6px 0 1px 0;">
-                    <span style="margin-right: 4px;">📧</span> <!-- Email icon -->
-                    <span
-                        style="font-weight: 400; font-size: 12px; line-height: 13.2px; letter-spacing: 0.4%; color: #6E7073;">Unread</span>
+    const formatDateGroup = (emailDate) => {
+        const today = new Date();
+        const yesterday = new Date();
+        today.setHours(0, 0, 0, 0);
+        yesterday.setDate(today.getDate() - 1);
+        yesterday.setHours(0, 0, 0, 0);
 
-                </div>
-                <div
-                    id="readEmailButton"
-                    style="display: flex; align-items: center; width: 55px; height: 33px; border-bottom: 1px solid white; gap: 2px; padding: 6px 0 1px 0;">
-                    <span style="margin-right: 4px;">📧</span> <!-- Email icon -->
-                    <span
-                        style="font-weight: 400; font-size: 12px; line-height: 13.2px; letter-spacing: 0.4%; color: #6E7073;">Read</span>
+        const emailDateFormatted = new Date(emailDate);
+        emailDateFormatted.setHours(0, 0, 0, 0);
 
+        if (emailDateFormatted.getTime() === today.getTime()) return "Today";
+        if (emailDateFormatted.getTime() === yesterday.getTime()) return "Yesterday";
+        return "Older"; // Group all other dates under "Older"
+    };
+
+    // Group emails by date
+    const groupedEmails = email_list.reduce((groups, email) => {
+        const group = formatDateGroup(email.communication_date);
+        groups[group] = groups[group] || [];
+        groups[group].push(email);
+        return groups;
+    }, {});
+
+    // Sort groups: Today, Yesterday, Older
+    const sortedGroups = Object.keys(groupedEmails).sort((a, b) => {
+        if (a === "Today") return -1;
+        if (b === "Today") return 1;
+        if (a === "Yesterday") return -1;
+        if (b === "Yesterday") return 1;
+        if (a === "Older") return 1; // Keep "Older" at the end
+        return 0;
+    });
+
+    // Build email list HTML
+    let emailHtml = `
+        <div class="container" style="display: flex; height: 100%; overflow: auto;">
+            <div style="width: 335px; background-color: #fff; display: flex; flex-direction: column; align-items: start; border: 1px solid #D9D9D9; gap: 16px;">
+                <!-- Tab Section -->
+                <div style="display: flex; width: 334px; height: 40px; border: 1px solid #D9D9D9; gap: 12px; padding-left: 20px;">
+                    <div id="allEmailButton" class="active_tab" style="width: 55px; height: 33px; padding: 6px 0 1px 0;">
+                        <span>📧</span><span style="font-size: 12px; color: #0E1116;">All</span>
+                    </div>
+                    <div id="unreadEmailButton" style="width: 83px; height: 33px; padding: 6px 0 1px 0;">
+                        <span>📧</span><span style="font-size: 12px; color: #6E7073;">Unread</span>
+                    </div>
+                    <div id="readEmailButton" style="width: 55px; height: 33px; padding: 6px 0 1px 0;">
+                        <span>📧</span><span style="font-size: 12px; color: #6E7073;">Read</span>
+                    </div>
                 </div>
+                <!-- Email Sections -->
+    `;
+
+    if (email_list.length == "") {
+        emailHtml += `
+            <div class="width:100%; d-flex justify-content-between align-items-center">
+                <h4>No Emails Found</h4>
             </div>
-            <!--tab section close-->
-
-            <!-- Today Section Open -->
-            <div style="width: 335px; margin: 0 auto; border-radius: 8px;">
-            ${email_list.length > 0 ?
-            `<h3 style="margin: 0 0 8px; padding-left: 20px; color: #6E7073; font-size: 10px; font-weight: 500; line-height: 11px; letter-spacing: 1.5%;">
-                    TODAY</h3>`
-            :
-            `<div style ="hight:600px; display: flex; justify-content: center; align-items: center;">Email Not Found</div>`}
-                ${email_list.map((item) => {
-                return `
-                        <div class="emailListCard" emailId="${item.name}" cardID=${item.name} style="max-height: 120px;height: 120px; display: flex;  border-bottom: 1px solid #e5e5e5; padding: 10px 20px; overflow: hidden;">
-                        <!-- Avatar -->
-                        <div class="avatar"
-                            style="width: 24px; height: 24px; border-radius:  50%; background-color: #3f51b5; color: #fff; display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: 400 ; line-height: 12.2px; ; text-align: center;">
-                            ${item?.sender[0]?.toUpperCase()}
-                        </div>
-                        <div style="margin-left: 10px; flex: 1;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; ">
-                                <h4
-                                    style="margin: 0; font-size: 12px; color: #6E7073; font-weight: 400; line-height: 12px; letter-spacing: 0.4%;">
-                ${item?.sender_full_name}</h4>
-                                <span
-                                    style="font-size: 10px; color: #0E1116; font-weight: 400; line-height: 11px; padding-right: 19px;">${timeAgo(item?.communication_date)}</span>
+    `;
+    } else {
+        sortedGroups.forEach(group => {
+            emailHtml += `
+                <div style="width: 335px; margin: 0 auto;">
+                    <p style="margin: 0 0 8px; padding-left: 20px; color: #6E7073;">${group}</p>
+                    ${groupedEmails[group].map((item) => `
+                        <div class="emailListCard" emailId="${item.name}" style="height: 120px; display: flex; border-bottom: 1px solid #e5e5e5; padding: 10px 20px;">
+                            <div class="avatar" style="width: 24px; height: 24px; border-radius: 50%; background-color: #3f51b5; color: #fff; display: flex; justify-content: center; align-items: center;">
+                                ${item?.sender[0]?.toUpperCase()}
                             </div>
-                            <p
-                                style="margin: 8px 0 0; font-size: 14px; color: #0E1116; font-weight: 500; line-height: 15px; letter-spacing: 0.25%;">
-                                ${item?.subject}
-                            </p>
-                            <p
-                                class="text-truncate"
-                                style="font-size: 10px; font-weight: 400; line-height: 11px; color: #6E7073; margin: 0; padding-top: 4px;">
-                                ${item?.content}
-                            </p>
-                            <p style="margin: 8px 0; font-size: 12px; color: #888;">
-                                <span style="font-size: 12px; color: #6E7073; height: 12px; width: 12px;">📎</span> <span
-                                    style="font-size: 10px; font-weight: 400; line-height: 11px; color: #0E1116;"> 0
-                                    Attachment</span>
-                            </p>
+                            <div style="margin-left: 10px; flex: 1;">
+                                <h4 style="font-size: 12px; color: #6E7073;">${item?.sender_full_name}</h4>
+                                <span style="font-size: 10px; color: #0E1116;">${timeAgo(item?.communication_date)}</span>
+                                <p style="font-size: 14px; color: #0E1116;">${item?.subject}</p>
+                                <p style="font-size: 10px; color: #6E7073;">${item?.content}</p>
+                            </div>
                         </div>
-                    </div>`
-            }).join('')
-        }
-            </div>
-        </div>
-        <div id="emailBodyContent" style="flex-grow: 1; background-color: white; display: flex;width="100% !important;">
-            <div style="flex-grow: 1; background-color: white; display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 0px;">
-                <h3 style="margin: 0px; margin-top: 12px; font-size: 19px; font-weight: 500; line-height: 20.9px; letter-spacing: 0.15%; color: #0E1116; text-align: center;">
-                    Select an item to read
-                </h3>
+                        `).join('')}
+                </div>
+            `;
+        });
+    }
 
-                <p style="margin: 0px; margin-top: 6px; color: #808080; font-size: 12px; line-height: 13.2px; letter-spacing: 0.4%; text-align: center;">
-                    Nothing is selected
-                </p>
+    emailHtml += `
+            </div>
+            <div id="emailBodyContent" style="flex-grow: 1; display: flex; align-items: center; flex-direction: column;">
+                <h3 style="font-size: 19px; color: #0E1116;">Select an item to read</h3>
+                <p style="font-size: 12px; color: #808080;">Nothing is selected</p>
             </div>
         </div>
-    </div>
-            `
-    );
+    `;
+
+    $('#email').html(emailHtml);
     // }
     // else {
     //     $('#email').html(
@@ -266,7 +266,7 @@ function renderEmails(email_list, frm) {
         let replies = await getDocList('Communication', [
             ['Communication', 'in_reply_to', '=', docName]
         ], ['subject', 'content', 'communication_date']);
-        await set_value("Communication", e.currentTarget.getAttribute('cardID'))
+        await set_value("Communication", e.currentTarget.getAttribute('emailId'))
         let emailDoc = communication_list.find(item => item.name === docName);
         const emails = [...replies, emailDoc];
         let emailBody = `
@@ -296,14 +296,14 @@ function renderEmails(email_list, frm) {
                 <div id="body" style="padding: 15px;">
                     ${emails.map((email) => {
             return `<div class="d-flex justify-content-between align-items-center">
-                                        <h4>Subject : ${email?.subject}</h4>
-                                        <div class="d-flex align-items-center">
-                                            <span style="font-size: 12px; color: #6c757d; margin-right: 10px;">
-                                                ${timeAgo(email?.communication_date)}
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div  style="border-bottom:1px solid gray;">${email?.content}</div>`
+                        <h4>Subject : ${email?.subject}</h4>
+                        <div class="d-flex align-items-center">
+                            <span style="font-size: 12px; color: #6c757d; margin-right: 10px;">
+                                ${timeAgo(email?.communication_date)}
+                            </span>
+                        </div>
+                    </div>
+                    <div  style="border-bottom:1px solid gray;">${email?.content}</div>`
         }).join('\n')}
                     </div>
                 </div>
