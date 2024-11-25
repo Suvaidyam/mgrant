@@ -4,7 +4,7 @@ app_publisher = "Suvaidyam"
 app_description = "No Description"
 app_email = "tech@suvaidyam.com"
 app_license = "mit"
-required_apps = ["Suvaidyam/sva_frappe","Suvaidyam/crm","Suvaidyam/frappe_theme"]
+required_apps = ["Suvaidyam/sva_frappe","Suvaidyam/frappe_theme"]
 
 # Includes in <head>
 # ------------------
@@ -23,7 +23,6 @@ fixtures = [
     # 'Quarters',
     # 'Role',
     # 'Role Profile',
-    # 'Frontend Views',
     'Custom Field'
 ]
 # include js, css files in header of desk.html
@@ -52,8 +51,8 @@ app_include_js = [
 doctype_js = {
     "Project" : ["public/js/gallery.js","public/js/task.js","public/js/cominucation.js"],
     "Proposal" : ["public/js/gallery.js","public/js/task.js","public/js/cominucation.js"],
-    "Compliance" :[ "public/js/utils.js"],
-    "Compliance Annual Plan" :[ "public/js/utils.js"],
+    "Compliance" :["public/js/utils.js"],
+    "Compliance Annual Plan" :["public/js/utils.js"],
     }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
