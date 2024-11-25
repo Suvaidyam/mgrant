@@ -151,18 +151,17 @@ function renderEmails(email_list, frm) {
 
     // Build email list HTML
     let emailHtml = `
-    <div style="width: 335px; height:30px; margin-left: 15px; padding:0px 10px; border:2px solid rgb(217,217,217); border-bottom: none; display: flex; align-items: center; justify-content: space-between;">
-        <div style="display: flex; gap:4px;align-items: center; justify-content: space-between;">
-            <div><input type="checkbox"></div>
-            <div><i class="fa fa-refresh" id="refresh_email_list" style="font-size: 18px; cursor:pointer;"></i></div>
-        </div>
-        <div>
-            <div><i class="fa fa-plus" id="add_email" style="font-size: 18px; cursor:pointer;"></i></div>
-        </div>
-    </div>
-
     <div class="container" style="display: flex; height: 100%; overflow: auto;">
             <div style="width: 335px; background-color: #fff; display: flex; flex-direction: column; align-items: start; border: 1px solid #D9D9D9; gap: 16px;">
+                    <div style="width: 335px; padding:0px 10px; margin-top:8px; margin-bottom:-7px; display: flex; align-items: center; justify-content: space-between;">
+                        <div style="display: flex; gap:4px;align-items: center; justify-content: space-between;">
+                            <div><i class="fa fa-refresh" id="refresh_email_list" style="font-size: 18px; cursor:pointer;"></i></div>
+                        </div>
+                        <div>
+                            <div><i class="fa fa-plus" id="add_email" style="font-size: 18px; cursor:pointer;"></i></div>
+                        </div>
+                    </div>
+
                 <!-- Tab Section -->
                 <div style="display: flex; width: 334px; height: 40px; border: 1px solid #D9D9D9; gap: 12px; padding-left: 20px;">
                     <div id="allEmailButton" class="active_tab" style="width: 55px; cursor:pointer; height: 33px; padding: 6px 0 1px 0;">
@@ -180,9 +179,11 @@ function renderEmails(email_list, frm) {
 
     if (email_list.length == "") {
         emailHtml += `
-            <div class="width:100%; d-flex justify-content-between align-items-center">
+            <div style="width: 335px; height: 100vh; text-align: center; line-height: 100vh;">
                 <h4>No Emails Found</h4>
             </div>
+
+
     `;
     } else {
         sortedGroups.forEach(group => {
