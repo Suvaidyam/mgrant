@@ -35,6 +35,7 @@
   "work_ref_themes",
   "impact",
   "work_references",
+  "amended_from",
   "tasks_tab",
   "tasks",
   "email_tab",
@@ -50,8 +51,7 @@
   "budget_tab",
   "budgets",
   "impact_tab",
-  "impacts",
-  "amended_from"
+  "impacts"
  ],
  "fields": [
   {
@@ -210,7 +210,6 @@
    "options": "NGO Work Reference Child"
   },
   {
-   "default": "impacts",
    "fieldname": "impact_tab",
    "fieldtype": "Tab Break",
    "label": "Impact"
@@ -233,55 +232,42 @@
    "search_index": 1
   },
   {
-   "default": "tranche",
    "fieldname": "tranche_tab",
    "fieldtype": "Tab Break",
    "label": "Tranche"
   },
   {
-   "default": "Tranches",
    "fieldname": "tranche",
-   "fieldtype": "HTML",
-   "options": "<div id=\"tranche\"></div>"
+   "fieldtype": "HTML"
   },
   {
-   "default": "input",
    "fieldname": "input_tab",
    "fieldtype": "Tab Break",
    "label": "Input"
   },
   {
-   "default": "Input",
    "fieldname": "input",
-   "fieldtype": "HTML",
-   "options": "<div id=\"input\"></div>"
+   "fieldtype": "HTML"
   },
   {
-   "default": "output",
    "fieldname": "output_tab",
    "fieldtype": "Tab Break",
    "label": "Output"
   },
   {
-   "default": "Output",
    "fieldname": "output",
-   "fieldtype": "HTML",
-   "options": "<div id=\"output\"></div>"
+   "fieldtype": "HTML"
   },
   {
-   "default": "outcome",
    "fieldname": "outcome_tab",
    "fieldtype": "Tab Break",
    "label": "Outcome"
   },
   {
-   "default": "Outcome",
    "fieldname": "outcome",
-   "fieldtype": "HTML",
-   "options": "<div id=\"outcome\"></div>"
+   "fieldtype": "HTML"
   },
   {
-   "default": "impacts",
    "fieldname": "impact_tab",
    "fieldtype": "Tab Break",
    "label": "Impact"
@@ -325,22 +311,17 @@
    "reqd": 1
   },
   {
-   "default": "Impact",
    "fieldname": "impacts",
-   "fieldtype": "HTML",
-   "options": "<div id=\"impacts\"></div>"
+   "fieldtype": "HTML"
   },
   {
-   "default": "budgets",
    "fieldname": "budget_tab",
    "fieldtype": "Tab Break",
    "label": "Budget"
   },
   {
-   "default": "Budget",
    "fieldname": "budgets",
-   "fieldtype": "HTML",
-   "options": "<div id=\"budgets\"></div>"
+   "fieldtype": "HTML"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -386,7 +367,7 @@
    "link_fieldname": "proposal"
   }
  ],
- "modified": "2024-11-21 17:26:55.399032",
+ "modified": "2024-11-25 11:35:55.533172",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "Proposal",
