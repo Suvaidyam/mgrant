@@ -153,7 +153,6 @@ function renderEmails(email_list, frm) {
     let emailHtml = `
     <div style="width: 335px; height:30px; margin-left: 15px; padding:0px 10px; border:2px solid rgb(217,217,217); border-bottom: none; display: flex; align-items: center; justify-content: space-between;">
         <div style="display: flex; gap:4px;align-items: center; justify-content: space-between;">
-            <div><input type="checkbox"></div>
             <div><i class="fa fa-refresh" id="refresh_email_list" style="font-size: 18px; cursor:pointer;"></i></div>
         </div>
         <div>
@@ -180,9 +179,11 @@ function renderEmails(email_list, frm) {
 
     if (email_list.length == "") {
         emailHtml += `
-            <div class="width:100%; d-flex justify-content-between align-items-center">
+            <div style="width: 335px; height: 100vh; text-align: center; line-height: 100vh;">
                 <h4>No Emails Found</h4>
             </div>
+
+
     `;
     } else {
         sortedGroups.forEach(group => {
