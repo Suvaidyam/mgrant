@@ -188,5 +188,157 @@
   "modified": "2024-11-25 11:23:18.417815",
   "name": "Project",
   "parent_doctype": "Project"
+ },
+ {
+  "child_confs": [],
+  "child_doctypes": [
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "districts",
+    "link_doctype": "District",
+    "link_fieldname": "state",
+    "listview_settings": "[\"district_name\",\"district_code\",\"status\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "blocks",
+    "link_doctype": "Block",
+    "link_fieldname": "state",
+    "listview_settings": "[\"block_name\",\"block_code\",\"status\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "panchayats",
+    "link_doctype": "Gram Panchayat",
+    "link_fieldname": "state",
+    "listview_settings": "[\"gram_pachayat_name\",\"gram_panchayat_code\",\"status\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "villages",
+    "link_doctype": "Village",
+    "link_fieldname": "state",
+    "listview_settings": "[\"village_name\",\"village_code\",\"status\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "custom_ngos",
+    "link_doctype": "NGO",
+    "link_fieldname": "state",
+    "listview_settings": "[\"ngo_name\",\"year_of_establishment\",\"registration_of_the_organisaiton\",\"12aa_registration_number_and_certificate_upload\",\"csr_1_number_and_certificate_upload\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "custom_donors",
+    "link_doctype": "Donor",
+    "link_fieldname": "state",
+    "listview_settings": "[\"donor_name\",\"focus_area\",\"org_email\",\"website\",\"donor_type\",\"contact_first_name\",\"address_1\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"create\",\"delete\",\"write\"]",
+    "html_field": "custom_employees",
+    "link_doctype": "Employee",
+    "link_fieldname": "state",
+    "listview_settings": "[\"full_name\",\"contact\",\"date_of_birth\",\"department\"]"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "SVADatatable Configuration",
+  "modified": "2024-11-26 11:34:24.607610",
+  "name": "State",
+  "parent_doctype": "State"
+ },
+ {
+  "child_confs": [],
+  "child_doctypes": [
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "blocks",
+    "link_doctype": "Block",
+    "link_fieldname": "district",
+    "listview_settings": "[\"block_name\",\"block_code\",\"status\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "panchayats",
+    "link_doctype": "Gram Panchayat",
+    "link_fieldname": "district",
+    "listview_settings": "[\"gram_pachayat_name\",\"gram_panchayat_code\",\"status\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "villages",
+    "link_doctype": "Village",
+    "link_fieldname": "district",
+    "listview_settings": "[\"village_name\",\"village_code\",\"status\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "custom_employees",
+    "link_doctype": "Employee",
+    "link_fieldname": "district",
+    "listview_settings": "[\"full_name\",\"date_of_birth\",\"department\",\"designation\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "custom_ngos",
+    "link_doctype": "NGO",
+    "link_fieldname": "district",
+    "listview_settings": "[\"ngo_name\",\"year_of_establishment\",\"registration_of_the_organisaiton\",\"primary_domain\",\"email\",\"website\"]"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "SVADatatable Configuration",
+  "modified": "2024-11-26 11:40:19.097651",
+  "name": "District",
+  "parent_doctype": "District"
+ },
+ {
+  "child_confs": [],
+  "child_doctypes": [
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "panchayats",
+    "link_doctype": "Gram Panchayat",
+    "link_fieldname": "block",
+    "listview_settings": "[\"gram_pachayat_name\",\"gram_panchayat_code\",\"status\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "custom_employees",
+    "link_doctype": "Employee",
+    "link_fieldname": "block",
+    "listview_settings": "[\"full_name\",\"contact\",\"date_of_birth\",\"department\",\"designation\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "villages",
+    "link_doctype": "Village",
+    "link_fieldname": "block",
+    "listview_settings": "[\"village_name\",\"village_code\",\"status\"]"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "SVADatatable Configuration",
+  "modified": "2024-11-26 12:00:54.422021",
+  "name": "Block",
+  "parent_doctype": "Block"
+ },
+ {
+  "child_confs": [],
+  "child_doctypes": [
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "villages",
+    "link_doctype": "Village",
+    "link_fieldname": "gram_panchayat",
+    "listview_settings": "[\"village_name\",\"village_code\",\"status\"]"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "SVADatatable Configuration",
+  "modified": "2024-11-26 12:10:33.492823",
+  "name": "Gram Panchayat",
+  "parent_doctype": "Gram Panchayat"
  }
 ]
