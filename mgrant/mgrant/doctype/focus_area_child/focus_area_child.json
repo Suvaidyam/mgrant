@@ -1,0 +1,32 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-28 15:35:59.699730",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "focus_area"
+ ],
+ "fields": [
+  {
+   "fieldname": "focus_area",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Focus Area",
+   "options": "Focus Area",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-11-28 15:37:35.261838",
+ "modified_by": "Administrator",
+ "module": "Mgrant",
+ "name": "Focus Area Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,5 +1,29 @@
 [
  {
+  "child_confs": [],
+  "child_doctypes": [
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "grants",
+    "link_doctype": "Project",
+    "link_fieldname": "ngo",
+    "listview_settings": "[\"project_name\",\"contact\",\"start_date\",\"end_date\",\"status\"]"
+   },
+   {
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "html_field": "applications",
+    "link_doctype": "Proposal",
+    "link_fieldname": "ngo",
+    "listview_settings": "[\"proposal_name\",\"website\",\"contact\",\"signatory\",\"stages\"]"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "SVADatatable Configuration",
+  "modified": "2024-11-27 11:58:14.689569",
+  "name": "NGO",
+  "parent_doctype": "NGO"
+ },
+ {
   "child_confs": [
    {
     "crud_permissions": "[\"read\"]",
