@@ -2,19 +2,18 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:KPI-{type}-{####}",
+ "autoname": "format:KPI-{#####}",
  "creation": "2024-09-26 16:36:10.394302",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "kpi_name",
-  "theme",
   "kpi_type",
-  "parent1",
-  "column_break_vghm",
   "unit",
+  "column_break_vghm",
   "focus_area",
   "sdg",
+  "theme",
   "section_break_aeup",
   "description"
  ],
@@ -73,17 +72,11 @@
    "label": "KPI Type",
    "options": "\nInput\nOutput\nOutcome\nImpact",
    "reqd": 1
-  },
-  {
-   "fieldname": "parent1",
-   "fieldtype": "Link",
-   "label": "Parent ",
-   "options": "Parent"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-11 12:25:46.925361",
+ "modified": "2024-11-28 11:04:55.028163",
  "modified_by": "Administrator",
  "module": "KPIs",
  "name": "KPIs",

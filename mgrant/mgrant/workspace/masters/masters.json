@@ -1,7 +1,7 @@
 {
  "app": "mgrant",
  "charts": [],
- "content": "[{\"id\":\"2QiJ-Zf5qS\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Themes\",\"col\":4}},{\"id\":\"nYv5erSD8q\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Programmes\",\"col\":4}},{\"id\":\"HuQEKjXA8B\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"SDGs\",\"col\":4}},{\"id\":\"ygE6xNQDJN\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mOdu-GnBjh\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Entities\",\"col\":4}},{\"id\":\"VRaXnfbWsd\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Financial Years\",\"col\":4}},{\"id\":\"twzQV6c88p\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Budget Heads\",\"col\":4}},{\"id\":\"cEEEnIriFD\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Units\",\"col\":4}},{\"id\":\"JGdYDcqtyq\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kW5wuOxuis\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"KPI Types\",\"col\":4}},{\"id\":\"mF7gPsm9l8\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"KPIs\",\"col\":4}},{\"id\":\"rDr6p8kgLD\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Geography Masters</b></span>\",\"col\":12}},{\"id\":\"HAmd5nix6p\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"State\",\"col\":4}},{\"id\":\"nqDQDcFr2x\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"District\",\"col\":4}},{\"id\":\"tQSxIUCody\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Block\",\"col\":4}},{\"id\":\"iLzV9hi-ks\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Village\",\"col\":4}}]",
+ "content": "[{\"id\":\"HuQEKjXA8B\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"SDGs\",\"col\":4}},{\"id\":\"mF7gPsm9l8\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"KPIs\",\"col\":4}},{\"id\":\"nYv5erSD8q\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Programmes\",\"col\":4}},{\"id\":\"r05Yv0OBaU\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Focus Areas\",\"col\":4}},{\"id\":\"twzQV6c88p\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Budget Heads\",\"col\":4}},{\"id\":\"2QiJ-Zf5qS\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Themes\",\"col\":4}},{\"id\":\"VRaXnfbWsd\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Financial Years\",\"col\":4}},{\"id\":\"U6JUXKTFKz\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Demography Groups\",\"col\":4}},{\"id\":\"OmH2pSufZd\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Designations\",\"col\":4}},{\"id\":\"cEEEnIriFD\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Units\",\"col\":4}},{\"id\":\"rDr6p8kgLD\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Geography Masters</b></span>\",\"col\":12}},{\"id\":\"HAmd5nix6p\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"State\",\"col\":4}},{\"id\":\"nqDQDcFr2x\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"District\",\"col\":4}},{\"id\":\"tQSxIUCody\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Block\",\"col\":4}},{\"id\":\"nd8byNFFD9\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Gram Panchayat\",\"col\":4}},{\"id\":\"iLzV9hi-ks\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Village\",\"col\":4}}]",
  "creation": "2024-08-15 17:05:20.162609",
  "custom_blocks": [],
  "docstatus": 0,
@@ -14,14 +14,30 @@
  "is_hidden": 0,
  "label": "Masters",
  "links": [],
- "modified": "2024-11-10 12:28:14.484675",
+ "modified": "2024-11-28 11:16:11.428170",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Masters",
  "number_cards": [
   {
+   "label": "Gram Panchayat",
+   "number_card_name": "Gram Panchayat"
+  },
+  {
    "label": "State",
    "number_card_name": "Sva State"
+  },
+  {
+   "label": "Designations",
+   "number_card_name": "Designations"
+  },
+  {
+   "label": "Focus Areas",
+   "number_card_name": "Focus Areas"
+  },
+  {
+   "label": "Demography Groups",
+   "number_card_name": "Demography Groups"
   },
   {
    "label": "Programmes",
@@ -40,16 +56,8 @@
    "number_card_name": "Themes"
   },
   {
-   "label": "KPI Types",
-   "number_card_name": "KPI Types"
-  },
-  {
    "label": "Block",
    "number_card_name": "Sva Block"
-  },
-  {
-   "label": "Entities",
-   "number_card_name": "Entity"
   },
   {
    "label": "KPIs",

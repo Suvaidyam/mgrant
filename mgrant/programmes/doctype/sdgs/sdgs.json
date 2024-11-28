@@ -2,12 +2,13 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:sdg_name",
+ "autoname": "format:SDG-{####}",
  "creation": "2024-09-26 15:52:52.170201",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "sdg_name"
+  "sdg_name",
+  "description"
  ],
  "fields": [
   {
@@ -17,15 +18,20 @@
    "label": "SDG Name",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-03 12:17:54.022692",
+ "modified": "2024-11-28 11:04:34.051400",
  "modified_by": "Administrator",
  "module": "Programmes",
  "name": "SDGs",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

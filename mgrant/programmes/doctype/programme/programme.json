@@ -2,7 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:programme_name",
+ "autoname": "format:PROG-{####}",
  "creation": "2024-09-26 15:57:05.088297",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -21,11 +21,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-09 09:34:10.691014",
+ "modified": "2024-11-28 11:05:32.765739",
  "modified_by": "Administrator",
  "module": "Programmes",
  "name": "Programme",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

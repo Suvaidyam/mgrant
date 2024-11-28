@@ -10,6 +10,11 @@
   "project",
   "budget_name",
   "financial_year",
+  "budget_head",
+  "q1_apr_jun_allocation",
+  "q2_jul_sep_allocation",
+  "q3_oct_dec_allocation",
+  "q4_jan_mar_allocation",
   "allocation",
   "expense",
   "column_break_jmgg",
@@ -64,6 +69,33 @@
    "fieldtype": "Link",
    "label": "Proposal",
    "options": "Proposal"
+  },
+  {
+   "fieldname": "budget_head",
+   "fieldtype": "Link",
+   "label": "Budget head",
+   "options": "Budget heads",
+   "reqd": 1
+  },
+  {
+   "fieldname": "q1_apr_jun_allocation",
+   "fieldtype": "Currency",
+   "label": "Q1 (Apr-Jun) Allocation"
+  },
+  {
+   "fieldname": "q2_jul_sep_allocation",
+   "fieldtype": "Currency",
+   "label": "Q2 (Jul-Sep) Allocation"
+  },
+  {
+   "fieldname": "q3_oct_dec_allocation",
+   "fieldtype": "Currency",
+   "label": "Q3 (Oct-Dec) Allocation"
+  },
+  {
+   "fieldname": "q4_jan_mar_allocation",
+   "fieldtype": "Currency",
+   "label": "Q4 (Jan-Mar) Allocation"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -73,7 +105,7 @@
    "link_fieldname": "budget"
   }
  ],
- "modified": "2024-11-22 09:38:43.654025",
+ "modified": "2024-11-28 11:27:07.016566",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget",

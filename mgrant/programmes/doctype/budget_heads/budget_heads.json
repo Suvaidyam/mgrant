@@ -2,7 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:budget_head_name",
+ "autoname": "format:B-HEAD-{####}",
  "creation": "2024-09-26 15:51:37.278232",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -21,11 +21,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-03 12:21:31.903335",
+ "modified": "2024-11-28 11:06:21.320400",
  "modified_by": "Administrator",
  "module": "Programmes",
  "name": "Budget heads",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

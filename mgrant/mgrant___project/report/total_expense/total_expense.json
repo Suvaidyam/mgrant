@@ -16,13 +16,13 @@
  "idx": 0,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-10-03 13:06:58.480297",
+ "modified": "2024-11-27 10:42:50.302380",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Total Expense",
  "owner": "Administrator",
  "prepared_report": 0,
- "query": "SELECT\n    SUM(transaction) as total_expense\nFROM\n    `tabBudget Transaction`",
+ "query": "SELECT\n    SUM(\"transaction\") as total_expense\nFROM\n    `tabBudget Transaction`",
  "ref_doctype": "Budget Transaction",
  "report_name": "Total Expense",
  "report_type": "Query Report",
@@ -33,5 +33,6 @@
   {
    "role": "Admin"
   }
- ]
+ ],
+ "timeout": 0
 }
