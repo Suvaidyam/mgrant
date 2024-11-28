@@ -137,20 +137,39 @@ const gallery_image = async (frm) => {
             view = 'List';
             updateGallery();
         });
-        $('#customUploadButton').on('click', async () => {
-            console.log('Upload button clicked');
-            let qed = await frappe.ui.form.make_quick_entry("Gallery", { documnet_type: frm.doctype, document_name: frm.doc.name });
-            console.log(qed, 'qed');
-        });
     };
 
     if (!files.length) {
-        $('[data-fieldname="gallery"]').html(`
-            <div class="d-flex justify-content-center text-muted align-items-center" style="width: 100%;">
+        const galleryContainer = $('[data-fieldname="gallery"]');
+        galleryContainer.html(renderHeader() +
+            `<div class="d-flex justify-content-center text-muted align-items-center" style="width: 100%;">
                 <h4>No images found</h4>
-            </div>
-        `);
+            </div>`);
     } else {
         updateGallery();
     }
+    $('#customUploadButton').on('click', async () => {
+        let docInfo = await frappe.db.get_doc("DocType", "Gallery");
+        console.log(docInfo);
+        let fields = docInfo.fields.map(f => {
+            if (f.fieldname === "document_type") {
+                f.default = frm.doc.doctype;
+            } else if (f.fieldname === "document_name") {
+                f.default = frm.doc.name;
+            }
+            return f;
+        });
+        let gal_dialog = new frappe.ui.Dialog({
+            title: __("Upload Files"),
+            fields: fields,
+            primary_action: async function (values) {
+                let fileObj = {doctype: "Gallery",...values};
+                await frappe.db.insert(fileObj);
+                gal_dialog.hide();
+                // frm.reload_doc();
+            },
+            primary_action_label: 'Upload',
+        })
+        gal_dialog.show();
+    });
 };

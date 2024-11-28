@@ -3,6 +3,7 @@
  "allow_rename": 1,
  "autoname": "format:PROPOSAL-{####}",
  "creation": "2024-09-28 15:21:17.944887",
+ "default_view": "Kanban",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -367,7 +368,7 @@
    "link_fieldname": "proposal"
   }
  ],
- "modified": "2024-11-25 11:35:55.533172",
+ "modified": "2024-11-26 14:16:22.266749",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "Proposal",

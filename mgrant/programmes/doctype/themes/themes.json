@@ -41,7 +41,7 @@
    "link_fieldname": "theme"
   }
  ],
- "modified": "2024-11-11 12:31:29.037390",
+ "modified": "2024-11-27 10:44:08.522728",
  "modified_by": "Administrator",
  "module": "Programmes",
  "name": "Themes",
@@ -73,7 +73,9 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "theme_name"
 }

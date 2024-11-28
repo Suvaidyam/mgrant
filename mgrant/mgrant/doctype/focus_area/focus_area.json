@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:FA-{######}",
+ "autoname": "format:F-AREA-{######}",
  "creation": "2024-08-12 15:51:28.082902",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -29,7 +29,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-02 16:02:13.033849",
+ "modified": "2024-11-28 11:05:58.165598",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Focus Area",

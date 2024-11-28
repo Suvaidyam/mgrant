@@ -16,13 +16,13 @@
  "idx": 0,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-10-03 13:07:10.526627",
+ "modified": "2024-11-27 11:14:26.023083",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Total Budget",
  "owner": "Administrator",
  "prepared_report": 0,
- "query": "SELECT\n    SUM(allocation) as total_budget\nFROM\n    tabBudget",
+ "query": "SELECT\n    SUM(\"allocation\") AS total_budget\nFROM\n    `tabBudget`;",
  "ref_doctype": "Budget",
  "report_name": "Total Budget",
  "report_type": "Query Report",
@@ -33,5 +33,6 @@
   {
    "role": "Admin"
   }
- ]
+ ],
+ "timeout": 0
 }

@@ -8,9 +8,7 @@
   "document_type",
   "document_name",
   "image",
-  "title",
-  "column_break_byog",
-  "column_break_jmwq"
+  "title"
  ],
  "fields": [
   {
@@ -20,6 +18,7 @@
    "in_list_view": 1,
    "label": "Document name",
    "options": "document_type",
+   "read_only_depends_on": "eval:cur_frm.doc.doctype != \"Gallery\"",
    "reqd": 1
   },
   {
@@ -30,20 +29,13 @@
    "reqd": 1
   },
   {
-   "fieldname": "column_break_byog",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_jmwq",
-   "fieldtype": "Column Break"
-  },
-  {
    "allow_in_quick_entry": 1,
    "fieldname": "document_type",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Document Type",
    "options": "DocType",
+   "read_only_depends_on": "eval:cur_frm.doc.doctype != \"Gallery\"",
    "reqd": 1
   },
   {
@@ -56,7 +48,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-27 17:51:51.309758",
+ "modified": "2024-11-28 14:43:18.094396",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Gallery",
