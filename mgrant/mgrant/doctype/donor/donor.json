@@ -1,29 +1,34 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:D-{######}",
+ "autoname": "format:DONOR-{######}",
  "creation": "2024-08-12 15:47:04.958792",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "basic_information_section",
   "donor_name",
-  "focus_area",
+  "donor_type",
+  "column_break_tfvn",
   "org_email",
   "website",
-  "donor_type",
+  "column_break_rkla",
+  "focus_areas",
+  "contact_information_section",
   "contact_first_name",
   "contract_last_name",
-  "column_break_tfvn",
+  "column_break_emii",
   "email",
   "mobile_number",
-  "column_break_rkla",
+  "location_information_section",
   "state",
   "district",
+  "column_break_vmns",
+  "pincode",
   "address_1",
+  "column_break_qnni",
   "address_2",
   "address_3",
-  "pincode",
   "projects_tab",
   "projects",
   "donor_budget_heads_tab",
@@ -35,14 +40,6 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Donor Name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "focus_area",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Focus Area",
-   "options": "Focus Area",
    "reqd": 1
   },
   {
@@ -59,8 +56,7 @@
    "in_list_view": 1,
    "label": "Mobile Number",
    "length": 10,
-   "options": "Phone",
-   "reqd": 1
+   "options": "Phone"
   },
   {
    "fieldname": "column_break_tfvn",
@@ -75,8 +71,7 @@
    "fieldname": "state",
    "fieldtype": "Link",
    "label": "State",
-   "options": "State",
-   "reqd": 1
+   "options": "State"
   },
   {
    "fieldname": "column_break_rkla",
@@ -86,8 +81,7 @@
    "fieldname": "district",
    "fieldtype": "Link",
    "label": "District",
-   "options": "State",
-   "reqd": 1
+   "options": "State"
   },
   {
    "fieldname": "address_1",
@@ -107,8 +101,7 @@
   {
    "fieldname": "pincode",
    "fieldtype": "Int",
-   "label": "Pincode",
-   "reqd": 1
+   "label": "Pincode"
   },
   {
    "fieldname": "org_email",
@@ -125,7 +118,7 @@
    "fieldname": "donor_type",
    "fieldtype": "Select",
    "label": "Donor Type",
-   "options": "\nCSR"
+   "options": "\nCSR\nPhilanthropy\nHNI\nFamily Foundations\nInstitutions"
   },
   {
    "fieldname": "contact_first_name",
@@ -160,6 +153,35 @@
    "fieldname": "dbhs",
    "fieldtype": "HTML",
    "options": "<div id=\"dbhs\"></div>"
+  },
+  {
+   "fieldname": "focus_areas",
+   "fieldtype": "Table MultiSelect",
+   "label": "Focus Areas",
+   "options": "Focus Area Child"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "location_information_section",
+   "fieldtype": "Section Break",
+   "label": "Location Information"
+  },
+  {
+   "fieldname": "column_break_vmns",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qnni",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contact_information_section",
+   "fieldtype": "Section Break",
+   "label": "Contact Information"
+  },
+  {
+   "fieldname": "column_break_emii",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -174,7 +196,7 @@
    "link_fieldname": "donor"
   }
  ],
- "modified": "2024-11-21 10:16:48.509467",
+ "modified": "2024-11-28 15:51:11.764327",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Donor",

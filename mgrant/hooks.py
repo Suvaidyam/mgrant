@@ -23,7 +23,7 @@ fixtures = [
     # 'Quarters',
     # 'Role',
     # 'Role Profile',
-    # 'SVADatatable Configuration',
+    'SVADatatable Configuration',
     'Custom Field'
 ]
 # include js, css files in header of desk.html

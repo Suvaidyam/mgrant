@@ -5,29 +5,39 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "basic_information_section",
   "ngo_name",
   "year_of_establishment",
   "registration_of_the_organisaiton",
+  "column_break_bhnv",
   "primary_domain",
   "email",
   "website",
-  "themes",
-  "pan_number_and_pan_copy_upload",
-  "column_break_bhnv",
-  "12aa_registration_number_and_certificate_upload",
-  "csr_1_number_and_certificate_upload",
-  "signatory",
-  "director",
-  "contact",
-  "source_document",
-  "status",
   "column_break_qnhh",
+  "focus_area",
+  "contact",
+  "status",
+  "source_document",
+  "location_information_section",
   "state",
   "district",
+  "column_break_zjbz",
   "address_1",
   "address_2",
+  "column_break_zlwj",
   "address_3",
   "pincode",
+  "document_information_section",
+  "registration_number",
+  "registration_certificate",
+  "pan_number",
+  "pan_copy_upload",
+  "column_break_vadv",
+  "12aa_registration_number",
+  "12aa_certificate_upload",
+  "column_break_togg",
+  "csr_1_number",
+  "csr_1_certificate_upload",
   "about_organisation_tab",
   "about_organisation",
   "work_reference_tab",
@@ -80,12 +90,6 @@
    "label": "Website"
   },
   {
-   "fieldname": "themes",
-   "fieldtype": "Table MultiSelect",
-   "label": "Themes",
-   "options": "Themes Child"
-  },
-  {
    "fieldname": "column_break_bhnv",
    "fieldtype": "Column Break"
   },
@@ -98,17 +102,6 @@
    "fieldtype": "Link",
    "label": "Contact",
    "options": "Contact"
-  },
-  {
-   "fieldname": "signatory",
-   "fieldtype": "Link",
-   "label": "Signatory",
-   "options": "Contact"
-  },
-  {
-   "fieldname": "director",
-   "fieldtype": "Data",
-   "label": "Name of the CEO/Executive Director"
   },
   {
    "default": "Active",
@@ -197,33 +190,16 @@
    "label": "Source Document"
   },
   {
-   "fieldname": "pan_number_and_pan_copy_upload",
-   "fieldtype": "Int",
-   "label": "PAN Number and PAN copy upload"
-  },
-  {
-   "fieldname": "12aa_registration_number_and_certificate_upload",
-   "fieldtype": "Data",
-   "label": "12AA Registration Number and Certificate Upload"
-  },
-  {
-   "fieldname": "csr_1_number_and_certificate_upload",
-   "fieldtype": "Data",
-   "label": "CSR 1 Number and Certificate Upload"
-  },
-  {
    "fieldname": "state",
    "fieldtype": "Link",
    "label": "State",
-   "options": "State",
-   "reqd": 1
+   "options": "State"
   },
   {
    "fieldname": "district",
    "fieldtype": "Link",
    "label": "District",
-   "options": "District",
-   "reqd": 1
+   "options": "District"
   },
   {
    "fieldname": "address_1",
@@ -243,36 +219,98 @@
   {
    "fieldname": "pincode",
    "fieldtype": "Int",
-   "label": "Pincode",
-   "reqd": 1
+   "label": "Pincode"
   },
   {
    "fieldname": "email",
    "fieldtype": "Data",
-   "label": "Email",
+   "label": "Contact Email",
    "options": "Email",
    "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "location_information_section",
+   "fieldtype": "Section Break",
+   "label": "Location Information"
+  },
+  {
+   "fieldname": "column_break_zjbz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zlwj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "registration_number",
+   "fieldtype": "Data",
+   "label": "Registration Number"
+  },
+  {
+   "fieldname": "registration_certificate",
+   "fieldtype": "Attach",
+   "label": "Registration Certificate"
+  },
+  {
+   "fieldname": "pan_number",
+   "fieldtype": "Data",
+   "label": "PAN Number"
+  },
+  {
+   "fieldname": "pan_copy_upload",
+   "fieldtype": "Attach",
+   "label": "PAN copy upload"
+  },
+  {
+   "fieldname": "12aa_registration_number",
+   "fieldtype": "Data",
+   "label": "12AA Registration Number"
+  },
+  {
+   "fieldname": "12aa_certificate_upload",
+   "fieldtype": "Attach",
+   "label": "12AA Certificate Upload"
+  },
+  {
+   "fieldname": "csr_1_number",
+   "fieldtype": "Data",
+   "label": "CSR 1 Number"
+  },
+  {
+   "fieldname": "csr_1_certificate_upload",
+   "fieldtype": "Attach",
+   "label": "CSR 1 Certificate Upload"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "document_information_section",
+   "fieldtype": "Section Break",
+   "label": "Documents"
+  },
+  {
+   "fieldname": "basic_information_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "column_break_vadv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_togg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "focus_area",
+   "fieldtype": "Table MultiSelect",
+   "label": "Focus Area",
+   "options": "Focus Area Child"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [
-  {
-   "hidden": 1,
-   "link_doctype": "Project",
-   "link_fieldname": "ngo"
-  },
-  {
-   "hidden": 1,
-   "link_doctype": "Proposal",
-   "link_fieldname": "ngo"
-  },
-  {
-   "hidden": 1,
-   "link_doctype": "Contact",
-   "link_fieldname": "custom_ref_document"
-  }
- ],
- "modified": "2024-11-12 12:21:46.161741",
+ "links": [],
+ "modified": "2024-11-28 16:39:57.524377",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",
