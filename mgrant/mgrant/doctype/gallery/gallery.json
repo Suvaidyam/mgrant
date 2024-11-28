@@ -5,31 +5,27 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "project",
+  "document_type",
   "document_name",
   "image",
+  "title",
   "column_break_byog",
   "column_break_jmwq"
  ],
  "fields": [
   {
-   "fieldname": "project",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Project",
-   "options": "Project",
-   "reqd": 1
-  },
-  {
+   "allow_in_quick_entry": 1,
    "fieldname": "document_name",
-   "fieldtype": "Data",
+   "fieldtype": "Dynamic Link",
    "in_list_view": 1,
    "label": "Document name",
+   "options": "document_type",
    "reqd": 1
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "image",
-   "fieldtype": "Attach Image",
+   "fieldtype": "Attach",
    "label": "Image",
    "reqd": 1
   },
@@ -40,11 +36,27 @@
   {
    "fieldname": "column_break_jmwq",
    "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "document_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Document Type",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-02 15:59:03.537098",
+ "modified": "2024-11-27 17:51:51.309758",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Gallery",
@@ -63,6 +75,7 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": []
