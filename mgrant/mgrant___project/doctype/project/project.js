@@ -69,7 +69,6 @@ frappe.ui.form.on("Project", {
     // form-footer
     async refresh(frm) {
         $('.form-footer').remove()
-        $('.layout-side-section').remove()
         document.querySelectorAll('.timeline-dot').forEach(function (dot) {
             dot.style.display = 'none'; // Hides the timeline dot
         });
@@ -80,39 +79,6 @@ frappe.ui.form.on("Project", {
             let tab_field = frm.get_active_tab()?.df?.fieldname;
             tabContent(frm, tab_field)
         });
-
-
-        // =================================== TimeLine Tab ===================================
-
-        // frm.timeline.doc_info.versions.forEach(item => {
-        //     const data = JSON.parse(item.data); // Parse the JSON string into an object
-        //     console.log('item.data :>> ', data);
-        //     if (data && data.added) {
-        //         // Iterate over the "added" array to get the dynamic field values
-        //         data.added.forEach(addedItem => {
-        //             const keys = Object.keys(addedItem[1]); // Get all keys of the object
-        //             // Check if either "theme" or "state" exists in the keys
-        //             const key = keys.find(k => k === 'theme' || k === 'state');
-
-        //             if (key) {
-        //                 const value = addedItem[1][key]; // Dynamically access the value based on the key
-        //                 // console.log('value :>> ', value);
-        //                 // console.log(` Added ${key}: >> ${value}`);
-        //             }
-        //         });
-        //     }
-        //     if (data.removed) {
-        //         data.removed.forEach(removedItem => {
-        //             const keys = Object.keys(removedItem[1]); // Get all keys of the object
-        //             const key = keys.find(k => k === 'theme' || k === 'state');
-
-        //             if (key) {
-        //                 const value = removedItem[1][key]; // Dynamically access the value based on the key
-        //                 console.log(`Removed ${key}: >> ${value}`);
-        //             }
-        //         });
-        //     }
-        // });
 
         if (frm.timeline?.timeline_wrapper) {
             document.getElementById('timeline').innerHTML = `
