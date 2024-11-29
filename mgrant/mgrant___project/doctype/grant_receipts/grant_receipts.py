@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class Tranches(Document):
+class GrantReceipts(Document):
 	pass

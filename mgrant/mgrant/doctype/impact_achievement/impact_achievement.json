@@ -1,17 +1,19 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:IA-{#####}",
- "creation": "2024-08-12 17:39:35.726817",
+ "autoname": "format:IMPACT-A-{######}",
+ "creation": "2024-11-29 21:49:05.017580",
+ "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "impact",
-  "project",
   "as_on_date",
+  "grant",
+  "column_break_cqau",
   "achievement",
-  "column_break_ixjx",
-  "column_break_wufe"
+  "supporting_document",
+  "proposal"
  ],
  "fields": [
   {
@@ -21,11 +23,36 @@
    "reqd": 1
   },
   {
+   "fetch_from": "impact.grant",
+   "fieldname": "grant",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Grant",
+   "options": "Grant"
+  },
+  {
+   "fieldname": "column_break_cqau",
+   "fieldtype": "Column Break"
+  },
+  {
    "fieldname": "achievement",
    "fieldtype": "Int",
    "label": "Achievement",
    "non_negative": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "supporting_document",
+   "fieldtype": "Attach Image",
+   "label": "Supporting Document"
+  },
+  {
+   "fetch_from": "impact.proposal",
+   "fieldname": "proposal",
+   "fieldtype": "Link",
+   "label": "Proposal",
+   "options": "Proposal"
   },
   {
    "fieldname": "impact",
@@ -34,27 +61,11 @@
    "label": "Impact",
    "options": "Impact",
    "reqd": 1
-  },
-  {
-   "fetch_from": "impact.project",
-   "fieldname": "project",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Project",
-   "options": "Grant"
-  },
-  {
-   "fieldname": "column_break_ixjx",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_wufe",
-   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-29 10:14:33.180451",
+ "modified": "2024-11-29 21:52:19.850738",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact Achievement",

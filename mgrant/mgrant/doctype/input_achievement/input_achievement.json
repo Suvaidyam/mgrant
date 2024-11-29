@@ -7,22 +7,14 @@
  "engine": "InnoDB",
  "field_order": [
   "input",
-  "project",
   "as_on_date",
+  "grant",
+  "column_break_cqau",
   "achievement",
-  "column_break_cgas",
-  "column_break_tlgg"
+  "supporting_document",
+  "proposal"
  ],
  "fields": [
-  {
-   "fetch_from": "output.project",
-   "fieldname": "project",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "in_list_view": 1,
-   "label": "Project",
-   "options": "Grant"
-  },
   {
    "fieldname": "as_on_date",
    "fieldtype": "Date",
@@ -37,25 +29,42 @@
    "reqd": 1
   },
   {
-   "fieldname": "column_break_cgas",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_tlgg",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "input",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Input",
    "options": "Input",
    "reqd": 1
+  },
+  {
+   "fetch_from": "input.proposal",
+   "fieldname": "proposal",
+   "fieldtype": "Link",
+   "label": "Proposal",
+   "options": "Proposal"
+  },
+  {
+   "fetch_from": "input.grant",
+   "fieldname": "grant",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Grant",
+   "options": "Grant"
+  },
+  {
+   "fieldname": "supporting_document",
+   "fieldtype": "Attach Image",
+   "label": "Supporting Document"
+  },
+  {
+   "fieldname": "column_break_cqau",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-29 10:14:33.950390",
+ "modified": "2024-11-29 21:45:21.875118",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Input Achievement",

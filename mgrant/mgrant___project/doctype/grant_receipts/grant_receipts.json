@@ -1,0 +1,132 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:GR-REC-{#####}",
+ "creation": "2024-09-30 18:47:14.816361",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "proposal",
+  "grant",
+  "financial_year",
+  "tranch_no",
+  "funds_planned",
+  "planned_due_date",
+  "column_break_eryd",
+  "request_status",
+  "funds_requested",
+  "fund_receipt_status",
+  "funds_received"
+ ],
+ "fields": [
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "label": "Financial Year",
+   "options": "Financial Year",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:(cur_frm.doc.doctype == 'Proposal')",
+   "fieldname": "proposal",
+   "fieldtype": "Link",
+   "label": "Proposal",
+   "options": "Proposal",
+   "search_index": 1
+  },
+  {
+   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
+   "fieldname": "grant",
+   "fieldtype": "Link",
+   "label": "Grant",
+   "options": "Grant",
+   "search_index": 1
+  },
+  {
+   "fieldname": "tranch_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tranch No.",
+   "reqd": 1
+  },
+  {
+   "fieldname": "funds_planned",
+   "fieldtype": "Currency",
+   "label": "Funds Planned",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "planned_due_date",
+   "fieldtype": "Date",
+   "label": "Planned Due Date"
+  },
+  {
+   "fieldname": "request_status",
+   "fieldtype": "Select",
+   "label": "Request Status",
+   "options": "\nRequest Raised\nRequest Pending"
+  },
+  {
+   "fieldname": "funds_requested",
+   "fieldtype": "Currency",
+   "label": "Funds Requested",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "fund_receipt_status",
+   "fieldtype": "Select",
+   "label": "Fund Receipt Status",
+   "options": "\nDue\nDue - Delayed\nPaid\nDisputed"
+  },
+  {
+   "fieldname": "funds_received",
+   "fieldtype": "Currency",
+   "label": "Funds Received",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "column_break_eryd",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-29 20:54:07.203036",
+ "modified_by": "Administrator",
+ "module": "mGrant - Project",
+ "name": "Grant Receipts",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "tranch_no"
+}

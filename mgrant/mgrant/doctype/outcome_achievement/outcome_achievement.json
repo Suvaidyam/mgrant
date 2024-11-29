@@ -1,17 +1,19 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:OCA-{######}",
- "creation": "2024-08-12 17:38:30.953456",
+ "autoname": "format:OUTCOME-A-{######}",
+ "creation": "2024-11-29 21:53:01.568152",
+ "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "outcome",
-  "project",
   "as_on_date",
+  "grant",
+  "column_break_cqau",
   "achievement",
-  "column_break_mlym",
-  "column_break_lykz"
+  "supporting_document",
+  "proposal"
  ],
  "fields": [
   {
@@ -21,11 +23,36 @@
    "reqd": 1
   },
   {
+   "fetch_from": "outcome.grant",
+   "fieldname": "grant",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Grant",
+   "options": "Grant"
+  },
+  {
+   "fieldname": "column_break_cqau",
+   "fieldtype": "Column Break"
+  },
+  {
    "fieldname": "achievement",
    "fieldtype": "Int",
    "label": "Achievement",
    "non_negative": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "supporting_document",
+   "fieldtype": "Attach Image",
+   "label": "Supporting Document"
+  },
+  {
+   "fetch_from": "outcome.proposal",
+   "fieldname": "proposal",
+   "fieldtype": "Link",
+   "label": "Proposal",
+   "options": "Proposal"
   },
   {
    "fieldname": "outcome",
@@ -34,28 +61,11 @@
    "label": "Outcome",
    "options": "Outcome",
    "reqd": 1
-  },
-  {
-   "fetch_from": "outcome.project",
-   "fieldname": "project",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "in_list_view": 1,
-   "label": "Project",
-   "options": "Grant"
-  },
-  {
-   "fieldname": "column_break_mlym",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_lykz",
-   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-29 10:14:32.891419",
+ "modified": "2024-11-29 21:54:21.406658",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcome Achievement",

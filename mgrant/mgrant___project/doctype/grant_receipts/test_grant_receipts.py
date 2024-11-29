@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestTranches(FrappeTestCase):
+class TestGrantReceipts(FrappeTestCase):
 	pass
