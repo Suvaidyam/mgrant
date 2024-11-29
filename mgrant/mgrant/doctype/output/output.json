@@ -1,50 +1,116 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:OP-{#####}",
- "creation": "2024-08-12 17:35:13.735108",
+ "autoname": "format:Output-{#####}",
+ "creation": "2024-11-29 21:24:26.781883",
+ "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "proposal",
-  "project",
-  "output_name",
-  "target",
+  "grant",
+  "kpi",
+  "state",
+  "district",
+  "block",
+  "gram_panchayat",
+  "village",
   "financial_year",
-  "achievement",
-  "column_break_xixe",
-  "column_break_uvzb"
+  "output_name",
+  "column_break_lxhn",
+  "total_target",
+  "q1_apr_jun_target",
+  "apr_target",
+  "may_target",
+  "june_target",
+  "q2_jul_sep_target",
+  "jul_target",
+  "aug_target",
+  "sep_target",
+  "q3_oct_dec_target",
+  "oct_target",
+  "nov_target",
+  "dec_target",
+  "q4_jan_mar_target",
+  "jan_target",
+  "feb_target",
+  "mar_target",
+  "column_break_bile",
+  "total_achievement",
+  "q1_apr_jun_achievement",
+  "apr_achievement",
+  "may_achievement",
+  "june_achievement",
+  "q2_jul_sep_achievement",
+  "jul_achievement",
+  "aug_achievement",
+  "sep_achievement",
+  "q3_oct_dec_achievement",
+  "oct_achievement",
+  "nov_achievement",
+  "dec_achievement",
+  "q4_jan_mar_achievement",
+  "jan_achievement",
+  "feb_achievement",
+  "mar_achievement"
  ],
  "fields": [
   {
-   "fieldname": "output_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Output Name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "target",
-   "fieldtype": "Int",
-   "label": "Target",
-   "non_negative": 1,
-   "reqd": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Project')",
-   "fieldname": "project",
+   "depends_on": "eval:(cur_frm.doc.doctype == 'Proposal')",
+   "fieldname": "proposal",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Project",
-   "options": "Grant"
+   "label": "Proposal",
+   "mandatory_depends_on": "eval:(cur_frm.doc.doctype == 'Proposal')",
+   "options": "Proposal",
+   "search_index": 1
   },
   {
-   "fieldname": "column_break_xixe",
-   "fieldtype": "Column Break"
+   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
+   "fieldname": "grant",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Grant",
+   "mandatory_depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
+   "options": "Grant",
+   "search_index": 1
   },
   {
-   "fieldname": "column_break_uvzb",
-   "fieldtype": "Column Break"
+   "fieldname": "kpi",
+   "fieldtype": "Link",
+   "label": "KPI",
+   "link_filters": "[[\"KPIs\",\"kpi_type\",\"=\",\"Output\"]]",
+   "options": "KPIs"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District"
+  },
+  {
+   "fieldname": "block",
+   "fieldtype": "Link",
+   "label": "Block",
+   "options": "Block"
+  },
+  {
+   "fieldname": "gram_panchayat",
+   "fieldtype": "Link",
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat"
+  },
+  {
+   "fieldname": "village",
+   "fieldtype": "Link",
+   "label": "Village",
+   "options": "Village"
   },
   {
    "fieldname": "financial_year",
@@ -54,29 +120,243 @@
    "reqd": 1
   },
   {
-   "fieldname": "achievement",
+   "fieldname": "column_break_lxhn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_target",
    "fieldtype": "Int",
-   "label": "Achievement",
+   "label": "Total Target",
    "non_negative": 1,
    "read_only": 1
   },
   {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Proposal')",
-   "fieldname": "proposal",
-   "fieldtype": "Link",
+   "fieldname": "q1_apr_jun_target",
+   "fieldtype": "Int",
+   "label": "Q1 (Apr-Jun) Target",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "apr_target",
+   "fieldtype": "Int",
+   "label": "Apr Target",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "may_target",
+   "fieldtype": "Int",
+   "label": "May Target",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "june_target",
+   "fieldtype": "Int",
+   "label": "June Target",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "q2_jul_sep_target",
+   "fieldtype": "Int",
+   "label": "Q2 (Jul-Sep) Target",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "jul_target",
+   "fieldtype": "Int",
+   "label": "Jul Target",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "aug_target",
+   "fieldtype": "Int",
+   "label": "Aug Target",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "sep_target",
+   "fieldtype": "Int",
+   "label": "Sep Target",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "q3_oct_dec_target",
+   "fieldtype": "Int",
+   "label": "Q3 (Oct-Dec) Target",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "oct_target",
+   "fieldtype": "Int",
+   "label": "Oct Target",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "nov_target",
+   "fieldtype": "Int",
+   "label": "Nov Target",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "dec_target",
+   "fieldtype": "Int",
+   "label": "Dec Target",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "q4_jan_mar_target",
+   "fieldtype": "Int",
+   "label": "Q4 (Jan-Mar) Target",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "jan_target",
+   "fieldtype": "Int",
+   "label": "Jan Target",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "feb_target",
+   "fieldtype": "Int",
+   "label": "Feb Target",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "mar_target",
+   "fieldtype": "Int",
+   "label": "Mar Target",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "column_break_bile",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_achievement",
+   "fieldtype": "Int",
+   "label": "Total Achievement",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "q1_apr_jun_achievement",
+   "fieldtype": "Int",
+   "label": "Q1 (Apr-Jun) Achievement",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "apr_achievement",
+   "fieldtype": "Int",
+   "label": "Apr Achievement",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "may_achievement",
+   "fieldtype": "Int",
+   "label": "May Achievement",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "june_achievement",
+   "fieldtype": "Int",
+   "label": "June Achievement",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "q2_jul_sep_achievement",
+   "fieldtype": "Int",
+   "label": "Q2 (Jul-Sep) Achievement",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "jul_achievement",
+   "fieldtype": "Int",
+   "label": "Jul Achievement",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "aug_achievement",
+   "fieldtype": "Int",
+   "label": "Aug Achievement",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "sep_achievement",
+   "fieldtype": "Int",
+   "label": "Sep Achievement",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "q3_oct_dec_achievement",
+   "fieldtype": "Int",
+   "label": "Q3 (Oct-Dec) Achievement",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "oct_achievement",
+   "fieldtype": "Int",
+   "label": "Oct Achievement",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "nov_achievement",
+   "fieldtype": "Int",
+   "label": "Nov Achievement",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "dec_achievement",
+   "fieldtype": "Int",
+   "label": "Dec Achievement",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "q4_jan_mar_achievement",
+   "fieldtype": "Int",
+   "label": "Q4 (Jan-Mar) Achievement",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "jan_achievement",
+   "fieldtype": "Int",
+   "label": "Jan Achievement",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "feb_achievement",
+   "fieldtype": "Int",
+   "label": "Feb Achievement",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "mar_achievement",
+   "fieldtype": "Int",
+   "label": "Mar Achievement",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "output_name",
+   "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Proposal",
-   "options": "Proposal"
+   "label": "Output Name",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [
   {
-   "link_doctype": "Output Achievement",
-   "link_fieldname": "output"
+   "hidden": 1,
+   "link_doctype": "Input Achievement",
+   "link_fieldname": "input"
   }
  ],
- "modified": "2024-11-29 10:14:32.385732",
+ "modified": "2024-11-29 21:47:48.135399",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output",
@@ -108,7 +388,9 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "output_name"
 }

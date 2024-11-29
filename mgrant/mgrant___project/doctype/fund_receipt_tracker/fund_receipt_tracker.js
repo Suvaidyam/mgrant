@@ -1,7 +1,7 @@
 // Copyright (c) 2024, Suvaidyam and contributors
 // For license information, please see license.txt
 
-// frappe.ui.form.on("Disbursement", {
+// frappe.ui.form.on("Fund Receipt Tracker", {
 // 	refresh(frm) {
 
 // 	},

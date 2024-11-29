@@ -1,32 +1,39 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:OPA-{######}",
- "creation": "2024-08-12 17:36:22.321780",
+ "autoname": "format:OUTPUT-A-{######}",
+ "creation": "2024-11-29 21:46:10.492142",
+ "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "output",
-  "project",
   "as_on_date",
+  "grant",
+  "column_break_cqau",
   "achievement",
-  "column_break_cgas",
-  "column_break_tlgg"
+  "supporting_document",
+  "proposal"
  ],
  "fields": [
-  {
-   "fieldname": "output",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Output",
-   "options": "Output",
-   "reqd": 1
-  },
   {
    "fieldname": "as_on_date",
    "fieldtype": "Date",
    "label": "As on date",
    "reqd": 1
+  },
+  {
+   "fetch_from": "output.grant",
+   "fieldname": "grant",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Grant",
+   "options": "Grant"
+  },
+  {
+   "fieldname": "column_break_cqau",
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "achievement",
@@ -36,26 +43,29 @@
    "reqd": 1
   },
   {
-   "fetch_from": "output.project",
-   "fieldname": "project",
+   "fieldname": "supporting_document",
+   "fieldtype": "Attach Image",
+   "label": "Supporting Document"
+  },
+  {
+   "fetch_from": "output.proposal",
+   "fieldname": "proposal",
    "fieldtype": "Link",
-   "hidden": 1,
+   "label": "Proposal",
+   "options": "Proposal"
+  },
+  {
+   "fieldname": "output",
+   "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Project",
-   "options": "Grant"
-  },
-  {
-   "fieldname": "column_break_cgas",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_tlgg",
-   "fieldtype": "Column Break"
+   "label": "Output",
+   "options": "Output",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-29 10:14:32.612648",
+ "modified": "2024-11-29 21:47:26.073216",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output Achievement",

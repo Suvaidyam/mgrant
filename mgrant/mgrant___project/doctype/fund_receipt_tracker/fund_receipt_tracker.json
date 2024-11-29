@@ -6,28 +6,14 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "tranche",
-  "project",
+  "grant_reciept",
   "as_on_date",
-  "disbursement"
+  "funds_received",
+  "supporting_document",
+  "grant",
+  "proposal"
  ],
  "fields": [
-  {
-   "fieldname": "tranche",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Tranche",
-   "options": "Tranches",
-   "reqd": 1
-  },
-  {
-   "fetch_from": "budget.project",
-   "fieldname": "project",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Project",
-   "options": "Grant"
-  },
   {
    "fieldname": "as_on_date",
    "fieldtype": "Date",
@@ -35,19 +21,47 @@
    "reqd": 1
   },
   {
-   "fieldname": "disbursement",
-   "fieldtype": "Int",
-   "label": "Disbursement",
+   "fieldname": "grant_reciept",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Grant Reciept",
+   "options": "Grant Receipts",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "grant_reciept.proposal",
+   "fieldname": "proposal",
+   "fieldtype": "Link",
+   "label": "Proposal",
+   "options": "Proposal"
+  },
+  {
+   "fetch_from": "budget.project",
+   "fieldname": "grant",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Grant",
+   "options": "Grant"
+  },
+  {
+   "fieldname": "funds_received",
+   "fieldtype": "Currency",
+   "label": "Funds Received",
    "non_negative": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "supporting_document",
+   "fieldtype": "Attach",
+   "label": "Supporting Document"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-29 10:14:33.688025",
+ "modified": "2024-11-29 20:58:16.688455",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
- "name": "Disbursement",
+ "name": "Fund Receipt Tracker",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [

@@ -29,8 +29,12 @@
   "grant_description",
   "demography_information_section",
   "themes",
+  "theme",
   "sdgs",
+  "sdg",
   "column_break_kepa",
+  "focus_areas",
+  "focus_area",
   "programme",
   "section_break_vkwu",
   "demography_focus",
@@ -146,6 +150,7 @@
   {
    "fieldname": "sdgs",
    "fieldtype": "Table MultiSelect",
+   "hidden": 1,
    "label": "SDGs",
    "options": "SDG Child"
   },
@@ -293,6 +298,7 @@
   {
    "fieldname": "themes",
    "fieldtype": "Table MultiSelect",
+   "hidden": 1,
    "label": "Themes",
    "options": "Themes Child"
   },
@@ -446,6 +452,31 @@
    "fieldname": "geographical_information_section",
    "fieldtype": "Section Break",
    "label": "Geographical Information"
+  },
+  {
+   "fieldname": "focus_areas",
+   "fieldtype": "Table MultiSelect",
+   "hidden": 1,
+   "label": "Focus Areas",
+   "options": "Focus Area Child"
+  },
+  {
+   "fieldname": "theme",
+   "fieldtype": "Link",
+   "label": "Theme",
+   "options": "Themes"
+  },
+  {
+   "fieldname": "sdg",
+   "fieldtype": "Link",
+   "label": "SDG",
+   "options": "SDGs"
+  },
+  {
+   "fieldname": "focus_area",
+   "fieldtype": "Link",
+   "label": "Focus Area",
+   "options": "Focus Area"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -521,7 +552,7 @@
    "link_fieldname": "project"
   }
  ],
- "modified": "2024-11-29 12:50:53.772515",
+ "modified": "2024-11-29 20:22:13.069946",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",

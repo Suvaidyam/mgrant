@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestDisbursement(FrappeTestCase):
+class TestBudgetPlanandUtilisation(FrappeTestCase):
 	pass
