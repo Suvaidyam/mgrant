@@ -36,7 +36,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Project",
-   "options": "Project"
+   "options": "Grant"
   },
   {
    "fieldname": "column_break_xixe",
@@ -76,7 +76,7 @@
    "link_fieldname": "output"
   }
  ],
- "modified": "2024-11-22 09:40:38.942901",
+ "modified": "2024-11-29 10:14:32.385732",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output",

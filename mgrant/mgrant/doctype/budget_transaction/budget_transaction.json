@@ -41,7 +41,7 @@
    "fieldtype": "Link",
    "hidden": 1,
    "label": "Project",
-   "options": "Project"
+   "options": "Grant"
   },
   {
    "fieldname": "column_break_umcp",
@@ -54,7 +54,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-03 13:10:17.153154",
+ "modified": "2024-11-29 10:14:33.440106",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Transaction",

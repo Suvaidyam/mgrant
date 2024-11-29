@@ -35,7 +35,7 @@
    "fieldname": "project",
    "fieldtype": "Link",
    "label": "Project",
-   "options": "Project"
+   "options": "Grant"
   },
   {
    "fieldname": "column_break_syqs",
@@ -74,7 +74,7 @@
    "link_fieldname": "impact"
   }
  ],
- "modified": "2024-11-22 09:44:13.193571",
+ "modified": "2024-11-29 10:14:33.034393",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact",

@@ -41,7 +41,7 @@
    "fieldtype": "Link",
    "hidden": 1,
    "label": "Project",
-   "options": "Project"
+   "options": "Grant"
   },
   {
    "fieldname": "column_break_ixjx",
@@ -54,7 +54,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-03 13:11:21.023535",
+ "modified": "2024-11-29 10:14:33.180451",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact Achievement",
