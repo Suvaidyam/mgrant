@@ -57,7 +57,7 @@
    "fieldname": "project",
    "fieldtype": "Link",
    "label": "Project",
-   "options": "Project",
+   "options": "Grant",
    "search_index": 1
   },
   {
@@ -72,7 +72,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-22 12:01:52.557449",
+ "modified": "2024-11-29 10:14:33.563023",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Tranches",

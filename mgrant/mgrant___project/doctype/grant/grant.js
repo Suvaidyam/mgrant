@@ -65,7 +65,7 @@ const tabContent = async (frm, tab_field) => {
         getTaskList(frm)
     }
 }
-frappe.ui.form.on("Project", {
+frappe.ui.form.on("Grant", {
     // form-footer
     async refresh(frm) {
         $('.form-footer').remove()

@@ -26,7 +26,7 @@
    "fieldtype": "Link",
    "hidden": 1,
    "label": "Project",
-   "options": "Project"
+   "options": "Grant"
   },
   {
    "fieldname": "as_on_date",
@@ -44,7 +44,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-15 11:05:09.291339",
+ "modified": "2024-11-29 10:14:33.688025",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Disbursement",

@@ -22,7 +22,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Project",
-   "options": "Project"
+   "options": "Grant"
   },
   {
    "fieldname": "target",
@@ -77,7 +77,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2024-11-22 09:39:37.166287",
+ "modified": "2024-11-29 10:14:33.802687",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Input",
