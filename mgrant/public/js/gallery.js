@@ -1,8 +1,8 @@
 const gallery_image = async (frm) => {
+    // Add CSS Styles for the Gallery
     const style = document.createElement('style');
     style.innerHTML = `
         .card-img-top {
-            border-radius: inherit;
             width: 100%;
             height: 200px;
         }
@@ -13,10 +13,77 @@ const gallery_image = async (frm) => {
             width: 100%;
             border-collapse: collapse;
         }
+        /* Add styles for selected checkbox */
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+        }
+        .checkbox-container input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        /* Add checkbox on top of the image */
+.checkbox-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10; /* Ensure checkbox is above the image */
+}
+.checkbox-container input[type="checkbox"] {
+    width: 20px !important;
+    height: 20px !important;
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+    border: 2px solid #fff; /* White border for visibility */
+}
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    position: relative; /* To position checkbox on top of image */
+    object-fit: cover; /* Ensure the image covers the space nicely */
+}
+/* Style the checkbox when it is checked */
+.checkbox-container input[type="checkbox"]:checked {
+    background-color: #A01236; /* Highlight color when checked */
+    border-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add shadow effect for checked state */
+}
+/* Ensure the image takes up full space */
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    position: relative; /* Ensure the checkbox is positioned relative to the image */
+    object-fit: cover; /* Ensure the image covers the space without distortion */
+}
+/* Initially hide the checkbox container */
+.checkbox-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10; /* Ensure the checkbox is above the image */
+    display: none; /* Hide checkbox initially */
+}
+/* Show the checkbox when the image is hovered */
+.card:hover .checkbox-container {
+    display: block; /* Display the checkbox only when the card is hovered */
+}
+/* Checkbox styling */
+.checkbox-container input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+    border: 2px solid #fff; /* White border for visibility */
+}
+/* Highlight checkbox when checked */
+.checkbox-container input[type="checkbox"]:checked {
+    background-color: #A01236; /* Highlight color when checked */
+    border-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
     `;
     document.head.appendChild(style);
-
-    let view = 'Card'; // Default view
+    // Default view and selected files
+    let view = 'Card';
+    const selectedFiles = new Set();
+    // Fetch files related to the document
     let files = await frappe.db.get_list('Gallery', {
         fields: ['name', 'image', 'title', 'creation'],
         filters: {
@@ -25,83 +92,49 @@ const gallery_image = async (frm) => {
         },
         limit: 1000,
     });
-
-    const selectedFiles = new Set(); // To track selected files
-
+    // Render Header Section
     const renderHeader = () => `
         <div class="row" style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
             <div style="gap: 16px; display: flex;">
-                <span class="text-dark" style="font-weight: 400; font-size: 14px; line-height: 15px; color: #6E7073;">
-                    Total:
-                </span>
-                <span style="font-weight: 400; font-size: 14px; line-height: 15px; color: #0E1116;">
-                    ${files.length}
-                </span>
+                <span class="text-dark" style="font-weight: 400; font-size: 14px;">Total: ${files.length}</span>
             </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+            <div style="display: flex; gap: 12px;">
                 ${selectedFiles.size > 0
-            ? `
-                 
-                       <button class="btn btn-light" id="deleteSelectedButton">
+            ? `<button class="btn btn-light" id="deleteSelectedButton">
                          <i class="fa fa-trash" style="color: #A01236;"></i>
-                        </button>
-
-                    `
+                        </button>`
             : ''
         }
                 <div class="dropdown">
-                    <button class="btn btn-light" type="button" id="viewDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa ${view === 'Card' ? 'fa-th-large' : 'fa-list'}" style="color: #6E7073;"></i> ${view} View    
-                        <i class="fa fa-sort" style="color: #6E7073;"></i>
+                    <button class="btn btn-light" type="button" id="viewDropdown" data-toggle="dropdown">
+                        <i class="fa ${view === 'Card' ? 'fa-th-large' : 'fa-list'}"></i> ${view} View    
+                        <i class="fa fa-sort"></i>
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="viewDropdown">
-                        <span class="dropdown-item" id="cardViewBtn">
-                            <i class="fa fa-th-large"></i> Card View
-                        </span>
-                        <span class="dropdown-item" id="listViewBtn">
-                            <i class="fa fa-list"></i> List View
-                        </span>
+                    <div class="dropdown-menu">
+                        <span class="dropdown-item" id="cardViewBtn"><i class="fa fa-th-large"></i> Card View</span>
+                        <span class="dropdown-item" id="listViewBtn"><i class="fa fa-list"></i> List View</span>
                     </div>
                 </div>
-                <button class="btn btn-light d-flex align-items-center filter-btn">
-                    <!-- Filter Icon -->
+                <button class="btn btn-light filter-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#6E7073" class="bi bi-filter" viewBox="0 0 16 16">
                         <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
                     </svg>
-                    <!-- Label -->
-                    <span class="mx-2" style="color: #6E7073;">Filters</span>
+                    <span class="mx-2">Filters</span>
                 </button>
-                <button class="btn" id="customUploadButton" style="background-color: #A01236; color: white; width: 90px; height: 28px; border-radius: 8px; font-size: 14px;">+ Upload</button>
+                <button class="btn " id="customUploadButton" style="background-color: #A01236; color: white; width: 90px; height: 28px; border-radius: 8px; font-size: 14px;">+ Upload</button>
             </div>
         </div>
     `;
-
+    // Render Card View
     const renderCardView = () => `
         <div class="row mt-3">
             ${files.map(file => `
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                    <div class="card gallery position-relative" style="border: none; overflow: hidden;">
-                        <input type="checkbox"  data-id="${file.name}"  class="toggleCheckbox position-absolute"
-                style="top: 10px; left: 10px; width: 20px; height: 20px; z-index: 1000; opacity: 0; transition: opacity 0.3s ease;" />
-
-                        <img src="${file.image}" class="card-img-top" alt="${file.title}" style="border-radius: inherit; width: 100%; height: 200px; object-fit: cover;">
-                            <div class="overlay position-absolute"
-                style="top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); opacity: 0; transition: opacity 0.3s ease;">
-            </div>
-                <div class="position-absolute"
-                style="top: 10px; right: 10px; z-index: 1000; opacity: 0; transition: opacity 0.3s ease;">
-                <div class="dropdown">
-                    <button class="btn btn-light" type="button" id="dropdownMenuButton-" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-ellipsis-h"
-                            style="font-size: 18px; color: rgba(255, 255, 255, 0.7); transition: color 0.3s ease;"></i>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-">
-                        <a class="dropdown-item edit-btn" data-task="">Edit</a>
-                        <a class="dropdown-item delete-btn" data-task="">Delete</a>
-                    </div>
-                </div>
-            </div>
+                    <div class="card gallery">
+                        <div class="checkbox-container">
+                            <input type="checkbox" data-id="${file.name}" class="toggleCheckbox" ${selectedFiles.has(file.name) ? 'checked' : ''}/>
+                        </div>
+                        <img src="${file.image}" class="card-img-top" alt="${file.title}">
                         <h5 class="card-title">${file.title}</h5>
                         <span class="card-text">${file.creation}</span>
                     </div>
@@ -109,157 +142,108 @@ const gallery_image = async (frm) => {
             `).join('')}
         </div>
     `;
-    // Add hover styles
-    const hoverStyle = document.createElement('style');
-    hoverStyle.innerHTML = `
-.gallery:hover .toggleCheckbox,
-.gallery:hover .dropdown-menu {
-opacity: 1 !important;
-}
-.gallery:hover .overlay {
-opacity: 1 !important;
-}
-.gallery:hover .dropdown-menu {
-display: block !important;
-}
-.gallery .dropdown button:hover i {
-color: #ffffff !important; /* Highlight color on hover */
-}
-.gallery {
-position: relative;
-}
-`;
-    document.head.appendChild(hoverStyle);
+    // Render List View
     const renderListView = () => `
         <div class="table-responsive">
-        <table class="table table-bordered mt-3">
-            <thead class="thead-light">
-                <tr>
-                    <th ><input type="checkbox" id="selectAllCheckBox" style="width: 20px !important; height: 20px !important; "></th>
-                   <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Item</th>
-                    <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Upload Date</th>
-                    <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Image</th>
-                    <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Action</th>
-                </tr>
-            </thead>
-            <tbody style="height: 20px; !important">
-                ${files.map(file => `
-                    <tr >
-                        <td><input type="checkbox" class="toggleCheckbox" data-id="" style="width: 20px !important; height: 20px !important; text-align: center !important;" ></td>
-                       <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #0E1116;">${file.title}</td>
-                     <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #0E1116;">${file.creation}</td>
-                        <td><img src="${file.image}" class="card-img-top" alt="${file.file_name}" style="border-radius: 4px; width: 32px; height: 27px; object-fit: cover; "></td>
-                         <td>
-                            <div class="dropdown">
-                                    <p title="action" class="pointer " id="dropdownMenuButton-" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fa fa-ellipsis-h " style="transform: rotate(90deg); font-size: 16px; width: 20px; height: 20px;"></i>
-
-                                    </p>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-">
-                                        <a class="dropdown-item edit-btn" data-task="">Edit</a>
-                                        <a class="dropdown-item delete-btn" data-task="">Delete</a>
-                                    </div>
-                            </div>
-                        </td>
+            <table class="table table-bordered mt-3">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="selectAllCheckBox"></th>
+                        <th>Item</th>
+                        <th>Upload Date</th>
+                        <th>Image</th>
+                        <th>Action</th>
                     </tr>
-                `).join('')}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    ${files.map(file => `
+                        <tr>
+                            <td><input type="checkbox" class="toggleCheckbox" data-id="${file.name}" ${selectedFiles.has(file.name) ? 'checked' : ''}></td>
+                            <td>${file.title}</td>
+                            <td>${file.creation}</td>
+                            <td><img src="${file.image}" style="width: 32px; height: 27px;"></td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-light" type="button">
+                                        <i class="fa fa-ellipsis-h"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item edit-btn" data-id="${file.name}">Edit</a>
+                                        <a class="dropdown-item delete-btn" data-id="${file.name}">Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
         </div>
     `;
+    // Update Gallery
     const updateGallery = () => {
         const galleryContainer = $('[data-fieldname="gallery"]');
         galleryContainer.html(renderHeader() + (view === 'Card' ? renderCardView() : renderListView()));
-
-        // Event Listeners
-        $('#cardViewBtn').on('click', () => {
-            view = 'Card';
-            updateGallery();
-        });
-        $('#listViewBtn').on('click', () => {
-            view = 'List';
-            updateGallery();
-        });
+        // Add Event Listeners
+        $('#cardViewBtn').on('click', () => { view = 'Card'; updateGallery(); });
+        $('#listViewBtn').on('click', () => { view = 'List'; updateGallery(); });
+        // Update the Delete Button visibility based on selected files
         $('.toggleCheckbox').on('change', function () {
-
             const fileId = $(this).data('id');
-            console.log(fileId, 'fileId');
-
             if (this.checked) {
                 selectedFiles.add(fileId);
             } else {
                 selectedFiles.delete(fileId);
             }
-            if (selectedFiles.length < 1) {
-                $('#moveToFolderDropdown').hide();
-                $('#deleteSelectedButton').hide();
-                updateGallery();
-            } else {
-                $('#moveToFolderDropdown').show();
+            // Show delete button if any file is selected
+            if (selectedFiles.size > 0) {
                 $('#deleteSelectedButton').show();
-                updateGallery();
+            } else {
+                $('#deleteSelectedButton').hide();
             }
-
+            // Re-render header and gallery after checkbox change
+            renderHeader();
+            updateGallery();
         });
+        // Handle the delete action for selected files
         $('#deleteSelectedButton').on('click', async () => {
             for (const fileId of selectedFiles) {
                 await frappe.db.delete_doc('Gallery', fileId);
             }
-            selectedFiles.clear();
+            // Remove deleted files from the files list
             files = files.filter(file => !selectedFiles.has(file.name));
+            selectedFiles.clear();
             updateGallery();
         });
     };
-
+    // If no files, show message
     if (!files.length) {
-        const galleryContainer = $('[data-fieldname="gallery"]');
-        galleryContainer.html(renderHeader() +
-            `<div class="d-flex justify-content-center text-muted align-items-center" style="width: 100%;">
-                <h4>No images found</h4>
-            </div>`);
+        $('[data-fieldname="gallery"]').html(renderHeader() +
+            `<div class="d-flex justify-content-center text-muted"><h4>No images found</h4></div>`);
     } else {
         updateGallery();
     }
-
-    $('#customUploadButton').off('click').on('click', async () => {
-        console.log('Upload button clicked');
-
-        // Fetch the DocType details
-        const docInfo = await frappe.db.get_doc("DocType", "Gallery");
-
-        // Update the fields dynamically
-        const fields = docInfo.fields.map(f => {
-            if (f.fieldname === "document_type") {
-                f.default = frm.doc.doctype; // Set default document type
-            } else if (f.fieldname === "document_name") {
-                f.default = frm.doc.name; // Set default document name
-            }
-            return f;
-        });
-
-        // Create and show the upload dialog
+    // Handle Upload
+    $('#customUploadButton').on('click', async () => {
         const galDialog = new frappe.ui.Dialog({
             title: __("Upload Files"),
-            fields: fields,
+            fields: [
+                { label: 'Title', fieldname: 'title', fieldtype: 'Data', reqd: 1 },
+                { label: 'Image', fieldname: 'image', fieldtype: 'Attach', reqd: 1 },
+                { label: 'Document Name', fieldname: 'document_name', fieldtype: 'Data', default: frm.doc.name },
+                { label: 'Document Type', fieldname: 'document_type', fieldtype: 'Data', default: frm.doc.doctype },
+            ],
             primary_action: async function (values) {
-                // Insert the uploaded file into the database
-                const fileObj = { doctype: "Gallery", ...values };
-                await frappe.db.insert(fileObj);
-
-                // Hide the dialog and update the gallery
+                await frappe.db.insert({ doctype: 'Gallery', ...values });
                 galDialog.hide();
-                files = await frappe.db.get_list('Gallery', {
-                    fields: ['name', 'image', 'title', 'creation'],
-                    filters: {
-                        'document_name': ['=', frm.doc.name],
-                        'document_type': ['=', frm.doc.doctype],
-                    },
-                    limit: 1000,
-                });
+                // Fetch the updated files list after the new image upload
+                files = await frappe.db.get_list('Gallery', { fields: ['name', 'image', 'title', 'creation'] });
+                // Update the gallery after the image is uploaded
                 updateGallery();
+                renderHeader();
             },
-            primary_action_label: 'Upload',
         });
+        // Show the dialog
+        renderHeader();
         galDialog.show();
     });
 
