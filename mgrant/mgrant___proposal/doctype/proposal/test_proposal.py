@@ -12,7 +12,7 @@ EXTRA_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 IGNORE_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 
 
-class TestProposal(UnitTestCase):
+class UnitTestProposal(UnitTestCase):
 	"""
 	Unit tests for Proposal.
 	Use this class for testing individual functions and methods.
@@ -21,7 +21,7 @@ class TestProposal(UnitTestCase):
 	pass
 
 
-class TestProposal(IntegrationTestCase):
+class IntegrationTestProposal(IntegrationTestCase):
 	"""
 	Integration tests for Proposal.
 	Use this class for testing interactions between multiple components.

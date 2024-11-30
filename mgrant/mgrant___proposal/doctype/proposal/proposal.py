@@ -1,13 +1,12 @@
 # Copyright (c) 2024, Suvaidyam and contributors
 # For license information, please see license.txt
 
-import frappe
+# import frappe
 from frappe.model.document import Document
-from frappe.utils import today
 
 
 class Proposal(Document):
-    pass
+	pass
 	# def on_update(self):
 	# 	if self.stages == "Grant Letter Signed" and self.docstatus == 0:
 	# 		project = frappe.new_doc("Project")

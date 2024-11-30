@@ -40,6 +40,7 @@
    "fieldname": "grant",
    "fieldtype": "Link",
    "label": "Grant",
+   "mandatory_depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "options": "Grant",
    "search_index": 1
   },
@@ -62,24 +63,28 @@
    "label": "Planned Due Date"
   },
   {
+   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "fieldname": "request_status",
    "fieldtype": "Select",
    "label": "Request Status",
    "options": "\nRequest Raised\nRequest Pending"
   },
   {
+   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "fieldname": "funds_requested",
    "fieldtype": "Currency",
    "label": "Funds Requested",
    "non_negative": 1
   },
   {
+   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "fieldname": "fund_receipt_status",
    "fieldtype": "Select",
    "label": "Fund Receipt Status",
    "options": "\nDue\nDue - Delayed\nPaid\nDisputed"
   },
   {
+   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "fieldname": "funds_received",
    "fieldtype": "Currency",
    "label": "Funds Received",
@@ -92,7 +97,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-29 20:54:07.203036",
+ "modified": "2024-11-30 11:13:27.261509",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant Receipts",
