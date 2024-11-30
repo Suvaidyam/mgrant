@@ -50,7 +50,7 @@ app_include_js = [
 
 # include js in doctype views
 doctype_js = {
-    "Project" : ["public/js/gallery.js","public/js/task.js","public/js/cominucation.js"],
+    "Grant" : ["public/js/gallery.js","public/js/task.js","public/js/cominucation.js"],
     "Proposal" : ["public/js/gallery.js","public/js/task.js","public/js/cominucation.js"],
     "Compliance" :["public/js/utils.js"],
     "Compliance Annual Plan" :["public/js/utils.js"],
