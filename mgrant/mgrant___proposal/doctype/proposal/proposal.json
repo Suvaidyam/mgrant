@@ -2,7 +2,7 @@
  "actions": [],
  "autoname": "format:PROPOSAL-{####}",
  "creation": "2024-11-30 10:47:21.656958",
- "default_view": "List",
+ "default_view": "Kanban",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -44,6 +44,10 @@
   "stages",
   "column_break_ypir",
   "proposal_status",
+  "contacts_tab",
+  "contacts",
+  "reportings_tab",
+  "reportings",
   "tasks_tab",
   "tasks",
   "tranche_tab",
@@ -390,11 +394,29 @@
    "fieldtype": "Select",
    "label": "Stages",
    "options": "Eligible NGO\nProposal to be submitted\nProposal Submitted\nGrant Letter Signed\nRejected"
+  },
+  {
+   "fieldname": "contacts_tab",
+   "fieldtype": "Tab Break",
+   "label": "Contacts"
+  },
+  {
+   "fieldname": "contacts",
+   "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "reportings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Reportings"
+  },
+  {
+   "fieldname": "reportings",
+   "fieldtype": "HTML"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-30 11:09:30.482760",
+ "modified": "2024-12-01 14:21:03.176551",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
