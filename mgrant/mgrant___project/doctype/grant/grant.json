@@ -56,8 +56,12 @@
   "column_break_ypir",
   "total_unspent_funds",
   "grant_status",
+  "contacts_tab",
+  "contacts",
   "tasks_tab",
   "tasks",
+  "reportings_tab",
+  "reportings",
   "tranche_tab",
   "tranche",
   "budget_tab",
@@ -477,82 +481,29 @@
    "fieldtype": "Link",
    "label": "Focus Area",
    "options": "Focus Area"
+  },
+  {
+   "fieldname": "contacts_tab",
+   "fieldtype": "Tab Break",
+   "label": "Contacts"
+  },
+  {
+   "fieldname": "contacts",
+   "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "reportings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Reportings"
+  },
+  {
+   "fieldname": "reportings",
+   "fieldtype": "HTML"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [
-  {
-   "group": "Budget",
-   "hidden": 1,
-   "link_doctype": "Budget",
-   "link_fieldname": "project"
-  },
-  {
-   "group": "Budget",
-   "hidden": 1,
-   "link_doctype": "Budget Transaction",
-   "link_fieldname": "project"
-  },
-  {
-   "group": "Output",
-   "hidden": 1,
-   "link_doctype": "Output",
-   "link_fieldname": "project"
-  },
-  {
-   "group": "Output",
-   "hidden": 1,
-   "link_doctype": "Output Achievement",
-   "link_fieldname": "project"
-  },
-  {
-   "group": "Impact",
-   "hidden": 1,
-   "link_doctype": "Impact",
-   "link_fieldname": "project"
-  },
-  {
-   "group": "Impact",
-   "hidden": 1,
-   "link_doctype": "Impact Achievement",
-   "link_fieldname": "project"
-  },
-  {
-   "group": "Outcome",
-   "hidden": 1,
-   "link_doctype": "Outcome",
-   "link_fieldname": "project"
-  },
-  {
-   "group": "Outcome",
-   "hidden": 1,
-   "link_doctype": "Outcome Achievement",
-   "link_fieldname": "Project"
-  },
-  {
-   "group": "Communication",
-   "hidden": 1,
-   "link_doctype": "Communication",
-   "link_fieldname": "reference_doctype"
-  },
-  {
-   "group": "Files",
-   "hidden": 1,
-   "link_doctype": "File",
-   "link_fieldname": "attached_to_doctype"
-  },
-  {
-   "hidden": 1,
-   "link_doctype": "Tranches",
-   "link_fieldname": "project"
-  },
-  {
-   "hidden": 1,
-   "link_doctype": "Input",
-   "link_fieldname": "project"
-  }
- ],
- "modified": "2024-11-29 20:22:13.069946",
+ "links": [],
+ "modified": "2024-12-01 14:16:07.075923",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",

@@ -1,81 +1,5 @@
 [
  {
-  "child_confs": [],
-  "child_doctypes": [
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "grants",
-    "link_doctype": "Grant",
-    "link_fieldname": "ngo",
-    "listview_settings": "[\"project_name\",\"contact\",\"start_date\",\"end_date\",\"status\"]"
-   },
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "applications",
-    "link_doctype": "Proposal",
-    "link_fieldname": "ngo",
-    "listview_settings": "[\"proposal_name\",\"website\",\"contact\",\"signatory\",\"stages\"]"
-   }
-  ],
-  "docstatus": 0,
-  "doctype": "SVADatatable Configuration",
-  "modified": "2024-11-27 11:58:14.689569",
-  "name": "NGO",
-  "parent_doctype": "NGO"
- },
- {
-  "child_confs": [],
-  "child_doctypes": [
-   {
-    "crud_permissions": "[\"read\",\"create\",\"delete\",\"write\"]",
-    "html_field": "budgets",
-    "link_doctype": "Budget Plan and Utilisation",
-    "link_fieldname": "proposal",
-    "listview_settings": "[\"budget_head\",\"item_name\",\"financial_year\",\"total_planned_budget\",\"total_utilisation\"]"
-   },
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "tranche",
-    "link_doctype": "Grant Receipts",
-    "link_fieldname": "proposal",
-    "listview_settings": "[\"tranch_no\",\"financial_year\",\"funds_planned\",\"planned_due_date\",\"request_status\",\"funds_requested\",\"fund_receipt_status\",\"funds_received\"]"
-   },
-   {
-    "crud_permissions": null,
-    "html_field": "impacts",
-    "link_doctype": "Impact",
-    "link_fieldname": "proposal",
-    "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"financial_year\",\"impact_name\",\"achievement\",\"total_target\",\"total_achievement\"]"
-   },
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "input",
-    "link_doctype": "Input",
-    "link_fieldname": "proposal",
-    "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"financial_year\",\"input_name\",\"total_target\",\"total_achievement\"]"
-   },
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "outcome",
-    "link_doctype": "Outcome",
-    "link_fieldname": "proposal",
-    "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"financial_year\",\"outcome_name\",\"total_target\",\"total_achievement\"]"
-   },
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "output",
-    "link_doctype": "Output",
-    "link_fieldname": "proposal",
-    "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"financial_year\",\"output_name\",\"total_target\",\"total_achievement\"]"
-   }
-  ],
-  "docstatus": 0,
-  "doctype": "SVADatatable Configuration",
-  "modified": "2024-11-29 22:07:51.591707",
-  "name": "Proposal",
-  "parent_doctype": "Proposal"
- },
- {
   "child_confs": [
    {
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
@@ -122,204 +46,98 @@
   ],
   "child_doctypes": [
    {
+    "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "dn_reference_field": null,
+    "dt_reference_field": null,
     "html_field": "budget",
     "link_doctype": "Budget Plan and Utilisation",
     "link_fieldname": "grant",
-    "listview_settings": "[\"budget_head\",\"item_name\",\"financial_year\",\"total_planned_budget\",\"total_utilisation\"]"
+    "listview_settings": "[\"budget_head\",\"item_name\",\"financial_year\",\"total_planned_budget\",\"total_utilisation\"]",
+    "referenced_link_doctype": null
    },
    {
+    "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "dn_reference_field": null,
+    "dt_reference_field": null,
     "html_field": "tranche",
     "link_doctype": "Grant Receipts",
     "link_fieldname": "grant",
-    "listview_settings": "[\"financial_year\",\"tranch_no\",\"funds_planned\",\"planned_due_date\",\"request_status\",\"funds_requested\",\"fund_receipt_status\",\"funds_received\"]"
+    "listview_settings": "[\"financial_year\",\"tranch_no\",\"funds_planned\",\"planned_due_date\",\"request_status\",\"funds_requested\",\"fund_receipt_status\",\"funds_received\"]",
+    "referenced_link_doctype": null
    },
    {
+    "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "dn_reference_field": null,
+    "dt_reference_field": null,
     "html_field": "output",
     "link_doctype": "Output",
     "link_fieldname": "grant",
-    "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"financial_year\",\"output_name\",\"total_target\",\"total_achievement\"]"
+    "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"financial_year\",\"output_name\",\"total_target\",\"total_achievement\"]",
+    "referenced_link_doctype": null
    },
    {
+    "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "dn_reference_field": null,
+    "dt_reference_field": null,
     "html_field": "outcome",
     "link_doctype": "Outcome",
     "link_fieldname": "grant",
-    "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"financial_year\",\"outcome_name\",\"total_target\",\"total_achievement\"]"
+    "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"financial_year\",\"outcome_name\",\"total_target\",\"total_achievement\"]",
+    "referenced_link_doctype": null
    },
    {
+    "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "dn_reference_field": null,
+    "dt_reference_field": null,
     "html_field": "impact",
     "link_doctype": "Impact",
     "link_fieldname": "grant",
-    "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"impact_name\",\"financial_year\",\"total_target\",\"total_achievement\"]"
+    "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"impact_name\",\"financial_year\",\"total_target\",\"total_achievement\"]",
+    "referenced_link_doctype": null
    },
    {
+    "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "dn_reference_field": null,
+    "dt_reference_field": null,
     "html_field": "input",
     "link_doctype": "Input",
     "link_fieldname": "grant",
-    "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"financial_year\",\"input_name\",\"total_target\",\"total_achievement\"]"
+    "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"financial_year\",\"input_name\",\"total_target\",\"total_achievement\"]",
+    "referenced_link_doctype": null
+   },
+   {
+    "connection_type": "Referenced",
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "dn_reference_field": "custom_related_to",
+    "dt_reference_field": "custom_ref_doctype",
+    "html_field": "contacts",
+    "link_doctype": null,
+    "link_fieldname": null,
+    "listview_settings": "[\"salutation\",\"first_name\",\"custom_email\",\"custom_mobile_number\",\"custom_whatsapp_number\",\"custom_contact_type\",\"custom_source\",\"custom_designation1\",\"custom_department1\",\"custom_district\",\"custom_address_line_1\",\"custom_address_line_2\",\"image\"]",
+    "referenced_link_doctype": "Contact"
+   },
+   {
+    "connection_type": "Referenced",
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "dn_reference_field": "related_to",
+    "dt_reference_field": "reference_doctype",
+    "html_field": "reportings",
+    "link_doctype": null,
+    "link_fieldname": null,
+    "listview_settings": "[\"report_type\",\"report_name\",\"due_date\",\"submission_status\",\"report_linkfile\",\"submission_date\"]",
+    "referenced_link_doctype": "Reporting"
    }
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2024-11-29 22:17:27.591360",
+  "modified": "2024-12-01 14:52:56.405675",
   "name": "Grant",
   "parent_doctype": "Grant"
- },
- {
-  "child_confs": [],
-  "child_doctypes": [
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "districts",
-    "link_doctype": "District",
-    "link_fieldname": "state",
-    "listview_settings": "[\"district_name\",\"district_code\",\"status\"]"
-   },
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "blocks",
-    "link_doctype": "Block",
-    "link_fieldname": "state",
-    "listview_settings": "[\"block_name\",\"block_code\",\"status\"]"
-   },
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "panchayats",
-    "link_doctype": "Gram Panchayat",
-    "link_fieldname": "state",
-    "listview_settings": "[\"gram_pachayat_name\",\"gram_panchayat_code\",\"status\"]"
-   },
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "villages",
-    "link_doctype": "Village",
-    "link_fieldname": "state",
-    "listview_settings": "[\"village_name\",\"village_code\",\"status\"]"
-   },
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "custom_ngos",
-    "link_doctype": "NGO",
-    "link_fieldname": "state",
-    "listview_settings": "[\"ngo_name\",\"year_of_establishment\",\"registration_of_the_organisaiton\",\"12aa_registration_number_and_certificate_upload\",\"csr_1_number_and_certificate_upload\"]"
-   },
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "custom_donors",
-    "link_doctype": "Donor",
-    "link_fieldname": "state",
-    "listview_settings": "[\"donor_name\",\"focus_area\",\"org_email\",\"website\",\"donor_type\",\"contact_first_name\",\"address_1\"]"
-   },
-   {
-    "crud_permissions": "[\"read\",\"create\",\"delete\",\"write\"]",
-    "html_field": "custom_employees",
-    "link_doctype": "Employee",
-    "link_fieldname": "state",
-    "listview_settings": "[\"full_name\",\"contact\",\"date_of_birth\",\"department\"]"
-   }
-  ],
-  "docstatus": 0,
-  "doctype": "SVADatatable Configuration",
-  "modified": "2024-11-26 11:34:24.607610",
-  "name": "State",
-  "parent_doctype": "State"
- },
- {
-  "child_confs": [],
-  "child_doctypes": [
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "blocks",
-    "link_doctype": "Block",
-    "link_fieldname": "district",
-    "listview_settings": "[\"block_name\",\"block_code\",\"status\"]"
-   },
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "panchayats",
-    "link_doctype": "Gram Panchayat",
-    "link_fieldname": "district",
-    "listview_settings": "[\"gram_pachayat_name\",\"gram_panchayat_code\",\"status\"]"
-   },
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "villages",
-    "link_doctype": "Village",
-    "link_fieldname": "district",
-    "listview_settings": "[\"village_name\",\"village_code\",\"status\"]"
-   },
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "custom_employees",
-    "link_doctype": "Employee",
-    "link_fieldname": "district",
-    "listview_settings": "[\"full_name\",\"date_of_birth\",\"department\",\"designation\"]"
-   },
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "custom_ngos",
-    "link_doctype": "NGO",
-    "link_fieldname": "district",
-    "listview_settings": "[\"ngo_name\",\"year_of_establishment\",\"registration_of_the_organisaiton\",\"primary_domain\",\"email\",\"website\"]"
-   }
-  ],
-  "docstatus": 0,
-  "doctype": "SVADatatable Configuration",
-  "modified": "2024-11-26 11:40:19.097651",
-  "name": "District",
-  "parent_doctype": "District"
- },
- {
-  "child_confs": [],
-  "child_doctypes": [
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "panchayats",
-    "link_doctype": "Gram Panchayat",
-    "link_fieldname": "block",
-    "listview_settings": "[\"gram_pachayat_name\",\"gram_panchayat_code\",\"status\"]"
-   },
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "custom_employees",
-    "link_doctype": "Employee",
-    "link_fieldname": "block",
-    "listview_settings": "[\"full_name\",\"contact\",\"date_of_birth\",\"department\",\"designation\"]"
-   },
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "villages",
-    "link_doctype": "Village",
-    "link_fieldname": "block",
-    "listview_settings": "[\"village_name\",\"village_code\",\"status\"]"
-   }
-  ],
-  "docstatus": 0,
-  "doctype": "SVADatatable Configuration",
-  "modified": "2024-11-26 12:00:54.422021",
-  "name": "Block",
-  "parent_doctype": "Block"
- },
- {
-  "child_confs": [],
-  "child_doctypes": [
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "html_field": "villages",
-    "link_doctype": "Village",
-    "link_fieldname": "gram_panchayat",
-    "listview_settings": "[\"village_name\",\"village_code\",\"status\"]"
-   }
-  ],
-  "docstatus": 0,
-  "doctype": "SVADatatable Configuration",
-  "modified": "2024-11-29 13:38:54.126514",
-  "name": "Gram Panchayat",
-  "parent_doctype": "Gram Panchayat"
  }
 ]
