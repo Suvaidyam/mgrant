@@ -107,7 +107,10 @@ frappe.ui.form.on("Grant", {
                 margin-bottom: 20px;
                 padding-left: 30px;
                 width: 100%;
-                border-left: 2px solid #0066cc;
+                // border-left: 2px solid #0066cc;
+            }
+            .custom-timeline-border {
+                border-left: 2px solid #0066cc !important;
             }
             .timeline-item .timeline-content {
                 padding: 10px;
@@ -142,6 +145,10 @@ frappe.ui.form.on("Grant", {
             <div id="data-timeline"></div>
         </div>
     `;
+            // Add new border class to timeline items
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.classList.add('custom-timeline-border');
+            });
         } else {
             console.log('Timeline content not available');
         }
@@ -171,15 +178,6 @@ frappe.ui.form.on("Grant", {
         </div>
     `;
         }).join('');
-
-
-
-
-
-
-
-
-
 
         $('.timeline-dot').remove()
         $('.activity-title').remove()
