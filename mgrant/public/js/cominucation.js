@@ -163,14 +163,14 @@ function renderEmails(email_list, frm) {
                     </div>
 
                 <!-- Tab Section -->
-                <div style="display: flex; width: 334px; height: 40px; border: 1px solid #D9D9D9; gap: 12px; padding-left: 20px;">
-                    <div id="allEmailButton" class="active_tab" style="width: 55px; cursor:pointer; height: 33px; padding: 6px 0 1px 0;">
+                <div style="display: flex; justify-content: space-between; width: 334px; height: 40px; border: 1px solid #D9D9D9; gap: 12px; padding: 0px 20px;">
+                    <div id="allEmailButton" class="active_tab" style="cursor:pointer; height: 33px; padding: 6px 0 1px 0;">
                         <span>📧</span><span style="font-size: 12px; color: #0E1116;">All</span>
                     </div>
-                    <div id="unreadEmailButton" style="width: 83px; height: 33px; cursor:pointer; padding: 6px 0 1px 0;">
+                    <div id="unreadEmailButton" style="height: 33px; cursor:pointer; padding: 6px 0 1px 0;">
                         <span>📧</span><span style="font-size: 12px; color: #6E7073;">Unread</span>
                     </div>
-                    <div id="readEmailButton" style="width: 55px; height: 33px; cursor:pointer; padding: 6px 0 1px 0;">
+                    <div id="readEmailButton" style="height: 33px; cursor:pointer; padding: 6px 0 1px 0;">
                         <span>📧</span><span style="font-size: 12px; color: #6E7073;">Read</span>
                     </div>
                 </div>
