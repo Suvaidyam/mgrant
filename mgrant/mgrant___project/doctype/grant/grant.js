@@ -80,7 +80,7 @@ frappe.ui.form.on("Grant", {
             tabContent(frm, tab_field)
         });
 
-        if (frm.timeline?.timeline_wrapper) {
+        if (!frm.is_new() && frm?.timeline?.timeline_wrapper) {
             document.getElementById('timeline').innerHTML = `
         <style>
             #timeline-container {
@@ -150,7 +150,11 @@ frappe.ui.form.on("Grant", {
                 item.classList.add('custom-timeline-border');
             });
         } else {
-            console.log('Timeline content not available');
+            document.getElementById('timeline').innerHTML = `
+        <div style="display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; margin: 0; padding: 0; width: 100%; position: absolute; top: 0; left: 0;">
+            Timeline not available
+        </div>
+        `;
         }
 
         document.getElementById('data-timeline').innerHTML = frm.timeline.doc_info.versions.map(item => {
