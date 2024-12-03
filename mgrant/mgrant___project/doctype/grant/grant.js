@@ -80,7 +80,7 @@ frappe.ui.form.on("Grant", {
             tabContent(frm, tab_field)
         });
 
-        if (frm.timeline?.timeline_wrapper) {
+        if (!frm.is_new() && frm?.timeline?.timeline_wrapper) {
             document.getElementById('timeline').innerHTML = `
         <style>
             #timeline-container {
@@ -107,7 +107,10 @@ frappe.ui.form.on("Grant", {
                 margin-bottom: 20px;
                 padding-left: 30px;
                 width: 100%;
-                border-left: 2px solid #0066cc;
+                // border-left: 2px solid #0066cc;
+            }
+            .custom-timeline-border {
+                border-left: 2px solid #0066cc !important;
             }
             .timeline-item .timeline-content {
                 padding: 10px;
@@ -142,8 +145,16 @@ frappe.ui.form.on("Grant", {
             <div id="data-timeline"></div>
         </div>
     `;
+            // Add new border class to timeline items
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.classList.add('custom-timeline-border');
+            });
         } else {
-            console.log('Timeline content not available');
+            document.getElementById('timeline').innerHTML = `
+        <div style="display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; margin: 0; padding: 0; width: 100%; position: absolute; top: 0; left: 0;">
+            Timeline not available
+        </div>
+        `;
         }
 
         document.getElementById('data-timeline').innerHTML = frm.timeline.doc_info.versions.map(item => {
@@ -171,15 +182,6 @@ frappe.ui.form.on("Grant", {
         </div>
     `;
         }).join('');
-
-
-
-
-
-
-
-
-
 
         $('.timeline-dot').remove()
         $('.activity-title').remove()
