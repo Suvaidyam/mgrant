@@ -97,7 +97,9 @@ frappe.ui.form.on("Grant", {
             let tab_field = frm.get_active_tab()?.df?.fieldname;
             tabContent(frm, tab_field)
         });
-
+        setup_multiselect_dependency(frm, 'District', 'states', 'state', 'districts', 'state');
+        setup_multiselect_dependency(frm, 'Block', 'districts', 'district', 'blocks', 'district');
+        setup_multiselect_dependency(frm, 'Village', 'blocks', 'block', 'villages', 'block'); 
         if (!frm.is_new() && frm?.timeline?.timeline_wrapper) {
             document.getElementById('timeline').innerHTML = `
         <style>
@@ -203,6 +205,18 @@ frappe.ui.form.on("Grant", {
 
         $('.timeline-dot').remove()
         $('.activity-title').remove()
+    },
+    states(frm) {
+        setup_multiselect_dependency(frm, 'District', 'states', 'state', 'districts', 'state');
+        frm.set_value({ districts: [], blocks: [], villages: [] });
+    },
+    districts(frm) {
+        setup_multiselect_dependency(frm, 'Block', 'districts', 'district', 'blocks', 'district');
+        frm.set_value({ blocks: [], villages: [] });
+    },
+    blocks(frm) {
+        setup_multiselect_dependency(frm, 'Village', 'blocks', 'block', 'villages', 'block');
+        frm.set_value({ villages: [] });
     },
     start_date(frm) {
         if (frm.doc.start_date && frm.doc.end_date) {

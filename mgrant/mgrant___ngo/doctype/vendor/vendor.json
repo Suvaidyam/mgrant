@@ -39,15 +39,11 @@
   "column_break_togg",
   "csr_1_number",
   "csr_1_certificate_upload",
-  "about_organisation_tab",
-  "about_organisation",
   "work_reference_tab",
   "theme",
   "work_references",
-  "impact_tab",
   "impact",
-  "grants_tab",
-  "grants"
+  "about_organisation"
  ],
  "fields": [
   {
@@ -225,11 +221,6 @@
    "label": "CSR 1 Certificate Upload"
   },
   {
-   "fieldname": "about_organisation_tab",
-   "fieldtype": "Tab Break",
-   "label": "About Organisation"
-  },
-  {
    "fieldname": "about_organisation",
    "fieldtype": "Text Editor",
    "label": "Describe your organization\u2019s history, vision/mission, and major areas of intervention"
@@ -237,7 +228,7 @@
   {
    "fieldname": "work_reference_tab",
    "fieldtype": "Tab Break",
-   "label": "Work References"
+   "label": "Work History"
   },
   {
    "fieldname": "theme",
@@ -252,26 +243,9 @@
    "options": "NGO Work Reference Child"
   },
   {
-   "fieldname": "impact_tab",
-   "fieldtype": "Tab Break",
-   "label": "Impact"
-  },
-  {
    "fieldname": "impact",
    "fieldtype": "Text Editor",
    "label": "What was the impact your organization created in last 3 years (Number of outreach (People), Tangible and Intangible impacts"
-  },
-  {
-   "default": "grants",
-   "fieldname": "grants_tab",
-   "fieldtype": "Tab Break",
-   "label": "Grants"
-  },
-  {
-   "default": "Project",
-   "fieldname": "grants",
-   "fieldtype": "HTML",
-   "options": "<div id=\"grants\"></div>"
   },
   {
    "fieldname": "vendor_name",
@@ -283,7 +257,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-29 12:05:09.219324",
+ "modified": "2024-12-03 18:37:56.243180",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "Vendor",
