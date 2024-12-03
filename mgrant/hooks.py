@@ -32,7 +32,8 @@ import time
 app_include_js = [
     f"/assets/mgrant/utils/date_utils.js?ver={time.time()}",
     f"/assets/mgrant/utils/time_utils.js?ver={time.time()}",
-    f"/assets/mgrant/validators/regex.js?ver={time.time()}"
+    f"/assets/mgrant/validators/regex.js?ver={time.time()}",
+    f"/assets/mgrant/utils/dependent.js?ver={time.time()}"
 ]
 
 # include js, css files in header of web template
