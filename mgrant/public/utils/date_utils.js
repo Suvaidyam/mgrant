@@ -1,6 +1,9 @@
-const getFormattedDate = async (date) => {
+var my_date_format = 'dd-mm-yyyy';
+frappe.db.get_single_value('System Settings', 'date_format').then(value => {
+    my_date_format = value;
+});
+const getFormattedDate = (date) => {
     let d = new Date(date);
-    let format = await frappe.db.get_single_value('System Settings', 'date_format');
     let formatted_date = '';
 
     const padZero = (num) => (num < 10 ? '0' : '') + num;
@@ -9,19 +12,19 @@ const getFormattedDate = async (date) => {
     const month = padZero(d.getMonth() + 1); // Months are zero-based
     const year = d.getFullYear();
 
-    if (format === 'dd-mm-yyyy') {
+    if (my_date_format === 'dd-mm-yyyy') {
         formatted_date = `${day}-${month}-${year}`;
-    } else if (format === 'mm-dd-yyyy') {
+    } else if (my_date_format === 'mm-dd-yyyy') {
         formatted_date = `${month}-${day}-${year}`;
-    } else if (format === 'yyyy-mm-dd') {
+    } else if (my_date_format === 'yyyy-mm-dd') {
         formatted_date = `${year}-${month}-${day}`;
-    } else if (format === 'yyyy-dd-mm') {
+    } else if (my_date_format === 'yyyy-dd-mm') {
         formatted_date = `${year}-${day}-${month}`;
-    } else if (format === 'dd/mm/yyyy') {
+    } else if (my_date_format === 'dd/mm/yyyy') {
         formatted_date = `${day}/${month}/${year}`;
-    } else if (format === 'dd.mm.yyyy') {
+    } else if (my_date_format === 'dd.mm.yyyy') {
         formatted_date = `${day}.${month}.${year}`;
-    } else if (format === 'mm/dd/yyyy') {
+    } else if (my_date_format === 'mm/dd/yyyy') {
         formatted_date = `${month}/${day}/${year}`;
     } else {
         formatted_date = `${year}/${month}/${day}`;

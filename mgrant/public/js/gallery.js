@@ -1,172 +1,173 @@
+var selectedFiles = [];
 const append_gallery_styles = () => {
     // Append CSS Styles for the Gallery
     const style = document.createElement('style');
     style.innerHTML = `
-        .card-img-top {
-            width: 100%;
-            height: 200px;
-        }
-        .gallery {
-            margin-bottom: 20px;
-        }
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        /* Add styles for selected checkbox */
-        .checkbox-container {
-            display: flex;
-            align-items: center;
-        }
-        .checkbox-container input[type="checkbox"] {
-            margin-right: 10px;
-        }
-        /* Add checkbox on top of the image */
-        .checkbox-container {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 10; /* Ensure checkbox is above the image */
-        }
-        .checkbox-container input[type="checkbox"] {
-            width: 20px !important;
-            height: 20px !important;
-            background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
-            border: 2px solid #fff; /* White border for visibility */
-        }
-        .card-img-top {
-            width: 100%;
-            height: 200px;
-            position: relative; /* To position checkbox on top of image */
-            object-fit: cover; /* Ensure the image covers the space nicely */
-        }
-        /* Style the checkbox when it is checked */
-        .checkbox-container input[type="checkbox"]:checked {
-            background-color: #A01236; /* Highlight color when checked */
-            border-color: #fff;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add shadow effect for checked state */
-        }
-        /* Ensure the image takes up full space */
-        .card-img-top {
-            width: 100%;
-            height: 200px;
-            position: relative; /* Ensure the checkbox is positioned relative to the image */
-            object-fit: cover; /* Ensure the image covers the space without distortion */
-        }
-        /* Initially hide the checkbox container */
-        .checkbox-container {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 10; /* Ensure the checkbox is above the image */
-            display: none; /* Hide checkbox initially */
-        }
-        /* Show the checkbox when the image is hovered */
-        .card:hover .checkbox-container {
-            display: block; /* Display the checkbox only when the card is hovered */
-        }
-        /* Checkbox styling */
-        .checkbox-container input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
-            border: 2px solid #fff; /* White border for visibility */
-        }
-        /* Highlight checkbox when checked */
-        .checkbox-container input[type="checkbox"]:checked {
-            background-color: #A01236; /* Highlight color when checked */
-            border-color: #fff;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
-        }
-    `;
+    .card-img-top {
+        width: 100%;
+        height: 200px;
+    }
+    .gallery {
+        margin-bottom: 20px;
+    }
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    /* Add styles for selected checkbox */
+    .checkbox-container {
+        display: flex;
+        align-items: center;
+    }
+    .checkbox-container input[type="checkbox"] {
+        margin-right: 10px;
+    }
+    /* Add checkbox on top of the image */
+    .checkbox-container {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 10; /* Ensure checkbox is above the image */
+    }
+    .checkbox-container input[type="checkbox"] {
+        width: 20px !important;
+        height: 20px !important;
+        background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+        border: 2px solid #fff; /* White border for visibility */
+    }
+    .card-img-top {
+        width: 100%;
+        height: 200px;
+        position: relative; /* To position checkbox on top of image */
+        object-fit: cover; /* Ensure the image covers the space nicely */
+    }
+    /* Style the checkbox when it is checked */
+    .checkbox-container input[type="checkbox"]:checked {
+        background-color: #A01236; /* Highlight color when checked */
+        border-color: #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add shadow effect for checked state */
+    }
+    /* Ensure the image takes up full space */
+    .card-img-top {
+        width: 100%;
+        height: 200px;
+        position: relative; /* Ensure the checkbox is positioned relative to the image */
+        object-fit: cover; /* Ensure the image covers the space without distortion */
+    }
+    /* Initially hide the checkbox container */
+    .checkbox-container {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 10; /* Ensure the checkbox is above the image */
+        display: none; /* Hide checkbox initially */
+    }
+    /* Show the checkbox when the image is hovered */
+    .card:hover .checkbox-container {
+        display: block; /* Display the checkbox only when the card is hovered */
+    }
+    /* Checkbox styling */
+    .checkbox-container input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+        border: 2px solid #fff; /* White border for visibility */
+    }
+    /* Highlight checkbox when checked */
+    .checkbox-container input[type="checkbox"]:checked {
+        background-color: #A01236; /* Highlight color when checked */
+        border-color: #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    }
+`;
     document.head.appendChild(style);
 };
 const renderCardView = (files) => {
     return `
-        <div class="row mt-3">
+            <div class="row mt-3" style="font-size:16px !important;">
             ${files.map(file => `
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                    <div class="card gallery">
-                        <div class="checkbox-container">
-                        <input type="checkbox" data-id="${file.name}" class="toggleCheckbox"/>
-                        </div>
-                        <img src="${file.image}" class="card-img-top" alt="${file.title}">
-                        <h5 class="card-title">${file.title}</h5>
-                        <span class="card-text">${file.creation}</span>
-                    </div>
-                </div>
+            <div class="card gallery">
+            <div class="checkbox-container">
+            <input type="checkbox" data-id="${file.name}" class="toggleCheckbox"/>
+            </div>
+            <img src="${file.image}" class="card-img-top" alt="${file.title}">
+            <h5 class="card-title px-1">${file.title}</h5>
+            <p class="card-text px-1">${getFormattedDate(file.creation)}</p>
+            </div>
+            </div>
             `).join('')}
-        </div>
-    `;
+            </div>
+            `;
 }
 const renderHeader = (files, view) => {
     return `
-        <div class="row" id="galleryHeader" style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+            <div class="row" id="galleryHeader" style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
             <div style="gap: 16px; display: flex;">
-                <span class="text-dark" style="font-weight: 400; font-size: 14px;">Total: ${files.length}</span>
+            <span class="text-dark" style="font-weight: 400; font-size: 14px;">Total: ${files.length}</span>
             </div>
             <div style="display: flex; gap: 12px;">
-                <button class="btn btn-light" style="display:none;" id="deleteSelectedButton">
-                    <i class="fa fa-trash" style="color: #A01236;"></i>
-                </button>
-                <div class="dropdown">
-                    <button class="btn btn-light" type="button" id="viewDropdown" data-toggle="dropdown">
-                        <i class="fa ${view === 'Card' ? 'fa-th-large' : 'fa-list'}"></i> ${view} View    
-                        <i class="fa fa-sort"></i>
-                    </button>
-                    <div class="dropdown-menu">
-                        <span class="dropdown-item" id="cardViewBtn"><i class="fa fa-th-large"></i> Card View</span>
-                        <span class="dropdown-item" id="listViewBtn"><i class="fa fa-list"></i> List View</span>
-                    </div>
-                </div>
-                <button class="btn btn-light filter-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#6E7073" class="bi bi-filter" viewBox="0 0 16 16">
-                        <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
-                    </svg>
-                    <span class="mx-2">Filters</span>
-                </button>
-                <button class="btn " id="customUploadButton" style="background-color: #A01236; color: white; width: 90px; height: 28px; border-radius: 8px; font-size: 14px;">+ Upload</button>
+            <button class="btn btn-light" style="display:none;" id="deleteSelectedButton">
+            <i class="fa fa-trash" style="color: #A01236;"></i>
+            </button>
+            <div class="dropdown">
+            <button class="btn btn-light" type="button" id="viewDropdown" data-toggle="dropdown">
+            <i class="fa ${view === 'Card' ? 'fa-th-large' : 'fa-list'}"></i> ${view} View    
+            <i class="fa fa-sort"></i>
+            </button>
+            <div class="dropdown-menu">
+            <span class="dropdown-item" id="cardViewBtn"><i class="fa fa-th-large"></i> Card View</span>
+            <span class="dropdown-item" id="listViewBtn"><i class="fa fa-list"></i> List View</span>
             </div>
-        </div>
-    `;
+            </div>
+            <button class="btn btn-light filter-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#6E7073" class="bi bi-filter" viewBox="0 0 16 16">
+            <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
+            </svg>
+            <span class="mx-2">Filters</span>
+            </button>
+            <button class="btn " id="customUploadButton" style="background-color: #A01236; color: white; width: 90px; height: 28px; border-radius: 8px; font-size: 14px;">+ Upload</button>
+            </div>
+            </div>
+            `;
 }
 const renderListView = (files) => {
     return `
-        <div class="table-responsive">
+            <div class="table-responsive">
             <table class="table table-bordered mt-3">
-                <thead>
-                    <tr>
-                        <th><input type="checkbox" id="selectAllCheckBox"></th>
-                        <th>Item</th>
-                        <th>Upload Date</th>
-                        <th>Image</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${files.map(file => `
-                        <tr>
-                            <td><input type="checkbox" class="toggleCheckbox" data-id="${file.name}" ${selectedFiles.has(file.name) ? 'checked' : ''}></td>
-                            <td>${file.title}</td>
-                            <td>${file.creation}</td>
-                            <td><img src="${file.image}" style="width: 32px; height: 27px;"></td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn btn-light" type="button">
-                                        <i class="fa fa-ellipsis-h"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item edit-btn" data-id="${file.name}">Edit</a>
-                                        <a class="dropdown-item delete-btn" data-id="${file.name}">Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    `).join('')}
+            <thead>
+            <tr>
+            <th><input type="checkbox" id="selectAllCheckBox"></th>
+            <th>Item</th>
+            <th>Upload Date</th>
+            <th>Image</th>
+            <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            ${files.map(file => `
+                <tr>
+                <td><input type="checkbox" class="toggleCheckbox" data-id="${file.name}"></td>
+                <td>${file.title}</td>
+                <td>${getFormattedDate(file.creation)}</td>
+                <td><img src="${file.image}" style="width: 32px; height: 27px;"></td>
+                <td>
+                <div class="dropdown">
+                <button class="btn btn-light" type="button">
+                <i class="fa fa-ellipsis-h"></i>
+                </button>
+                <div class="dropdown-menu">
+                <a class="dropdown-item edit-btn" data-id="${file.name}">Edit</a>
+                <a class="dropdown-item delete-btn" data-id="${file.name}">Delete</a>
+                </div>
+                </div>
+                </td>
+                </tr>
+                `).join('')}
                 </tbody>
-            </table>
-        </div>
-    `;
+                </table>
+                </div>
+                `;
 }
 
 const updateGallery = (wrapper, files, view) => {
@@ -175,11 +176,25 @@ const updateGallery = (wrapper, files, view) => {
     } else {
         wrapper.querySelector('#gallery-body').innerHTML = renderListView(files);
     }
+    $('.toggleCheckbox').on('change', function () {
+        const fileId = $(this).data('id');
+        if (this.checked) {
+            selectedFiles.push(fileId);
+        } else {
+            selectedFiles = selectedFiles.filter((fid) => fid != fileId);
+        }
+        // Show delete button if any file is selected
+        let deleteSelectedButton = document.getElementById('deleteSelectedButton');
+        if (selectedFiles.length > 0) {
+            deleteSelectedButton.style.display = 'block';
+        } else {
+            deleteSelectedButton.style.display = 'none';
+        }
+    });
 }
 const gallery_image = async (frm) => {
-    let view = 'Card';
+    var view = 'Card';
     append_gallery_styles();
-    let selectedFiles = [];
     // Fetch files related to the document
     let files = await frappe.db.get_list('Gallery', {
         fields: ['name', 'image', 'title', 'creation'],
@@ -202,48 +217,30 @@ const gallery_image = async (frm) => {
     }
     wrapper.querySelector('#gallery-header').innerHTML = renderHeader(files, 'Card');
     updateGallery(wrapper, files, view);
-    // Add CSS Styles for the Gallery
-
-    // Render Header Section
-
-    // const updateGallery = () => {
-    //     const galleryContainer = $('[data-fieldname="gallery"]');
-    //     galleryContainer.html(renderHeader(files,view) + (view === 'Card' ? renderCardView(files) : renderListView(files)));
-    //     // Add Event Listeners
-    //     $('#cardViewBtn').on('click', () => { view = 'Card'; updateGallery(); });
-    //     $('#listViewBtn').on('click', () => { view = 'List'; updateGallery(); });
-    //     // Handle the delete action for selected files
-
-    // };
-    // If no files, show message
-    // if (!files.length) {
-    //     $('[data-fieldname="gallery"]').html(renderHeader([],view) +
-    //         `<div class="d-flex justify-content-center text-muted"><h4>No images found</h4></div>`);
-    // } else {
-    //     updateGallery();
-    // }
     // Handle Upload
     $('#customUploadButton').on('click', async () => {
+        const docInfo = await frappe.call("frappe_theme.api.get_meta_fields", { doctype: 'Gallery' });
+        // Update the fields dynamically
+        const fields = docInfo?.message?.map(f => {
+            if (f.fieldname === "document_type") {
+                f.default = frm.doc.doctype; // Set default document type
+            } else if (f.fieldname === "document_name") {
+                f.default = frm.doc.name; // Set default document name
+            }
+            return f;
+        });
         const galDialog = new frappe.ui.Dialog({
             title: __("Upload Files"),
-            fields: [
-                { label: 'Title', fieldname: 'title', fieldtype: 'Data', reqd: 1 },
-                { label: 'Image', fieldname: 'image', fieldtype: 'Attach', reqd: 1 },
-                { label: 'Document Name', fieldname: 'document_name', fieldtype: 'Data', default: frm.doc.name },
-                { label: 'Document Type', fieldname: 'document_type', fieldtype: 'Data', default: frm.doc.doctype },
-            ],
+            fields: fields,
             primary_action: async function (values) {
                 await frappe.db.insert({ doctype: 'Gallery', ...values });
                 galDialog.hide();
                 // Fetch the updated files list after the new image upload
                 files = await frappe.db.get_list('Gallery', { fields: ['name', 'image', 'title', 'creation'] });
                 // Update the gallery after the image is uploaded
-                updateGallery();
-                renderHeader([], view);
+                updateGallery(wrapper, files, view);
             },
         });
-        // Show the dialog
-        renderHeader([], view);
         galDialog.show();
     });
     $('#deleteSelectedButton').on('click', async () => {
@@ -254,23 +251,24 @@ const gallery_image = async (frm) => {
             // Remove deleted files from the files list
             files = files.filter(file => !selectedFiles.includes(file.name));
             selectedFiles = [];
-            updateGallery();
-
+            let deleteSelectedButton = document.getElementById('deleteSelectedButton');
+            deleteSelectedButton.style.display = 'none';
+            updateGallery(wrapper, files, view);
         });
     });
-    $('.toggleCheckbox').on('change', function () {
-        const fileId = $(this).data('id');
-        if (this.checked) {
-            selectedFiles.push(fileId);
-        } else {
-            selectedFiles = selectedFiles.filter((fid) => fid != fileId);
-        }
-        // Show delete button if any file is selected
+
+    $('#cardViewBtn').on('click', () => {
+        view = 'Card';
+        selectedFiles = [];
         let deleteSelectedButton = document.getElementById('deleteSelectedButton');
-        if (selectedFiles.length > 0) {
-            deleteSelectedButton.style.display = 'block';
-        } else {
-            deleteSelectedButton.style.display = 'none';
-        }
+        deleteSelectedButton.style.display = 'none';
+        updateGallery(wrapper, files, view);
+    });
+    $('#listViewBtn').on('click', () => {
+        view = 'List';
+        selectedFiles = [];
+        let deleteSelectedButton = document.getElementById('deleteSelectedButton');
+        deleteSelectedButton.style.display = 'none';
+        updateGallery(wrapper, files, view);
     });
 };
