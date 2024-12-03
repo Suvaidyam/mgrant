@@ -15,7 +15,7 @@
   "grant_name",
   "start_date",
   "end_date",
-  "project_duration_in_months",
+  "grant_duration_in_months",
   "column_break_qmgi",
   "grant_type",
   "funding_type",
@@ -144,12 +144,6 @@
    "fieldname": "email",
    "fieldtype": "HTML",
    "options": "<div id=\"email\"></div>"
-  },
-  {
-   "fieldname": "project_duration_in_months",
-   "fieldtype": "Int",
-   "label": "Project Duration in months",
-   "non_negative": 1
   },
   {
    "fieldname": "sdgs",
@@ -499,11 +493,18 @@
   {
    "fieldname": "reportings",
    "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "grant_duration_in_months",
+   "fieldtype": "Int",
+   "label": "Grant Duration in months",
+   "non_negative": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-01 14:16:07.075923",
+ "modified": "2024-12-03 14:44:45.234964",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
