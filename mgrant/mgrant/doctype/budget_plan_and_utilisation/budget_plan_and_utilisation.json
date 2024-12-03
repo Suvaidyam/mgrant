@@ -65,7 +65,8 @@
    "fieldtype": "Currency",
    "hidden": 1,
    "label": "Total Planned Budget",
-   "non_negative": 1
+   "non_negative": 1,
+   "read_only": 1
   },
   {
    "fieldname": "q1_apr_jun_planned_budget",
@@ -96,22 +97,26 @@
   {
    "fieldname": "q1_apr_jun_utilisation",
    "fieldtype": "Currency",
-   "label": "Q1 (Apr-Jun) Utilisation"
+   "label": "Q1 (Apr-Jun) Utilisation",
+   "read_only": 1
   },
   {
    "fieldname": "q2_jul_sep_utilisation",
    "fieldtype": "Currency",
-   "label": "Q2 (Jul-Sep) Utilisation"
+   "label": "Q2 (Jul-Sep) Utilisation",
+   "read_only": 1
   },
   {
    "fieldname": "q3_oct_dec_utilisation",
    "fieldtype": "Currency",
-   "label": "Q3 (Oct-Dec) Utilisation"
+   "label": "Q3 (Oct-Dec) Utilisation",
+   "read_only": 1
   },
   {
    "fieldname": "q4_jan_mar_utilisation",
    "fieldtype": "Currency",
-   "label": "Q4 (Jan-Mar) Utilisation"
+   "label": "Q4 (Jan-Mar) Utilisation",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_gyjd",
@@ -123,13 +128,8 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [
-  {
-   "link_doctype": "Budget Transaction",
-   "link_fieldname": "budget"
-  }
- ],
- "modified": "2024-11-29 20:37:00.343714",
+ "links": [],
+ "modified": "2024-12-02 12:21:54.486527",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Plan and Utilisation",
