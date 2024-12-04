@@ -43,10 +43,10 @@
   "work_references",
   "impact",
   "about_organisation",
-  "grants_tab",
-  "grants",
   "contacts_tab",
-  "contacts"
+  "contacts",
+  "grants_tab",
+  "grants"
  ],
  "fields": [
   {
@@ -281,7 +281,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-03 12:42:23.983051",
+ "modified": "2024-12-04 10:09:59.418552",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",
