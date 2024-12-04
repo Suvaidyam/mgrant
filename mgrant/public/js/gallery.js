@@ -4,8 +4,8 @@ const append_gallery_styles = () => {
     const style = document.createElement('style');
     style.innerHTML = `
     .card-img-top {
-        width: 100%;
-        height: 200px;
+        // width: 100%;
+        // height: 200px;
     }
     .gallery {
         margin-bottom: 20px;
@@ -79,6 +79,37 @@ const append_gallery_styles = () => {
         border-color: #fff;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
     }
+    
+    .dropeditBBTn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 10;
+        display: none;
+    }
+    .card:hover .dropeditBBTn {
+        display: block;
+    }
+    .dropdown-menu {
+        min-width: 120px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .dropdown-menu a {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+    .dropdown-menu a:hover {
+        background-color: #f1f1f1;
+    }
+    .dropdown-menu a i {
+        margin-right: 5px;
+    }
+    .pointer {
+        cursor: pointer;
+    }
 `;
     document.head.appendChild(style);
 };
@@ -88,9 +119,18 @@ const renderCardView = (files) => {
             ${files.map(file => `
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
             <div class="card gallery">
-            <div class="checkbox-container">
+            <div class="checkbox-container" >
             <input type="checkbox" data-id="${file.name}" class="toggleCheckbox"/>
             </div>
+            <div class="dropdown dropeditBBTn">
+                    <p title="action" class="pointer " id="dropdownMenuButton-" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-ellipsis-h " style="transform: rotate(90deg); font-size: 16px; width: 20px; height: 20px; color: white;"></i>
+                    </p>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-${file.name}">
+                        <a class="dropdown-item edit-btn"  data-id="${file.name}">Edit</a>
+                        <a class="dropdown-item delete-btn"  data-id="${file.name}">Delete</a>
+                    </div>
+                </div>
             <img src="${file.image}" class="card-img-top" alt="${file.title}">
             <h5 class="card-title px-1">${file.title}</h5>
             <p class="card-text px-1">${getFormattedDate(file.creation)}</p>
@@ -137,29 +177,29 @@ const renderListView = (files) => {
             <table class="table table-bordered mt-3">
             <thead>
             <tr>
-            <th><input type="checkbox" id="selectAllCheckBox"></th>
-            <th>Item</th>
-            <th>Upload Date</th>
-            <th>Image</th>
-            <th>Action</th>
+            <th><input type="checkbox" id="selectAllCheckBox" style="width: 20px !important; height: 20px !important;"></th>
+            <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Item</th>
+            <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Upload Date</th>
+            <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Image</th>
+            <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Action</th>
             </tr>
             </thead>
             <tbody>
             ${files.map(file => `
                 <tr>
-                <td><input type="checkbox" class="toggleCheckbox" data-id="${file.name}"></td>
+                <td><input type="checkbox" class="toggleCheckbox" data-id="${file.name}" style="width: 20px !important; height: 20px !important;"></td>
                 <td>${file.title}</td>
                 <td>${getFormattedDate(file.creation)}</td>
-                <td><img src="${file.image}" style="width: 32px; height: 27px;"></td>
+                <td><img src="${file.image}" style="width: 32px; height: 27px; border-radius: 4px;"></td>
                 <td>
-                <div class="dropdown">
-                <button class="btn btn-light" type="button">
-                <i class="fa fa-ellipsis-h"></i>
-                </button>
-                <div class="dropdown-menu">
-                <a class="dropdown-item edit-btn" data-id="${file.name}">Edit</a>
-                <a class="dropdown-item delete-btn" data-id="${file.name}">Delete</a>
-                </div>
+                 <div class="dropdown">
+                    <p title="action" class="pointer " id="dropdownMenuButton-" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-ellipsis-h " style="transform: rotate(90deg); font-size: 16px; width: 20px; height: 20px;"></i>
+                    </p>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-${file.name}">
+                        <a class="dropdown-item edit-btn"  data-id="${file.name}">Edit</a>
+                        <a class="dropdown-item delete-btn"  data-id="${file.name}">Delete</a>
+                    </div>
                 </div>
                 </td>
                 </tr>
@@ -169,6 +209,165 @@ const renderListView = (files) => {
                 </div>
                 `;
 }
+
+// handle edit and delete button click event
+$(document).on('click', '.edit-btn', async function () {
+    const fileId = $(this).data('id');
+
+    try {
+        // Fetch the document from the Gallery
+        const docInfo = await frappe.db.get_doc('Gallery', fileId);
+
+        // Fetch the field meta data for the Gallery doctype
+        const fields = await frappe.call("frappe_theme.api.get_meta_fields", { doctype: 'Gallery' });
+
+        // Prepare fields with default values
+        const dialogFields = fields?.message?.map(f => {
+            if (f.fieldname === "document_type") {
+                f.default = docInfo.document_type; // Set default document type
+            } else if (f.fieldname === "document_name") {
+                f.default = docInfo.document_name; // Set default document name
+            } else if (f.fieldname === "title") {
+                f.default = docInfo.title; // Set default title
+            } else if (f.fieldname === "image") {
+                f.default = docInfo.image; // Set default image
+            }
+            return f; // Return the field object after modifying
+        });
+
+        // Create the dialog with the updated fields
+        const galDialog = new frappe.ui.Dialog({
+            title: __("Edit File"),
+            fields: dialogFields,
+            primary_action_label: __("Submit"),
+            primary_action: async () => {
+                const formData = galDialog.get_values(); // Get values from the dialog
+
+                if (formData) {
+                    try {
+                        // Update the document with new values
+                        const updatedDoc = await frappe.db.set_value('Gallery', fileId, formData);
+
+                        if (updatedDoc) {
+                            frappe.show_alert({ message: __('Gallery updated successfully'), indicator: 'green' });
+                            galDialog.hide();
+
+                            // Optionally update the gallery list or refresh the data
+                            // You can update the gallery list if required
+                            let updatedGalleryList = galleryList.map(item =>
+                                item.name === updatedDoc.name ? updatedDoc : item
+                            );
+                            galleryList(updatedGalleryList); // Refresh the list
+                        }
+                    } catch (error) {
+                        console.error(error);
+                        frappe.show_alert({ message: __('There was an error updating the file'), indicator: 'red' });
+                    }
+                }
+            }
+        });
+
+        // Pre-fill the form with existing data
+        galDialog.set_values(docInfo);
+
+        // Show the dialog
+        galDialog.show();
+    } catch (error) {
+        frappe.msgprint(__('Error loading document data.'));
+        console.error(error);
+    }
+});
+
+
+
+$(document).on('click', '.delete-btn', async function () {
+    const fileId = $(this).data('id');
+
+    try {
+        // Fetch the document from the Gallery
+        const docInfo = await frappe.db.get_doc('Gallery', fileId);
+
+        // Fetch the field meta data for the Gallery doctype
+        const fields = await frappe.call("frappe_theme.api.get_meta_fields", { doctype: 'Gallery' });
+
+        // Prepare fields with default values
+        const dialogFields = fields?.message?.map(f => {
+            if (f.fieldname === "document_type") {
+                f.default = docInfo.document_type; // Set default document type
+            } else if (f.fieldname === "document_name") {
+                f.default = docInfo.document_name; // Set default document name
+            } else if (f.fieldname === "title") {
+                f.default = docInfo.title; // Set default title
+            } else if (f.fieldname === "image") {
+                f.default = docInfo.image; // Set default image
+            }
+            return f; // Return the field object after modifying
+        });
+
+        // Create the dialog with the updated fields
+        const galDialog = new frappe.ui.Dialog({
+            title: __("Edit or Delete File"),
+            fields: dialogFields,
+            primary_action_label: __("Submit"),
+            primary_action: async () => {
+                const formData = galDialog.get_values(); // Get values from the dialog
+                if (formData) {
+                    try {
+                        // Make an API call to update the Gallery document
+                        await frappe.call({
+                            method: "frappe_theme.api.update_gallery",
+                            args: {
+                                fileId: fileId,
+                                data: formData
+                            },
+                            callback: function (response) {
+                                frappe.msgprint(__('File updated successfully.'));
+                                galDialog.hide();
+                            }
+                        });
+                    } catch (error) {
+                        frappe.msgprint(__('Error updating file.'));
+                    }
+                }
+            },
+            secondary_action_label: __("Delete"),
+            secondary_action: async () => {
+                // Confirm the deletion
+                const confirmDelete = await frappe.confirm(__('Are you sure you want to delete this file?'), async () => {
+                    try {
+                        // Call the delete method for Gallery
+                        await frappe.call({
+                            method: "frappe_theme.api.delete_gallery",
+                            args: { fileId: fileId },
+                            callback: function (response) {
+                                if (response && response.message === 'success') {
+                                    frappe.msgprint(__('File deleted successfully.'));
+                                    galDialog.hide();
+
+                                    // Optionally update the gallery list or refresh the data
+                                    galleryList = galleryList.filter(item => item.name !== fileId); // Remove the deleted file from the list
+                                    // Refresh the gallery list UI
+                                    updateGalleryListUI(galleryList); // Assuming you have a method to refresh the list in the UI
+                                } else {
+                                    frappe.msgprint(__('Error deleting file.'));
+                                }
+                            }
+                        });
+                    } catch (error) {
+                        frappe.msgprint(__('Error deleting file.'));
+                    }
+                });
+            }
+        });
+
+        // Show the dialog
+        galDialog.show();
+    } catch (error) {
+        frappe.msgprint(__('Error loading document data.'));
+        console.error(error);
+    }
+});
+
 
 const updateGallery = (wrapper, files, view) => {
     if (view === 'Card') {
