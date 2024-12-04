@@ -2,6 +2,7 @@
  "actions": [],
  "autoname": "autoincrement",
  "creation": "2024-11-24 11:09:16.440207",
+ "default_view": "Kanban",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -93,7 +94,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-24 11:38:59.695407",
+ "modified": "2024-12-04 18:19:25.499037",
  "modified_by": "Administrator",
  "module": "mGrant - Task",
  "name": "mGrant Task",
