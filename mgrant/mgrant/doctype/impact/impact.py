@@ -3,7 +3,8 @@
 
 # import frappe
 from frappe.model.document import Document
-
+from mgrant.controllers.impact.impact import impact_on_validate
 
 class Impact(Document):
-	pass
+	def validate(self):
+		impact_on_validate(self)
