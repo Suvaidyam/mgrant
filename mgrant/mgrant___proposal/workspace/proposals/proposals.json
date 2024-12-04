@@ -1,7 +1,7 @@
 {
  "app": "mgrant",
  "charts": [],
- "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Proposals\"}}]",
+ "content": "[{\"id\":\"ZLBZ3mcSjU\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Proposals\",\"col\":4}}]",
  "creation": "2024-12-03 15:28:54.667753",
  "custom_blocks": [],
  "docstatus": 0,
@@ -15,11 +15,16 @@
  "label": "Proposals",
  "link_type": "DocType",
  "links": [],
- "modified": "2024-12-03 15:29:13.901401",
+ "modified": "2024-12-04 10:13:18.444204",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposals",
- "number_cards": [],
+ "number_cards": [
+  {
+   "label": "Proposals",
+   "number_card_name": "Proposals"
+  }
+ ],
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,

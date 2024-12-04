@@ -1,4 +1,5 @@
 {
+ "app": "mgrant",
  "charts": [],
  "content": "[{\"id\":\"qSR_rAjk3F\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Grant\",\"col\":4}}]",
  "creation": "2024-11-30 10:19:06.580063",
@@ -13,7 +14,7 @@
  "is_hidden": 0,
  "label": "Grants",
  "links": [],
- "modified": "2024-11-30 10:23:34.535806",
+ "modified": "2024-12-04 10:14:37.567844",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grants",
@@ -38,7 +39,8 @@
    "role": "System Manager"
   }
  ],
- "sequence_id": 1.0,
+ "sequence_id": 2.0,
  "shortcuts": [],
- "title": "Grants"
+ "title": "Grants",
+ "type": "Workspace"
 }
