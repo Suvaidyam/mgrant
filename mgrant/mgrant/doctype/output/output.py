@@ -3,7 +3,8 @@
 
 # import frappe
 from frappe.model.document import Document
-
+from mgrant.controllers.output.output import output_on_validate
 
 class Output(Document):
-	pass
+	def validate(self):
+		output_on_validate(self)

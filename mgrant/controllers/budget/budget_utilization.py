@@ -2,7 +2,7 @@ import frappe
 from datetime import datetime
 
 def utilization_on_update(self):
-        get_all_transaction = frappe.db.get_list("Budget Transaction", filters={"budget_plan":self.budget_plan}, fields=["transaction","budget_plan","as_on_date"])
+        get_all_transaction = frappe.db.get_list("Budget Transaction", filters={"budget_plan":self.budget_plan}, fields=["transaction","budget_plan","as_on_date"],ignore_permissions=True)
         buget_plan_utl_doc = frappe.get_doc("Budget Plan and Utilisation", self.budget_plan)
         q1_uti = 0
         q2_uti = 0
