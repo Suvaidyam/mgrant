@@ -211,6 +211,7 @@ const renderListView = (files) => {
                 </div>
                 `;
 }
+
 const renderForm = async (frm, mode, view, fileId = null) => {
     const docInfo = await frappe.call("frappe_theme.api.get_meta_fields", { doctype: 'Gallery' });
     let fields = [];
@@ -262,21 +263,7 @@ const updateGallery = (frm, files, view) => {
     } else {
         galleryWrapper.querySelector('#gallery-body').innerHTML = renderListView(files);
     }
-    $('.toggleCheckbox').on('change', function () {
-        const fileId = $(this).data('id');
-        if (this.checked) {
-            selectedFiles.push(fileId);
-        } else {
-            selectedFiles = selectedFiles.filter((fid) => fid != fileId);
-        }
-        // Show delete button if any file is selected
-        let deleteSelectedButton = document.getElementById('deleteSelectedButton');
-        if (selectedFiles.length > 0) {
-            deleteSelectedButton.style.display = 'block';
-        } else {
-            deleteSelectedButton.style.display = 'none';
-        }
-    });
+
     $('.delete-btn').on('click', async function () {
         const fileId = $(this).data('id');
         if (fileId) {
@@ -295,6 +282,39 @@ const updateGallery = (frm, files, view) => {
     $('.edit-btn').on('click', async function () {
         const fileId = $(this).data('id');
         await renderForm(frm, 'edit', view, fileId);
+    });
+    $('.toggleCheckbox').on('change', function () {
+        const fileId = $(this).data('id');
+        if (this.checked) {
+            selectedFiles.push(fileId);
+        } else {
+            selectedFiles = selectedFiles.filter((fid) => fid != fileId);
+        }
+        let deleteSelectedButton = document.getElementById('deleteSelectedButton');
+        if (selectedFiles.length === gallery_files.length) {
+            $('#selectAllCheckBox').prop('checked', true);
+        }
+        else {
+            $('#selectAllCheckBox').prop('checked', false);
+        }
+        if (selectedFiles.length > 0) {
+            deleteSelectedButton.style.display = 'block';
+        } else {
+            deleteSelectedButton.style.display = 'none';
+        }
+    });
+    $('#selectAllCheckBox').on('change', function () {
+        console.log('Select All Checkbox Clicked', this);
+        const isChecked = this.checked; // Check if the "select all" checkbox is checked
+
+        selectedFiles = isChecked ? gallery_files.map(file => file.name) : [];
+        $('.toggleCheckbox').prop('checked', isChecked);
+        // Show or hide the delete button based on whether any checkbox is selected
+        if (selectedFiles.length > 0) {
+            deleteSelectedButton.style.display = 'block';
+        } else {
+            deleteSelectedButton.style.display = 'none';
+        }
     });
 }
 const gallery_image = async (frm) => {
@@ -355,3 +375,4 @@ const gallery_image = async (frm) => {
         updateGallery(frm, gallery_files, view);
     });
 };
+
