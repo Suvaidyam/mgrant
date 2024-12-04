@@ -2,7 +2,7 @@
  "actions": [],
  "autoname": "format:PROPOSAL-{####}",
  "creation": "2024-11-30 10:47:21.656958",
- "default_view": "List",
+ "default_view": "Kanban",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -416,7 +416,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-03 15:09:37.405465",
+ "modified": "2024-12-04 18:18:41.994214",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
