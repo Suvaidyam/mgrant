@@ -13,12 +13,11 @@ frappe.ui.form.on("Donor", {
                 frappe.msgprint(response.message);
             });
         }
+        setup_single_dependent(frm, "state", "state", "district");
 	},
-    website(frm) {
-        // if(frm.doc.website) {
-        //     let website = frm.doc.website;
-        //     console.log(website,'website');
-        // }
+    state(frm){
+        setup_single_dependent(frm, "state", "state", "district");
+        frm.set_value("district", "");
     },
     validate(frm){
         if(frm.doc.website) {

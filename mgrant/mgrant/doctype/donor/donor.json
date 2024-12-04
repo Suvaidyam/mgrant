@@ -81,7 +81,7 @@
    "fieldname": "district",
    "fieldtype": "Link",
    "label": "District",
-   "options": "State"
+   "options": "District"
   },
   {
    "fieldname": "address_1",
@@ -180,7 +180,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-03 12:20:48.470755",
+ "modified": "2024-12-03 18:23:02.797471",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Donor",

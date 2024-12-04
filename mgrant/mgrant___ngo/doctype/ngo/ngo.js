@@ -14,6 +14,11 @@ frappe.ui.form.on("NGO", {
                 frappe.msgprint(response.message);
             });
         }
+        setup_single_dependent(frm, "state", "state", "district");
+    },
+    state(frm){
+        setup_single_dependent(frm, "state", "state", "district");
+        frm.set_value("district", "");
     },
     validate(frm){
         if(frm.doc.website) {
