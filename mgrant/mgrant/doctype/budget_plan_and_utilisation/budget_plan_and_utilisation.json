@@ -63,7 +63,6 @@
   {
    "fieldname": "total_planned_budget",
    "fieldtype": "Currency",
-   "hidden": 1,
    "label": "Total Planned Budget",
    "non_negative": 1,
    "read_only": 1
@@ -129,7 +128,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-02 12:21:54.486527",
+ "modified": "2024-12-04 12:19:02.050202",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Plan and Utilisation",

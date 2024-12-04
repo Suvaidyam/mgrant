@@ -11,13 +11,13 @@
   "grant",
   "financial_year",
   "tranch_no",
-  "funds_planned",
+  "total_funds_planned",
   "planned_due_date",
   "column_break_eryd",
   "request_status",
   "funds_requested",
   "fund_receipt_status",
-  "funds_received"
+  "total_funds_received"
  ],
  "fields": [
   {
@@ -52,12 +52,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "funds_planned",
-   "fieldtype": "Currency",
-   "label": "Funds Planned",
-   "non_negative": 1
-  },
-  {
    "fieldname": "planned_due_date",
    "fieldtype": "Date",
    "label": "Planned Due Date"
@@ -84,20 +78,26 @@
    "options": "\nDue\nDue - Delayed\nPaid\nDisputed"
   },
   {
+   "fieldname": "column_break_eryd",
+   "fieldtype": "Column Break"
+  },
+  {
    "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "funds_received",
+   "fieldname": "total_funds_received",
    "fieldtype": "Currency",
-   "label": "Funds Received",
+   "label": "Total Funds Received",
    "non_negative": 1
   },
   {
-   "fieldname": "column_break_eryd",
-   "fieldtype": "Column Break"
+   "fieldname": "total_funds_planned",
+   "fieldtype": "Currency",
+   "label": "Total Funds Planned",
+   "non_negative": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-30 11:13:27.261509",
+ "modified": "2024-12-04 13:16:20.842283",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant Receipts",
