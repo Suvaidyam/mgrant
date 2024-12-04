@@ -51,6 +51,7 @@
    "fetch_from": "impact.proposal",
    "fieldname": "proposal",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Proposal",
    "options": "Proposal"
   },
@@ -65,7 +66,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-29 21:52:19.850738",
+ "modified": "2024-12-04 13:28:32.384414",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact Achievement",

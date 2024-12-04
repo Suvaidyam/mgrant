@@ -32,8 +32,10 @@
    "fetch_from": "grant_reciept.proposal",
    "fieldname": "proposal",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Proposal",
-   "options": "Proposal"
+   "options": "Proposal",
+   "read_only": 1
   },
   {
    "fetch_from": "budget.project",
@@ -41,7 +43,8 @@
    "fieldtype": "Link",
    "hidden": 1,
    "label": "Grant",
-   "options": "Grant"
+   "options": "Grant",
+   "read_only": 1
   },
   {
    "fieldname": "funds_received",
@@ -58,7 +61,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-29 20:58:16.688455",
+ "modified": "2024-12-04 13:27:08.731435",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Fund Receipt Tracker",
