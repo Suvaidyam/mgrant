@@ -41,7 +41,7 @@
   "section_break_nbbo",
   "total_planned_budget",
   "column_break_judq",
-  "stages",
+  "stage",
   "column_break_ypir",
   "proposal_status",
   "contacts_tab",
@@ -342,7 +342,7 @@
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "Grant",
+   "options": "Proposal",
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
@@ -389,13 +389,6 @@
    "label": "Proposal Description"
   },
   {
-   "default": "Eligible NGO",
-   "fieldname": "stages",
-   "fieldtype": "Select",
-   "label": "Stages",
-   "options": "Eligible NGO\nProposal to be submitted\nProposal Submitted\nGrant Letter Signed\nRejected"
-  },
-  {
    "fieldname": "contacts_tab",
    "fieldtype": "Tab Break",
    "label": "Contacts"
@@ -412,11 +405,19 @@
   {
    "fieldname": "reportings",
    "fieldtype": "HTML"
+  },
+  {
+   "default": "Eligible NGO",
+   "fieldname": "stage",
+   "fieldtype": "Select",
+   "label": "Stage",
+   "options": "Eligible NGO\nProposal to be submitted\nProposal Submitted\nGrant Letter Signed\nRejected"
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-12-04 18:18:41.994214",
+ "modified": "2024-12-05 11:36:50.775328",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",

@@ -6,21 +6,11 @@
  "engine": "InnoDB",
  "field_order": [
   "document_type",
-  "document_name",
+  "related_to",
   "image",
   "title"
  ],
  "fields": [
-  {
-   "allow_in_quick_entry": 1,
-   "fieldname": "document_name",
-   "fieldtype": "Dynamic Link",
-   "in_list_view": 1,
-   "label": "Document name",
-   "options": "document_type",
-   "read_only_depends_on": "eval:cur_frm.doc.doctype != \"Gallery\"",
-   "reqd": 1
-  },
   {
    "allow_in_quick_entry": 1,
    "fieldname": "image",
@@ -44,11 +34,21 @@
    "fieldtype": "Data",
    "label": "Title",
    "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "related_to",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Related To",
+   "options": "document_type",
+   "read_only_depends_on": "eval:cur_frm.doc.doctype != \"Gallery\"",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-28 14:43:18.094396",
+ "modified": "2024-12-05 11:34:33.166243",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Gallery",

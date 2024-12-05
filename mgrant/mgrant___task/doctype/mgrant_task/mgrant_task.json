@@ -11,7 +11,7 @@
   "priority",
   "start_date",
   "reference_doctype",
-  "reference_docname",
+  "related_to",
   "column_break_ihqi",
   "assigned_to",
   "status",
@@ -75,12 +75,6 @@
    "options": "DocType"
   },
   {
-   "fieldname": "reference_docname",
-   "fieldtype": "Dynamic Link",
-   "label": "Reference Doc",
-   "options": "reference_doctype"
-  },
-  {
    "allow_in_quick_entry": 1,
    "fieldname": "custom_task_type",
    "fieldtype": "Select",
@@ -90,11 +84,17 @@
    "label": "Task Type",
    "options": "Reporting\nProject Work\nMilestone",
    "reqd": 1
+  },
+  {
+   "fieldname": "related_to",
+   "fieldtype": "Dynamic Link",
+   "label": "Related To",
+   "options": "reference_doctype"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-04 18:19:25.499037",
+ "modified": "2024-12-05 11:50:02.256459",
  "modified_by": "Administrator",
  "module": "mGrant - Task",
  "name": "mGrant Task",
