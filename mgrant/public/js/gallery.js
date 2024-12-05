@@ -219,7 +219,7 @@ const renderForm = async (frm, mode, view, fileId = null) => {
         fields = docInfo?.message?.map(f => {
             if (f.fieldname === "document_type") {
                 f.default = frm.doc.doctype; // Set default document type
-            } else if (f.fieldname === "document_name") {
+            } else if (f.fieldname === "related_to") {
                 f.default = frm.doc.name; // Set default document name
             }
             return f;
@@ -324,7 +324,7 @@ const gallery_image = async (frm,selector) => {
     gallery_files = await frappe.db.get_list('Gallery', {
         fields: ['name', 'image', 'title', 'creation'],
         filters: {
-            'document_name': ['=', frm.doc.name],
+            'related_to': ['=', frm.doc.name],
             'document_type': ['=', frm.doc.doctype],
         },
         limit: 1000,

@@ -43,7 +43,6 @@ const taskList = (task_list,selector) => {
         });
         // Card view
         $('#task-card').html(
-
             `
             ${task_list.map(task => {
                 return `
@@ -156,7 +155,7 @@ const taskList = (task_list,selector) => {
                             <!-- Document Type -->
                             <span class="ms-auto small" style="color: #6E7073; font-size: 12px;">
                                 ${task.reference_doctype ?? 'N/A'}: 
-                                <span style="color: #0E1116;">${task.reference_docname ?? 'N/A'}</span>
+                                <span style="color: #0E1116;">${task.related_to ?? 'N/A'}</span>
                             </span>
                         </div>
 
@@ -166,7 +165,6 @@ const taskList = (task_list,selector) => {
                         </p>
                     </div>
                 </div>
-
                `
             }).join('')} `
         );
@@ -235,7 +233,7 @@ const taskList = (task_list,selector) => {
             </span>
         </div>
     </td>
-    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">${task.reference_docname ?? 'Not available'} </td>
+    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">${task.related_to ?? 'Not available'} </td>
     <td>
           <div class="dropdown"style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
                     <span title="status" id="dropStatus-${task.name}" class="small dropdown-toggle bg-light pointer badge ${task?.status === 'Canceled' ? 'text-danger' : task?.status === 'In Progress' ? 'text-warning' : task?.status === 'Done' ? 'text-success' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -327,7 +325,7 @@ let view = 'Card View'
 const getTaskList = async (frm,selector) => {
     task_list = await getDocList('mGrant Task', [
         ['mGrant Task', 'reference_doctype', '=', frm.doc.doctype],
-        ['mGrant Task', 'reference_docname', '=', frm.doc.name],
+        ['mGrant Task', 'related_to', '=', frm.doc.name],
     ], ['*']);
     $(`[data-fieldname="${selector}"]`).html(`
        <div class="d-flex flex-wrap justify-content-between align-items-center mb-3" style=".scrollable-buttons {
@@ -488,7 +486,7 @@ const form = async (data = null, action, frm) => {
                 field.default = frm.doc.doctype;
                 field.read_only = true;
             }
-            if (field.fieldname === 'reference_docname') {
+            if (field.fieldname === 'related_to') {
                 field.default = frm.doc.name;
                 field.read_only = true;
             }
@@ -496,7 +494,7 @@ const form = async (data = null, action, frm) => {
             if (field.fieldname === 'reference_doctype') {
                 field.read_only = true;
             }
-            if (field.fieldname === 'reference_docname') {
+            if (field.fieldname === 'related_to') {
                 field.read_only = true;
             }
         }
