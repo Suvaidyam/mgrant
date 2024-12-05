@@ -33,7 +33,12 @@ app_include_js = [
     f"/assets/mgrant/utils/date_utils.js?ver={time.time()}",
     f"/assets/mgrant/utils/time_utils.js?ver={time.time()}",
     f"/assets/mgrant/validators/regex.js?ver={time.time()}",
-    f"/assets/mgrant/utils/dependent.js?ver={time.time()}"
+    f"/assets/mgrant/utils/dependent.js?ver={time.time()}",
+    f"/assets/mgrant/js/communication.js?ver={time.time()}",
+    f"/assets/mgrant/js/task.js?ver={time.time()}",
+    f"/assets/mgrant/js/gallery.js?ver={time.time()}",
+    f"/assets/mgrant/js/timeline.js?ver={time.time()}",
+    f"/assets/mgrant/js/list_functions.js?ver={time.time()}"
 ]
 
 # include js, css files in header of web template
@@ -52,8 +57,8 @@ app_include_js = [
 
 # include js in doctype views
 doctype_js = {
-    "Grant" : ["public/js/gallery.js","public/js/task.js","public/js/cominucation.js"],
-    "Proposal" : ["public/js/gallery.js","public/js/task.js","public/js/cominucation.js"],
+    # "Grant" : ["public/js/gallery.js","public/js/task.js","public/js/cominucation.js"],
+    # "Proposal" : ["public/js/gallery.js","public/js/task.js","public/js/cominucation.js"],
     "Compliance" :["public/js/utils.js"],
     "Compliance Annual Plan" :["public/js/utils.js"],
     }
