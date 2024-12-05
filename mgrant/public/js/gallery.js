@@ -317,7 +317,7 @@ const updateGallery = (frm, files, view) => {
         }
     });
 }
-const gallery_image = async (frm) => {
+const gallery_image = async (frm,selector) => {
     var view = 'Card';
     append_gallery_styles();
     // Fetch files related to the document
@@ -329,7 +329,7 @@ const gallery_image = async (frm) => {
         },
         limit: 1000,
     });
-    galleryWrapper = document.querySelector('[data-fieldname="gallery"]');
+    galleryWrapper = document.querySelector(`[data-fieldname="${selector}"]`);
     let header_wrapper = document.createElement('div');
     header_wrapper.id = 'gallery-header';
     if (!galleryWrapper.querySelector('#gallery-header')) {

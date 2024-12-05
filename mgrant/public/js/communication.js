@@ -113,7 +113,7 @@ style.innerHTML = `
     `;
 document.head.appendChild(style);
 var communication_list = []
-function renderEmails(email_list, frm) {
+function renderEmails(email_list, frm,selector) {
     // if (email_list.length > 0) {
 
     const formatDateGroup = (emailDate) => {
@@ -217,17 +217,7 @@ function renderEmails(email_list, frm) {
         </div>
     `;
 
-    $('#email').html(emailHtml);
-    // }
-    // else {
-    //     $('#email').html(
-    //         `<div class="container" style="max-width:700px">
-    //             <div class="d-flex justify-content-between align-items-center">
-    //                 <h4>No Emails Found</h4>
-    //             </div>
-    //         </div>`
-    //     );
-    // }
+    $(`[data-fieldname="${selector}"]`).html(emailHtml);
     $('#refresh_email_list').on('click', async () => {
         try {
             communication_list = await getDocList('Communication', [
@@ -339,10 +329,10 @@ function renderEmails(email_list, frm) {
         cur_frm.email_doc();
     });
 }
-const cominucation = async (frm) => {
+const communication = async (frm,selector) => {
     communication_list = await getDocList('Communication', [
         ['Communication', 'reference_name', '=', frm.doc.name],
         ['Communication', 'in_reply_to', '=', '']
     ], ['*']);
-    renderEmails(communication_list, frm)
+    renderEmails(communication_list, frm,selector)
 }

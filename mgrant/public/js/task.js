@@ -6,7 +6,7 @@ function stripHtmlTags(input) {
     return tempDiv.textContent || tempDiv.innerText || '';
 }
 
-const taskList = (task_list) => {
+const taskList = (task_list,selector) => {
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
@@ -324,12 +324,12 @@ const taskList = (task_list) => {
 let task_list = [];
 let view = 'Card View'
 
-const getTaskList = async (frm) => {
+const getTaskList = async (frm,selector) => {
     task_list = await getDocList('mGrant Task', [
         ['mGrant Task', 'reference_doctype', '=', frm.doc.doctype],
         ['mGrant Task', 'reference_docname', '=', frm.doc.name],
     ], ['*']);
-    $('#tasks').html(`
+    $(`[data-fieldname="${selector}"]`).html(`
        <div class="d-flex flex-wrap justify-content-between align-items-center mb-3" style=".scrollable-buttons {
         overflow-x: auto;
         white-space: nowrap;

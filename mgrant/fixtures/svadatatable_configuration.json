@@ -54,7 +54,8 @@
     "link_doctype": "Budget Plan and Utilisation",
     "link_fieldname": "grant",
     "listview_settings": "[\"budget_head\",\"item_name\",\"financial_year\",\"total_planned_budget\",\"total_utilisation\"]",
-    "referenced_link_doctype": null
+    "referenced_link_doctype": null,
+    "template": null
    },
    {
     "connection_type": "Direct",
@@ -64,8 +65,9 @@
     "html_field": "tranche",
     "link_doctype": "Grant Receipts",
     "link_fieldname": "grant",
-    "listview_settings": "[\"financial_year\",\"tranch_no\",\"funds_planned\",\"planned_due_date\",\"request_status\",\"funds_requested\",\"fund_receipt_status\",\"funds_received\"]",
-    "referenced_link_doctype": null
+    "listview_settings": "[\"financial_year\",\"tranch_no\",\"funds_planned\",\"planned_due_date\",\"request_status\",\"funds_requested\",\"fund_receipt_status\",\"funds_received\",\"total_funds_planned\",\"total_funds_received\"]",
+    "referenced_link_doctype": null,
+    "template": null
    },
    {
     "connection_type": "Direct",
@@ -76,7 +78,8 @@
     "link_doctype": "Output",
     "link_fieldname": "grant",
     "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"financial_year\",\"output_name\",\"total_target\",\"total_achievement\"]",
-    "referenced_link_doctype": null
+    "referenced_link_doctype": null,
+    "template": null
    },
    {
     "connection_type": "Direct",
@@ -87,7 +90,8 @@
     "link_doctype": "Outcome",
     "link_fieldname": "grant",
     "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"financial_year\",\"outcome_name\",\"total_target\",\"total_achievement\"]",
-    "referenced_link_doctype": null
+    "referenced_link_doctype": null,
+    "template": null
    },
    {
     "connection_type": "Direct",
@@ -98,7 +102,8 @@
     "link_doctype": "Impact",
     "link_fieldname": "grant",
     "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"impact_name\",\"financial_year\",\"total_target\",\"total_achievement\"]",
-    "referenced_link_doctype": null
+    "referenced_link_doctype": null,
+    "template": null
    },
    {
     "connection_type": "Direct",
@@ -109,7 +114,8 @@
     "link_doctype": "Input",
     "link_fieldname": "grant",
     "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"financial_year\",\"input_name\",\"total_target\",\"total_achievement\"]",
-    "referenced_link_doctype": null
+    "referenced_link_doctype": null,
+    "template": null
    },
    {
     "connection_type": "Referenced",
@@ -120,7 +126,8 @@
     "link_doctype": null,
     "link_fieldname": null,
     "listview_settings": "[\"salutation\",\"first_name\",\"custom_email\",\"custom_mobile_number\",\"custom_whatsapp_number\",\"custom_contact_type\",\"custom_source\",\"custom_designation1\",\"custom_department1\",\"custom_district\",\"custom_address_line_1\",\"custom_address_line_2\",\"image\"]",
-    "referenced_link_doctype": "Contact"
+    "referenced_link_doctype": "Contact",
+    "template": null
    },
    {
     "connection_type": "Referenced",
@@ -131,12 +138,61 @@
     "link_doctype": null,
     "link_fieldname": null,
     "listview_settings": "[\"report_type\",\"report_name\",\"due_date\",\"submission_status\",\"report_linkfile\",\"submission_date\"]",
-    "referenced_link_doctype": "Reporting"
+    "referenced_link_doctype": "Reporting",
+    "template": null
+   },
+   {
+    "connection_type": "Is Custom Design",
+    "crud_permissions": null,
+    "dn_reference_field": null,
+    "dt_reference_field": null,
+    "html_field": "tasks",
+    "link_doctype": null,
+    "link_fieldname": null,
+    "listview_settings": null,
+    "referenced_link_doctype": null,
+    "template": "Tasks"
+   },
+   {
+    "connection_type": "Is Custom Design",
+    "crud_permissions": null,
+    "dn_reference_field": null,
+    "dt_reference_field": null,
+    "html_field": "email",
+    "link_doctype": null,
+    "link_fieldname": null,
+    "listview_settings": null,
+    "referenced_link_doctype": null,
+    "template": "Email"
+   },
+   {
+    "connection_type": "Is Custom Design",
+    "crud_permissions": null,
+    "dn_reference_field": null,
+    "dt_reference_field": null,
+    "html_field": "timeline",
+    "link_doctype": null,
+    "link_fieldname": null,
+    "listview_settings": null,
+    "referenced_link_doctype": null,
+    "template": "Timeline"
+   },
+   {
+    "connection_type": "Is Custom Design",
+    "crud_permissions": null,
+    "dn_reference_field": null,
+    "dt_reference_field": null,
+    "html_field": "gallery",
+    "link_doctype": null,
+    "link_fieldname": null,
+    "listview_settings": null,
+    "referenced_link_doctype": null,
+    "template": "Gallery"
    }
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2024-12-01 14:52:56.405675",
+  "modified": "2024-12-05 10:03:42.641910",
   "name": "Grant",
   "parent_doctype": "Grant"
  },
@@ -152,7 +208,8 @@
     "link_doctype": "Grant",
     "link_fieldname": "donor",
     "listview_settings": "[\"grant_name\",\"start_date\",\"end_date\",\"project_duration_in_months\",\"grant_type\",\"funding_type\",\"implementation_category\",\"subgranting_status\"]",
-    "referenced_link_doctype": null
+    "referenced_link_doctype": null,
+    "template": null
    },
    {
     "connection_type": "Direct",
@@ -163,7 +220,8 @@
     "link_doctype": "Donor Budget Head",
     "link_fieldname": "donor",
     "listview_settings": "[\"donor_budget_head\",\"budget_head\",\"trainer_type\",\"trainer\",\"trainer_name\",\"number_of_participants\"]",
-    "referenced_link_doctype": null
+    "referenced_link_doctype": null,
+    "template": null
    }
   ],
   "docstatus": 0,
@@ -184,7 +242,8 @@
     "link_doctype": "Grant",
     "link_fieldname": "ngo",
     "listview_settings": "[\"grant_name\",\"start_date\",\"end_date\",\"donor\",\"project_duration_in_months\",\"grant_type\",\"funding_type\",\"implementation_category\"]",
-    "referenced_link_doctype": null
+    "referenced_link_doctype": null,
+    "template": null
    },
    {
     "connection_type": "Referenced",
@@ -195,7 +254,8 @@
     "link_doctype": null,
     "link_fieldname": null,
     "listview_settings": "[\"image\",\"salutation\",\"first_name\",\"last_name\",\"gender\",\"custom_email\",\"custom_mobile_number\",\"custom_whatsapp_number\",\"custom_designation1\"]",
-    "referenced_link_doctype": "Contact"
+    "referenced_link_doctype": "Contact",
+    "template": null
    }
   ],
   "docstatus": 0,
@@ -216,7 +276,8 @@
     "link_doctype": "Budget Plan and Utilisation",
     "link_fieldname": "proposal",
     "listview_settings": "[\"budget_head\",\"item_name\",\"financial_year\",\"total_utilisation\"]",
-    "referenced_link_doctype": null
+    "referenced_link_doctype": null,
+    "template": null
    },
    {
     "connection_type": "Direct",
@@ -227,7 +288,8 @@
     "link_doctype": "Grant Receipts",
     "link_fieldname": "proposal",
     "listview_settings": "[\"financial_year\",\"tranch_no\",\"funds_planned\",\"planned_due_date\",\"funds_received\"]",
-    "referenced_link_doctype": null
+    "referenced_link_doctype": null,
+    "template": null
    },
    {
     "connection_type": "Direct",
@@ -238,7 +300,8 @@
     "link_doctype": "Impact",
     "link_fieldname": "proposal",
     "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"financial_year\",\"impact_name\",\"total_target\",\"total_achievement\"]",
-    "referenced_link_doctype": null
+    "referenced_link_doctype": null,
+    "template": null
    },
    {
     "connection_type": "Direct",
@@ -249,7 +312,8 @@
     "link_doctype": "Input",
     "link_fieldname": "proposal",
     "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"financial_year\",\"input_name\",\"total_target\",\"total_achievement\"]",
-    "referenced_link_doctype": null
+    "referenced_link_doctype": null,
+    "template": null
    },
    {
     "connection_type": "Direct",
@@ -260,7 +324,8 @@
     "link_doctype": "Output",
     "link_fieldname": "proposal",
     "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"financial_year\",\"output_name\",\"total_target\",\"total_achievement\"]",
-    "referenced_link_doctype": null
+    "referenced_link_doctype": null,
+    "template": null
    },
    {
     "connection_type": "Direct",
@@ -271,7 +336,8 @@
     "link_doctype": "Outcome",
     "link_fieldname": "proposal",
     "listview_settings": "[\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\",\"financial_year\",\"outcome_name\",\"total_target\",\"total_achievement\"]",
-    "referenced_link_doctype": null
+    "referenced_link_doctype": null,
+    "template": null
    },
    {
     "connection_type": "Referenced",
@@ -282,7 +348,8 @@
     "link_doctype": null,
     "link_fieldname": null,
     "listview_settings": "[\"report_type\",\"report_name\",\"due_date\",\"submission_status\",\"report_linkfile\",\"submission_date\"]",
-    "referenced_link_doctype": "Reporting"
+    "referenced_link_doctype": "Reporting",
+    "template": null
    },
    {
     "connection_type": "Referenced",
@@ -293,12 +360,61 @@
     "link_doctype": null,
     "link_fieldname": null,
     "listview_settings": "[\"image\",\"salutation\",\"first_name\",\"gender\",\"custom_email\",\"custom_mobile_number\",\"custom_whatsapp_number\",\"custom_contact_type\",\"custom_designation1\"]",
-    "referenced_link_doctype": "Contact"
+    "referenced_link_doctype": "Contact",
+    "template": null
+   },
+   {
+    "connection_type": "Is Custom Design",
+    "crud_permissions": null,
+    "dn_reference_field": null,
+    "dt_reference_field": null,
+    "html_field": "tasks",
+    "link_doctype": null,
+    "link_fieldname": null,
+    "listview_settings": null,
+    "referenced_link_doctype": null,
+    "template": "Tasks"
+   },
+   {
+    "connection_type": "Is Custom Design",
+    "crud_permissions": null,
+    "dn_reference_field": null,
+    "dt_reference_field": null,
+    "html_field": "email",
+    "link_doctype": null,
+    "link_fieldname": null,
+    "listview_settings": null,
+    "referenced_link_doctype": null,
+    "template": "Email"
+   },
+   {
+    "connection_type": "Is Custom Design",
+    "crud_permissions": null,
+    "dn_reference_field": null,
+    "dt_reference_field": null,
+    "html_field": "timeline",
+    "link_doctype": null,
+    "link_fieldname": null,
+    "listview_settings": null,
+    "referenced_link_doctype": null,
+    "template": "Timeline"
+   },
+   {
+    "connection_type": "Is Custom Design",
+    "crud_permissions": null,
+    "dn_reference_field": null,
+    "dt_reference_field": null,
+    "html_field": "gallery",
+    "link_doctype": null,
+    "link_fieldname": null,
+    "listview_settings": null,
+    "referenced_link_doctype": null,
+    "template": "Gallery"
    }
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2024-12-03 14:51:56.448155",
+  "modified": "2024-12-05 10:41:25.300460",
   "name": "Proposal",
   "parent_doctype": "Proposal"
  }
