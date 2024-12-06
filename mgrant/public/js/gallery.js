@@ -1,6 +1,17 @@
 var selectedFiles = [];
 var gallery_files = [];
 let galleryWrapper = document.querySelector('[data-fieldname="gallery"]');
+
+function stripHtmlTags(input) {
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = input;
+    return tempDiv.textContent || tempDiv.innerText || '';
+}
+const fileList = (file_list, selector) => {
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+}
 const append_gallery_styles = () => {
     // Append CSS Styles for the Gallery
     const style = document.createElement('style');
@@ -112,9 +123,13 @@ const append_gallery_styles = () => {
     .pointer {
         cursor: pointer;
     }
+    .col-sm-6 {
+        padding-right: 0px !important;
+    }
 `;
     document.head.appendChild(style);
 };
+
 const renderCardView = (files) => {
     return `
             <div class="row mt-3" style="font-size:16px !important;">
@@ -134,8 +149,16 @@ const renderCardView = (files) => {
                     </div>
                 </div>
             <img src="${file.image}" class="card-img-top" alt="${file.title}">
-            <h5 class="card-title px-1">${file.title}</h5>
-            <p class="card-text px-1">${getFormattedDate(file.creation)}</p>
+              <p
+              class="card-text px-1"
+                style="max-height:20px;min-height:20px;overflow:hidden; margin: 8px 0px 0px 0px !important; color: #0E1116; font-size: 14px"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title='${file.title}' 
+                data-html="true">
+                ${stripHtmlTags(file.title)}
+                </p>
+            <p class="card-text px-1" style="font-weight: 400; margin: 0px; color: #6E7073; font-size: 10px">${getFormattedDate(file.creation)}</p>
             </div>
             </div>
             `).join('')}
@@ -154,8 +177,9 @@ const renderHeader = (files, view) => {
             </button>
             <div class="dropdown">
             <button class="btn btn-light" type="button" id="viewDropdown" data-toggle="dropdown">
-            <i class="fa ${view === 'Card' ? 'fa-th-large' : 'fa-list'}"></i> ${view} View    
-            <i class="fa fa-sort"></i>
+            <i class="fa ${view === 'Card' ? 'fa-th-large' : 'fa-list'}" style="color: #6E7073;"></i> 
+            <span style="color: #6E7073;">${view} View</span>
+            <i class="fa fa-sort" style="color: #6E7073;"></i>
             </button>
             <div class="dropdown-menu">
             <span class="dropdown-item" id="cardViewBtn"><i class="fa fa-th-large"></i> Card View</span>
@@ -317,7 +341,7 @@ const updateGallery = (frm, files, view) => {
         }
     });
 }
-const gallery_image = async (frm,selector) => {
+const gallery_image = async (frm, selector) => {
     var view = 'Card';
     append_gallery_styles();
     // Fetch files related to the document
