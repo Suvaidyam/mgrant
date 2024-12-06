@@ -82,7 +82,7 @@ const append_gallery_styles = () => {
         border-top-left-radius: 8px;  /* Adjust value as needed */
         border-top-right-radius: 8px;
         background: gray;
-        opacity: 0.2;
+        opacity: 0.4;
     }
     .dropdown-menu a i {
         margin-right: 5px;
