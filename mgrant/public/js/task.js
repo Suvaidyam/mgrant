@@ -452,12 +452,12 @@ const getTaskList = async (frm,selector) => {
     });
     $('#cardViewBtn').on('click', () => {
         view = 'Card View';
-        getTaskList(frm);
+        getTaskList(frm,selector);
 
     })
     $('#listViewBtn').on('click', () => {
         view = 'List View';
-        getTaskList(frm);
+        getTaskList(frm,selector);
 
     })
 };
