@@ -16,10 +16,6 @@ const append_gallery_styles = () => {
     // Append CSS Styles for the Gallery
     const style = document.createElement('style');
     style.innerHTML = `
-    .card-img-top {
-        // width: 100%;
-        // height: 200px;
-    }
     .gallery {
         margin-bottom: 20px;
     }
@@ -67,55 +63,26 @@ const append_gallery_styles = () => {
         position: relative; /* Ensure the checkbox is positioned relative to the image */
         object-fit: cover; /* Ensure the image covers the space without distortion */
     }
-    /* Initially hide the checkbox container */
-    .checkbox-container {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        z-index: 10; /* Ensure the checkbox is above the image */
-        display: none; /* Hide checkbox initially */
-    }
-    /* Show the checkbox when the image is hovered */
-    .card:hover .checkbox-container {
-        display: block; /* Display the checkbox only when the card is hovered */
-    }
-    /* Checkbox styling */
     .checkbox-container input[type="checkbox"] {
         width: 20px;
         height: 20px;
         background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
         border: 2px solid #fff; /* White border for visibility */
     }
-    /* Highlight checkbox when checked */
-    .checkbox-container input[type="checkbox"]:checked {
-        background-color: #A01236; /* Highlight color when checked */
-        border-color: #fff;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    .image-card{
+        position: relative;
+        width: 100%;
     }
-    
-    .dropeditBBTn {
+    .image-cover {
         position: absolute;
-        top: 10px;
-        right: 10px;
-        z-index: 10;
-        display: none;
-    }
-    .card:hover .dropeditBBTn {
-        display: block;
-    }
-    .dropdown-menu {
-        min-width: 120px;
-        padding: 0;
-        margin: 0;
-        border: none;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .dropdown-menu a {
-        padding: 5px 10px;
-        font-size: 14px;
-    }
-    .dropdown-menu a:hover {
-        background-color: #f1f1f1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        border-top-left-radius: 8px;  /* Adjust value as needed */
+        border-top-right-radius: 8px;
+        background: gray;
+        opacity: 0.4;
     }
     .dropdown-menu a i {
         margin-right: 5px;
@@ -135,32 +102,39 @@ const renderCardView = (files) => {
             <div class="row mt-3" style="font-size:16px !important;">
             ${files.map(file => `
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-            <div class="card gallery">
-            <div class="checkbox-container" >
-            <input type="checkbox" data-id="${file.name}" class="toggleCheckbox"/>
-            </div>
-            <div class="dropdown dropeditBBTn">
-                    <p title="action" class="pointer " id="dropdownMenuButton-" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-ellipsis-h " style="transform: rotate(90deg); font-size: 16px; width: 20px; height: 20px; color: white;"></i>
-                    </p>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-${file.name}">
-                        <a class="dropdown-item edit-btn"  data-id="${file.name}">Edit</a>
-                        <a class="dropdown-item delete-btn"  data-id="${file.name}">Delete</a>
+                        
+                    <div class="card gallery">
+                        <div class="image-card">
+                            ${file.image.match(/\.(pdf|jpg|jpeg|png|img)(\?|#|$)/i)[1].toLowerCase() == 'pdf' ?
+                            `<a href="${file.image}" download><img src="/assets/mgrant/images/pdf-download.jpg" width="200px"><a/>`
+                            :
+                            `<img src="${file.image}" class="card-img-top" alt="${file.title}">`}
+                        </div>
+                        <div class="image-cover">
+                            <div class="checkbox-container" >
+                                <input type="checkbox" data-id="${file.name}" class="toggleCheckbox"/>
+                            </div>
+                            <div class="dropdown dropeditBBTn">
+                                <p title="action" class="pointer " id="dropdownMenuButton-${file.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-ellipsis-h " style="transform: rotate(90deg); font-size: 16px; width: 20px; height: 20px; color: white;"></i>
+                                </p>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-${file.name}">
+                                    <a class="dropdown-item edit-btn"  data-id="${file.name}">Edit</a>
+                                    <a class="dropdown-item delete-btn"  data-id="${file.name}">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="card-text px-1"
+                            style="max-height:20px;min-height:20px;overflow:hidden; margin: 8px 0px 0px 0px !important; color: #0E1116; font-size: 14px"
+                            data-toggle="tooltip"
+                            data-placement="bottom"
+                            title='${file.title}' 
+                            data-html="true">
+                            ${stripHtmlTags(file.title)}
+                            </p>
+                        <p class="card-text px-1" style="font-weight: 400; margin: 0px; color: #6E7073; font-size: 10px">${getFormattedDate(file.creation)}</p>
                     </div>
                 </div>
-            <img src="${file.image}" class="card-img-top" alt="${file.title}">
-              <p
-              class="card-text px-1"
-                style="max-height:20px;min-height:20px;overflow:hidden; margin: 8px 0px 0px 0px !important; color: #0E1116; font-size: 14px"
-                data-toggle="tooltip"
-                data-placement="bottom"
-                title='${file.title}' 
-                data-html="true">
-                ${stripHtmlTags(file.title)}
-                </p>
-            <p class="card-text px-1" style="font-weight: 400; margin: 0px; color: #6E7073; font-size: 10px">${getFormattedDate(file.creation)}</p>
-            </div>
-            </div>
             `).join('')}
             </div>
             `;
