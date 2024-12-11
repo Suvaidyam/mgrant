@@ -16,9 +16,10 @@
    "reqd": 1
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-05 22:29:51.713118",
+ "modified": "2024-12-10 15:25:09.670675",
  "modified_by": "Administrator",
  "module": "mGrant - Master",
  "name": "Designation",
