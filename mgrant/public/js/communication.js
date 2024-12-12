@@ -113,7 +113,7 @@ style.innerHTML = `
     `;
 document.head.appendChild(style);
 var communication_list = []
-function renderEmails(email_list, frm,selector) {
+function renderEmails(email_list, frm, selector) {
     // if (email_list.length > 0) {
 
     const formatDateGroup = (emailDate) => {
@@ -329,10 +329,10 @@ function renderEmails(email_list, frm,selector) {
         cur_frm.email_doc();
     });
 }
-const communication = async (frm,selector) => {
+const communication = async (frm, selector) => {
     communication_list = await getDocList('Communication', [
         ['Communication', 'reference_name', '=', frm.doc.name],
         ['Communication', 'in_reply_to', '=', '']
     ], ['*']);
-    renderEmails(communication_list, frm,selector)
+    renderEmails(communication_list, frm, selector)
 }

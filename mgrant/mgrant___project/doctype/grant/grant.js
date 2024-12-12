@@ -21,9 +21,10 @@ function getMonthDifference(startDate, endDate) {
 frappe.ui.form.on("Grant", {
     // form-footer
     async refresh(frm) {
+        $('.layout-side-section').remove()
         setup_multiselect_dependency(frm, 'District', 'states', 'state', 'districts', 'state');
         setup_multiselect_dependency(frm, 'Block', 'districts', 'district', 'blocks', 'district');
-        setup_multiselect_dependency(frm, 'Village', 'blocks', 'block', 'villages', 'block'); 
+        setup_multiselect_dependency(frm, 'Village', 'blocks', 'block', 'villages', 'block');
     },
     states(frm) {
         setup_multiselect_dependency(frm, 'District', 'states', 'state', 'districts', 'state');

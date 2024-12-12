@@ -19,9 +19,10 @@
    "unique": 1
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-28 11:12:00.643733",
+ "modified": "2024-12-10 15:25:47.776010",
  "modified_by": "Administrator",
  "module": "KPIs",
  "name": "Units",
