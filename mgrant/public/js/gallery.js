@@ -74,15 +74,15 @@ const append_gallery_styles = () => {
         width: 100%;
     }
     .image-cover {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 200px;
-        border-top-left-radius: 8px;  /* Adjust value as needed */
-        border-top-right-radius: 8px;
-        background: gray;
-        opacity: 0.4;
+        // position: absolute;
+        // top: 0;
+        // left: 0;
+        // width: 100%;
+        // height: 200px;
+        // border-top-left-radius: 8px;  /* Adjust value as needed */
+        // border-top-right-radius: 8px;
+        // background: gray;
+        // opacity: 0.4;
     }
     .dropdown-menu a i {
         margin-right: 5px;
@@ -106,9 +106,9 @@ const renderCardView = (files) => {
                     <div class="card gallery">
                         <div class="image-card">
                             ${file.image.match(/\.(pdf|jpg|jpeg|png|img)(\?|#|$)/i)[1].toLowerCase() == 'pdf' ?
-                            `<a href="${file.image}" download><img src="/assets/mgrant/images/pdf-download.jpg" width="200px"><a/>`
-                            :
-                            `<img src="${file.image}" class="card-img-top" alt="${file.title}">`}
+            `<a href="${file.image}" download><img src="/assets/mgrant/images/pdf-download.jpg" width="200px"><a/>`
+            :
+            `<img src="${file.image}" class="card-img-top" alt="${file.title}">`}
                         </div>
                         <div class="image-cover">
                             <div class="checkbox-container" >
@@ -124,15 +124,15 @@ const renderCardView = (files) => {
                                 </div>
                             </div>
                         </div>
-                        <p class="card-text px-1"
-                            style="max-height:20px;min-height:20px;overflow:hidden; margin: 8px 0px 0px 0px !important; color: #0E1116; font-size: 14px"
+                        <p class="card-text px-2"
+                            style="max-height:20px;min-height:20px;overflow:hidden; margin: -20px 0px 0px 0px !important; color: #0E1116; font-size: 14px"
                             data-toggle="tooltip"
                             data-placement="bottom"
                             title='${file.title}' 
                             data-html="true">
                             ${stripHtmlTags(file.title)}
                             </p>
-                        <p class="card-text px-1" style="font-weight: 400; margin: 0px; color: #6E7073; font-size: 10px">${getFormattedDate(file.creation)}</p>
+                        <p class="card-text px-2" style="font-weight: 400; margin: 0px 0px 5px 0px; color: #6E7073; font-size: 10px">${getFormattedDate(file.creation)}</p>
                     </div>
                 </div>
             `).join('')}

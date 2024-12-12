@@ -17,9 +17,10 @@
    "reqd": 1
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-28 17:13:40.200261",
+ "modified": "2024-12-10 15:25:29.327185",
  "modified_by": "Administrator",
  "module": "mGrant - Master",
  "name": "Department",

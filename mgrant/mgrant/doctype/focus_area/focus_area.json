@@ -27,9 +27,10 @@
    "fieldtype": "Column Break"
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-28 11:05:58.165598",
+ "modified": "2024-12-10 15:22:48.050776",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Focus Area",

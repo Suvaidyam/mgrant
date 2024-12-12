@@ -178,9 +178,10 @@
    "fieldtype": "Column Break"
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-03 18:23:02.797471",
+ "modified": "2024-12-10 15:21:07.613786",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Donor",
