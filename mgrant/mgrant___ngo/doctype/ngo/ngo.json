@@ -279,9 +279,10 @@
    "label": "Work History"
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-04 10:09:59.418552",
+ "modified": "2024-12-10 15:14:02.746900",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",

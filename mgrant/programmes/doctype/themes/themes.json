@@ -33,6 +33,7 @@
    "options": "<div id=\"kpis\"><div>"
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [
   {
@@ -41,7 +42,7 @@
    "link_fieldname": "theme"
   }
  ],
- "modified": "2024-11-27 10:44:08.522728",
+ "modified": "2024-12-10 15:23:29.386492",
  "modified_by": "Administrator",
  "module": "Programmes",
  "name": "Themes",

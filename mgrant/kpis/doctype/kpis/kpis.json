@@ -74,9 +74,10 @@
    "reqd": 1
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-28 11:04:55.028163",
+ "modified": "2024-12-10 15:21:57.435767",
  "modified_by": "Administrator",
  "module": "KPIs",
  "name": "KPIs",

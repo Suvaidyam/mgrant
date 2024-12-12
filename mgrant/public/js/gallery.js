@@ -74,15 +74,15 @@ const append_gallery_styles = () => {
         width: 100%;
     }
     .image-cover {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 200px;
-        border-top-left-radius: 8px;  /* Adjust value as needed */
-        border-top-right-radius: 8px;
-        background: gray;
-        opacity: 0.4;
+        // position: absolute;
+        // top: 0;
+        // left: 0;
+        // width: 100%;
+        // height: 200px;
+        // border-top-left-radius: 8px;  /* Adjust value as needed */
+        // border-top-right-radius: 8px;
+        // background: gray;
+        // opacity: 0.4;
     }
     .dropdown-menu a i {
         margin-right: 5px;
@@ -125,7 +125,7 @@ const renderCardView = (files) => {
                             </div>
                         </div>
                         <p class="card-text px-2"
-                            style="max-height:20px;min-height:20px;overflow:hidden; margin: 8px 0px 0px 0px !important; color: #0E1116; font-size: 14px"
+                            style="max-height:20px;min-height:20px;overflow:hidden; margin: -20px 0px 0px 0px !important; color: #0E1116; font-size: 14px"
                             data-toggle="tooltip"
                             data-placement="bottom"
                             title='${file.title}' 
