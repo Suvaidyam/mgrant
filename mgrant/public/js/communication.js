@@ -113,9 +113,11 @@ style.innerHTML = `
     `;
 document.head.appendChild(style);
 var communication_list = []
-function renderEmails(email_list, frm, selector) {
-    // if (email_list.length > 0) {
-
+var email_wrapper = document.querySelector(`[data-fieldname="email"]`);
+async function renderEmails(email_list, frm, selector=null) {
+    if(selector != null){
+        email_wrapper = document.querySelector(`[data-fieldname="${selector}"]`);
+    }
     const formatDateGroup = (emailDate) => {
         const today = new Date();
         const yesterday = new Date();
@@ -217,14 +219,14 @@ function renderEmails(email_list, frm, selector) {
         </div>
     `;
 
-    $(`[data-fieldname="${selector}"]`).html(emailHtml);
+    email_wrapper.innerHTML = emailHtml;
     $('#refresh_email_list').on('click', async () => {
         try {
             communication_list = await getDocList('Communication', [
                 ['Communication', 'reference_name', '=', frm.doc.name],
                 ['Communication', 'in_reply_to', '=', '']
             ], ['*']);
-            renderEmails(communication_list, frm)
+            await renderEmails(communication_list, frm)
         } catch (error) {
             console.error(error)
         }
@@ -235,7 +237,7 @@ function renderEmails(email_list, frm, selector) {
                 ['Communication', 'reference_name', '=', frm.doc.name],
                 ['Communication', 'in_reply_to', '=', '']
             ], ['*']);
-            renderEmails(communication_list, frm)
+            await renderEmails(communication_list, frm)
             $('#allEmailButton').addClass('active_tab');
             $('#unreadEmailButton').removeClass('active_tab');
             $('#readEmailButton').removeClass('active_tab');
@@ -250,7 +252,7 @@ function renderEmails(email_list, frm, selector) {
                 ['seen', '=', 0],
                 ['in_reply_to', '=', '']
             ], ['*']);
-            renderEmails(communication_list, frm)
+            await renderEmails(communication_list, frm)
             $('#allEmailButton').removeClass('active_tab');
             $('#unreadEmailButton').addClass('active_tab');
             $('#readEmailButton').removeClass('active_tab');
@@ -265,7 +267,7 @@ function renderEmails(email_list, frm, selector) {
                 ['seen', '=', 1],
                 ['in_reply_to', '=', '']
             ], ['*']);
-            renderEmails(communication_list, frm)
+            await renderEmails(communication_list, frm)
             $('#allEmailButton').removeClass('active_tab');
             $('#unreadEmailButton').removeClass('active_tab');
             $('#readEmailButton').addClass('active_tab');
@@ -334,5 +336,5 @@ const communication = async (frm, selector) => {
         ['Communication', 'reference_name', '=', frm.doc.name],
         ['Communication', 'in_reply_to', '=', '']
     ], ['*']);
-    renderEmails(communication_list, frm, selector)
+    await renderEmails(communication_list, frm, selector)
 }
