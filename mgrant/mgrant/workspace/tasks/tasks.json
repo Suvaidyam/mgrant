@@ -1,0 +1,37 @@
+{
+ "app": "mgrant",
+ "charts": [],
+ "content": "[{\"id\":\"FaMsIGj8LX\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Tasks</span>\",\"col\":12}},{\"id\":\"Ro575glwqb\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Tasks\",\"col\":12}}]",
+ "creation": "2024-12-11 14:37:34.095565",
+ "custom_blocks": [
+  {
+   "custom_block_name": "Tasks",
+   "label": "Tasks"
+  }
+ ],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "project-1",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Tasks",
+ "link_type": "DocType",
+ "links": [],
+ "modified": "2024-12-11 14:38:15.103335",
+ "modified_by": "Administrator",
+ "module": "Mgrant",
+ "name": "Tasks",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 26.0,
+ "shortcuts": [],
+ "title": "Tasks",
+ "type": "Workspace"
+}

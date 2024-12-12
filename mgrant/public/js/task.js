@@ -6,7 +6,7 @@ function stripHtmlTags(input) {
     return tempDiv.textContent || tempDiv.innerText || '';
 }
 
-const taskList = (task_list,selector) => {
+const taskList = (task_list, selector) => {
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
@@ -322,7 +322,7 @@ const taskList = (task_list,selector) => {
 let task_list = [];
 let view = 'Card View'
 
-const getTaskList = async (frm,selector) => {
+const getTaskList = async (frm, selector) => {
     task_list = await getDocList('mGrant Task', [
         ['mGrant Task', 'reference_doctype', '=', frm.doc.doctype],
         ['mGrant Task', 'related_to', '=', frm.doc.name],
@@ -452,12 +452,12 @@ const getTaskList = async (frm,selector) => {
     });
     $('#cardViewBtn').on('click', () => {
         view = 'Card View';
-        getTaskList(frm,selector);
+        getTaskList(frm, selector);
 
     })
     $('#listViewBtn').on('click', () => {
         view = 'List View';
-        getTaskList(frm,selector);
+        getTaskList(frm, selector);
 
     })
 };
