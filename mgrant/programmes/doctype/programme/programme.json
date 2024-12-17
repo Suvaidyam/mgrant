@@ -22,7 +22,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-10 15:22:15.432018",
+ "modified": "2024-12-17 17:15:12.206642",
  "modified_by": "Administrator",
  "module": "Programmes",
  "name": "Programme",
@@ -54,7 +54,9 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "programme_name"
 }

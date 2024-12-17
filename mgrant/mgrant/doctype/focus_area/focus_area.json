@@ -30,7 +30,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-10 15:22:48.050776",
+ "modified": "2024-12-17 17:15:33.512422",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Focus Area",
@@ -50,7 +50,9 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "focus_area_name"
 }

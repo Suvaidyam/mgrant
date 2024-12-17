@@ -77,7 +77,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-10 15:21:57.435767",
+ "modified": "2024-12-17 17:14:41.392747",
  "modified_by": "Administrator",
  "module": "KPIs",
  "name": "KPIs",
@@ -109,7 +109,9 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "kpi_name"
 }

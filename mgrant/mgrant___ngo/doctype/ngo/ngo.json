@@ -6,6 +6,7 @@
  "engine": "InnoDB",
  "field_order": [
   "basic_information_section",
+  "organisation_type",
   "ngo_name",
   "year_of_establishment",
   "registration_of_the_organisaiton",
@@ -277,12 +278,20 @@
    "fieldname": "work_history_tab",
    "fieldtype": "Tab Break",
    "label": "Work History"
+  },
+  {
+   "default": "NGO",
+   "fieldname": "organisation_type",
+   "fieldtype": "Select",
+   "label": "Organisation Type",
+   "options": "NGO\nVendor",
+   "reqd": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-10 15:14:02.746900",
+ "modified": "2024-12-14 14:10:23.291604",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",
