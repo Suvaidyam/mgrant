@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "autoname": "format:LH-{##}",
+ "creation": "2024-12-14 11:36:39.551040",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "description",
+  "latter_head_name",
+  "title",
+  "header",
+  "footer"
+ ],
+ "fields": [
+  {
+   "fieldname": "latter_head_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Latter Head Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "header",
+   "fieldtype": "HTML Editor",
+   "label": "Header",
+   "reqd": 1
+  },
+  {
+   "fieldname": "footer",
+   "fieldtype": "HTML Editor",
+   "label": "Footer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "HTML",
+   "label": "HTML",
+   "options": "<div id=\"description\"></div>"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "HTML Editor",
+   "label": "Title",
+   "reqd": 1
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-12-14 12:45:09.671145",
+ "modified_by": "Administrator",
+ "module": "Mgrant - Integrations",
+ "name": "Latter Head",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "latter_head_name"
+}
