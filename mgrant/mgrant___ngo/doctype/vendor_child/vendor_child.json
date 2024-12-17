@@ -1,26 +1,27 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-11-29 12:08:24.917754",
+ "creation": "2024-12-14 14:13:44.323094",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "vendor"
+  "vendors"
  ],
  "fields": [
   {
-   "fieldname": "vendor",
+   "fieldname": "vendors",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Vendor",
-   "options": "Vendor",
+   "label": "Vendors",
+   "link_filters": "[[\"NGO\",\"organisation_type\",\"=\",\"Vendor\"]]",
+   "options": "NGO",
    "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-11-29 12:09:31.041586",
+ "modified": "2024-12-14 14:14:24.596413",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "Vendor Child",
