@@ -44,46 +44,47 @@ const append_gallery_styles = () => {
         background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
         border: 2px solid #fff; /* White border for visibility */
     }
-    .card-img-top {
+    .card-img-top{
         width: 100%;
         height: 200px;
-        position: relative; /* To position checkbox on top of image */
-        object-fit: cover; /* Ensure the image covers the space nicely */
+        object-fit: cover;
     }
-    /* Style the checkbox when it is checked */
-    .checkbox-container input[type="checkbox"]:checked {
-        background-color: #A01236; /* Highlight color when checked */
-        border-color: #fff;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add shadow effect for checked state */
-    }
-    /* Ensure the image takes up full space */
-    .card-img-top {
+    .image-card {
         width: 100%;
-        height: 200px;
-        position: relative; /* Ensure the checkbox is positioned relative to the image */
-        object-fit: cover; /* Ensure the image covers the space without distortion */
     }
-    .checkbox-container input[type="checkbox"] {
-        width: 20px;
-        height: 20px;
-        background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
-        border: 2px solid #fff; /* White border for visibility */
-    }
-    .image-card{
+    .image-container {
         position: relative;
+    }
+
+    .image-container:hover .image-cover {
+        display: block;
+    }
+
+    .image-container input[type="checkbox"]:checked ~ .image-cover {
+        display: block;
+    }
+
+    .cover-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
         width: 100%;
+        padding: 10px;
     }
+
     .image-cover {
-        // position: absolute;
-        // top: 0;
-        // left: 0;
-        // width: 100%;
-        // height: 200px;
-        // border-top-left-radius: 8px;  /* Adjust value as needed */
-        // border-top-right-radius: 8px;
-        // background: gray;
-        // opacity: 0.4;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        display: none;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index:20;
     }
+
     .dropdown-menu a i {
         margin-right: 5px;
     }
@@ -103,37 +104,46 @@ const renderCardView = (files) => {
             ${files.map(file => `
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                         
-                    <div class="card gallery">
+                    <div class="card gallery image-container">
                         <div class="image-card">
                             ${file.image.match(/\.(pdf|jpg|jpeg|png|img)(\?|#|$)/i)[1].toLowerCase() == 'pdf' ?
-            `<a href="${file.image}" download><img src="/assets/mgrant/images/pdf-download.jpg" width="200px"><a/>`
-            :
-            `<img src="${file.image}" class="card-img-top" alt="${file.title}">`}
+                            `<img src="/assets/mgrant/images/pdf-download.jpg" class="card-img-top">`
+                            :
+                            `<img src="${file.image}" class="card-img-top" alt="${file.title}">`}
                         </div>
                         <div class="image-cover">
-                            <div class="checkbox-container" >
-                                <input type="checkbox" data-id="${file.name}" class="toggleCheckbox"/>
-                            </div>
-                            <div class="dropdown dropeditBBTn">
-                                <p title="action" class="pointer " id="dropdownMenuButton-${file.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-ellipsis-h " style="transform: rotate(90deg); font-size: 16px; width: 20px; height: 20px; color: white;"></i>
-                                </p>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-${file.name}">
-                                    <a class="dropdown-item edit-btn"  data-id="${file.name}">Edit</a>
-                                    <a class="dropdown-item delete-btn"  data-id="${file.name}">Delete</a>
+                            <div class="cover-header">
+                                <div class="checkbox-container" >
+                                    <input type="checkbox" data-id="${file.name}" class="toggleCheckbox"/>
+                                </div>
+                                <div class="dropdown dropeditBBTn">
+                                    <p title="action" class="pointer " id="dropdownMenuButton-${file.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-ellipsis-h " style="transform: rotate(90deg); font-size: 16px; width: 20px; height: 20px; color: white;"></i>
+                                    </p>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-${file.name}">
+                                        <a class="dropdown-item edit-btn"  data-id="${file.name}">Edit</a>
+                                        <a class="dropdown-item delete-btn"  data-id="${file.name}">Delete</a>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="cover-body" style="display:flex;align-items:center;justify-content:center;width:100%;">
+                                ${file.image.match(/\.(pdf|jpg|jpeg|png|img)(\?|#|$)/i)[1].toLowerCase() == 'pdf' ?
+                                    `<a href="${file.image}" download="${file.title}" style="margin-top:20px;max-width:50px;max-height:50px;padding:10px;border-radius:50%;background:#E2E2E2;"><img src="/assets/mgrant/images/download-icon.png" style="max-width:30px;max-height:30px;"/></a>`
+                                    :
+                                    `<a href="${file.image}" target="__blank" style="margin-top:20px;max-width:50px;max-height:50px;padding:5px;border-radius:50%;background:#E2E2E2;"><img src="/assets/mgrant/images/eye-icon.png" style="max-width:40px;max-height:40px;"/></a>`}
+                                
+                            </div>
                         </div>
-                        <p class="card-text px-2"
-                            style="max-height:20px;min-height:20px;overflow:hidden; margin: -20px 0px 0px 0px !important; color: #0E1116; font-size: 14px"
-                            data-toggle="tooltip"
-                            data-placement="bottom"
-                            title='${file.title}' 
-                            data-html="true">
-                            ${stripHtmlTags(file.title)}
-                            </p>
-                        <p class="card-text px-2" style="font-weight: 400; margin: 0px 0px 5px 0px; color: #6E7073; font-size: 10px">${getFormattedDate(file.creation)}</p>
                     </div>
+                    <p class="card-text px-2"
+                        style="max-height:20px;min-height:20px;overflow:hidden; margin: -20px 0px 0px 0px !important; color: #0E1116; font-size: 14px"
+                        data-toggle="tooltip"
+                        data-placement="bottom"
+                        title='${file.title}' 
+                        data-html="true">
+                        ${stripHtmlTags(file.title)}
+                        </p>
+                    <p class="card-text px-2" style="font-weight: 400; margin: 0px 0px 5px 0px; color: #6E7073; font-size: 10px">${getFormattedDate(file.creation)}</p>
                 </div>
             `).join('')}
             </div>
