@@ -12,18 +12,18 @@ EXTRA_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 IGNORE_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 
 
-class UnitTestLatterHead(UnitTestCase):
+class UnitTestmGrantLetterHead(UnitTestCase):
 	"""
-	Unit tests for LatterHead.
+	Unit tests for mGrantLetterHead.
 	Use this class for testing individual functions and methods.
 	"""
 
 	pass
 
 
-class IntegrationTestLatterHead(IntegrationTestCase):
+class IntegrationTestmGrantLetterHead(IntegrationTestCase):
 	"""
-	Integration tests for LatterHead.
+	Integration tests for mGrantLetterHead.
 	Use this class for testing interactions between multiple components.
 	"""
 

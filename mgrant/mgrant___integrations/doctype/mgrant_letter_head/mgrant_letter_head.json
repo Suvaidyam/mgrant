@@ -16,7 +16,7 @@
    "fieldname": "latter_head_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Latter Head Name",
+   "label": "Letter Head Name",
    "reqd": 1
   },
   {
@@ -47,10 +47,10 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-14 12:45:09.671145",
+ "modified": "2024-12-18 14:19:12.722048",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
- "name": "Latter Head",
+ "name": "mGrant Letter Head",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
