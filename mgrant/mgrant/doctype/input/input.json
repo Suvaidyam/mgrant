@@ -18,37 +18,37 @@
   "input_name",
   "column_break_lxhn",
   "total_target",
-  "q1_apr_jun_target",
+  "q1_target",
   "apr_target",
   "may_target",
   "jun_target",
-  "q2_jul_sep_target",
+  "q2_target",
   "jul_target",
   "aug_target",
   "sep_target",
-  "q3_oct_dec_target",
+  "q3_target",
   "oct_target",
   "nov_target",
   "dec_target",
-  "q4_jan_mar_target",
+  "q4_target",
   "jan_target",
   "feb_target",
   "mar_target",
   "column_break_bile",
   "total_achievement",
-  "q1_apr_jun_achievement",
+  "q1_achievement",
   "apr_achievement",
   "may_achievement",
   "jun_achievement",
-  "q2_jul_sep_achievement",
+  "q2_achievement",
   "jul_achievement",
   "aug_achievement",
   "sep_achievement",
-  "q3_oct_dec_achievement",
+  "q3_achievement",
   "oct_achievement",
   "nov_achievement",
   "dec_achievement",
-  "q4_jan_mar_achievement",
+  "q4_achievement",
   "jan_achievement",
   "feb_achievement",
   "mar_achievement"
@@ -133,13 +133,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "q1_apr_jun_target",
-   "fieldtype": "Int",
-   "label": "Q1 (Apr-Jun) Target",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
    "fieldname": "apr_target",
    "fieldtype": "Int",
    "label": "Apr Target",
@@ -150,13 +143,6 @@
    "fieldtype": "Int",
    "label": "May Target",
    "non_negative": 1
-  },
-  {
-   "fieldname": "q2_jul_sep_target",
-   "fieldtype": "Int",
-   "label": "Q2 (Jul-Sep) Target",
-   "non_negative": 1,
-   "read_only": 1
   },
   {
    "fieldname": "jul_target",
@@ -177,13 +163,6 @@
    "non_negative": 1
   },
   {
-   "fieldname": "q3_oct_dec_target",
-   "fieldtype": "Int",
-   "label": "Q3 (Oct-Dec) Target",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
    "fieldname": "oct_target",
    "fieldtype": "Int",
    "label": "Oct Target",
@@ -200,13 +179,6 @@
    "fieldtype": "Int",
    "label": "Dec Target",
    "non_negative": 1
-  },
-  {
-   "fieldname": "q4_jan_mar_target",
-   "fieldtype": "Int",
-   "label": "Q4 (Jan-Mar) Target",
-   "non_negative": 1,
-   "read_only": 1
   },
   {
    "fieldname": "jan_target",
@@ -244,14 +216,6 @@
   },
   {
    "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "q1_apr_jun_achievement",
-   "fieldtype": "Int",
-   "label": "Q1 (Apr-Jun) Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "fieldname": "apr_achievement",
    "fieldtype": "Int",
    "label": "Apr Achievement",
@@ -263,14 +227,6 @@
    "fieldname": "may_achievement",
    "fieldtype": "Int",
    "label": "May Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "q2_jul_sep_achievement",
-   "fieldtype": "Int",
-   "label": "Q2 (Jul-Sep) Achievement",
    "non_negative": 1,
    "read_only": 1
   },
@@ -300,14 +256,6 @@
   },
   {
    "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "q3_oct_dec_achievement",
-   "fieldtype": "Int",
-   "label": "Q3 (Oct-Dec) Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "fieldname": "oct_achievement",
    "fieldtype": "Int",
    "label": "Oct Achievement",
@@ -327,14 +275,6 @@
    "fieldname": "dec_achievement",
    "fieldtype": "Int",
    "label": "Dec Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "q4_jan_mar_achievement",
-   "fieldtype": "Int",
-   "label": "Q4 (Jan-Mar) Achievement",
    "non_negative": 1,
    "read_only": 1
   },
@@ -375,6 +315,66 @@
    "label": "Jun Achievement",
    "non_negative": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "q1_target",
+   "fieldtype": "Int",
+   "label": "Q1 Target",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "q2_target",
+   "fieldtype": "Int",
+   "label": "Q2 Target",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "q3_target",
+   "fieldtype": "Int",
+   "label": "Q3 Target",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "q4_target",
+   "fieldtype": "Int",
+   "label": "Q4 Target",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
+   "fieldname": "q1_achievement",
+   "fieldtype": "Int",
+   "label": "Q1 Achievement",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
+   "fieldname": "q2_achievement",
+   "fieldtype": "Int",
+   "label": "Q2 Achievement",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
+   "fieldname": "q3_achievement",
+   "fieldtype": "Int",
+   "label": "Q3 Achievement",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
+   "fieldname": "q4_achievement",
+   "fieldtype": "Int",
+   "label": "Q4 Achievement",
+   "non_negative": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -385,7 +385,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2024-12-04 15:49:41.306057",
+ "modified": "2024-12-19 10:56:25.270459",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Input",

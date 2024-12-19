@@ -1,10 +1,12 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-12-14 12:23:07.468070",
+ "creation": "2024-12-19 12:46:51.952177",
+ "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "grant",
   "year_type",
   "latter_head"
  ],
@@ -23,16 +25,22 @@
    "fieldtype": "Link",
    "label": "Latter Head ",
    "options": "Latter Head"
+  },
+  {
+   "fieldname": "grant",
+   "fieldtype": "Link",
+   "label": "Grant",
+   "options": "Grant",
+   "reqd": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
- "issingle": 1,
  "links": [],
- "modified": "2024-12-19 12:50:50.393100",
+ "modified": "2024-12-19 12:47:44.402061",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
- "name": "mGrant Settings",
+ "name": "mGrant Settings Grant Wise",
  "owner": "Administrator",
  "permissions": [
   {
@@ -44,11 +52,6 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
-  },
-  {
-   "read": 1,
-   "role": "All",
-   "select": 1
   }
  ],
  "sort_field": "creation",
