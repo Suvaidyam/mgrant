@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class LatterHead(Document):
+class mGrantLetterHead(Document):
 	pass
