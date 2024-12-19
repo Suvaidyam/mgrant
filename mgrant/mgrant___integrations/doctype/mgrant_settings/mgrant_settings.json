@@ -20,15 +20,15 @@
   {
    "fieldname": "latter_head",
    "fieldtype": "Link",
-   "label": "Latter Head ",
-   "options": "Latter Head"
+   "label": "Letter Head ",
+   "options": "mGrant Letter Head"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-12-14 12:40:25.958552",
+ "modified": "2024-12-18 15:28:45.648875",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",
