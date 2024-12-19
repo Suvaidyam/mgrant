@@ -1,7 +1,7 @@
 // Copyright (c) 2024, Suvaidyam and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on("Latter Head", {
+frappe.ui.form.on("mGrant Letter Head", {
     async refresh(frm) {
         document.getElementById('description').innerHTML = `
                 <div class="card shadow-sm border-0 mb-4">
