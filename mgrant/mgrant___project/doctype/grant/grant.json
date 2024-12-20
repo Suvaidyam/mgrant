@@ -5,10 +5,6 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "implementation_type",
-  "column_break_htax",
-  "parent_grant",
-  "column_break_vssb",
   "section_break_cerd",
   "ngo",
   "column_break_pyvg",
@@ -85,8 +81,8 @@
   "amended_from",
   "timeline_tab",
   "timeline",
-  "sub_grants_tab",
-  "sub_grants"
+  "notes_tab",
+  "notes"
  ],
  "fields": [
   {
@@ -383,11 +379,10 @@
    "options": "Direct\nIndirect"
   },
   {
-   "default": "Sub-granting Inactive",
    "fieldname": "subgranting_status",
    "fieldtype": "Select",
    "label": "Sub-granting Status",
-   "options": "Sub-granting Inactive\nSub-granting Active"
+   "options": "Sub-granting Active\nSub-granting Inactive"
   },
   {
    "fieldname": "grant_agreement_mou",
@@ -509,43 +504,19 @@
    "read_only": 1
   },
   {
-   "default": "Self Implementation",
-   "fieldname": "implementation_type",
-   "fieldtype": "Select",
-   "label": "Implementation Type",
-   "options": "Self Implementation\nSub Grant",
-   "reqd": 1
-  },
-  {
-   "depends_on": "eval:doc.implementation_type == \"Sub Grant\"",
-   "fieldname": "parent_grant",
-   "fieldtype": "Link",
-   "label": "Parent Grant",
-   "mandatory_depends_on": "eval:doc.implementation_type == \"Sub Grant\"",
-   "options": "Grant"
-  },
-  {
-   "fieldname": "column_break_htax",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_vssb",
-   "fieldtype": "Column Break"
-  },
-  {
-   "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
-   "fieldname": "sub_grants_tab",
+   "fieldname": "notes_tab",
    "fieldtype": "Tab Break",
-   "label": "Sub Grants"
+   "label": "Notes"
   },
   {
-   "fieldname": "sub_grants",
-   "fieldtype": "HTML"
+   "fieldname": "notes",
+   "fieldtype": "HTML",
+   "options": "<div id=\"notes_id\"></div>"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-17 12:44:44.408312",
+ "modified": "2024-12-19 10:11:31.552045",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",

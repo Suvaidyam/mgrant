@@ -16,3 +16,17 @@ function callAPI(options) {
         });
     })
 }
+
+const getPermissions = async (doctype) => {
+    let res = await frappe.call({
+        method: 'frappe_theme.api.get_permissions',
+        args: { doctype },
+        callback: function (response) {
+            return response.message
+        },
+        error: (err) => {
+            console.error(err);
+        }
+    });
+    return res?.message ?? [];
+}
