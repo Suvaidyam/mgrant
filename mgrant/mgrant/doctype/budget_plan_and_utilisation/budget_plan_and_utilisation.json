@@ -12,16 +12,16 @@
   "item_name",
   "financial_year",
   "column_break_gyjd",
-  "q1_apr_jun_planned_budget",
-  "q2_jul_sep_planned_budget",
-  "q3_oct_dec_planned_budget",
-  "q4_jan_mar_planned_budget",
+  "q1_planned_budget",
+  "q2_planned_budget",
+  "q3_planned_budget",
+  "q4_planned_budget",
   "total_planned_budget",
   "column_break_wpwi",
-  "q1_apr_jun_utilisation",
-  "q2_jul_sep_utilisation",
-  "q3_oct_dec_utilisation",
-  "q4_jan_mar_utilisation",
+  "q1_utilisation",
+  "q2_utilisation",
+  "q3_utilisation",
+  "q4_utilisation",
   "total_utilisation"
  ],
  "fields": [
@@ -68,53 +68,9 @@
    "read_only": 1
   },
   {
-   "fieldname": "q1_apr_jun_planned_budget",
-   "fieldtype": "Currency",
-   "label": "Q1 (Apr-Jun) Planned Budget"
-  },
-  {
-   "fieldname": "q2_jul_sep_planned_budget",
-   "fieldtype": "Currency",
-   "label": "Q2 (Jul-Sep) Planned Budget"
-  },
-  {
-   "fieldname": "q3_oct_dec_planned_budget",
-   "fieldtype": "Currency",
-   "label": "Q3 (Oct-Dec) Planned Budget"
-  },
-  {
-   "fieldname": "q4_jan_mar_planned_budget",
-   "fieldtype": "Currency",
-   "label": "Q4 (Jan-Mar) Planned Budget"
-  },
-  {
    "fieldname": "total_utilisation",
    "fieldtype": "Currency",
    "label": "Total Utilisation",
-   "read_only": 1
-  },
-  {
-   "fieldname": "q1_apr_jun_utilisation",
-   "fieldtype": "Currency",
-   "label": "Q1 (Apr-Jun) Utilisation",
-   "read_only": 1
-  },
-  {
-   "fieldname": "q2_jul_sep_utilisation",
-   "fieldtype": "Currency",
-   "label": "Q2 (Jul-Sep) Utilisation",
-   "read_only": 1
-  },
-  {
-   "fieldname": "q3_oct_dec_utilisation",
-   "fieldtype": "Currency",
-   "label": "Q3 (Oct-Dec) Utilisation",
-   "read_only": 1
-  },
-  {
-   "fieldname": "q4_jan_mar_utilisation",
-   "fieldtype": "Currency",
-   "label": "Q4 (Jan-Mar) Utilisation",
    "read_only": 1
   },
   {
@@ -124,11 +80,55 @@
   {
    "fieldname": "column_break_wpwi",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "q1_planned_budget",
+   "fieldtype": "Currency",
+   "label": "Q1 Planned Budget"
+  },
+  {
+   "fieldname": "q2_planned_budget",
+   "fieldtype": "Currency",
+   "label": "Q2 Planned Budget"
+  },
+  {
+   "fieldname": "q3_planned_budget",
+   "fieldtype": "Currency",
+   "label": "Q3 Planned Budget"
+  },
+  {
+   "fieldname": "q4_planned_budget",
+   "fieldtype": "Currency",
+   "label": "Q4 Planned Budget"
+  },
+  {
+   "fieldname": "q1_utilisation",
+   "fieldtype": "Currency",
+   "label": "Q1 Utilisation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "q2_utilisation",
+   "fieldtype": "Currency",
+   "label": "Q2 Utilisation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "q3_utilisation",
+   "fieldtype": "Currency",
+   "label": "Q3 Utilisation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "q4_utilisation",
+   "fieldtype": "Currency",
+   "label": "Q4 Utilisation",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-04 12:19:02.050202",
+ "modified": "2024-12-19 11:30:01.830233",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Plan and Utilisation",
