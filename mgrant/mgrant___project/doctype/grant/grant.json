@@ -5,6 +5,11 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "column_break_jbnd",
+  "implementation_type",
+  "column_break_htax",
+  "parent_grant",
+  "column_break_vssb",
   "section_break_cerd",
   "ngo",
   "column_break_pyvg",
@@ -81,8 +86,8 @@
   "amended_from",
   "timeline_tab",
   "timeline",
-  "notes_tab",
-  "notes"
+  "sub_grants_tab",
+  "sub_grants"
  ],
  "fields": [
   {
@@ -379,10 +384,11 @@
    "options": "Direct\nIndirect"
   },
   {
+   "default": "Sub-granting Inactive",
    "fieldname": "subgranting_status",
    "fieldtype": "Select",
    "label": "Sub-granting Status",
-   "options": "Sub-granting Active\nSub-granting Inactive"
+   "options": "Sub-granting Inactive\nSub-granting Active"
   },
   {
    "fieldname": "grant_agreement_mou",
@@ -504,19 +510,47 @@
    "read_only": 1
   },
   {
-   "fieldname": "notes_tab",
-   "fieldtype": "Tab Break",
-   "label": "Notes"
+   "default": "Self Implementation",
+   "fieldname": "implementation_type",
+   "fieldtype": "Select",
+   "label": "Implementation Type",
+   "options": "Self Implementation\nSub Grant",
+   "reqd": 1
   },
   {
-   "fieldname": "notes",
-   "fieldtype": "HTML",
-   "options": "<div id=\"notes_id\"></div>"
+   "fieldname": "column_break_htax",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_vssb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.implementation_type == \"Sub Grant\"",
+   "fieldname": "parent_grant",
+   "fieldtype": "Link",
+   "label": "Parent Grant",
+   "mandatory_depends_on": "eval:doc.implementation_type == \"Sub Grant\"",
+   "options": "Grant"
+  },
+  {
+   "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
+   "fieldname": "sub_grants_tab",
+   "fieldtype": "Tab Break",
+   "label": "Sub Grants"
+  },
+  {
+   "fieldname": "sub_grants",
+   "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "column_break_jbnd",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-19 10:11:31.552045",
+ "modified": "2024-12-20 21:55:38.274363",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
