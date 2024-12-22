@@ -5,6 +5,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "sub_granting_section",
   "column_break_jbnd",
   "implementation_type",
   "column_break_htax",
@@ -89,7 +90,7 @@
   "sub_grants_tab",
   "sub_grants",
   "notes_tab",
-  "html_dlrn"
+  "notes"
  ],
  "fields": [
   {
@@ -555,14 +556,17 @@
    "label": "Notes"
   },
   {
-   "fieldname": "html_dlrn",
-   "fieldtype": "HTML",
-   "options": "<div id=\"notes_id\"></div> "
+   "fieldname": "notes",
+   "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "sub_granting_section",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-21 15:10:17.456172",
+ "modified": "2024-12-22 12:44:05.185325",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",

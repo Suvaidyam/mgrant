@@ -1,14 +1,15 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:NOTE-{####}",
  "creation": "2024-12-19 14:29:26.226782",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "title",
-  "note_doctype",
+  "description",
   "reference_doctype",
-  "description"
+  "related_to"
  ],
  "fields": [
   {
@@ -20,32 +21,33 @@
   },
   {
    "fieldname": "description",
-   "fieldtype": "HTML Editor",
+   "fieldtype": "Text Editor",
    "in_list_view": 1,
    "label": "Description",
    "reqd": 1
   },
   {
-   "fieldname": "note_doctype",
+   "fieldname": "reference_doctype",
    "fieldtype": "Link",
-   "label": "Doctype",
+   "label": "Reference Doctype",
    "options": "DocType",
-   "read_only": 1
+   "reqd": 1
   },
   {
-   "fieldname": "reference_doctype",
+   "fieldname": "related_to",
    "fieldtype": "Dynamic Link",
-   "label": "Reference Doctype",
-   "options": "note_doctype",
-   "read_only": 1
+   "label": "Related To",
+   "options": "reference_doctype",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-20 10:57:43.696885",
+ "modified": "2024-12-22 11:48:18.883725",
  "modified_by": "Administrator",
  "module": "mGrant - Master",
  "name": "mGrant Note",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

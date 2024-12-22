@@ -38,6 +38,7 @@ app_include_js = [
     f"/assets/mgrant/js/communication.js?ver={time.time()}",
     f"/assets/mgrant/js/task.js?ver={time.time()}",
     f"/assets/mgrant/js/gallery.js?ver={time.time()}",
+    f"/assets/mgrant/js/note.js?ver={time.time()}",
     f"/assets/mgrant/js/timeline.js?ver={time.time()}",
     f"/assets/mgrant/js/list_functions.js?ver={time.time()}"
 ]
@@ -60,7 +61,6 @@ app_include_js = [
 doctype_js = {
     # "Grant" : ["public/js/gallery.js","public/js/task.js","public/js/cominucation.js"],
     # "Proposal" : ["public/js/gallery.js","public/js/task.js","public/js/cominucation.js"],
-    "Grant" :["public/js/note.js"],
     }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
