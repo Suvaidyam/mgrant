@@ -19,6 +19,7 @@ async function get_note_list(frm, selector) {
         }
         .sidebar {
             width: 25%;
+            min-width: 380px;
             height: 80vh;
             padding: 5px;
             border-right: 1px solid #ddd;
@@ -162,10 +163,7 @@ async function get_note_list(frm, selector) {
                 </div>
             `).join('')}`;
     };
-}
 
-async function render_note(frm, selector) {
-    await get_note_list(frm, selector);
     // ============= Create Note
     document.querySelectorAll('.note-button').forEach(link => {
         link.addEventListener('click', async () => {
@@ -196,9 +194,10 @@ async function render_note(frm, selector) {
                             frappe.call({
                                 method: 'frappe.client.insert',
                                 args: { doc: { doctype: 'mGrant Note', ...values } },
-                                callback: () => {
-                                    frappe.msgprint(__('Document Created Successfully'));
+                                callback: async () => {
+                                    await render_note(frm, selector)
                                     dialog.hide();
+                                    frappe.show_alert({ message: 'Note Created Successfully', indicator: 'green' });
                                 }
                             });
                         }
@@ -212,67 +211,82 @@ async function render_note(frm, selector) {
             }
         });
     });
+
     // ======================================== Update Note ========================================
     document.querySelectorAll('#edit_note').forEach(link => {
         link.addEventListener('click', async function (event) {
             event.preventDefault();
             event.stopPropagation();
-            const noteName = this.closest('.table-list').getAttribute('data-table');
 
-            // Fetch the latest document
-            await frappe.call({
-                method: 'frappe.client.get',
-                args: { doctype: 'mGrant Note', name: noteName },
-                callback: async (res) => {
-                    if (res.message) {
-                        const latestNote = res.message;
-                        let { message: meta } = await frappe.call({
-                            method: 'mgrant.apis.api.get_doctype_meta',
-                            args: { doctype: 'mGrant Note' }
-                        });
-                        let fields = meta.fields.map((f) => {
-                            if (f?.fieldname === 'reference_doctype') {
-                                f.default = latestNote?.reference_doctype
-                                f.read_only = 1
-                                f.hidden = 1
-                            }
-                            if (f?.fieldname === 'related_to') {
-                                f.default = latestNote?.related_to
-                                f.read_only = 1
-                                f.hidden = 1
-                            }
-                            if (latestNote[f.fieldname]) {
-                                f.default = latestNote[f.fieldname]
-                            }
-                            return f;
-                        });
-                        // Open dialog to edit the note
-                        let dialog = new frappe.ui.Dialog({
-                            title: `Note`,
-                            fields: fields,
-                            primary_action_label: 'Update',
-                            primary_action: (values) => {
-                                // Save the values
-                                frappe.db.set_value('mGrant Note', noteName, values);
-                                dialog.hide();
-                            },
-                            secondary_action_label: 'Cancel',
-                            secondary_action: () => {
-                                // Close the dialog without saving
-                                dialog.hide();
-                            }
-                        });
-                        dialog.show();
-                    }
+            const noteName = this.closest('.table-list').getAttribute('data-table');
+            if (!noteName) {
+                frappe.show_alert({ message: 'Note name not found', indicator: 'red' });
+                return;
+            }
+
+            try {
+                // Fetch the latest document
+                const { message: latestNote } = await frappe.call({
+                    method: 'frappe.client.get',
+                    args: { doctype: 'mGrant Note', name: noteName },
+                });
+
+                if (!latestNote) {
+                    frappe.show_alert({ message: 'Failed to fetch note details', indicator: 'red' });
+                    return;
                 }
-            });
+
+                // Fetch the doctype meta information
+                const { message: meta } = await frappe.call({
+                    method: 'mgrant.apis.api.get_doctype_meta',
+                    args: { doctype: 'mGrant Note' },
+                });
+
+                if (!meta || !meta.fields) {
+                    frappe.show_alert({ message: 'Failed to fetch doctype metadata', indicator: 'red' });
+                    return;
+                }
+
+                // Map fields with default values and conditions
+                const fields = meta.fields.map(f => {
+                    if (f?.fieldname === 'reference_doctype') {
+                        f.default = latestNote?.reference_doctype;
+                        f.read_only = 1;
+                        f.hidden = 1;
+                    } else if (f?.fieldname === 'related_to') {
+                        f.default = latestNote?.related_to;
+                        f.read_only = 1;
+                        f.hidden = 1;
+                    } else if (latestNote[f.fieldname]) {
+                        f.default = latestNote[f.fieldname];
+                    }
+                    return f;
+                });
+                const dialog = new frappe.ui.Dialog({
+                    title: 'Edit Note',
+                    fields: fields,
+                    primary_action_label: 'Update',
+                    primary_action: async (values) => {
+                        try {
+                            await frappe.db.set_value('mGrant Note', noteName, values);
+                            dialog.hide();
+                            frappe.show_alert({ message: 'Note updated successfully', indicator: 'green' });
+                            await render_note(frm, selector);
+                        } catch (err) {
+                            frappe.msgprint({ message: `Error updating note: ${err.message}`, indicator: 'red' });
+                        }
+                    },
+                    secondary_action_label: 'Cancel',
+                    secondary_action: () => dialog.hide(),
+                });
+                dialog.show();
+            } catch (err) {
+                frappe.msgprint({ message: `Error: ${err.message}`, indicator: 'red' });
+            }
         });
     });
 
-
-
     // ======================================== Delete Note ========================================
-
     document.querySelectorAll('#delete_note').forEach(link => {
         link.addEventListener('click', async function (event) {
             event.preventDefault();
@@ -284,8 +298,9 @@ async function render_note(frm, selector) {
                 'Are you sure you want to delete this Note?', // The confirmation message
                 () => { // If user clicks 'Yes'
                     frappe.db.delete_doc('mGrant Note', doc_name)
-                        .then(response => {
-                            frappe.throw({ message: "Document deleted successfully" });
+                        .then(async response => {
+                            frappe.show_alert({ message: 'Note Delete successfully', indicator: 'green' });
+                            await render_note(frm, selector);
                         })
                         .catch(error => {
                             console.error("Error deleting document", error);
@@ -297,4 +312,8 @@ async function render_note(frm, selector) {
             );
         });
     });
+}
+
+async function render_note(frm, selector) {
+    await get_note_list(frm, selector);
 }
