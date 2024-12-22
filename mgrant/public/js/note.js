@@ -9,7 +9,6 @@ async function get_note_list(frm, selector) {
             limit_page_length: 10000,
         },
     });
-    // Assign the response message to note_list
     note_list = response.message;
     document.querySelector(`[data-fieldname="${selector}"]`).innerHTML = `
     <style>
@@ -19,10 +18,13 @@ async function get_note_list(frm, selector) {
         }
         .sidebar {
             width: 25%;
-            min-width: 380px;
+            // min-width: 380px;
             height: 80vh;
             padding: 5px;
             border-right: 1px solid #ddd;
+        }
+        .note_content{
+            width:75%;
         }
         .title_links {
             width: 100%;
@@ -30,7 +32,16 @@ async function get_note_list(frm, selector) {
             overflow-y: auto; 
             padding-right: 5px;
         }
+        .title-body{
+            width:100%;
+            height: 45px;
+            display: flex !important;
+            justify-content: space-between;
+            align-items: center;
+            display:flex;
+        }
         .table-list {
+            width:95%;
             height: 45px;
             display: flex !important;
             justify-content: space-between;
@@ -52,8 +63,8 @@ async function get_note_list(frm, selector) {
             background-color: black;
             color: white; 
             border: none; 
-            border-radius: 20px; 
-            padding: 6px 15px;
+            border-radius: 8px; 
+            padding: 5px 14px;
             font-size: 14px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s;
@@ -69,14 +80,14 @@ async function get_note_list(frm, selector) {
             align-items: center;
         }  
         #action_icon{
-            width:20px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            display: none !important;
+            width:5%;
+            height: 100%;
+            // display: flex;
+            // justify-content: center;
+            // align-items: center;
+            display: none;
         }
-        .table-list:hover #action_icon{
+        .title-body:hover #action_icon{
             display: block !important;
         }
         #action_icon .dropdown-toggle::after {
@@ -102,53 +113,56 @@ async function get_note_list(frm, selector) {
         <!-- Sidebar -->
         <div class="sidebar">
             <div class="d-flex mb-2 justify-content-between align-items-center" style="height:50px; line-hight:50px; border-bottom:1px solid black">
-                <h4 class="pt-4">Note Titles</h4>
+                <h4 class="pt-4">Notes</h4>
                 <button class="note-button" id="add_note">Add Note</button>
             </div>
             <div class="title_links">
-                ${note_list?.length == 0 ? `
-                    <div class="note_message">Note Not Found</div>
+            ${note_list?.length == 0 ? `
+                    <div class="note_message">Notes Not Found</div>
                     ` : `
                     ${note_list?.map((note) => `
-                    <div class="table-list" data-table=${note?.name}>
-                        <div class='table_item'>
-                            <div class="avatar" style="width: 24px; height: 24px; border-radius: 50%; background-color: #3f51b5; color: #fff; display: flex; justify-content: center; align-items: center;">
-                                ${note?.title[0]?.toUpperCase()}
-                            </div>
-                            <div class="text-truncate" style="max-width: 300px;">${note?.title}</div>
-                        </div>
-                        <div id="action_icon" class="dropdown">
-                            <i class="fa fa-ellipsis-v btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:16px"></i>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" id="edit_note" edit-table=${note} href="#">Edit</a>
-                                    <a class="dropdown-item" id="delete_note" href="#">Delete</a>
+                        <div class="title-body">
+                            <div class="table-list" data-table=${note?.name}>
+                                <div class='table_item'>
+                                    <div class="avatar" style="width: 24px; height: 24px; border-radius: 50%; background-color: #3f51b5; color: #fff; display: flex; justify-content: center; align-items: center;">
+                                        ${note?.title[0]?.toUpperCase()}
+                                    </div>
+                                    <div class="text-truncate" style="max-width: 300px;">${note?.title}</div>
+                                </div>
+                                </div>
+                                <div id="action_icon" class="dropdown mt-2" note_id=${note.name}>
+                                        <i class="fa fa-ellipsis-v btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:20px"></i>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" id="edit_note" href="#">Edit</a>
+                                                <a class="dropdown-item" id="delete_note" href="#">Delete</a>
+                                            </div>
                                 </div>
                         </div>
-                    </div>
-                `).join('')
+                    `).join('')
         }
                     `}
             </div>
         </div>
 
         <!-- Main Content -->
-        <div class="content" style="padding: 20px; flex-grow: 1;">
-            <h4 id="default-message">Welcome! Please select a note.</h4>
+        <div class="note_content" style="padding: 20px; flex-grow: 1;">
+            <div id="default-message">
+                <div>
+                    <h3 style="text-align:center;">Select an item to read</h3>
+                    <p style="text-align:center;">Nothing is selected</p>
+                </div>
+            </div>
             <div id="dynamic-content" style="display: none;"></div>
         </div>
     </div>
 `;
-
-    document.querySelectorAll('.table-list,#action_icon').forEach(link => {
+    document.querySelectorAll('.table-list').forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault();
             const tableId = this.getAttribute('data-table');
             showContent(tableId);
         });
     });
-
-
-    // JavaScript function for dynamic content
     window.showContent = function (tableId) {
         const dynamicContent = document.getElementById('dynamic-content');
         const defaultMessage = document.getElementById('default-message');
@@ -158,7 +172,7 @@ async function get_note_list(frm, selector) {
         dynamicContent.innerHTML = `
         ${note_list?.filter(note => note.name === tableId).map(note => `
                 <div class="note">
-                    <p class="note-title mt-1"><span class="font-serif">Title</span> :- ${note.title}</p>
+                    <p class="note-title fw-bold mt-1" style="font-weight: bold;">${note.title}</p>
                     <p class="note-description">${note.description}</p>
                 </div>
             `).join('')}`;
@@ -185,7 +199,7 @@ async function get_note_list(frm, selector) {
                     return f;
                 })
                 let dialog = new frappe.ui.Dialog({
-                    title: `Create New Note`, // Corrected string interpolation
+                    title: `Create New Note`,
                     fields: fields,
                     primary_action_label: 'Create',
                     primary_action: () => {
@@ -217,37 +231,28 @@ async function get_note_list(frm, selector) {
         link.addEventListener('click', async function (event) {
             event.preventDefault();
             event.stopPropagation();
-
-            const noteName = this.closest('.table-list').getAttribute('data-table');
+            const noteName = this.closest('#action_icon').getAttribute('note_id');
             if (!noteName) {
                 frappe.show_alert({ message: 'Note name not found', indicator: 'red' });
                 return;
             }
-
             try {
-                // Fetch the latest document
                 const { message: latestNote } = await frappe.call({
                     method: 'frappe.client.get',
                     args: { doctype: 'mGrant Note', name: noteName },
                 });
-
                 if (!latestNote) {
                     frappe.show_alert({ message: 'Failed to fetch note details', indicator: 'red' });
                     return;
                 }
-
-                // Fetch the doctype meta information
                 const { message: meta } = await frappe.call({
                     method: 'mgrant.apis.api.get_doctype_meta',
                     args: { doctype: 'mGrant Note' },
                 });
-
                 if (!meta || !meta.fields) {
                     frappe.show_alert({ message: 'Failed to fetch doctype metadata', indicator: 'red' });
                     return;
                 }
-
-                // Map fields with default values and conditions
                 const fields = meta.fields.map(f => {
                     if (f?.fieldname === 'reference_doctype') {
                         f.default = latestNote?.reference_doctype;
@@ -291,7 +296,7 @@ async function get_note_list(frm, selector) {
         link.addEventListener('click', async function (event) {
             event.preventDefault();
             event.stopPropagation();
-            const doc_name = this.closest('.table-list').getAttribute('data-table');
+            const doc_name = this.closest('#action_icon').getAttribute('note_id');
 
             // Show confirmation dialog
             frappe.confirm(
