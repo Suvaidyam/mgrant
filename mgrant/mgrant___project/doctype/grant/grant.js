@@ -22,7 +22,6 @@ function getMonthDifference(startDate, endDate) {
 frappe.ui.form.on("Grant", {
     async refresh(frm) {
         $('.layout-side-section').remove()
-        await render_note(frm)
         setup_multiselect_dependency(frm, 'District', 'states', 'state', 'districts', 'state');
         setup_multiselect_dependency(frm, 'Block', 'districts', 'district', 'blocks', 'district');
         setup_multiselect_dependency(frm, 'Village', 'blocks', 'block', 'villages', 'block');
