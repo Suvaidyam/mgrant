@@ -1,19 +1,17 @@
 let note_list = []
-async function get_note_list(frm) {
-    console.log('first')
+async function get_note_list(frm, selector) {
     const response = await frappe.call({
         method: 'frappe.client.get_list',
         args: {
             doctype: 'mGrant Note',
             fields: ['*'],
-            filters: { 'reference_doctype': frm.doc.name },
+            filters: { 'reference_doctype': frm.doc.doctype, 'related_to': frm.doc.name },
             limit_page_length: 10000,
         },
     });
     // Assign the response message to note_list
     note_list = response.message;
-
-    document.getElementById('notes_id').innerHTML = `
+    document.querySelector(`[data-fieldname="${selector}"]`).innerHTML = `
     <style>
         * {
             margin: 0px;
@@ -166,9 +164,8 @@ async function get_note_list(frm) {
     };
 }
 
-async function render_note(frm) {
-    await get_note_list(frm)
-
+async function render_note(frm, selector) {
+    await get_note_list(frm, selector);
     // ============= Create Note
     document.querySelectorAll('.note-button').forEach(link => {
         link.addEventListener('click', async () => {
@@ -178,18 +175,20 @@ async function render_note(frm) {
             });
 
             if (meta) {
+                let fields = meta.fields.map((f) => {
+                    if (f?.fieldname === 'reference_doctype') {
+                        f.default = frm.doc.doctype
+                        f.read_only = 1
+                    }
+                    if (f?.fieldname === 'related_to') {
+                        f.default = frm.doc.name
+                        f.read_only = 1
+                    }
+                    return f;
+                })
                 let dialog = new frappe.ui.Dialog({
                     title: `Create New Note`, // Corrected string interpolation
-                    fields: meta.fields.map(({ fieldname, fieldtype, label, reqd, hidden, options }) => ({
-                        fieldname,
-                        fieldtype,
-                        label,
-                        reqd,
-                        hidden,
-                        options,
-                        default: fieldname === 'note_doctype' ? frm.doc.doctype :
-                            fieldname === 'reference_doctype' ? frm.doc.name : undefined
-                    })),
+                    fields: fields,
                     primary_action_label: 'Create',
                     primary_action: () => {
                         let values = dialog.get_values();
@@ -217,23 +216,40 @@ async function render_note(frm) {
     document.querySelectorAll('#edit_note').forEach(link => {
         link.addEventListener('click', async function (event) {
             event.preventDefault();
+            event.stopPropagation();
             const noteName = this.closest('.table-list').getAttribute('data-table');
 
             // Fetch the latest document
             await frappe.call({
                 method: 'frappe.client.get',
                 args: { doctype: 'mGrant Note', name: noteName },
-                callback: (res) => {
+                callback: async (res) => {
                     if (res.message) {
                         const latestNote = res.message;
-
+                        let { message: meta } = await frappe.call({
+                            method: 'mgrant.apis.api.get_doctype_meta',
+                            args: { doctype: 'mGrant Note' }
+                        });
+                        let fields = meta.fields.map((f) => {
+                            if (f?.fieldname === 'reference_doctype') {
+                                f.default = latestNote?.reference_doctype
+                                f.read_only = 1
+                                f.hidden = 1
+                            }
+                            if (f?.fieldname === 'related_to') {
+                                f.default = latestNote?.related_to
+                                f.read_only = 1
+                                f.hidden = 1
+                            }
+                            if (latestNote[f.fieldname]) {
+                                f.default = latestNote[f.fieldname]
+                            }
+                            return f;
+                        });
                         // Open dialog to edit the note
                         let dialog = new frappe.ui.Dialog({
                             title: `Note`,
-                            fields: [
-                                { fieldname: 'title', label: 'Title', fieldtype: 'Data', reqd: 1, default: latestNote.title },
-                                { fieldname: 'description', label: 'Description', reqd: 1, fieldtype: 'HTML Editor', default: latestNote.description }
-                            ],
+                            fields: fields,
                             primary_action_label: 'Update',
                             primary_action: (values) => {
                                 // Save the values
@@ -259,6 +275,8 @@ async function render_note(frm) {
 
     document.querySelectorAll('#delete_note').forEach(link => {
         link.addEventListener('click', async function (event) {
+            event.preventDefault();
+            event.stopPropagation();
             const doc_name = this.closest('.table-list').getAttribute('data-table');
 
             // Show confirmation dialog

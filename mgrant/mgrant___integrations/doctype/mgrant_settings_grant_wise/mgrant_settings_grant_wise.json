@@ -8,7 +8,9 @@
  "field_order": [
   "grant",
   "year_type",
-  "latter_head"
+  "latter_head",
+  "allow_overutilization",
+  "allow_subgranting"
  ],
  "fields": [
   {
@@ -24,7 +26,7 @@
    "fieldname": "latter_head",
    "fieldtype": "Link",
    "label": "Latter Head ",
-   "options": "Latter Head"
+   "options": "mGrant Letter Head"
   },
   {
    "fieldname": "grant",
@@ -32,12 +34,24 @@
    "label": "Grant",
    "options": "Grant",
    "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_overutilization",
+   "fieldtype": "Check",
+   "label": "Allow Overutilization"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_subgranting",
+   "fieldtype": "Check",
+   "label": "Allow Subgranting"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-19 12:47:44.402061",
+ "modified": "2024-12-22 10:39:07.024467",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings Grant Wise",

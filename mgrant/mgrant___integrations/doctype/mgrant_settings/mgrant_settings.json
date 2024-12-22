@@ -6,7 +6,9 @@
  "engine": "InnoDB",
  "field_order": [
   "year_type",
-  "latter_head"
+  "latter_head",
+  "allow_overutilization",
+  "allow_subgranting"
  ],
  "fields": [
   {
@@ -23,13 +25,25 @@
    "fieldtype": "Link",
    "label": "Letter Head ",
    "options": "mGrant Letter Head"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_overutilization",
+   "fieldtype": "Check",
+   "label": "Allow Overutilization"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_subgranting",
+   "fieldtype": "Check",
+   "label": "Allow Subgranting"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-12-18 15:28:45.648875",
+ "modified": "2024-12-22 10:42:24.765181",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",
