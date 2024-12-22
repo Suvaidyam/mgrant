@@ -87,7 +87,9 @@
   "timeline_tab",
   "timeline",
   "sub_grants_tab",
-  "sub_grants"
+  "sub_grants",
+  "notes_tab",
+  "html_dlrn"
  ],
  "fields": [
   {
@@ -546,11 +548,21 @@
   {
    "fieldname": "column_break_jbnd",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notes_tab",
+   "fieldtype": "Tab Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "html_dlrn",
+   "fieldtype": "HTML",
+   "options": "<div id=\"notes_id\"></div> "
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-20 21:55:38.274363",
+ "modified": "2024-12-21 15:10:17.456172",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
