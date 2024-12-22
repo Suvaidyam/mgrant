@@ -39,6 +39,7 @@ app_include_js = [
     f"/assets/mgrant/js/task.js?ver={time.time()}",
     f"/assets/mgrant/js/gallery.js?ver={time.time()}",
     f"/assets/mgrant/js/note.js?ver={time.time()}",
+    f"/assets/mgrant/js/comment.js?ver={time.time()}",
     f"/assets/mgrant/js/timeline.js?ver={time.time()}",
     f"/assets/mgrant/js/list_functions.js?ver={time.time()}"
 ]
