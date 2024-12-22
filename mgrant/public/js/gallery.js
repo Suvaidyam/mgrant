@@ -106,7 +106,7 @@ const renderCardView = (files) => {
                         
                     <div class="card gallery image-container">
                         <div class="image-card">
-                            ${file.image.match(/\.(pdf|jpg|jpeg|png|img)(\?|#|$)/i)[1].toLowerCase() == 'pdf' ?
+                            ${file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)[1].toLowerCase() == 'pdf' ?
                             `<img src="/assets/mgrant/images/pdf-download.jpg" class="card-img-top">`
                             :
                             `<img src="${file.image}" class="card-img-top" alt="${file.title}">`}
@@ -127,11 +127,10 @@ const renderCardView = (files) => {
                                 </div>
                             </div>
                             <div class="cover-body" style="display:flex;align-items:center;justify-content:center;width:100%;">
-                                ${file.image.match(/\.(pdf|jpg|jpeg|png|img)(\?|#|$)/i)[1].toLowerCase() == 'pdf' ?
+                                ${file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)[1].toLowerCase() == 'pdf' ?
                                     `<a href="${file.image}" download="${file.title}" style="margin-top:20px;max-width:50px;max-height:50px;padding:10px;border-radius:50%;background:#E2E2E2;"><img src="/assets/mgrant/images/download-icon.png" style="max-width:30px;max-height:30px;"/></a>`
                                     :
                                     `<a href="${file.image}" target="__blank" style="margin-top:20px;max-width:50px;max-height:50px;padding:5px;border-radius:50%;background:#E2E2E2;"><img src="/assets/mgrant/images/eye-icon.png" style="max-width:40px;max-height:40px;"/></a>`}
-                                
                             </div>
                         </div>
                     </div>
