@@ -60,8 +60,7 @@ app_include_js = [
 doctype_js = {
     # "Grant" : ["public/js/gallery.js","public/js/task.js","public/js/cominucation.js"],
     # "Proposal" : ["public/js/gallery.js","public/js/task.js","public/js/cominucation.js"],
-    "Compliance" :["public/js/utils.js"],
-    "Compliance Annual Plan" :["public/js/utils.js"],
+    "Grant" :["public/js/note.js"],
     }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
