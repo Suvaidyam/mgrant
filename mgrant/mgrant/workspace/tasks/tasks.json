@@ -18,9 +18,10 @@
  "indicator_color": "green",
  "is_hidden": 0,
  "label": "Tasks",
+ "link_to": "mGrant Task",
  "link_type": "DocType",
  "links": [],
- "modified": "2024-12-11 14:38:15.103335",
+ "modified": "2024-12-22 13:38:18.343348",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Tasks",
@@ -33,5 +34,5 @@
  "sequence_id": 26.0,
  "shortcuts": [],
  "title": "Tasks",
- "type": "Workspace"
+ "type": "Link"
 }
