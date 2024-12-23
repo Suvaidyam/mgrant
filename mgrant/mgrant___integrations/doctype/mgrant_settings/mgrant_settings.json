@@ -7,6 +7,7 @@
  "field_order": [
   "year_type",
   "latter_head",
+  "letter_head",
   "allow_overutilization",
   "allow_subgranting"
  ],
@@ -37,13 +38,19 @@
    "fieldname": "allow_subgranting",
    "fieldtype": "Check",
    "label": "Allow Subgranting"
+  },
+  {
+   "fieldname": "letter_head",
+   "fieldtype": "Link",
+   "label": "Letter Head  ",
+   "options": "mGrant Letter Head"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-12-22 10:42:24.765181",
+ "modified": "2024-12-22 15:42:59.601980",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",

@@ -7,48 +7,61 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "output_name",
+  "financial_year",
   "proposal",
-  "grant",
   "kpi",
+  "grant",
+  "column_break_glel",
   "state",
   "district",
   "block",
   "gram_panchayat",
   "village",
-  "financial_year",
-  "output_name",
-  "column_break_lxhn",
+  "section_break_nnsz",
   "total_target",
-  "q1_target",
-  "apr_target",
-  "may_target",
-  "jun_target",
-  "q2_target",
-  "jul_target",
-  "aug_target",
-  "sep_target",
-  "q3_target",
-  "oct_target",
-  "nov_target",
-  "dec_target",
-  "q4_target",
-  "jan_target",
-  "feb_target",
-  "mar_target",
-  "column_break_bile",
+  "column_break_gauj",
   "total_achievement",
+  "section_break_tnka",
+  "column_break_jxov",
+  "q1_target",
+  "may_target",
+  "apr_target",
+  "jun_target",
+  "column_break_prgh",
   "q1_achievement",
   "apr_achievement",
   "may_achievement",
   "jun_achievement",
+  "section_break_djks",
+  "column_break_lxhn",
+  "q2_target",
+  "jul_target",
+  "aug_target",
+  "sep_target",
+  "column_break_ambl",
   "q2_achievement",
   "jul_achievement",
   "aug_achievement",
   "sep_achievement",
+  "section_break_unlw",
+  "column_break_ghrc",
+  "q3_target",
+  "oct_target",
+  "nov_target",
+  "dec_target",
+  "column_break_aslk",
   "q3_achievement",
   "oct_achievement",
   "nov_achievement",
   "dec_achievement",
+  "section_break_aftb",
+  "column_break_mjeu",
+  "q4_target",
+  "jan_target",
+  "feb_target",
+  "mar_target",
+  "column_break_jxlc",
   "q4_achievement",
   "jan_achievement",
   "feb_achievement",
@@ -195,10 +208,6 @@
    "fieldtype": "Int",
    "label": "Mar Target",
    "non_negative": 1
-  },
-  {
-   "fieldname": "column_break_bile",
-   "fieldtype": "Column Break"
   },
   {
    "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
@@ -376,6 +385,62 @@
    "label": "Q4 Achievement",
    "non_negative": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_glel",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_tnka",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_jxov",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_nnsz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_gauj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_djks",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_ghrc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_prgh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ambl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_unlw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_mjeu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_aslk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_aftb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_jxlc",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -386,7 +451,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2024-12-19 10:48:27.326873",
+ "modified": "2024-12-23 09:46:45.169393",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output",

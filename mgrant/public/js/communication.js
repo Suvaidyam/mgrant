@@ -114,8 +114,8 @@ style.innerHTML = `
 document.head.appendChild(style);
 var communication_list = []
 var email_wrapper = document.querySelector(`[data-fieldname="email"]`);
-async function renderEmails(email_list, frm, selector=null) {
-    if(selector != null){
+async function renderEmails(email_list, frm, selector = null) {
+    if (selector != null) {
         email_wrapper = document.querySelector(`[data-fieldname="${selector}"]`);
     }
     const formatDateGroup = (emailDate) => {
