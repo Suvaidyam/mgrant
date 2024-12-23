@@ -23,7 +23,8 @@ fixtures = [
     # 'Quarters',
     # 'Role',
     # 'Role Profile',
-    'SVADatatable Configuration',
+    # 'SVADatatable Configuration',
+    # 'Client Script',
     # 'Custom Field',
     # 'Custom HTML Block'
 ]

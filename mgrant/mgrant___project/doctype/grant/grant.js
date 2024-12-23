@@ -79,7 +79,6 @@ frappe.ui.form.on("Grant", {
                 frm.$wrapper.find("[data-fieldname='sub_grants_tab']").hide();
             }
         }
-        $('.layout-side-section').remove();
         setup_multiselect_dependency(frm, 'District', 'states', 'state', 'districts', 'state');
         setup_multiselect_dependency(frm, 'Block', 'districts', 'district', 'blocks', 'district');
         setup_multiselect_dependency(frm, 'Village', 'blocks', 'block', 'villages', 'block');
