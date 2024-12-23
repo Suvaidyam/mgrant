@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{grant}",
  "creation": "2024-12-19 12:46:51.952177",
  "default_view": "List",
  "doctype": "DocType",
@@ -9,8 +10,7 @@
   "grant",
   "year_type",
   "letter_head",
-  "allow_overutilization",
-  "allow_subgranting"
+  "allow_overutilization"
  ],
  "fields": [
   {
@@ -36,12 +36,6 @@
    "label": "Allow Overutilization"
   },
   {
-   "default": "0",
-   "fieldname": "allow_subgranting",
-   "fieldtype": "Check",
-   "label": "Allow Subgranting"
-  },
-  {
    "fieldname": "letter_head",
    "fieldtype": "Link",
    "label": "Letter Head ",
@@ -51,10 +45,11 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-22 15:41:54.941248",
+ "modified": "2024-12-23 12:00:44.157903",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings Grant Wise",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
