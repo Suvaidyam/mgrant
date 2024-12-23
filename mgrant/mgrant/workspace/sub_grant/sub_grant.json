@@ -15,7 +15,7 @@
  "label": "Sub Grant",
  "link_type": "DocType",
  "links": [],
- "modified": "2024-12-22 10:01:02.618865",
+ "modified": "2024-12-23 17:22:03.604529",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Sub Grant",
@@ -29,7 +29,17 @@
  "parent_page": "",
  "public": 1,
  "quick_lists": [],
- "roles": [],
+ "roles": [
+  {
+   "role": "Administrator"
+  },
+  {
+   "role": "NGO Admin"
+  },
+  {
+   "role": "Partner NGO"
+  }
+ ],
  "sequence_id": 3.0,
  "shortcuts": [],
  "title": "Sub Grant",
