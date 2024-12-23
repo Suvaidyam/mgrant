@@ -23,30 +23,25 @@ let MGRANT_SETTINGS;
 
 frappe.ui.form.on("Grant", {
     async refresh(frm) {
-        if (!frm.doc.__islocal) {
-            if (!MGRANT_SETTINGS) {
-                if (await frappe.db.exists('mGrant Settings Grant Wise', frm.doc.name)) {
-                    MGRANT_SETTINGS = await frappe.db.get_doc('mGrant Settings Grant Wise', frm.doc.name);
-                } else {
-                    MGRANT_SETTINGS = await frappe.db.get_doc('mGrant Settings');
-                }
-            }
-        } else {
-            if (!MGRANT_SETTINGS) {
-                MGRANT_SETTINGS = await frappe.db.get_doc('mGrant Settings');
-            }
+        if (!MGRANT_SETTINGS) {
+            MGRANT_SETTINGS = await frappe.db.get_doc('mGrant Settings');
         }
         if (MGRANT_SETTINGS) {
-            if (MGRANT_SETTINGS.allow_subgranting){
+            if (MGRANT_SETTINGS.allow_subgranting) {
                 frm.set_df_property('sub_granting_section', 'hidden', 0);
+                frm.set_df_property('total_funds_subgranted', 'hidden', 0);
+                frm.set_df_property('subgranting_status', 'hidden', 0);
+                frm.set_df_property('total_subgrant_utilisation', 'total_funds_subgranted', 0);
                 frm.$wrapper.find("[data-fieldname='sub_grants_tab']").show();
-            }else{
+            } else {
                 frm.set_df_property('sub_granting_section', 'hidden', 1);
-                frm.set_df_property('sub_grants_tab', 'depends_on', 1);
+                frm.set_df_property('total_funds_subgranted', 'hidden', 1);
+                frm.set_df_property('subgranting_status', 'hidden', 1);
+                frm.set_df_property('total_subgrant_utilisation', 'hidden', 1);
                 frm.$wrapper.find("[data-fieldname='sub_grants_tab']").hide();
             }
         }
-        $('.layout-side-section').remove()
+        $('.layout-side-section').remove();
         setup_multiselect_dependency(frm, 'District', 'states', 'state', 'districts', 'state');
         setup_multiselect_dependency(frm, 'Block', 'districts', 'district', 'blocks', 'district');
         setup_multiselect_dependency(frm, 'Village', 'blocks', 'block', 'villages', 'block');

@@ -391,10 +391,12 @@
   },
   {
    "default": "Sub-granting Inactive",
+   "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
    "fieldname": "subgranting_status",
    "fieldtype": "Select",
    "label": "Sub-granting Status",
-   "options": "Sub-granting Inactive\nSub-granting Active"
+   "options": "Sub-granting Inactive\nSub-granting Active",
+   "read_only": 1
   },
   {
    "fieldname": "grant_agreement_mou",
@@ -545,6 +547,7 @@
    "fieldname": "parent_grant",
    "fieldtype": "Link",
    "label": "Parent Grant",
+   "link_filters": "[[\"Grant\",\"implementation_type\",\"=\",\"Self Implementation\"]]",
    "mandatory_depends_on": "eval:doc.implementation_type == \"Sub Grant\"",
    "options": "Grant",
    "set_only_once": 1
@@ -588,7 +591,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-23 10:51:41.213497",
+ "modified": "2024-12-23 12:57:04.809622",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
