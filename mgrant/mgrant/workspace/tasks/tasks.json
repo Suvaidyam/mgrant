@@ -21,7 +21,7 @@
  "link_to": "mGrant Task",
  "link_type": "DocType",
  "links": [],
- "modified": "2024-12-23 17:21:49.063826",
+ "modified": "2024-12-23 17:33:08.123520",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Tasks",
@@ -36,9 +36,6 @@
   },
   {
    "role": "NGO Admin"
-  },
-  {
-   "role": "Partner NGO"
   }
  ],
  "sequence_id": 8.0,
