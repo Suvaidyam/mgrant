@@ -417,7 +417,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-12-05 11:36:50.775328",
+ "modified": "2024-12-23 16:35:20.947406",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
@@ -434,6 +434,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   },
   {
@@ -446,6 +447,7 @@
    "report": 1,
    "role": "Admin",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

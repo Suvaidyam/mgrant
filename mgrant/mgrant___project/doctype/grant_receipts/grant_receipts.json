@@ -98,7 +98,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-23 10:06:29.936468",
+ "modified": "2024-12-23 18:24:47.696988",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant Receipts",
@@ -125,7 +125,20 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Admin",
+   "role": "NGO Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Partner NGO",
+   "select": 1,
    "share": 1,
    "write": 1
   }

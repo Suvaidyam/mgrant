@@ -1,25 +1,25 @@
 {
  "app": "mgrant",
  "charts": [],
- "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Gallery.\"}}]",
- "creation": "2024-12-10 13:29:32.892736",
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"mGrant Users\"}}]",
+ "creation": "2024-12-23 17:17:49.354328",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "image",
+ "icon": "share",
  "idx": 0,
  "indicator_color": "green",
  "is_hidden": 0,
- "label": "Gallery.",
- "link_to": "File",
+ "label": "mGrant Users",
+ "link_to": "SVA User",
  "link_type": "DocType",
  "links": [],
- "modified": "2024-12-23 17:33:02.867621",
+ "modified": "2024-12-23 17:21:19.558927",
  "modified_by": "Administrator",
  "module": "Mgrant",
- "name": "Gallery.",
+ "name": "mGrant Users",
  "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
@@ -27,14 +27,14 @@
  "quick_lists": [],
  "roles": [
   {
-   "role": "Administrator"
+   "role": "NGO Admin"
   },
   {
-   "role": "NGO Admin"
+   "role": "Administrator"
   }
  ],
- "sequence_id": 7.0,
+ "sequence_id": 9.0,
  "shortcuts": [],
- "title": "Gallery.",
+ "title": "mGrant Users",
  "type": "Link"
 }
