@@ -20,7 +20,7 @@ function getMonthDifference(startDate, endDate) {
 }
 
 const mgrantSettings = (frm) => {
-    frm.add_custom_button(__('Settings Grant'), async () => {
+    frm.add_custom_button(__('Grant Settings'), async () => {
         let meta = await frappe.call('frappe_theme.api.get_meta_fields', { doctype: "mGrant Settings Grant Wise" });
         let settings_doc = await frappe.db.get_doc('mGrant Settings Grant Wise', frm.doc.name);
         let fields = meta.message.map((field) => {
