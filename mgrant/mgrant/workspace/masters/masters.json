@@ -14,7 +14,7 @@
  "is_hidden": 0,
  "label": "Masters",
  "links": [],
- "modified": "2024-12-04 10:15:25.781754",
+ "modified": "2024-12-23 17:28:23.291956",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Masters",
@@ -94,16 +94,13 @@
  "quick_lists": [],
  "roles": [
   {
-   "role": "Admin"
-  },
-  {
-   "role": "System Manager"
-  },
-  {
    "role": "Administrator"
+  },
+  {
+   "role": "NGO Admin"
   }
  ],
- "sequence_id": 4.0,
+ "sequence_id": 5.0,
  "shortcuts": [],
  "title": "Masters",
  "type": "Workspace"

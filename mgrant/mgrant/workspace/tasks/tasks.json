@@ -21,7 +21,7 @@
  "link_to": "mGrant Task",
  "link_type": "DocType",
  "links": [],
- "modified": "2024-12-22 13:38:18.343348",
+ "modified": "2024-12-23 17:21:49.063826",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Tasks",
@@ -30,8 +30,18 @@
  "parent_page": "",
  "public": 1,
  "quick_lists": [],
- "roles": [],
- "sequence_id": 26.0,
+ "roles": [
+  {
+   "role": "Administrator"
+  },
+  {
+   "role": "NGO Admin"
+  },
+  {
+   "role": "Partner NGO"
+  }
+ ],
+ "sequence_id": 8.0,
  "shortcuts": [],
  "title": "Tasks",
  "type": "Link"
