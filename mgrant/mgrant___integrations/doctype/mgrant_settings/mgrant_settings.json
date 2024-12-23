@@ -5,6 +5,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "module",
   "year_type",
   "letter_head",
   "allow_overutilization",
@@ -37,13 +38,21 @@
    "fieldtype": "Link",
    "label": "Letter Head",
    "options": "mGrant Letter Head"
+  },
+  {
+   "fieldname": "module",
+   "fieldtype": "Select",
+   "label": "Module",
+   "options": "NGO\nDonor",
+   "reqd": 1,
+   "set_only_once": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-12-23 11:13:27.763999",
+ "modified": "2024-12-23 16:16:44.323614",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",
