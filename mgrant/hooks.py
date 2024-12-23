@@ -23,9 +23,9 @@ fixtures = [
     # 'Quarters',
     # 'Role',
     # 'Role Profile',
-    # 'SVADatatable Configuration',
+    'SVADatatable Configuration',
     # 'Custom Field',
-    'Custom HTML Block'
+    # 'Custom HTML Block'
 ]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"

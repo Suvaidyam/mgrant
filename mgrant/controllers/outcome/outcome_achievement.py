@@ -7,6 +7,7 @@ def outcome_ach_on_update(self):
         "Outcome Achievement",
         filters={"outcome": self.outcome},
         fields=["achievement", "as_on_date", "outcome"],
+        limit_page_length=1000,
         ignore_permissions=True
     )
     month_achievements = {
@@ -31,6 +32,7 @@ def outcome_ach_on_trash(self):
         "Outcome Achievement",
         filters={"outcome": self.outcome, 'name': ['!=', self.name]},
         fields=["achievement", "as_on_date", "outcome"],
+        limit_page_length=1000,
         ignore_permissions=True
     )
     month_achievements = {

@@ -86,7 +86,8 @@
    "fieldname": "total_funds_received",
    "fieldtype": "Currency",
    "label": "Total Funds Received",
-   "non_negative": 1
+   "non_negative": 1,
+   "read_only": 1
   },
   {
    "fieldname": "total_funds_planned",
@@ -97,7 +98,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-04 13:16:20.842283",
+ "modified": "2024-12-23 10:06:29.936468",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant Receipts",

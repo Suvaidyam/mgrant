@@ -7,6 +7,7 @@ def input_ach_on_update(self):
         "Input Achievement",
         filters={"input": self.input},
         fields=["achievement", "as_on_date", "input"],
+        limit_page_length=1000,
         ignore_permissions=True
     )
     month_achievements = {
@@ -31,6 +32,7 @@ def input_ach_on_trash(self):
         "Input Achievement",
         filters={"input": self.input, 'name': ['!=', self.name]},
         fields=["achievement", "as_on_date", "input"],
+        limit_page_length=1000,
         ignore_permissions=True
     )
     month_achievements = {
