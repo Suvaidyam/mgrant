@@ -436,7 +436,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2024-12-23 09:51:40.347661",
+ "modified": "2024-12-23 18:10:13.947425",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact",
@@ -463,7 +463,19 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Admin",
+   "role": "NGO Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Partner NGO",
    "share": 1,
    "write": 1
   }

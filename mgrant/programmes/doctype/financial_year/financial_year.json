@@ -22,7 +22,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-17 17:16:49.019461",
+ "modified": "2024-12-23 18:04:10.294558",
  "modified_by": "Administrator",
  "module": "Programmes",
  "name": "Financial Year",
@@ -49,9 +49,31 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Admin",
+   "role": "NGO Admin",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Partner NGO",
+   "select": 1,
+   "share": 1
   }
  ],
  "show_title_field_in_link": 1,

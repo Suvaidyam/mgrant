@@ -30,7 +30,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-02 16:02:00.847195",
+ "modified": "2024-12-23 18:18:27.296688",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Bank",
@@ -48,6 +48,29 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "NGO Admin",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Partner NGO",
+   "select": 1,
+   "share": 1
   }
  ],
  "sort_field": "creation",

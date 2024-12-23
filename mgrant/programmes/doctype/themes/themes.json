@@ -42,7 +42,7 @@
    "link_fieldname": "theme"
   }
  ],
- "modified": "2024-12-10 15:23:29.386492",
+ "modified": "2024-12-23 18:03:09.691548",
  "modified_by": "Administrator",
  "module": "Programmes",
  "name": "Themes",
@@ -58,6 +58,7 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "select": 1,
    "share": 1,
    "write": 1
   },
@@ -69,9 +70,20 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Admin",
+   "role": "NGO Admin",
+   "select": 1,
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Partner NGO",
+   "select": 1,
+   "share": 1
   }
  ],
  "show_title_field_in_link": 1,
