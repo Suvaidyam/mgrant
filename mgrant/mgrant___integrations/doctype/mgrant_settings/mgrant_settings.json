@@ -7,6 +7,7 @@
  "field_order": [
   "module",
   "year_type",
+  "primary_ngo",
   "letter_head",
   "allow_overutilization",
   "allow_subgranting"
@@ -19,7 +20,8 @@
    "in_list_view": 1,
    "label": "Year Type",
    "options": "Financial Year\nCalendar Year",
-   "reqd": 1
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
    "default": "0",
@@ -46,13 +48,20 @@
    "options": "NGO\nDonor",
    "reqd": 1,
    "set_only_once": 1
+  },
+  {
+   "fieldname": "primary_ngo",
+   "fieldtype": "Link",
+   "label": "Primary NGO",
+   "options": "NGO",
+   "set_only_once": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-12-23 16:16:44.323614",
+ "modified": "2024-12-23 17:52:12.192576",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",
