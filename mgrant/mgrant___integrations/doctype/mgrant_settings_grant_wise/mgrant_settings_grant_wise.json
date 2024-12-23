@@ -1,13 +1,13 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{grant}",
+ "autoname": "field:grant_name",
  "creation": "2024-12-19 12:46:51.952177",
  "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "grant",
+  "grant_name",
   "year_type",
   "letter_head",
   "allow_overutilization"
@@ -23,13 +23,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "grant",
-   "fieldtype": "Link",
-   "label": "Grant",
-   "options": "Grant",
-   "reqd": 1
-  },
-  {
    "default": "0",
    "fieldname": "allow_overutilization",
    "fieldtype": "Check",
@@ -40,16 +33,24 @@
    "fieldtype": "Link",
    "label": "Letter Head ",
    "options": "mGrant Letter Head"
+  },
+  {
+   "fieldname": "grant_name",
+   "fieldtype": "Link",
+   "label": "Grant",
+   "options": "Grant",
+   "reqd": 1,
+   "unique": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-23 12:00:44.157903",
+ "modified": "2024-12-23 12:06:05.144211",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings Grant Wise",
- "naming_rule": "Expression",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
