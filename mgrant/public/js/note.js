@@ -129,7 +129,7 @@ async function get_note_list(frm, selector) {
                     ${['Today', 'Yesterday', 'Older'].map(group =>
         groupedData[group].length > 0 ? `
                         <div class="note-group">
-                        <h5>${group}</h5>
+                        <p class="mt-1 text-sm">${group}</p>
                         ${groupedData[group].map(note => `
                             <div class="title-body">
                             <div class="table-list" title=${note.title} data-table="${note.name}">
