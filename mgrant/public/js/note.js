@@ -64,14 +64,11 @@ async function get_note_list(frm, selector) {
             color: white; 
             border: none; 
             border-radius: 8px; 
-            padding: 5px 14px;
+            padding: 4px 8px;
             font-size: 14px;
             cursor: pointer;
+            margin-bottom:-6px;
             transition: background-color 0.3s, transform 0.2s;
-        }
-        .note-button:hover {
-            background-color: black;
-            transform: scale(1.05);
         }
         #default-message{
             height:100%;
@@ -191,10 +188,12 @@ async function get_note_list(frm, selector) {
                     if (f?.fieldname === 'reference_doctype') {
                         f.default = frm.doc.doctype
                         f.read_only = 1
+                        f.hidden = 1;
                     }
                     if (f?.fieldname === 'related_to') {
                         f.default = frm.doc.name
                         f.read_only = 1
+                        f.hidden = 1;
                     }
                     return f;
                 })
@@ -298,10 +297,9 @@ async function get_note_list(frm, selector) {
             event.stopPropagation();
             const doc_name = this.closest('#action_icon').getAttribute('note_id');
 
-            // Show confirmation dialog
             frappe.confirm(
-                'Are you sure you want to delete this Note?', // The confirmation message
-                () => { // If user clicks 'Yes'
+                'Are you sure you want to delete this Note?',
+                () => {
                     frappe.db.delete_doc('mGrant Note', doc_name)
                         .then(async response => {
                             frappe.show_alert({ message: 'Note Delete successfully', indicator: 'green' });
@@ -311,7 +309,7 @@ async function get_note_list(frm, selector) {
                             console.error("Error deleting document", error);
                         });
                 },
-                () => { // If user clicks 'No'
+                () => {
                     console.log('Document deletion canceled');
                 }
             );
