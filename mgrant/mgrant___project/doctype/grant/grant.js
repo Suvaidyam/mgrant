@@ -23,6 +23,40 @@ let MGRANT_SETTINGS;
 
 frappe.ui.form.on("Grant", {
     async refresh(frm) {
+        if (!frm.is_new()) {
+            frm.add_custom_button(__('Settings Grant'), async () => {
+                let meta = await frappe.call('frappe_theme.api.get_meta_fields', { doctype: "mGrant Settings Grant Wise" });
+                let settings_doc = await frappe.db.get_doc('mGrant Settings Grant Wise', frm.doc.name);
+                let fields = meta.message.map((field) => {
+                    if (field.fieldname == 'grant_name') {
+                        field.default = frm.doc.name;
+                        field.read_only = 1;
+                    }
+                    if (settings_doc[field.fieldname]) {
+                        field.default = settings_doc[field.fieldname];
+                    }
+                    return field;
+                });
+                let setting_dialog = new frappe.ui.Dialog({
+                    title: __("Grant Settings"),
+                    fields: fields,
+                    primary_action_label: __("Save"),
+                    primary_action: async () => {
+                        let values = setting_dialog.get_values();
+                        if (!values) return setting_dialog.hide();
+                        let response = await frappe.xcall('frappe.client.set_value', { doctype: 'mGrant Settings Grant Wise', name: frm.doc.name, fieldname: values });
+                        if (response) {
+                            frappe.show_alert({
+                                message: __('Settings Saved'),
+                                indicator: 'green'
+                            });
+                        }
+                        setting_dialog.hide();
+                    }
+                });
+                setting_dialog.show();
+            });
+        }
         if (!MGRANT_SETTINGS) {
             MGRANT_SETTINGS = await frappe.db.get_doc('mGrant Settings');
         }
