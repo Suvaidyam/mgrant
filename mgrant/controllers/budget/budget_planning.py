@@ -3,8 +3,15 @@ import frappe
 def budget_validate(self):
     self.total_planned_budget = float(self.get('q1_planned_budget') or 0) + float(self.get('q2_planned_budget') or 0) + float(self.get('q3_planned_budget') or 0) + float(self.get('q4_planned_budget') or 0)
     self.total_utilisation = float(self.get('q1_utilisation') or 0) + float(self.get('q2_utilisation') or 0) + float(self.get('q3_utilisation') or 0) + float(self.get('q4_utilisation') or 0)
-    if self.total_utilisation > self.total_planned_budget:
-       return frappe.throw("Total Utilisation can't be greater than Total Planned Buget.")
+    mgrant_settings = None
+    if not mgrant_settings:
+        if frappe.db.exists("mGrant Settings Grant Wise", self.grant):
+            mgrant_settings = frappe.get_doc("mGrant Settings Grant Wise", self.grant)
+        else:
+            mgrant_settings = frappe.get_doc("mGrant Settings", "mGrant Settings")
+    if not mgrant_settings or not mgrant_settings.allow_overutilization:
+        if self.total_utilisation > self.total_planned_budget:
+            return frappe.throw("Total Utilisation can't be greater than Total Planned Buget.")
         
 def budget_on_update(self):
     if self.grant:
