@@ -7,6 +7,7 @@ def impact_ach_on_update(self):
         "Impact Achievement",
         filters={"impact": self.impact},
         fields=["achievement", "as_on_date", "impact"],
+        limit_page_length=1000,
         ignore_permissions=True
     )
     month_achievements = {
@@ -31,6 +32,7 @@ def impact_ach_on_trash(self):
         "Impact Achievement",
         filters={"impact": self.impact, 'name': ['!=', self.name]},
         fields=["achievement", "as_on_date", "impact"],
+        limit_page_length=1000,
         ignore_permissions=True
     )
     month_achievements = {
