@@ -32,8 +32,9 @@ const taskList = (task_list, selector) => {
         });
     };
     if (task_list.length == 0) {
+        $('#parent-view').css('height', '75vh');
         $('#parent-view').html(`
-            <div class=" d-flex justify-content-center align-items-center flex-wrap ">
+            <div class="h-100 d-flex justify-content-center align-items-center flex-wrap ">
                 <h4 class="">No tasks found</h4>
             </div> `
         );
@@ -52,7 +53,7 @@ const taskList = (task_list, selector) => {
                         max-width: 320px !important;
                     }
                 </style>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+                <div style="height: 80vh;" class="col-lg-4 col-md-6 col-sm-12 mb-2">
                     <div class="card border-light shadow-sm" style="padding: 16px;">
                         <!-- Task Header -->
                         <div class="d-flex justify-content-between align-items-center">
