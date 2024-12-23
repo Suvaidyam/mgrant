@@ -29,13 +29,19 @@ frappe.ui.form.on("Grant", {
         if (MGRANT_SETTINGS) {
             if (MGRANT_SETTINGS.allow_subgranting) {
                 frm.set_df_property('sub_granting_section', 'hidden', 0);
+                frm.set_df_property('total_funds_subgranted', 'hidden', 0);
+                frm.set_df_property('subgranting_status', 'hidden', 0);
+                frm.set_df_property('total_subgrant_utilisation', 'total_funds_subgranted', 0);
                 frm.$wrapper.find("[data-fieldname='sub_grants_tab']").show();
             } else {
                 frm.set_df_property('sub_granting_section', 'hidden', 1);
+                frm.set_df_property('total_funds_subgranted', 'hidden', 1);
+                frm.set_df_property('subgranting_status', 'hidden', 1);
+                frm.set_df_property('total_subgrant_utilisation', 'hidden', 1);
                 frm.$wrapper.find("[data-fieldname='sub_grants_tab']").hide();
             }
         }
-        $('.layout-side-section').remove()
+        $('.layout-side-section').remove();
         setup_multiselect_dependency(frm, 'District', 'states', 'state', 'districts', 'state');
         setup_multiselect_dependency(frm, 'Block', 'districts', 'district', 'blocks', 'district');
         setup_multiselect_dependency(frm, 'Village', 'blocks', 'block', 'villages', 'block');
