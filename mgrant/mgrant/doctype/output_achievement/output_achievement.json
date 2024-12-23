@@ -66,7 +66,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-04 13:27:57.110552",
+ "modified": "2024-12-23 18:09:48.246522",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output Achievement",
@@ -93,7 +93,21 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Admin",
+   "role": "NGO Admin",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Partner NGO",
+   "select": 1,
    "share": 1,
    "write": 1
   }
