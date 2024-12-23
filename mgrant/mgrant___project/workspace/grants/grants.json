@@ -14,7 +14,7 @@
  "is_hidden": 0,
  "label": "Grants",
  "links": [],
- "modified": "2024-12-04 10:14:37.567844",
+ "modified": "2024-12-23 17:32:01.511472",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grants",
@@ -30,13 +30,10 @@
  "quick_lists": [],
  "roles": [
   {
-   "role": "Admin"
-  },
-  {
    "role": "Administrator"
   },
   {
-   "role": "System Manager"
+   "role": "NGO Admin"
   }
  ],
  "sequence_id": 2.0,

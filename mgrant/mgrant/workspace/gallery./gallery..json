@@ -16,7 +16,7 @@
  "link_to": "File",
  "link_type": "DocType",
  "links": [],
- "modified": "2024-12-23 17:26:51.693416",
+ "modified": "2024-12-23 17:33:02.867621",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Gallery.",
@@ -31,9 +31,6 @@
   },
   {
    "role": "NGO Admin"
-  },
-  {
-   "role": "Partner NGO"
   }
  ],
  "sequence_id": 7.0,
