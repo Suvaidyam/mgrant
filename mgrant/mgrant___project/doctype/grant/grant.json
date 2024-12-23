@@ -90,7 +90,9 @@
   "sub_grants_tab",
   "sub_grants",
   "notes_tab",
-  "notes"
+  "notes",
+  "comments_tab",
+  "comments"
  ],
  "fields": [
   {
@@ -562,11 +564,20 @@
   {
    "fieldname": "sub_granting_section",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "comments_tab",
+   "fieldtype": "Tab Break",
+   "label": "Comments"
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "HTML"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-22 12:44:05.185325",
+ "modified": "2024-12-22 19:06:03.014128",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
