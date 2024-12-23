@@ -314,11 +314,12 @@
    "options": "Themes Child"
   },
   {
+   "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
    "fieldname": "donor",
    "fieldtype": "Link",
    "label": "Donor",
+   "mandatory_depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
    "options": "Donor",
-   "reqd": 1,
    "search_index": 1
   },
   {
@@ -591,7 +592,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-23 12:57:04.809622",
+ "modified": "2024-12-23 16:04:24.590877",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
