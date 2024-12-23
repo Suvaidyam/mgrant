@@ -100,8 +100,10 @@ const append_gallery_styles = () => {
 
 const renderCardView = (files) => {
     return `
-            <div class="row mt-3" style="font-size:16px !important;">
-            ${files.map(file => {
+            <div class="row mt-3" style ="hight:100vh !important;"style="font-size:16px !important;">
+                ${files.length > 0 ? `
+                    
+                    ${files.map(file => {
         let extention = file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)[1].toLowerCase();
         return `
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
@@ -109,15 +111,15 @@ const renderCardView = (files) => {
                         <div class="card gallery image-container">
                             <div class="image-card">
                                 ${(['pdf', 'doc', 'docx', 'xls', 'xlsx', 'csv', 'ppt', 'pptx', 'txt', 'rtf', 'odt', 'ods'].includes(extention)) ?
-                                    `<img src="/assets/mgrant/images/pdf-plchldr.png" style="object-fit: contain;" class="card-img-top">`
-                                    :
-                                    (['mp4', 'webm', 'mkv', 'mp3', '3gp', 'avi', 'mov', 'flv', 'wmv', 'm4v'].includes(extention)) ?
-                                        `<img src="/assets/mgrant/images/video-plchldr.png" style="object-fit: contain;" class="card-img-top">`
-                                        :
-                                        (['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg', 'webp', 'tiff'].includes(extention)) ?
-                                            `<img src="${file.image}" class="card-img-top" alt="${file.title}">`
-                                            :
-                                            `<img src="/assets/mgrant/images/default-plchldr.png" style="object-fit: contain;" class="card-img-top">`}
+                `<img src="/assets/mgrant/images/pdf-plchldr.png" style="object-fit: contain;" class="card-img-top">`
+                :
+                (['mp4', 'webm', 'mkv', 'mp3', '3gp', 'avi', 'mov', 'flv', 'wmv', 'm4v'].includes(extention)) ?
+                    `<img src="/assets/mgrant/images/video-plchldr.png" style="object-fit: contain;" class="card-img-top">`
+                    :
+                    (['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg', 'webp', 'tiff'].includes(extention)) ?
+                        `<img src="${file.image}" class="card-img-top" alt="${file.title}">`
+                        :
+                        `<img src="/assets/mgrant/images/default-plchldr.png" style="object-fit: contain;" class="card-img-top">`}
                             </div>
                             <div class="image-cover">
                                 <div class="cover-header">
@@ -149,7 +151,9 @@ const renderCardView = (files) => {
                             </p>
                         <p class="card-text px-2" style="font-weight: 400; margin: 0px 0px 5px 0px; color: #6E7073; font-size: 10px">${getFormattedDate(file.creation)}</p>
                     </div>
-                `}).join('')}
+                `}).join('')}`
+
+            : `<p style="width: 100%; height: 75vh; display: flex; align-items: center; justify-content: center;">No Data Found</p>`}
                 </div>
             `;
 }
@@ -187,7 +191,8 @@ const renderHeader = (files, view) => {
 }
 const renderListView = (files) => {
     return `
-            <div class="table-responsive">
+           ${files.length > 0 ? `
+             <div class="table-responsive">
             <table class="table table-bordered mt-3">
             <thead>
             <tr>
@@ -200,23 +205,23 @@ const renderListView = (files) => {
             </thead>
             <tbody>
             ${files.map(file => {
-                let extention = file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)[1].toLowerCase();
-                return `
+        let extention = file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)[1].toLowerCase();
+        return `
                     <tr>
                         <td><input type="checkbox" class="toggleCheckbox" data-id="${file.name}" style="width: 20px !important; height: 20px !important;"></td>
                         <td>${file.title}</td>
                         <td style="min-width:100px;">${getFormattedDate(file.creation)}</td>
                         <td>
                             ${(['pdf', 'doc', 'docx', 'xls', 'xlsx', 'csv', 'ppt', 'pptx', 'txt', 'rtf', 'odt', 'ods'].includes(extention)) ?
-                                `<img src="/assets/mgrant/images/pdf-plchldr.png" style="object-fit: contain;width: 32px; max-height: 27px !important; border-radius: 4px;" class="card-img-top">`
-                                :
-                                (['mp4', 'webm', 'mkv', 'mp3', '3gp', 'avi', 'mov', 'flv', 'wmv', 'm4v'].includes(extention)) ?
-                                    `<img src="/assets/mgrant/images/video-plchldr.png" style="object-fit: contain;width: 32px; max-height: 27px !important; border-radius: 4px;" class="card-img-top">`
-                                    :
-                                    (['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg', 'webp', 'tiff'].includes(extention)) ?
-                                        `<img src="${file.image}" style="width: 32px; max-height: 27px !important; border-radius: 4px; object:cover;" alt="${file.title}">`
-                                        :
-                                        `<img src="/assets/mgrant/images/default-plchldr.png" style="object-fit: contain;width: 32px; max-height: 27px !important; border-radius: 4px;" class="card-img-top">`}
+                `<img src="/assets/mgrant/images/pdf-plchldr.png" style="object-fit: contain;width: 32px; max-height: 27px !important; border-radius: 4px;" class="card-img-top">`
+                :
+                (['mp4', 'webm', 'mkv', 'mp3', '3gp', 'avi', 'mov', 'flv', 'wmv', 'm4v'].includes(extention)) ?
+                    `<img src="/assets/mgrant/images/video-plchldr.png" style="object-fit: contain;width: 32px; max-height: 27px !important; border-radius: 4px;" class="card-img-top">`
+                    :
+                    (['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg', 'webp', 'tiff'].includes(extention)) ?
+                        `<img src="${file.image}" style="width: 32px; max-height: 27px !important; border-radius: 4px; object:cover;" alt="${file.title}">`
+                        :
+                        `<img src="/assets/mgrant/images/default-plchldr.png" style="object-fit: contain;width: 32px; max-height: 27px !important; border-radius: 4px;" class="card-img-top">`}
                         </td>
                         <td>
                             <div class="dropdown">
@@ -234,6 +239,7 @@ const renderListView = (files) => {
                 </tbody>
                 </table>
                 </div>
+            ` : `<p style="width: 100%; height: 75vh; display: flex; align-items: center; justify-content: center;">No Data Found</p>`}
                 `;
 }
 
@@ -285,8 +291,11 @@ const renderForm = async (frm, mode, view, fileId = null) => {
 const updateGallery = (frm, files, view) => {
     if (view === 'Card') {
         galleryWrapper.querySelector('#gallery-body').innerHTML = renderCardView(files);
+        galleryWrapper.querySelector('#gallery-body').style.height = '75vh';
+
     } else {
         galleryWrapper.querySelector('#gallery-body').innerHTML = renderListView(files);
+        galleryWrapper.querySelector('#gallery-body').style.height = '75vh';
     }
 
     $('.delete-btn').on('click', async function () {

@@ -1,4 +1,3 @@
-let note_list = []
 async function get_note_list(frm, selector) {
     const response = await frappe.call({
         method: 'frappe.client.get_list',
@@ -10,6 +9,17 @@ async function get_note_list(frm, selector) {
         },
     });
     note_list = response.message;
+    const today = new Date(), yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+    const formatDate = date => new Date(date).toISOString().split('T')[0];
+    const groupedData = { Today: [], Yesterday: [], Older: [] };
+    note_list.forEach(note => {
+        const creationDate = formatDate(note.creation);
+        creationDate === formatDate(today) ? groupedData.Today.unshift(note) :
+            creationDate === formatDate(yesterday) ? groupedData.Yesterday.push(note) :
+                groupedData.Older.push(note);
+    });
+
     document.querySelector(`[data-fieldname="${selector}"]`).innerHTML = `
     <style>
         * {
@@ -18,7 +28,6 @@ async function get_note_list(frm, selector) {
         }
         .sidebar {
             width: 25%;
-            // min-width: 380px;
             height: 80vh;
             padding: 5px;
             border-right: 1px solid #ddd;
@@ -64,14 +73,11 @@ async function get_note_list(frm, selector) {
             color: white; 
             border: none; 
             border-radius: 8px; 
-            padding: 5px 14px;
+            padding: 4px 8px;
             font-size: 14px;
             cursor: pointer;
+            margin-bottom:-6px;
             transition: background-color 0.3s, transform 0.2s;
-        }
-        .note-button:hover {
-            background-color: black;
-            transform: scale(1.05);
         }
         #default-message{
             height:100%;
@@ -117,30 +123,36 @@ async function get_note_list(frm, selector) {
                 <button class="note-button" id="add_note">Add Note</button>
             </div>
             <div class="title_links">
-            ${note_list?.length == 0 ? `
+                ${groupedData.Today.length === 0 && groupedData.Yesterday.length === 0 && groupedData.Older.length === 0 ? `
                     <div class="note_message">Notes Not Found</div>
-                    ` : `
-                    ${note_list?.map((note) => `
-                        <div class="title-body">
-                            <div class="table-list" data-table=${note?.name}>
-                                <div class='table_item'>
-                                    <div class="avatar" style="width: 24px; height: 24px; border-radius: 50%; background-color: #3f51b5; color: #fff; display: flex; justify-content: center; align-items: center;">
-                                        ${note?.title[0]?.toUpperCase()}
-                                    </div>
-                                    <div class="text-truncate" style="max-width: 300px;">${note?.title}</div>
+                ` : `
+                    ${['Today', 'Yesterday', 'Older'].map(group =>
+        groupedData[group].length > 0 ? `
+                        <div class="note-group">
+                        <p class="mt-1 text-sm">${group}</p>
+                        ${groupedData[group].map(note => `
+                            <div class="title-body">
+                            <div class="table-list" title=${note.title} data-table="${note.name}">
+                                <div class="table_item">
+                                <div class="avatar" style="width: 24px; height: 24px; border-radius: 50%; background-color: #3f51b5; color: #fff; display: flex; justify-content: center; align-items: center;">
+                                    ${note.title[0]?.toUpperCase()}
                                 </div>
+                                <div class="text-truncate" style="max-width: 280px;">${note.title}</div>
                                 </div>
-                                <div id="action_icon" class="dropdown mt-2" note_id=${note.name}>
-                                        <i class="fa fa-ellipsis-v btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:20px"></i>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" id="edit_note" href="#">Edit</a>
-                                                <a class="dropdown-item" id="delete_note" href="#">Delete</a>
-                                            </div>
+                            </div>
+                            <div id="action_icon" class="dropdown mt-2" note_id="${note.name}">
+                                <i class="fa fa-ellipsis-v btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:20px"></i>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" id="edit_note" href="#">Edit</a>
+                                <a class="dropdown-item" id="delete_note" href="#">Delete</a>
                                 </div>
+                            </div>
+                            </div>
+                        `).join('')}
                         </div>
-                    `).join('')
-        }
-                    `}
+                    ` : ''
+    ).join('')}
+                `}
             </div>
         </div>
 
@@ -168,7 +180,6 @@ async function get_note_list(frm, selector) {
         const defaultMessage = document.getElementById('default-message');
         dynamicContent.style.display = 'block';
         defaultMessage.style.display = 'none';
-
         dynamicContent.innerHTML = `
         ${note_list?.filter(note => note.name === tableId).map(note => `
                 <div class="note">
@@ -191,10 +202,12 @@ async function get_note_list(frm, selector) {
                     if (f?.fieldname === 'reference_doctype') {
                         f.default = frm.doc.doctype
                         f.read_only = 1
+                        f.hidden = 1;
                     }
                     if (f?.fieldname === 'related_to') {
                         f.default = frm.doc.name
                         f.read_only = 1
+                        f.hidden = 1;
                     }
                     return f;
                 })
@@ -298,10 +311,9 @@ async function get_note_list(frm, selector) {
             event.stopPropagation();
             const doc_name = this.closest('#action_icon').getAttribute('note_id');
 
-            // Show confirmation dialog
             frappe.confirm(
-                'Are you sure you want to delete this Note?', // The confirmation message
-                () => { // If user clicks 'Yes'
+                'Are you sure you want to delete this Note?',
+                () => {
                     frappe.db.delete_doc('mGrant Note', doc_name)
                         .then(async response => {
                             frappe.show_alert({ message: 'Note Delete successfully', indicator: 'green' });
@@ -311,7 +323,7 @@ async function get_note_list(frm, selector) {
                             console.error("Error deleting document", error);
                         });
                 },
-                () => { // If user clicks 'No'
+                () => {
                     console.log('Document deletion canceled');
                 }
             );

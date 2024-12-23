@@ -1,0 +1,56 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-12-23 15:44:03.604128",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "comment",
+  "reference_doctype",
+  "related_to"
+ ],
+ "fields": [
+  {
+   "fieldname": "comment",
+   "fieldtype": "Small Text",
+   "label": "Comment"
+  },
+  {
+   "fieldname": "related_to",
+   "fieldtype": "Dynamic Link",
+   "label": "Related To",
+   "options": "reference_doctype"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Reference Doctype",
+   "options": "DocType"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-12-23 16:58:28.335780",
+ "modified_by": "Administrator",
+ "module": "mGrant - Master",
+ "name": "mGrant Comment",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
