@@ -22,7 +22,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-17 17:18:08.897209",
+ "modified": "2024-12-24 16:14:31.670013",
  "modified_by": "Administrator",
  "module": "KPIs",
  "name": "Units",
@@ -49,7 +49,8 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Admin",
+   "role": "NGO Admin",
+   "select": 1,
    "share": 1,
    "write": 1
   }
