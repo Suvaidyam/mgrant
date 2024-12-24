@@ -79,7 +79,7 @@ frappe.ui.form.on("Grant", {
                 frm.$wrapper.find("[data-fieldname='sub_grants_tab']").hide();
             }
         }
-        if (frm.doc.is_new() && frm.doc.implementation_type == "Self Implementation" && MGRANT_SETTINGS?.primary_ngo) {
+        if (frm.is_new() && frm.doc.implementation_type == "Self Implementation" && MGRANT_SETTINGS?.primary_ngo) {
             frm.set_value('ngo', MGRANT_SETTINGS.primary_ngo);
             frm.set_df_property('ngo', 'read_only', 1);
             frm.set_df_property('ngo', 'hidden', 1);
@@ -113,13 +113,15 @@ frappe.ui.form.on("Grant", {
         }
     },
     implementation_type(frm) {
-        if (frm.doc.is_new() && frm.doc.implementation_type == "Self Implementation" && MGRANT_SETTINGS?.primary_ngo) {
+        if (frm.is_new() && frm.doc.implementation_type == "Self Implementation" && MGRANT_SETTINGS?.primary_ngo) {
             frm.set_value('ngo', MGRANT_SETTINGS.primary_ngo);
             frm.set_df_property('ngo', 'read_only', 1);
             frm.set_df_property('ngo', 'hidden', 1);
         } else {
-            frm.set_df_property('ngo', 'read_only', 0);
-            frm.set_df_property('ngo', 'hidden', 0);
+            if (frappe.user_roles.includes('NGO Admin')) {
+                frm.set_df_property('ngo', 'read_only', 0);
+                frm.set_df_property('ngo', 'hidden', 0);
+            }
         }
     },
     end_date(frm) {
