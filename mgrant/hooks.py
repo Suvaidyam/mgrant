@@ -26,7 +26,6 @@ fixtures = [
     # 'SVADatatable Configuration',
     # 'Client Script',
     # 'Custom Field',
-    # 'Customize Form',
     # 'Custom HTML Block'
     # "Custom DocPerm",
     # "My Theme"
