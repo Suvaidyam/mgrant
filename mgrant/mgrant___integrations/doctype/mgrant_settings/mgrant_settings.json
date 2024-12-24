@@ -51,6 +51,7 @@
   {
    "fieldname": "primary_ngo",
    "fieldtype": "Link",
+   "ignore_user_permissions": 1,
    "label": "Primary NGO",
    "options": "NGO"
   }
@@ -59,7 +60,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-12-24 10:57:18.813943",
+ "modified": "2024-12-24 14:30:30.450423",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",
@@ -79,6 +80,16 @@
    "read": 1,
    "role": "All",
    "select": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Guest",
+   "share": 1,
+   "write": 1
   }
  ],
  "sort_field": "creation",
