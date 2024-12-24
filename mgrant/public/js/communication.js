@@ -155,8 +155,8 @@ async function renderEmails(email_list, frm, selector = null) {
     // Build email list HTML
     let emailHtml = `
     <div class="container" style="display: flex; height: 100%; overflow: hidden;">
-            <div style="width: 350px;  overflow-y: auto; background-color: #fff; display: flex; flex-direction: column; border: 1px solid #D9D9D9; align-items: start;  gap: 16px;">
-                    <div style="width: 335px; padding:0px 10px; margin-top:8px; margin-bottom:-7px; display: flex; align-items: center; justify-content: space-between;">
+            <div style="width:340px; min-width:340px;  overflow-y: auto; background-color: #fff; display: flex; flex-direction: column; border: 1px solid #D9D9D9; align-items: start;  gap: 16px;">
+                    <div style="width: 100%; padding:0px 8px; margin-top:8px; margin-bottom:-7px; display: flex; align-items: center; justify-content: space-between;">
                         <div style="display: flex; gap:4px;align-items: center; justify-content: space-between;">
                             <div><i class="fa fa-refresh" id="refresh_email_list" style="font-size: 18px; cursor:pointer;"></i></div>
                         </div>
@@ -166,7 +166,7 @@ async function renderEmails(email_list, frm, selector = null) {
                     </div>
 
                 <!-- Tab Section -->
-                <div style="display: flex; justify-content: space-between; width: 334px; height: 40px; border: 1px solid #D9D9D9; gap: 12px; padding: 0px 20px;">
+                <div style="display: flex; justify-content: space-between; width: 100%; height: 40px; border: 1px solid #D9D9D9; border-left:none; border-right:none; gap: 12px; padding: 0px 20px;">
                     <div id="allEmailButton" class="active_tab" style="cursor:pointer; height: 33px; padding: 6px 0 1px 0;">
                         <span>📧</span><span style="font-size: 12px; color: #0E1116;">All</span>
                     </div>
@@ -182,7 +182,7 @@ async function renderEmails(email_list, frm, selector = null) {
 
     if (email_list.length == "") {
         emailHtml += `
-            <div style="width: 335px; height: 100vh; text-align: center; line-height: 100vh;">
+            <div style="width: 100%; height:80vh; display: flex; align-items: center; justify-content: center;">
                 <h4>No Emails Found</h4>
             </div>
 
