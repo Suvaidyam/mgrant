@@ -182,7 +182,7 @@ async function renderEmails(email_list, frm, selector = null) {
 
     if (email_list.length == "") {
         emailHtml += `
-            <div style="width: 335px; height: 100vh; text-align: center; line-height: 100vh;">
+            <div style="width: 100%; height:80vh; display: flex; align-items: center; justify-content: center;">
                 <h4>No Emails Found</h4>
             </div>
 
