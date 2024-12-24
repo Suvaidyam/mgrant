@@ -46,22 +46,20 @@
    "fieldtype": "Select",
    "label": "Module",
    "options": "NGO\nDonor",
-   "reqd": 1,
-   "set_only_once": 1
+   "reqd": 1
   },
   {
    "fieldname": "primary_ngo",
    "fieldtype": "Link",
    "label": "Primary NGO",
-   "options": "NGO",
-   "set_only_once": 1
+   "options": "NGO"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-12-23 17:52:12.192576",
+ "modified": "2024-12-24 10:57:18.813943",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",
