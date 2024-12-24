@@ -20,39 +20,41 @@ function getMonthDifference(startDate, endDate) {
 }
 
 const mgrantSettings = (frm) => {
-    frm.add_custom_button(__('Grant Settings'), async () => {
-        let meta = await frappe.call('frappe_theme.api.get_meta_fields', { doctype: "mGrant Settings Grant Wise" });
-        let settings_doc = await frappe.db.get_doc('mGrant Settings Grant Wise', frm.doc.name);
-        let fields = meta.message.map((field) => {
-            if (field.fieldname == 'grant_name') {
-                field.default = frm.doc.name;
-                field.read_only = 1;
-                field.hidden = 1;
-            }
-            if (settings_doc[field.fieldname]) {
-                field.default = settings_doc[field.fieldname];
-            }
-            return field;
-        });
-        let setting_dialog = new frappe.ui.Dialog({
-            title: __("Grant Settings"),
-            fields: fields,
-            primary_action_label: __("Save"),
-            primary_action: async () => {
-                let values = setting_dialog.get_values();
-                if (!values) return setting_dialog.hide();
-                let response = await frappe.xcall('frappe.client.set_value', { doctype: 'mGrant Settings Grant Wise', name: frm.doc.name, fieldname: values });
-                if (response) {
-                    frappe.show_alert({
-                        message: __('Settings Saved'),
-                        indicator: 'green'
-                    });
+    if (frappe.user_roles.includes('NGO Admin')) {
+        frm.add_custom_button(__('Grant Settings'), async () => {
+            let meta = await frappe.call('frappe_theme.api.get_meta_fields', { doctype: "mGrant Settings Grant Wise" });
+            let settings_doc = await frappe.db.get_doc('mGrant Settings Grant Wise', frm.doc.name);
+            let fields = meta.message.map((field) => {
+                if (field.fieldname == 'grant_name') {
+                    field.default = frm.doc.name;
+                    field.read_only = 1;
+                    field.hidden = 1;
                 }
-                setting_dialog.hide();
-            }
+                if (settings_doc[field.fieldname]) {
+                    field.default = settings_doc[field.fieldname];
+                }
+                return field;
+            });
+            let setting_dialog = new frappe.ui.Dialog({
+                title: __("Grant Settings"),
+                fields: fields,
+                primary_action_label: __("Save"),
+                primary_action: async () => {
+                    let values = setting_dialog.get_values();
+                    if (!values) return setting_dialog.hide();
+                    let response = await frappe.xcall('frappe.client.set_value', { doctype: 'mGrant Settings Grant Wise', name: frm.doc.name, fieldname: values });
+                    if (response) {
+                        frappe.show_alert({
+                            message: __('Settings Saved'),
+                            indicator: 'green'
+                        });
+                    }
+                    setting_dialog.hide();
+                }
+            });
+            setting_dialog.show();
         });
-        setting_dialog.show();
-    });
+    }
 }
 let MGRANT_SETTINGS;
 
