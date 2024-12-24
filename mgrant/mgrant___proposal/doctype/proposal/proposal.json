@@ -414,10 +414,11 @@
    "options": "Eligible NGO\nProposal to be submitted\nProposal Submitted\nGrant Letter Signed\nRejected"
   }
  ],
+ "force_re_route_to_default_view": 1,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-12-24 16:09:54.132734",
+ "modified": "2024-12-24 16:36:54.205908",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
@@ -446,6 +447,20 @@
    "read": 1,
    "report": 1,
    "role": "NGO Admin",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
    "select": 1,
    "share": 1,
    "submit": 1,
