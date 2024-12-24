@@ -1,0 +1,26 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-12-23 16:46:11.394144",
+  "name": "NGO Admin",
+  "role_profile": "NGO Admin",
+  "roles": [
+   {
+    "role": "NGO Admin"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-12-23 16:46:33.929404",
+  "name": "Partner NGO",
+  "role_profile": "Partner NGO",
+  "roles": [
+   {
+    "role": "Partner NGO"
+   }
+  ]
+ }
+]

@@ -14,7 +14,7 @@
  "is_hidden": 0,
  "label": "Profilling",
  "links": [],
- "modified": "2024-12-04 10:19:27.407436",
+ "modified": "2024-12-23 17:28:06.469124",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Profilling",
@@ -38,16 +38,16 @@
  "quick_lists": [],
  "roles": [
   {
-   "role": "Admin"
-  },
-  {
    "role": "Administrator"
   },
   {
-   "role": "System Manager"
+   "role": "NGO Admin"
+  },
+  {
+   "role": "Partner NGO"
   }
  ],
- "sequence_id": 3.0,
+ "sequence_id": 4.0,
  "shortcuts": [],
  "title": "Profilling",
  "type": "Workspace"

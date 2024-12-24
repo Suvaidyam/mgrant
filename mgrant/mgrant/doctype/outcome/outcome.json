@@ -7,48 +7,58 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "outcome_name",
+  "financial_year",
   "proposal",
   "grant",
   "kpi",
+  "column_break_xabp",
   "state",
   "district",
   "block",
   "gram_panchayat",
   "village",
-  "financial_year",
-  "outcome_name",
-  "column_break_lxhn",
+  "section_break_tssq",
   "total_target",
+  "column_break_cffq",
+  "total_achievement",
+  "section_break_tzmz",
+  "column_break_lxhn",
   "q1_target",
   "apr_target",
   "may_target",
   "jun_target",
-  "q2_target",
-  "jul_target",
-  "aug_target",
-  "sep_target",
-  "q3_target",
-  "oct_target",
-  "nov_target",
-  "dec_target",
-  "q4_target",
-  "jan_target",
-  "feb_target",
-  "mar_target",
-  "column_break_bile",
-  "total_achievement",
+  "column_break_ognm",
   "q1_achievement",
   "apr_achievement",
   "may_achievement",
   "jun_achievement",
+  "section_break_vkzv",
+  "q2_target",
+  "jul_target",
+  "aug_target",
+  "sep_target",
+  "column_break_txqq",
   "q2_achievement",
   "jul_achievement",
   "aug_achievement",
   "sep_achievement",
+  "section_break_igop",
+  "q3_target",
+  "oct_target",
+  "nov_target",
+  "dec_target",
+  "column_break_rhfu",
   "q3_achievement",
   "oct_achievement",
   "nov_achievement",
   "dec_achievement",
+  "section_break_ohkh",
+  "q4_target",
+  "jan_target",
+  "feb_target",
+  "mar_target",
+  "column_break_agjn",
   "q4_achievement",
   "jan_achievement",
   "feb_achievement",
@@ -195,10 +205,6 @@
    "fieldtype": "Int",
    "label": "Mar Target",
    "non_negative": 1
-  },
-  {
-   "fieldname": "column_break_bile",
-   "fieldtype": "Column Break"
   },
   {
    "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
@@ -376,6 +382,50 @@
    "label": "Q4 Achievement",
    "non_negative": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "section_break_ohkh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_agjn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_igop",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_rhfu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_xabp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_vkzv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_txqq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_tzmz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_ognm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_tssq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_cffq",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -386,7 +436,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2024-12-19 10:53:45.058460",
+ "modified": "2024-12-23 18:08:29.432834",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcome",
@@ -413,7 +463,21 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Admin",
+   "role": "NGO Admin",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Partner NGO",
+   "select": 1,
    "share": 1,
    "write": 1
   }

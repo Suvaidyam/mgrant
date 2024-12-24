@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class Parent(Document):
+class mGrantComment(Document):
 	pass

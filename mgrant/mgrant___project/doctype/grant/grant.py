@@ -3,7 +3,8 @@
 
 # import frappe
 from frappe.model.document import Document
-
+from mgrant.controllers.grant.grant import grant_after_insert
 
 class Grant(Document):
-	pass
+	def after_insert(self):
+		grant_after_insert(self)
