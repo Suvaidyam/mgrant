@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:DESIGNATION-{####}",
  "creation": "2024-11-05 22:29:31.556904",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -19,10 +20,11 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-23 18:06:30.721686",
+ "modified": "2024-12-24 17:42:43.517656",
  "modified_by": "Administrator",
  "module": "mGrant - Master",
  "name": "Designation",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
