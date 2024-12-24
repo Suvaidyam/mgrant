@@ -118,8 +118,10 @@ frappe.ui.form.on("Grant", {
             frm.set_df_property('ngo', 'read_only', 1);
             frm.set_df_property('ngo', 'hidden', 1);
         } else {
-            frm.set_df_property('ngo', 'read_only', 0);
-            frm.set_df_property('ngo', 'hidden', 0);
+            if (frappe.user_roles.includes('NGO Admin')) {
+                frm.set_df_property('ngo', 'read_only', 0);
+                frm.set_df_property('ngo', 'hidden', 0);
+            }
         }
     },
     end_date(frm) {
