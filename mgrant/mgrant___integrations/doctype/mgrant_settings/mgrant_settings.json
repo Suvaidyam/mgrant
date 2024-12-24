@@ -60,21 +60,19 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-12-24 14:30:30.450423",
+ "modified": "2024-12-24 14:39:51.052702",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",
  "owner": "Administrator",
  "permissions": [
   {
-   "create": 1,
-   "delete": 1,
    "email": 1,
    "print": 1,
    "read": 1,
    "role": "System Manager",
-   "share": 1,
-   "write": 1
+   "select": 1,
+   "share": 1
   },
   {
    "read": 1,
@@ -82,14 +80,39 @@
    "select": 1
   },
   {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Guest",
+   "select": 1,
+   "share": 1
+  },
+  {
    "create": 1,
    "delete": 1,
    "email": 1,
    "print": 1,
    "read": 1,
-   "role": "Guest",
+   "role": "Administrator",
+   "select": 1,
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "NGO Admin",
+   "select": 1,
+   "share": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Partner NGO",
+   "select": 1,
+   "share": 1
   }
  ],
  "sort_field": "creation",
