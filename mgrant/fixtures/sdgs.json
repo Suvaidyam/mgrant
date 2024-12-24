@@ -1,0 +1,138 @@
+[
+ {
+  "description": "SDG 2: End hunger, achieve food security and improved nutrition, and promote sustainable agriculture",
+  "docstatus": 0,
+  "doctype": "SDGs",
+  "modified": "2024-12-24 10:39:02.757834",
+  "name": "SDG-0083",
+  "sdg_name": "SDG 2: Zero Hunger"
+ },
+ {
+  "description": "SDG 3: Ensure healthy lives and promote well-being for all at all ages",
+  "docstatus": 0,
+  "doctype": "SDGs",
+  "modified": "2024-12-24 10:39:19.204225",
+  "name": "SDG-0084",
+  "sdg_name": "SDG 3: Good Health"
+ },
+ {
+  "description": "SDG 4: Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all",
+  "docstatus": 0,
+  "doctype": "SDGs",
+  "modified": "2024-12-24 10:39:41.178160",
+  "name": "SDG-0085",
+  "sdg_name": "SDG 4: Quality Education"
+ },
+ {
+  "description": "SDG 5: Achieve gender equality and empower all women and girls",
+  "docstatus": 0,
+  "doctype": "SDGs",
+  "modified": "2024-12-24 10:39:58.898377",
+  "name": "SDG-0086",
+  "sdg_name": "SDG 5: Gender Equality"
+ },
+ {
+  "description": "SDG 6: Ensure availability and sustainable management of water and sanitation for all",
+  "docstatus": 0,
+  "doctype": "SDGs",
+  "modified": "2024-12-24 10:40:16.280544",
+  "name": "SDG-0087",
+  "sdg_name": "SDG 6: Clean Water"
+ },
+ {
+  "description": "SDG 7: Ensure access to affordable, reliable, sustainable, and modern energy for all",
+  "docstatus": 0,
+  "doctype": "SDGs",
+  "modified": "2024-12-24 10:40:31.711789",
+  "name": "SDG-0088",
+  "sdg_name": "SDG 7: Clean Energy"
+ },
+ {
+  "description": "SDG 8: Promote sustained, inclusive, and sustainable economic growth, full and productive employment, and decent work for all",
+  "docstatus": 0,
+  "doctype": "SDGs",
+  "modified": "2024-12-24 10:40:47.940784",
+  "name": "SDG-0089",
+  "sdg_name": "SDG 8: Decent Work"
+ },
+ {
+  "description": "SDG 9: Build resilient infrastructure, promote inclusive and sustainable industrialization, and foster innovation",
+  "docstatus": 0,
+  "doctype": "SDGs",
+  "modified": "2024-12-24 10:41:01.951412",
+  "name": "SDG-0090",
+  "sdg_name": "SDG 9: Innovation and Infrastructure"
+ },
+ {
+  "description": "SDG 10: Reduce inequality within and among countries",
+  "docstatus": 0,
+  "doctype": "SDGs",
+  "modified": "2024-12-24 10:41:16.613844",
+  "name": "SDG-0091",
+  "sdg_name": "SDG 10: Reduced Inequalities"
+ },
+ {
+  "description": "SDG 11: Make cities and human settlements inclusive, safe, resilient, and sustainable",
+  "docstatus": 0,
+  "doctype": "SDGs",
+  "modified": "2024-12-24 10:41:39.511739",
+  "name": "SDG-0092",
+  "sdg_name": "SDG 11: Sustainable Cities"
+ },
+ {
+  "description": "SDG 12: Ensure sustainable consumption and production patterns",
+  "docstatus": 0,
+  "doctype": "SDGs",
+  "modified": "2024-12-24 10:41:59.778756",
+  "name": "SDG-0093",
+  "sdg_name": "SDG 12: Responsible Consumption"
+ },
+ {
+  "description": "SDG 13: Take urgent action to combat climate change and its impacts",
+  "docstatus": 0,
+  "doctype": "SDGs",
+  "modified": "2024-12-24 10:42:15.048319",
+  "name": "SDG-0094",
+  "sdg_name": "SDG 13: Climate Action"
+ },
+ {
+  "description": "SDG 14: Conserve and sustainably use the oceans, seas, and marine resources for sustainable development",
+  "docstatus": 0,
+  "doctype": "SDGs",
+  "modified": "2024-12-24 10:42:30.163342",
+  "name": "SDG-0095",
+  "sdg_name": "SDG 14: Life Below Water"
+ },
+ {
+  "description": "SDG 15: Protect, restore, and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, halt and reverse land degradation, and halt biodiversity loss",
+  "docstatus": 0,
+  "doctype": "SDGs",
+  "modified": "2024-12-24 10:42:47.786468",
+  "name": "SDG-0096",
+  "sdg_name": "SDG 15: Life on Land"
+ },
+ {
+  "description": "SDG 16: Promote peaceful and inclusive societies for sustainable development, provide access to justice for all, and build effective, accountable, and inclusive institutions at all levels",
+  "docstatus": 0,
+  "doctype": "SDGs",
+  "modified": "2024-12-24 10:43:05.830043",
+  "name": "SDG-0097",
+  "sdg_name": "SDG 16: Peace and Justice"
+ },
+ {
+  "description": "SDG 17: Strengthen the means of implementation and revitalize the global partnership for sustainable development",
+  "docstatus": 0,
+  "doctype": "SDGs",
+  "modified": "2024-12-24 10:43:21.612669",
+  "name": "SDG-0098",
+  "sdg_name": "SDG 17: Partnerships"
+ },
+ {
+  "description": "SDG 1: End poverty in all its forms everywhere",
+  "docstatus": 0,
+  "doctype": "SDGs",
+  "modified": "2024-12-24 10:38:40.270648",
+  "name": "SDG-0022",
+  "sdg_name": "SDG 1: No Poverty"
+ }
+]
