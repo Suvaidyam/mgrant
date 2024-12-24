@@ -417,7 +417,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-12-23 16:35:20.947406",
+ "modified": "2024-12-24 16:09:54.132734",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
@@ -445,7 +445,8 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Admin",
+   "role": "NGO Admin",
+   "select": 1,
    "share": 1,
    "submit": 1,
    "write": 1
