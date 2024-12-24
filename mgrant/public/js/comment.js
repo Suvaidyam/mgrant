@@ -9,54 +9,62 @@ async function get_comment_list(frm, selector) {
         },
     });
     let comment_list = response.message;
+    console.log(comment_list)
     document.querySelector(`[data-fieldname="${selector}"]`).innerHTML = `
     <style>
         * {
             margin: 0px;
             padding: 0px;
         }
-        .sidebar {
-            width: 25%;
+        .comment-sidebar {
+            width: 100%;
             // min-width: 380px;
             height: 80vh;
             padding: 5px;
-            border-right: 1px solid #ddd;
+            // border-right: 1px solid #ddd;
         }
-        .comment_content{
-            width:75%;
-        }
-        .title_links {
+        // .comment_content{
+        //     width:75%;
+        // }
+        .comment_title_links {
             width: 100%;
+            display:block !important;
+            gap:10px;
             height: calc(100% - 20px);
-            overflow-y: auto; 
+            overflow-y: auto;
             padding-right: 5px;
         }
-        .title-body{
+        .comment-title-body{
             width:100%;
-            height: 45px;
+            // height: 45px;
             display: flex !important;
             justify-content: space-between;
             align-items: center;
-            display:flex;
+            background-color: #F5F5F4;
+            background: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
         }
         .comment-table-list {
-            width:95%;
-            height: 45px;
+            width:100%;
+            // height: 45px;
             display: flex !important;
             justify-content: space-between;
             align-items: center;
             gap: 5px;
-            padding-left: 8px;
+            padding: 8px 8px 2px 10px;
             border-radius: 5px;
         }
-        .comment-table-list:hover {
-            cursor: pointer;
-            background-color: #f8f9fa;
-        }
-        .table_item{
+        // .comment-table-list:hover {
+        //     cursor: pointer;
+        //     background-color: #f8f9fa;
+        // }
+        .comment_table_item{
             display: flex !important;
-            gap: 5px;
+            gap: 10px;
             align-items: center;
+            justify-content: center;
         }
         .comment-button {
             background-color: black;
@@ -76,14 +84,14 @@ async function get_comment_list(frm, selector) {
             align-items: center;
         }  
         #comment_action_icon{
-            width:5%;
-            height: 100%;
+            // width:5%;
+            // height: 100%;
             // display: flex;
             // justify-content: center;
             // align-items: center;
             display: none;
         }
-        .title-body:hover #comment_action_icon{
+        .comment-title-body:hover #comment_action_icon{
             display: block !important;
         }
         #comment_action_icon .dropdown-toggle::after {
@@ -94,36 +102,41 @@ async function get_comment_list(frm, selector) {
             border: none !important;
             outline: none !important;
         }
-        .note_message{
+        .comment_message{
             display: flex;
             height:100%;   
             justify-content: center;
             align-items: center;
         }
-        .note-title{
-            border-bottom: 1px solid black;
-            padding-bottom: 10px;
-        }
     </style>
     <div class="d-flex">
         <!-- Sidebar -->
-        <div class="sidebar">
+        <div class="comment-sidebar">
             <div class="d-flex mb-2 justify-content-between align-items-center" style="height:50px; line-hight:50px; border-bottom:1px solid black">
                 <h4 class="pt-4">Comments</h4>
-                <button class="comment-button" id="add_note">Add Comment</button>
+                <button class="comment-button">Add Comment</button>
             </div>
-            <div class="title_links">
+            <div class="comment_title_links">
             ${comment_list?.length == 0 ? `
-                    <div class="note_message">Comments Not Found</div>
+                    <div class="comment_message">Comments Not Found</div>
                     ` : `
                     ${comment_list?.map((comment) => `
-                        <div class="title-body">
+                        <div class="comment-title-body">
                             <div class="comment-table-list" comment-data-table=${comment?.name}>
-                                <div class='table_item'>
-                                    <div class="avatar" style="width: 24px; height: 24px; border-radius: 50%; background-color: #3f51b5; color: #fff; display: flex; justify-content: center; align-items: center;">
-                                        ${comment?.comment[0]?.toUpperCase()}
+                                <div class='comment_table_item'>
+                                    <div style="margin-top:-10px;">
+                                        <div class="avatar" style="width: 32px; height: 32px; border-radius: 50%; background-color: #3f51b5; color: #fff; display: flex; justify-content: center; align-items: center;">
+                                        ${comment?.owner[0]?.toUpperCase()}
+                                        </div>
                                     </div>
-                                    <div class="text-truncate" style="max-width: 300px;">${comment?.comment}</div>
+                                    <div class="">
+                                        <div class="" style=""; font-weight: bold;">
+                                                <b>${comment?.owner}</b>
+                                        </div>
+                                        <div class="" style="";">
+                                                <p>${comment?.comment}</p>
+                                        </div>
+                                    </div>
                                 </div>
                                 </div>
                                 <div id="comment_action_icon" class="dropdown mt-2" comment_id=${comment.name}>
@@ -139,39 +152,28 @@ async function get_comment_list(frm, selector) {
                     `}
             </div>
         </div>
-
-        <!-- Main Content -->
-        <div class="comment_content" style="padding: 20px; flex-grow: 1;">
-            <div id="comment-default-message">
-                <div>
-                    <h3 style="text-align:center;">Select an item to read</h3>
-                    <p style="text-align:center;">Nothing is selected</p>
-                </div>
-            </div>
-            <div id="comment-dynamic-content" style="display: none;"></div>
-        </div>
     </div>
 `;
-    document.querySelectorAll('.comment-table-list').forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault();
-            const tableId = this.getAttribute('comment-data-table');
-            showContent(tableId);
-        });
-    });
-    window.showContent = function (tableId) {
-        const dynamicContent = document.getElementById('comment-dynamic-content');
-        const defaultMessage = document.getElementById('comment-default-message');
-        dynamicContent.style.display = 'block';
-        defaultMessage.style.display = 'none';
+    // document.querySelectorAll('.comment-table-list').forEach(link => {
+    //     link.addEventListener('click', function (event) {
+    //         event.preventDefault();
+    //         const tableId = this.getAttribute('comment-data-table');
+    //         showContent(tableId);
+    //     });
+    // });
+    // window.showContent = function (tableId) {
+    //     const dynamicContent = document.getElementById('comment-dynamic-content');
+    //     const defaultMessage = document.getElementById('comment-default-message');
+    //     dynamicContent.style.display = 'block';
+    //     defaultMessage.style.display = 'none';
 
-        dynamicContent.innerHTML = `
-        ${comment_list?.filter(comment => comment.name === tableId).map(comment => `
-                <div class="comment">
-                    <p class="comment-title fw-bold mt-1" style="font-weight: bold;">${comment?.comment}</p>
-                </div>
-            `).join('')}`;
-    };
+    //     dynamicContent.innerHTML = `
+    //     ${comment_list?.filter(comment => comment.name === tableId).map(comment => `
+    //             <div class="comment">
+    //                 <p class="comment-title fw-bold mt-1" style="font-weight: bold;">${comment?.comment}</p>
+    //             </div>
+    //         `).join('')}`;
+    // };
 
     // ============= Create comment
     document.querySelectorAll('.comment-button').forEach(link => {
@@ -206,7 +208,7 @@ async function get_comment_list(frm, selector) {
                                 method: 'frappe.client.insert',
                                 args: { doc: { doctype: 'mGrant Comment', ...values } },
                                 callback: async () => {
-                                    await render_note(frm, selector)
+                                    await renderComment(frm, selector)
                                     dialog.hide();
                                     frappe.show_alert({ message: 'Comment Added Successfully', indicator: 'green' });
                                 }
@@ -228,18 +230,18 @@ async function get_comment_list(frm, selector) {
         link.addEventListener('click', async function (event) {
             event.preventDefault();
             event.stopPropagation();
-            const noteName = this.closest('#comment_action_icon').getAttribute('comment_id');
-            if (!noteName) {
+            const commentName = this.closest('#comment_action_icon').getAttribute('comment_id');
+            if (!commentName) {
                 frappe.show_alert({ message: 'Comment name not found', indicator: 'red' });
                 return;
             }
             try {
                 const { message: latestComment } = await frappe.call({
                     method: 'frappe.client.get',
-                    args: { doctype: 'mGrant Comment', name: noteName },
+                    args: { doctype: 'mGrant Comment', name: commentName },
                 });
                 if (!latestComment) {
-                    frappe.show_alert({ message: 'Failed to fetch note details', indicator: 'red' });
+                    frappe.show_alert({ message: 'Failed to fetch comment details', indicator: 'red' });
                     return;
                 }
                 const { message: meta } = await frappe.call({
@@ -270,12 +272,12 @@ async function get_comment_list(frm, selector) {
                     primary_action_label: 'Update',
                     primary_action: async (values) => {
                         try {
-                            await frappe.db.set_value('mGrant Comment', noteName, values);
+                            await frappe.db.set_value('mGrant Comment', commentName, values);
                             dialog.hide();
                             frappe.show_alert({ message: 'Comment updated successfully', indicator: 'green' });
-                            await render_note(frm, selector);
+                            await renderComment(frm, selector);
                         } catch (err) {
-                            frappe.msgprint({ message: `Error updating note: ${err.message}`, indicator: 'red' });
+                            frappe.msgprint({ message: `Error updating comment: ${err.message}`, indicator: 'red' });
                         }
                     },
                     secondary_action_label: 'Cancel',
@@ -301,7 +303,7 @@ async function get_comment_list(frm, selector) {
                     frappe.db.delete_doc('mGrant Comment', doc_name)
                         .then(async response => {
                             frappe.show_alert({ message: 'Comment Delete successfully', indicator: 'green' });
-                            await render_note(frm, selector);
+                            await renderComment(frm, selector);
                         })
                         .catch(error => {
                             console.error("Error deleting document", error);
@@ -317,5 +319,5 @@ async function get_comment_list(frm, selector) {
 
 
 const renderComment = async (frm, selector) => {
-    // get_comment_list(frm, selector)
+    get_comment_list(frm, selector)
 }
