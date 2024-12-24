@@ -79,6 +79,11 @@ frappe.ui.form.on("Grant", {
                 frm.$wrapper.find("[data-fieldname='sub_grants_tab']").hide();
             }
         }
+        if (frm.doc.__islocal && frm.doc.implementation_type == "Self Implementation" && MGRANT_SETTINGS?.primary_ngo) {
+            frm.set_value('ngo', MGRANT_SETTINGS.primary_ngo);
+            frm.set_df_property('ngo', 'read_only', 1);
+            frm.set_df_property('ngo', 'hidden', 1);
+        }
         setup_multiselect_dependency(frm, 'District', 'states', 'state', 'districts', 'state');
         setup_multiselect_dependency(frm, 'Block', 'districts', 'district', 'blocks', 'district');
         setup_multiselect_dependency(frm, 'Village', 'blocks', 'block', 'villages', 'block');
@@ -105,6 +110,17 @@ frappe.ui.form.on("Grant", {
             } else {
                 frm.set_value('grant_duration_in_months', 0);
             }
+        }
+    },
+    implementation_type(frm) {
+        if (frm.doc.__islocal && frm.doc.implementation_type == "Self Implementation" && MGRANT_SETTINGS?.primary_ngo) {
+            frm.set_value('ngo', MGRANT_SETTINGS.primary_ngo);
+            frm.set_df_property('ngo', 'read_only', 1);
+            frm.set_df_property('ngo', 'hidden', 1);
+        } else {
+            frm.set_value('ngo', '');
+            frm.set_df_property('ngo', 'read_only', 0);
+            frm.set_df_property('ngo', 'hidden', 0);
         }
     },
     end_date(frm) {
