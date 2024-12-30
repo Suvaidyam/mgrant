@@ -47,7 +47,7 @@ async function get_comment_list(frm, selector) {
             margin-top: 10px;
         }
         .comment-table-list {
-            width:100%;
+            width:99%;
             // height: 45px;
             display: flex !important;
             justify-content: space-between;
@@ -55,6 +55,16 @@ async function get_comment_list(frm, selector) {
             gap: 5px;
             padding: 8px 8px 2px 10px;
             border-radius: 5px;
+        }
+        #comment_action_icon{
+            width: 1%;
+            // margin-left:5px;
+            height: 100%;
+            display: flex;
+            padding-right:25px;
+            justify-content: center;
+            align-items: center;
+            display: none;
         }
         // .comment-table-list:hover {
         //     cursor: pointer;
@@ -65,6 +75,7 @@ async function get_comment_list(frm, selector) {
             gap: 10px;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
         .comment-button {
             background-color: black;
@@ -83,14 +94,6 @@ async function get_comment_list(frm, selector) {
             justify-content: center;
             align-items: center;
         }  
-        #comment_action_icon{
-            // width:5%;
-            // height: 100%;
-            // display: flex;
-            // justify-content: center;
-            // align-items: center;
-            display: none;
-        }
         .comment-title-body:hover #comment_action_icon{
             display: block !important;
         }
@@ -124,8 +127,8 @@ async function get_comment_list(frm, selector) {
                         <div class="comment-title-body">
                             <div class="comment-table-list" comment-data-table=${comment?.name}>
                                 <div class='comment_table_item'>
-                                    <div style="margin-top:-10px;">
-                                        <div class="avatar" style="width: 32px; height: 32px; border-radius: 50%; background-color: #3f51b5; color: #fff; display: flex; justify-content: center; align-items: center;">
+                                    <div style="width:35px; min-width:35px;">
+                                        <div class="avatar" style="width: 32px;  position: absolute; top:0; height: 32px; border-radius: 50%; background-color: #3f51b5; color: #fff; display: flex; justify-content: center; align-items: center;">
                                         ${comment?.owner[0]?.toUpperCase()}
                                         </div>
                                     </div>
