@@ -9,8 +9,7 @@
   "budget_plan",
   "as_on_date",
   "transaction",
-  "grant",
-  "proposal"
+  "grant"
  ],
  "fields": [
   {
@@ -41,19 +40,11 @@
    "hidden": 1,
    "label": "Grant",
    "options": "Grant"
-  },
-  {
-   "fetch_from": "budget_plan.proposal",
-   "fieldname": "proposal",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Proposal",
-   "options": "Proposal"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-23 18:20:05.489361",
+ "modified": "2024-12-30 17:18:02.127642",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Transaction",

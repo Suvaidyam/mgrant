@@ -11,8 +11,7 @@
   "grant",
   "column_break_cqau",
   "achievement",
-  "supporting_document",
-  "proposal"
+  "supporting_document"
  ],
  "fields": [
   {
@@ -37,14 +36,6 @@
    "reqd": 1
   },
   {
-   "fetch_from": "input.proposal",
-   "fieldname": "proposal",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Proposal",
-   "options": "Proposal"
-  },
-  {
    "fetch_from": "input.grant",
    "fieldname": "grant",
    "fieldtype": "Link",
@@ -65,7 +56,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-23 18:14:18.029028",
+ "modified": "2024-12-30 17:18:18.894964",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Input Achievement",
