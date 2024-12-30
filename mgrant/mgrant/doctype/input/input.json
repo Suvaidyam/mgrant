@@ -49,7 +49,6 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Grant",
-   "mandatory_depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "options": "Grant",
    "search_index": 1
   },
@@ -169,7 +168,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2024-12-30 16:16:14.468420",
+ "modified": "2024-12-30 16:59:40.255867",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Input",
