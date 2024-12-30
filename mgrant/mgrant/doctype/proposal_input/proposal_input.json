@@ -1,0 +1,146 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:P-INPUT-{#####}",
+ "creation": "2024-12-30 17:00:16.831213",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_wwse",
+  "proposal",
+  "column_break_zjal",
+  "input_name",
+  "column_break_ikyr",
+  "kpi",
+  "section_break_dznz",
+  "state",
+  "district",
+  "column_break_zeui",
+  "block",
+  "gram_panchayat",
+  "column_break_gjsm",
+  "village"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_wwse",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_zjal",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "input_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Input Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "kpi",
+   "fieldtype": "Link",
+   "label": "KPI",
+   "link_filters": "[[\"KPIs\",\"kpi_type\",\"=\",\"Input\"]]",
+   "options": "KPIs"
+  },
+  {
+   "fieldname": "column_break_ikyr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_dznz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District"
+  },
+  {
+   "fieldname": "column_break_zeui",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "block",
+   "fieldtype": "Link",
+   "label": "Block",
+   "options": "Block"
+  },
+  {
+   "fieldname": "gram_panchayat",
+   "fieldtype": "Link",
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat"
+  },
+  {
+   "fieldname": "column_break_gjsm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "village",
+   "fieldtype": "Link",
+   "label": "Village",
+   "options": "Village"
+  },
+  {
+   "fieldname": "proposal",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Proposal",
+   "options": "Proposal",
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "hidden": 1,
+   "link_doctype": "Input Achievement",
+   "link_fieldname": "input"
+  }
+ ],
+ "modified": "2024-12-30 17:01:44.024334",
+ "modified_by": "Administrator",
+ "module": "Mgrant",
+ "name": "Proposal Input",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "NGO Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

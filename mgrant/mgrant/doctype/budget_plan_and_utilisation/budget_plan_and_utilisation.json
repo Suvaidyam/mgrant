@@ -6,23 +6,19 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "proposal",
   "grant",
-  "budget_head",
+  "start_date",
+  "end_date",
+  "column_break_gyjd",
   "item_name",
   "financial_year",
-  "column_break_gyjd",
-  "q1_planned_budget",
-  "q2_planned_budget",
-  "q3_planned_budget",
-  "q4_planned_budget",
-  "total_planned_budget",
+  "budget_head",
   "column_break_wpwi",
-  "q1_utilisation",
-  "q2_utilisation",
-  "q3_utilisation",
-  "q4_utilisation",
-  "total_utilisation"
+  "frequency",
+  "total_planned_budget",
+  "total_utilisation",
+  "section_break_hlsm",
+  "planning_table"
  ],
  "fields": [
   {
@@ -33,13 +29,6 @@
    "reqd": 1
   },
   {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Proposal')",
-   "fieldname": "proposal",
-   "fieldtype": "Link",
-   "label": "Proposal",
-   "options": "Proposal"
-  },
-  {
    "fieldname": "budget_head",
    "fieldtype": "Link",
    "label": "Budget head",
@@ -47,11 +36,11 @@
    "reqd": 1
   },
   {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "fieldname": "grant",
    "fieldtype": "Link",
    "label": "Grant",
-   "options": "Grant"
+   "options": "Grant",
+   "read_only": 1
   },
   {
    "fieldname": "item_name",
@@ -59,19 +48,6 @@
    "in_list_view": 1,
    "label": "Item Name",
    "reqd": 1
-  },
-  {
-   "fieldname": "total_planned_budget",
-   "fieldtype": "Currency",
-   "label": "Total Planned Budget",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "total_utilisation",
-   "fieldtype": "Currency",
-   "label": "Total Utilisation",
-   "read_only": 1
   },
   {
    "fieldname": "column_break_gyjd",
@@ -82,53 +58,54 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "q1_planned_budget",
-   "fieldtype": "Currency",
-   "label": "Q1 Planned Budget"
+   "depends_on": "eval:doc.frequency != 'Lump Sum'",
+   "fieldname": "section_break_hlsm",
+   "fieldtype": "Section Break"
   },
   {
-   "fieldname": "q2_planned_budget",
-   "fieldtype": "Currency",
-   "label": "Q2 Planned Budget"
+   "depends_on": "eval:doc.frequency != 'Lump Sum'",
+   "fieldname": "planning_table",
+   "fieldtype": "Table",
+   "label": "Planning Table",
+   "options": "Budget Planning Child"
   },
   {
-   "fieldname": "q3_planned_budget",
-   "fieldtype": "Currency",
-   "label": "Q3 Planned Budget"
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "Frequency",
+   "options": "Quarterly\nMonthly\nLump Sum",
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
-   "fieldname": "q4_planned_budget",
-   "fieldtype": "Currency",
-   "label": "Q4 Planned Budget"
+   "fetch_from": "grant.start_date",
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
   },
   {
-   "fieldname": "q1_utilisation",
-   "fieldtype": "Currency",
-   "label": "Q1 Utilisation",
-   "read_only": 1
+   "fetch_from": "grant.end_date",
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
   },
   {
-   "fieldname": "q2_utilisation",
+   "fieldname": "total_planned_budget",
    "fieldtype": "Currency",
-   "label": "Q2 Utilisation",
-   "read_only": 1
+   "label": "Total Planned Budget",
+   "mandatory_depends_on": "eval:doc.frequency == 'Lump Sum'",
+   "read_only_depends_on": "eval:doc.frequency != 'Lump Sum'"
   },
   {
-   "fieldname": "q3_utilisation",
+   "fieldname": "total_utilisation",
    "fieldtype": "Currency",
-   "label": "Q3 Utilisation",
-   "read_only": 1
-  },
-  {
-   "fieldname": "q4_utilisation",
-   "fieldtype": "Currency",
-   "label": "Q4 Utilisation",
+   "label": "Total Utilisation",
    "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-23 18:17:48.449021",
+ "modified": "2024-12-30 17:11:52.764717",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Plan and Utilisation",
