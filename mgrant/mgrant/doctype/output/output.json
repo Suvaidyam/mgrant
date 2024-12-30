@@ -7,79 +7,30 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "grant",
+  "start_date",
+  "end_date",
+  "column_break_jmle",
   "output_name",
   "financial_year",
-  "proposal",
   "kpi",
-  "grant",
-  "column_break_glel",
+  "column_break_nkzm",
+  "frequency",
+  "total_target",
+  "total_achievement",
+  "section_break_ncln",
   "state",
   "district",
+  "column_break_glel",
   "block",
   "gram_panchayat",
+  "column_break_rsnk",
   "village",
-  "section_break_nnsz",
-  "total_target",
-  "column_break_gauj",
-  "total_achievement",
-  "section_break_tnka",
-  "column_break_jxov",
-  "q1_target",
-  "may_target",
-  "apr_target",
-  "jun_target",
-  "column_break_prgh",
-  "q1_achievement",
-  "apr_achievement",
-  "may_achievement",
-  "jun_achievement",
-  "section_break_djks",
-  "column_break_lxhn",
-  "q2_target",
-  "jul_target",
-  "aug_target",
-  "sep_target",
-  "column_break_ambl",
-  "q2_achievement",
-  "jul_achievement",
-  "aug_achievement",
-  "sep_achievement",
-  "section_break_unlw",
-  "column_break_ghrc",
-  "q3_target",
-  "oct_target",
-  "nov_target",
-  "dec_target",
-  "column_break_aslk",
-  "q3_achievement",
-  "oct_achievement",
-  "nov_achievement",
-  "dec_achievement",
-  "section_break_aftb",
-  "column_break_mjeu",
-  "q4_target",
-  "jan_target",
-  "feb_target",
-  "mar_target",
-  "column_break_jxlc",
-  "q4_achievement",
-  "jan_achievement",
-  "feb_achievement",
-  "mar_achievement"
+  "section_break_ftkm",
+  "planning_table"
  ],
  "fields": [
   {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Proposal')",
-   "fieldname": "proposal",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Proposal",
-   "mandatory_depends_on": "eval:(cur_frm.doc.doctype == 'Proposal')",
-   "options": "Proposal",
-   "search_index": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "fieldname": "grant",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -133,175 +84,18 @@
    "reqd": 1
   },
   {
-   "fieldname": "column_break_lxhn",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "total_target",
    "fieldtype": "Int",
    "label": "Total Target",
+   "mandatory_depends_on": "eval:doc.frequency == 'Lump Sum'",
    "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "apr_target",
-   "fieldtype": "Int",
-   "label": "Apr Target",
-   "non_negative": 1
-  },
-  {
-   "fieldname": "may_target",
-   "fieldtype": "Int",
-   "label": "May Target",
-   "non_negative": 1
-  },
-  {
-   "fieldname": "jul_target",
-   "fieldtype": "Int",
-   "label": "Jul Target",
-   "non_negative": 1
-  },
-  {
-   "fieldname": "aug_target",
-   "fieldtype": "Int",
-   "label": "Aug Target",
-   "non_negative": 1
-  },
-  {
-   "fieldname": "sep_target",
-   "fieldtype": "Int",
-   "label": "Sep Target",
-   "non_negative": 1
-  },
-  {
-   "fieldname": "oct_target",
-   "fieldtype": "Int",
-   "label": "Oct Target",
-   "non_negative": 1
-  },
-  {
-   "fieldname": "nov_target",
-   "fieldtype": "Int",
-   "label": "Nov Target",
-   "non_negative": 1
-  },
-  {
-   "fieldname": "dec_target",
-   "fieldtype": "Int",
-   "label": "Dec Target",
-   "non_negative": 1
-  },
-  {
-   "fieldname": "jan_target",
-   "fieldtype": "Int",
-   "label": "Jan Target",
-   "non_negative": 1
-  },
-  {
-   "fieldname": "feb_target",
-   "fieldtype": "Int",
-   "label": "Feb Target",
-   "non_negative": 1
-  },
-  {
-   "fieldname": "mar_target",
-   "fieldtype": "Int",
-   "label": "Mar Target",
-   "non_negative": 1
+   "read_only_depends_on": "eval:doc.frequency != 'Lump Sum'"
   },
   {
    "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "fieldname": "total_achievement",
    "fieldtype": "Int",
    "label": "Total Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "apr_achievement",
-   "fieldtype": "Int",
-   "label": "Apr Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "may_achievement",
-   "fieldtype": "Int",
-   "label": "May Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "jul_achievement",
-   "fieldtype": "Int",
-   "label": "Jul Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "aug_achievement",
-   "fieldtype": "Int",
-   "label": "Aug Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "sep_achievement",
-   "fieldtype": "Int",
-   "label": "Sep Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "oct_achievement",
-   "fieldtype": "Int",
-   "label": "Oct Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "nov_achievement",
-   "fieldtype": "Int",
-   "label": "Nov Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "dec_achievement",
-   "fieldtype": "Int",
-   "label": "Dec Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "jan_achievement",
-   "fieldtype": "Int",
-   "label": "Jan Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "feb_achievement",
-   "fieldtype": "Int",
-   "label": "Feb Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "mar_achievement",
-   "fieldtype": "Int",
-   "label": "Mar Achievement",
    "non_negative": 1,
    "read_only": 1
   },
@@ -313,133 +107,53 @@
    "reqd": 1
   },
   {
-   "fieldname": "jun_target",
-   "fieldtype": "Int",
-   "label": "Jun Target",
-   "non_negative": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "jun_achievement",
-   "fieldtype": "Int",
-   "label": "Jun Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "q1_target",
-   "fieldtype": "Int",
-   "label": "Q1 Target",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "q2_target",
-   "fieldtype": "Int",
-   "label": "Q2 Target",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "q3_target",
-   "fieldtype": "Int",
-   "label": "Q3 Target",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "q4_target",
-   "fieldtype": "Int",
-   "label": "Q4 Target",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "q1_achievement",
-   "fieldtype": "Int",
-   "label": "Q1 Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "q2_achievement",
-   "fieldtype": "Int",
-   "label": "Q2 Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "q3_achievement",
-   "fieldtype": "Int",
-   "label": "Q3 Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "q4_achievement",
-   "fieldtype": "Int",
-   "label": "Q4 Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
    "fieldname": "column_break_glel",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_tnka",
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "Frequency",
+   "options": "Quarterly\nMonthly\nLump Sum",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "section_break_ftkm",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "column_break_jxov",
+   "fieldname": "planning_table",
+   "fieldtype": "Table",
+   "label": "Planning Table",
+   "options": "Output Planning Child"
+  },
+  {
+   "fetch_from": "grant.start_date",
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fetch_from": "grant.end_date",
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "column_break_jmle",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_nnsz",
+   "fieldname": "column_break_nkzm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_ncln",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "column_break_gauj",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_djks",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_ghrc",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_prgh",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_ambl",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_unlw",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_mjeu",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_aslk",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_aftb",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_jxlc",
+   "fieldname": "column_break_rsnk",
    "fieldtype": "Column Break"
   }
  ],
@@ -451,7 +165,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2024-12-23 18:10:53.978471",
+ "modified": "2024-12-30 16:16:40.392394",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output",
