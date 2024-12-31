@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Output-{#####}",
+ "autoname": "format:OUTPUT-{#####}",
  "creation": "2024-11-29 21:24:26.781883",
  "default_view": "List",
  "doctype": "DocType",
@@ -35,8 +35,8 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Grant",
-   "mandatory_depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "options": "Grant",
+   "reqd": 1,
    "search_index": 1
   },
   {
@@ -115,8 +115,7 @@
    "fieldtype": "Select",
    "label": "Frequency",
    "options": "Quarterly\nMonthly\nLump Sum",
-   "reqd": 1,
-   "set_only_once": 1
+   "reqd": 1
   },
   {
    "fieldname": "section_break_ftkm",
@@ -165,7 +164,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2024-12-30 16:16:40.392394",
+ "modified": "2024-12-31 10:21:35.620709",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output",

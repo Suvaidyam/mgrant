@@ -31,13 +31,13 @@
  ],
  "fields": [
   {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "fieldname": "grant",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Grant",
    "mandatory_depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "options": "Grant",
+   "reqd": 1,
    "search_index": 1
   },
   {
@@ -166,7 +166,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2024-12-30 16:17:41.371639",
+ "modified": "2024-12-31 10:22:12.034244",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcome",
