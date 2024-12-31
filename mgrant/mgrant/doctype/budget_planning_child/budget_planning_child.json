@@ -10,7 +10,7 @@
   "month",
   "quarter",
   "timespan",
-  "amount",
+  "planned_amount",
   "utilised_amount",
   "remark"
  ],
@@ -22,13 +22,6 @@
    "label": "Timespan",
    "read_only": 1,
    "reqd": 1
-  },
-  {
-   "fieldname": "amount",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Planned Amount",
-   "non_negative": 1
   },
   {
    "fieldname": "month",
@@ -63,12 +56,19 @@
    "fieldtype": "Int",
    "hidden": 1,
    "label": "Quarter"
+  },
+  {
+   "fieldname": "planned_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Planned Amount",
+   "non_negative": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-12-29 16:46:30.588677",
+ "modified": "2024-12-31 10:33:02.628226",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Planning Child",

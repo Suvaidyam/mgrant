@@ -40,7 +40,8 @@
    "fieldtype": "Link",
    "label": "Grant",
    "options": "Grant",
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "item_name",
@@ -74,8 +75,7 @@
    "fieldtype": "Select",
    "label": "Frequency",
    "options": "Quarterly\nMonthly\nLump Sum",
-   "reqd": 1,
-   "set_only_once": 1
+   "reqd": 1
   },
   {
    "fetch_from": "grant.start_date",
@@ -105,7 +105,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-30 17:11:52.764717",
+ "modified": "2024-12-31 10:20:43.396370",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Plan and Utilisation",

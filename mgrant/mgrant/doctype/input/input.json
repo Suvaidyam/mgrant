@@ -50,6 +50,7 @@
    "in_list_view": 1,
    "label": "Grant",
    "options": "Grant",
+   "reqd": 1,
    "search_index": 1
   },
   {
@@ -168,7 +169,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2024-12-30 16:59:40.255867",
+ "modified": "2024-12-31 10:21:05.189339",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Input",
