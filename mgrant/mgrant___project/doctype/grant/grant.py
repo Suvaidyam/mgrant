@@ -3,8 +3,11 @@
 
 # import frappe
 from frappe.model.document import Document
-from mgrant.controllers.grant.grant import grant_after_insert
+from mgrant.controllers.grant.grant import grant_after_insert , grant_on_validate
 
 class Grant(Document):
 	def after_insert(self):
 		grant_after_insert(self)
+
+	def validate(self):
+		grant_on_validate(self)
