@@ -2,8 +2,8 @@ import frappe
 
 def budget_validate(self):
     if self.frequency in ('Quarterly', 'Monthly'):
-        self.total_planned_budget = sum([item.planned_amount for item in self.planning_table if len(self.planning_table) > 0])
-        self.total_utilisation = sum([item.utilised_amount for item in self.planning_table if len(self.planning_table) > 0])
+        self.total_planned_budget = sum([item.planned_amount or float(0) for item in self.planning_table if len(self.planning_table) > 0])
+        self.total_utilisation = sum([item.utilised_amount or float(0) for item in self.planning_table if len(self.planning_table) > 0])
     mgrant_settings = None
     if not mgrant_settings:
         if frappe.db.exists("mGrant Settings Grant Wise", self.grant):

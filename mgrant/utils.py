@@ -18,9 +18,9 @@ def get_fiscal_year(date):
     return year if month > 3 else year - 1
 
 def get_month_quarter_year_based_on_date_and_yt(date,year_type):
-    month = date.month
+    month = date.month - 1
     year = date.year
-    quarter = (month) // 3
+    quarter = (month + 1) // 3
     if year_type == "Financial Year":
         year = get_fiscal_year(date)
         quarter = get_fiscal_quarter(date)
