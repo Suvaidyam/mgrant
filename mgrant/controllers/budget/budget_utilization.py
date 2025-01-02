@@ -4,6 +4,8 @@ from mgrant.utils import get_month_quarter_year_based_on_date_and_yt
 def utilization_on_update(self):
     get_all_transaction = frappe.db.get_list("Budget Transaction", filters={"budget_plan":self.budget_plan}, fields=["transaction","budget_plan","as_on_date"],ignore_permissions=True)
     buget_plan_utl_doc = frappe.get_doc("Budget Plan and Utilisation", self.budget_plan)
+    monthly_keys = [f"{planning.month}-{planning.year}" for planning in buget_plan_utl_doc.get("planning_table",[]) if buget_plan_utl_doc.frequency == "Monthly"]
+    quarterly_keys = [f"{planning.quarter}-{planning.year}" for planning in buget_plan_utl_doc.get("planning_table",[]) if buget_plan_utl_doc.frequency == "Quarterly"]
     year_type = frappe.db.get_single_value("mGrant Settings", "year_type") or "Financial Year"
     if frappe.db.exists("mGrant Settings Grant Wise",self.grant):
         msgw = frappe.get_doc("mGrant Settings Grant Wise",self.grant)
@@ -13,41 +15,42 @@ def utilization_on_update(self):
         return
     mq_utilisations = {}
     total_utilization = float(0)
+    
     for transaction in get_all_transaction:
-        month , quarter , year = get_month_quarter_year_based_on_date_and_yt(transaction.as_on_date,year_type)
         if buget_plan_utl_doc.get("frequency") == "Monthly":
+            month = transaction.as_on_date.month - 1
+            year = transaction.as_on_date.year
             key = f"{month}-{year}"
-            if key not in mq_utilisations.keys():
+            if key not in monthly_keys:
+                frappe.throw(f"Please make transactions for planned months only.")
+            if key not in mq_utilisations:
                 mq_utilisations[key] = float(0)
             mq_utilisations[key] += transaction.transaction
+
         elif buget_plan_utl_doc.get("frequency") == "Quarterly":
+            month, quarter, year = get_month_quarter_year_based_on_date_and_yt(transaction.as_on_date, year_type)
             key = f"{quarter}-{year}"
-            if key not in mq_utilisations.keys():
+            if key not in quarterly_keys:
+                print(quarterly_keys, key)
+                frappe.throw(f"Please make transactions for planned quarters only.")
+            if key not in mq_utilisations:
                 mq_utilisations[key] = float(0)
             mq_utilisations[key] += transaction.transaction
+
         else:
             total_utilization += transaction.transaction
-    
-    if buget_plan_utl_doc.get("frequency") == "Monthly":
-        if len(buget_plan_utl_doc.get("planning_table")) > 0:
-            for planning in buget_plan_utl_doc.get("planning_table"):
-                key = f"{planning.month}-{planning.year}"
-                if key in mq_utilisations.keys():
-                    # Add Validation for Utilisation
-                    planning.utilised_amount = mq_utilisations[key]
-                else:
-                    planning.utilised_amount = float(0)
-    
-    elif buget_plan_utl_doc.get("frequency") == "Quarterly":
-        if len(buget_plan_utl_doc.get("planning_table")) > 0:
-            for planning in buget_plan_utl_doc.get("planning_table"):
-                key = f"{planning.quarter}-{planning.year}"
-                if key in mq_utilisations.keys():
-                    # Add Validation for Utilisation
-                    planning.utilised_amount = mq_utilisations[key]
-                else:
-                    planning.utilised_amount = float(0)
-    else:
+
+    # Perform validation and update planning table in the same loop
+    for planning in buget_plan_utl_doc.get("planning_table", []):
+        if buget_plan_utl_doc.get("frequency") == "Monthly":
+            key = f"{planning.month}-{planning.year}"
+            planning.utilised_amount = mq_utilisations.get(key, float(0))
+
+        elif buget_plan_utl_doc.get("frequency") == "Quarterly":
+            key = f"{planning.quarter}-{planning.year}"
+            planning.utilised_amount = mq_utilisations.get(key, float(0))
+
+    if buget_plan_utl_doc.get("frequency") not in ["Monthly", "Quarterly"]:
         buget_plan_utl_doc.total_utilisation = total_utilization
     buget_plan_utl_doc.save(ignore_permissions=True)
     
@@ -63,40 +66,31 @@ def utilization_on_trash(self):
         return
     mq_utilisations = {}
     total_utilization = float(0)
+    
     for transaction in get_all_transaction:
-        month , quarter , year = get_month_quarter_year_based_on_date_and_yt(transaction.as_on_date,year_type)
         if buget_plan_utl_doc.get("frequency") == "Monthly":
+            month = transaction.as_on_date.month - 1
+            year = transaction.as_on_date.year
             key = f"{month}-{year}"
-            if key not in mq_utilisations.keys():
+            if key not in mq_utilisations:
                 mq_utilisations[key] = float(0)
             mq_utilisations[key] += transaction.transaction
         elif buget_plan_utl_doc.get("frequency") == "Quarterly":
+            month, quarter, year = get_month_quarter_year_based_on_date_and_yt(transaction.as_on_date, year_type)
             key = f"{quarter}-{year}"
-            if key not in mq_utilisations.keys():
+            if key not in mq_utilisations:
                 mq_utilisations[key] = float(0)
             mq_utilisations[key] += transaction.transaction
         else:
             total_utilization += transaction.transaction
-    
-    if buget_plan_utl_doc.get("frequency") == "Monthly":
-        if len(buget_plan_utl_doc.get("planning_table")) > 0:
-            for planning in buget_plan_utl_doc.get("planning_table"):
-                key = f"{planning.month}-{planning.year}"
-                if key in mq_utilisations.keys():
-                    # Add Validation for Utilisation
-                    planning.utilised_amount = mq_utilisations[key]
-                else:
-                    planning.utilised_amount = float(0)
-    
-    elif buget_plan_utl_doc.get("frequency") == "Quarterly":
-        if len(buget_plan_utl_doc.get("planning_table")) > 0:
-            for planning in buget_plan_utl_doc.get("planning_table"):
-                key = f"{planning.quarter}-{planning.year}"
-                if key in mq_utilisations.keys():
-                    # Add Validation for Utilisation
-                    planning.utilised_amount = mq_utilisations[key]
-                else:
-                    planning.utilised_amount = float(0)
-    else:
+    # Perform validation and update planning table in the same loop
+    for planning in buget_plan_utl_doc.get("planning_table", []):
+        if buget_plan_utl_doc.get("frequency") == "Monthly":
+            key = f"{planning.month}-{planning.year}"
+            planning.utilised_amount = mq_utilisations.get(key, float(0))
+        elif buget_plan_utl_doc.get("frequency") == "Quarterly":
+            key = f"{planning.quarter}-{planning.year}"
+            planning.utilised_amount = mq_utilisations.get(key, float(0))
+    if buget_plan_utl_doc.get("frequency") not in ["Monthly", "Quarterly"]:
         buget_plan_utl_doc.total_utilisation = total_utilization
     buget_plan_utl_doc.save(ignore_permissions=True)
