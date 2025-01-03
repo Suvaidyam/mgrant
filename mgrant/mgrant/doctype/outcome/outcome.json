@@ -12,8 +12,8 @@
   "end_date",
   "column_break_xgzh",
   "outcome_name",
-  "financial_year",
   "kpi",
+  "financial_years",
   "column_break_qzmp",
   "frequency",
   "total_target",
@@ -76,13 +76,6 @@
    "fieldtype": "Link",
    "label": "Village",
    "options": "Village"
-  },
-  {
-   "fieldname": "financial_year",
-   "fieldtype": "Link",
-   "label": "Financial Year",
-   "options": "Financial Year",
-   "reqd": 1
   },
   {
    "fieldname": "total_target",
@@ -155,6 +148,12 @@
    "fieldtype": "Table",
    "label": "Planning Table",
    "options": "Outcome Planning Child"
+  },
+  {
+   "fieldname": "financial_years",
+   "fieldtype": "Table MultiSelect",
+   "label": "Financial Years",
+   "options": "Financial Year Child"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -165,7 +164,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-02 11:03:36.620462",
+ "modified": "2025-01-03 16:25:57.661156",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcome",
