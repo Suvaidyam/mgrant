@@ -1,84 +1,96 @@
 import frappe
-from datetime import datetime
+from mgrant.utils import get_month_quarter_year_based_on_date_and_yt
 
 def utilization_on_update(self):
-    pass
-        # get_all_transaction = frappe.db.get_list("Budget Transaction", filters={"budget_plan":self.budget_plan}, fields=["transaction","budget_plan","as_on_date"],ignore_permissions=True)
-        # buget_plan_utl_doc = frappe.get_doc("Budget Plan and Utilisation", self.budget_plan)
-        # year_type = frappe.db.get_single_value("mGrant Settings", "year_type") or "Financial Year"
-        # if frappe.db.exists("mGrant Settings Grant Wise",self.grant):
-        #     msgw = frappe.get_doc("mGrant Settings Grant Wise",self.grant)
-        #     if msgw.year_type:
-        #         year_type = msgw.year_type
-        # if not get_all_transaction:
-        #     return
-        # q1_uti = 0
-        # q2_uti = 0
-        # q3_uti = 0
-        # q4_uti = 0
-        # for trans in get_all_transaction:
-        #     date_object = datetime.strptime(str(trans.as_on_date), "%Y-%m-%d")
-        #     month_name = date_object.strftime("%B")
-        #     if year_type == "Calendar Year":
-        #         if month_name in ("January", "February", "March"):
-        #             q1_uti += trans.transaction or 0
-        #         elif month_name in ("April", "May", "June"):
-        #             q2_uti += trans.transaction or 0
-        #         elif month_name in ("July", "August", "September"):
-        #             q3_uti += trans.transaction or 0
-        #         elif month_name in ("October", "November", "December"):
-        #             q4_uti += trans.transaction or 0
-        #     else:
-        #         if month_name in ("January", "February", "March"):
-        #             q4_uti += trans.transaction or 0
-        #         elif month_name in ("April", "May", "June"):
-        #             q1_uti += trans.transaction or 0
-        #         elif month_name in ("July", "August", "September"):
-        #             q2_uti += trans.transaction or 0
-        #         elif month_name in ("October", "November", "December"):
-        #             q3_uti += trans.transaction or 0
-        # buget_plan_utl_doc.q1_utilisation = float(q1_uti)
-        # buget_plan_utl_doc.q2_utilisation = float(q2_uti)
-        # buget_plan_utl_doc.q3_utilisation = float(q3_uti)
-        # buget_plan_utl_doc.q4_utilisation = float(q4_uti)
-        # buget_plan_utl_doc.save(ignore_permissions=True)
-        
+    get_all_transaction = frappe.db.get_list("Budget Transaction", filters={"budget_plan":self.budget_plan}, fields=["transaction","budget_plan","as_on_date"],ignore_permissions=True)
+    buget_plan_utl_doc = frappe.get_doc("Budget Plan and Utilisation", self.budget_plan)
+    monthly_keys = [f"{planning.month}-{planning.year}" for planning in buget_plan_utl_doc.get("planning_table",[]) if buget_plan_utl_doc.frequency == "Monthly"]
+    quarterly_keys = [f"{planning.quarter}-{planning.year}" for planning in buget_plan_utl_doc.get("planning_table",[]) if buget_plan_utl_doc.frequency == "Quarterly"]
+    year_type = frappe.db.get_single_value("mGrant Settings", "year_type") or "Financial Year"
+    if frappe.db.exists("mGrant Settings Grant Wise",self.grant):
+        msgw = frappe.get_doc("mGrant Settings Grant Wise",self.grant)
+        if msgw.year_type:
+            year_type = msgw.year_type
+    if not get_all_transaction:
+        return
+    mq_utilisations = {}
+    total_utilization = float(0)
+    
+    for transaction in get_all_transaction:
+        if buget_plan_utl_doc.get("frequency") == "Monthly":
+            month = transaction.as_on_date.month - 1
+            year = transaction.as_on_date.year
+            key = f"{month}-{year}"
+            if key not in monthly_keys:
+                frappe.throw(f"Please make transactions for planned months only.")
+            if key not in mq_utilisations:
+                mq_utilisations[key] = float(0)
+            mq_utilisations[key] += transaction.transaction
+
+        elif buget_plan_utl_doc.get("frequency") == "Quarterly":
+            month, quarter, year = get_month_quarter_year_based_on_date_and_yt(transaction.as_on_date, year_type)
+            key = f"{quarter}-{year}"
+            if key not in quarterly_keys:
+                print(quarterly_keys, key)
+                frappe.throw(f"Please make transactions for planned quarters only.")
+            if key not in mq_utilisations:
+                mq_utilisations[key] = float(0)
+            mq_utilisations[key] += transaction.transaction
+
+        else:
+            total_utilization += transaction.transaction
+
+    # Perform validation and update planning table in the same loop
+    for planning in buget_plan_utl_doc.get("planning_table", []):
+        if buget_plan_utl_doc.get("frequency") == "Monthly":
+            key = f"{planning.month}-{planning.year}"
+            planning.utilised_amount = mq_utilisations.get(key, float(0))
+
+        elif buget_plan_utl_doc.get("frequency") == "Quarterly":
+            key = f"{planning.quarter}-{planning.year}"
+            planning.utilised_amount = mq_utilisations.get(key, float(0))
+
+    if buget_plan_utl_doc.get("frequency") not in ["Monthly", "Quarterly"]:
+        buget_plan_utl_doc.total_utilisation = total_utilization
+    buget_plan_utl_doc.save(ignore_permissions=True)
+    
 def utilization_on_trash(self):
-    pass
-    # get_all_transaction = frappe.db.get_list("Budget Transaction", filters={"budget_plan":self.budget_plan,'name':['!=',self.name]}, fields=["transaction","budget_plan","as_on_date"])
-    # buget_plan_utl_doc = frappe.get_doc("Budget Plan and Utilisation", self.budget_plan)
-    # year_type = frappe.db.get_single_value("mGrant Settings", "year_type") or "Financial Year"
-    # if frappe.db.exists("mGrant Settings Grant Wise",self.grant):
-    #     msgw = frappe.get_doc("mGrant Settings Grant Wise",self.grant)
-    #     if msgw.year_type:
-    #         year_type = msgw.year_type
-    # q1_uti = 0
-    # q2_uti = 0
-    # q3_uti = 0
-    # q4_uti = 0
-    # for trans in get_all_transaction:
-    #     date_object = datetime.strptime(str(trans.as_on_date), "%Y-%m-%d")
-    #     month_name = date_object.strftime("%B")
-    #     if year_type == "Calendar Year":
-    #         if month_name in ("January", "February", "March"):
-    #             q1_uti += trans.transaction or 0
-    #         elif month_name in ("April", "May", "June"):
-    #             q2_uti += trans.transaction or 0
-    #         elif month_name in ("July", "August", "September"):
-    #             q3_uti += trans.transaction or 0
-    #         elif month_name in ("October", "November", "December"):
-    #             q4_uti += trans.transaction or 0
-    #     else:
-    #         if month_name in ("January", "February", "March"):
-    #             q4_uti += trans.transaction or 0
-    #         elif month_name in ("April", "May", "June"):
-    #             q1_uti += trans.transaction or 0
-    #         elif month_name in ("July", "August", "September"):
-    #             q2_uti += trans.transaction or 0
-    #         elif month_name in ("October", "November", "December"):
-    #             q3_uti += trans.transaction or 0
-    # buget_plan_utl_doc.q1_utilisation = q1_uti
-    # buget_plan_utl_doc.q2_utilisation = q2_uti
-    # buget_plan_utl_doc.q3_utilisation = q3_uti
-    # buget_plan_utl_doc.q4_utilisation = q4_uti
-    # buget_plan_utl_doc.save(ignore_permissions=True)
+    get_all_transaction = frappe.db.get_list("Budget Transaction", filters={"budget_plan":self.budget_plan,'name':['!=',self.name]}, fields=["transaction","budget_plan","as_on_date"],ignore_permissions=True)
+    buget_plan_utl_doc = frappe.get_doc("Budget Plan and Utilisation", self.budget_plan)
+    year_type = frappe.db.get_single_value("mGrant Settings", "year_type") or "Financial Year"
+    if frappe.db.exists("mGrant Settings Grant Wise",self.grant):
+        msgw = frappe.get_doc("mGrant Settings Grant Wise",self.grant)
+        if msgw.year_type:
+            year_type = msgw.year_type
+    if not get_all_transaction:
+        return
+    mq_utilisations = {}
+    total_utilization = float(0)
+    
+    for transaction in get_all_transaction:
+        if buget_plan_utl_doc.get("frequency") == "Monthly":
+            month = transaction.as_on_date.month - 1
+            year = transaction.as_on_date.year
+            key = f"{month}-{year}"
+            if key not in mq_utilisations:
+                mq_utilisations[key] = float(0)
+            mq_utilisations[key] += transaction.transaction
+        elif buget_plan_utl_doc.get("frequency") == "Quarterly":
+            month, quarter, year = get_month_quarter_year_based_on_date_and_yt(transaction.as_on_date, year_type)
+            key = f"{quarter}-{year}"
+            if key not in mq_utilisations:
+                mq_utilisations[key] = float(0)
+            mq_utilisations[key] += transaction.transaction
+        else:
+            total_utilization += transaction.transaction
+    # Perform validation and update planning table in the same loop
+    for planning in buget_plan_utl_doc.get("planning_table", []):
+        if buget_plan_utl_doc.get("frequency") == "Monthly":
+            key = f"{planning.month}-{planning.year}"
+            planning.utilised_amount = mq_utilisations.get(key, float(0))
+        elif buget_plan_utl_doc.get("frequency") == "Quarterly":
+            key = f"{planning.quarter}-{planning.year}"
+            planning.utilised_amount = mq_utilisations.get(key, float(0))
+    if buget_plan_utl_doc.get("frequency") not in ["Monthly", "Quarterly"]:
+        buget_plan_utl_doc.total_utilisation = total_utilization
+    buget_plan_utl_doc.save(ignore_permissions=True)

@@ -50,6 +50,7 @@
    "in_list_view": 1,
    "label": "Grant",
    "options": "Grant",
+   "reqd": 1,
    "search_index": 1
   },
   {
@@ -138,8 +139,7 @@
    "fieldtype": "Select",
    "label": "Frequency",
    "options": "Quarterly\nMonthly\nLump Sum",
-   "reqd": 1,
-   "set_only_once": 1
+   "reqd": 1
   },
   {
    "fieldname": "column_break_zjal",
@@ -168,7 +168,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2024-12-30 16:59:40.255867",
+ "modified": "2025-01-02 11:04:23.262561",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Input",
@@ -212,7 +212,9 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "input_name"
 }

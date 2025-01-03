@@ -31,13 +31,13 @@
  ],
  "fields": [
   {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "fieldname": "grant",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Grant",
    "mandatory_depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "options": "Grant",
+   "reqd": 1,
    "search_index": 1
   },
   {
@@ -124,8 +124,7 @@
    "fieldtype": "Select",
    "label": "Frequency",
    "options": "Quarterly\nMonthly\nLump Sum",
-   "reqd": 1,
-   "set_only_once": 1
+   "reqd": 1
   },
   {
    "fetch_from": "grant.start_date",
@@ -166,7 +165,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2024-12-30 16:17:41.371639",
+ "modified": "2025-01-02 11:03:36.620462",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcome",

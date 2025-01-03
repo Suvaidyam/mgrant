@@ -42,7 +42,6 @@ const taskList = (task_list, selector) => {
         $('.section-body').each(function () {
             this.style.setProperty('padding', '0px', 'important');
         });
-        // Card view
         $('#task-card').html(
             `
             ${task_list.map(task => {
@@ -282,7 +281,6 @@ const taskList = (task_list, selector) => {
         </tbody>
     </table>
 </div>
-
               `
         );
 
@@ -322,8 +320,10 @@ const taskList = (task_list, selector) => {
 }
 let task_list = [];
 let view = 'Card View'
+let tasks_selector = 'task-list';
 
 const getTaskList = async (frm, selector) => {
+    tasks_selector = selector;
     task_list = await getDocList('mGrant Task', [
         ['mGrant Task', 'reference_doctype', '=', frm.doc.doctype],
         ['mGrant Task', 'related_to', '=', frm.doc.name],
@@ -513,10 +513,13 @@ const form = async (data = null, action, frm) => {
                     ...values
                 }).then(new_doc => {
                     if (new_doc) {
-                        console.log(new_doc);
                         frappe.show_alert({ message: __('Task created successfully'), indicator: 'green' });
                         task_form.hide();
-                        taskList([new_doc, ...task_list]);
+                        if (task_list.length === 0) {
+                            getTaskList(frm, tasks_selector);
+                        } else{
+                            taskList([new_doc, ...task_list]);
+                        }
                     }
                 }).catch(error => {
                     console.error(error);
