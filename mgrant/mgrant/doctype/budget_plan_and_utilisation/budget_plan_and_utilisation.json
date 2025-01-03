@@ -11,8 +11,8 @@
   "end_date",
   "column_break_gyjd",
   "item_name",
-  "financial_year",
   "budget_head",
+  "financial_years",
   "column_break_wpwi",
   "frequency",
   "total_planned_budget",
@@ -21,13 +21,6 @@
   "planning_table"
  ],
  "fields": [
-  {
-   "fieldname": "financial_year",
-   "fieldtype": "Link",
-   "label": "Financial Year",
-   "options": "Financial Year",
-   "reqd": 1
-  },
   {
    "fieldname": "budget_head",
    "fieldtype": "Link",
@@ -101,11 +94,17 @@
    "fieldtype": "Currency",
    "label": "Total Utilisation",
    "read_only": 1
+  },
+  {
+   "fieldname": "financial_years",
+   "fieldtype": "Table MultiSelect",
+   "label": "Financial Years",
+   "options": "Financial Year Child"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-31 10:20:43.396370",
+ "modified": "2025-01-03 16:30:46.325658",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Plan and Utilisation",
