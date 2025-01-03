@@ -18,26 +18,12 @@ def proposal_on_submit(self):
         grant.grant_name = self.proposal_name
         grant.start_date = today()
         grant.end_date = self.end_date
+        grant.implementation_type = "Self Implementation"
         grant.implementation_category = self.implementation_category
         grant.grant_description = self.proposal_description
         grant.theme = self.theme
         grant.sdg = self.sdg
         grant.focus_area = self.focus_area
-        # if len(self.themes) > 0:
-        # 	for theme in self.themes:
-        # 		grant.append("themes", {
-        # 			"theme": theme.theme
-        # 		})
-        # if len(self.sdgs) > 0:
-        # 	for sdg in self.sdgs:
-        # 		grant.append("sdgs", {
-        # 			"sdg": sdg.sdg
-        # 		})
-        # if len(self.focus_areas) > 0:
-        # 	for focus_area in self.focus_areas:
-        # 		grant.append("focus_areas", {
-        # 			"focus_area": focus_area.focus_area
-        # 		})
         grant.programme = self.programme
         if len(self.demography_focus) > 0:
             for df in self.demography_focus:
@@ -78,36 +64,46 @@ def proposal_on_submit(self):
                 tranche_doc = frappe.get_doc("Grant Receipts", tranche)
                 tranche_doc.grant = grant.name
                 tranche_doc.save(ignore_permissions=True)
-        outputs = frappe.get_all("Output", filters={"proposal": self.name}, pluck="name")
-        if len(outputs) > 0:
-            for output in outputs:
-                output_doc = frappe.get_doc("Output", output)
-                output_doc.grant = grant.name
-                output_doc.save(ignore_permissions=True)
-        inputs = frappe.get_all("Input", filters={"proposal": self.name}, pluck="name")
+        budget_plans = frappe.get_all("Proposal Budget Plan", filters={"proposal": self.name}, fields=['*'])
+        if len(budget_plans) > 0:
+            for budget_plan in budget_plans:
+                budget_plan_doc = frappe.new_doc("Budget Plan and Utilisation")
+                budget_plan_doc.update(budget_plan)
+                budget_plan_doc.grant = grant.name
+                budget_plan_doc.flags.ignore_mandatory = True
+                budget_plan_doc.save(ignore_permissions=True)
+        inputs = frappe.get_all("Proposal Input", filters={"proposal": self.name}, fields=['*'])
         if len(inputs) > 0:
             for input in inputs:
-                input_doc = frappe.get_doc("Input", input)
+                input_doc = frappe.new_doc("Input")
+                input_doc.update(input)
                 input_doc.grant = grant.name
+                input_doc.flags.ignore_mandatory = True
                 input_doc.save(ignore_permissions=True)
-        outcomes = frappe.get_all("Outcome", filters={"proposal": self.name}, pluck="name")
-        if len(outcomes) > 0:
-            for outcome in outcomes:
-                outcome_doc = frappe.get_doc("Outcome", outcome)
-                outcome_doc.grant = grant.name
-                outcome_doc.save(ignore_permissions=True)
-        budgets = frappe.get_all("Budget Plan and Utilisation", filters={"proposal": self.name}, pluck="name")
-        if len(budgets) > 0:
-            for budget in budgets:
-                budget_doc = frappe.get_doc("Budget Plan and Utilisation", budget)
-                budget_doc.grant = grant.name
-                budget_doc.save(ignore_permissions=True)
-        impacts = frappe.get_all("Impact", filters={"proposal": self.name}, pluck="name")
+        outputs = frappe.get_all("Proposal Output", filters={"proposal": self.name}, fields=['*'])
+        if len(outputs) > 0:
+            for output in outputs:
+                output_doc = frappe.new_doc("Output")
+                output_doc.update(output)
+                output_doc.grant = grant.name
+                output_doc.flags.ignore_mandatory = True
+                output_doc.save(ignore_permissions=True)
+        impacts = frappe.get_all("Proposal Impact", filters={"proposal": self.name}, fields=['*'])
         if len(impacts) > 0:
             for impact in impacts:
-                impact_doc = frappe.get_doc("Impact", impact)
+                impact_doc = frappe.new_doc("Impact")
+                impact_doc.update(impact)
                 impact_doc.grant = grant.name
+                impact_doc.flags.ignore_mandatory = True
                 impact_doc.save(ignore_permissions=True)
+        outcomes = frappe.get_all("Proposal Outcome", filters={"proposal": self.name}, fields=['*'])
+        if len(outcomes) > 0:
+            for outcome in outcomes:
+                outcome_doc = frappe.new_doc("Outcome")
+                outcome_doc.update(outcome)
+                outcome_doc.grant = grant.name
+                outcome_doc.flags.ignore_mandatory = True
+                outcome_doc.save(ignore_permissions=True)
         tasks = frappe.get_all("mGrant Task", filters={"reference_doctype": "Proposal","related_to":self.name},fields=['*'])
         for task in tasks:
             task_doc = frappe.new_doc("mGrant Task")
