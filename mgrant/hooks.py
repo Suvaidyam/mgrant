@@ -30,7 +30,7 @@ fixtures = [
     # 'Custom HTML Block'
     # "Custom DocPerm",
     # "My Theme",
-    # "Workflow"
+    "Workflow"
 ]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"
