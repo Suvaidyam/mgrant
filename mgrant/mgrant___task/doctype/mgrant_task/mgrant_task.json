@@ -82,7 +82,7 @@
    "in_list_view": 1,
    "in_preview": 1,
    "label": "Task Type",
-   "options": "Reporting\nProject Work\nMilestone",
+   "options": "Project Work\nMilestone",
    "reqd": 1
   },
   {
@@ -94,7 +94,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-23 18:27:19.643046",
+ "modified": "2025-01-06 15:23:22.345756",
  "modified_by": "Administrator",
  "module": "mGrant - Task",
  "name": "mGrant Task",
