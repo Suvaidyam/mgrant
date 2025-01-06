@@ -18,8 +18,7 @@ def proposal_on_submit(self):
         grant.grant_name = self.proposal_name
         grant.start_date = today()
         grant.end_date = self.end_date
-        grant.implementation_type = "Self Implementation"
-        grant.implementation_category = self.implementation_category
+        grant.implementation_type = self.implementation_type
         grant.grant_description = self.proposal_description
         grant.theme = self.theme
         grant.sdg = self.sdg
