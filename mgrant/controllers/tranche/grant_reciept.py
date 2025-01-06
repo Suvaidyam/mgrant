@@ -21,6 +21,7 @@ def grant_reciept_on_update(self):
             for tranche in prop_tranches:
                 total_funds_planned += float(tranche.total_funds_planned or 0)
         proposal_doc.total_planned_budget = total_funds_planned
+        proposal_doc.flags.ignore_mandatory = True
         proposal_doc.save(ignore_permissions=True)
         
 def grant_reciept_on_trash(self):
@@ -45,5 +46,6 @@ def grant_reciept_on_trash(self):
             for tranche in prop_tranches:
                 total_funds_planned += float(tranche.total_funds_planned or 0)
         proposal_doc.total_planned_budget = total_funds_planned
+        proposal_doc.flags.ignore_mandatory = True
         proposal_doc.save(ignore_permissions=True)
     
