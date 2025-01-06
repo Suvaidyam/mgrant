@@ -7,12 +7,21 @@ def grant_reciept_on_update(self):
         total_funds_requested = float(0)
         if len(tranches) > 0:
             for tranche in tranches:
-                total_funds_received += float(tranche.total_funds_received) or float(0)
-                total_funds_requested += float(tranche.funds_requested) or float(0)
+                total_funds_received += float(tranche.total_funds_received or 0)
+                total_funds_requested += float(tranche.funds_requested or 0)
         grant_doc.total_amount_requested_from_donor = total_funds_requested
         grant_doc.total_funds_received = total_funds_received
         grant_doc.flags.ignore_mandatory = True
         grant_doc.save(ignore_permissions=True)
+    if self.proposal:
+        proposal_doc = frappe.get_doc('Proposal',self.proposal)
+        prop_tranches = frappe.db.get_list('Grant Receipts', filters={'proposal': self.proposal}, fields=['name','total_funds_planned'],limit_page_length=1000,ignore_permissions=True)
+        total_funds_planned = float(0)
+        if len(prop_tranches) > 0:
+            for tranche in prop_tranches:
+                total_funds_planned += float(tranche.total_funds_planned or 0)
+        proposal_doc.total_planned_budget = total_funds_planned
+        proposal_doc.save(ignore_permissions=True)
         
 def grant_reciept_on_trash(self):
     if self.grant:
@@ -22,10 +31,19 @@ def grant_reciept_on_trash(self):
         total_funds_requested = float(0)
         if len(tranches) > 0:
             for tranche in tranches:
-                total_funds_received += float(tranche.total_funds_received) or float(0)
-                total_funds_requested += float(tranche.funds_requested) or float(0)
+                total_funds_received += float(tranche.total_funds_received or 0)
+                total_funds_requested += float(tranche.funds_requested or 0)
         grant_doc.total_amount_requested_from_donor = total_funds_requested
         grant_doc.total_funds_received = total_funds_received
         grant_doc.flags.ignore_mandatory = True
-        grant_doc.save(ignore_permissions=True)    
+        grant_doc.save(ignore_permissions=True)   
+    if self.proposal:
+        proposal_doc = frappe.get_doc('Proposal',self.proposal)
+        prop_tranches = frappe.db.get_list('Grant Receipts', filters={'proposal': self.proposal, 'name': ['!=', self.name]}, fields=['name','total_funds_planned'],limit_page_length=1000,ignore_permissions=True)
+        total_funds_planned = float(0)
+        if len(prop_tranches) > 0:
+            for tranche in prop_tranches:
+                total_funds_planned += float(tranche.total_funds_planned or 0)
+        proposal_doc.total_planned_budget = total_funds_planned
+        proposal_doc.save(ignore_permissions=True)
     
