@@ -514,7 +514,7 @@
   {
    "fieldname": "reportings_tab",
    "fieldtype": "Tab Break",
-   "label": "Reportings"
+   "label": "Reporting"
   },
   {
    "fieldname": "reportings",
@@ -601,7 +601,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-06 15:35:53.440728",
+ "modified": "2025-01-06 17:37:06.509581",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
