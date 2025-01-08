@@ -86,14 +86,14 @@
   "gallery_tab",
   "gallery",
   "amended_from",
-  "timeline_tab",
-  "timeline",
   "sub_grants_tab",
   "sub_grants",
   "notes_tab",
   "notes",
   "comments_tab",
-  "comments"
+  "comments",
+  "timeline_tab",
+  "timeline"
  ],
  "fields": [
   {
@@ -214,7 +214,7 @@
    "default": "tasks",
    "fieldname": "tasks_tab",
    "fieldtype": "Tab Break",
-   "label": "Tasks"
+   "label": "Milestone/Task"
   },
   {
    "default": "gallery",
@@ -326,7 +326,7 @@
   {
    "fieldname": "timeline_tab",
    "fieldtype": "Tab Break",
-   "label": "Timeline"
+   "label": "Action History"
   },
   {
    "fieldname": "timeline",
@@ -514,7 +514,7 @@
   {
    "fieldname": "reportings_tab",
    "fieldtype": "Tab Break",
-   "label": "Reportings"
+   "label": "Reporting"
   },
   {
    "fieldname": "reportings",
@@ -601,7 +601,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-03 11:43:40.357375",
+ "modified": "2025-01-08 10:20:50.085881",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
