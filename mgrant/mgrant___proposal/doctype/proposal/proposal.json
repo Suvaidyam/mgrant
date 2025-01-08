@@ -14,9 +14,9 @@
   "grant_duration_in_months",
   "column_break_qmgi",
   "stage",
-  "implementation_category",
   "programme",
   "total_planned_budget",
+  "implementation_type",
   "column_break_nwys",
   "descriptive_information_section",
   "theme",
@@ -81,12 +81,6 @@
   {
    "fieldname": "column_break_qmgi",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "implementation_category",
-   "fieldtype": "Select",
-   "label": "Implementation Category",
-   "options": "Direct\nIndirect"
   },
   {
    "fieldname": "column_break_nwys",
@@ -338,13 +332,18 @@
    "fieldtype": "Select",
    "label": "Stage",
    "options": "Lead\nDiscussion Ongoing\nProposal to be submitted\nProposal Submitted\nGrant Letter Signed\nRejected"
+  },
+  {
+   "fieldname": "implementation_type",
+   "fieldtype": "Select",
+   "label": "Implementation Type",
+   "options": "Self Implementation\nSub Grant"
   }
  ],
- "force_re_route_to_default_view": 1,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-06 15:27:41.913583",
+ "modified": "2025-01-06 20:22:01.261360",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
