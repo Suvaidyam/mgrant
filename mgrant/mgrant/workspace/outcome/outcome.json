@@ -1,0 +1,40 @@
+{
+ "app": "mgrant",
+ "charts": [],
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Outcome\"}}]",
+ "creation": "2025-01-08 12:46:09.717081",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "grid",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Outcome",
+ "link_to": "Outcome",
+ "link_type": "DocType",
+ "links": [],
+ "modified": "2025-01-08 12:52:11.226054",
+ "modified_by": "Administrator",
+ "module": "Mgrant",
+ "name": "Outcome",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "LFA",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Administrator"
+  },
+  {
+   "role": "NGO Admin"
+  }
+ ],
+ "sequence_id": 16.0,
+ "shortcuts": [],
+ "title": "Outcome",
+ "type": "Link"
+}

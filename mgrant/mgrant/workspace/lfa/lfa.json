@@ -1,0 +1,72 @@
+{
+ "app": "mgrant",
+ "charts": [],
+ "content": "[{\"id\":\"DwXP2B2U3S\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Targets</b></span>\",\"col\":12}},{\"id\":\"tBQwWYMV7J\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Target (Output)\",\"col\":3}},{\"id\":\"7KO26VTZiJ\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Target (Outcome)\",\"col\":3}},{\"id\":\"nLh7rfB2Tk\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Target (Input)\",\"col\":3}},{\"id\":\"50JKLiHogP\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Target (Impact)\",\"col\":3}},{\"id\":\"ZTlFYcM0dB\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Achievements</b></span>\",\"col\":12}},{\"id\":\"61CA68qPvQ\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Achievement (Output)\",\"col\":3}},{\"id\":\"mWGakZ-8D8\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Achievement (Outcome)\",\"col\":3}},{\"id\":\"z67jVpqVUz\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Achievement (Input)\",\"col\":3}},{\"id\":\"eUoxQ5df6g\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Achievement (Impact)\",\"col\":3}}]",
+ "creation": "2025-01-08 12:29:21.070295",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "grid",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "LFA",
+ "link_type": "DocType",
+ "links": [],
+ "modified": "2025-01-08 12:51:43.741663",
+ "modified_by": "Administrator",
+ "module": "Mgrant",
+ "name": "LFA",
+ "number_cards": [
+  {
+   "label": "Total Target (Output)",
+   "number_card_name": "Total Target"
+  },
+  {
+   "label": "Total Achievement (Output)",
+   "number_card_name": "Total Achievement"
+  },
+  {
+   "label": "Total Target (Input)",
+   "number_card_name": "Total Target - 2"
+  },
+  {
+   "label": "Total Target (Outcome)",
+   "number_card_name": "Total Target -1"
+  },
+  {
+   "label": "Total Target (Impact)",
+   "number_card_name": "Total Target - 3"
+  },
+  {
+   "label": "Total Achievement (Outcome)",
+   "number_card_name": "Total Achievement-1"
+  },
+  {
+   "label": "Total Achievement (Input)",
+   "number_card_name": "Total Achievement (Input)"
+  },
+  {
+   "label": "Total Achievement (Impact)",
+   "number_card_name": "Total Achievement - 2"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Administrator"
+  },
+  {
+   "role": "NGO Admin"
+  }
+ ],
+ "sequence_id": 7.0,
+ "shortcuts": [],
+ "title": "LFA",
+ "type": "Workspace"
+}

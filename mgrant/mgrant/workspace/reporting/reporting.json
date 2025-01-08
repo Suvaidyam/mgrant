@@ -1,8 +1,8 @@
 {
  "app": "mgrant",
  "charts": [],
- "content": "[{\"id\":\"nvHZQPb5TD\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Proposals\",\"col\":4}}]",
- "creation": "2024-12-24 16:38:32.188885",
+ "content": "[{\"id\":\"HYEXgmLhlx\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reporting</span>\",\"col\":12}},{\"id\":\"v6d-P5MYGH\",\"type\":\"paragraph\",\"data\":{\"text\":\"Will be available soon...\",\"col\":12}}]",
+ "creation": "2025-01-08 11:19:51.428188",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -12,19 +12,14 @@
  "idx": 0,
  "indicator_color": "green",
  "is_hidden": 0,
- "label": "Applications",
+ "label": "Reporting",
  "link_type": "DocType",
  "links": [],
- "modified": "2024-12-24 16:40:04.309360",
+ "modified": "2025-01-08 12:04:42.014137",
  "modified_by": "Administrator",
- "module": "mGrant - Proposal",
- "name": "Applications",
- "number_cards": [
-  {
-   "label": "Proposals",
-   "number_card_name": "Proposals"
-  }
- ],
+ "module": "Mgrant",
+ "name": "Reporting",
+ "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
@@ -37,8 +32,8 @@
    "role": "NGO Admin"
   }
  ],
- "sequence_id": 1.0,
+ "sequence_id": 5.0,
  "shortcuts": [],
- "title": "Applications",
+ "title": "Reporting",
  "type": "Workspace"
 }
