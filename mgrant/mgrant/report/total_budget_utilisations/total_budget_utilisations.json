@@ -1,0 +1,38 @@
+{
+ "add_total_row": 0,
+ "columns": [
+  {
+   "fieldname": "total_utilisation",
+   "fieldtype": "Currency",
+   "label": "Total Utilisation",
+   "width": 0
+  }
+ ],
+ "creation": "2025-01-08 12:10:19.888295",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2025-01-08 12:22:56.850345",
+ "modified_by": "Administrator",
+ "module": "Mgrant",
+ "name": "Total Budget Utilisations",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    SUM(transaction) AS total_utilisation\nFROM\n    `tabBudget Transaction`;",
+ "ref_doctype": "Budget Transaction",
+ "report_name": "Total Budget Utilisations",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "NGO Admin"
+  }
+ ],
+ "timeout": 0
+}
