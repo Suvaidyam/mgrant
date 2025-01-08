@@ -1,7 +1,7 @@
 {
  "app": "mgrant",
  "charts": [],
- "content": "[{\"id\":\"DwXP2B2U3S\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Total Targets</b></span>\",\"col\":12}},{\"id\":\"nLh7rfB2Tk\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Input\",\"col\":3}},{\"id\":\"tBQwWYMV7J\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Output\",\"col\":3}},{\"id\":\"7KO26VTZiJ\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Outcome\",\"col\":3}},{\"id\":\"50JKLiHogP\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Impact\",\"col\":3}},{\"id\":\"ZTlFYcM0dB\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Total Achievements</b></span>\",\"col\":12}},{\"id\":\"z67jVpqVUz\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Input Achievement\",\"col\":3}},{\"id\":\"61CA68qPvQ\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Output Achievement\",\"col\":3}},{\"id\":\"mWGakZ-8D8\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Outcome Achievement\",\"col\":3}},{\"id\":\"eUoxQ5df6g\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Impact Achievement\",\"col\":3}}]",
+ "content": "[{\"id\":\"DwXP2B2U3S\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Total Targets</b></span>\",\"col\":12}},{\"id\":\"nLh7rfB2Tk\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Input Target\",\"col\":3}},{\"id\":\"tBQwWYMV7J\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Output Target\",\"col\":3}},{\"id\":\"7KO26VTZiJ\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Outcome Target\",\"col\":3}},{\"id\":\"50JKLiHogP\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Impact Target\",\"col\":3}},{\"id\":\"ZTlFYcM0dB\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Total Achievements</b></span>\",\"col\":12}},{\"id\":\"z67jVpqVUz\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Input Achievement\",\"col\":3}},{\"id\":\"61CA68qPvQ\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Output Achievement\",\"col\":3}},{\"id\":\"mWGakZ-8D8\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Outcome Achievement\",\"col\":3}},{\"id\":\"eUoxQ5df6g\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Impact Achievement\",\"col\":3}}]",
  "creation": "2025-01-08 12:29:21.070295",
  "custom_blocks": [],
  "docstatus": 0,
@@ -9,31 +9,31 @@
  "for_user": "",
  "hide_custom": 0,
  "icon": "grid",
- "idx": 0,
+ "idx": 4,
  "indicator_color": "green",
  "is_hidden": 0,
  "label": "LFA",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-01-08 13:37:20.921661",
+ "modified": "2025-01-08 14:42:51.157115",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "LFA",
  "number_cards": [
   {
-   "label": "Output",
-   "number_card_name": "Total Target"
-  },
-  {
-   "label": "Outcome",
-   "number_card_name": "Total Target -1"
-  },
-  {
-   "label": "Input",
+   "label": "Input Target",
    "number_card_name": "Total Target - 2"
   },
   {
-   "label": "Impact",
+   "label": "Output Target",
+   "number_card_name": "Total Target"
+  },
+  {
+   "label": "Outcome Target",
+   "number_card_name": "Total Target -1"
+  },
+  {
+   "label": "Impact Target",
    "number_card_name": "Total Target - 3"
   },
   {
