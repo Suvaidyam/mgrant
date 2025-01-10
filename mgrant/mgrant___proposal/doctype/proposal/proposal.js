@@ -21,12 +21,12 @@ function getMonthDifference(startDate, endDate) {
 let PREV_STATES = [];
 frappe.ui.form.on("Proposal", {
     refresh(frm) {
+        frm.trigger('change_indicator_pill_content')
         if (frm.doc.states.length) {
             PREV_STATES = frm.doc.states;
         } else {
             PREV_STATES = [];
         }
-        document.querySelector('.indicator-pill').innerHTML = frm.doc?.docstatus == 1 ? "Signed" : "Open";
         if (frm.doc.docstatus == 1 && frm.doc.grant) {
             frm.add_custom_button('Go to Grant', function () {
                 frappe.set_route('Form', 'Grant', frm.doc.grant);
@@ -35,6 +35,19 @@ frappe.ui.form.on("Proposal", {
         setup_multiselect_dependency(frm, 'District', 'states', 'state', 'districts', 'state');
         setup_multiselect_dependency(frm, 'Block', 'districts', 'district', 'blocks', 'district');
         setup_multiselect_dependency(frm, 'Village', 'blocks', 'block', 'villages', 'block');
+    },
+    change_indicator_pill_content(frm) {
+        let index = 0
+        let interval = setInterval(() => {
+            let indicatorPill = document.querySelector('.indicator-pill')
+            if (indicatorPill) {
+                indicatorPill.innerHTML = frm.doc?.docstatus == 1 ? "<span>Signed</span>" : "<span>Open</span>";
+            }
+            if (index > 20 || indicatorPill) {
+                clearInterval(interval)
+            }
+            index++
+        }, 500)
     },
     prev_states(frm) {
         if (frm.doc.states.length) {

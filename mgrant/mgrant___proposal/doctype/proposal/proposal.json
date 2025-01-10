@@ -292,10 +292,12 @@
    "reqd": 1
   },
   {
+   "default": "0",
    "fieldname": "grant_duration_in_months",
    "fieldtype": "Int",
    "label": "Grant Duration in months",
-   "non_negative": 1
+   "non_negative": 1,
+   "read_only": 1
   },
   {
    "fieldname": "donor",
@@ -351,7 +353,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-10 13:31:02.469357",
+ "modified": "2025-01-10 14:53:52.861727",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
