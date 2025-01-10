@@ -183,7 +183,7 @@ async function renderEmails(email_list, frm, selector = null) {
     if (email_list.length == "") {
         emailHtml += `
             <div style="width: 100%; height:80vh; display: flex; align-items: center; justify-content: center;">
-                <h4>No Emails Found</h4>
+                <div class="note_message"><img style="width: 60px; hight: 60px;" src="/assets/mgrant/images/no-data-found.png"></div>
             </div>
 
 
