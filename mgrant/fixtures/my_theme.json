@@ -41,7 +41,7 @@
   "secondary_button_hover_background_color": null,
   "secondary_button_hover_text_color": null,
   "secondary_button_text_color": null,
-  "sidebar_element_selector": null,
+  "sidebar_element_selector": ".item-anchor",
   "table_body_background_color": null,
   "table_body_text_color": null,
   "table_head_background_color": null,

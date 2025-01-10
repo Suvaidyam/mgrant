@@ -140,10 +140,12 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:doc.frequency != 'Lump Sum'",
    "fieldname": "section_break_rxfv",
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.frequency != \"Lump Sum\"",
    "fieldname": "planning_table",
    "fieldtype": "Table",
    "label": "Planning Table",
@@ -164,7 +166,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-03 16:25:57.661156",
+ "modified": "2025-01-10 12:13:15.428434",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcome",
