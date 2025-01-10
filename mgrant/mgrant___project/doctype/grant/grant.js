@@ -76,7 +76,7 @@ frappe.ui.form.on("Grant", {
                 frm.set_df_property('sub_granting_section', 'hidden', 0);
                 frm.set_df_property('total_funds_subgranted', 'hidden', 0);
                 frm.set_df_property('subgranting_status', 'hidden', 0);
-                frm.set_df_property('total_subgrant_utilisation', 'total_funds_subgranted', 0);
+                frm.set_df_property('total_subgrant_utilisation', 'hidden', 0);
                 frm.$wrapper.find("[data-fieldname='sub_grants_tab']").show();
             } else {
                 frm.set_df_property('sub_granting_section', 'hidden', 1);

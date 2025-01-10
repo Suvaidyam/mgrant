@@ -17,8 +17,8 @@
   "programme",
   "total_planned_budget",
   "implementation_type",
-  "grant",
   "column_break_nwys",
+  "grant",
   "descriptive_information_section",
   "theme",
   "sdg",
@@ -343,6 +343,7 @@
   {
    "fieldname": "grant",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Grant",
    "options": "Grant"
   }
@@ -350,7 +351,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-10 11:50:48.696526",
+ "modified": "2025-01-10 13:31:02.469357",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
