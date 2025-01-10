@@ -12,13 +12,13 @@
  "idx": 0,
  "indicator_color": "green",
  "is_hidden": 0,
- "label": "Sub Grant",
+ "label": "Sub-grants",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-01-08 13:31:00.612942",
+ "modified": "2025-01-10 12:57:04.691418",
  "modified_by": "Administrator",
  "module": "Mgrant",
- "name": "Sub Grant",
+ "name": "Sub-grants",
  "number_cards": [
   {
    "label": "Sub Grant",
@@ -38,10 +38,13 @@
   },
   {
    "role": "Partner NGO"
+  },
+  {
+   "role": "System Manager"
   }
  ],
  "sequence_id": 4.0,
  "shortcuts": [],
- "title": "Sub Grant",
+ "title": "Sub-grants",
  "type": "Workspace"
 }

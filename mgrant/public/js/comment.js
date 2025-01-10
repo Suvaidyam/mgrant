@@ -121,7 +121,7 @@ async function get_comment_list(frm, selector) {
             </div>
             <div class="comment_title_links">
             ${comment_list?.length == 0 ? `
-                    <div class="comment_message">Comments Not Found</div>
+                    <div class="comment_message"><img style="width: 100px; hight: 100px;" src="/assets/mgrant/images/no-data-found.png"></div>
                     ` : `
                     ${comment_list?.map((comment) => `
                         <div class="comment-title-body">
