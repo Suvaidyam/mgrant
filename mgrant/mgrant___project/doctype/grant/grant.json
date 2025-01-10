@@ -220,7 +220,7 @@
    "default": "gallery",
    "fieldname": "gallery_tab",
    "fieldtype": "Tab Break",
-   "label": "Gallery"
+   "label": "Files"
   },
   {
    "default": "gallery",
@@ -601,7 +601,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-10 10:34:37.879613",
+ "modified": "2025-01-10 11:50:18.343741",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",

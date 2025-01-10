@@ -6,7 +6,7 @@
    "label": "Budget Head wise Planning and Utilisation"
   }
  ],
- "content": "[{\"id\":\"rCHpJfCKTp\",\"type\":\"header\",\"data\":{\"text\":\"<span style=\\\"font-size: 16px;\\\">Tranches</span>\",\"col\":12}},{\"id\":\"TaKa6beqlV\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Fund Requested\",\"col\":4}},{\"id\":\"1Y9WQdgs-Z\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Fund Recieved\",\"col\":4}},{\"id\":\"4c9p8xmdRE\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Budget</b></span>\",\"col\":12}},{\"id\":\"-cCrhKXsv-\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Budget Planned\",\"col\":4}},{\"id\":\"HxiKh7oBkP\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Budget Utilised\",\"col\":4}},{\"id\":\"wcSHYM3EFl\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Budget Head wise Planning and Utilisation\",\"col\":12}}]",
+ "content": "[{\"id\":\"rCHpJfCKTp\",\"type\":\"header\",\"data\":{\"text\":\"<span style=\\\"font-size: 16px;\\\">Tranches</span>\",\"col\":12}},{\"id\":\"3AEJdoqMQU\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Tranches\",\"col\":4}},{\"id\":\"TaKa6beqlV\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Fund Requested\",\"col\":4}},{\"id\":\"1Y9WQdgs-Z\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Fund Recieved\",\"col\":4}},{\"id\":\"4c9p8xmdRE\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Budget</b></span>\",\"col\":12}},{\"id\":\"Tk5GB6rnKB\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Budgets\",\"col\":4}},{\"id\":\"-cCrhKXsv-\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Budget Planned\",\"col\":4}},{\"id\":\"HxiKh7oBkP\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Budget Utilised\",\"col\":4}},{\"id\":\"wcSHYM3EFl\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Budget Head wise Planning and Utilisation\",\"col\":12}}]",
  "creation": "2025-01-08 11:57:53.583195",
  "custom_blocks": [],
  "docstatus": 0,
@@ -20,7 +20,7 @@
  "label": "Financials",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-01-08 14:36:32.922487",
+ "modified": "2025-01-10 11:46:56.373550",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Financials",
@@ -28,6 +28,14 @@
   {
    "label": "Total Budget Utilised",
    "number_card_name": "Total Budget Utilisations"
+  },
+  {
+   "label": "Budgets",
+   "number_card_name": "Budgets"
+  },
+  {
+   "label": "Tranches",
+   "number_card_name": "Tranches"
   },
   {
    "label": "Total Budget Planned",

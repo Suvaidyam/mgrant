@@ -21,34 +21,40 @@ function getMonthDifference(startDate, endDate) {
 let PREV_STATES = [];
 frappe.ui.form.on("Proposal", {
     refresh(frm) {
-        if(frm.doc.states.length) {
+        if (frm.doc.states.length) {
             PREV_STATES = frm.doc.states;
-        }else{
+        } else {
             PREV_STATES = [];
+        }
+        document.querySelector('.indicator-pill').innerHTML = frm.doc?.docstatus == 1 ? "Signed" : "Open";
+        if (frm.doc.docstatus == 1 && frm.doc.grant) {
+            frm.add_custom_button('Go to Grant', function () {
+                frappe.set_route('Form', 'Grant', frm.doc.grant);
+            });
         }
         setup_multiselect_dependency(frm, 'District', 'states', 'state', 'districts', 'state');
         setup_multiselect_dependency(frm, 'Block', 'districts', 'district', 'blocks', 'district');
         setup_multiselect_dependency(frm, 'Village', 'blocks', 'block', 'villages', 'block');
     },
-    prev_states(frm){
-        if(frm.doc.states.length) {
+    prev_states(frm) {
+        if (frm.doc.states.length) {
             PREV_STATES = frm.doc.states;
-        }else{
+        } else {
             PREV_STATES = [];
         }
     },
     states(frm) {
         let current_states = frm.doc.states;
         const removedStates = PREV_STATES.filter(state => !current_states.includes(state));
-        if(removedStates.length){
-            const demography_focuses_related_to_rm_state = frm.doc.demography_focus.filter(df => removedStates.map((state)=> state.state).includes(df.state));
+        if (removedStates.length) {
+            const demography_focuses_related_to_rm_state = frm.doc.demography_focus.filter(df => removedStates.map((state) => state.state).includes(df.state));
             if (demography_focuses_related_to_rm_state.length) {
                 frappe.msgprint(__("Please remove the state from Demography Focus to remove the state from Grant"));
                 frm.set_value('states', PREV_STATES);
-            }else{
+            } else {
                 frm.trigger('prev_states');
             }
-        }else{
+        } else {
             setup_multiselect_dependency(frm, 'District', 'states', 'state', 'districts', 'state');
             frm.set_value({ districts: [], blocks: [], villages: [] });
             frm.trigger('prev_states');
