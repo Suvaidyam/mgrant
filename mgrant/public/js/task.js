@@ -35,7 +35,7 @@ const taskList = (task_list, selector) => {
         $('#parent-view').css('height', '75vh');
         $('#parent-view').html(`
             <div class="h-100 d-flex justify-content-center align-items-center flex-wrap ">
-                <img style="width: 75px; hight: 75px;" src="/assets/mgrant/images/no-data-found.png">
+                <img style="width: 100px; hight: 100px;" src="/assets/mgrant/images/no-data-found.png">
             </div> `
         );
     } else {
