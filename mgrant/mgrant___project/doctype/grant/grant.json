@@ -285,9 +285,9 @@
   {
    "fieldname": "proposal",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Proposal",
-   "options": "Proposal"
+   "options": "Proposal",
+   "read_only": 1
   },
   {
    "fieldname": "amended_from",
@@ -601,7 +601,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-08 10:20:50.085881",
+ "modified": "2025-01-10 10:34:37.879613",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",

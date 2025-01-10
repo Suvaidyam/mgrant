@@ -1,0 +1,61 @@
+{
+ "app": "mgrant",
+ "charts": [
+  {
+   "chart_name": "Budget Head wise Planning and Utilisation",
+   "label": "Budget Head wise Planning and Utilisation"
+  }
+ ],
+ "content": "[{\"id\":\"rCHpJfCKTp\",\"type\":\"header\",\"data\":{\"text\":\"<span style=\\\"font-size: 16px;\\\">Tranches</span>\",\"col\":12}},{\"id\":\"TaKa6beqlV\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Fund Requested\",\"col\":4}},{\"id\":\"1Y9WQdgs-Z\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Fund Recieved\",\"col\":4}},{\"id\":\"4c9p8xmdRE\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Budget</b></span>\",\"col\":12}},{\"id\":\"-cCrhKXsv-\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Budget Planned\",\"col\":4}},{\"id\":\"HxiKh7oBkP\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Budget Utilised\",\"col\":4}},{\"id\":\"wcSHYM3EFl\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Budget Head wise Planning and Utilisation\",\"col\":12}}]",
+ "creation": "2025-01-08 11:57:53.583195",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "equity",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Financials",
+ "link_type": "DocType",
+ "links": [],
+ "modified": "2025-01-08 14:36:32.922487",
+ "modified_by": "Administrator",
+ "module": "mGrant - Project",
+ "name": "Financials",
+ "number_cards": [
+  {
+   "label": "Total Budget Utilised",
+   "number_card_name": "Total Budget Utilisations"
+  },
+  {
+   "label": "Total Budget Planned",
+   "number_card_name": "Budget Plans"
+  },
+  {
+   "label": "Total Fund Requested",
+   "number_card_name": "Total Fund Requested"
+  },
+  {
+   "label": "Total Fund Recieved",
+   "number_card_name": "Total Fund Recieved"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Administrator"
+  },
+  {
+   "role": "NGO Admin"
+  }
+ ],
+ "sequence_id": 6.0,
+ "shortcuts": [],
+ "title": "Financials",
+ "type": "Workspace"
+}

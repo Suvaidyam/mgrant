@@ -16,7 +16,7 @@
  "link_to": "Contact",
  "link_type": "DocType",
  "links": [],
- "modified": "2024-12-24 16:34:56.414044",
+ "modified": "2025-01-08 12:50:41.791106",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Contacts",
@@ -39,7 +39,7 @@
    "role": "NGO Admin"
   }
  ],
- "sequence_id": 6.0,
+ "sequence_id": 9.0,
  "shortcuts": [],
  "title": "Contacts",
  "type": "Link"

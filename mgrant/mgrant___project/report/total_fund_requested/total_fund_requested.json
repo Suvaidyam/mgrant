@@ -1,0 +1,38 @@
+{
+ "add_total_row": 0,
+ "columns": [
+  {
+   "fieldname": "total_funds_requested",
+   "fieldtype": "Currency",
+   "label": "Total Funds Requested",
+   "width": 0
+  }
+ ],
+ "creation": "2025-01-08 12:21:40.337034",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2025-01-08 12:22:28.183165",
+ "modified_by": "Administrator",
+ "module": "mGrant - Project",
+ "name": "Total Fund Requested",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    SUM(funds_requested) AS total_funds_requested\nFROM\n    `tabGrant Receipts`",
+ "ref_doctype": "Grant Receipts",
+ "report_name": "Total Fund Requested",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "NGO Admin"
+  }
+ ],
+ "timeout": 0
+}

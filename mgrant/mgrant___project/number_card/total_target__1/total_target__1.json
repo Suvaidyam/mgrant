@@ -1,5 +1,5 @@
 {
- "aggregate_function_based_on": "target",
+ "aggregate_function_based_on": "total_target",
  "creation": "2024-09-30 17:33:49.745556",
  "docstatus": 0,
  "doctype": "Number Card",
@@ -10,8 +10,8 @@
  "idx": 0,
  "is_public": 0,
  "is_standard": 1,
- "label": "Total Target ",
- "modified": "2024-09-30 17:33:49.745556",
+ "label": "Total Target - 1",
+ "modified": "2025-01-08 13:38:54.906420",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Total Target -1",
@@ -19,6 +19,6 @@
  "parent_document_type": "",
  "report_function": "Sum",
  "show_percentage_stats": 1,
- "stats_time_interval": "Yearly",
+ "stats_time_interval": "Daily",
  "type": "Document Type"
 }

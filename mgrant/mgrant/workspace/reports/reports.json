@@ -1,25 +1,24 @@
 {
  "app": "mgrant",
  "charts": [],
- "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Gallery.\"}}]",
- "creation": "2024-12-10 13:29:32.892736",
+ "content": "[{\"id\":\"HYEXgmLhlx\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reporting</span>\",\"col\":12}},{\"id\":\"v6d-P5MYGH\",\"type\":\"paragraph\",\"data\":{\"text\":\"Will be available soon...\",\"col\":12}}]",
+ "creation": "2025-01-08 11:19:51.428188",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "image",
+ "icon": "table",
  "idx": 0,
  "indicator_color": "green",
  "is_hidden": 0,
- "label": "Gallery.",
- "link_to": "File",
+ "label": "Reports",
  "link_type": "DocType",
  "links": [],
- "modified": "2024-12-23 17:33:02.867621",
+ "modified": "2025-01-08 13:33:21.247426",
  "modified_by": "Administrator",
  "module": "Mgrant",
- "name": "Gallery.",
+ "name": "Reports",
  "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
@@ -33,8 +32,8 @@
    "role": "NGO Admin"
   }
  ],
- "sequence_id": 7.0,
+ "sequence_id": 5.0,
  "shortcuts": [],
- "title": "Gallery.",
- "type": "Link"
+ "title": "Reports",
+ "type": "Workspace"
 }
