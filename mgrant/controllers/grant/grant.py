@@ -29,6 +29,10 @@ def grant_after_insert(self):
         mgsgw.grant_name = self.name
     mgsgw.insert(ignore_permissions=True)
     
+    if self.proposal:
+        if frappe.db.exists("Proposal", self.proposal):
+            frappe.db.set_value("Proposal", self.proposal, "grant", self.name)
+            
     # Setup Parent For Sub Granting
     if self.implementation_type == "Sub Grant":
         parent_grant = frappe.get_doc("Grant", self.parent_grant)
