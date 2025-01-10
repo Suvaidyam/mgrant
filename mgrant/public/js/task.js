@@ -35,7 +35,7 @@ const taskList = (task_list, selector) => {
         $('#parent-view').css('height', '75vh');
         $('#parent-view').html(`
             <div class="h-100 d-flex justify-content-center align-items-center flex-wrap ">
-                <h4 class="">No tasks found</h4>
+                <img style="width: 75px; hight: 75px;" src="/assets/mgrant/images/no-data-found.png">
             </div> `
         );
     } else {
@@ -517,7 +517,7 @@ const form = async (data = null, action, frm) => {
                         task_form.hide();
                         if (task_list.length === 0) {
                             getTaskList(frm, tasks_selector);
-                        } else{
+                        } else {
                             taskList([new_doc, ...task_list]);
                         }
                     }
