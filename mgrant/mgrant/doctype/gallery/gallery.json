@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:FILE-{######}",
  "creation": "2024-08-15 17:50:02.299942",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -11,13 +12,6 @@
   "title"
  ],
  "fields": [
-  {
-   "allow_in_quick_entry": 1,
-   "fieldname": "image",
-   "fieldtype": "Attach",
-   "label": "Image",
-   "reqd": 1
-  },
   {
    "allow_in_quick_entry": 1,
    "fieldname": "document_type",
@@ -44,14 +38,22 @@
    "options": "document_type",
    "read_only_depends_on": "eval:cur_frm.doc.doctype != \"Gallery\"",
    "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "image",
+   "fieldtype": "Attach",
+   "label": "File",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-23 18:15:23.064444",
+ "modified": "2025-01-10 12:58:42.958514",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Gallery",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
