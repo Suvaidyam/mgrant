@@ -1,0 +1,40 @@
+{
+ "app": "mgrant",
+ "charts": [],
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Input\"}}]",
+ "creation": "2025-01-08 12:45:16.502307",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "shrink",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Inputs",
+ "link_to": "Input",
+ "link_type": "DocType",
+ "links": [],
+ "modified": "2025-01-08 15:18:33.215967",
+ "modified_by": "Administrator",
+ "module": "Mgrant",
+ "name": "Inputs",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "LFA",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Administrator"
+  },
+  {
+   "role": "NGO Admin"
+  }
+ ],
+ "sequence_id": 14.0,
+ "shortcuts": [],
+ "title": "Inputs",
+ "type": "Link"
+}

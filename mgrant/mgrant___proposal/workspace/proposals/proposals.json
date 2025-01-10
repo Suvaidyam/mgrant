@@ -1,44 +1,41 @@
 {
  "app": "mgrant",
  "charts": [],
- "content": "[{\"id\":\"nvHZQPb5TD\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Proposals\",\"col\":4}}]",
- "creation": "2024-12-24 16:38:32.188885",
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Proposals\"}}]",
+ "creation": "2025-01-08 11:12:52.618055",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
+ "external_link": "/app/proposal/view/kanban/Stage",
  "for_user": "",
  "hide_custom": 0,
  "icon": "file",
  "idx": 0,
  "indicator_color": "green",
  "is_hidden": 0,
- "label": "Applications",
+ "label": "Proposals",
+ "link_to": "Proposal",
  "link_type": "DocType",
  "links": [],
- "modified": "2024-12-24 16:40:04.309360",
+ "modified": "2025-01-08 11:55:56.775328",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
- "name": "Applications",
- "number_cards": [
-  {
-   "label": "Proposals",
-   "number_card_name": "Proposals"
-  }
- ],
+ "name": "Proposals",
+ "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
  "quick_lists": [],
  "roles": [
   {
-   "role": "Administrator"
+   "role": "NGO Admin"
   },
   {
-   "role": "NGO Admin"
+   "role": "Administrator"
   }
  ],
  "sequence_id": 1.0,
  "shortcuts": [],
- "title": "Applications",
- "type": "Workspace"
+ "title": "Proposals",
+ "type": "Link"
 }
