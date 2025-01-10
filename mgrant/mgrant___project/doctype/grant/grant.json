@@ -525,7 +525,7 @@
    "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
    "fieldname": "sub_grants_tab",
    "fieldtype": "Tab Break",
-   "label": "Sub Grants"
+   "label": "Sub-grants"
   },
   {
    "fieldname": "sub_grants",
@@ -568,7 +568,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-10 13:37:03.583220",
+ "modified": "2025-01-10 13:38:41.014497",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
