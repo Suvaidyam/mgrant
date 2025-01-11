@@ -302,6 +302,7 @@
   {
    "fieldname": "donor",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Donor",
    "options": "Donor",
    "reqd": 1
@@ -353,7 +354,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-10 14:53:52.861727",
+ "modified": "2025-01-11 15:55:58.638144",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
