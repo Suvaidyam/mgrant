@@ -1,0 +1,37 @@
+{
+ "chart_name": "Budget Head wise Planning and Utilisation",
+ "chart_type": "Report",
+ "creation": "2025-01-08 14:35:31.145673",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "dynamic_filters_json": "{}",
+ "filters_json": "{}",
+ "group_by_type": "Count",
+ "idx": 0,
+ "is_public": 0,
+ "is_standard": 1,
+ "modified": "2025-01-08 14:35:31.145673",
+ "modified_by": "Administrator",
+ "module": "Mgrant",
+ "name": "Budget Head wise Planning and Utilisation",
+ "number_of_groups": 0,
+ "owner": "Administrator",
+ "report_name": "Budget Head wise Planning and Utilisation",
+ "roles": [],
+ "time_interval": "Yearly",
+ "timeseries": 0,
+ "timespan": "Last Year",
+ "type": "Bar",
+ "use_report_chart": 0,
+ "x_field": "budget_head",
+ "y_axis": [
+  {
+   "color": "#4ba5fa",
+   "y_field": "total_planned_budget"
+  },
+  {
+   "color": "#ED6396",
+   "y_field": "total_utilisation"
+  }
+ ]
+}

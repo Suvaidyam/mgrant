@@ -8,13 +8,13 @@
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "project",
+ "icon": "project-2",
  "idx": 0,
  "indicator_color": "green",
  "is_hidden": 0,
  "label": "Grants",
  "links": [],
- "modified": "2024-12-23 17:32:01.511472",
+ "modified": "2025-01-08 13:31:17.231255",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grants",
@@ -36,7 +36,7 @@
    "role": "NGO Admin"
   }
  ],
- "sequence_id": 2.0,
+ "sequence_id": 3.0,
  "shortcuts": [],
  "title": "Grants",
  "type": "Workspace"

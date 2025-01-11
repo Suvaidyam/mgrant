@@ -328,18 +328,6 @@
     "template": null
    },
    {
-    "connection_type": "Referenced",
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "dn_reference_field": "custom_related_to",
-    "dt_reference_field": "custom_ref_doctype",
-    "html_field": "contacts",
-    "link_doctype": null,
-    "link_fieldname": null,
-    "listview_settings": "[\"image\",\"salutation\",\"first_name\",\"gender\",\"custom_email\",\"custom_mobile_number\",\"custom_whatsapp_number\",\"custom_contact_type\",\"custom_designation1\"]",
-    "referenced_link_doctype": "Contact",
-    "template": null
-   },
-   {
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -446,11 +434,23 @@
     "listview_settings": "[\"output_name\",\"kpi\",\"state\",\"district\",\"block\",\"gram_panchayat\",\"village\"]",
     "referenced_link_doctype": null,
     "template": "Tasks"
+   },
+   {
+    "connection_type": "Referenced",
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "dn_reference_field": "custom_related_to",
+    "dt_reference_field": "custom_ref_doctype",
+    "html_field": "contacts",
+    "link_doctype": null,
+    "link_fieldname": null,
+    "listview_settings": "[\"first_name\",\"last_name\",\"custom_mobile_number\",\"image\",\"custom_whatsapp_number\",\"custom_contact_type\",\"custom_source\"]",
+    "referenced_link_doctype": "Contact",
+    "template": "Tasks"
    }
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2024-12-30 17:25:44.645993",
+  "modified": "2025-01-06 15:34:49.733368",
   "name": "Proposal",
   "parent_doctype": "Proposal"
  }

@@ -28,22 +28,15 @@
   "implementation_category",
   "grant_agreement_mou",
   "column_break_nwys",
+  "programme",
   "subgranting_status",
   "partner_ngo",
   "parnter_vendor",
   "descriptive_information_section",
-  "grant_description",
-  "demography_information_section",
-  "themes",
   "theme",
-  "sdgs",
   "sdg",
-  "column_break_kepa",
-  "focus_areas",
   "focus_area",
-  "programme",
-  "section_break_vkwu",
-  "demography_focus",
+  "grant_description",
   "geographical_information_section",
   "column_break_shct",
   "states",
@@ -51,6 +44,8 @@
   "column_break_evjf",
   "blocks",
   "villages",
+  "section_break_vkwu",
+  "demography_focus",
   "section_break_nbbo",
   "total_planned_budget",
   "total_funds_utilised",
@@ -86,14 +81,14 @@
   "gallery_tab",
   "gallery",
   "amended_from",
-  "timeline_tab",
-  "timeline",
   "sub_grants_tab",
   "sub_grants",
   "notes_tab",
   "notes",
   "comments_tab",
-  "comments"
+  "comments",
+  "timeline_tab",
+  "timeline"
  ],
  "fields": [
   {
@@ -159,13 +154,6 @@
    "options": "<div id=\"email\"></div>"
   },
   {
-   "fieldname": "sdgs",
-   "fieldtype": "Table MultiSelect",
-   "hidden": 1,
-   "label": "SDGs",
-   "options": "SDG Child"
-  },
-  {
    "fieldname": "states",
    "fieldtype": "Table MultiSelect",
    "label": "States",
@@ -214,13 +202,13 @@
    "default": "tasks",
    "fieldname": "tasks_tab",
    "fieldtype": "Tab Break",
-   "label": "Tasks"
+   "label": "Milestone/Task"
   },
   {
    "default": "gallery",
    "fieldname": "gallery_tab",
    "fieldtype": "Tab Break",
-   "label": "Gallery"
+   "label": "Files"
   },
   {
    "default": "gallery",
@@ -308,13 +296,6 @@
    "search_index": 1
   },
   {
-   "fieldname": "themes",
-   "fieldtype": "Table MultiSelect",
-   "hidden": 1,
-   "label": "Themes",
-   "options": "Themes Child"
-  },
-  {
    "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
    "fieldname": "donor",
    "fieldtype": "Link",
@@ -326,7 +307,7 @@
   {
    "fieldname": "timeline_tab",
    "fieldtype": "Tab Break",
-   "label": "Timeline"
+   "label": "Action History"
   },
   {
    "fieldname": "timeline",
@@ -342,19 +323,10 @@
   },
   {
    "collapsible": 1,
-   "fieldname": "demography_information_section",
-   "fieldtype": "Section Break",
-   "label": "Demography Information"
-  },
-  {
-   "fieldname": "column_break_kepa",
-   "fieldtype": "Column Break"
-  },
-  {
-   "collapsible": 1,
    "fieldname": "section_break_vkwu",
    "fieldtype": "Section Break",
-   "hide_border": 1
+   "hide_border": 1,
+   "label": "Demography Details"
   },
   {
    "fieldname": "villages",
@@ -408,7 +380,7 @@
   {
    "fieldname": "descriptive_information_section",
    "fieldtype": "Section Break",
-   "label": "Descriptive Information"
+   "label": "Grant Narrative"
   },
   {
    "fieldname": "grant_description",
@@ -422,12 +394,14 @@
    "options": "Programme"
   },
   {
+   "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
    "fieldname": "partner_ngo",
    "fieldtype": "Table MultiSelect",
    "label": "Partner (NGO)",
    "options": "NGO Child"
   },
   {
+   "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
    "fieldname": "parnter_vendor",
    "fieldtype": "Table MultiSelect",
    "label": "Parnter (Vendor)",
@@ -478,13 +452,6 @@
    "label": "Geographical Information"
   },
   {
-   "fieldname": "focus_areas",
-   "fieldtype": "Table MultiSelect",
-   "hidden": 1,
-   "label": "Focus Areas",
-   "options": "Focus Area Child"
-  },
-  {
    "fieldname": "theme",
    "fieldtype": "Link",
    "label": "Theme",
@@ -514,13 +481,14 @@
   {
    "fieldname": "reportings_tab",
    "fieldtype": "Tab Break",
-   "label": "Reportings"
+   "label": "Reporting"
   },
   {
    "fieldname": "reportings",
    "fieldtype": "HTML"
   },
   {
+   "default": "0",
    "fieldname": "grant_duration_in_months",
    "fieldtype": "Int",
    "label": "Grant Duration in months",
@@ -558,7 +526,7 @@
    "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
    "fieldname": "sub_grants_tab",
    "fieldtype": "Tab Break",
-   "label": "Sub Grants"
+   "label": "Sub-grants"
   },
   {
    "fieldname": "sub_grants",
@@ -601,7 +569,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-03 11:43:40.357375",
+ "modified": "2025-01-10 14:54:21.797725",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",

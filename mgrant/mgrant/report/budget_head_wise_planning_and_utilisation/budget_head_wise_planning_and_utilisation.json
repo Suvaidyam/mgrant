@@ -1,0 +1,53 @@
+{
+ "add_total_row": 0,
+ "columns": [
+  {
+   "fieldname": "budget_head",
+   "fieldtype": "Data",
+   "label": "Budget Head",
+   "width": 0
+  },
+  {
+   "fieldname": "total_planned_budget",
+   "fieldtype": "Currency",
+   "label": "Total Planned Budget",
+   "width": 0
+  },
+  {
+   "fieldname": "total_utilisation",
+   "fieldtype": "Currency",
+   "label": "Total Utilisation",
+   "width": 0
+  }
+ ],
+ "creation": "2025-01-08 14:30:08.558136",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2025-01-08 14:33:50.021885",
+ "modified_by": "Administrator",
+ "module": "Mgrant",
+ "name": "Budget Head wise Planning and Utilisation",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    bh.budget_head_name AS budget_head,\n    SUM(bpu.total_planned_budget) AS total_planned_budget,\n    SUM(bpu.total_utilisation) AS total_utilisation\nFROM\n    `tabBudget Plan and Utilisation` bpu\nINNER JOIN `tabBudget heads` bh ON bpu.budget_head = bh.name",
+ "ref_doctype": "Budget Plan and Utilisation",
+ "report_name": "Budget Head wise Planning and Utilisation",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "NGO Admin"
+  },
+  {
+   "role": "Partner NGO"
+  }
+ ],
+ "timeout": 0
+}

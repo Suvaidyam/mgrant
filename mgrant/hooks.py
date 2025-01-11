@@ -30,7 +30,9 @@ fixtures = [
     # 'Custom HTML Block'
     # "Custom DocPerm",
     # "My Theme",
-    "Workflow"
+    # "Workflow",
+    # "Workflow Action Master",
+    # "Workflow State"
 ]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"
@@ -46,7 +48,8 @@ app_include_js = [
     f"/assets/mgrant/js/note.js?ver={time.time()}",
     f"/assets/mgrant/js/comment.js?ver={time.time()}",
     f"/assets/mgrant/js/timeline.js?ver={time.time()}",
-    f"/assets/mgrant/js/list_functions.js?ver={time.time()}"
+    f"/assets/mgrant/js/list_functions.js?ver={time.time()}",
+    f"/assets/mgrant/js/kanban.js?ver={time.time()}"
 ]
 
 # include js, css files in header of web template

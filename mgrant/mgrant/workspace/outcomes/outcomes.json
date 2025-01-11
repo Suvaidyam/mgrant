@@ -1,40 +1,40 @@
 {
  "app": "mgrant",
  "charts": [],
- "content": "[{\"type\":\"header\",\"data\":{\"text\":\"mGrant Users\"}}]",
- "creation": "2024-12-23 17:17:49.354328",
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Outcome\"}}]",
+ "creation": "2025-01-08 12:46:09.717081",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "share",
+ "icon": "arrow-up-right",
  "idx": 0,
  "indicator_color": "green",
  "is_hidden": 0,
- "label": "mGrant Users",
- "link_to": "SVA User",
+ "label": "Outcomes",
+ "link_to": "Outcome",
  "link_type": "DocType",
  "links": [],
- "modified": "2024-12-23 17:21:19.558927",
+ "modified": "2025-01-08 15:18:55.707514",
  "modified_by": "Administrator",
  "module": "Mgrant",
- "name": "mGrant Users",
+ "name": "Outcomes",
  "number_cards": [],
  "owner": "Administrator",
- "parent_page": "",
+ "parent_page": "LFA",
  "public": 1,
  "quick_lists": [],
  "roles": [
   {
-   "role": "NGO Admin"
+   "role": "Administrator"
   },
   {
-   "role": "Administrator"
+   "role": "NGO Admin"
   }
  ],
- "sequence_id": 9.0,
+ "sequence_id": 16.0,
  "shortcuts": [],
- "title": "mGrant Users",
+ "title": "Outcomes",
  "type": "Link"
 }

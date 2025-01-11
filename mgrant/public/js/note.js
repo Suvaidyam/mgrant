@@ -124,7 +124,7 @@ async function get_note_list(frm, selector) {
             </div>
             <div class="title_links">
                 ${groupedData.Today.length === 0 && groupedData.Yesterday.length === 0 && groupedData.Older.length === 0 ? `
-                    <div class="note_message">Notes Not Found</div>
+                    <div class="note_message"><img style="width: 60px; hight: 60px;" src="/assets/mgrant/images/no-data-found.png"></div>
                 ` : `
                     ${['Today', 'Yesterday', 'Older'].map(group =>
         groupedData[group].length > 0 ? `

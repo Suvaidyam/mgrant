@@ -1,0 +1,41 @@
+{
+ "app": "mgrant",
+ "charts": [],
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Proposals\"}}]",
+ "creation": "2025-01-08 11:12:52.618055",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "external_link": "/app/proposal/view/kanban/Stage",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "file",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Proposals",
+ "link_to": "Proposal",
+ "link_type": "DocType",
+ "links": [],
+ "modified": "2025-01-10 13:06:05.385437",
+ "modified_by": "Administrator",
+ "module": "mGrant - Proposal",
+ "name": "Proposals",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "NGO Admin"
+  },
+  {
+   "role": "Administrator"
+  }
+ ],
+ "sequence_id": 1.0,
+ "shortcuts": [],
+ "title": "Proposals",
+ "type": "URL"
+}

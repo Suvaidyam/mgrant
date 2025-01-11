@@ -6,31 +6,24 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_cerd",
-  "donor",
-  "column_break_pyvg",
-  "column_break_rsvl",
   "section_break_psro",
   "proposal_name",
+  "donor",
   "start_date",
-  "column_break_qmgi",
   "end_date",
   "grant_duration_in_months",
-  "column_break_nwys",
-  "implementation_category",
-  "descriptive_information_section",
-  "proposal_description",
-  "demography_information_section",
-  "themes",
-  "theme",
-  "sdgs",
-  "sdg",
-  "column_break_kepa",
-  "focus_areas",
-  "focus_area",
+  "column_break_qmgi",
+  "stage",
   "programme",
-  "section_break_vkwu",
-  "demography_focus",
+  "total_planned_budget",
+  "implementation_type",
+  "column_break_nwys",
+  "grant",
+  "descriptive_information_section",
+  "theme",
+  "sdg",
+  "focus_area",
+  "proposal_description",
   "geographical_information_section",
   "column_break_shct",
   "states",
@@ -38,22 +31,18 @@
   "column_break_evjf",
   "blocks",
   "villages",
-  "section_break_nbbo",
-  "total_planned_budget",
-  "column_break_judq",
-  "stage",
-  "column_break_ypir",
-  "proposal_status",
+  "section_break_vkwu",
+  "demography_focus",
   "contacts_tab",
   "contacts",
   "reportings_tab",
   "reportings",
   "tasks_tab",
   "tasks",
-  "tranche_tab",
-  "tranche",
   "budget_tab",
   "budget",
+  "tranche_tab",
+  "tranche",
   "input_tab",
   "input",
   "output_tab",
@@ -71,19 +60,6 @@
   "timeline"
  ],
  "fields": [
-  {
-   "fieldname": "section_break_cerd",
-   "fieldtype": "Section Break",
-   "label": "Partner Information"
-  },
-  {
-   "fieldname": "column_break_pyvg",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_rsvl",
-   "fieldtype": "Column Break"
-  },
   {
    "fieldname": "section_break_psro",
    "fieldtype": "Section Break",
@@ -108,32 +84,13 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "implementation_category",
-   "fieldtype": "Select",
-   "label": "Implementation Category",
-   "options": "Direct\nIndirect"
-  },
-  {
    "fieldname": "column_break_nwys",
    "fieldtype": "Column Break"
   },
   {
    "fieldname": "descriptive_information_section",
    "fieldtype": "Section Break",
-   "label": "Descriptive Information"
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "demography_information_section",
-   "fieldtype": "Section Break",
-   "label": "Demography Information"
-  },
-  {
-   "fieldname": "themes",
-   "fieldtype": "Table MultiSelect",
-   "hidden": 1,
-   "label": "Themes",
-   "options": "Themes Child"
+   "label": "Proposal Narrative"
   },
   {
    "fieldname": "theme",
@@ -142,28 +99,10 @@
    "options": "Themes"
   },
   {
-   "fieldname": "sdgs",
-   "fieldtype": "Table MultiSelect",
-   "hidden": 1,
-   "label": "SDGs",
-   "options": "SDG Child"
-  },
-  {
    "fieldname": "sdg",
    "fieldtype": "Link",
    "label": "SDG",
    "options": "SDGs"
-  },
-  {
-   "fieldname": "column_break_kepa",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "focus_areas",
-   "fieldtype": "Table MultiSelect",
-   "hidden": 1,
-   "label": "Focus Areas",
-   "options": "Focus Area Child"
   },
   {
    "fieldname": "focus_area",
@@ -181,7 +120,8 @@
    "collapsible": 1,
    "fieldname": "section_break_vkwu",
    "fieldtype": "Section Break",
-   "hide_border": 1
+   "hide_border": 1,
+   "label": "Demography Details"
   },
   {
    "fieldname": "demography_focus",
@@ -229,29 +169,16 @@
    "options": "Village Child"
   },
   {
-   "collapsible": 1,
-   "fieldname": "section_break_nbbo",
-   "fieldtype": "Section Break",
-   "label": "Financial Information"
-  },
-  {
    "fieldname": "total_planned_budget",
    "fieldtype": "Currency",
-   "label": "Total Planned Budget"
-  },
-  {
-   "fieldname": "column_break_judq",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_ypir",
-   "fieldtype": "Column Break"
+   "label": "Total Planned Budget",
+   "read_only": 1
   },
   {
    "default": "tasks",
    "fieldname": "tasks_tab",
    "fieldtype": "Tab Break",
-   "label": "Tasks"
+   "label": "Milestone"
   },
   {
    "fieldname": "tasks",
@@ -328,7 +255,7 @@
    "default": "gallery",
    "fieldname": "gallery_tab",
    "fieldtype": "Tab Break",
-   "label": "Gallery"
+   "label": "Files"
   },
   {
    "default": "gallery",
@@ -350,7 +277,7 @@
   {
    "fieldname": "timeline_tab",
    "fieldtype": "Tab Break",
-   "label": "Timeline"
+   "label": "Action History"
   },
   {
    "fieldname": "timeline",
@@ -365,28 +292,25 @@
    "reqd": 1
   },
   {
+   "default": "0",
    "fieldname": "grant_duration_in_months",
    "fieldtype": "Int",
    "label": "Grant Duration in months",
-   "non_negative": 1
+   "non_negative": 1,
+   "read_only": 1
   },
   {
    "fieldname": "donor",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Donor",
    "options": "Donor",
    "reqd": 1
   },
   {
-   "fieldname": "proposal_status",
-   "fieldtype": "Select",
-   "label": "Proposal Status",
-   "options": "Active\nInactive"
-  },
-  {
    "fieldname": "proposal_description",
    "fieldtype": "Small Text",
-   "label": "Proposal Description"
+   "label": "Project Description"
   },
   {
    "fieldname": "contacts_tab",
@@ -400,25 +324,37 @@
   {
    "fieldname": "reportings_tab",
    "fieldtype": "Tab Break",
-   "label": "Reportings"
+   "label": "Reporting"
   },
   {
    "fieldname": "reportings",
    "fieldtype": "HTML"
   },
   {
-   "default": "Eligible NGO",
+   "default": "Lead",
    "fieldname": "stage",
    "fieldtype": "Select",
    "label": "Stage",
-   "options": "Eligible NGO\nProposal to be submitted\nProposal Submitted\nGrant Letter Signed\nRejected"
+   "options": "Lead\nDiscussion Ongoing\nProposal to be Submitted\nProposal Submitted\nGrant Letter Signed\nRejected\nOn Hold/No Response"
+  },
+  {
+   "fieldname": "implementation_type",
+   "fieldtype": "Select",
+   "label": "Implementation Type",
+   "options": "Self Implementation\nSub Grant"
+  },
+  {
+   "fieldname": "grant",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Grant",
+   "options": "Grant"
   }
  ],
- "force_re_route_to_default_view": 1,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-04 11:03:51.677951",
+ "modified": "2025-01-11 15:55:58.638144",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",

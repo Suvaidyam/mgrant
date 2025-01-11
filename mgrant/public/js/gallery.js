@@ -153,7 +153,7 @@ const renderCardView = (files) => {
                     </div>
                 `}).join('')}`
 
-            : `<p style="width: 100%; height: 75vh; display: flex; align-items: center; justify-content: center;">No Data Found</p>`}
+            : `<div style="width: 100%; height: 75vh; display: flex; align-items: center; justify-content: center;"><img style="width: 100px; hight: 100px;" src="/assets/mgrant/images/no-data-found.png"></div>`}
                 </div>
             `;
 }
@@ -239,7 +239,9 @@ const renderListView = (files) => {
                 </tbody>
                 </table>
                 </div>
-            ` : `<p style="width: 100%; height: 75vh; display: flex; align-items: center; justify-content: center;">No Data Found</p>`}
+            ` : `<div style="width: 100%; height: 75vh; display: flex; align-items: center; justify-content: center;">
+            <img style="width: 100px; hight: 100px;" src="/assets/mgrant/images/no-data-found.png">
+            </div>`}
                 `;
 }
 
