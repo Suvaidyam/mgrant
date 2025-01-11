@@ -488,6 +488,7 @@
    "fieldtype": "HTML"
   },
   {
+   "default": "0",
    "fieldname": "grant_duration_in_months",
    "fieldtype": "Int",
    "label": "Grant Duration in months",
@@ -568,7 +569,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-10 13:38:41.014497",
+ "modified": "2025-01-10 14:54:21.797725",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
