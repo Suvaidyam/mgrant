@@ -11,16 +11,12 @@ required_apps = ["Suvaidyam/sva_frappe","Suvaidyam/frappe_theme"]
 
 fixtures = [
     # 'KPIs',
-    # 'Units',
-    # 'KPI Type',
+    'Units',
     # 'Financial Year',
-    # 'Cost Centre',
-    # 'Programme',
-    # 'Themes',
-    # 'SDGs',
-    # 'Budget heads',
-    # 'Entity',
-    # 'Quarters',
+    'Programme',
+    'Themes',
+    'SDGs',
+    'Budget heads',
     # 'Role',
     # 'Role Profile',
     # 'SVADatatable Configuration',
@@ -48,7 +44,8 @@ app_include_js = [
     f"/assets/mgrant/js/note.js?ver={time.time()}",
     f"/assets/mgrant/js/comment.js?ver={time.time()}",
     f"/assets/mgrant/js/timeline.js?ver={time.time()}",
-    f"/assets/mgrant/js/list_functions.js?ver={time.time()}"
+    f"/assets/mgrant/js/list_functions.js?ver={time.time()}",
+    f"/assets/mgrant/js/kanban.js?ver={time.time()}"
 ]
 
 # include js, css files in header of web template
