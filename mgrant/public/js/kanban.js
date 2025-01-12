@@ -1,5 +1,8 @@
 frappe.views.KanbanView = class KanbanView extends frappe.views.KanbanView {
     before_render() {
+        if(this.doctype === "Proposal") {
+            cur_list.page.set_title(__('Proposal'));
+        }
         frappe.views.KanbanBoardCard = function (card, wrapper) {
             var self = {};
             function init() {
