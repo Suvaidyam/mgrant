@@ -446,6 +446,18 @@
     "listview_settings": "[\"first_name\",\"last_name\",\"custom_mobile_number\",\"image\",\"custom_whatsapp_number\",\"custom_contact_type\",\"custom_source\"]",
     "referenced_link_doctype": "Contact",
     "template": "Tasks"
+   },
+   {
+    "connection_type": "Is Custom Design",
+    "crud_permissions": null,
+    "dn_reference_field": null,
+    "dt_reference_field": null,
+    "html_field": "notes",
+    "link_doctype": null,
+    "link_fieldname": null,
+    "listview_settings": null,
+    "referenced_link_doctype": null,
+    "template": "Notes"
    }
   ],
   "docstatus": 0,
