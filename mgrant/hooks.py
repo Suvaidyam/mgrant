@@ -11,12 +11,12 @@ required_apps = ["Suvaidyam/sva_frappe","Suvaidyam/frappe_theme"]
 
 fixtures = [
     # 'KPIs',
-    'Units',
+    # 'Units',
     # 'Financial Year',
-    'Programme',
-    'Themes',
-    'SDGs',
-    'Budget heads',
+    # 'Programme',
+    # 'Themes',
+    # 'SDGs',
+    # 'Budget heads',
     # 'Role',
     # 'Role Profile',
     # 'SVADatatable Configuration',
