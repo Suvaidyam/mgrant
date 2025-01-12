@@ -204,45 +204,6 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Settings",
-   "link_count": 3,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "mGrant Settings",
-   "link_count": 0,
-   "link_to": "mGrant Settings",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "My Theme",
-   "link_count": 0,
-   "link_to": "My Theme",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "mGrant Letter Head",
-   "link_count": 0,
-   "link_to": "mGrant Letter Head",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
    "label": "Integrations",
    "link_count": 1,
    "link_type": "DocType",
@@ -287,9 +248,58 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Settings",
+   "link_count": 4,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "mGrant Settings",
+   "link_count": 0,
+   "link_to": "mGrant Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "My Theme",
+   "link_count": 0,
+   "link_to": "My Theme",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "mGrant Letter Head",
+   "link_count": 0,
+   "link_to": "mGrant Letter Head",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Datatable Configuration",
+   "link_count": 0,
+   "link_to": "SVADatatable Configuration",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2025-01-08 13:59:27.193841",
+ "modified": "2025-01-12 15:13:01.221582",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Settings",

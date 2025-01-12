@@ -56,6 +56,8 @@
   "gallery_tab",
   "gallery",
   "amended_from",
+  "note_tab",
+  "notes",
   "timeline_tab",
   "timeline"
  ],
@@ -349,12 +351,21 @@
    "hidden": 1,
    "label": "Grant",
    "options": "Grant"
+  },
+  {
+   "fieldname": "note_tab",
+   "fieldtype": "Tab Break",
+   "label": "Note"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "HTML"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-12 14:58:29.639087",
+ "modified": "2025-01-12 15:12:04.218387",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
