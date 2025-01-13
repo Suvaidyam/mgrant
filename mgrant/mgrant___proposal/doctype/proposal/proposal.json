@@ -13,7 +13,8 @@
   "end_date",
   "grant_duration_in_months",
   "column_break_qmgi",
-  "stage",
+  "ngo_stage",
+  "donor_stage",
   "programme",
   "total_planned_budget",
   "implementation_type",
@@ -97,24 +98,28 @@
   {
    "fieldname": "theme",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Theme",
    "options": "Themes"
   },
   {
    "fieldname": "sdg",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "SDG",
    "options": "SDGs"
   },
   {
    "fieldname": "focus_area",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Focus Area",
    "options": "Focus Area"
   },
   {
    "fieldname": "programme",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Programme",
    "options": "Programme"
   },
@@ -173,6 +178,7 @@
   {
    "fieldname": "total_planned_budget",
    "fieldtype": "Currency",
+   "in_list_view": 1,
    "label": "Total Planned Budget",
    "read_only": 1
   },
@@ -297,6 +303,7 @@
    "default": "0",
    "fieldname": "grant_duration_in_months",
    "fieldtype": "Int",
+   "in_list_view": 1,
    "label": "Grant Duration in months",
    "non_negative": 1,
    "read_only": 1
@@ -333,13 +340,6 @@
    "fieldtype": "HTML"
   },
   {
-   "default": "Application Received",
-   "fieldname": "stage",
-   "fieldtype": "Select",
-   "label": "Stage",
-   "options": "Application Received\nEligible NGO\nInvited for Proposal\nProposal Submitted\nMoU Signing ongoing\nMoU Signed\nRejected\nOn Hold"
-  },
-  {
    "fieldname": "implementation_type",
    "fieldtype": "Select",
    "label": "Implementation Type",
@@ -360,12 +360,28 @@
   {
    "fieldname": "notes",
    "fieldtype": "HTML"
+  },
+  {
+   "default": "Application Received",
+   "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
+   "fieldname": "donor_stage",
+   "fieldtype": "Select",
+   "label": "Stage",
+   "options": "Application Received\nEligible NGO\nInvited for Proposal\nProposal Submitted\nMoU Signing ongoing\nMoU Signed\nRejected\nOn Hold"
+  },
+  {
+   "default": "Lead",
+   "depends_on": "eval:frappe.mgrant_settings.module == \"NGO\"",
+   "fieldname": "ngo_stage",
+   "fieldtype": "Select",
+   "label": "Stage",
+   "options": "Lead\nDiscussion Ongoing\nProposal to be Submitted\nProposal Submitted\nGrant Letter Signed\nRejected\nOn Hold/No Response"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-12 15:12:04.218387",
+ "modified": "2025-01-13 17:51:11.502924",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
