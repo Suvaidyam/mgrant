@@ -17,8 +17,8 @@ fixtures = [
     # 'Themes',
     # 'SDGs',
     # 'Budget heads',
-    # 'Role',
-    # 'Role Profile',
+    'Role',
+    'Role Profile',
     # 'SVADatatable Configuration',
     # 'Client Script',
     # 'Custom Field',
@@ -26,9 +26,9 @@ fixtures = [
     # 'Custom HTML Block'
     # "Custom DocPerm",
     # "My Theme",
-    # "Workflow",
-    # "Workflow Action Master",
-    # "Workflow State"
+    "Workflow",
+    "Workflow Action Master",
+    "Workflow State"
 ]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"
