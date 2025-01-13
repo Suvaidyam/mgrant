@@ -3,11 +3,12 @@ frappe.views.KanbanView = class KanbanView extends frappe.views.KanbanView {
         if (this.doctype === "Proposal") {
             cur_list.page.set_title(__('Proposal'));
         }
-        let override = await frappe.db.get_doc("Kanban Card Setting", 'Kanban Card Setting');
-        if (override?.kanban_template?.length > 0 && override?.kanban_template?.map((row) => row.reference_doctype).includes(this.doctype)) {
+        // let override = await frappe.db.get_doc("Kanban Card Setting", 'Kanban Card Setting');
+        // if (override?.kanban_template?.length > 0 && override?.kanban_template?.map((row) => row.reference_doctype).includes(this.doctype)) {
             // let custom_desing = override.kanban_template.find((row) => row.reference_doctype === this.doctype);
             // let custom_card = await frappe.db.get_doc("Custom HTML Block", custom_desing.template);
             // if (custom_card && custom_card.html) {
+            if(this.doctype === "Proposal") {
                 frappe.views.KanbanBoardCard = function (card, wrapper) {
                     var self = {};
                     function init() {
@@ -17,10 +18,9 @@ frappe.views.KanbanView = class KanbanView extends frappe.views.KanbanView {
                     }
 
                     function make_dom() {
-                        console.log(card);
-                        // Custom DOM structure for Kanban cards
+                        console.log(card,'card');
                         const htmlTemplate = `
-                                            <div class="\${opts.disable_click}" style="width: 227px; max-width: 227px; height: auto; border-radius: 8px; background-color: #FFFFFF; padding: 16px 12px;" data-name="\${opts?.name}">
+                                            <div class="\${opts.disable_click}" style="width: 227px; max-width: 227px;margin-top:10px; height: auto; border-radius: 8px; background-color: #FFFFFF; padding: 16px 12px;" data-name="\${opts?.name}">
                                                 <div class="text-truncate" style="color: #111111; font-size: 14px; font-weight:500; line-height: 15.4px; letter-spacing: 0.25%; margin-bottom: 8px">
                                                     <a href="\${opts?.form_link}" style="text-decoration: none;">
                                                         \${opts?.title}
@@ -32,7 +32,7 @@ frappe.views.KanbanView = class KanbanView extends frappe.views.KanbanView {
                                                     </svg>
                                                     <span style="color: #6E7073; font-size: 12px; font-weight:400; line-height: 13.2px; letter-spacing: 0.4%;">\${opts?.doc?.owner || ''}</span>
                                                 </div>
-                                                <p style="color: #0E1116; font-size: 12px; font-weight:400; line-height: 13.2px; letter-spacing: 0.4%; margin-bottom: 16px;">\${opts?.doc?.donor || ''}</p>
+                                                <p style="color: #0E1116; font-size: 12px; font-weight:400; line-height: 13.2px; letter-spacing: 0.4%; margin-bottom: 16px;">\${opts?.doc?.donor_donor_name || ''}</p>
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <p style="color: #0E1116; font-size: 14px; font-weight:600; line-height: 15.4px; letter-spacing: 0.25%; margin-bottom: 16px;">\${'₹'+opts?.doc?.total_planned_budget || ''}</p>
                                                     <p style="color: #6E7073; font-size: 10px; font-weight:400; line-height: 11px; letter-spacing: 1.5%;">Date: \${opts?.FormattedDate || ''}</p>
@@ -105,6 +105,7 @@ frappe.views.KanbanView = class KanbanView extends frappe.views.KanbanView {
                     init();
                 };
             }
+            // }
         // }
     }
     refresh() {

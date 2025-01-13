@@ -34,6 +34,7 @@ fixtures = [
 # app_include_css = "/assets/mgrant/css/mgrant.css"
 import time
 app_include_js = [
+    f"/assets/mgrant/utils/setup.js?ver={time.time()}",
     f"/assets/mgrant/utils/date_utils.js?ver={time.time()}",
     f"/assets/mgrant/utils/time_utils.js?ver={time.time()}",
     f"/assets/mgrant/validators/regex.js?ver={time.time()}",
