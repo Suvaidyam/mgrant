@@ -2,16 +2,21 @@ import frappe
 from frappe.utils import today
 
 def proposal_on_update(self):
-    if self.stage == "MoU Signed" and self.docstatus == 0:
+    module = frappe.db.get_single_value('mGrant Settings', 'module')
+    if ((module == "Donor" and self.donor_stage == "MoU Signed") or (module == "NGO" and self.ngo_stage == "Grant Letter Signed")) and self.docstatus == 0:
         frappe.msgprint("Proposal is now converted to Grant")
         self.submit()
         
 def proposal_before_submit(self):
-    if self.stage != "MoU Signed":
+    module = frappe.db.get_single_value('mGrant Settings', 'module')
+    if module == "Donor" and self.donor_stage != "MoU Signed":
         frappe.throw("Proposal is not in MoU Signed stage")
+    elif module == "NGO" and self.ngo_stage != "Grant Letter Signed":
+        frappe.throw("Proposal is not in Grant Letter Signed stage")
         
 def proposal_on_submit(self):
-    if self.stage == "MoU Signed":
+    module = frappe.db.get_single_value('mGrant Settings', 'module')
+    if (module == "Donor" and self.donor_stage == "MoU Signed") or (module == "NGO" and self.ngo_stage == "Grant Letter Signed"):
         grant = frappe.new_doc("Grant")
         grant.proposal = self.name
         grant.donor = self.donor

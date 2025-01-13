@@ -20,8 +20,7 @@
    "in_list_view": 1,
    "label": "Year Type",
    "options": "Financial Year\nCalendar Year",
-   "reqd": 1,
-   "set_only_once": 1
+   "reqd": 1
   },
   {
    "default": "0",
@@ -60,7 +59,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-12-29 18:01:50.962546",
+ "modified": "2025-01-13 17:43:47.833576",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",
