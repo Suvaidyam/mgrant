@@ -98,24 +98,28 @@
   {
    "fieldname": "theme",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Theme",
    "options": "Themes"
   },
   {
    "fieldname": "sdg",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "SDG",
    "options": "SDGs"
   },
   {
    "fieldname": "focus_area",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Focus Area",
    "options": "Focus Area"
   },
   {
    "fieldname": "programme",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Programme",
    "options": "Programme"
   },
@@ -174,6 +178,7 @@
   {
    "fieldname": "total_planned_budget",
    "fieldtype": "Currency",
+   "in_list_view": 1,
    "label": "Total Planned Budget",
    "read_only": 1
   },
@@ -298,6 +303,7 @@
    "default": "0",
    "fieldname": "grant_duration_in_months",
    "fieldtype": "Int",
+   "in_list_view": 1,
    "label": "Grant Duration in months",
    "non_negative": 1,
    "read_only": 1
@@ -375,7 +381,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-13 16:51:25.272668",
+ "modified": "2025-01-13 17:51:11.502924",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
