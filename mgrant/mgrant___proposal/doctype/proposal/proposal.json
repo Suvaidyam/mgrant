@@ -56,6 +56,8 @@
   "gallery_tab",
   "gallery",
   "amended_from",
+  "note_tab",
+  "notes",
   "timeline_tab",
   "timeline"
  ],
@@ -331,11 +333,11 @@
    "fieldtype": "HTML"
   },
   {
-   "default": "Lead",
+   "default": "Application Received",
    "fieldname": "stage",
    "fieldtype": "Select",
    "label": "Stage",
-   "options": "Lead\nDiscussion Ongoing\nProposal to be Submitted\nProposal Submitted\nGrant Letter Signed\nRejected\nOn Hold/No Response"
+   "options": "Application Received\nEligible NGO\nInvited for Proposal\nProposal Submitted\nMoU Signing ongoing\nMoU Signed\nRejected\nOn Hold"
   },
   {
    "fieldname": "implementation_type",
@@ -349,12 +351,21 @@
    "hidden": 1,
    "label": "Grant",
    "options": "Grant"
+  },
+  {
+   "fieldname": "note_tab",
+   "fieldtype": "Tab Break",
+   "label": "Note"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "HTML"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-11 15:55:58.638144",
+ "modified": "2025-01-12 15:12:04.218387",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
