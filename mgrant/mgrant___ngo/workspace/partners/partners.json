@@ -1,0 +1,41 @@
+{
+ "app": "mgrant",
+ "charts": [],
+ "content": "[{\"id\":\"o7lnZ-KPF7\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total NGOs\",\"col\":4}},{\"id\":\"BaCxSXptts\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Vendors\",\"col\":4}}]",
+ "creation": "2025-01-13 17:53:43.290246",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "accounting",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Partners",
+ "link_type": "DocType",
+ "links": [],
+ "modified": "2025-01-13 17:55:54.038172",
+ "modified_by": "Administrator",
+ "module": "mGrant - NGO",
+ "name": "Partners",
+ "number_cards": [
+  {
+   "label": "Total Vendors",
+   "number_card_name": "Vendors"
+  },
+  {
+   "label": "Total NGOs",
+   "number_card_name": "NGOs"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 24.0,
+ "shortcuts": [],
+ "title": "Partners",
+ "type": "Workspace"
+}
