@@ -45,7 +45,8 @@ app_include_js = [
     f"/assets/mgrant/js/comment.js?ver={time.time()}",
     f"/assets/mgrant/js/timeline.js?ver={time.time()}",
     f"/assets/mgrant/js/list_functions.js?ver={time.time()}",
-    f"/assets/mgrant/js/kanban.js?ver={time.time()}"
+    f"/assets/mgrant/js/kanban.js?ver={time.time()}",
+    f"/assets/mgrant/js/overwrite_timeline.js?ver={time.time()}"
 ]
 
 # include js, css files in header of web template
