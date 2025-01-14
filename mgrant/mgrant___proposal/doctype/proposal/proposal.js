@@ -20,6 +20,22 @@ function getMonthDifference(startDate, endDate) {
 
 let PREV_STATES = [];
 frappe.ui.form.on("Proposal", {
+    onload(frm) {
+        let index = 0;
+        let submit_banner;
+        let interval = setInterval(() => {
+            index++;
+            submit_banner = document.querySelector('.form-message.blue');
+            if(index > 20) {
+                clearInterval(interval);
+            }
+            if (submit_banner) {
+                submit_banner.style.display = 'none';
+                clearInterval(interval);
+            }
+        }, 500);
+        document.querySelector('.form-message.blue').style.display = 'none';
+    },
     refresh(frm) {
         frm.trigger('change_indicator_pill_content')
         if (frm.doc.states.length) {
