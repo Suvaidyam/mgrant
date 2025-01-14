@@ -19,7 +19,7 @@ fixtures = [
     # 'Budget heads',
     # 'Role',
     # 'Role Profile',
-    "DDFR",
+    # "DDFR",
     # 'SVADatatable Configuration',
     # 'Client Script',
     # 'Custom Field',
