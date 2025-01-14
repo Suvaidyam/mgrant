@@ -24,26 +24,26 @@
    "fieldtype": "Text Editor",
    "in_list_view": 1,
    "label": "Description",
+   "max_height": "200px",
    "reqd": 1
   },
   {
    "fieldname": "reference_doctype",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Reference Doctype",
-   "options": "DocType",
-   "reqd": 1
+   "options": "DocType"
   },
   {
    "fieldname": "related_to",
-   "fieldtype": "Dynamic Link",
-   "label": "Related To",
-   "options": "reference_doctype",
-   "reqd": 1
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Related To"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-23 18:05:12.034635",
+ "modified": "2025-01-14 17:23:37.617026",
  "modified_by": "Administrator",
  "module": "mGrant - Master",
  "name": "mGrant Note",
