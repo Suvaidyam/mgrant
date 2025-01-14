@@ -56,7 +56,6 @@ const mgrantSettings = (frm) => {
         });
     }
 }
-let MGRANT_SETTINGS;
 let PREV_STATES = [];
 frappe.ui.form.on("Grant", {
     async refresh(frm) {
@@ -68,11 +67,8 @@ frappe.ui.form.on("Grant", {
         if (!frm.is_new()) {
             mgrantSettings(frm);
         }
-        if (!MGRANT_SETTINGS) {
-            MGRANT_SETTINGS = await frappe.db.get_doc('mGrant Settings');
-        }
-        if (MGRANT_SETTINGS) {
-            if (MGRANT_SETTINGS.allow_subgranting) {
+        if (frappe.mgrant_settings) {
+            if (frappe.mgrant_settings.allow_subgranting) {
                 frm.set_df_property('sub_granting_section', 'hidden', 0);
                 frm.set_df_property('total_funds_subgranted', 'hidden', 0);
                 frm.set_df_property('subgranting_status', 'hidden', 0);
@@ -86,8 +82,8 @@ frappe.ui.form.on("Grant", {
                 frm.$wrapper.find("[data-fieldname='sub_grants_tab']").hide();
             }
         }
-        if (frm.is_new() && frm.doc.implementation_type == "Self Implementation" && MGRANT_SETTINGS?.primary_ngo) {
-            frm.set_value('ngo', MGRANT_SETTINGS.primary_ngo);
+        if (frm.is_new() && frm.doc.implementation_type == "Self Implementation" && frappe.mgrant_settings?.primary_ngo) {
+            frm.set_value('ngo', frappe.mgrant_settings.primary_ngo);
             frm.set_df_property('ngo', 'read_only', 1);
             frm.set_df_property('ngo', 'hidden', 1);
         }
@@ -140,8 +136,8 @@ frappe.ui.form.on("Grant", {
         }
     },
     implementation_type(frm) {
-        if (frm.is_new() && frm.doc.implementation_type == "Self Implementation" && MGRANT_SETTINGS?.primary_ngo) {
-            frm.set_value('ngo', MGRANT_SETTINGS.primary_ngo);
+        if (frm.is_new() && frm.doc.implementation_type == "Self Implementation" && frappe.mgrant_settings?.primary_ngo) {
+            frm.set_value('ngo', frappe.mgrant_settings.primary_ngo);
             frm.set_df_property('ngo', 'read_only', 1);
             frm.set_df_property('ngo', 'hidden', 1);
         } else {
