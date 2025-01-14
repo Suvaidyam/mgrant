@@ -29,7 +29,7 @@ fixtures = [
     # "Workflow",
     # "Workflow Action Master",
     # "Workflow State",
-    "RFP Type"
+    # "RFP Type"
 ]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"
