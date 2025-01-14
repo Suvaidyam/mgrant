@@ -20,6 +20,22 @@ frappe.ui.form.on("NGO", {
         setup_single_dependent(frm, "state", "state", "district");
         frm.set_value("district", "");
     },
+    async ifsc_code(frm){
+        let ifsc_code = frm.doc.ifsc_code;
+        if(ifsc_code && ifsc_code.length == 11){
+            let bd = await frappe.get_bank_with_ifsc(ifsc_code)
+            if(bd){
+                console.log(bd)
+                if(bd.BANK){
+                    console.log(bd.BANK)
+                    frm.set_value("bank_name",bd.BANK)
+                }
+                if(bd.SWIFT){
+                    frm.set_value("swift_code",bd.SWIFT)
+                }
+            }
+        }
+    },
     validate(frm){
         if(frm.doc.website) {
             let website = frm.doc.website;
