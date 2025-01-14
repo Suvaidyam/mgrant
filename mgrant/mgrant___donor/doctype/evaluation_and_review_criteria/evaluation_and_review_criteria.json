@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-12 13:04:28.736197",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "evaluation_criteria",
+  "description_of_criteria",
+  "weightage"
+ ],
+ "fields": [
+  {
+   "fieldname": "evaluation_criteria",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Evaluation Criteria"
+  },
+  {
+   "fieldname": "description_of_criteria",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Description of Criteria"
+  },
+  {
+   "fieldname": "weightage",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Weightage(%)",
+   "non_negative": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-01-14 15:41:48.764702",
+ "modified_by": "Administrator",
+ "module": "mGrant - Donor",
+ "name": "Evaluation and Review Criteria",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
