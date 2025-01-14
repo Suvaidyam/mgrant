@@ -13,537 +13,329 @@ async function get_note_list(frm, selector) {
     yesterday.setDate(today.getDate() - 1);
     const formatDate = date => new Date(date).toISOString().split('T')[0];
     const groupedData = { Today: [], Yesterday: [], Older: [] };
-    let filteredNotes = [...note_list];
-
-    // Filter function
-    window.filterNotes = function (searchTerm = '') {
-        filteredNotes = note_list.filter(note =>
-            note.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            note.description.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-        renderNotes();
-    };
-
-    // Render notes function
-    function renderNotes() {
-        groupedData.Today = [];
-        groupedData.Yesterday = [];
-        groupedData.Older = [];
-        filteredNotes.forEach(note => {
-            const creationDate = formatDate(note.creation);
-            if (creationDate === formatDate(today)) {
-                groupedData.Today.unshift(note);
-            } else if (creationDate === formatDate(yesterday)) {
-                groupedData.Yesterday.push(note);
-            } else {
+    note_list.forEach(note => {
+        const creationDate = formatDate(note.creation);
+        creationDate === formatDate(today) ? groupedData.Today.unshift(note) :
+            creationDate === formatDate(yesterday) ? groupedData.Yesterday.push(note) :
                 groupedData.Older.push(note);
-            }
-        });
-        updateUI();
-    }
+    });
 
-    function updateUI() {
-        document.querySelector(`[data-fieldname="${selector}"]`).innerHTML = `
+    document.querySelector(`[data-fieldname="${selector}"]`).innerHTML = `
     <style>
-
-.section-body {
- 
-    padding: 0px 0px !important;
-}
-        .notes-container {
-            display: flex;
-            height: 100vh;
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
+        * {
+            margin: 0px;
+            padding: 0px;
         }
-        
-        .notes-sidebar {
-            width: 300px;
-            border-right: 1px solid #e5e7eb;
-            display: flex;
-            flex-direction: column;
-            background-color: #fff;
+        .sidebar {
+            width: 25%;
+            height: 80vh;
+            padding: 5px;
+            border-right: 1px solid #ddd;
         }
-        
-        @media (max-width: 768px) {
-            .notes-container {
-                flex-direction: column;
-            }
-            
-            .notes-sidebar {
-                width: 100%;
-                height: 40vh;
-            }
+        .note_content{
+            width:75%;
         }
-        
-        .notes-header {
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 0.5rem;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .notes-count {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: #111827;
-        }
-        
-        .header-actions-action {
-            display: flex;
-            gap: 1.25rem;
-        }
-        
-        .icon-button {
-            height: 2rem;
-            width: 2rem;
-            padding: 0.5rem;
-            background: none;
-            border: 1px solid #e5e7eb;
-            border-radius: 6px;
-            color: #374151;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .icon-button:hover {
-            background-color: #f9fafb;
-        }
-        
-        .add-button {
-            background-color: #c72b1b;
-            color: white;
-            border: none;
-        }
-        
-        .add-button:hover {
-            background-color: #b91c1c;
-        }
-        
-        .filter-dialog {
-            display: none;
-            position: absolute;
-            top: 60px;
-            left: 10px;
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 1rem;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            z-index: 50;
-        }
-        
-        .filter-dialog.active {
-            display: block;
-        }
-        
-        .filter-input {
+        .title_links {
             width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #e5e7eb;
-            border-radius: 6px;
-            margin-bottom: 0.5rem;
+            height: calc(100% - 20px);
+            overflow-y: auto; 
+            padding-right: 5px;
         }
-        
-        .notes-list {
-            flex: 1;
-            overflow-y: auto;
-            padding: 1rem;
-        }
-        
-        .time-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .time-label {
-            font-size: 0.75rem;
-            color: #6b7280;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-        }
-        
-        .note-item {
-            padding: 0.75rem;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-bottom: 0.25rem;
-            transition: background-color 0.2s;
-        }
-        
-        .note-item:hover {
-            background-color: #f3f4f6;
-        }
-        
-        .note-item.active {
-            background-color: #f3f4f6;
-        }
-        
-        .note-title {
-            font-size: 0.875rem;
-            color: #111827;
-            margin-bottom: 0.25rem;
-            font-weight: 500;
-        }
-        
-        .note-preview {
-            font-size: 0.75rem;
-            color: #6b7280;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        
-        .note-meta {
-            font-size: 0.75rem;
-            color: #6b7280;
-            margin-top: 0.25rem;
-        }
-        
-        .note-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            background-color: white;
-            position: relative;
-        }
-        
-        .content-header {
-            padding: 1rem;
-            border-bottom: 1px solid #e5e7eb;
-            display: flex;
+        .title-body{
+            width:100%;
+            height: 45px;
+            display: flex !important;
             justify-content: space-between;
             align-items: center;
+            display:flex;
         }
-        
-        .content-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #111827;
-            flex: 1;
-        }
-        
-        .content-actions {
-            display: flex;
+        .table-list {
+            width:95%;
+            height: 45px;
+            display: flex !important;
+            justify-content: space-between;
             align-items: center;
-            gap: 0.5rem;
+            gap: 5px;
+            padding-left: 8px;
+            border-radius: 5px;
         }
-        
-        .content-body {
-            flex: 1;
-            padding: 1.5rem;
-            font-size: 0.875rem;
-            line-height: 1.6;
-            color: #374151;
-            overflow-y: auto;
-        }
-        
-        .note-timestamp {
-            color: #6b7280;
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-        }
-        
-        .action-buttons {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .nav-button {
-            padding: 0.5rem;
-            background: none;
-            border: none;
-            color: #6b7280;
+        .table-list:hover {
             cursor: pointer;
-            display: flex;
+            background-color: #f8f9fa;
+        }
+        .table_item{
+            display: flex !important;
+            gap: 5px;
             align-items: center;
-            justify-content: center;
         }
-        
-        .nav-button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
+        .note-button {
+            background-color: black;
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            padding: 4px 8px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom:-6px;
+            transition: background-color 0.3s, transform 0.2s;
         }
-        
-        .nav-button:not(:disabled):hover {
-            color: #111827;
-        }
-        
-        .note-counter {
-            font-size: 0.875rem;
-            color: #6b7280;
-            margin: 0 0.5rem;
-        }
-        
-        .empty-state {
+        #default-message{
+            height:100%;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+        }  
+        #action_icon{
+            width:5%;
             height: 100%;
-            color: #6b7280;
-            text-align: center;
-            gap: 0.5rem;
+            // display: flex;
+            // justify-content: center;
+            // align-items: center;
+            display: none;
+        }
+        .title-body:hover #action_icon{
+            display: block !important;
+        }
+        #action_icon .dropdown-toggle::after {
+            display: none !important;
+        }
+        #action_icon .fa {
+            background: none !important;
+            border: none !important;
+            outline: none !important;
+        }
+        .note_message{
+            display: flex;
+            height:100%;   
+            justify-content: center;
+            align-items: center;
+        }
+        .note-title{
+            border-bottom: 1px solid black;
+            padding-bottom: 10px;
         }
     </style>
-    <div class="notes-container">
-        <div class="notes-sidebar">
-            <div class="notes-header">
-                <div class="header-left">
-                    <span class="notes-count">${filteredNotes.length} Notes</span>
-                </div>
-                <div class="header-actions-action">
-                    <button class="icon-button" id="filter-button">
-                        <i class="fa fa-filter"></i>
-                    </button>
-                    <button class="icon-button add-button note-button" id="add_note">
-                        <i class="fa fa-plus"></i>
-                    </button>
+    <div class="d-flex">
+        <!-- Main Content -->
+        <div class="note_content" style="padding: 20px; flex-grow: 1;">
+            <div id="default-message">
+                <div>
+                    <h3 style="text-align:center;">Select an item to read</h3>
+                    <p style="text-align:center;">Nothing is selected</p>
                 </div>
             </div>
-            <div class="filter-dialog" id="filter-dialog">
-                <input type="text" class="filter-input" placeholder="Search notes..." id="filter-input">
-            </div>
-            <div class="notes-list">
-                ${filteredNotes.length === 0 ? `
-                    <div class="empty-state">
-                        <img style="width: 60px; height: 60px;" src="/assets/mgrant/images/no-data-found.png" alt="No notes">
-                        <p>No notes found</p>
-                    </div>
+            <div id="dynamic-content" style="display: none;"></div>
+            
+            <div class="title_links mt-4">
+                <h2>My Notes</h2>
+                ${groupedData.Today.length === 0 && groupedData.Yesterday.length === 0 && groupedData.Older.length === 0 ? `
+                    <div class="note_message">Notes Not Found</div>
                 ` : `
                     ${['Today', 'Yesterday', 'Older'].map(group =>
-            groupedData[group].length > 0 ? `
-                            <div class="time-group">
-                                <div class="time-label">${group}</div>
-                                ${groupedData[group].map(note => `
-                                    <div class="note-item table-list" data-table="${note.name}">
-                                        <div class="note-title">${note.title}</div>
-                                        <div class="note-preview">${note.description}</div>
-                                        <div class="note-meta">1 hr ago</div>
-                                    </div>
-                                `).join('')}
+        groupedData[group].length > 0 ? `
+                        <div class="note-group">
+                        <p class="mt-1 text-sm">${group}</p>
+                        ${groupedData[group].map(note => `
+                            <div class="title-body">
+                            <div class="table-list" title=${note.title} data-table="${note.name}">
+                                <div class="table_item">
+                                <div class="avatar" style="width: 24px; height: 24px; border-radius: 50%; background-color: #3f51b5; color: #fff; display: flex; justify-content: center; align-items: center;">
+                                    ${note.title[0]?.toUpperCase()}
+                                </div>
+                                <div class="text-truncate" style="max-width: 280px;">${note.title}</div>
+                                </div>
                             </div>
-                        ` : ''
-        ).join('')}
+                            <div id="action_icon" class="dropdown mt-2" note_id="${note.name}">
+                                <i class="fa fa-ellipsis-v btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:20px"></i>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" id="edit_note" href="#">Edit</a>
+                                <a class="dropdown-item" id="delete_note" href="#">Delete</a>
+                                </div>
+                            </div>
+                            </div>
+                        `).join('')}
+                        </div>
+                    ` : ''
+    ).join('')}
                 `}
             </div>
         </div>
-        <div class="note-content">
-            <div id="default-message" class="empty-state">
-                <h3>Select a note to read</h3>
-                <p>Choose a note from the sidebar to view its contents</p>
-            </div>
-            <div id="dynamic-content" style="display: none;">
-                <div class="content-header">
-                    <div class="content-title"></div>
-                    <div class="action-buttons" id="action_icon">
-                        <button class="nav-button" id="edit_note">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                        <button class="nav-button" id="delete_note">
-                            <i class="fa fa-trash"></i>
-                        </button>
-                        <span class="note-counter">1 of ${filteredNotes.length}</span>
-                        <button class="nav-button" id="prev-note" disabled>
-                            <i class="fa fa-chevron-left"></i>
-                        </button>
-                        <button class="nav-button" id="next-note" disabled>
-                            <i class="fa fa-chevron-right"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="content-body">
-                    <div class="note-content-text"></div>
-                    <div class="note-timestamp"></div>
-                </div>
-            </div>
-        </div>
     </div>
-    `;
+`;
 
-        // Initialize filter functionality
-        const filterButton = document.getElementById('filter-button');
-        const filterDialog = document.getElementById('filter-dialog');
-        const filterInput = document.getElementById('filter-input');
-
-        filterButton.addEventListener('click', () => {
-            filterDialog.classList.toggle('active');
-            filterInput.focus();
+    // ============= Create Note
+    try {
+        const { message: meta } = await frappe.call({
+            method: 'mgrant.apis.api.get_doctype_meta',
+            args: { doctype: 'mGrant Note' }
         });
 
-        filterInput.addEventListener('input', (e) => {
-            filterNotes(e.target.value);
-        });
+        if (!meta || !meta.fields) {
+            frappe.show_alert({ message: 'Failed to fetch metadata', indicator: 'red' });
+            return;
+        }
+        const frm = cur_frm;
+        if (!frm) {
+            frappe.msgprint('Form context not found.');
+            return;
+        }
 
-        // Close filter dialog when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!filterDialog.contains(e.target) && !filterButton.contains(e.target)) {
-                filterDialog.classList.remove('active');
-            }
-        });
-
-        // Add click handlers for notes
-        document.querySelectorAll('.table-list').forEach(link => {
-            link.addEventListener('click', function (event) {
-                event.preventDefault();
-                document.querySelectorAll('.note-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                this.classList.add('active');
-                const tableId = this.getAttribute('data-table');
-                showContent(tableId);
-            });
-        });
-    }
-
-    // Initial render
-    renderNotes();
-
-    window.showContent = function (tableId) {
+        // Select the container where the form should be displayed
         const dynamicContent = document.getElementById('dynamic-content');
         const defaultMessage = document.getElementById('default-message');
-        const currentIndex = filteredNotes.findIndex(note => note.name === tableId);
+        dynamicContent.style.display = 'block';
+        defaultMessage.style.display = 'none';
+        dynamicContent.innerHTML = ''; // Clear previous content
 
-        if (currentIndex !== -1) {
-            const note = filteredNotes[currentIndex];
-            dynamicContent.style.display = 'block';
-            defaultMessage.style.display = 'none';
+        // Prepare the container for the form fields
+        const formContainer = document.createElement('div');
+        formContainer.classList.add('form-container');
+        dynamicContent.appendChild(formContainer);
 
-            dynamicContent.querySelector('.content-title').textContent = note.title;
-            dynamicContent.querySelector('.note-content-text').innerHTML = note.description;
-            // dynamicContent.querySelector('.note-timestamp').textContent = '1 hr ago';
+        // Render each field using `frappe.ui.form.make_control`
+        const fieldControls = [];
+        meta.fields.forEach(f => {
+            if (f.hidden) return; // Skip hidden fields
 
-            const actionButtons = dynamicContent.querySelector('.action-buttons');
-            actionButtons.setAttribute('note_id', note.name);
+            const fieldWrapper = document.createElement('div');
+            fieldWrapper.classList.add('my-control', 'mb-3');
+            formContainer.appendChild(fieldWrapper);
 
-            const noteCounter = dynamicContent.querySelector('.note-counter');
-            noteCounter.textContent = `${currentIndex + 1} of ${filteredNotes.length}`;
-
-            const prevButton = document.getElementById('prev-note');
-            const nextButton = document.getElementById('next-note');
-
-            prevButton.disabled = currentIndex === 0;
-            nextButton.disabled = currentIndex === filteredNotes.length - 1;
-
-            prevButton.onclick = () => {
-                if (currentIndex > 0) {
-                    const prevNote = filteredNotes[currentIndex - 1];
-                    const prevNoteElement = document.querySelector(`[data-table="${prevNote.name}"]`);
-                    if (prevNoteElement) {
-                        document.querySelectorAll('.note-item').forEach(item => {
-                            item.classList.remove('active');
-                        });
-                        prevNoteElement.classList.add('active');
-                        showContent(prevNote.name);
-                    }
+            // Set default values for specific fields
+            if (f.fieldname === 'reference_doctype') {
+                f.default = frm.doc.doctype;
+            }
+            if (f.fieldname === 'related_to') {
+                f.default = frm.doc.name;
+                // Explicitly set options for the Dynamic Link field
+                if (f.fieldtype === "Dynamic Link") {
+                    // Set options dynamically based on your requirement
+                    f.options = "Your Target Doctype"; // Example: "Customer"
                 }
-            };
+            }
 
-            nextButton.onclick = () => {
-                if (currentIndex < filteredNotes.length - 1) {
-                    const nextNote = filteredNotes[currentIndex + 1];
-                    const nextNoteElement = document.querySelector(`[data-table="${nextNote.name}"]`);
-                    if (nextNoteElement) {
-                        document.querySelectorAll('.note-item').forEach(item => {
-                            item.classList.remove('active');
-                        });
-                        nextNoteElement.classList.add('active');
-                        showContent(nextNote.name);
-                    }
-                }
-            };
-        }
-    };
-
-    // Create Note Handler
-    document.querySelectorAll('.note-button').forEach(link => {
-        link.addEventListener('click', async () => {
-            let { message: meta } = await frappe.call({
-                method: 'mgrant.apis.api.get_doctype_meta',
-                args: { doctype: 'mGrant Note' }
+            // Create control for each field
+            const control = frappe.ui.form.make_control({
+                parent: fieldWrapper,
+                df: {
+                    label: f.label || f.fieldname,
+                    fieldname: f.fieldname,
+                    fieldtype: f.fieldtype || 'Data',
+                    options: f.fieldtype === 'Link' ? f.options : undefined, // Set options for Link field
+                    reqd: f.reqd || 0, // Mandatory field
+                    default: f.default || '',
+                    read_only: f.read_only || 0,
+                    hidden: f.hidden || 0
+                },
+                render_input: true
             });
 
-            if (meta) {
-                let fields = meta.fields.map((f) => {
-                    if (f?.fieldname === 'reference_doctype') {
-                        f.default = frm.doc.doctype
-                        f.read_only = 1
-                        f.hidden = 1;
-                    }
-                    if (f?.fieldname === 'related_to') {
-                        f.default = frm.doc.name
-                        f.read_only = 1
-                        f.hidden = 1;
-                    }
-                    return f;
-                })
-                let dialog = new frappe.ui.Dialog({
-                    title: `Create New Note`,
-                    fields: fields,
-                    primary_action_label: 'Create',
-                    primary_action: () => {
-                        let values = dialog.get_values();
-                        if (values) {
-                            frappe.call({
-                                method: 'frappe.client.insert',
-                                args: { doc: { doctype: 'mGrant Note', ...values } },
-                                callback: async () => {
-                                    await render_note(frm, selector)
-                                    dialog.hide();
-                                    frappe.show_alert({ message: 'Note Created Successfully', indicator: 'green' });
-                                }
-                            });
-                        }
-                    },
-                    secondary_action_label: 'Cancel',
-                    secondary_action: () => {
-                        dialog.hide();
-                    }
+            // Ensure options are set for Dynamic Link fields
+            if (f.fieldtype === 'Dynamic Link' && f.options) {
+                control.df.options = f.options; // Add options for Dynamic Link field
+            }
+
+            control.refresh();
+
+            // Explicitly set default value if defined
+            if (f.default) {
+                control.set_value(f.default);
+            }
+
+            fieldControls.push(control);
+        });
+
+        // Add a submit button
+        const submitButton = document.createElement('button');
+        submitButton.classList.add('btn', 'btn-primary', 'mt-3', 'text-right');
+        submitButton.textContent = 'Save';
+        formContainer.appendChild(submitButton);
+
+        // Handle the submit action
+        submitButton.addEventListener('click', async () => {
+            const newNoteValues = {};
+
+            // Collect values from controls and validate mandatory fields
+            let validationFailed = false;
+            fieldControls.forEach(control => {
+                const value = control.get_value();
+                if (control.df.reqd && !value) {
+                    validationFailed = true;
+                    frappe.msgprint({ message: `Field "${control.df.label}" is mandatory`, indicator: 'red' });
+                }
+                newNoteValues[control.df.fieldname] = value;
+            });
+
+            if (validationFailed) return; // Stop if validation fails
+            newNoteValues['reference_doctype'] = frm.doc.doctype;
+            newNoteValues['related_to'] = frm.doc.name;
+            console.log('newNoteValues :>> ', newNoteValues);
+            // Insert the new document
+            try {
+                const { message } = await frappe.call({
+                    method: 'frappe.client.insert',
+                    args: { doc: { doctype: 'mGrant Note', ...newNoteValues } }
                 });
-                dialog.show();
+
+                if (message) {
+                    frappe.show_alert({ message: 'Note Created Successfully', indicator: 'green' });
+                    await render_note(frm, selector)
+                    dynamicContent.innerHTML = ''; // Clear the form after creation
+                    dynamicContent.style.display = 'none';
+                    defaultMessage.style.display = 'block';
+                }
+            } catch (error) {
+                frappe.show_alert({ message: `Error: ${error.message}`, indicator: 'red' });
             }
         });
-    });
 
-    // Edit Note Handler
+    } catch (error) {
+        frappe.msgprint({ message: `Error: ${error.message}`, indicator: 'red' });
+    }
+    //     });
+    // });
+
+
+
+
+
+
+
+    // ======================================== Update Note ========================================
     document.querySelectorAll('#edit_note').forEach(link => {
         link.addEventListener('click', async function (event) {
             event.preventDefault();
             event.stopPropagation();
-            const noteName = this.closest('.action-buttons').getAttribute('note_id');
+            const noteName = this.closest('#action_icon').getAttribute('note_id');
             if (!noteName) {
                 frappe.show_alert({ message: 'Note name not found', indicator: 'red' });
                 return;
             }
+
             try {
+                // Fetch the note details
                 const { message: latestNote } = await frappe.call({
                     method: 'frappe.client.get',
                     args: { doctype: 'mGrant Note', name: noteName },
                 });
+
                 if (!latestNote) {
                     frappe.show_alert({ message: 'Failed to fetch note details', indicator: 'red' });
                     return;
                 }
+
+                // Get the metadata for the doctype
                 const { message: meta } = await frappe.call({
                     method: 'mgrant.apis.api.get_doctype_meta',
                     args: { doctype: 'mGrant Note' },
                 });
+
                 if (!meta || !meta.fields) {
                     frappe.show_alert({ message: 'Failed to fetch doctype metadata', indicator: 'red' });
                     return;
                 }
+
+                // Map fields and set default values based on the fetched note details
                 const fields = meta.fields.map(f => {
                     if (f?.fieldname === 'reference_doctype') {
                         f.default = latestNote?.reference_doctype;
@@ -558,36 +350,74 @@ async function get_note_list(frm, selector) {
                     }
                     return f;
                 });
-                const dialog = new frappe.ui.Dialog({
-                    title: 'Edit Note',
-                    fields: fields,
-                    primary_action_label: 'Update',
-                    primary_action: async (values) => {
-                        try {
-                            await frappe.db.set_value('mGrant Note', noteName, values);
-                            dialog.hide();
-                            frappe.show_alert({ message: 'Note updated successfully', indicator: 'green' });
-                            await render_note(frm, selector);
-                        } catch (err) {
-                            frappe.msgprint({ message: `Error updating note: ${err.message}`, indicator: 'red' });
+
+                // Function to extract plain text from HTML content
+                function extractTextFromHTML(html) {
+                    const div = document.createElement('div');
+                    div.innerHTML = html;
+                    return div.textContent || div.innerText || '';
+                }
+
+                // Replace the dialog with inline content for editing
+                const dynamicContent = document.getElementById('dynamic-content');
+                const defaultMessage = document.getElementById('default-message');
+                dynamicContent.style.display = 'block';
+                defaultMessage.style.display = 'none';
+                dynamicContent.innerHTML = `
+            <div class="edit-note">
+                <p class="edit-note-title fw-bold mt-1" style="font-weight: bold;">Update Note</p>
+                ${fields.map(f => {
+                    // Handle description field specially to show as a textarea
+                    const inputType = f.fieldtype === 'Text' || f.fieldname === 'description' ? 'textarea' : 'input';
+
+                    // Extract plain text if the field is a rich text editor
+                    const fieldValue = f.fieldname === 'description' ? extractTextFromHTML(f.default || '') : (f.default || '');
+
+                    return `
+                    <div class="form-group">
+                        <label for="${f.fieldname}">${f.label || f.fieldname}</label>
+                        ${inputType === 'textarea' ?
+                            `<textarea id="${f.fieldname}" class="form-control" ${f.read_only ? 'readonly' : ''}>${fieldValue}</textarea>` :
+                            `<input type="text" id="${f.fieldname}" class="form-control" value="${fieldValue}" ${f.read_only ? 'readonly' : ''} />`
                         }
-                    },
-                    secondary_action_label: 'Cancel',
-                    secondary_action: () => dialog.hide(),
+                    </div>`;
+                }).join('')}
+                <button class="btn btn-primary mt-3" id="update-note">Update Note</button>
+            </div>
+            `;
+
+                document.getElementById('update-note').addEventListener('click', async function () {
+                    const updatedValues = {};
+
+                    // Collect key-value pairs of the fields
+                    fields.forEach(f => {
+                        const inputElement = document.getElementById(f.fieldname);
+                        if (inputElement) {
+                            const fieldValue = inputElement.tagName === 'TEXTAREA' ? inputElement.value : inputElement.value;
+                            updatedValues[f.fieldname] = fieldValue;
+                        }
+                    });
+                    // Log the updated key-value pairs
+                    await frappe.db.set_value('mGrant Note', noteName, updatedValues);
+                    await render_note(frm, selector)
+                    frappe.show_alert({ message: 'Note updated successfully', indicator: 'green' });
+
+                    // Optionally, you can call a method to update the data in the backend
+                    // Example: frappe.call({ method: 'update_method', args: updatedValues });
                 });
-                dialog.show();
+
             } catch (err) {
                 frappe.msgprint({ message: `Error: ${err.message}`, indicator: 'red' });
             }
         });
     });
 
-    // Delete Note Handler
+    // ======================================== Delete Note ========================================
     document.querySelectorAll('#delete_note').forEach(link => {
         link.addEventListener('click', async function (event) {
             event.preventDefault();
             event.stopPropagation();
-            const doc_name = this.closest('.action-buttons').getAttribute('note_id');
+            const doc_name = this.closest('#action_icon').getAttribute('note_id');
 
             frappe.confirm(
                 'Are you sure you want to delete this Note?',
