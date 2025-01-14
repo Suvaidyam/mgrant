@@ -11,12 +11,12 @@ required_apps = ["Suvaidyam/sva_frappe","Suvaidyam/frappe_theme"]
 
 fixtures = [
     # 'KPIs',
-    'Units',
+    # 'Units',
     # 'Financial Year',
-    'Programme',
-    'Themes',
-    'SDGs',
-    'Budget heads',
+    # 'Programme',
+    # 'Themes',
+    # 'SDGs',
+    # 'Budget heads',
     # 'Role',
     # 'Role Profile',
     # 'SVADatatable Configuration',
@@ -28,7 +28,8 @@ fixtures = [
     # "My Theme",
     # "Workflow",
     # "Workflow Action Master",
-    # "Workflow State"
+    # "Workflow State",
+    "RFP Type"
 ]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"
