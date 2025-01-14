@@ -1,0 +1,52 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-12 11:34:43.189725",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "kanban_template"
+ ],
+ "fields": [
+  {
+   "fieldname": "kanban_template",
+   "fieldtype": "Table",
+   "label": "Kanban Template",
+   "options": "Kanban Card Setting Child"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-01-13 14:02:09.057691",
+ "modified_by": "Administrator",
+ "module": "Mgrant - Integrations",
+ "name": "Kanban Card Setting",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "All",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

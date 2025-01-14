@@ -30,9 +30,7 @@
   "address_2",
   "address_3",
   "projects_tab",
-  "projects",
-  "donor_budget_heads_tab",
-  "dbhs"
+  "projects"
  ],
  "fields": [
   {
@@ -140,15 +138,6 @@
    "fieldtype": "HTML"
   },
   {
-   "fieldname": "donor_budget_heads_tab",
-   "fieldtype": "Tab Break",
-   "label": " Donor Budget Heads"
-  },
-  {
-   "fieldname": "dbhs",
-   "fieldtype": "HTML"
-  },
-  {
    "fieldname": "focus_areas",
    "fieldtype": "Table MultiSelect",
    "label": "Focus Areas",
@@ -178,10 +167,9 @@
    "fieldtype": "Column Break"
   }
  ],
- "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-24 16:56:42.844375",
+ "modified": "2025-01-13 18:34:10.164115",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Donor",
