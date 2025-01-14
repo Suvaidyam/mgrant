@@ -15,30 +15,23 @@
   "column_break_eywv",
   "spoc",
   "deadline",
+  "budget_ceiling",
   "section_break_rmzh",
   "objective",
-  "scope_and_requirements",
-  "budget_ceiling",
   "monitoring_configuration_tab",
+  "geolevel_configuratio",
   "geolevel_configuration",
   "geolevel_budget_allocation",
-  "column_break_ifsh",
   "geolevel_input",
-  "column_break_tgir",
   "geolevel_output",
-  "column_break_vion",
-  "geolevel_outcome",
-  "column_break_ktqj",
   "geolevel_impact",
-  "frequency_configuration",
+  "geolevel_outcome",
+  "column_break_ifsh",
+  "frequency_configuration1",
   "frequency_budget_allocation",
-  "column_break_rrox",
   "frequency_input",
-  "column_break_lgdw",
   "frequency_output",
-  "column_break_egrx",
   "frequency_outcome",
-  "column_break_kcec",
   "frequency_impact",
   "evaluation_panel_tab",
   "table_aycd",
@@ -71,8 +64,7 @@
   },
   {
    "fieldname": "basic_details",
-   "fieldtype": "Section Break",
-   "label": "Section 1: Basic Details"
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "title",
@@ -126,11 +118,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "scope_and_requirements",
-   "fieldtype": "Section Break",
-   "label": "Section 2: Scope and Requirements"
-  },
-  {
    "fieldname": "budget_ceiling",
    "fieldtype": "Currency",
    "label": "Budget Ceiling"
@@ -141,9 +128,10 @@
    "label": "Monitoring Configuration"
   },
   {
+   "description": "Mention for each item below:",
    "fieldname": "geolevel_configuration",
-   "fieldtype": "Section Break",
-   "label": "At which level of geographic granularity do you manage and monitor funds and targets? Mention for each item below:"
+   "fieldtype": "Heading",
+   "label": "At which level of geographic granularity do you manage and monitor funds and targets?"
   },
   {
    "fieldname": "geolevel_budget_allocation",
@@ -162,18 +150,10 @@
    "options": "State\nDistrict\nPan-India"
   },
   {
-   "fieldname": "column_break_tgir",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "geolevel_output",
    "fieldtype": "Select",
    "label": "Output",
    "options": "State\nDistrict\nPan-India"
-  },
-  {
-   "fieldname": "column_break_vion",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "geolevel_outcome",
@@ -182,19 +162,10 @@
    "options": "State\nDistrict\nPan-India"
   },
   {
-   "fieldname": "column_break_ktqj",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "geolevel_impact",
    "fieldtype": "Select",
    "label": "Impact",
    "options": "State\nDistrict\nPan-India"
-  },
-  {
-   "fieldname": "frequency_configuration",
-   "fieldtype": "Section Break",
-   "label": "At what frequency do you manage and monitor funds and targets? Mention for each item below:"
   },
   {
    "fieldname": "frequency_budget_allocation",
@@ -203,18 +174,10 @@
    "options": "Lump Sum\nAnnual\nQuarterly\nMonthly"
   },
   {
-   "fieldname": "column_break_rrox",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "frequency_input",
    "fieldtype": "Select",
    "label": "Input",
    "options": "Lump Sum\nAnnual\nQuarterly\nMonthly"
-  },
-  {
-   "fieldname": "column_break_lgdw",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "frequency_output",
@@ -223,18 +186,10 @@
    "options": "Lump Sum\nAnnual\nQuarterly\nMonthly"
   },
   {
-   "fieldname": "column_break_egrx",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "frequency_outcome",
    "fieldtype": "Select",
    "label": "Outcome",
    "options": "Lump Sum\nAnnual\nQuarterly\nMonthly"
-  },
-  {
-   "fieldname": "column_break_kcec",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "frequency_impact",
@@ -309,12 +264,22 @@
    "fieldtype": "Table",
    "label": "Invitation",
    "options": "RFP Invitation"
+  },
+  {
+   "description": "Mention for each item below:",
+   "fieldname": "frequency_configuration1",
+   "fieldtype": "Heading",
+   "label": "At what frequency do you manage and monitor funds and targets?"
+  },
+  {
+   "fieldname": "geolevel_configuratio",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-14 15:40:43.814506",
+ "modified": "2025-01-14 17:13:02.489894",
  "modified_by": "Administrator",
  "module": "mGrant - Donor",
  "name": "RFP",
