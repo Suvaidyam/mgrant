@@ -22,5 +22,53 @@
     "role": "Partner NGO"
    }
   ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2025-01-13 15:55:58.835069",
+  "name": "Stage 1",
+  "role_profile": "Stage 1",
+  "roles": [
+   {
+    "role": "Stage 1"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2025-01-13 15:56:07.734058",
+  "name": "Stage 2",
+  "role_profile": "Stage 2",
+  "roles": [
+   {
+    "role": "Stage 2"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2025-01-13 15:56:16.818261",
+  "name": "Stage 3",
+  "role_profile": "Stage 3",
+  "roles": [
+   {
+    "role": "Stage 3"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2025-01-13 15:56:25.421417",
+  "name": "Stage 4",
+  "role_profile": "Stage 4",
+  "roles": [
+   {
+    "role": "Stage 4"
+   }
+  ]
  }
 ]
