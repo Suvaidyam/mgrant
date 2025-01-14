@@ -8,6 +8,16 @@ const validate_url_regex = (url) => {
     }
 };
 
+function validate_ifsc(ifsc) {
+    const ifscPattern = /^[A-Z]{4}0[A-Z0-9]{6}$/;
+    if (!ifscPattern.test(ifsc)) {
+        frappe.msgprint(__("Invalid IFSC Code"));
+        frappe.validated = false;
+    }else{
+        frappe.validated = true;
+    }
+}
+
 const validate_indian_phone_number_regex = (phone) => {
     const regex = /^[6-9]\d{9}$/;
     if (regex.test(phone)) {

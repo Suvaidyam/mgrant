@@ -46,14 +46,16 @@
   "due_diligence_validation",
   "reason_for_due_diligence_fail",
   "bank_details_tab",
+  "ifsc_code",
+  "branch_name",
+  "bank_name",
+  "swift_code",
+  "column_break_mimi",
   "account_holder_name",
   "account_number",
-  "column_break_mimi",
-  "ifsc_code",
-  "bank_name",
-  "column_break_hhtv",
-  "swift_code",
   "fcranon_fcra",
+  "column_break_hhtv",
+  "fetch_bank_details",
   "work_history_tab",
   "theme",
   "work_references",
@@ -366,7 +368,8 @@
   {
    "fieldname": "bank_name",
    "fieldtype": "Data",
-   "label": "Bank Name"
+   "label": "Bank Name",
+   "read_only": 1
   },
   {
    "fieldname": "fcranon_fcra",
@@ -381,11 +384,22 @@
   {
    "fieldname": "column_break_hhtv",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fetch_bank_details",
+   "fieldtype": "Button",
+   "label": "Fetch Bank Details"
+  },
+  {
+   "fieldname": "branch_name",
+   "fieldtype": "Data",
+   "label": "Branch Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-14 08:35:04.536691",
+ "modified": "2025-01-14 11:48:34.921996",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",
