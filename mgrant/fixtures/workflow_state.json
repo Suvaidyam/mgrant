@@ -39,18 +39,18 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2025-01-13 21:30:38.849304",
+  "modified": "2025-01-14 13:29:20.314844",
   "name": "Approved by S 2",
-  "style": "Primary",
+  "style": "Success",
   "workflow_state_name": "Approved by S 2"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2025-01-13 21:30:16.846887",
+  "modified": "2025-01-14 13:29:05.113886",
   "name": "Approved by S 1",
-  "style": "Primary",
+  "style": "Success",
   "workflow_state_name": "Approved by S 1"
  },
  {
