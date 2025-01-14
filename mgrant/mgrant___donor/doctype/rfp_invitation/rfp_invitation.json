@@ -1,0 +1,70 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-12 13:33:11.968701",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "invitee_type",
+  "ngo",
+  "email",
+  "full_name",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "invitee_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Invitee Type",
+   "options": "Existing\nNew",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.invitee_type == 'Existing'",
+   "fieldname": "ngo",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "NGO",
+   "mandatory_depends_on": "eval:doc.invitee_type == 'Existing'",
+   "options": "NGO",
+   "read_only_depends_on": "eval:doc.invitee_type == 'New'"
+  },
+  {
+   "fetch_from": "ngo.email",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Full Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nSend\nSent",
+   "read_only_depends_on": "eval:doc.status=='Sent'"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-01-14 15:41:48.454026",
+ "modified_by": "Administrator",
+ "module": "mGrant - Donor",
+ "name": "RFP Invitation",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

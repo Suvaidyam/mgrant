@@ -29,7 +29,8 @@ fixtures = [
     # "My Theme",
     # "Workflow",
     # "Workflow Action Master",
-    # "Workflow State"
+    # "Workflow State",
+    # "RFP Type"
 ]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"
