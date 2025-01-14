@@ -1,3 +1,4 @@
+let currentEmailIndex = 0;
 
 function timeAgo(timestamp) {
     if (!timestamp) return '--:--';
@@ -57,12 +58,20 @@ function timeAgo(timestamp) {
     const years = Math.round(diff / year);
     return years === 1 ? "1 year ago" : `${years} years ago`;
 }
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
 
 const style = document.createElement('style');
 style.innerHTML = `
       .email-container {
         display: flex;
-        height: 100vh;
+        height:800px;
         background-color: #fff;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
@@ -76,25 +85,27 @@ style.innerHTML = `
     }
 
     .top-header {
-        display: flex;
+        // display: flex;
         align-items: center;
+
         padding: 8px 16px;
         border-bottom: 1px solid #e5e5e5;
         height: 48px;
-        background: #fff;
+        background:#f9f9f9 ;
     }
 
     .header-actions {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        flex: 1;
-    }
+        gap: 8px;
+        justify-content: end;
+           }
 
     .header-icon {
         width: 32px;
         height: 32px;
         display: flex;
+        border: none;
         align-items: center;
         justify-content: center;
         cursor: pointer;
@@ -251,7 +262,7 @@ style.innerHTML = `
 
     .email-body {
         flex: 1;
-        padding: 24px;
+        padding: 10px 24px ;
         background: #fff;
         overflow-y: auto;
     }
@@ -323,6 +334,12 @@ style.innerHTML = `
         flex-wrap: wrap;
         gap: 8px;
     }
+        .email-detail-subject-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
 
     .attachment-item {
         display: flex;
@@ -335,7 +352,30 @@ style.innerHTML = `
         color: #333;
         cursor: pointer;
     }
+         .action-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+.nav-button {
+            padding: 0.5rem;
+            background: none;
+            border: none;
+            color: #6b7280;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .nav-button:not(:disabled):hover {
+            color: #111827;
+        }
     .attachment-item:hover {
         background: #eee;
     }
@@ -347,6 +387,9 @@ style.innerHTML = `
 
         .email-container {
             flex-direction: column;
+            height: 750px;
+            overflow: auto;
+
         }
 
         .email-body {
@@ -415,8 +458,8 @@ async function renderEmails(email_list, frm, selector = null) {
                 </div>
                 <div class="email-tabs">
                     <div id="allEmailButton" class="tab-item active_tab">All</div>
-                    <div id="unreadEmailButton" class="tab-item">Unread</div>
-                    <div id="readEmailButton" class="tab-item">Read</div>
+                    <div id="inboxEmailButton" class="tab-item">Inbox</div>
+                    <div id="sentEmailButton" class="tab-item">Sent</div>
                 </div>
                 <div class="email-list">
     `;
@@ -475,6 +518,17 @@ async function renderEmails(email_list, frm, selector = null) {
     `;
 
     email_wrapper.innerHTML = emailHtml;
+
+
+    if (email_list.length > 0) {
+        setTimeout(() => {
+            const latestEmail = document.querySelector('.email-item');
+            if (latestEmail) {
+                latestEmail.click();
+            }
+        }, 0);
+    }
+
     $('#refresh_email_list').on('click', async () => {
         try {
             communication_list = await getDocList('Communication', [
@@ -494,38 +548,38 @@ async function renderEmails(email_list, frm, selector = null) {
             ], ['*']);
             await renderEmails(communication_list, frm)
             $('#allEmailButton').addClass('active_tab');
-            $('#unreadEmailButton').removeClass('active_tab');
-            $('#readEmailButton').removeClass('active_tab');
+            $('#inboxEmailButton').removeClass('active_tab');
+            $('#sentEmailButton').removeClass('active_tab');
         } catch (error) {
             console.error(error)
         }
     });
-    $('#unreadEmailButton').on('click', async () => {
+    $('#inboxEmailButton').on('click', async () => {
         try {
             communication_list = await getDocList('Communication', [
                 ['reference_name', '=', frm.doc.name],
-                ['seen', '=', 0],
+                ['sent_or_received', '=', 'Received'],
                 ['in_reply_to', '=', '']
             ], ['*']);
             await renderEmails(communication_list, frm)
             $('#allEmailButton').removeClass('active_tab');
-            $('#unreadEmailButton').addClass('active_tab');
-            $('#readEmailButton').removeClass('active_tab');
+            $('#inboxEmailButton').addClass('active_tab');
+            $('#sentEmailButton').removeClass('active_tab');
         } catch (error) {
             console.error(error)
         }
     });
-    $('#readEmailButton').on('click', async () => {
+    $('#sentEmailButton').on('click', async () => {
         try {
             communication_list = await getDocList('Communication', [
                 ['reference_name', '=', frm.doc.name],
-                ['seen', '=', 1],
+                ['sent_or_received', '=', 'Sent'],
                 ['in_reply_to', '=', '']
             ], ['*']);
             await renderEmails(communication_list, frm)
             $('#allEmailButton').removeClass('active_tab');
-            $('#unreadEmailButton').removeClass('active_tab');
-            $('#readEmailButton').addClass('active_tab');
+            $('#inboxEmailButton').removeClass('active_tab');
+            $('#sentEmailButton').addClass('active_tab');
         } catch (error) {
             console.error(error)
         }
@@ -535,6 +589,7 @@ async function renderEmails(email_list, frm, selector = null) {
     });
     $('.email-item').on('click', async (e) => {
         let docName = e.currentTarget.getAttribute('emailId');
+        currentEmailIndex = communication_list.findIndex(item => item.name === docName);
         let replies = await getDocList('Communication', [
             ['Communication', 'in_reply_to', '=', docName]
         ], ['subject', 'content', 'communication_date']);
@@ -544,7 +599,19 @@ async function renderEmails(email_list, frm, selector = null) {
         let emailBody = `
             <div class="email-detail">
                 <div class="email-detail-header">
+                    <div class="email-detail-subject-container">
                     <h1 class="email-detail-subject">${emailDoc?.subject}</h1>
+                     <div class="action-buttons" id="action_icon">
+                       
+                        <span class="email-counter">${currentEmailIndex + 1} of ${communication_list.length}</span>
+                        <button class="nav-button" id="prev-email" ${currentEmailIndex === 0 ? 'disabled' : ''}>
+                            <i class="fa fa-chevron-left"></i>
+                        </button>
+                        <button class="nav-button" id="next-email" ${currentEmailIndex === communication_list.length - 1 ? 'disabled' : ''}>
+                            <i class="fa fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    </div>
                     <div class="email-detail-meta">
                         <div class="avatar" style="background-color: ${getRandomColor()};">
                             ${emailDoc?.sender[0]?.toUpperCase()}
@@ -577,11 +644,29 @@ async function renderEmails(email_list, frm, selector = null) {
             </div>
         `;
         document.getElementById('emailBodyContent').innerHTML = emailBody;
+        setupNavigation();
     });
-    $('#createCominucation').on('click', () => {
-        cur_frm.email_doc();
-    });
+
+    function setupNavigation() {
+        $('#prev-email').on('click', () => {
+            if (currentEmailIndex > 0) {
+                currentEmailIndex--;
+                $('.email-item')[currentEmailIndex].click();
+            }
+        });
+
+        $('#next-email').on('click', () => {
+            if (currentEmailIndex < communication_list.length - 1) {
+                currentEmailIndex++;
+                $('.email-item')[currentEmailIndex].click();
+            }
+        });
+    }
 }
+
+
+
+
 const communication = async (frm, selector) => {
     communication_list = await getDocList('Communication', [
         ['Communication', 'reference_name', '=', frm.doc.name],
@@ -590,12 +675,3 @@ const communication = async (frm, selector) => {
     await renderEmails(communication_list, frm, selector)
 }
 
-
-function getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
