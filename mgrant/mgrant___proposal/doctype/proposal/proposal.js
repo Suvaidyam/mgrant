@@ -34,7 +34,6 @@ frappe.ui.form.on("Proposal", {
                 clearInterval(interval);
             }
         }, 500);
-        document.querySelector('.form-message.blue').style.display = 'none';
     },
     refresh(frm) {
         frm.trigger('change_indicator_pill_content')
