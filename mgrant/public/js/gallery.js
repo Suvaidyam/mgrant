@@ -153,7 +153,7 @@ const renderCardView = (files) => {
                     </div>
                 `}).join('')}`
 
-            : `<div style="width: 100%; height: 75vh; display: flex; align-items: center; justify-content: center;"><img style="width: 100px; hight: 100px;" src="/assets/mgrant/images/no-data-found.png"></div>`}
+            : `<div style="width: 100%; height: 75vh; display: flex; align-items: center; justify-content: center;"><p>You haven't created a Record yet</p></div>`}
                 </div>
             `;
 }
@@ -240,7 +240,7 @@ const renderListView = (files) => {
                 </table>
                 </div>
             ` : `<div style="width: 100%; height: 75vh; display: flex; align-items: center; justify-content: center;">
-            <img style="width: 100px; hight: 100px;" src="/assets/mgrant/images/no-data-found.png">
+                <p>You haven't created a Record yet</p>
             </div>`}
                 `;
 }
