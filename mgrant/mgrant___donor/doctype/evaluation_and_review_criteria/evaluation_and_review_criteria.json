@@ -8,14 +8,16 @@
  "field_order": [
   "evaluation_criteria",
   "description_of_criteria",
-  "weightage"
+  "weightage",
+  "max_score"
  ],
  "fields": [
   {
    "fieldname": "evaluation_criteria",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Evaluation Criteria"
+   "label": "Evaluation Criteria",
+   "reqd": 1
   },
   {
    "fieldname": "description_of_criteria",
@@ -28,13 +30,22 @@
    "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Weightage(%)",
-   "non_negative": 1
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "max_score",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Max Score",
+   "non_negative": 1,
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-01-14 15:41:48.764702",
+ "modified": "2025-01-14 23:00:38.764084",
  "modified_by": "Administrator",
  "module": "mGrant - Donor",
  "name": "Evaluation and Review Criteria",

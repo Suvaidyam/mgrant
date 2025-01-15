@@ -42,6 +42,7 @@
   {
    "fieldname": "kpi",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "KPI",
    "link_filters": "[[\"KPIs\",\"kpi_type\",\"=\",\"Impact\"]]",
    "options": "KPIs"
@@ -79,6 +80,7 @@
   {
    "fieldname": "total_target",
    "fieldtype": "Int",
+   "in_list_view": 1,
    "label": "Total Target",
    "mandatory_depends_on": "eval:doc.frequency == 'Lump Sum'",
    "non_negative": 1,
@@ -88,6 +90,7 @@
    "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "fieldname": "total_achievement",
    "fieldtype": "Int",
+   "in_list_view": 1,
    "label": "Total Achievement",
    "non_negative": 1,
    "read_only": 1
@@ -115,12 +118,14 @@
    "fetch_from": "grant.start_date",
    "fieldname": "start_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Start Date"
   },
   {
    "fetch_from": "grant.end_date",
    "fieldname": "end_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "End Date"
   },
   {
@@ -134,6 +139,7 @@
   {
    "fieldname": "frequency",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Frequency",
    "options": "Quarterly\nMonthly\nLump Sum",
    "reqd": 1
@@ -165,7 +171,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-10 12:12:59.293900",
+ "modified": "2025-01-15 14:41:34.478526",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact",
