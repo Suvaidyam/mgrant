@@ -38,7 +38,7 @@ async function get_note_list(frm, selector) {
         .title_links {
             width: 100%;
             height: calc(100% - 20px);
-            overflow-y: auto; 
+            overflow-y: auto;
             padding-right: 5px;
         }
         .title-body{
@@ -70,9 +70,9 @@ async function get_note_list(frm, selector) {
         }
         .note-button {
             background-color: black;
-            color: white; 
-            border: none; 
-            border-radius: 8px; 
+            color: white;
+            border: none;
+            border-radius: 8px;
             padding: 4px 8px;
             font-size: 14px;
             cursor: pointer;
@@ -84,7 +84,7 @@ async function get_note_list(frm, selector) {
             display: flex;
             justify-content: center;
             align-items: center;
-        }  
+        }
         #action_icon{
             width:5%;
             height: 100%;
@@ -106,7 +106,7 @@ async function get_note_list(frm, selector) {
         }
         .note_message{
             display: flex;
-            height:100%;   
+            height:100%;
             justify-content: center;
             align-items: center;
         }
@@ -125,7 +125,7 @@ async function get_note_list(frm, selector) {
                 </div>
             </div>
             <div id="dynamic-content" style="display: none;"></div>
-            
+
             <div class="title_links mt-4">
                 <h2>My Notes</h2>
                 ${groupedData.Today.length === 0 && groupedData.Yesterday.length === 0 && groupedData.Older.length === 0 ? `

@@ -12,35 +12,41 @@
   "title",
   "type",
   "invitation_type",
+  "donor",
   "column_break_eywv",
   "spoc",
   "deadline",
   "budget_ceiling",
+  "column_break_cefz",
   "section_break_rmzh",
   "objective",
+  "column_break_sgxv",
   "monitoring_configuration_tab",
-  "geolevel_configuratio",
   "geolevel_configuration",
   "geolevel_budget_allocation",
   "geolevel_input",
   "geolevel_output",
-  "geolevel_impact",
+  "column_break_jisw",
   "geolevel_outcome",
+  "geolevel_impact",
+  "column_break_lown",
+  "frequency_configuration",
   "column_break_ifsh",
-  "frequency_configuration1",
   "frequency_budget_allocation",
   "frequency_input",
   "frequency_output",
+  "column_break_kdzl",
   "frequency_outcome",
   "frequency_impact",
+  "column_break_bnjw",
   "evaluation_panel_tab",
   "table_aycd",
   "evaluation_and_review_criteria_tab",
   "evaluation_and_review_criteria",
-  "table_dmnn",
+  "evaluation_criterias",
   "total",
   "additional_questions_tab",
-  "table_yzjk",
+  "additional_questions",
   "attachment_and_resources_tab",
   "table_eqwp",
   "invitation_tab",
@@ -128,12 +134,12 @@
    "label": "Monitoring Configuration"
   },
   {
-   "description": "Mention for each item below:",
    "fieldname": "geolevel_configuration",
-   "fieldtype": "Heading",
-   "label": "At which level of geographic granularity do you manage and monitor funds and targets?"
+   "fieldtype": "Section Break",
+   "label": "At which level of geographic granularity do you manage and monitor funds and targets? Mention for each item below:"
   },
   {
+   "default": "Pan-India",
    "fieldname": "geolevel_budget_allocation",
    "fieldtype": "Select",
    "label": "Budget Allocation",
@@ -144,54 +150,63 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "State",
    "fieldname": "geolevel_input",
    "fieldtype": "Select",
    "label": "Input",
    "options": "State\nDistrict\nPan-India"
   },
   {
+   "default": "State",
    "fieldname": "geolevel_output",
    "fieldtype": "Select",
    "label": "Output",
    "options": "State\nDistrict\nPan-India"
   },
   {
+   "default": "State",
    "fieldname": "geolevel_outcome",
    "fieldtype": "Select",
    "label": "Outcome",
    "options": "State\nDistrict\nPan-India"
   },
   {
+   "default": "State",
    "fieldname": "geolevel_impact",
    "fieldtype": "Select",
    "label": "Impact",
    "options": "State\nDistrict\nPan-India"
   },
   {
+   "default": "Quarterly",
    "fieldname": "frequency_budget_allocation",
    "fieldtype": "Select",
    "label": "Budget Allocation",
    "options": "Lump Sum\nAnnual\nQuarterly\nMonthly"
   },
   {
+   "default": "Quarterly",
    "fieldname": "frequency_input",
    "fieldtype": "Select",
    "label": "Input",
    "options": "Lump Sum\nAnnual\nQuarterly\nMonthly"
   },
   {
+   "default": "Quarterly",
    "fieldname": "frequency_output",
    "fieldtype": "Select",
    "label": "Output",
    "options": "Lump Sum\nAnnual\nQuarterly\nMonthly"
   },
   {
+   "default": "Quarterly",
    "fieldname": "frequency_outcome",
    "fieldtype": "Select",
    "label": "Outcome",
    "options": "Lump Sum\nAnnual\nQuarterly\nMonthly"
   },
   {
+   "default": "Quarterly",
    "fieldname": "frequency_impact",
    "fieldtype": "Select",
    "label": "Impact",
@@ -219,11 +234,6 @@
    "label": "Section 3: Evaluation and Review Criteria"
   },
   {
-   "fieldname": "table_dmnn",
-   "fieldtype": "Table",
-   "options": "Evaluation and Review Criteria"
-  },
-  {
    "fieldname": "total",
    "fieldtype": "Int",
    "label": "Total",
@@ -233,11 +243,6 @@
    "fieldname": "additional_questions_tab",
    "fieldtype": "Tab Break",
    "label": "Additional Questions"
-  },
-  {
-   "fieldname": "table_yzjk",
-   "fieldtype": "Table",
-   "options": "DocField"
   },
   {
    "fieldname": "attachment_and_resources_tab",
@@ -266,20 +271,56 @@
    "options": "RFP Invitation"
   },
   {
-   "description": "Mention for each item below:",
-   "fieldname": "frequency_configuration1",
-   "fieldtype": "Heading",
-   "label": "At what frequency do you manage and monitor funds and targets?"
+   "fieldname": "donor",
+   "fieldtype": "Link",
+   "label": "Donor",
+   "options": "Donor",
+   "reqd": 1
   },
   {
-   "fieldname": "geolevel_configuratio",
-   "fieldtype": "Section Break"
+   "fieldname": "column_break_jisw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "frequency_configuration",
+   "fieldtype": "Section Break",
+   "label": "At what frequency do you manage and monitor funds and targets? Mention for each item below:"
+  },
+  {
+   "fieldname": "column_break_kdzl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_lown",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_bnjw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_cefz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_sgxv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "evaluation_criterias",
+   "fieldtype": "Table",
+   "options": "Evaluation and Review Criteria"
+  },
+  {
+   "fieldname": "additional_questions",
+   "fieldtype": "Table",
+   "options": "DocField"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-14 17:13:02.489894",
+ "modified": "2025-01-15 02:27:57.558758",
  "modified_by": "Administrator",
  "module": "mGrant - Donor",
  "name": "RFP",
@@ -300,6 +341,7 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],
