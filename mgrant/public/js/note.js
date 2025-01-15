@@ -143,7 +143,8 @@ async function get_note_list(frm, selector) {
         }
         .note_message {
             display: flex;
-            height: 100%;
+            min-height: 500px;
+            height: 100%;   
             justify-content: center;
             align-items: center;
         }
@@ -154,6 +155,9 @@ async function get_note_list(frm, selector) {
         }
         .note-group {
             margin-bottom: 20px;
+                height: 700px;
+    min-height: 700px;
+    overflow-y: scroll;
         }
         .group-title {
             font-size: 14px;
@@ -163,7 +167,7 @@ async function get_note_list(frm, selector) {
         .note-item {
             border-bottom: 1px solid #e2e8f0;
             padding: 10px;
-            margin-bottom: 15px;
+            // margin-bottom: 15px;
         }
         .note-header {
             display: flex;
@@ -196,7 +200,7 @@ async function get_note_list(frm, selector) {
             border-radius: 8px;
         }
         .frappe-control .ql-editor:not(.read-mode){
-            min-height: 150px;
+            min-height: 100px;
             Height: 36px;
             background-color: #fff;
             border: none;
@@ -252,7 +256,6 @@ async function get_note_list(frm, selector) {
             <div id="dynamic-content" style="display: none;"></div>
 
             <div class="title_links mt-4">
-                <h2 class="note-title">My Notes</h2>
                 ${groupedData.Today.length === 0 && groupedData.Yesterday.length === 0 && groupedData.Older.length === 0 ? `
                     <div class="note_message">Notes Not Found</div>
                 ` : `
