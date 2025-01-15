@@ -106,8 +106,10 @@
   {
    "fieldname": "frequency",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Frequency",
-   "options": "Quarterly\nMonthly\nLump Sum"
+   "options": "Quarterly\nMonthly\nLump Sum",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_trzg",
@@ -116,6 +118,7 @@
   {
    "fieldname": "total_target",
    "fieldtype": "Int",
+   "in_list_view": 1,
    "label": "Total Target",
    "non_negative": 1,
    "reqd": 1
@@ -133,7 +136,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-16 00:10:56.038806",
+ "modified": "2025-01-16 00:19:04.918386",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Proposal Impact",

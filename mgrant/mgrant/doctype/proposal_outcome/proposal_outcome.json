@@ -107,6 +107,7 @@
   {
    "fieldname": "frequency",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Frequency",
    "options": "Quarterly\nMonthly\nLump Sum",
    "reqd": 1
@@ -118,6 +119,7 @@
   {
    "fieldname": "total_target",
    "fieldtype": "Int",
+   "in_list_view": 1,
    "label": "Total Target",
    "non_negative": 1,
    "reqd": 1
@@ -135,7 +137,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-16 00:09:31.731663",
+ "modified": "2025-01-16 00:19:46.524235",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Proposal Outcome",
