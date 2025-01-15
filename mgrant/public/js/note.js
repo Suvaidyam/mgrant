@@ -185,15 +185,6 @@ async function get_note_list(frm, selector) {
         }
 
 
-
-        .form-control {
-        background-color: white;
-        margin-bottom: 0px;
-
-        }
-        .form-control:focus {
-        background-color: white;
-            box-shadow: none;}
         .form-container{
             padding:16px 16px 16px 16px;
             border: 1px solid #801621;
@@ -210,9 +201,7 @@ async function get_note_list(frm, selector) {
             background-color: red !important;
 
         }
-        .clearfix{
-           display: none;
-        }
+       
 
 
         .note-content {
@@ -362,7 +351,20 @@ async function get_note_list(frm, selector) {
                         },
                         render_input: true,
                     });
+                    $(control.label_area).remove()
+                    const formControl = control.wrapper.querySelector('.form-control');
+                    if (formControl) {
+                        formControl.style.backgroundColor = 'white';
+                        formControl.style.marginBottom = '0px';
 
+                        formControl.addEventListener('focus', () => {
+                            formControl.style.backgroundColor = 'white';
+                            formControl.style.boxShadow = 'none';
+                            formControl.style.border = 'none';
+                        });
+
+                    }
+                     
                     control.refresh();
 
                     // Explicitly set the value to ensure pre-fill
@@ -479,7 +481,7 @@ async function get_note_list(frm, selector) {
             const control = frappe.ui.form.make_control({
                 parent: fieldWrapper,
                 df: {
-                    // label: f.label || f.fieldname,
+                    label: f.label || f.fieldname,
                     fieldname: f.fieldname,
                     fieldtype: f.fieldtype || 'Data',
                     options: f.fieldtype === 'Link' ? f.options : undefined, // Set options for Link field
@@ -491,6 +493,20 @@ async function get_note_list(frm, selector) {
                 },
                 render_input: true
             });
+            $(control.label_area).remove()
+            const formControl = control.wrapper.querySelector('.form-control');
+            if (formControl) {
+                formControl.style.backgroundColor = 'white';
+                formControl.style.marginBottom = '0px';
+
+                formControl.addEventListener('focus', () => {
+                    formControl.style.backgroundColor = 'white';
+                    formControl.style.boxShadow = 'none';
+                    formControl.style.border = 'none';
+                });
+
+            }
+
             // Ensure options are set for Dynamic Link fields
             if (f.fieldtype === 'Dynamic Link' && f.options) {
                 control.df.options = f.options; // Add options for Dynamic Link field
@@ -537,7 +553,7 @@ async function get_note_list(frm, selector) {
             if (validationFailed) return; // Stop if validation fails
             newNoteValues['reference_doctype'] = frm.doc.doctype;
             newNoteValues['related_to'] = frm.doc.name;
-            console.log('newNoteValues :>> ', newNoteValues);
+           
             // Insert the new document
             try {
                 const { message } = await frappe.call({
