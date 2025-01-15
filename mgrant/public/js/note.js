@@ -266,7 +266,134 @@ async function get_note_list(frm, selector) {
     </div>
 `;
 
-    // ============= Create Note
+    // ======================================== Update Note ========================================
+
+    document.querySelectorAll('.edit_note').forEach(link => {
+        link.addEventListener('click', async function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const noteName = this.closest('.note-item').querySelector('#action_icon').getAttribute('note_id');
+            if (!noteName) {
+                frappe.show_alert({ message: 'Note name not found', indicator: 'red' });
+                return;
+            }
+
+            try {
+                // Fetch the note details
+                const { message: latestNote } = await frappe.call({
+                    method: 'frappe.client.get',
+                    args: { doctype: 'mGrant Note', name: noteName },
+                });
+
+                if (!latestNote) {
+                    frappe.show_alert({ message: 'Failed to fetch note details', indicator: 'red' });
+                    return;
+                }
+
+                // Get the metadata for the doctype
+                const { message: meta } = await frappe.call({
+                    method: 'mgrant.apis.api.get_doctype_meta',
+                    args: { doctype: 'mGrant Note' },
+                });
+
+                if (!meta || !meta.fields) {
+                    frappe.show_alert({ message: 'Failed to fetch doctype metadata', indicator: 'red' });
+                    return;
+                }
+
+                // Get the container for dynamic content
+                const dynamicContent = document.getElementById('dynamic-content');
+                const defaultMessage = document.getElementById('default-message');
+                dynamicContent.style.display = 'block';
+                defaultMessage.style.display = 'none';
+                dynamicContent.innerHTML = ''; // Clear previous content
+
+                // Create a form container
+                const formContainer = document.createElement('div');
+                formContainer.classList.add('form-container');
+                dynamicContent.appendChild(formContainer);
+
+                // Render fields using make_control
+                const fieldControls = [];
+                meta.fields.forEach(f => {
+                    if (f.hidden) return; // Skip hidden fields
+
+                    const fieldWrapper = document.createElement('div');
+                    fieldWrapper.classList.add('my-control', 'mb-3');
+                    formContainer.appendChild(fieldWrapper);
+
+                    const control = frappe.ui.form.make_control({
+                        parent: fieldWrapper,
+                        df: {
+                            fieldname: f.fieldname,
+                            fieldtype: f.fieldtype || 'Data',
+                            options: f.fieldtype === 'Link' ? f.options : undefined,
+                            default: latestNote[f.fieldname] || '',
+                            read_only: f.read_only || 0,
+                            hidden: f.hidden || 0,
+                        },
+                        render_input: true,
+                    });
+
+                    control.refresh();
+
+                    // Explicitly set the value to ensure pre-fill
+                    if (latestNote[f.fieldname]) {
+                        control.set_value(latestNote[f.fieldname]);
+                    }
+
+                    fieldControls.push(control);
+                });
+
+                // Add buttons for cancel and update
+                const buttonContainer = document.createElement('div');
+                buttonContainer.classList.add('button-container', 'mt-3');
+                formContainer.appendChild(buttonContainer);
+
+                const updateButton = document.createElement('button');
+                updateButton.classList.add('btn', 'btn-primary');
+                updateButton.textContent = 'Update';
+                buttonContainer.appendChild(updateButton);
+
+                // Update button logic
+                updateButton.addEventListener('click', async () => {
+                    const updatedValues = {};
+                    let validationFailed = false;
+
+                    fieldControls.forEach(control => {
+                        const value = control.get_value();
+                        if (control.df.reqd && !value) {
+                            validationFailed = true;
+                            frappe.msgprint({ message: `Field "${control.df.label}" is mandatory`, indicator: 'red' });
+                        }
+                        updatedValues[control.df.fieldname] = value;
+                    });
+
+                    if (validationFailed) return; // Stop if validation fails
+
+                    try {
+                        await frappe.db.set_value('mGrant Note', noteName, updatedValues);
+                        frappe.show_alert({ message: 'Note updated successfully', indicator: 'green' });
+
+                        await render_note(frm, selector)
+                        // Clear the form after update
+                        dynamicContent.innerHTML = '';
+                        dynamicContent.style.display = 'none';
+                        defaultMessage.style.display = 'block';
+                    } catch (err) {
+                        frappe.show_alert({ message: `Error: ${err.message}`, indicator: 'red' });
+                    }
+                });
+
+            } catch (err) {
+                frappe.msgprint({ message: `Error: ${err.message}`, indicator: 'red' });
+            }
+        });
+    });
+
+
+    // ======================================== Create Note =========================================
     try {
         const { message: meta } = await frappe.call({
             method: 'mgrant.apis.api.get_doctype_meta',
@@ -283,7 +410,7 @@ async function get_note_list(frm, selector) {
             return;
         }
 
-       
+
 
 
         // Select the container where the form should be displayed
@@ -406,7 +533,7 @@ async function get_note_list(frm, selector) {
         frappe.msgprint({ message: `Error: ${error.message}`, indicator: 'red' });
     }
 
-    // ======================================== Update Note ========================================
+    // ======================================== Action Note ========================================
     document.querySelectorAll('#action_icon').forEach(button => {
         button.addEventListener('click', function (event) {
             event.stopPropagation();
@@ -415,120 +542,6 @@ async function get_note_list(frm, selector) {
         });
     });
 
-    document.querySelectorAll('.edit_note').forEach(link => {
-        link.addEventListener('click', async function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-            const noteName = this.closest('.action-menu').querySelector('#action_icon').getAttribute('note_id');
-            if (!noteName) {
-                frappe.show_alert({ message: 'Note name not found', indicator: 'red' });
-                return;
-            }
-
-            try {
-                // Fetch the note details
-                const { message: latestNote } = await frappe.call({
-                    method: 'frappe.client.get',
-                    args: { doctype: 'mGrant Note', name: noteName },
-                });
-
-                if (!latestNote) {
-                    frappe.show_alert({ message: 'Failed to fetch note details', indicator: 'red' });
-                    return;
-                }
-
-                // Get the metadata for the doctype
-                const { message: meta } = await frappe.call({
-                    method: 'mgrant.apis.api.get_doctype_meta',
-                    args: { doctype: 'mGrant Note' },
-                });
-
-                if (!meta || !meta.fields) {
-                    frappe.show_alert({ message: 'Failed to fetch doctype metadata', indicator: 'red' });
-                    return;
-                }
-
-                // Map fields and set default values based on the fetched note details
-                const fields = meta.fields
-                    .filter(f => !f.hidden) // Filter out hidden fields
-                    .map(f => {
-                        if (f?.fieldname === 'reference_doctype') {
-                            f.default = latestNote?.reference_doctype;
-                            f.read_only = 1;
-                            f.hidden = 1;
-                        } else if (f?.fieldname === 'related_to') {
-                            f.default = latestNote?.related_to;
-                            f.read_only = 1;
-                            f.hidden = 1;
-                        } else if (latestNote[f.fieldname]) {
-                            f.default = latestNote[f.fieldname];
-                        }
-                        return f;
-                    });
-
-
-                // Function to extract plain text from HTML content
-                function extractTextFromHTML(html) {
-                    const div = document.createElement('div');
-                    div.innerHTML = html;
-                    return div.textContent || div.innerText || '';
-                }
-
-                // Replace the dialog with inline content for editing
-                const dynamicContent = document.getElementById('dynamic-content');
-                const defaultMessage = document.getElementById('default-message');
-                dynamicContent.style.display = 'block';
-                defaultMessage.style.display = 'none';
-                dynamicContent.innerHTML = `
-            <div class="edit-note">
-                <p class="edit-note-title fw-bold mt-1" style="font-weight: bold;">Update Note</p>
-                ${fields.map(f => {
-                    // Handle description field specially to show as a textarea
-                    const inputType = f.fieldtype === 'Text' || f.fieldname === 'description' ? 'textarea' : 'input';
-
-                    // Extract plain text if the field is a rich text editor
-                    const fieldValue = f.fieldname === 'description' ? extractTextFromHTML(f.default || '') : (f.default || '');
-
-                    return `
-                    <div class="form-group">
-                        <label for="${f.fieldname}">${f.label || f.fieldname}</label>
-                        ${inputType === 'textarea' ?
-                            `<textarea id="${f.fieldname}" class="form-control" ${f.read_only ? 'readonly' : ''}>${fieldValue}</textarea>` :
-                            `<input type="text" id="${f.fieldname}" class="form-control" value="${fieldValue}" ${f.read_only ? 'readonly' : ''} />`
-                        }
-                    </div>`;
-                }).join('')}
-                <div style="text-align: right;">
-                    <button class="btn btn-primary mt-3" id="update-note">Update Note</button>
-                </div>
-            </div>
-            `;
-
-                document.getElementById('update-note').addEventListener('click', async function () {
-                    const updatedValues = {};
-
-                    // Collect key-value pairs of the fields
-                    fields.forEach(f => {
-                        const inputElement = document.getElementById(f.fieldname);
-                        if (inputElement) {
-                            const fieldValue = inputElement.tagName === 'TEXTAREA' ? inputElement.value : inputElement.value;
-                            updatedValues[f.fieldname] = fieldValue;
-                        }
-                    });
-                    // Log the updated key-value pairs
-                    await frappe.db.set_value('mGrant Note', noteName, updatedValues);
-                    await render_note(frm, selector)
-                    frappe.show_alert({ message: 'Note updated successfully', indicator: 'green' });
-
-                    // Optionally, you can call a method to update the data in the backend
-                    // Example: frappe.call({ method: 'update_method', args: updatedValues });
-                });
-
-            } catch (err) {
-                frappe.msgprint({ message: `Error: ${err.message}`, indicator: 'red' });
-            }
-        });
-    });
 
     // ======================================== Delete Note ========================================
     document.querySelectorAll('.delete_note').forEach(link => {
