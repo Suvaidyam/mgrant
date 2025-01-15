@@ -149,7 +149,7 @@ async function get_note_list(frm, selector) {
         }
         .note-title {
             font-size: 24px;
-            font-weight: bold;
+            font-weight:normal ;
             margin-bottom: 20px;
         }
         .note-group {
@@ -173,10 +173,19 @@ async function get_note_list(frm, selector) {
             
         }
         .note-header h3 {
+        font-weight: normal;
             font-size: 18px;
             margin: 0;
             flex-grow: 1;
             margin-right: 10px;
+        }
+        .form-container{
+            padding: 20px;
+            border: 1px solid #801621;
+            border-radius: 8px;
+        }
+        .clearfix{
+           display: none;
         }
         .note-content {
             margin-bottom: 10px;
@@ -274,6 +283,9 @@ async function get_note_list(frm, selector) {
             return;
         }
 
+       
+
+
         // Select the container where the form should be displayed
         const dynamicContent = document.getElementById('dynamic-content');
         const defaultMessage = document.getElementById('default-message');
@@ -312,18 +324,18 @@ async function get_note_list(frm, selector) {
             const control = frappe.ui.form.make_control({
                 parent: fieldWrapper,
                 df: {
-                    label: f.label || f.fieldname,
+                    // label: f.label || f.fieldname,
                     fieldname: f.fieldname,
                     fieldtype: f.fieldtype || 'Data',
                     options: f.fieldtype === 'Link' ? f.options : undefined, // Set options for Link field
-                    reqd: f.reqd || 0, // Mandatory field
+                    // reqd: f.reqd || 0, // Mandatory field
                     default: f.default || '',
                     read_only: f.read_only || 0,
-                    hidden: f.hidden || 0
+                    hidden: f.hidden || 0,
+                    placeholder: f.placeholder || '',
                 },
                 render_input: true
             });
-
             // Ensure options are set for Dynamic Link fields
             if (f.fieldtype === 'Dynamic Link' && f.options) {
                 control.df.options = f.options; // Add options for Dynamic Link field
@@ -437,20 +449,23 @@ async function get_note_list(frm, selector) {
                 }
 
                 // Map fields and set default values based on the fetched note details
-                const fields = meta.fields.map(f => {
-                    if (f?.fieldname === 'reference_doctype') {
-                        f.default = latestNote?.reference_doctype;
-                        f.read_only = 1;
-                        f.hidden = 1;
-                    } else if (f?.fieldname === 'related_to') {
-                        f.default = latestNote?.related_to;
-                        f.read_only = 1;
-                        f.hidden = 1;
-                    } else if (latestNote[f.fieldname]) {
-                        f.default = latestNote[f.fieldname];
-                    }
-                    return f;
-                });
+                const fields = meta.fields
+                    .filter(f => !f.hidden) // Filter out hidden fields
+                    .map(f => {
+                        if (f?.fieldname === 'reference_doctype') {
+                            f.default = latestNote?.reference_doctype;
+                            f.read_only = 1;
+                            f.hidden = 1;
+                        } else if (f?.fieldname === 'related_to') {
+                            f.default = latestNote?.related_to;
+                            f.read_only = 1;
+                            f.hidden = 1;
+                        } else if (latestNote[f.fieldname]) {
+                            f.default = latestNote[f.fieldname];
+                        }
+                        return f;
+                    });
+
 
                 // Function to extract plain text from HTML content
                 function extractTextFromHTML(html) {
