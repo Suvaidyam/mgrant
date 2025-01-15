@@ -161,7 +161,7 @@ const taskList = (task_list, selector) => {
 
                         <!-- Due Date -->
                         <p class="small" style="color: #6E7073; padding-top: 16px;margin: 0;">
-                            Due Date: <span class="text-danger">${task.due_date ?? '--:--'}</span>
+                            Due Date: <span class="text-danger">${task.due_date ? getFormattedDate(task.due_date) : '--:--'}</span>
                         </p>
                     </div>
                 </div>
@@ -233,7 +233,7 @@ const taskList = (task_list, selector) => {
             </span>
         </div>
     </td>
-    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">${task.related_to ?? 'Not available'} </td>
+    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">${task?.custom_task_type ?? 'Not available'} </td>
     <td>
           <div class="dropdown"style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
                     <span title="status" id="dropStatus-${task.name}" class="small dropdown-toggle bg-light pointer badge ${task?.status === 'Canceled' ? 'text-danger' : task?.status === 'In Progress' ? 'text-warning' : task?.status === 'Done' ? 'text-success' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -260,8 +260,8 @@ const taskList = (task_list, selector) => {
                     </div>
                 </div>
     </td>
-    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">${task.start_date ?? '--:--'}</td>
-    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #FA4032;">${task.due_date ?? '--:--'}</td>
+    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">${task.start_date ? getFormattedDate(task.start_date) : '--:--'}</td>
+    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #FA4032;">${task.due_date ? getFormattedDate(task.due_date) : '--:--'}</td>
     <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">  ${task.reference_doctype ?? 'NO available'}   </td>
     <td class="">                                                                                                       
       <div class="dropdown">
@@ -319,7 +319,7 @@ const taskList = (task_list, selector) => {
     });
 }
 let task_list = [];
-let view = 'Card View'
+let view = 'List View'
 let tasks_selector = 'task-list';
 
 const getTaskList = async (frm, selector) => {
