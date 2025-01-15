@@ -71,7 +71,7 @@ const style = document.createElement('style');
 style.innerHTML = `
       .email-container {
         display: flex;
-        height:800px;
+        height:785px;
         background-color: #fff;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
@@ -83,6 +83,7 @@ style.innerHTML = `
         flex-direction: column;
         background: #fff;
     }
+   
 
     .top-header {
         // display: flex;
@@ -262,24 +263,26 @@ style.innerHTML = `
 
     .email-body {
         flex: 1;
-        padding: 10px 24px ;
+        padding: 0px 24px 10px 24px; 
         background: #fff;
         overflow-y: auto;
     }
 
     .email-detail {
-        // max-width: 800px;
+        // max-width: 785px;
         // margin: 0 auto;
     }
 
     .email-detail-header {
         margin-bottom: 24px;
+        border-bottom: 1px solid #e5e5e5;
+        padding-bottom: 10px;
     }
 
     .email-detail-subject {
         font-size: 24px;
         color: #333;
-        margin: 0 0 16px 0;
+        margin: 0 ;
         font-weight: normal;
     }
 
@@ -314,6 +317,7 @@ style.innerHTML = `
         font-size: 14px;
         line-height: 1.6;
         color: #333;
+        padding-left: 45px;
     }
 
     .attachments {
@@ -334,12 +338,15 @@ style.innerHTML = `
         flex-wrap: wrap;
         gap: 8px;
     }
-        .email-detail-subject-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+     .email-detail-subject-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e5e5e5;
+        padding-bottom: 11px;
+        margin-bottom: 11px;
 
-        }
+    }
 
     .attachment-item {
         display: flex;
@@ -409,8 +416,6 @@ async function renderEmails(email_list, frm, selector = null) {
         email_wrapper = document.querySelector(`[data-fieldname="${selector}"]`).style.height = "80vh";
         email_wrapper = document.querySelector(`[data-fieldname="${selector}"]`);
         email_wrapper.innerHTML = ""
-    }else{
-        return
     }
     const formatDateGroup = (emailDate) => {
         const today = new Date();
@@ -603,7 +608,7 @@ async function renderEmails(email_list, frm, selector = null) {
             <div class="email-detail">
                 <div class="email-detail-header">
                     <div class="email-detail-subject-container">
-                    <h1 class="email-detail-subject">${emailDoc?.subject}</h1>
+                    <span class="email-detail-subject">${emailDoc?.subject}</span>
                      <div class="action-buttons" id="action_icon">
                        
                         <span class="email-counter">${currentEmailIndex + 1} of ${communication_list.length}</span>

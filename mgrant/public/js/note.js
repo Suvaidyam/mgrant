@@ -143,7 +143,8 @@ async function get_note_list(frm, selector) {
         }
         .note_message {
             display: flex;
-            height: 100%;
+            min-height: 500px;
+            height: 100%;   
             justify-content: center;
             align-items: center;
         }
@@ -154,6 +155,9 @@ async function get_note_list(frm, selector) {
         }
         .note-group {
             margin-bottom: 20px;
+                height: 700px;
+    min-height: 700px;
+    overflow-y: scroll;
         }
         .group-title {
             font-size: 14px;
@@ -163,7 +167,7 @@ async function get_note_list(frm, selector) {
         .note-item {
             border-bottom: 1px solid #e2e8f0;
             padding: 10px;
-            margin-bottom: 15px;
+            // margin-bottom: 15px;
         }
         .note-header {
             display: flex;
@@ -181,22 +185,13 @@ async function get_note_list(frm, selector) {
         }
 
 
-
-        .form-control {
-        background-color: white;
-        margin-bottom: 0px;
-
-        }
-        .form-control:focus {
-        background-color: white;
-            box-shadow: none;}
         .form-container{
             padding:16px 16px 16px 16px;
             border: 1px solid #801621;
             border-radius: 8px;
         }
         .frappe-control .ql-editor:not(.read-mode){
-            min-height: 150px;
+            min-height: 100px;
             Height: 36px;
             background-color: #fff;
             border: none;
@@ -206,9 +201,7 @@ async function get_note_list(frm, selector) {
             background-color: red !important;
 
         }
-        .clearfix{
-           display: none;
-        }
+       
 
 
         .note-content {
@@ -252,7 +245,6 @@ async function get_note_list(frm, selector) {
             <div id="dynamic-content" style="display: none;"></div>
 
             <div class="title_links mt-4">
-                <h2 class="note-title">My Notes</h2>
                 ${groupedData.Today.length === 0 && groupedData.Yesterday.length === 0 && groupedData.Older.length === 0 ? `
                     <div class="note_message">Notes Not Found</div>
                 ` : `
@@ -359,7 +351,20 @@ async function get_note_list(frm, selector) {
                         },
                         render_input: true,
                     });
+                    $(control.label_area).remove()
+                    const formControl = control.wrapper.querySelector('.form-control');
+                    if (formControl) {
+                        formControl.style.backgroundColor = 'white';
+                        formControl.style.marginBottom = '0px';
 
+                        formControl.addEventListener('focus', () => {
+                            formControl.style.backgroundColor = 'white';
+                            formControl.style.boxShadow = 'none';
+                            formControl.style.border = 'none';
+                        });
+
+                    }
+                     
                     control.refresh();
 
                     // Explicitly set the value to ensure pre-fill
@@ -476,7 +481,7 @@ async function get_note_list(frm, selector) {
             const control = frappe.ui.form.make_control({
                 parent: fieldWrapper,
                 df: {
-                    // label: f.label || f.fieldname,
+                    label: f.label || f.fieldname,
                     fieldname: f.fieldname,
                     fieldtype: f.fieldtype || 'Data',
                     options: f.fieldtype === 'Link' ? f.options : undefined, // Set options for Link field
@@ -488,6 +493,20 @@ async function get_note_list(frm, selector) {
                 },
                 render_input: true
             });
+            $(control.label_area).remove()
+            const formControl = control.wrapper.querySelector('.form-control');
+            if (formControl) {
+                formControl.style.backgroundColor = 'white';
+                formControl.style.marginBottom = '0px';
+
+                formControl.addEventListener('focus', () => {
+                    formControl.style.backgroundColor = 'white';
+                    formControl.style.boxShadow = 'none';
+                    formControl.style.border = 'none';
+                });
+
+            }
+
             // Ensure options are set for Dynamic Link fields
             if (f.fieldtype === 'Dynamic Link' && f.options) {
                 control.df.options = f.options; // Add options for Dynamic Link field
@@ -534,7 +553,7 @@ async function get_note_list(frm, selector) {
             if (validationFailed) return; // Stop if validation fails
             newNoteValues['reference_doctype'] = frm.doc.doctype;
             newNoteValues['related_to'] = frm.doc.name;
-            console.log('newNoteValues :>> ', newNoteValues);
+           
             // Insert the new document
             try {
                 const { message } = await frappe.call({
