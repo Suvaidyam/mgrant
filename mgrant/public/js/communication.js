@@ -83,6 +83,7 @@ style.innerHTML = `
         flex-direction: column;
         background: #fff;
     }
+   
 
     .top-header {
         // display: flex;
@@ -415,8 +416,6 @@ async function renderEmails(email_list, frm, selector = null) {
         email_wrapper = document.querySelector(`[data-fieldname="${selector}"]`).style.height = "80vh";
         email_wrapper = document.querySelector(`[data-fieldname="${selector}"]`);
         email_wrapper.innerHTML = ""
-    }else{
-        return
     }
     const formatDateGroup = (emailDate) => {
         const today = new Date();
