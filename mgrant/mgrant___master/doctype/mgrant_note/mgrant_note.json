@@ -17,6 +17,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Title",
+   "placeholder": "Give your note a title",
    "reqd": 1
   },
   {
@@ -25,6 +26,7 @@
    "in_list_view": 1,
    "label": "Description",
    "max_height": "200px",
+   "placeholder": "Start writing from here",
    "reqd": 1
   },
   {
@@ -43,7 +45,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-14 17:23:37.617026",
+ "modified": "2025-01-15 10:17:34.190123",
  "modified_by": "Administrator",
  "module": "mGrant - Master",
  "name": "mGrant Note",
