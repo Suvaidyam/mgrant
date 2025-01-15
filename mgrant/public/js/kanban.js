@@ -89,17 +89,15 @@ frappe.views.KanbanView = class KanbanView extends frappe.views.KanbanView {
                                                     <p style="white-space: nowrap; margin-bottom: 1px; color: #0E1116; font-size: 12px; font-weight:400; line-height: 13.2px; letter-spacing: 0.4%;;">ID:</p>
                                                     <p style="margin-bottom: 1px; color: #6E7073; font-size: 12px; font-weight:400; line-height: 13.2px; letter-spacing: 0.4%;">\${opts?.doc?.name || ''}</p>
                                                 </div> \` : ''}
-
-                                                \${opts?.doc?.total_planned_budget || opts?.FormattedDate ? \`    
+    
                                                 <div class="d-flex justify-content-between" style="margin-bottom: 16px; margin-top: 8px;">
                                                     \${opts?.doc?.total_planned_budget ? \`
-                                                    <p style="color: #0E1116; font-size: 14px; font-weight:600; line-height: 15.4px; letter-spacing: 0.25%; ">₹\${opts?.doc?.total_planned_budget || ''}</p>
-                                                    \` : \`<p></p>\`}
+                                                    <p style="color: #0E1116; font-size: 14px; font-weight:600; line-height: 15.4px; letter-spacing: 0.25%; ">₹\${opts?.doc?.total_planned_budget || '0'}</p>
+                                                    \` : \`<p style="color: #0E1116; font-size: 14px; font-weight:600; line-height: 15.4px; letter-spacing: 0.25%; ">₹0</p>\`}
                                                     \${opts?.FormattedDate ? \`
                                                     <p style="color: #6E7073; font-size: 10px; font-weight:400; line-height: 11px; letter-spacing: 1.5%;">Date: \${opts?.FormattedDate || ''}</p>
                                                     \` : ''}
                                                 </div>
-                                                \` : ''}
                                                 \${opts?.doc?.workflow_state ? \`
                                                 <span class="text-\${opts?.wf_color} border border-\${opts?.wf_color}" style="padding: 4px 8px; font-size: 12px; font-weight:400; line-height: 13.2px; letter-spacing: 0.4%; border-radius: 100px;" aria-label="\${opts?.doc?.workflow_state}">\${opts?.doc?.workflow_state}</span>
                                                 \` : ''}
