@@ -161,9 +161,8 @@ async function get_note_list(frm, selector) {
             margin-bottom: 10px;
         }
         .note-item {
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 10px;
             margin-bottom: 15px;
         }
         .note-header {
@@ -172,6 +171,7 @@ async function get_note_list(frm, selector) {
             align-items: flex-start;
             
         }
+
         .note-header h3 {
         font-weight: normal;
             font-size: 18px;
@@ -179,14 +179,38 @@ async function get_note_list(frm, selector) {
             flex-grow: 1;
             margin-right: 10px;
         }
+    
+
+
+        .form-control {
+        background-color: white;
+        margin-bottom: 0px;
+        
+        }
+        .form-control:focus {
+        background-color: white;
+            box-shadow: none;}
         .form-container{
-            padding: 20px;
+            padding:16px 16px 16px 16px;
             border: 1px solid #801621;
             border-radius: 8px;
+        }
+        .frappe-control .ql-editor:not(.read-mode){
+            min-height: 150px;
+            Height: 36px;
+            background-color: #fff;
+            border: none;       
+            
+        }
+        .input-with-feedback form-control{
+            background-color: red !important;
+            
         }
         .clearfix{
            display: none;
         }
+
+
         .note-content {
             margin-bottom: 10px;
         }
@@ -348,12 +372,13 @@ async function get_note_list(frm, selector) {
 
                 // Add buttons for cancel and update
                 const buttonContainer = document.createElement('div');
-                buttonContainer.classList.add('button-container', 'mt-3');
+                buttonContainer.classList.add('button-container', 'pb-4');
                 formContainer.appendChild(buttonContainer);
 
                 const updateButton = document.createElement('button');
                 updateButton.classList.add('btn', 'btn-primary');
                 updateButton.textContent = 'Update';
+                updateButton.style.float = 'right';
                 buttonContainer.appendChild(updateButton);
 
                 // Update button logic
@@ -480,7 +505,7 @@ async function get_note_list(frm, selector) {
 
         // Add a submit button
         const submitButton = document.createElement('button');
-        submitButton.classList.add('btn', 'btn-primary', 'mt-3');
+        submitButton.classList.add('btn', 'btn-primary');
         submitButton.textContent = 'Save';
         submitButton.style.float = 'right'; // Add this line to float the button to the right
         submitButton.style.marginLeft = 'auto'; // Add this line to push the button to the right

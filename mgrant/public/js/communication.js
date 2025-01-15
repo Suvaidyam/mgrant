@@ -59,7 +59,7 @@ function timeAgo(timestamp) {
     return years === 1 ? "1 year ago" : `${years} years ago`;
 }
 function getRandomColor() {
-    const letters = '0123456789ABCDEF';
+    const letters = '0123456789ABCDEF'; 
     let color = '#';
     for (let i = 0; i < 6; i++) {
         color += letters[Math.floor(Math.random() * 16)];
@@ -408,6 +408,9 @@ async function renderEmails(email_list, frm, selector = null) {
     if (selector != null) {
         email_wrapper = document.querySelector(`[data-fieldname="${selector}"]`).style.height = "80vh";
         email_wrapper = document.querySelector(`[data-fieldname="${selector}"]`);
+        email_wrapper.innerHTML = ""
+    }else{
+        return
     }
     const formatDateGroup = (emailDate) => {
         const today = new Date();
