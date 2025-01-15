@@ -97,9 +97,9 @@ async function get_note_list(frm, selector) {
         }
         .note-button {
             background-color: black;
-            color: white; 
-            border: none; 
-            border-radius: 8px; 
+            color: white;
+            border: none;
+            border-radius: 8px;
             padding: 4px 8px;
             font-size: 14px;
             cursor: pointer;
@@ -143,6 +143,7 @@ async function get_note_list(frm, selector) {
         }
         .note_message {
             display: flex;
+            min-height: 500px;
             height: 100%;   
             justify-content: center;
             align-items: center;
@@ -154,6 +155,9 @@ async function get_note_list(frm, selector) {
         }
         .note-group {
             margin-bottom: 20px;
+                height: 700px;
+    min-height: 700px;
+    overflow-y: scroll;
         }
         .group-title {
             font-size: 14px;
@@ -161,17 +165,17 @@ async function get_note_list(frm, selector) {
             margin-bottom: 10px;
         }
         .note-item {
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 10px;
+            // margin-bottom: 15px;
         }
         .note-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            
+
         }
+
         .note-header h3 {
         font-weight: normal;
             font-size: 18px;
@@ -179,14 +183,27 @@ async function get_note_list(frm, selector) {
             flex-grow: 1;
             margin-right: 10px;
         }
+
+
         .form-container{
-            padding: 20px;
+            padding:16px 16px 16px 16px;
             border: 1px solid #801621;
             border-radius: 8px;
         }
-        .clearfix{
-           display: none;
+        .frappe-control .ql-editor:not(.read-mode){
+            min-height: 100px;
+            Height: 36px;
+            background-color: #fff;
+            border: none;
+
         }
+        .input-with-feedback form-control{
+            background-color: red !important;
+
+        }
+       
+
+
         .note-content {
             margin-bottom: 10px;
         }
@@ -226,9 +243,8 @@ async function get_note_list(frm, selector) {
                 </div>
             </div>
             <div id="dynamic-content" style="display: none;"></div>
-            
+
             <div class="title_links mt-4">
-                <h2 class="note-title">My Notes</h2>
                 ${groupedData.Today.length === 0 && groupedData.Yesterday.length === 0 && groupedData.Older.length === 0 ? `
                     <div class="note_message">Notes Not Found</div>
                 ` : `
@@ -253,7 +269,7 @@ async function get_note_list(frm, selector) {
                                         <span>${note.owner}</span>
                                         <span>•</span>
                                         <span>${timeAgo(note.creation)}</span>
-                                        
+
                                     </div>
                                 </div>
                             `).join('')}
@@ -335,7 +351,20 @@ async function get_note_list(frm, selector) {
                         },
                         render_input: true,
                     });
+                    $(control.label_area).remove()
+                    const formControl = control.wrapper.querySelector('.form-control');
+                    if (formControl) {
+                        formControl.style.backgroundColor = 'white';
+                        formControl.style.marginBottom = '0px';
 
+                        formControl.addEventListener('focus', () => {
+                            formControl.style.backgroundColor = 'white';
+                            formControl.style.boxShadow = 'none';
+                            formControl.style.border = 'none';
+                        });
+
+                    }
+                     
                     control.refresh();
 
                     // Explicitly set the value to ensure pre-fill
@@ -348,12 +377,13 @@ async function get_note_list(frm, selector) {
 
                 // Add buttons for cancel and update
                 const buttonContainer = document.createElement('div');
-                buttonContainer.classList.add('button-container', 'mt-3');
+                buttonContainer.classList.add('button-container', 'pb-4');
                 formContainer.appendChild(buttonContainer);
 
                 const updateButton = document.createElement('button');
                 updateButton.classList.add('btn', 'btn-primary');
                 updateButton.textContent = 'Update';
+                updateButton.style.float = 'right';
                 buttonContainer.appendChild(updateButton);
 
                 // Update button logic
@@ -451,7 +481,7 @@ async function get_note_list(frm, selector) {
             const control = frappe.ui.form.make_control({
                 parent: fieldWrapper,
                 df: {
-                    // label: f.label || f.fieldname,
+                    label: f.label || f.fieldname,
                     fieldname: f.fieldname,
                     fieldtype: f.fieldtype || 'Data',
                     options: f.fieldtype === 'Link' ? f.options : undefined, // Set options for Link field
@@ -463,6 +493,20 @@ async function get_note_list(frm, selector) {
                 },
                 render_input: true
             });
+            $(control.label_area).remove()
+            const formControl = control.wrapper.querySelector('.form-control');
+            if (formControl) {
+                formControl.style.backgroundColor = 'white';
+                formControl.style.marginBottom = '0px';
+
+                formControl.addEventListener('focus', () => {
+                    formControl.style.backgroundColor = 'white';
+                    formControl.style.boxShadow = 'none';
+                    formControl.style.border = 'none';
+                });
+
+            }
+
             // Ensure options are set for Dynamic Link fields
             if (f.fieldtype === 'Dynamic Link' && f.options) {
                 control.df.options = f.options; // Add options for Dynamic Link field
@@ -480,7 +524,7 @@ async function get_note_list(frm, selector) {
 
         // Add a submit button
         const submitButton = document.createElement('button');
-        submitButton.classList.add('btn', 'btn-primary', 'mt-3');
+        submitButton.classList.add('btn', 'btn-primary');
         submitButton.textContent = 'Save';
         submitButton.style.float = 'right'; // Add this line to float the button to the right
         submitButton.style.marginLeft = 'auto'; // Add this line to push the button to the right
@@ -509,7 +553,7 @@ async function get_note_list(frm, selector) {
             if (validationFailed) return; // Stop if validation fails
             newNoteValues['reference_doctype'] = frm.doc.doctype;
             newNoteValues['related_to'] = frm.doc.name;
-            console.log('newNoteValues :>> ', newNoteValues);
+           
             // Insert the new document
             try {
                 const { message } = await frappe.call({

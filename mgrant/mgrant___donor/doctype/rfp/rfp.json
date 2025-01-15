@@ -12,42 +12,41 @@
   "title",
   "type",
   "invitation_type",
+  "donor",
   "column_break_eywv",
   "spoc",
   "deadline",
+  "budget_ceiling",
+  "column_break_cefz",
   "section_break_rmzh",
   "objective",
-  "scope_and_requirements",
-  "budget_ceiling",
+  "column_break_sgxv",
   "monitoring_configuration_tab",
   "geolevel_configuration",
   "geolevel_budget_allocation",
-  "column_break_ifsh",
   "geolevel_input",
-  "column_break_tgir",
   "geolevel_output",
-  "column_break_vion",
+  "column_break_jisw",
   "geolevel_outcome",
-  "column_break_ktqj",
   "geolevel_impact",
+  "column_break_lown",
   "frequency_configuration",
+  "column_break_ifsh",
   "frequency_budget_allocation",
-  "column_break_rrox",
   "frequency_input",
-  "column_break_lgdw",
   "frequency_output",
-  "column_break_egrx",
+  "column_break_kdzl",
   "frequency_outcome",
-  "column_break_kcec",
   "frequency_impact",
+  "column_break_bnjw",
   "evaluation_panel_tab",
   "table_aycd",
   "evaluation_and_review_criteria_tab",
   "evaluation_and_review_criteria",
-  "table_dmnn",
+  "evaluation_criterias",
   "total",
   "additional_questions_tab",
-  "table_yzjk",
+  "additional_questions",
   "attachment_and_resources_tab",
   "table_eqwp",
   "invitation_tab",
@@ -71,8 +70,7 @@
   },
   {
    "fieldname": "basic_details",
-   "fieldtype": "Section Break",
-   "label": "Section 1: Basic Details"
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "title",
@@ -126,11 +124,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "scope_and_requirements",
-   "fieldtype": "Section Break",
-   "label": "Section 2: Scope and Requirements"
-  },
-  {
    "fieldname": "budget_ceiling",
    "fieldtype": "Currency",
    "label": "Budget Ceiling"
@@ -146,6 +139,7 @@
    "label": "At which level of geographic granularity do you manage and monitor funds and targets? Mention for each item below:"
   },
   {
+   "default": "Pan-India",
    "fieldname": "geolevel_budget_allocation",
    "fieldtype": "Select",
    "label": "Budget Allocation",
@@ -156,87 +150,63 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "State",
    "fieldname": "geolevel_input",
    "fieldtype": "Select",
    "label": "Input",
    "options": "State\nDistrict\nPan-India"
   },
   {
-   "fieldname": "column_break_tgir",
-   "fieldtype": "Column Break"
-  },
-  {
+   "default": "State",
    "fieldname": "geolevel_output",
    "fieldtype": "Select",
    "label": "Output",
    "options": "State\nDistrict\nPan-India"
   },
   {
-   "fieldname": "column_break_vion",
-   "fieldtype": "Column Break"
-  },
-  {
+   "default": "State",
    "fieldname": "geolevel_outcome",
    "fieldtype": "Select",
    "label": "Outcome",
    "options": "State\nDistrict\nPan-India"
   },
   {
-   "fieldname": "column_break_ktqj",
-   "fieldtype": "Column Break"
-  },
-  {
+   "default": "State",
    "fieldname": "geolevel_impact",
    "fieldtype": "Select",
    "label": "Impact",
    "options": "State\nDistrict\nPan-India"
   },
   {
-   "fieldname": "frequency_configuration",
-   "fieldtype": "Section Break",
-   "label": "At what frequency do you manage and monitor funds and targets? Mention for each item below:"
-  },
-  {
+   "default": "Quarterly",
    "fieldname": "frequency_budget_allocation",
    "fieldtype": "Select",
    "label": "Budget Allocation",
    "options": "Lump Sum\nAnnual\nQuarterly\nMonthly"
   },
   {
-   "fieldname": "column_break_rrox",
-   "fieldtype": "Column Break"
-  },
-  {
+   "default": "Quarterly",
    "fieldname": "frequency_input",
    "fieldtype": "Select",
    "label": "Input",
    "options": "Lump Sum\nAnnual\nQuarterly\nMonthly"
   },
   {
-   "fieldname": "column_break_lgdw",
-   "fieldtype": "Column Break"
-  },
-  {
+   "default": "Quarterly",
    "fieldname": "frequency_output",
    "fieldtype": "Select",
    "label": "Output",
    "options": "Lump Sum\nAnnual\nQuarterly\nMonthly"
   },
   {
-   "fieldname": "column_break_egrx",
-   "fieldtype": "Column Break"
-  },
-  {
+   "default": "Quarterly",
    "fieldname": "frequency_outcome",
    "fieldtype": "Select",
    "label": "Outcome",
    "options": "Lump Sum\nAnnual\nQuarterly\nMonthly"
   },
   {
-   "fieldname": "column_break_kcec",
-   "fieldtype": "Column Break"
-  },
-  {
+   "default": "Quarterly",
    "fieldname": "frequency_impact",
    "fieldtype": "Select",
    "label": "Impact",
@@ -264,11 +234,6 @@
    "label": "Section 3: Evaluation and Review Criteria"
   },
   {
-   "fieldname": "table_dmnn",
-   "fieldtype": "Table",
-   "options": "Evaluation and Review Criteria"
-  },
-  {
    "fieldname": "total",
    "fieldtype": "Int",
    "label": "Total",
@@ -278,11 +243,6 @@
    "fieldname": "additional_questions_tab",
    "fieldtype": "Tab Break",
    "label": "Additional Questions"
-  },
-  {
-   "fieldname": "table_yzjk",
-   "fieldtype": "Table",
-   "options": "DocField"
   },
   {
    "fieldname": "attachment_and_resources_tab",
@@ -309,12 +269,58 @@
    "fieldtype": "Table",
    "label": "Invitation",
    "options": "RFP Invitation"
+  },
+  {
+   "fieldname": "donor",
+   "fieldtype": "Link",
+   "label": "Donor",
+   "options": "Donor",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_jisw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "frequency_configuration",
+   "fieldtype": "Section Break",
+   "label": "At what frequency do you manage and monitor funds and targets? Mention for each item below:"
+  },
+  {
+   "fieldname": "column_break_kdzl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_lown",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_bnjw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_cefz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_sgxv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "evaluation_criterias",
+   "fieldtype": "Table",
+   "options": "Evaluation and Review Criteria"
+  },
+  {
+   "fieldname": "additional_questions",
+   "fieldtype": "Table",
+   "options": "DocField"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-14 15:40:43.814506",
+ "modified": "2025-01-15 02:27:57.558758",
  "modified_by": "Administrator",
  "module": "mGrant - Donor",
  "name": "RFP",
@@ -335,6 +341,7 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],
