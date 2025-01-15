@@ -35,7 +35,7 @@ frappe.ui.form.on("Proposal", {
             }
         }, 500);
     },
-    refresh(frm) {
+    async refresh(frm) {
         frm.trigger('change_indicator_pill_content')
         if (frm.doc.states.length) {
             PREV_STATES = frm.doc.states;
@@ -47,9 +47,30 @@ frappe.ui.form.on("Proposal", {
                 frappe.set_route('Form', 'Grant', frm.doc.grant);
             });
         }
+        if(frappe?.mgrant_settings?.module == "Donor"){
+            if(frm.doc?.rfp && !frm.doc?.donor){
+                let res = await frappe.db.get_value('RFP',frm.doc?.rfp, 'donor')
+                if(res?.message?.donor){
+                    frm.set_value('donor',res?.message?.donor)
+                    frm.refresh_field('donor')
+                    // await frappe.db.set_value('Proposal',frm.doc?.name, 'donor',res?.message?.donor )
+                }
+                console.log("Donor", res?.message?.donor);
+            }
+        }
         setup_multiselect_dependency(frm, 'District', 'states', 'state', 'districts', 'state');
         setup_multiselect_dependency(frm, 'Block', 'districts', 'district', 'blocks', 'district');
         setup_multiselect_dependency(frm, 'Village', 'blocks', 'block', 'villages', 'block');
+
+        if(frm.doc?.rfp){
+            let rfp_doc = await frappe.db.get_doc('RFP',frm.doc?.rfp)
+            if(rfp_doc?.additional_questions?.length){
+                const wrapper = document.querySelector('[data-fieldname="additional_questions"]');
+                sva_render_form(wrapper, rfp_doc?.additional_questions, (doc)=>{
+                    console.log("onSubmit", doc);
+                });
+            }
+        }
     },
     change_indicator_pill_content(frm) {
         let index = 0
@@ -117,6 +138,18 @@ frappe.ui.form.on("Proposal", {
                 frm.set_value('grant_duration_in_months', monthDifference);
             } else {
                 frm.set_value('grant_duration_in_months', 0);
+            }
+        }
+    },
+    rfp:async (frm) => {
+        console.log("rfp:chnage", frm.doc.rfp);
+
+        if(frappe?.mgrant_settings?.module == "Donor"){
+            if(frm.doc?.rfp && !frm.doc?.donor){
+                let res = await frappe.db.get_value('RFP',frm.doc?.rfp, 'donor')
+                frm.set_value('donor',res?.message?.donor)
+                frm.refresh_field('donor')
+                console.log("Donor", res?.message?.donor);
             }
         }
     },
