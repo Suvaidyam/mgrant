@@ -1,0 +1,342 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:RFP-{###}",
+ "creation": "2025-01-12 12:46:30.698529",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_9fer",
+  "amended_from",
+  "basic_details",
+  "title",
+  "type",
+  "invitation_type",
+  "column_break_eywv",
+  "spoc",
+  "deadline",
+  "section_break_rmzh",
+  "objective",
+  "scope_and_requirements",
+  "budget_ceiling",
+  "monitoring_configuration_tab",
+  "geolevel_configuration",
+  "geolevel_budget_allocation",
+  "column_break_ifsh",
+  "geolevel_input",
+  "column_break_tgir",
+  "geolevel_output",
+  "column_break_vion",
+  "geolevel_outcome",
+  "column_break_ktqj",
+  "geolevel_impact",
+  "frequency_configuration",
+  "frequency_budget_allocation",
+  "column_break_rrox",
+  "frequency_input",
+  "column_break_lgdw",
+  "frequency_output",
+  "column_break_egrx",
+  "frequency_outcome",
+  "column_break_kcec",
+  "frequency_impact",
+  "evaluation_panel_tab",
+  "table_aycd",
+  "evaluation_and_review_criteria_tab",
+  "evaluation_and_review_criteria",
+  "table_dmnn",
+  "total",
+  "additional_questions_tab",
+  "table_yzjk",
+  "attachment_and_resources_tab",
+  "table_eqwp",
+  "invitation_tab",
+  "section_break_tzwz",
+  "invitation"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_9fer",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "RFP",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "basic_details",
+   "fieldtype": "Section Break",
+   "label": "Section 1: Basic Details"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "RFP Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "invitation_type",
+   "fieldtype": "Select",
+   "label": "Invitation Type",
+   "options": "Open Call\nClosed Call",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_eywv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "spoc",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "SPOC",
+   "options": "Contact",
+   "reqd": 1
+  },
+  {
+   "fieldname": "deadline",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Deadline",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_rmzh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "objective",
+   "fieldtype": "Text Editor",
+   "label": "Objective",
+   "reqd": 1
+  },
+  {
+   "fieldname": "scope_and_requirements",
+   "fieldtype": "Section Break",
+   "label": "Section 2: Scope and Requirements"
+  },
+  {
+   "fieldname": "budget_ceiling",
+   "fieldtype": "Currency",
+   "label": "Budget Ceiling"
+  },
+  {
+   "fieldname": "monitoring_configuration_tab",
+   "fieldtype": "Tab Break",
+   "label": "Monitoring Configuration"
+  },
+  {
+   "fieldname": "geolevel_configuration",
+   "fieldtype": "Section Break",
+   "label": "At which level of geographic granularity do you manage and monitor funds and targets? Mention for each item below:"
+  },
+  {
+   "fieldname": "geolevel_budget_allocation",
+   "fieldtype": "Select",
+   "label": "Budget Allocation",
+   "options": "State\nDistrict\nPan-India"
+  },
+  {
+   "fieldname": "column_break_ifsh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "geolevel_input",
+   "fieldtype": "Select",
+   "label": "Input",
+   "options": "State\nDistrict\nPan-India"
+  },
+  {
+   "fieldname": "column_break_tgir",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "geolevel_output",
+   "fieldtype": "Select",
+   "label": "Output",
+   "options": "State\nDistrict\nPan-India"
+  },
+  {
+   "fieldname": "column_break_vion",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "geolevel_outcome",
+   "fieldtype": "Select",
+   "label": "Outcome",
+   "options": "State\nDistrict\nPan-India"
+  },
+  {
+   "fieldname": "column_break_ktqj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "geolevel_impact",
+   "fieldtype": "Select",
+   "label": "Impact",
+   "options": "State\nDistrict\nPan-India"
+  },
+  {
+   "fieldname": "frequency_configuration",
+   "fieldtype": "Section Break",
+   "label": "At what frequency do you manage and monitor funds and targets? Mention for each item below:"
+  },
+  {
+   "fieldname": "frequency_budget_allocation",
+   "fieldtype": "Select",
+   "label": "Budget Allocation",
+   "options": "Lump Sum\nAnnual\nQuarterly\nMonthly"
+  },
+  {
+   "fieldname": "column_break_rrox",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "frequency_input",
+   "fieldtype": "Select",
+   "label": "Input",
+   "options": "Lump Sum\nAnnual\nQuarterly\nMonthly"
+  },
+  {
+   "fieldname": "column_break_lgdw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "frequency_output",
+   "fieldtype": "Select",
+   "label": "Output",
+   "options": "Lump Sum\nAnnual\nQuarterly\nMonthly"
+  },
+  {
+   "fieldname": "column_break_egrx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "frequency_outcome",
+   "fieldtype": "Select",
+   "label": "Outcome",
+   "options": "Lump Sum\nAnnual\nQuarterly\nMonthly"
+  },
+  {
+   "fieldname": "column_break_kcec",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "frequency_impact",
+   "fieldtype": "Select",
+   "label": "Impact",
+   "options": "Lump Sum\nAnnual\nQuarterly\nMonthly"
+  },
+  {
+   "fieldname": "evaluation_panel_tab",
+   "fieldtype": "Tab Break",
+   "label": "Evaluation Panel"
+  },
+  {
+   "fieldname": "table_aycd",
+   "fieldtype": "Table",
+   "label": "Evaluation Panel",
+   "options": "Evaluation Panel"
+  },
+  {
+   "fieldname": "evaluation_and_review_criteria_tab",
+   "fieldtype": "Tab Break",
+   "label": "Evaluation and Review Criteria"
+  },
+  {
+   "fieldname": "evaluation_and_review_criteria",
+   "fieldtype": "Section Break",
+   "label": "Section 3: Evaluation and Review Criteria"
+  },
+  {
+   "fieldname": "table_dmnn",
+   "fieldtype": "Table",
+   "options": "Evaluation and Review Criteria"
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Int",
+   "label": "Total",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "additional_questions_tab",
+   "fieldtype": "Tab Break",
+   "label": "Additional Questions"
+  },
+  {
+   "fieldname": "table_yzjk",
+   "fieldtype": "Table",
+   "options": "DocField"
+  },
+  {
+   "fieldname": "attachment_and_resources_tab",
+   "fieldtype": "Tab Break",
+   "label": "Attachment and Resources"
+  },
+  {
+   "fieldname": "table_eqwp",
+   "fieldtype": "Table",
+   "options": "File Child"
+  },
+  {
+   "fieldname": "invitation_tab",
+   "fieldtype": "Tab Break",
+   "label": "Invitation"
+  },
+  {
+   "fieldname": "section_break_tzwz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.invitation_type == 'Closed Call'",
+   "fieldname": "invitation",
+   "fieldtype": "Table",
+   "label": "Invitation",
+   "options": "RFP Invitation"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-01-14 15:40:43.814506",
+ "modified_by": "Administrator",
+ "module": "mGrant - Donor",
+ "name": "RFP",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title"
+}
