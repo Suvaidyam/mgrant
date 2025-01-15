@@ -11,7 +11,11 @@
   "section_break_fwbn",
   "item_name",
   "column_break_dcyu",
-  "budget_head"
+  "budget_head",
+  "section_break_aadw",
+  "frequency",
+  "column_break_bfde",
+  "total_planned_budget"
  ],
  "fields": [
   {
@@ -43,11 +47,34 @@
   {
    "fieldname": "column_break_dcyu",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Frequency",
+   "options": "Quarterly\nMonthly\nLump Sum",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_planned_budget",
+   "fieldtype": "Currency",
+   "label": "Total Planned Budget",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_aadw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_bfde",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-30 17:01:58.844050",
+ "modified": "2025-01-16 00:03:36.931029",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Proposal Budget Plan",
