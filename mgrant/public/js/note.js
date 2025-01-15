@@ -97,9 +97,9 @@ async function get_note_list(frm, selector) {
         }
         .note-button {
             background-color: black;
-            color: white; 
-            border: none; 
-            border-radius: 8px; 
+            color: white;
+            border: none;
+            border-radius: 8px;
             padding: 4px 8px;
             font-size: 14px;
             cursor: pointer;
@@ -143,7 +143,7 @@ async function get_note_list(frm, selector) {
         }
         .note_message {
             display: flex;
-            height: 100%;   
+            height: 100%;
             justify-content: center;
             align-items: center;
         }
@@ -169,7 +169,7 @@ async function get_note_list(frm, selector) {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            
+
         }
 
         .note-header h3 {
@@ -179,13 +179,13 @@ async function get_note_list(frm, selector) {
             flex-grow: 1;
             margin-right: 10px;
         }
-    
+
 
 
         .form-control {
         background-color: white;
         margin-bottom: 0px;
-        
+
         }
         .form-control:focus {
         background-color: white;
@@ -199,12 +199,12 @@ async function get_note_list(frm, selector) {
             min-height: 150px;
             Height: 36px;
             background-color: #fff;
-            border: none;       
-            
+            border: none;
+
         }
         .input-with-feedback form-control{
             background-color: red !important;
-            
+
         }
         .clearfix{
            display: none;
@@ -250,7 +250,7 @@ async function get_note_list(frm, selector) {
                 </div>
             </div>
             <div id="dynamic-content" style="display: none;"></div>
-            
+
             <div class="title_links mt-4">
                 <h2 class="note-title">My Notes</h2>
                 ${groupedData.Today.length === 0 && groupedData.Yesterday.length === 0 && groupedData.Older.length === 0 ? `
@@ -277,7 +277,7 @@ async function get_note_list(frm, selector) {
                                         <span>${note.owner}</span>
                                         <span>•</span>
                                         <span>${timeAgo(note.creation)}</span>
-                                        
+
                                     </div>
                                 </div>
                             `).join('')}
