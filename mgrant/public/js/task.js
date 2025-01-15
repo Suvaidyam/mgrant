@@ -35,7 +35,7 @@ const taskList = (task_list, selector) => {
         $('#parent-view').css('height', '75vh');
         $('#parent-view').html(`
             <div class="h-100 d-flex justify-content-center align-items-center flex-wrap ">
-                <img style="width: 100px; hight: 100px;" src="/assets/mgrant/images/no-data-found.png">
+                <p>You haven't created a Record yet</p>
             </div> `
         );
     } else {
