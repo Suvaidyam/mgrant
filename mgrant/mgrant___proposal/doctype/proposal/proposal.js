@@ -44,6 +44,16 @@ frappe.ui.form.on("Proposal", {
         }, 500);
     },
     async refresh(frm) {
+        if(frm.is_new()){
+            let donor = await frappe.db.get_list('Donor',{limit:1,pluck:'name',order_by:'creation desc'})
+            if(donor.length > 0){
+                frm.set_value("donor",donor[0])
+            }
+            let ngo = await frappe.db.get_list('NGO',{limit:1,pluck:'name',order_by:'creation desc'})
+            if(ngo.length > 0){
+                frm.set_value("ngo",ngo[0])
+            }
+        }
         frm.trigger('change_indicator_pill_content')
         frm.page.btn_primary.hide();
         if (frm.doc.states.length) {
