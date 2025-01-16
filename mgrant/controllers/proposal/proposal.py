@@ -20,6 +20,7 @@ def proposal_on_submit(self):
         grant = frappe.new_doc("Grant")
         grant.proposal = self.name
         grant.donor = self.donor
+        grant.ngo = self.ngo or self.vendor
         grant.grant_name = self.proposal_name
         # grant.start_date = today()
         # grant.end_date = self.end_date
