@@ -19,11 +19,11 @@ function getMonthDifference(startDate, endDate) {
 }
 let PREV_STATES = [];
 frappe.model.on('Proposal', '*', function (fieldname,value,doc) {
-    console.log('sadasd', doc)
+    cur_frm.page.btn_primary.show();
 })
 frappe.ui.form.on("Proposal", {
     onload(frm) {
-        // frm.disable_save()
+        frm.page.btn_primary.hide();
         if (frappe.mgrant_settings.module == "Donor") {
             if (frappe.user_roles.includes('NGO Admin') && frm.doc.application_status == "Completed") {
                 frm.disable_form()
@@ -43,11 +43,9 @@ frappe.ui.form.on("Proposal", {
             }
         }, 500);
     },
-    // watch_model_updates(frm) {
-    //     console.log('watch_model_updates',frm.doc)
-    // },
     async refresh(frm) {
         frm.trigger('change_indicator_pill_content')
+        frm.page.btn_primary.hide();
         if (frm.doc.states.length) {
             PREV_STATES = frm.doc.states;
         } else {
