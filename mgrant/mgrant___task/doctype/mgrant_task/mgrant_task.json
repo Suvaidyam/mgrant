@@ -52,7 +52,7 @@
    "fieldtype": "Select",
    "in_standard_filter": 1,
    "label": "Status",
-   "options": "Backlog\nTodo\nIn Progress\nDone\nCanceled"
+   "options": "Backlog\nTodo\nIn Progress\nDone\nCancelled\nDelayed"
   },
   {
    "fieldname": "due_date",
@@ -94,7 +94,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-15 14:02:08.636386",
+ "modified": "2025-01-16 20:43:51.262092",
  "modified_by": "Administrator",
  "module": "mGrant - Task",
  "name": "mGrant Task",
