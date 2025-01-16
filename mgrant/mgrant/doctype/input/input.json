@@ -26,6 +26,7 @@
   "gram_panchayat",
   "column_break_gjsm",
   "village",
+  "wf_comment",
   "section_break_tzvd",
   "planning_table"
  ],
@@ -165,6 +166,12 @@
    "fieldtype": "Table MultiSelect",
    "label": "Financial Years",
    "options": "Financial Year Child"
+  },
+  {
+   "fieldname": "wf_comment",
+   "fieldtype": "Small Text",
+   "label": "Comment/Review",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -175,7 +182,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-15 14:39:32.581401",
+ "modified": "2025-01-16 21:23:13.242668",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Input",
