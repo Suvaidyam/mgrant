@@ -595,7 +595,7 @@ async function renderEmails(email_list, frm, selector = null) {
                             <div class="meta-recipient">To: ${emailDoc?.recipients}</div>
                         </div>
                         <div class="meta-time">
-                            ${new Date(emailDoc?.communication_date).toLocaleString()}
+                            ${formatDateTime(emailDoc?.communication_date, true, true , '', 'hh:mm:ss a')}
                         </div>
                     </div>
                 </div>
