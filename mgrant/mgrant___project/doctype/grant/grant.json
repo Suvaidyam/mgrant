@@ -57,6 +57,7 @@
   "column_break_ypir",
   "total_subgrant_utilisation",
   "grant_status",
+  "lfas_copied",
   "contacts_tab",
   "contacts",
   "tasks_tab",
@@ -554,11 +555,17 @@
    "is_virtual": 1,
    "label": "Financial Years",
    "options": "Financial Year Child"
+  },
+  {
+   "default": "0",
+   "fieldname": "lfas_copied",
+   "fieldtype": "Check",
+   "label": "LFAs Copied"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-14 13:09:23.694759",
+ "modified": "2025-01-16 07:24:14.362704",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
