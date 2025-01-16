@@ -9,6 +9,7 @@
   "grant_reciept",
   "as_on_date",
   "funds_received",
+  "utr_number",
   "supporting_document",
   "grant",
   "proposal"
@@ -26,6 +27,7 @@
    "in_list_view": 1,
    "label": "Grant Reciept",
    "options": "Grant Receipts",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -57,11 +59,16 @@
    "fieldname": "supporting_document",
    "fieldtype": "Attach",
    "label": "Supporting Document"
+  },
+  {
+   "fieldname": "utr_number",
+   "fieldtype": "Data",
+   "label": "UTR Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-23 18:25:19.240646",
+ "modified": "2025-01-16 12:48:40.498898",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Fund Receipt Tracker",
