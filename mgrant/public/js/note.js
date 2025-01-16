@@ -93,6 +93,8 @@ async function get_note_list(frm, selector) {
         }
         .title_links {
             width: 100%;
+            height: 700px;
+            min-height: 700px;
             overflow-y: auto;
         }
         .note-button {
@@ -125,7 +127,8 @@ async function get_note_list(frm, selector) {
         .action-menu-content {
             display: none;
             position: absolute;
-            right: 0;
+            right: 16px;
+            top:7px;
             background: white;
             border: 1px solid #e2e8f0;
             border-radius: 4px;
@@ -134,7 +137,7 @@ async function get_note_list(frm, selector) {
         }
         .action-menu-content a {
             display: block;
-            padding: 5px 10px;
+            padding: 6px 35px;
             text-decoration: none;
             color: inherit;
         }
@@ -155,9 +158,7 @@ async function get_note_list(frm, selector) {
         }
         .note-group {
             margin-bottom: 20px;
-                height: 700px;
-    min-height: 700px;
-    overflow-y: scroll;
+              
         }
         .group-title {
             font-size: 14px;
