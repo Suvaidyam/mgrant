@@ -12,6 +12,11 @@
   "impact_name",
   "column_break_gwyn",
   "kpi",
+  "section_break_mnrv",
+  "frequency",
+  "column_break_trzg",
+  "total_target",
+  "column_break_tbsh",
   "section_break_vxxu",
   "state",
   "district",
@@ -93,6 +98,34 @@
    "label": "Proposal",
    "options": "Proposal",
    "search_index": 1
+  },
+  {
+   "fieldname": "section_break_mnrv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Frequency",
+   "options": "Quarterly\nMonthly\nLump Sum",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_trzg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_target",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Target",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_tbsh",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -103,7 +136,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2024-12-30 17:09:33.769314",
+ "modified": "2025-01-16 00:19:04.918386",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Proposal Impact",

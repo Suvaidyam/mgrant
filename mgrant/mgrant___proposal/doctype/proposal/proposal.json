@@ -420,8 +420,7 @@
    "in_list_view": 1,
    "label": "Vendor",
    "link_filters": "[[\"NGO\",\"organisation_type\",\"=\",\"Vendor\"]]",
-   "options": "NGO",
-   "reqd": 1
+   "options": "NGO"
   },
   {
    "default": "Draft",
@@ -435,7 +434,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-15 17:29:07.056091",
+ "modified": "2025-01-16 00:54:38.468136",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
