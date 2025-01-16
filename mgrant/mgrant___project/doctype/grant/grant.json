@@ -560,12 +560,13 @@
    "default": "0",
    "fieldname": "lfas_copied",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "LFAs Copied"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-16 07:24:14.362704",
+ "modified": "2025-01-16 10:20:42.106854",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",

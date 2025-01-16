@@ -1,5 +1,5 @@
 import frappe
-from frappe.utils import today
+# from frappe.utils import today
 
 def proposal_on_update(self):
     module = frappe.db.get_single_value('mGrant Settings', 'module')
@@ -21,8 +21,8 @@ def proposal_on_submit(self):
         grant.proposal = self.name
         grant.donor = self.donor
         grant.grant_name = self.proposal_name
-        grant.start_date = today()
-        grant.end_date = self.end_date
+        # grant.start_date = today()
+        # grant.end_date = self.end_date
         grant.implementation_type = self.implementation_type
         grant.grant_description = self.proposal_description
         grant.theme = self.theme
