@@ -9,7 +9,10 @@
   "budget_plan",
   "as_on_date",
   "transaction",
-  "grant"
+  "grant",
+  "section_break_zjag",
+  "ngo",
+  "donor"
  ],
  "fields": [
   {
@@ -40,11 +43,30 @@
    "hidden": 1,
    "label": "Grant",
    "options": "Grant"
+  },
+  {
+   "fieldname": "section_break_zjag",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fetch_from": "grant.ngo",
+   "fieldname": "ngo",
+   "fieldtype": "Link",
+   "label": "NGO",
+   "options": "NGO"
+  },
+  {
+   "fetch_from": "grant.donor",
+   "fieldname": "donor",
+   "fieldtype": "Link",
+   "label": "Donor",
+   "options": "Donor"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-02 16:15:51.694065",
+ "modified": "2025-01-17 02:07:39.962664",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Transaction",

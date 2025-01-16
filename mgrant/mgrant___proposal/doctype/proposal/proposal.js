@@ -44,6 +44,16 @@ frappe.ui.form.on("Proposal", {
         }, 500);
     },
     async refresh(frm) {
+        if(frm.is_new()){
+            let donor = await frappe.db.get_list('Donor',{limit:1,pluck:'name',order_by:'creation desc'})
+            if(donor.length > 0){
+                frm.set_value("donor",donor[0])
+            }
+            let ngo = await frappe.db.get_list('NGO',{limit:1,pluck:'name',order_by:'creation desc'})
+            if(ngo.length > 0){
+                frm.set_value("ngo",ngo[0])
+            }
+        }
         frm.trigger('change_indicator_pill_content')
         frm.page.btn_primary.hide();
         if (frm.doc.states.length) {
@@ -79,6 +89,26 @@ frappe.ui.form.on("Proposal", {
                 });
             }
         }
+        if (frm.doc?.donor_stage=='MoU Signing ongoing'){
+        frm.add_custom_button('Regenerate MOU', async function () {
+            let { message } = await frappe.call({
+                method: 'mgrant.controllers.proposal.proposal.generate_mou_doc',
+                args: {
+                    proposal: frm.doc.name
+                }
+            });
+            if (message) {
+                frm.reload_doc();
+                frappe.show_alert(__("MOU Generated Successfully"));
+            } else {
+                frappe.msgprint(__("MOU Generation Failed"));
+            }
+        });
+     } else{
+        frm.remove_custom_button('Regenerate MOU');
+     }
+
+        
     },
     after_save(frm) {
         if (frappe.mgrant_settings.module == "Donor") {

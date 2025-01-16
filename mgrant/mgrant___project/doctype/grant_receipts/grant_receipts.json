@@ -17,7 +17,10 @@
   "request_status",
   "funds_requested",
   "fund_receipt_status",
-  "total_funds_received"
+  "total_funds_received",
+  "section_break_ffdl",
+  "ngo",
+  "donor"
  ],
  "fields": [
   {
@@ -48,7 +51,7 @@
    "fieldname": "tranch_no",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Tranch No.",
+   "label": "Tranche No.",
    "reqd": 1
   },
   {
@@ -94,11 +97,30 @@
    "fieldtype": "Currency",
    "label": "Total Funds Planned",
    "non_negative": 1
+  },
+  {
+   "fieldname": "section_break_ffdl",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fetch_from": "grant.ngo",
+   "fieldname": "ngo",
+   "fieldtype": "Link",
+   "label": "NGO",
+   "options": "NGO"
+  },
+  {
+   "fetch_from": "grant.donor",
+   "fieldname": "donor",
+   "fieldtype": "Link",
+   "label": "Donor",
+   "options": "Donor"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-23 18:24:47.696988",
+ "modified": "2025-01-17 02:14:48.334845",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant Receipts",

@@ -18,14 +18,17 @@
   "total_planned_budget",
   "total_utilisation",
   "section_break_hlsm",
-  "planning_table"
+  "planning_table",
+  "section_break_mynd",
+  "ngo",
+  "donor"
  ],
  "fields": [
   {
    "fieldname": "budget_head",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Budget head",
+   "label": "Budget Head",
    "options": "Budget heads",
    "reqd": 1
   },
@@ -107,11 +110,30 @@
    "fieldtype": "Table MultiSelect",
    "label": "Financial Years",
    "options": "Financial Year Child"
+  },
+  {
+   "fieldname": "section_break_mynd",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fetch_from": "grant.ngo",
+   "fieldname": "ngo",
+   "fieldtype": "Link",
+   "label": "NGO",
+   "options": "NGO"
+  },
+  {
+   "fetch_from": "grant.donor",
+   "fieldname": "donor",
+   "fieldtype": "Link",
+   "label": "Donor",
+   "options": "Donor"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-15 14:38:49.484665",
+ "modified": "2025-01-17 02:06:26.146683",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Plan and Utilisation",
