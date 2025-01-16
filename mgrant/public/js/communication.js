@@ -13,53 +13,39 @@ function timeAgo(timestamp) {
     const month = day * 30;
     const year = day * 365;
 
-    // If the timestamp is less than 1 minute ago
     if (diff < minute) {
         const seconds = Math.round(diff / second);
         return seconds === 1 ? "1 second ago" : `${seconds} seconds ago`;
     }
-
-    // If the timestamp is less than 1 hour ago
     if (diff < hour) {
         const minutes = Math.round(diff / minute);
         return minutes === 1 ? "1 minute ago" : `${minutes} minutes ago`;
     }
-
-    // If the timestamp is less than 1 day ago
     if (diff < day) {
         const hours = Math.round(diff / hour);
         return hours === 1 ? "1 hour ago" : `${hours} hours ago`;
     }
-
-    // If the timestamp is less than 2 days ago
     if (diff < day * 2) {
         return "Yesterday";
     }
-
-    // If the timestamp is less than 1 week ago
     if (diff < week) {
         const days = Math.round(diff / day);
         return days === 1 ? "1 day ago" : `${days} days ago`;
     }
-
-    // If the timestamp is less than 1 month ago
     if (diff < month) {
         const weeks = Math.round(diff / week);
         return weeks === 1 ? "1 week ago" : `${weeks} weeks ago`;
     }
-
-    // If the timestamp is less than 1 year ago
     if (diff < year) {
         const months = Math.round(diff / month);
         return months === 1 ? "1 month ago" : `${months} months ago`;
     }
-
-    // If the timestamp is more than 1 year ago
     const years = Math.round(diff / year);
     return years === 1 ? "1 year ago" : `${years} years ago`;
 }
+
 function getRandomColor() {
-    const letters = '0123456789ABCDEF'; 
+    const letters = '0123456789ABCDEF';
     let color = '#';
     for (let i = 0; i < 6; i++) {
         color += letters[Math.floor(Math.random() * 16)];
@@ -69,7 +55,7 @@ function getRandomColor() {
 
 const style = document.createElement('style');
 style.innerHTML = `
-      .email-container {
+    .email-container {
         display: flex;
         height:785px;
         background-color: #fff;
@@ -84,11 +70,8 @@ style.innerHTML = `
         background: #fff;
     }
    
-
     .top-header {
-        // display: flex;
         align-items: center;
-
         padding: 8px 16px;
         border-bottom: 1px solid #e5e5e5;
         height: 48px;
@@ -100,7 +83,7 @@ style.innerHTML = `
         align-items: center;
         gap: 8px;
         justify-content: end;
-           }
+    }
 
     .header-icon {
         width: 32px;
@@ -154,16 +137,12 @@ style.innerHTML = `
         gap: 8px;
         border-bottom: 2px solid transparent;
         transition: all 0.2s ease;
-       
     }
-
-   
 
     .active_tab {
         color: #801621;
         border-bottom-color: #801621;
-        }
-
+    }
 
     .email-list {
         overflow-y: auto;
@@ -188,6 +167,10 @@ style.innerHTML = `
 
     .email-item:hover {
         background: #f5f5f5;
+    }
+
+    .email-item.active {
+        background: #e8f0fe;
     }
 
     .email-header {
@@ -268,10 +251,10 @@ style.innerHTML = `
         overflow-y: auto;
     }
 
-    .email-detail {
-        // max-width: 785px;
-        // margin: 0 auto;
-    }
+    // .email-detail {
+    //     max-width: 785px;
+    //     margin: 0 auto;
+    // }
 
     .email-detail-header {
         margin-bottom: 24px;
@@ -338,14 +321,14 @@ style.innerHTML = `
         flex-wrap: wrap;
         gap: 8px;
     }
-     .email-detail-subject-container {
+
+    .email-detail-subject-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid #e5e5e5;
         padding-bottom: 11px;
         margin-bottom: 11px;
-
     }
 
     .attachment-item {
@@ -359,30 +342,33 @@ style.innerHTML = `
         color: #333;
         cursor: pointer;
     }
-         .action-buttons {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-.nav-button {
-            padding: 0.5rem;
-            background: none;
-            border: none;
-            color: #6b7280;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
 
-        .nav-button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
+    .action-buttons {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
 
-        .nav-button:not(:disabled):hover {
-            color: #111827;
-        }
+    .nav-button {
+        padding: 0.5rem;
+        background: none;
+        border: none;
+        color: #6b7280;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .nav-button:not(:disabled):hover {
+        color: #111827;
+    }
+
     .attachment-item:hover {
         background: #eee;
     }
@@ -396,7 +382,6 @@ style.innerHTML = `
             flex-direction: column;
             height: 750px;
             overflow: auto;
-
         }
 
         .email-body {
@@ -407,16 +392,20 @@ style.innerHTML = `
             display: block;
         }
     }
-    `;
+`;
 document.head.appendChild(style);
+
 var communication_list = []
 var email_wrapper = document.querySelector(`[data-fieldname="email"]`);
+
 async function renderEmails(email_list, frm, selector = null) {
     if (selector != null) {
-        email_wrapper = document.querySelector(`[data-fieldname="${selector}"]`).style.height = "80vh";
         email_wrapper = document.querySelector(`[data-fieldname="${selector}"]`);
-        email_wrapper.innerHTML = ""
+        email_wrapper.style.height = "80vh";
+        email_wrapper.innerHTML = "";
     }
+
+
     const formatDateGroup = (emailDate) => {
         const today = new Date();
         const yesterday = new Date();
@@ -429,10 +418,9 @@ async function renderEmails(email_list, frm, selector = null) {
 
         if (emailDateFormatted.getTime() === today.getTime()) return "Today";
         if (emailDateFormatted.getTime() === yesterday.getTime()) return "Yesterday";
-        return "Older"; // Group all other dates under "Older"
+        return "Older";
     };
 
-    // Group emails by date
     const groupedEmails = email_list.reduce((groups, email) => {
         const group = formatDateGroup(email.communication_date);
         groups[group] = groups[group] || [];
@@ -440,52 +428,48 @@ async function renderEmails(email_list, frm, selector = null) {
         return groups;
     }, {});
 
-    // Sort groups: Today, Yesterday, Older
     const sortedGroups = Object.keys(groupedEmails).sort((a, b) => {
         if (a === "Today") return -1;
         if (b === "Today") return 1;
         if (a === "Yesterday") return -1;
         if (b === "Yesterday") return 1;
-        if (a === "Older") return 1; // Keep "Older" at the end
+        if (a === "Older") return 1;
         return 0;
     });
 
-    // Build email list HTML
     let emailHtml = `
-   <div class="email-container">
-            <div class="email-sidebar">
-                <div class="top-header">
-                    <div class="header-actions">
+    <div class="email-container">
+        <div class="email-sidebar">
+            <div class="top-header">
+                <div class="header-actions">
                     <button class="header-icon">
                         <i class="fa fa-refresh" id="refresh_email_list" style="font-size: 18px; cursor: pointer; color: #666;"></i>
                     </button>
-                        <button class="btn-primary compose-btn">
-                            <i class="fa fa-plus"></i>
-                        </button>
-                    </div>
+                    <button class="btn-primary compose-btn">
+                        <i class="fa fa-plus"></i>
+                    </button>
                 </div>
-                <div class="email-tabs">
-                    <div id="allEmailButton" class="tab-item active_tab">All</div>
-                    <div id="inboxEmailButton" class="tab-item">Inbox</div>
-                    <div id="sentEmailButton" class="tab-item">Sent</div>
-                </div>
-                <div class="email-list">
+            </div>
+            <div class="email-tabs">
+                <div id="allEmailButton" class="tab-item active_tab">All</div>
+                <div id="inboxEmailButton" class="tab-item">Inbox</div>
+                <div id="sentEmailButton" class="tab-item">Sent</div>
+            </div>
+            <div class="email-list">
     `;
 
-    if (email_list.length == "") {
+    if (email_list.length == 0) {
         emailHtml += `
-         <div style="display: flex; align-items: center; justify-content: center; height: 100%;">
+            <div style="display: flex; align-items: center; justify-content: center; height: 100%;">
                 <div class="note_message"><img style="width: 60px; height: 60px;" src="/assets/mgrant/images/no-data-found.png"></div>
             </div>
-
-
-    `;
+        `;
     } else {
         sortedGroups.forEach(group => {
             emailHtml += `
                 <div class="date-group">${group}</div>
-                ${groupedEmails[group].map((item) => `
-                    <div  class="email-item " emailId="${item.name}">
+                ${groupedEmails[group].map((item, index) => `
+                    <div class="email-item" data-email-id="${item.name}">
                         <div class="email-header">
                             <div class="avatar" style="background-color: ${getRandomColor()};">
                                 ${item?.sender[0]?.toUpperCase()}
@@ -513,20 +497,19 @@ async function renderEmails(email_list, frm, selector = null) {
 
     emailHtml += `
             </div>
-            </div>
-            <div id="emailBodyContent" class="email-body">
-                <div style="display: flex; align-items: center; justify-content: center; height: 100%;">
-                    <div style="text-align: center;">
-                        <h3 style="font-size: 19px; color: #333;">Select an item to read</h3>
-                        <p style="font-size: 12px; color: #666;">Nothing is selected</p>
-                    </div>
+        </div>
+        <div id="emailBodyContent" class="email-body">
+            <div style="display: flex; align-items: center; justify-content: center; height: 100%;">
+                <div style="text-align: center;">
+                    <h3 style="font-size: 19px; color: #333;">Select an item to read</h3>
+                    <p style="font-size: 12px; color: #666;">Nothing is selected</p>
                 </div>
             </div>
         </div>
+    </div>
     `;
 
     email_wrapper.innerHTML = emailHtml;
-
 
     if (email_list.length > 0) {
         setTimeout(() => {
@@ -543,82 +526,65 @@ async function renderEmails(email_list, frm, selector = null) {
                 ['Communication', 'reference_name', '=', frm.doc.name],
                 ['Communication', 'in_reply_to', '=', '']
             ], ['*']);
-            await renderEmails(communication_list, frm)
+            await renderEmails(communication_list, frm);
         } catch (error) {
-            console.error(error)
+            console.error(error);
         }
     });
-    $('#allEmailButton').on('click', async () => {
-        try {
-            communication_list = await getDocList('Communication', [
-                ['Communication', 'reference_name', '=', frm.doc.name],
-                ['Communication', 'in_reply_to', '=', '']
-            ], ['*']);
-            await renderEmails(communication_list, frm)
-            $('#allEmailButton').addClass('active_tab');
-            $('#inboxEmailButton').removeClass('active_tab');
-            $('#sentEmailButton').removeClass('active_tab');
-        } catch (error) {
-            console.error(error)
-        }
+
+    ['all', 'inbox', 'sent'].forEach(type => {
+        $(`#${type}EmailButton`).on('click', async () => {
+            try {
+                let filters = [['Communication', 'reference_name', '=', frm.doc.name]];
+                if (type !== 'all') {
+                    filters.push(['Communication', 'sent_or_received', '=', type === 'inbox' ? 'Received' : 'Sent']);
+                }
+                filters.push(['Communication', 'in_reply_to', '=', '']);
+
+                communication_list = await getDocList('Communication', filters, ['*']);
+                await renderEmails(communication_list, frm);
+
+                $('.tab-item').removeClass('active_tab');
+                $(`#${type}EmailButton`).addClass('active_tab');
+            } catch (error) {
+                console.error(error);
+            }
+        });
     });
-    $('#inboxEmailButton').on('click', async () => {
-        try {
-            communication_list = await getDocList('Communication', [
-                ['reference_name', '=', frm.doc.name],
-                ['sent_or_received', '=', 'Received'],
-                ['in_reply_to', '=', '']
-            ], ['*']);
-            await renderEmails(communication_list, frm)
-            $('#allEmailButton').removeClass('active_tab');
-            $('#inboxEmailButton').addClass('active_tab');
-            $('#sentEmailButton').removeClass('active_tab');
-        } catch (error) {
-            console.error(error)
-        }
-    });
-    $('#sentEmailButton').on('click', async () => {
-        try {
-            communication_list = await getDocList('Communication', [
-                ['reference_name', '=', frm.doc.name],
-                ['sent_or_received', '=', 'Sent'],
-                ['in_reply_to', '=', '']
-            ], ['*']);
-            await renderEmails(communication_list, frm)
-            $('#allEmailButton').removeClass('active_tab');
-            $('#inboxEmailButton').removeClass('active_tab');
-            $('#sentEmailButton').addClass('active_tab');
-        } catch (error) {
-            console.error(error)
-        }
-    });
+
     $('.compose-btn').on('click', async () => {
-        cur_frm.email_doc("")
+        cur_frm.email_doc("");
     });
-    $('.email-item').on('click', async (e) => {
-        let docName = e.currentTarget.getAttribute('emailId');
+
+    $('.email-item').on('click', async function () {
+        $('.email-item').removeClass('active');
+        $(this).addClass('active');
+
+        let docName = $(this).data('email-id');
         currentEmailIndex = communication_list.findIndex(item => item.name === docName);
+
         let replies = await getDocList('Communication', [
             ['Communication', 'in_reply_to', '=', docName]
         ], ['subject', 'content', 'communication_date']);
-        await set_value("Communication", e.currentTarget.getAttribute('emailId'))
+
+        await set_value("Communication", docName);
         let emailDoc = communication_list.find(item => item.name === docName);
         const emails = [...replies, emailDoc];
+
         let emailBody = `
             <div class="email-detail">
                 <div class="email-detail-header">
                     <div class="email-detail-subject-container">
-                    <span class="email-detail-subject">${emailDoc?.subject}</span>
-                     <div class="action-buttons" id="action_icon">
-                       
-                        <span class="email-counter">${currentEmailIndex + 1} of ${communication_list.length}</span>
-                        <button class="nav-button" id="prev-email" ${currentEmailIndex === 0 ? 'disabled' : ''}>
-                            <i class="fa fa-chevron-left"></i>
-                        </button>
-                        <button class="nav-button" id="next-email" ${currentEmailIndex === communication_list.length - 1 ? 'disabled' : ''}>
-                            <i class="fa fa-chevron-right"></i>
-                        </button>
-                    </div>
+                        <span class="email-detail-subject">${emailDoc?.subject}</span>
+                        <div class="action-buttons" id="action_icon">
+                            <span class="email-counter">${currentEmailIndex + 1} of ${communication_list.length}</span>
+                            <button class="nav-button" id="prev-email" ${currentEmailIndex === 0 ? 'disabled' : ''}>
+                                <i class="fa fa-chevron-left"></i>
+                            </button>
+                            <button class="nav-button" id="next-email" ${currentEmailIndex === communication_list.length - 1 ? 'disabled' : ''}>
+                                <i class="fa fa-chevron-right"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="email-detail-meta">
                         <div class="avatar" style="background-color: ${getRandomColor()};">
@@ -656,30 +622,22 @@ async function renderEmails(email_list, frm, selector = null) {
     });
 
     function setupNavigation() {
-        $('#prev-email').on('click', () => {
-            if (currentEmailIndex > 0) {
-                currentEmailIndex--;
-                $('.email-item')[currentEmailIndex].click();
-            }
-        });
+        $('#prev-email, #next-email').off('click').on('click', function () {
+            const direction = this.id === 'prev-email' ? -1 : 1;
+            const newIndex = currentEmailIndex + direction;
 
-        $('#next-email').on('click', () => {
-            if (currentEmailIndex < communication_list.length - 1) {
-                currentEmailIndex++;
-                $('.email-item')[currentEmailIndex].click();
+            if (newIndex >= 0 && newIndex < communication_list.length) {
+                currentEmailIndex = newIndex;
+                $('.email-item').eq(currentEmailIndex).click();
             }
         });
     }
 }
-
-
-
 
 const communication = async (frm, selector) => {
     communication_list = await getDocList('Communication', [
         ['Communication', 'reference_name', '=', frm.doc.name],
         ['Communication', 'in_reply_to', '=', '']
     ], ['*']);
-    await renderEmails(communication_list, frm, selector)
+    await renderEmails(communication_list, frm, selector);
 }
-
