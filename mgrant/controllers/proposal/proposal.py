@@ -20,10 +20,9 @@ def proposal_after_insert(self):
             frappe.sendmail(
                 recipients=donor_email,
                 subject='New Application Started',
-                message=f"<p>A new application has been submitted by {self.ngo}. "
+                message=f"<p>A new application has been submitted by {self.ngo_name}. "
                         f"<a href='{frappe.utils.get_url()}/app/proposal/{self.name}'>View Application</a></p>"
             )
-    pass
 
 
 def proposal_on_update(self):
