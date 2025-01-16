@@ -368,12 +368,12 @@
    "fieldtype": "HTML"
   },
   {
-   "default": "Application Received",
+   "default": "Application Started",
    "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
    "fieldname": "donor_stage",
    "fieldtype": "Select",
    "label": "Stage (Donor)",
-   "options": "Application Received\nEligible NGO\nInvited for Proposal\nProposal Submitted\nMoU Signing ongoing\nMoU Signed\nRejected\nOn Hold"
+   "options": "Application Started\nEligible NGO\nInvited for Proposal\nProposal Submitted\nMoU Signing ongoing\nMoU Signed\nRejected\nOn Hold"
   },
   {
    "default": "Lead",
@@ -390,17 +390,16 @@
    "in_list_view": 1,
    "label": "NGO",
    "link_filters": "[[\"NGO\",\"organisation_type\",\"=\",\"NGO\"]]",
-   "options": "NGO",
-   "reqd": 1
+   "mandatory_depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
+   "options": "NGO"
   },
   {
-   "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
    "fieldname": "rfp",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "RFP",
    "link_filters": "[[\"RFP\",\"docstatus\",\"=\",\"1\"]]",
-   "mandatory_depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
    "options": "RFP"
   },
   {
@@ -420,8 +419,7 @@
    "in_list_view": 1,
    "label": "Vendor",
    "link_filters": "[[\"NGO\",\"organisation_type\",\"=\",\"Vendor\"]]",
-   "options": "NGO",
-   "reqd": 1
+   "options": "NGO"
   },
   {
    "default": "Draft",
@@ -435,7 +433,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-15 17:29:07.056091",
+ "modified": "2025-01-16 13:04:17.629630",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
