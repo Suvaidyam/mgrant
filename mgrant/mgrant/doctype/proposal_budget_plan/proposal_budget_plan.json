@@ -7,35 +7,36 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "proposal",
-  "section_break_fwbn",
-  "item_name",
-  "column_break_dcyu",
-  "budget_head",
   "section_break_aadw",
-  "frequency",
+  "budget_head",
+  "item_name",
   "column_break_bfde",
-  "total_planned_budget"
+  "total_planned_budget",
+  "frequency",
+  "section_break_fwbn",
+  "proposal",
+  "column_break_dcyu"
  ],
  "fields": [
   {
+   "description": "Example: Salary of Project Lead",
    "fieldname": "item_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Item Name",
+   "label": "Item Description",
    "reqd": 1
   },
   {
    "fieldname": "budget_head",
    "fieldtype": "Link",
-   "label": "Budget head",
+   "label": "Budget Head",
    "options": "Budget heads",
    "reqd": 1
   },
   {
    "fieldname": "proposal",
    "fieldtype": "Link",
-   "label": "Proposal",
+   "label": "Application ID",
    "options": "Proposal",
    "read_only": 1,
    "reqd": 1
@@ -49,10 +50,11 @@
    "fieldtype": "Column Break"
   },
   {
+   "description": "Frequency at which financial reporting will be done for this item",
    "fieldname": "frequency",
    "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Frequency",
+   "label": "Reporting Frequency",
    "options": "Quarterly\nMonthly\nLump Sum",
    "reqd": 1
   },
@@ -74,7 +76,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-16 00:03:36.931029",
+ "modified": "2025-01-17 04:28:34.412021",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Proposal Budget Plan",
