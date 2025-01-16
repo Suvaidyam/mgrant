@@ -57,13 +57,16 @@ const taskList = (task_list, selector) => {
                 <style>
                     .tooltip-inner {
                         background-color: white !important;
+                        color: black !important;
+                        border: 1px solid #D9D9D9 !important;
+                        opacity: 1 !important;  
                         max-width: 320px !important;
                     }
                 </style>
                 <div style="margin-bottom:32px;" class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card  " style="padding: 16px; border-color: #D9D9D9;">
                         <!-- Task Header -->
-                        <div class="d-flex justify-content-between align-items-center">
+                        <div style="height:20px; padding-bottom:15px; padding-top:10px;" class="d-flex justify-content-between align-items-center">
                             <span
                                 title="task title"
                                 class="text-dark me-2"
