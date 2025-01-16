@@ -17,7 +17,7 @@
  "link_to": "Proposal",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-01-14 23:25:17.532231",
+ "modified": "2025-01-15 17:29:47.985439",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Applications",
@@ -29,6 +29,12 @@
  "roles": [
   {
    "role": "Administrator"
+  },
+  {
+   "role": "NGO Admin"
+  },
+  {
+   "role": "Partner NGO"
   }
  ],
  "sequence_id": 1.0,
