@@ -1,493 +1,493 @@
 {
- "actions": [],
- "autoname": "format:PROPOSAL-{####}",
- "creation": "2024-11-30 10:47:21.656958",
- "default_view": "Kanban",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "section_break_psro",
-  "proposal_name",
-  "rfp",
-  "donor",
-  "ngo",
-  "vendor",
-  "start_date",
-  "end_date",
-  "grant_duration_in_months",
-  "column_break_qmgi",
-  "ngo_stage",
-  "donor_stage",
-  "programme",
-  "total_planned_budget",
-  "implementation_type",
-  "application_status",
-  "column_break_nwys",
-  "grant",
-  "descriptive_information_section",
-  "theme",
-  "sdg",
-  "focus_area",
-  "proposal_description",
-  "geographical_information_section",
-  "column_break_shct",
-  "states",
-  "districts",
-  "column_break_evjf",
-  "blocks",
-  "villages",
-  "section_break_vkwu",
-  "demography_focus",
-  "contacts_tab",
-  "contacts",
-  "reportings_tab",
-  "reportings",
-  "tasks_tab",
-  "tasks",
-  "budget_tab",
-  "budget",
-  "tranche_tab",
-  "tranche",
-  "input_tab",
-  "input",
-  "output_tab",
-  "output",
-  "outcome_tab",
-  "outcome",
-  "impact_tab",
-  "impact",
-  "email_tab",
-  "email",
-  "gallery_tab",
-  "gallery",
-  "amended_from",
-  "note_tab",
-  "notes",
-  "timeline_tab",
-  "timeline",
-  "additional_question_tab",
-  "additional_questions"
- ],
- "fields": [
-  {
-   "fieldname": "section_break_psro",
-   "fieldtype": "Section Break",
-   "label": "Basic Information"
-  },
-  {
-   "fieldname": "start_date",
-   "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "Start Date",
-   "reqd": 1
-  },
-  {
-   "fieldname": "end_date",
-   "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "End Date",
-   "reqd": 1
-  },
-  {
-   "fieldname": "column_break_qmgi",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_nwys",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "descriptive_information_section",
-   "fieldtype": "Section Break",
-   "label": "Proposal Narrative"
-  },
-  {
-   "fieldname": "theme",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Theme",
-   "options": "Themes"
-  },
-  {
-   "fieldname": "sdg",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "SDG",
-   "options": "SDGs"
-  },
-  {
-   "fieldname": "focus_area",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Focus Area",
-   "options": "Focus Area"
-  },
-  {
-   "fieldname": "programme",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Programme",
-   "options": "Programme"
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "section_break_vkwu",
-   "fieldtype": "Section Break",
-   "hide_border": 1,
-   "label": "Demography Details"
-  },
-  {
-   "fieldname": "demography_focus",
-   "fieldtype": "Table",
-   "label": "Demography Focus and Projected Beneficiary reach (Numbers)",
-   "options": "Demography Group Child"
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "geographical_information_section",
-   "fieldtype": "Section Break",
-   "label": "Geographical Information"
-  },
-  {
-   "fieldname": "column_break_shct",
-   "fieldtype": "Column Break",
-   "options": "Block Child"
-  },
-  {
-   "fieldname": "states",
-   "fieldtype": "Table MultiSelect",
-   "label": "States",
-   "options": "State Child"
-  },
-  {
-   "fieldname": "districts",
-   "fieldtype": "Table MultiSelect",
-   "label": "Districts",
-   "options": "District Child"
-  },
-  {
-   "fieldname": "column_break_evjf",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "blocks",
-   "fieldtype": "Table MultiSelect",
-   "label": "Blocks",
-   "options": "Block Child"
-  },
-  {
-   "fieldname": "villages",
-   "fieldtype": "Table MultiSelect",
-   "label": "Villages",
-   "options": "Village Child"
-  },
-  {
-   "fieldname": "total_planned_budget",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Total Planned Budget",
-   "read_only": 1
-  },
-  {
-   "default": "tasks",
-   "fieldname": "tasks_tab",
-   "fieldtype": "Tab Break",
-   "label": "Milestone"
-  },
-  {
-   "fieldname": "tasks",
-   "fieldtype": "HTML",
-   "options": "<div id=\"tasks\"></div>"
-  },
-  {
-   "fieldname": "tranche_tab",
-   "fieldtype": "Tab Break",
-   "label": "Tranche"
-  },
-  {
-   "fieldname": "tranche",
-   "fieldtype": "HTML"
-  },
-  {
-   "fieldname": "budget_tab",
-   "fieldtype": "Tab Break",
-   "label": "Budget"
-  },
-  {
-   "fieldname": "budget",
-   "fieldtype": "HTML"
-  },
-  {
-   "fieldname": "input_tab",
-   "fieldtype": "Tab Break",
-   "label": "Input"
-  },
-  {
-   "fieldname": "input",
-   "fieldtype": "HTML"
-  },
-  {
-   "fieldname": "output_tab",
-   "fieldtype": "Tab Break",
-   "label": "Output"
-  },
-  {
-   "fieldname": "output",
-   "fieldtype": "HTML"
-  },
-  {
-   "fieldname": "outcome_tab",
-   "fieldtype": "Tab Break",
-   "label": "Outcome"
-  },
-  {
-   "fieldname": "outcome",
-   "fieldtype": "HTML"
-  },
-  {
-   "fieldname": "impact_tab",
-   "fieldtype": "Tab Break",
-   "label": "Impact"
-  },
-  {
-   "fieldname": "impact",
-   "fieldtype": "HTML"
-  },
-  {
-   "default": "email",
-   "fieldname": "email_tab",
-   "fieldtype": "Tab Break",
-   "label": "Email"
-  },
-  {
-   "default": "Communication",
-   "fieldname": "email",
-   "fieldtype": "HTML",
-   "options": "<div id=\"email\"></div>"
-  },
-  {
-   "default": "gallery",
-   "fieldname": "gallery_tab",
-   "fieldtype": "Tab Break",
-   "label": "Files"
-  },
-  {
-   "default": "gallery",
-   "description": "File",
-   "fieldname": "gallery",
-   "fieldtype": "HTML",
-   "options": "<div id=\"gallery\"></div>"
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Proposal",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
-  },
-  {
-   "fieldname": "timeline_tab",
-   "fieldtype": "Tab Break",
-   "label": "Action History"
-  },
-  {
-   "fieldname": "timeline",
-   "fieldtype": "HTML",
-   "options": "<div id=\"timeline\"></div>\n"
-  },
-  {
-   "fieldname": "proposal_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Proposal Name",
-   "reqd": 1
-  },
-  {
-   "default": "0",
-   "fieldname": "grant_duration_in_months",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Grant Duration in months",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "donor",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Donor",
-   "options": "Donor",
-   "reqd": 1
-  },
-  {
-   "fieldname": "proposal_description",
-   "fieldtype": "Small Text",
-   "label": "Project Description"
-  },
-  {
-   "fieldname": "contacts_tab",
-   "fieldtype": "Tab Break",
-   "label": "Contacts"
-  },
-  {
-   "fieldname": "contacts",
-   "fieldtype": "HTML"
-  },
-  {
-   "fieldname": "reportings_tab",
-   "fieldtype": "Tab Break",
-   "label": "Reporting"
-  },
-  {
-   "fieldname": "reportings",
-   "fieldtype": "HTML"
-  },
-  {
-   "fieldname": "implementation_type",
-   "fieldtype": "Select",
-   "label": "Implementation Type",
-   "options": "Self Implementation\nSub Grant"
-  },
-  {
-   "fieldname": "grant",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Grant",
-   "options": "Grant"
-  },
-  {
-   "fieldname": "note_tab",
-   "fieldtype": "Tab Break",
-   "label": "Note"
-  },
-  {
-   "fieldname": "notes",
-   "fieldtype": "HTML"
-  },
-  {
-   "default": "Application Started",
-   "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
-   "fieldname": "donor_stage",
-   "fieldtype": "Select",
-   "label": "Stage (Donor)",
-   "options": "Application Started\nEligible NGO\nInvited for Proposal\nProposal Submitted\nMoU Signing ongoing\nMoU Signed\nRejected\nOn Hold"
-  },
-  {
-   "default": "Lead",
-   "depends_on": "eval:frappe.mgrant_settings.module == \"NGO\"",
-   "fieldname": "ngo_stage",
-   "fieldtype": "Select",
-   "label": "Stage (NGO)",
-   "options": "Lead\nDiscussion Ongoing\nProposal to be Submitted\nProposal Submitted\nGrant Letter Signed\nRejected\nOn Hold/No Response"
-  },
-  {
-   "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
-   "fieldname": "ngo",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "NGO",
-   "link_filters": "[[\"NGO\",\"organisation_type\",\"=\",\"NGO\"]]",
-   "mandatory_depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
-   "options": "NGO"
-  },
-  {
-   "fieldname": "rfp",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "in_list_view": 1,
-   "label": "RFP",
-   "link_filters": "[[\"RFP\",\"docstatus\",\"=\",\"1\"]]",
-   "options": "RFP"
-  },
-  {
-   "fieldname": "additional_question_tab",
-   "fieldtype": "Tab Break",
-   "label": "Additional Questions"
-  },
-  {
-   "fieldname": "additional_questions",
-   "fieldtype": "HTML",
-   "options": "<h1>No questions available.</h1>"
-  },
-  {
-   "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
-   "fieldname": "vendor",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Vendor",
-   "link_filters": "[[\"NGO\",\"organisation_type\",\"=\",\"Vendor\"]]",
-   "options": "NGO"
-  },
-  {
-   "default": "Draft",
-   "depends_on": "eval:frappe.user_roles.includes('NGO Admin')",
-   "fieldname": "application_status",
-   "fieldtype": "Select",
-   "label": "Application Status",
-   "options": "Draft\nCompleted"
-  }
- ],
- "index_web_pages_for_search": 1,
- "is_submittable": 1,
- "links": [],
- "modified": "2025-01-16 13:04:17.629630",
- "modified_by": "Administrator",
- "module": "mGrant - Proposal",
- "name": "Proposal",
- "naming_rule": "Expression",
- "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "submit": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "NGO Admin",
-   "select": 1,
-   "share": 1,
-   "submit": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Administrator",
-   "select": 1,
-   "share": 1,
-   "submit": 1,
-   "write": 1
-  }
- ],
- "show_title_field_in_link": 1,
- "sort_field": "creation",
- "sort_order": "DESC",
- "states": [],
- "title_field": "proposal_name",
- "track_changes": 1,
- "track_seen": 1,
- "track_views": 1
+    "actions": [],
+    "autoname": "format:PROPOSAL-{####}",
+    "creation": "2024-11-30 10:47:21.656958",
+    "default_view": "Kanban",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "section_break_psro",
+        "proposal_name",
+        "rfp",
+        "donor",
+        "ngo",
+        "vendor",
+        "start_date",
+        "end_date",
+        "grant_duration_in_months",
+        "column_break_qmgi",
+        "ngo_stage",
+        "donor_stage",
+        "programme",
+        "total_planned_budget",
+        "implementation_type",
+        "application_status",
+        "column_break_nwys",
+        "grant",
+        "descriptive_information_section",
+        "theme",
+        "sdg",
+        "focus_area",
+        "proposal_description",
+        "geographical_information_section",
+        "column_break_shct",
+        "states",
+        "districts",
+        "column_break_evjf",
+        "blocks",
+        "villages",
+        "section_break_vkwu",
+        "demography_focus",
+        "contacts_tab",
+        "contacts",
+        "reportings_tab",
+        "reportings",
+        "tasks_tab",
+        "tasks",
+        "budget_tab",
+        "budget",
+        "tranche_tab",
+        "tranche",
+        "input_tab",
+        "input",
+        "output_tab",
+        "output",
+        "outcome_tab",
+        "outcome",
+        "impact_tab",
+        "impact",
+        "email_tab",
+        "email",
+        "gallery_tab",
+        "gallery",
+        "amended_from",
+        "note_tab",
+        "notes",
+        "timeline_tab",
+        "timeline",
+        "additional_question_tab",
+        "additional_questions"
+    ],
+    "fields": [
+        {
+            "fieldname": "section_break_psro",
+            "fieldtype": "Section Break",
+            "label": "Basic Information"
+        },
+        {
+            "fieldname": "start_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "Start Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "end_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "End Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_qmgi",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "column_break_nwys",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "descriptive_information_section",
+            "fieldtype": "Section Break",
+            "label": "Proposal Narrative"
+        },
+        {
+            "fieldname": "theme",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Theme",
+            "options": "Themes"
+        },
+        {
+            "fieldname": "sdg",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "SDG",
+            "options": "SDGs"
+        },
+        {
+            "fieldname": "focus_area",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Focus Area",
+            "options": "Focus Area"
+        },
+        {
+            "fieldname": "programme",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Programme",
+            "options": "Programme"
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "section_break_vkwu",
+            "fieldtype": "Section Break",
+            "hide_border": 1,
+            "label": "Demography Details"
+        },
+        {
+            "fieldname": "demography_focus",
+            "fieldtype": "Table",
+            "label": "Demography Focus and Projected Beneficiary reach (Numbers)",
+            "options": "Demography Group Child"
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "geographical_information_section",
+            "fieldtype": "Section Break",
+            "label": "Geographical Information"
+        },
+        {
+            "fieldname": "column_break_shct",
+            "fieldtype": "Column Break",
+            "options": "Block Child"
+        },
+        {
+            "fieldname": "states",
+            "fieldtype": "Table MultiSelect",
+            "label": "States",
+            "options": "State Child"
+        },
+        {
+            "fieldname": "districts",
+            "fieldtype": "Table MultiSelect",
+            "label": "Districts",
+            "options": "District Child"
+        },
+        {
+            "fieldname": "column_break_evjf",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "blocks",
+            "fieldtype": "Table MultiSelect",
+            "label": "Blocks",
+            "options": "Block Child"
+        },
+        {
+            "fieldname": "villages",
+            "fieldtype": "Table MultiSelect",
+            "label": "Villages",
+            "options": "Village Child"
+        },
+        {
+            "fieldname": "total_planned_budget",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Total Planned Budget",
+            "read_only": 1
+        },
+        {
+            "default": "tasks",
+            "fieldname": "tasks_tab",
+            "fieldtype": "Tab Break",
+            "label": "Milestone"
+        },
+        {
+            "fieldname": "tasks",
+            "fieldtype": "HTML",
+            "options": "<div id=\"tasks\"></div>"
+        },
+        {
+            "fieldname": "tranche_tab",
+            "fieldtype": "Tab Break",
+            "label": "Tranche"
+        },
+        {
+            "fieldname": "tranche",
+            "fieldtype": "HTML"
+        },
+        {
+            "fieldname": "budget_tab",
+            "fieldtype": "Tab Break",
+            "label": "Budget"
+        },
+        {
+            "fieldname": "budget",
+            "fieldtype": "HTML"
+        },
+        {
+            "fieldname": "input_tab",
+            "fieldtype": "Tab Break",
+            "label": "Input"
+        },
+        {
+            "fieldname": "input",
+            "fieldtype": "HTML"
+        },
+        {
+            "fieldname": "output_tab",
+            "fieldtype": "Tab Break",
+            "label": "Output"
+        },
+        {
+            "fieldname": "output",
+            "fieldtype": "HTML"
+        },
+        {
+            "fieldname": "outcome_tab",
+            "fieldtype": "Tab Break",
+            "label": "Outcome"
+        },
+        {
+            "fieldname": "outcome",
+            "fieldtype": "HTML"
+        },
+        {
+            "fieldname": "impact_tab",
+            "fieldtype": "Tab Break",
+            "label": "Impact"
+        },
+        {
+            "fieldname": "impact",
+            "fieldtype": "HTML"
+        },
+        {
+            "default": "email",
+            "fieldname": "email_tab",
+            "fieldtype": "Tab Break",
+            "label": "Email"
+        },
+        {
+            "default": "Communication",
+            "fieldname": "email",
+            "fieldtype": "HTML",
+            "options": "<div id=\"email\"></div>"
+        },
+        {
+            "default": "gallery",
+            "fieldname": "gallery_tab",
+            "fieldtype": "Tab Break",
+            "label": "Files"
+        },
+        {
+            "default": "gallery",
+            "description": "File",
+            "fieldname": "gallery",
+            "fieldtype": "HTML",
+            "options": "<div id=\"gallery\"></div>"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Proposal",
+            "print_hide": 1,
+            "read_only": 1,
+            "search_index": 1
+        },
+        {
+            "fieldname": "timeline_tab",
+            "fieldtype": "Tab Break",
+            "label": "Action History"
+        },
+        {
+            "fieldname": "timeline",
+            "fieldtype": "HTML",
+            "options": "<div id=\"timeline\"></div>\n"
+        },
+        {
+            "fieldname": "proposal_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Application Title",
+            "reqd": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "grant_duration_in_months",
+            "fieldtype": "Int",
+            "in_list_view": 1,
+            "label": "Grant Duration in months",
+            "non_negative": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "donor",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Donor",
+            "options": "Donor",
+            "reqd": 1
+        },
+        {
+            "fieldname": "proposal_description",
+            "fieldtype": "Small Text",
+            "label": "Project Description"
+        },
+        {
+            "fieldname": "contacts_tab",
+            "fieldtype": "Tab Break",
+            "label": "Contacts"
+        },
+        {
+            "fieldname": "contacts",
+            "fieldtype": "HTML"
+        },
+        {
+            "fieldname": "reportings_tab",
+            "fieldtype": "Tab Break",
+            "label": "Reporting"
+        },
+        {
+            "fieldname": "reportings",
+            "fieldtype": "HTML"
+        },
+        {
+            "fieldname": "implementation_type",
+            "fieldtype": "Select",
+            "label": "Implementation Type",
+            "options": "Self Implementation\nSub Grant"
+        },
+        {
+            "fieldname": "grant",
+            "fieldtype": "Link",
+            "hidden": 1,
+            "label": "Grant",
+            "options": "Grant"
+        },
+        {
+            "fieldname": "note_tab",
+            "fieldtype": "Tab Break",
+            "label": "Note"
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "HTML"
+        },
+        {
+            "default": "Application Started",
+            "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
+            "fieldname": "donor_stage",
+            "fieldtype": "Select",
+            "label": "Stage (Donor)",
+            "options": "Application Started\nEligible NGO\nInvited for Proposal\nProposal Submitted\nMoU Signing ongoing\nMoU Signed\nRejected\nOn Hold"
+        },
+        {
+            "default": "Lead",
+            "depends_on": "eval:frappe.mgrant_settings.module == \"NGO\"",
+            "fieldname": "ngo_stage",
+            "fieldtype": "Select",
+            "label": "Stage (NGO)",
+            "options": "Lead\nDiscussion Ongoing\nProposal to be Submitted\nProposal Submitted\nGrant Letter Signed\nRejected\nOn Hold/No Response"
+        },
+        {
+            "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
+            "fieldname": "ngo",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "NGO",
+            "link_filters": "[[\"NGO\",\"organisation_type\",\"=\",\"NGO\"]]",
+            "mandatory_depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
+            "options": "NGO"
+        },
+        {
+            "fieldname": "rfp",
+            "fieldtype": "Link",
+            "hidden": 1,
+            "in_list_view": 1,
+            "label": "RFP",
+            "link_filters": "[[\"RFP\",\"docstatus\",\"=\",\"1\"]]",
+            "options": "RFP"
+        },
+        {
+            "fieldname": "additional_question_tab",
+            "fieldtype": "Tab Break",
+            "label": "Additional Questions"
+        },
+        {
+            "fieldname": "additional_questions",
+            "fieldtype": "HTML",
+            "options": "<h1>No questions available.</h1>"
+        },
+        {
+            "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
+            "fieldname": "vendor",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Vendor",
+            "link_filters": "[[\"NGO\",\"organisation_type\",\"=\",\"Vendor\"]]",
+            "options": "NGO"
+        },
+        {
+            "default": "Draft",
+            "depends_on": "eval:frappe.user_roles.includes('NGO Admin')",
+            "fieldname": "application_status",
+            "fieldtype": "Select",
+            "label": "Application Status",
+            "options": "Draft\nCompleted"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2025-01-16 13:26:03.640843",
+    "modified_by": "Administrator",
+    "module": "mGrant - Proposal",
+    "name": "Proposal",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "NGO Admin",
+            "select": 1,
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Administrator",
+            "select": 1,
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        }
+    ],
+    "show_title_field_in_link": 1,
+    "sort_field": "creation",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "proposal_name",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
 }
