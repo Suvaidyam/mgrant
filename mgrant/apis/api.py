@@ -39,12 +39,3 @@ def get_mgrant_note_by_id(table_id):
     if not note:
         return _("Note not found!")
     return note[0]
-
-# Use (Proposal)
-@frappe.whitelist()
-def sent_email(recipients,subject,message):
-        frappe.sendmail(
-            recipients=recipients,
-            subject=subject,
-            message=message
-        )
