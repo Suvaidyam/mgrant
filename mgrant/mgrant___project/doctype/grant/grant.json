@@ -25,7 +25,6 @@
   "column_break_qmgi",
   "grant_type",
   "funding_type",
-  "implementation_category",
   "grant_agreement_mou",
   "column_break_nwys",
   "programme",
@@ -357,12 +356,6 @@
    "options": "FC\nNon-FC"
   },
   {
-   "fieldname": "implementation_category",
-   "fieldtype": "Select",
-   "label": "Implementation Category",
-   "options": "Direct\nIndirect"
-  },
-  {
    "default": "Sub-granting Inactive",
    "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
    "fieldname": "subgranting_status",
@@ -566,7 +559,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-16 10:20:42.106854",
+ "modified": "2025-01-16 12:33:29.032534",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",

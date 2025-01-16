@@ -17,10 +17,13 @@ function getMonthDifference(startDate, endDate) {
     // Total months difference
     return yearDifference * 12 + monthDifference;
 }
-
 let PREV_STATES = [];
+frappe.model.on('Proposal', '*', function (fieldname,value,doc) {
+    cur_frm.page.btn_primary.show();
+})
 frappe.ui.form.on("Proposal", {
     onload(frm) {
+        frm.page.btn_primary.hide();
         if (frappe.mgrant_settings.module == "Donor") {
             if (frappe.user_roles.includes('NGO Admin') && frm.doc.application_status == "Completed") {
                 frm.disable_form()
@@ -42,6 +45,7 @@ frappe.ui.form.on("Proposal", {
     },
     async refresh(frm) {
         frm.trigger('change_indicator_pill_content')
+        frm.page.btn_primary.hide();
         if (frm.doc.states.length) {
             PREV_STATES = frm.doc.states;
         } else {
@@ -112,6 +116,7 @@ frappe.ui.form.on("Proposal", {
         }
     },
     states(frm) {
+        console.log('State from field', frm.doc.states);
         let current_states = frm.doc.states;
         const removedStates = PREV_STATES.filter(state => !current_states.includes(state));
         if (removedStates.length) {
