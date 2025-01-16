@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:REPORTING-{####}",
  "creation": "2024-12-01 13:11:57.859627",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -53,7 +54,7 @@
    "fieldname": "submission_status",
    "fieldtype": "Select",
    "label": "Submission Status",
-   "options": "Due\nIn Draft\nSubmitted",
+   "options": "Due\nIn Draft\nSubmitted\nDelayed",
    "reqd": 1
   },
   {
@@ -73,10 +74,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-23 18:26:33.867446",
+ "modified": "2025-01-16 22:07:13.561992",
  "modified_by": "Administrator",
  "module": "mGrant - Task",
  "name": "Reporting",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
