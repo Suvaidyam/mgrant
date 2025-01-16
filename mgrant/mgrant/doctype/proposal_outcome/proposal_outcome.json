@@ -12,11 +12,11 @@
   "outcome_name",
   "column_break_qzmp",
   "kpi",
-  "section_break_npiv",
+  "section_break_mkpv",
   "frequency",
-  "column_break_qoqu",
+  "column_break_whdw",
   "total_target",
-  "column_break_tlmd",
+  "column_break_htsq",
   "section_break_nrqz",
   "state",
   "district",
@@ -101,29 +101,31 @@
    "search_index": 1
   },
   {
-   "fieldname": "section_break_npiv",
+   "fieldname": "section_break_mkpv",
    "fieldtype": "Section Break"
   },
   {
    "fieldname": "frequency",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Frequency",
    "options": "Quarterly\nMonthly\nLump Sum",
    "reqd": 1
   },
   {
-   "fieldname": "column_break_qoqu",
+   "fieldname": "column_break_whdw",
    "fieldtype": "Column Break"
   },
   {
    "fieldname": "total_target",
    "fieldtype": "Int",
+   "in_list_view": 1,
    "label": "Total Target",
    "non_negative": 1,
    "reqd": 1
   },
   {
-   "fieldname": "column_break_tlmd",
+   "fieldname": "column_break_htsq",
    "fieldtype": "Column Break"
   }
  ],
@@ -135,7 +137,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-15 14:39:37.371492",
+ "modified": "2025-01-16 00:19:46.524235",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Proposal Outcome",

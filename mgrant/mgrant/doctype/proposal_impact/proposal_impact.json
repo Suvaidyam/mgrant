@@ -12,11 +12,11 @@
   "impact_name",
   "column_break_gwyn",
   "kpi",
-  "section_break_oxxt",
+  "section_break_mnrv",
   "frequency",
-  "column_break_fnva",
+  "column_break_trzg",
   "total_target",
-  "column_break_npfh",
+  "column_break_tbsh",
   "section_break_vxxu",
   "state",
   "district",
@@ -100,28 +100,31 @@
    "search_index": 1
   },
   {
-   "fieldname": "section_break_oxxt",
+   "fieldname": "section_break_mnrv",
    "fieldtype": "Section Break"
   },
   {
    "fieldname": "frequency",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Frequency",
    "options": "Quarterly\nMonthly\nLump Sum",
    "reqd": 1
   },
   {
-   "fieldname": "total_target",
-   "fieldtype": "Int",
-   "label": "Total Target",
-   "reqd": 1
-  },
-  {
-   "fieldname": "column_break_fnva",
+   "fieldname": "column_break_trzg",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_npfh",
+   "fieldname": "total_target",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Target",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_tbsh",
    "fieldtype": "Column Break"
   }
  ],
@@ -133,7 +136,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-15 14:38:28.545046",
+ "modified": "2025-01-16 00:19:04.918386",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Proposal Impact",
