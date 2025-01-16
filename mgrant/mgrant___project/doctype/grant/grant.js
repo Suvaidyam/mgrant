@@ -59,6 +59,7 @@ const mgrantSettings = (frm) => {
 let PREV_STATES = [];
 frappe.ui.form.on("Grant", {
     async refresh(frm) {
+        frappe.call('mgrant.crons.reports.mark_reports_as_delayed')
         if(frm.doc.states.length) {
             PREV_STATES = frm.doc.states;
         }else{
