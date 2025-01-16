@@ -13,14 +13,14 @@
  "idx": 0,
  "indicator_color": "green",
  "is_hidden": 0,
- "label": "Proposals",
+ "label": "Applications",
  "link_to": "Proposal",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-01-10 13:06:05.385437",
+ "modified": "2025-01-15 17:29:47.985439",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
- "name": "Proposals",
+ "name": "Applications",
  "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
@@ -28,14 +28,17 @@
  "quick_lists": [],
  "roles": [
   {
+   "role": "Administrator"
+  },
+  {
    "role": "NGO Admin"
   },
   {
-   "role": "Administrator"
+   "role": "Partner NGO"
   }
  ],
  "sequence_id": 1.0,
  "shortcuts": [],
- "title": "Proposals",
+ "title": "Applications",
  "type": "URL"
 }

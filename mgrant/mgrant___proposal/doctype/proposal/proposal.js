@@ -21,12 +21,17 @@ function getMonthDifference(startDate, endDate) {
 let PREV_STATES = [];
 frappe.ui.form.on("Proposal", {
     onload(frm) {
+        if (frappe.mgrant_settings.module == "Donor") {
+            if (frappe.user_roles.includes('NGO Admin') && frm.doc.application_status == "Completed") {
+                frm.disable_form()
+            }
+        }
         let index = 0;
         let submit_banner;
         let interval = setInterval(() => {
             index++;
             submit_banner = document.querySelector('.form-message.blue');
-            if(index > 20) {
+            if (index > 20) {
                 clearInterval(interval);
             }
             if (submit_banner) {
@@ -35,7 +40,7 @@ frappe.ui.form.on("Proposal", {
             }
         }, 500);
     },
-    refresh(frm) {
+    async refresh(frm) {
         frm.trigger('change_indicator_pill_content')
         if (frm.doc.states.length) {
             PREV_STATES = frm.doc.states;
@@ -47,9 +52,44 @@ frappe.ui.form.on("Proposal", {
                 frappe.set_route('Form', 'Grant', frm.doc.grant);
             });
         }
+        if (frappe?.mgrant_settings?.module == "Donor") {
+            if (frm.doc?.rfp && !frm.doc?.donor) {
+                let res = await frappe.db.get_value('RFP', frm.doc?.rfp, 'donor')
+                if (res?.message?.donor) {
+                    frm.set_value('donor', res?.message?.donor)
+                    frm.refresh_field('donor')
+                    // await frappe.db.set_value('Proposal',frm.doc?.name, 'donor',res?.message?.donor )
+                }
+            }
+        }
         setup_multiselect_dependency(frm, 'District', 'states', 'state', 'districts', 'state');
         setup_multiselect_dependency(frm, 'Block', 'districts', 'district', 'blocks', 'district');
         setup_multiselect_dependency(frm, 'Village', 'blocks', 'block', 'villages', 'block');
+
+        if (frm.doc?.rfp) {
+            let rfp_doc = await frappe.db.get_doc('RFP', frm.doc?.rfp)
+            if (rfp_doc?.additional_questions?.length) {
+                const wrapper = document.querySelector('[data-fieldname="additional_questions"]');
+                sva_render_form(wrapper, rfp_doc?.additional_questions, (doc) => {
+                    console.log("onSubmit", doc);
+                });
+            }
+        }
+    },
+    after_save(frm) {
+        if (frappe.mgrant_settings.module == "Donor") {
+            if (frappe.user_roles.includes('NGO Admin') && frm.doc.application_status == "Completed") {
+                frm.disable_form()
+            }
+        }
+    },
+    before_save(frm) {
+        console.log('frappe.mgrant_settings.module :>> ', frappe.mgrant_settings.module);
+        if (frappe.mgrant_settings.module == "Donor") {
+            if (frappe.user_roles.includes('NGO Admin') && frm.doc.application_status == "Completed") {
+                frm.set_value('donor_stage', 'Proposal Submitted')
+            }
+        }
     },
     change_indicator_pill_content(frm) {
         let index = 0
@@ -117,6 +157,15 @@ frappe.ui.form.on("Proposal", {
                 frm.set_value('grant_duration_in_months', monthDifference);
             } else {
                 frm.set_value('grant_duration_in_months', 0);
+            }
+        }
+    },
+    rfp: async (frm) => {
+        if (frappe?.mgrant_settings?.module == "Donor") {
+            if (frm.doc?.rfp && !frm.doc?.donor) {
+                let res = await frappe.db.get_value('RFP', frm.doc?.rfp, 'donor')
+                frm.set_value('donor', res?.message?.donor)
+                frm.refresh_field('donor')
             }
         }
     },

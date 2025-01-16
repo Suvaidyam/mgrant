@@ -8,7 +8,10 @@
  "field_order": [
   "section_break_psro",
   "proposal_name",
+  "rfp",
   "donor",
+  "ngo",
+  "vendor",
   "start_date",
   "end_date",
   "grant_duration_in_months",
@@ -18,6 +21,7 @@
   "programme",
   "total_planned_budget",
   "implementation_type",
+  "application_status",
   "column_break_nwys",
   "grant",
   "descriptive_information_section",
@@ -60,7 +64,9 @@
   "note_tab",
   "notes",
   "timeline_tab",
-  "timeline"
+  "timeline",
+  "additional_question_tab",
+  "additional_questions"
  ],
  "fields": [
   {
@@ -376,12 +382,59 @@
    "fieldtype": "Select",
    "label": "Stage (NGO)",
    "options": "Lead\nDiscussion Ongoing\nProposal to be Submitted\nProposal Submitted\nGrant Letter Signed\nRejected\nOn Hold/No Response"
+  },
+  {
+   "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
+   "fieldname": "ngo",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "NGO",
+   "link_filters": "[[\"NGO\",\"organisation_type\",\"=\",\"NGO\"]]",
+   "options": "NGO",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
+   "fieldname": "rfp",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "RFP",
+   "link_filters": "[[\"RFP\",\"docstatus\",\"=\",\"1\"]]",
+   "mandatory_depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
+   "options": "RFP"
+  },
+  {
+   "fieldname": "additional_question_tab",
+   "fieldtype": "Tab Break",
+   "label": "Additional Questions"
+  },
+  {
+   "fieldname": "additional_questions",
+   "fieldtype": "HTML",
+   "options": "<h1>No questions available.</h1>"
+  },
+  {
+   "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vendor",
+   "link_filters": "[[\"NGO\",\"organisation_type\",\"=\",\"Vendor\"]]",
+   "options": "NGO"
+  },
+  {
+   "default": "Draft",
+   "depends_on": "eval:frappe.user_roles.includes('NGO Admin')",
+   "fieldname": "application_status",
+   "fieldtype": "Select",
+   "label": "Application Status",
+   "options": "Draft\nCompleted"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-13 18:10:11.516243",
+ "modified": "2025-01-16 00:54:38.468136",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
