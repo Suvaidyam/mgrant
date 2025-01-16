@@ -390,8 +390,8 @@
    "in_list_view": 1,
    "label": "NGO",
    "link_filters": "[[\"NGO\",\"organisation_type\",\"=\",\"NGO\"]]",
-   "options": "NGO",
-   "reqd": 1
+   "mandatory_depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
+   "options": "NGO"
   },
   {
    "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
@@ -434,7 +434,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-16 00:54:38.468136",
+ "modified": "2025-01-16 10:08:22.961138",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
