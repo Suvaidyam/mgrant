@@ -8,10 +8,10 @@
  "field_order": [
   "basic_information_section",
   "donor_name",
-  "donor_type",
+  "website",
   "column_break_tfvn",
   "org_email",
-  "website",
+  "donor_type",
   "column_break_rkla",
   "focus_areas",
   "contact_information_section",
@@ -113,6 +113,7 @@
    "label": "Website"
   },
   {
+   "depends_on": "eval:frappe.mgrant_settings.module == 'NGO'",
    "fieldname": "donor_type",
    "fieldtype": "Select",
    "label": "Donor Type",
@@ -169,7 +170,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-13 18:34:10.164115",
+ "modified": "2025-01-16 22:45:37.375098",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Donor",

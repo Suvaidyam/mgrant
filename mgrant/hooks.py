@@ -176,23 +176,30 @@ doctype_js = {
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"mgrant.tasks.all"
-# 	],
-# 	"daily": [
-# 		"mgrant.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"mgrant.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"mgrant.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"mgrant.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+    "cron": {
+        "0 1 * * *": [
+            "mgrant.crons.tasks.mark_tasks_as_delayed",
+            "mgrant.crons.reports.mark_reports_as_delayed",
+            "mgrant.crons.tranches.mark_tranches_as_delayed"
+        ]
+    },
+	# "all": [
+	# 	"mgrant.tasks.all"
+	# ],
+	# "daily": [
+	# 	"mgrant.tasks.daily"
+	# ],
+	# "hourly": [
+	# 	"mgrant.tasks.hourly"
+	# ],
+	# "weekly": [
+	# 	"mgrant.tasks.weekly"
+	# ],
+	# "monthly": [
+	# 	"mgrant.tasks.monthly"
+	# ],
+}
 
 # Testing
 # -------
