@@ -182,7 +182,8 @@ const taskList = (task_list, selector) => {
                 <a class="dropdown-item task-status" data-task="${task.name}" data-status="Todo" >Todo</a>
                 <a class="dropdown-item task-status" data-task="${task.name}" data-status="In Progress" >In Progress</a>
                 <a class="dropdown-item task-status" data-task="${task.name}" data-status="Done" >Done</a>
-                <a class="dropdown-item task-status" data-task="${task.name}" data-status="Canceled" >Canceled</a>
+                <a class="dropdown-item task-status" data-task="${task.name}" data-status="Cancelled" >Cancelled</a>
+                <a class="dropdown-item task-status" data-task="${task.name}" data-status="Delayed" >Delayed</a>
             </div>
         </div>
     </div>
@@ -283,7 +284,8 @@ const taskList = (task_list, selector) => {
                         <a class="dropdown-item task-status" data-task="${task.name}" data-status="Todo">Todo</a>
                         <a class="dropdown-item task-status" data-task="${task.name}" data-status="In Progress">In Progress</a>
                         <a class="dropdown-item task-status" data-task="${task.name}" data-status="Done">Done</a>
-                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Canceled">Canceled</a>
+                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Cancelled">Cancelled</a>
+                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Delayed">Delayed</a>
                 </div>
                 </div>
     </td>
@@ -416,15 +418,15 @@ const getTaskList = async (frm, selector) => {
                 Set Status
             </h6>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status" id="statusTodo" value="ToDo">
-                <label class="form-check-label" for="statusTodo">To Do</label>
+                <input class="form-check-input" type="radio" name="status" id="statusTodo" value="Todo">
+                <label class="form-check-label" for="statusTodo">Todo</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="status" id="statusBacklog" value="Backlog">
                 <label class="form-check-label" for="statusBacklog">Backlog</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status" id="statusInProgress" value="InProgress">
+                <input class="form-check-input" type="radio" name="status" id="statusInProgress" value="In Progress">
                 <label class="form-check-label" for="statusInProgress">In Progress</label>
             </div>
             <div class="form-check">
@@ -434,6 +436,10 @@ const getTaskList = async (frm, selector) => {
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="status" id="statusCancelled" value="Cancelled">
                 <label class="form-check-label" for="statusCancelled">Cancelled</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="status" id="statusCancelled" value="Delayed">
+                <label class="form-check-label" for="statusCancelled">Delayed</label>
             </div>
         </li>
     </div>

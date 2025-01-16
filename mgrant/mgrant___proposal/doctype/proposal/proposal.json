@@ -8,8 +8,8 @@
  "field_order": [
   "section_break_psro",
   "proposal_name",
-  "rfp",
   "donor",
+  "donor_name",
   "ngo",
   "ngo_name",
   "vendor",
@@ -322,7 +322,8 @@
    "in_list_view": 1,
    "label": "Donor",
    "options": "Donor",
-   "reqd": 1
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
    "fieldname": "proposal_description",
@@ -393,17 +394,8 @@
    "label": "NGO",
    "link_filters": "[[\"NGO\",\"organisation_type\",\"=\",\"NGO\"]]",
    "mandatory_depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
-   "options": "NGO"
-  },
-  {
-   "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
-   "fieldname": "rfp",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "RFP",
-   "link_filters": "[[\"RFP\",\"docstatus\",\"=\",\"1\"]]",
-   "mandatory_depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
-   "options": "RFP"
+   "options": "NGO",
+   "set_only_once": 1
   },
   {
    "fieldname": "additional_question_tab",
@@ -443,12 +435,19 @@
    "fieldname": "mou_doc",
    "fieldtype": "Attach",
    "label": "MOU Doc"
+  },
+  {
+   "fetch_from": "donor.donor_name",
+   "fieldname": "donor_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Donor Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-16 16:43:04.412621",
+ "modified": "2025-01-16 23:08:40.947668",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",

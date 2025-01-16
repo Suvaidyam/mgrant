@@ -3,17 +3,17 @@
 
 frappe.ui.form.on("NGO", {
     refresh(frm) {
-        if (!frm.is_new() && !frm.doc.source_document) {
-            frm.add_custom_button(__('Add to Central Repository'), async function () {
-                let response = await frappe.call({
-                    method: "mgrant.apis.ngo.ngo.add_ngo_to_central_repo",
-                    args: {
-                        ngo_id: frm.doc.name
-                    },
-                });
-                frappe.msgprint(response.message);
-            });
-        }
+        // if (!frm.is_new() && !frm.doc.source_document) {
+        //     frm.add_custom_button(__('Add to Central Repository'), async function () {
+        //         let response = await frappe.call({
+        //             method: "mgrant.apis.ngo.ngo.add_ngo_to_central_repo",
+        //             args: {
+        //                 ngo_id: frm.doc.name
+        //             },
+        //         });
+        //         frappe.msgprint(response.message);
+        //     });
+        // }
         setup_single_dependent(frm, "state", "state", "district");
     },
     state(frm) {
