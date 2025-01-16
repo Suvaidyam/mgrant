@@ -1,5 +1,4 @@
 import frappe
-@frappe.whitelist()
 def mark_reports_as_delayed():
     reportings = frappe.db.sql("""
         SELECT 

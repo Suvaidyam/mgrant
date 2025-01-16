@@ -1,5 +1,4 @@
 import frappe
-@frappe.whitelist()
 def mark_tranches_as_delayed():
     tranches = frappe.db.sql("""
         SELECT 
@@ -17,3 +16,4 @@ def mark_tranches_as_delayed():
             tranche_doc.fund_receipt_status = 'Due - Delayed'
             tranche_doc.flags.ignore_mandatory = True
             tranche_doc.save(ignore_permissions=True)
+        frappe.db.commit()

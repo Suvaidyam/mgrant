@@ -1,5 +1,4 @@
 import frappe
-@frappe.whitelist()
 def mark_tasks_as_delayed():
     tasks = frappe.db.sql("""
         SELECT 
