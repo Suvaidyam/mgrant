@@ -332,6 +332,10 @@ style.innerHTML = `
         padding-bottom: 11px;
         margin-bottom: 11px;
     }
+        .es-icon {
+    fill:white;
+    stroke-width: 0;
+}
 
     .attachment-item {
         display: flex;
@@ -451,7 +455,9 @@ async function renderEmails(email_list, frm, selector = null) {
                         <i class="fa fa-refresh" id="refresh_email_list" style="font-size: 18px; cursor: pointer; color: #666;"></i>
                     </button>
                     <button class="btn-primary compose-btn">
-                        <i class="fa fa-plus"></i>
+                        <svg  class="es-icon es-line icon-xs" aria-hidden="true">
+                <use href="#es-line-add"></use>
+            </svg>
                     </button>
                 </div>
             </div>
