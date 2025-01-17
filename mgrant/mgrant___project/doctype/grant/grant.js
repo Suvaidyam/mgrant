@@ -58,6 +58,11 @@ const mgrantSettings = (frm) => {
 }
 let PREV_STATES = [];
 frappe.ui.form.on("Grant", {
+    setup(frm) {
+        window.onFieldClick = (...args)=>{
+            console.log("onFieldClick:",...args);
+        };
+	},
     async refresh(frm) {
         if(frm.doc.states.length) {
             PREV_STATES = frm.doc.states;

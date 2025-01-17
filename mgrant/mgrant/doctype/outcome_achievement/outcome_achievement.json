@@ -12,7 +12,10 @@
   "grant",
   "column_break_cqau",
   "achievement",
-  "supporting_document"
+  "supporting_document",
+  "section_break_uhth",
+  "ngo",
+  "donor"
  ],
  "fields": [
   {
@@ -53,11 +56,32 @@
    "label": "Outcome",
    "options": "Outcome",
    "reqd": 1
+  },
+  {
+   "fieldname": "section_break_uhth",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fetch_from": "grant.ngo",
+   "fieldname": "ngo",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "NGO",
+   "options": "NGO"
+  },
+  {
+   "fetch_from": "grant.donor",
+   "fieldname": "donor",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Donor",
+   "options": "Donor"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-30 17:18:46.153827",
+ "modified": "2025-01-17 09:41:08.730210",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcome Achievement",
