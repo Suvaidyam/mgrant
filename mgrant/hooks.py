@@ -20,7 +20,7 @@ fixtures = [
     # 'Role',
     # 'Role Profile',
     # "DDFR",
-    'SVADatatable Configuration',
+    # 'SVADatatable Configuration',
     # 'Client Script',
     # 'Custom Field',
     # "Property Setter",
