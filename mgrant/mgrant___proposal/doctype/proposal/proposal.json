@@ -438,7 +438,8 @@
   {
    "fieldname": "mou_doc",
    "fieldtype": "Attach",
-   "label": "MoU Document"
+   "label": "MoU Document",
+   "read_only": 1
   },
   {
    "fetch_from": "donor.donor_name",
@@ -451,7 +452,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-17 03:51:12.290929",
+ "modified": "2025-01-17 11:45:39.489061",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",

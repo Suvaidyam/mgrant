@@ -10,7 +10,10 @@
   "primary_ngo",
   "letter_head",
   "allow_overutilization",
-  "allow_subgranting"
+  "allow_subgranting",
+  "tab_2_tab",
+  "app_title",
+  "mgrant_logo"
  ],
  "fields": [
   {
@@ -30,6 +33,7 @@
   },
   {
    "default": "0",
+   "depends_on": "eval:doc.module == \"NGO\"",
    "fieldname": "allow_subgranting",
    "fieldtype": "Check",
    "label": "Allow Subgranting"
@@ -48,18 +52,34 @@
    "reqd": 1
   },
   {
+   "depends_on": "eval:doc.module == \"NGO\"",
    "fieldname": "primary_ngo",
    "fieldtype": "Link",
    "ignore_user_permissions": 1,
    "label": "Primary NGO",
    "options": "NGO"
+  },
+  {
+   "fieldname": "mgrant_logo",
+   "fieldtype": "Attach Image",
+   "label": "mGrant Logo"
+  },
+  {
+   "fieldname": "app_title",
+   "fieldtype": "Data",
+   "label": "App Title"
+  },
+  {
+   "fieldname": "tab_2_tab",
+   "fieldtype": "Tab Break",
+   "label": "Sidebar Items"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-01-13 17:43:47.833576",
+ "modified": "2025-01-17 12:33:57.746031",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",

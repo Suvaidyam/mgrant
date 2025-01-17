@@ -103,8 +103,8 @@ const renderCardView = (files) => {
             <div class="row mt-3" style ="hight:100vh !important;"style="font-size:16px !important;">
                 ${files.length > 0 ? `
                     
-                    ${files.map(file => {
-        let extention = file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)[1].toLowerCase();
+                ${files.filter(file=> file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]).map(file => {
+        let extention = file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]?.toLowerCase();
         return `
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                             
@@ -204,8 +204,8 @@ const renderListView = (files) => {
             </tr>
             </thead>
             <tbody>
-            ${files.map(file => {
-        let extention = file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)[1].toLowerCase();
+            ${files.filter(file=> file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]).map(file => {
+        let extention = file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]?.toLowerCase();
         return `
                     <tr>
                         <td><input type="checkbox" class="toggleCheckbox" data-id="${file.name}" style="width: 20px !important; height: 20px !important;"></td>
