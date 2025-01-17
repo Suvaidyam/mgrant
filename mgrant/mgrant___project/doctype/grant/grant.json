@@ -11,26 +11,21 @@
   "column_break_htax",
   "parent_grant",
   "column_break_vssb",
-  "section_break_cerd",
-  "ngo",
-  "column_break_pyvg",
-  "donor",
-  "column_break_rsvl",
-  "proposal",
   "section_break_psro",
   "grant_name",
+  "programme",
+  "ngo",
+  "donor",
+  "column_break_qmgi",
   "start_date",
   "end_date",
   "grant_duration_in_months",
-  "column_break_qmgi",
+  "grant_status",
+  "column_break_nwys",
   "grant_type",
   "funding_type",
-  "grant_agreement_mou",
-  "column_break_nwys",
-  "programme",
   "subgranting_status",
-  "partner_ngo",
-  "parnter_vendor",
+  "grant_agreement_mou",
   "descriptive_information_section",
   "theme",
   "sdg",
@@ -43,8 +38,6 @@
   "column_break_evjf",
   "blocks",
   "villages",
-  "section_break_vkwu",
-  "demography_focus",
   "section_break_nbbo",
   "total_planned_budget",
   "total_funds_utilised",
@@ -52,22 +45,28 @@
   "column_break_judq",
   "total_amount_requested_from_donor",
   "total_funds_received",
-  "total_funds_subgranted",
   "column_break_ypir",
-  "total_subgrant_utilisation",
-  "grant_status",
   "lfas_copied",
-  "contacts_tab",
-  "contacts",
+  "section_break_vkwu",
+  "demography_focus",
+  "subgranting_information_section",
+  "partner_ngo",
+  "parnter_vendor",
+  "column_break_dwqw",
+  "total_funds_subgranted",
+  "total_subgrant_utilisation",
+  "section_break_cerd",
+  "column_break_jmwk",
+  "proposal",
+  "column_break_pyvg",
+  "column_break_rsvl",
   "tasks_tab",
   "tasks",
-  "reportings_tab",
-  "reportings",
-  "tranche_tab",
-  "tranche",
   "budget_tab",
   "budget",
   "financial_years",
+  "tranche_tab",
+  "tranche",
   "input_tab",
   "input",
   "output_tab",
@@ -76,6 +75,10 @@
   "outcome",
   "impact_tab",
   "impact",
+  "reportings_tab",
+  "reportings",
+  "contacts_tab",
+  "contacts",
   "email_tab",
   "email",
   "gallery_tab",
@@ -93,14 +96,14 @@
    "fieldname": "start_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Start Date",
+   "label": "MoU Start Date",
    "reqd": 1
   },
   {
    "fieldname": "end_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "End Date",
+   "label": "MoU End Date",
    "reqd": 1
   },
   {
@@ -193,7 +196,7 @@
   {
    "fieldname": "total_amount_requested_from_donor",
    "fieldtype": "Currency",
-   "label": "Total amount requested from Donor",
+   "label": "Total Requested Funds",
    "read_only": 1
   },
   {
@@ -222,7 +225,7 @@
   {
    "fieldname": "section_break_cerd",
    "fieldtype": "Section Break",
-   "label": "Partner Information"
+   "label": "Additional Information"
   },
   {
    "fieldname": "section_break_psro",
@@ -272,7 +275,7 @@
    "fieldname": "proposal",
    "fieldtype": "Link",
    "hidden": 1,
-   "label": "Proposal",
+   "label": "Application",
    "options": "Proposal"
   },
   {
@@ -316,7 +319,7 @@
    "fieldname": "grant_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Grant Name",
+   "label": "Grant Title",
    "reqd": 1
   },
   {
@@ -324,7 +327,7 @@
    "fieldname": "section_break_vkwu",
    "fieldtype": "Section Break",
    "hide_border": 1,
-   "label": "Demography Details"
+   "label": "Demography Information"
   },
   {
    "fieldname": "villages",
@@ -346,7 +349,7 @@
   {
    "fieldname": "grant_type",
    "fieldtype": "Select",
-   "label": "Grant type",
+   "label": "Grant Type",
    "options": "CSR\nNon-CSR"
   },
   {
@@ -360,6 +363,7 @@
    "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
    "fieldname": "subgranting_status",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Sub-granting Status",
    "options": "Sub-granting Inactive\nSub-granting Active",
    "read_only": 1
@@ -367,7 +371,8 @@
   {
    "fieldname": "grant_agreement_mou",
    "fieldtype": "Attach",
-   "label": "Grant Agreement/MoU"
+   "label": "Grant Agreement/MoU",
+   "read_only": 1
   },
   {
    "fieldname": "descriptive_information_section",
@@ -389,46 +394,48 @@
    "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
    "fieldname": "partner_ngo",
    "fieldtype": "Table MultiSelect",
-   "label": "Partner (NGO)",
+   "hidden": 1,
+   "label": "Sub-grantee (NGO)",
    "options": "NGO Child"
   },
   {
    "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
    "fieldname": "parnter_vendor",
    "fieldtype": "Table MultiSelect",
-   "label": "Parnter (Vendor)",
+   "hidden": 1,
+   "label": "Sub-grantee (Vendor)",
    "options": "Vendor Child"
   },
   {
    "fieldname": "total_planned_budget",
    "fieldtype": "Currency",
-   "label": "Total Planned Budget",
+   "label": "Total Sanctioned Funds",
    "read_only": 1
   },
   {
    "fieldname": "total_funds_received",
    "fieldtype": "Currency",
-   "label": "Total Funds Received",
+   "label": "Total Disbursed Funds",
    "read_only": 1
   },
   {
    "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
    "fieldname": "total_funds_subgranted",
    "fieldtype": "Currency",
-   "label": "Total Funds Subgranted",
+   "label": "Total Funds Sub-granted",
    "read_only": 1
   },
   {
    "fieldname": "total_funds_utilised",
    "fieldtype": "Currency",
-   "label": "Total Funds Utilised",
+   "label": "Total Utilised Funds",
    "read_only": 1
   },
   {
    "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
    "fieldname": "total_subgrant_utilisation",
    "fieldtype": "Currency",
-   "label": "Total Subgrant Utilisation",
+   "label": "Total Sub-grant Utilisation",
    "read_only": 1
   },
   {
@@ -483,7 +490,7 @@
    "default": "0",
    "fieldname": "grant_duration_in_months",
    "fieldtype": "Int",
-   "label": "Grant Duration in months",
+   "label": "Grant Duration (in months)",
    "non_negative": 1,
    "read_only": 1
   },
@@ -491,9 +498,9 @@
    "default": "Self Implementation",
    "fieldname": "implementation_type",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Implementation Type",
    "options": "Self Implementation\nSub Grant",
-   "reqd": 1,
    "set_only_once": 1
   },
   {
@@ -554,12 +561,25 @@
    "fieldname": "lfas_copied",
    "fieldtype": "Check",
    "hidden": 1,
-   "label": "LFAs Copied"
+   "label": "LFAs Migration (System Field)"
+  },
+  {
+   "fieldname": "column_break_jmwk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "subgranting_information_section",
+   "fieldtype": "Section Break",
+   "label": "Subgranting Information"
+  },
+  {
+   "fieldname": "column_break_dwqw",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-16 12:33:29.032534",
+ "modified": "2025-01-17 09:16:35.157870",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",

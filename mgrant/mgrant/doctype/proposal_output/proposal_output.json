@@ -7,21 +7,18 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "proposal",
-  "column_break_jmle",
-  "output_name",
-  "column_break_nkzm",
-  "kpi",
-  "section_break_wqmp",
-  "frequency",
-  "column_break_dtdg",
-  "total_target",
-  "column_break_gnlh",
-  "section_break_ncln",
   "state",
   "district",
-  "column_break_glel",
+  "proposal",
+  "column_break_jmle",
+  "kpi",
+  "output_name",
+  "column_break_nkzm",
+  "total_target",
+  "frequency",
+  "section_break_ncln",
   "block",
+  "column_break_glel",
   "gram_panchayat",
   "column_break_rsnk",
   "village"
@@ -32,18 +29,21 @@
    "fieldtype": "Column Break"
   },
   {
+   "description": "Example: No. of students completing CS trainings",
    "fieldname": "output_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Output Name",
+   "label": "Output Description",
    "reqd": 1
   },
   {
+   "description": "This is a standard list of KPIs",
    "fieldname": "kpi",
    "fieldtype": "Link",
    "label": "KPI",
    "link_filters": "[[\"KPIs\",\"kpi_type\",\"=\",\"Output\"]]",
-   "options": "KPIs"
+   "options": "KPIs",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_nkzm",
@@ -72,12 +72,14 @@
   {
    "fieldname": "block",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Block",
    "options": "Block"
   },
   {
    "fieldname": "gram_panchayat",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Gram Panchayat",
    "options": "Gram Panchayat"
   },
@@ -88,6 +90,7 @@
   {
    "fieldname": "village",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Village",
    "options": "Village"
   },
@@ -95,21 +98,19 @@
    "fieldname": "proposal",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Proposal",
+   "label": "Application",
    "mandatory_depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "options": "Proposal",
    "reqd": 1,
    "search_index": 1
   },
   {
-   "fieldname": "section_break_wqmp",
-   "fieldtype": "Section Break"
-  },
-  {
+   "default": "Quarterly",
+   "description": "Frequency at which reporting will be done for this output item",
    "fieldname": "frequency",
    "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Frequency",
+   "label": "Reporting Frequency",
    "options": "Quarterly\nMonthly\nLump Sum",
    "reqd": 1
   },
@@ -120,14 +121,6 @@
    "label": "Total Target",
    "non_negative": 1,
    "reqd": 1
-  },
-  {
-   "fieldname": "column_break_dtdg",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_gnlh",
-   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -138,7 +131,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-16 00:19:27.332722",
+ "modified": "2025-01-17 09:14:38.404446",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Proposal Output",
