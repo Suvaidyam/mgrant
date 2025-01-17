@@ -161,11 +161,11 @@ const renderHeader = (files, view) => {
     return `
             <div class="row" id="galleryHeader" style="display: flex; justify-content: space-between; align-items: center; gap: 12px;padding:0px 14px;">
             <div style="gap: 16px; display: flex;">
-            <span class="text-dark" style="font-weight: 400; font-size: 14px;">Total: ${files.length}</span>
+            <span class="text-dark" style="font-weight: 400; font-size: 14px;">Total records: ${files.length}</span>
             </div>
             <div style="display: flex; gap: 12px;">
             <button class="btn btn-light" style="display:none;" id="deleteSelectedButton">
-            <i class="fa fa-trash" style="color: #A01236;"></i>
+            <i class="fa fa-trash" style="color: #801621;"></i>
             </button>
             <div class="dropdown">
             <button class="btn btn-light" type="button" id="viewDropdown" data-toggle="dropdown">
@@ -184,7 +184,7 @@ const renderHeader = (files, view) => {
             </svg>
             <span class="mx-2">Filters</span>
             </button>
-            <button class="btn " id="customUploadButton" style="background-color: #A01236; color: white; width: 90px; height: 28px; border-radius: 8px; font-size: 14px;">+ Upload</button>
+            <button class="btn " id="customUploadButton" style="background-color: #801621; color: white; width: 90px; height: 28px; border-radius: 8px; font-size: 14px;">+ Upload</button>
             </div>
             </div>
             `;
