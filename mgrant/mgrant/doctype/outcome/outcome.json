@@ -7,27 +7,34 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "grant",
-  "start_date",
-  "end_date",
-  "column_break_xgzh",
-  "outcome_name",
-  "kpi",
-  "financial_years",
-  "column_break_qzmp",
-  "frequency",
-  "total_target",
-  "total_achievement",
-  "section_break_nrqz",
+  "detail_section",
   "state",
   "district",
-  "column_break_xabp",
+  "grant",
+  "column_break_xgzh",
+  "kpi",
+  "outcome_name",
+  "frequency",
+  "section_break_rxfv",
+  "planning_table",
+  "summary_section",
+  "total_target",
+  "column_break_tswv",
+  "total_achievement",
+  "section_break_gzth",
+  "start_date",
+  "end_date",
+  "financial_years",
+  "column_break_pmdm",
+  "ngo",
+  "donor",
+  "section_break_nrqz",
+  "column_break_mxzy",
   "block",
+  "column_break_xabp",
   "gram_panchayat",
   "column_break_lshx",
-  "village",
-  "section_break_rxfv",
-  "planning_table"
+  "village"
  ],
  "fields": [
   {
@@ -41,12 +48,14 @@
    "search_index": 1
   },
   {
+   "description": "This is a standard list of KPIs",
    "fieldname": "kpi",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "KPI",
    "link_filters": "[[\"KPIs\",\"kpi_type\",\"=\",\"Outcome\"]]",
-   "options": "KPIs"
+   "options": "KPIs",
+   "reqd": 1
   },
   {
    "fieldname": "state",
@@ -63,22 +72,26 @@
   {
    "fieldname": "block",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Block",
    "options": "Block"
   },
   {
    "fieldname": "gram_panchayat",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Gram Panchayat",
    "options": "Gram Panchayat"
   },
   {
    "fieldname": "village",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Village",
    "options": "Village"
   },
   {
+   "description": "Auto-calculated from the target breakdown",
    "fieldname": "total_target",
    "fieldtype": "Int",
    "in_list_view": 1,
@@ -89,6 +102,7 @@
   },
   {
    "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
+   "description": "\nAuto-calculated from reported achievement",
    "fieldname": "total_achievement",
    "fieldtype": "Int",
    "in_list_view": 1,
@@ -97,10 +111,11 @@
    "read_only": 1
   },
   {
+   "description": "Example: No. of students placed",
    "fieldname": "outcome_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Outcome Name",
+   "label": "Outcome Description",
    "reqd": 1
   },
   {
@@ -116,6 +131,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "description": "Frequency at which achievement for this outcome indicator is reported",
    "fieldname": "frequency",
    "fieldtype": "Select",
    "in_list_view": 1,
@@ -127,22 +143,20 @@
    "fetch_from": "grant.start_date",
    "fieldname": "start_date",
    "fieldtype": "Date",
+   "hidden": 1,
    "in_list_view": 1,
-   "label": "Start Date"
+   "label": "MoU Start Date"
   },
   {
    "fetch_from": "grant.end_date",
    "fieldname": "end_date",
    "fieldtype": "Date",
+   "hidden": 1,
    "in_list_view": 1,
-   "label": "End Date"
+   "label": "MoU End Date"
   },
   {
    "fieldname": "column_break_xgzh",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_qzmp",
    "fieldtype": "Column Break"
   },
   {
@@ -152,16 +166,61 @@
   },
   {
    "depends_on": "eval:doc.frequency != \"Lump Sum\"",
+   "description": "This table auto-generates time period based on the MoU duration and reporting frequency. Utilisation is auto-populated.",
    "fieldname": "planning_table",
    "fieldtype": "Table",
-   "label": "Planning Table",
+   "label": "Target Breakdown",
    "options": "Outcome Planning Child"
   },
   {
    "fieldname": "financial_years",
    "fieldtype": "Table MultiSelect",
+   "hidden": 1,
    "label": "Financial Years",
    "options": "Financial Year Child"
+  },
+  {
+   "fieldname": "section_break_gzth",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fetch_from": "grant.ngo",
+   "fieldname": "ngo",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "NGO",
+   "options": "NGO"
+  },
+  {
+   "fetch_from": "grant.donor",
+   "fieldname": "donor",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Donor",
+   "options": "Donor"
+  },
+  {
+   "fieldname": "detail_section",
+   "fieldtype": "Section Break",
+   "label": "Detail"
+  },
+  {
+   "fieldname": "column_break_mxzy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_pmdm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "summary_section",
+   "fieldtype": "Section Break",
+   "label": "Summary"
+  },
+  {
+   "fieldname": "column_break_tswv",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -172,7 +231,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-15 14:40:55.851696",
+ "modified": "2025-01-17 08:50:53.077274",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcome",

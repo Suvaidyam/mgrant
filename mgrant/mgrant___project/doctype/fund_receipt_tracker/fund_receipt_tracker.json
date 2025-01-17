@@ -12,13 +12,17 @@
   "utr_number",
   "supporting_document",
   "grant",
-  "proposal"
+  "proposal",
+  "section_break_tvvo",
+  "ngo",
+  "donor"
  ],
  "fields": [
   {
+   "description": "This date specifies the date up to which the utilisation data is being reported.",
    "fieldname": "as_on_date",
    "fieldtype": "Date",
-   "label": "As on date",
+   "label": "As on Date",
    "reqd": 1
   },
   {
@@ -64,11 +68,31 @@
    "fieldname": "utr_number",
    "fieldtype": "Data",
    "label": "UTR Number"
+  },
+  {
+   "fieldname": "section_break_tvvo",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fetch_from": "grant.ngo",
+   "fieldname": "ngo",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "NGO",
+   "options": "NGO"
+  },
+  {
+   "fetch_from": "grant.donor",
+   "fieldname": "donor",
+   "fieldtype": "Link",
+   "label": "Donor",
+   "options": "Donor"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-16 12:48:40.498898",
+ "modified": "2025-01-17 02:24:56.376562",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Fund Receipt Tracker",

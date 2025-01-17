@@ -1,227 +1,282 @@
 {
- "actions": [],
- "allow_rename": 1,
- "autoname": "format:INPUT-{#####}",
- "creation": "2024-10-22 12:45:23.112178",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "section_break_wwse",
-  "grant",
-  "start_date",
-  "end_date",
-  "column_break_zjal",
-  "input_name",
-  "kpi",
-  "financial_years",
-  "column_break_ikyr",
-  "frequency",
-  "total_target",
-  "total_achievement",
-  "section_break_dznz",
-  "state",
-  "district",
-  "column_break_zeui",
-  "block",
-  "gram_panchayat",
-  "column_break_gjsm",
-  "village",
-  "section_break_tzvd",
-  "planning_table"
- ],
- "fields": [
-  {
-   "fieldname": "input_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Input Name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "grant",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Grant",
-   "options": "Grant",
-   "reqd": 1,
-   "search_index": 1
-  },
-  {
-   "fieldname": "kpi",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "KPI",
-   "link_filters": "[[\"KPIs\",\"kpi_type\",\"=\",\"Input\"]]",
-   "options": "KPIs"
-  },
-  {
-   "fieldname": "state",
-   "fieldtype": "Link",
-   "label": "State",
-   "options": "State"
-  },
-  {
-   "fieldname": "district",
-   "fieldtype": "Link",
-   "label": "District",
-   "options": "District"
-  },
-  {
-   "fieldname": "block",
-   "fieldtype": "Link",
-   "label": "Block",
-   "options": "Block"
-  },
-  {
-   "fieldname": "gram_panchayat",
-   "fieldtype": "Link",
-   "label": "Gram Panchayat",
-   "options": "Gram Panchayat"
-  },
-  {
-   "fieldname": "village",
-   "fieldtype": "Link",
-   "label": "Village",
-   "options": "Village"
-  },
-  {
-   "fieldname": "total_target",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Total Target",
-   "mandatory_depends_on": "eval:doc.frequency == 'Lump Sum'",
-   "non_negative": 1,
-   "read_only_depends_on": "eval:doc.frequency != 'Lump Sum'"
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "fieldname": "total_achievement",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Total Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "section_break_wwse",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_zeui",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_dznz",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_gjsm",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fetch_from": "grant.start_date",
-   "fieldname": "start_date",
-   "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "Start Date"
-  },
-  {
-   "fetch_from": "grant.end_date",
-   "fieldname": "end_date",
-   "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "End Date"
-  },
-  {
-   "fieldname": "frequency",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Frequency",
-   "options": "Quarterly\nMonthly\nLump Sum",
-   "reqd": 1
-  },
-  {
-   "fieldname": "column_break_zjal",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_ikyr",
-   "fieldtype": "Column Break"
-  },
-  {
-   "depends_on": "eval:doc.frequency != 'Lump Sum'",
-   "fieldname": "section_break_tzvd",
-   "fieldtype": "Section Break"
-  },
-  {
-   "depends_on": "eval:doc.frequency != \"Lump Sum\"",
-   "fieldname": "planning_table",
-   "fieldtype": "Table",
-   "label": "Planning Table",
-   "options": "Input Planning Child"
-  },
-  {
-   "fieldname": "financial_years",
-   "fieldtype": "Table MultiSelect",
-   "label": "Financial Years",
-   "options": "Financial Year Child"
-  }
- ],
- "index_web_pages_for_search": 1,
- "links": [
-  {
-   "hidden": 1,
-   "link_doctype": "Input Achievement",
-   "link_fieldname": "input"
-  }
- ],
- "modified": "2025-01-15 14:39:32.581401",
- "modified_by": "Administrator",
- "module": "Mgrant",
- "name": "Input",
- "naming_rule": "Expression",
- "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "NGO Admin",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Partner NGO",
-   "share": 1,
-   "write": 1
-  }
- ],
- "show_title_field_in_link": 1,
- "sort_field": "creation",
- "sort_order": "DESC",
- "states": [],
- "title_field": "input_name"
+  "actions": [],
+  "allow_rename": 1,
+  "autoname": "format:INPUT-{#####}",
+  "creation": "2024-10-22 12:45:23.112178",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "section_break_wwse",
+    "state",
+    "district",
+    "grant",
+    "column_break_zjal",
+    "kpi",
+    "input_name",
+    "frequency",
+    "wf_comment",
+    "section_break_tzvd",
+    "planning_table",
+    "summary_section",
+    "total_target",
+    "column_break_dofs",
+    "total_achievement",
+    "section_break_dznz",
+    "gram_panchayat",
+    "column_break_zeui",
+    "village",
+    "column_break_gjsm",
+    "block",
+    "section_break_achu",
+    "start_date",
+    "end_date",
+    "financial_years",
+    "column_break_hqvg",
+    "ngo",
+    "donor"
+  ],
+  "fields": [
+    {
+      "description": "Example: No. of students attending CS trainings",
+      "fieldname": "input_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Input Description",
+      "reqd": 1
+    },
+    {
+      "fieldname": "grant",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Grant",
+      "options": "Grant",
+      "reqd": 1,
+      "search_index": 1
+    },
+    {
+      "description": "This is a standard list of KPIs",
+      "fieldname": "kpi",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "KPI",
+      "link_filters": "[[\"KPIs\",\"kpi_type\",\"=\",\"Input\"]]",
+      "options": "KPIs",
+      "reqd": 1
+    },
+    {
+      "fieldname": "state",
+      "fieldtype": "Link",
+      "label": "State",
+      "options": "State"
+    },
+    {
+      "fieldname": "district",
+      "fieldtype": "Link",
+      "label": "District",
+      "options": "District"
+    },
+    {
+      "fieldname": "block",
+      "fieldtype": "Link",
+      "hidden": 1,
+      "label": "Block",
+      "options": "Block"
+    },
+    {
+      "fieldname": "gram_panchayat",
+      "fieldtype": "Link",
+      "hidden": 1,
+      "label": "Gram Panchayat",
+      "options": "Gram Panchayat"
+    },
+    {
+      "fieldname": "village",
+      "fieldtype": "Link",
+      "hidden": 1,
+      "label": "Village",
+      "options": "Village"
+    },
+    {
+      "description": "Auto-calculated from the target breakdown below",
+      "fieldname": "total_target",
+      "fieldtype": "Int",
+      "in_list_view": 1,
+      "label": "Total Target",
+      "mandatory_depends_on": "eval:doc.frequency == 'Lump Sum'",
+      "non_negative": 1,
+      "read_only_depends_on": "eval:doc.frequency != 'Lump Sum'"
+    },
+    {
+      "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
+      "description": "Auto-calculated from reported achievement",
+      "fieldname": "total_achievement",
+      "fieldtype": "Int",
+      "in_list_view": 1,
+      "label": "Total Achievement",
+      "non_negative": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_wwse",
+      "fieldtype": "Section Break",
+      "label": "Detail"
+    },
+    {
+      "fieldname": "column_break_zeui",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "section_break_dznz",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "column_break_gjsm",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fetch_from": "grant.start_date",
+      "fieldname": "start_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "MoU Start Date"
+    },
+    {
+      "fetch_from": "grant.end_date",
+      "fieldname": "end_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "MoU End Date"
+    },
+    {
+      "default": "Quarterly",
+      "description": "Frequency at which achievement for this input indicator is reported",
+      "fieldname": "frequency",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Reporting Frequency",
+      "options": "Quarterly\nMonthly\nLump Sum",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_zjal",
+      "fieldtype": "Column Break"
+    },
+    {
+      "depends_on": "eval:doc.frequency != 'Lump Sum'",
+      "fieldname": "section_break_tzvd",
+      "fieldtype": "Section Break"
+    },
+    {
+      "depends_on": "eval:doc.frequency != \"Lump Sum\"",
+      "description": "This table auto-generates time period based on the MoU duration and reporting frequency. Utilisation is auto-populated.",
+      "fieldname": "planning_table",
+      "fieldtype": "Table",
+      "label": "Target Breakdown",
+      "options": "Input Planning Child"
+    },
+    {
+      "fieldname": "financial_years",
+      "fieldtype": "Table MultiSelect",
+      "label": "Financial Years",
+      "options": "Financial Year Child"
+    },
+    {
+      "fieldname": "section_break_achu",
+      "fieldtype": "Section Break",
+      "hidden": 1,
+      "label": "Additional Details"
+    },
+    {
+      "fetch_from": "grant.ngo",
+      "fieldname": "ngo",
+      "fieldtype": "Link",
+      "hidden": 1,
+      "label": "NGO",
+      "options": "NGO"
+    },
+    {
+      "fetch_from": "grant.donor",
+      "fieldname": "donor",
+      "fieldtype": "Link",
+      "hidden": 1,
+      "label": "Donor",
+      "options": "Donor"
+    },
+    {
+      "fieldname": "column_break_hqvg",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "summary_section",
+      "fieldtype": "Section Break",
+      "label": "Summary"
+    },
+    {
+      "fieldname": "column_break_dofs",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "wf_comment",
+      "fieldtype": "Small Text",
+      "hidden": 1,
+      "label": "Comment"
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "links": [
+    {
+      "hidden": 1,
+      "link_doctype": "Input Achievement",
+      "link_fieldname": "input"
+    }
+  ],
+  "modified": "2025-01-17 10:05:30.661733",
+  "modified_by": "Administrator",
+  "module": "Mgrant",
+  "name": "Input",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "NGO Admin",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Partner NGO",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "show_title_field_in_link": 1,
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "title_field": "input_name"
 }

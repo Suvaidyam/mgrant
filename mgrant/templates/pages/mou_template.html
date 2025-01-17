@@ -1,0 +1,2759 @@
+<style type="text/css">
+    .awlist1 {
+        list-style: none;
+        counter-reset: awlistcounter10_0
+    }
+
+    .awlist1>li:before {
+        content: '(' counter(awlistcounter10_0, upper-latin) ')';
+        counter-increment: awlistcounter10_0
+    }
+
+    .awlist2 {
+        list-style: none;
+        counter-reset: awlistcounter9_0
+    }
+
+    .awlist2>li:before {
+        content: '(' counter(awlistcounter9_0, upper-latin) ')';
+        counter-increment: awlistcounter9_0
+    }
+
+    .awlist3 {
+        list-style: none;
+        counter-reset: awlistcounter9_0 1
+    }
+
+    .awlist3>li:before {
+        content: '(' counter(awlistcounter9_0, upper-latin) ')';
+        counter-increment: awlistcounter9_0
+    }
+
+    .awlist4 {
+        list-style: none;
+        counter-reset: awlistcounter9_0 2
+    }
+
+    .awlist4>li:before {
+        content: '(' counter(awlistcounter9_0, upper-latin) ')';
+        counter-increment: awlistcounter9_0
+    }
+
+    .awlist5 {
+        list-style: none;
+        counter-reset: awlistcounter8_0
+    }
+
+    .awlist5>li:before {
+        content: counter(awlistcounter8_0) '.';
+        counter-increment: awlistcounter8_0
+    }
+
+    .awlist6 {
+        list-style: none;
+        counter-reset: awlistcounter8_1
+    }
+
+    .awlist6>li:before {
+        content: '1.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist7 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 1
+    }
+
+    .awlist7>li:before {
+        content: '1.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist8 {
+        list-style: none;
+        counter-reset: awlistcounter7_0
+    }
+
+    .awlist8>li:before {
+        content: '(' counter(awlistcounter7_0, lower-latin) ')';
+        counter-increment: awlistcounter7_0
+    }
+
+    .awlist9 {
+        list-style: none;
+        counter-reset: awlistcounter7_0 1
+    }
+
+    .awlist9>li:before {
+        content: '(' counter(awlistcounter7_0, lower-latin) ')';
+        counter-increment: awlistcounter7_0
+    }
+
+    .awlist10 {
+        list-style: none;
+        counter-reset: awlistcounter7_0 2
+    }
+
+    .awlist10>li:before {
+        content: '(' counter(awlistcounter7_0, lower-latin) ')';
+        counter-increment: awlistcounter7_0
+    }
+
+    .awlist11 {
+        list-style: none;
+        counter-reset: awlistcounter7_0 3
+    }
+
+    .awlist11>li:before {
+        content: '(' counter(awlistcounter7_0, lower-latin) ')';
+        counter-increment: awlistcounter7_0
+    }
+
+    .awlist12 {
+        list-style: none;
+        counter-reset: awlistcounter8_0 1
+    }
+
+    .awlist12>li:before {
+        content: counter(awlistcounter8_0) '.';
+        counter-increment: awlistcounter8_0
+    }
+
+    .awlist13 {
+        list-style: none;
+        counter-reset: awlistcounter8_1
+    }
+
+    .awlist13>li:before {
+        content: '2.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist14 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 1
+    }
+
+    .awlist14>li:before {
+        content: '2.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist15 {
+        list-style: none;
+        counter-reset: awlistcounter8_0 2
+    }
+
+    .awlist15>li:before {
+        content: counter(awlistcounter8_0) '.';
+        counter-increment: awlistcounter8_0
+    }
+
+    .awlist16 {
+        list-style: none;
+        counter-reset: awlistcounter8_1
+    }
+
+    .awlist16>li:before {
+        content: '3.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist17 {
+        list-style: none;
+        counter-reset: awlistcounter6_0
+    }
+
+    .awlist17>li:before {
+        content: '(' counter(awlistcounter6_0, lower-latin) ')';
+        counter-increment: awlistcounter6_0
+    }
+
+    .awlist18 {
+        list-style: none;
+        counter-reset: awlistcounter6_0 1
+    }
+
+    .awlist18>li:before {
+        content: '(' counter(awlistcounter6_0, lower-latin) ')';
+        counter-increment: awlistcounter6_0
+    }
+
+    .awlist19 {
+        list-style: none;
+        counter-reset: awlistcounter6_0 2
+    }
+
+    .awlist19>li:before {
+        content: '(' counter(awlistcounter6_0, lower-latin) ')';
+        counter-increment: awlistcounter6_0
+    }
+
+    .awlist20 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 1
+    }
+
+    .awlist20>li:before {
+        content: '3.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist21 {
+        list-style: none;
+        counter-reset: awlistcounter8_0 3
+    }
+
+    .awlist21>li:before {
+        content: counter(awlistcounter8_0) '.';
+        counter-increment: awlistcounter8_0
+    }
+
+    .awlist22 {
+        list-style: none;
+        counter-reset: awlistcounter8_1
+    }
+
+    .awlist22>li:before {
+        content: '4.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist23 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 1
+    }
+
+    .awlist23>li:before {
+        content: '4.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist24 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 2
+    }
+
+    .awlist24>li:before {
+        content: '4.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist25 {
+        list-style: none;
+        counter-reset: awlistcounter8_0 4
+    }
+
+    .awlist25>li:before {
+        content: counter(awlistcounter8_0) '.';
+        counter-increment: awlistcounter8_0
+    }
+
+    .awlist26 {
+        list-style: none;
+        counter-reset: awlistcounter8_1
+    }
+
+    .awlist26>li:before {
+        content: '5.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist27 {
+        list-style: none;
+        counter-reset: awlistcounter5_0
+    }
+
+    .awlist27>li:before {
+        content: '(' counter(awlistcounter5_0, lower-latin) ')';
+        counter-increment: awlistcounter5_0
+    }
+
+    .awlist28 {
+        list-style: none;
+        counter-reset: awlistcounter5_0 1
+    }
+
+    .awlist28>li:before {
+        content: '(' counter(awlistcounter5_0, lower-latin) ')';
+        counter-increment: awlistcounter5_0
+    }
+
+    .awlist29 {
+        list-style: none;
+        counter-reset: awlistcounter5_0 2
+    }
+
+    .awlist29>li:before {
+        content: '(' counter(awlistcounter5_0, lower-latin) ')';
+        counter-increment: awlistcounter5_0
+    }
+
+    .awlist30 {
+        list-style: none;
+        counter-reset: awlistcounter5_0 3
+    }
+
+    .awlist30>li:before {
+        content: '(' counter(awlistcounter5_0, lower-latin) ')';
+        counter-increment: awlistcounter5_0
+    }
+
+    .awlist31 {
+        list-style: none;
+        counter-reset: awlistcounter5_0 4
+    }
+
+    .awlist31>li:before {
+        content: '(' counter(awlistcounter5_0, lower-latin) ')';
+        counter-increment: awlistcounter5_0
+    }
+
+    .awlist32 {
+        list-style: none;
+        counter-reset: awlistcounter5_0 5
+    }
+
+    .awlist32>li:before {
+        content: '(' counter(awlistcounter5_0, lower-latin) ')';
+        counter-increment: awlistcounter5_0
+    }
+
+    .awlist33 {
+        list-style: none;
+        counter-reset: awlistcounter5_0 6
+    }
+
+    .awlist33>li:before {
+        content: '(' counter(awlistcounter5_0, lower-latin) ')';
+        counter-increment: awlistcounter5_0
+    }
+
+    .awlist34 {
+        list-style: none;
+        counter-reset: awlistcounter5_0 7
+    }
+
+    .awlist34>li:before {
+        content: '(' counter(awlistcounter5_0, lower-latin) ')';
+        counter-increment: awlistcounter5_0
+    }
+
+    .awlist35 {
+        list-style: none;
+        counter-reset: awlistcounter5_0 8
+    }
+
+    .awlist35>li:before {
+        content: '(' counter(awlistcounter5_0, lower-latin) ')';
+        counter-increment: awlistcounter5_0
+    }
+
+    .awlist36 {
+        list-style: none;
+        counter-reset: awlistcounter5_0 9
+    }
+
+    .awlist36>li:before {
+        content: '(' counter(awlistcounter5_0, lower-latin) ')';
+        counter-increment: awlistcounter5_0
+    }
+
+    .awlist37 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 1
+    }
+
+    .awlist37>li:before {
+        content: '5.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist38 {
+        list-style: none;
+        counter-reset: awlistcounter4_0
+    }
+
+    .awlist38>li:before {
+        content: '(' counter(awlistcounter4_0, lower-latin) ')';
+        counter-increment: awlistcounter4_0
+    }
+
+    .awlist39 {
+        list-style: none;
+        counter-reset: awlistcounter4_0 1
+    }
+
+    .awlist39>li:before {
+        content: '(' counter(awlistcounter4_0, lower-latin) ')';
+        counter-increment: awlistcounter4_0
+    }
+
+    .awlist40 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 2
+    }
+
+    .awlist40>li:before {
+        content: '5.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist41 {
+        list-style: none;
+        counter-reset: awlistcounter8_0 5
+    }
+
+    .awlist41>li:before {
+        content: counter(awlistcounter8_0) '.';
+        counter-increment: awlistcounter8_0
+    }
+
+    .awlist42 {
+        list-style: none;
+        counter-reset: awlistcounter8_1
+    }
+
+    .awlist42>li:before {
+        content: '6.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist43 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 1
+    }
+
+    .awlist43>li:before {
+        content: '6.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist44 {
+        list-style: none;
+        counter-reset: awlistcounter8_0 6
+    }
+
+    .awlist44>li:before {
+        content: counter(awlistcounter8_0) '.';
+        counter-increment: awlistcounter8_0
+    }
+
+    .awlist45 {
+        list-style: none;
+        counter-reset: awlistcounter8_1
+    }
+
+    .awlist45>li:before {
+        content: '7.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist46 {
+        list-style: none;
+        counter-reset: awlistcounter3_0
+    }
+
+    .awlist46>li:before {
+        content: '(' counter(awlistcounter3_0, lower-latin) ')';
+        counter-increment: awlistcounter3_0
+    }
+
+    .awlist47 {
+        list-style: none;
+        counter-reset: awlistcounter3_0 1
+    }
+
+    .awlist47>li:before {
+        content: '(' counter(awlistcounter3_0, lower-latin) ')';
+        counter-increment: awlistcounter3_0
+    }
+
+    .awlist48 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 1
+    }
+
+    .awlist48>li:before {
+        content: '7.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist49 {
+        list-style: none;
+        counter-reset: awlistcounter8_0 7
+    }
+
+    .awlist49>li:before {
+        content: counter(awlistcounter8_0) '.';
+        counter-increment: awlistcounter8_0
+    }
+
+    .awlist50 {
+        list-style: none;
+        counter-reset: awlistcounter8_1
+    }
+
+    .awlist50>li:before {
+        content: '8.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist51 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 1
+    }
+
+    .awlist51>li:before {
+        content: '8.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist52 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 2
+    }
+
+    .awlist52>li:before {
+        content: '8.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist53 {
+        list-style: none;
+        counter-reset: awlistcounter8_0 8
+    }
+
+    .awlist53>li:before {
+        content: counter(awlistcounter8_0) '.';
+        counter-increment: awlistcounter8_0
+    }
+
+    .awlist54 {
+        list-style: none;
+        counter-reset: awlistcounter8_1
+    }
+
+    .awlist54>li:before {
+        content: '9.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist55 {
+        list-style: none;
+        counter-reset: awlistcounter2_0
+    }
+
+    .awlist55>li:before {
+        content: '(' counter(awlistcounter2_0, lower-latin) ')';
+        counter-increment: awlistcounter2_0
+    }
+
+    .awlist56 {
+        list-style: none;
+        counter-reset: awlistcounter2_0 1
+    }
+
+    .awlist56>li:before {
+        content: '(' counter(awlistcounter2_0, lower-latin) ')';
+        counter-increment: awlistcounter2_0
+    }
+
+    .awlist57 {
+        list-style: none;
+        counter-reset: awlistcounter2_0 2
+    }
+
+    .awlist57>li:before {
+        content: '(' counter(awlistcounter2_0, lower-latin) ')';
+        counter-increment: awlistcounter2_0
+    }
+
+    .awlist58 {
+        list-style: none;
+        counter-reset: awlistcounter2_0 3
+    }
+
+    .awlist58>li:before {
+        content: '(' counter(awlistcounter2_0, lower-latin) ')';
+        counter-increment: awlistcounter2_0
+    }
+
+    .awlist59 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 1
+    }
+
+    .awlist59>li:before {
+        content: '9.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist60 {
+        list-style: none;
+        counter-reset: awlistcounter8_0 9
+    }
+
+    .awlist60>li:before {
+        content: counter(awlistcounter8_0) '.';
+        counter-increment: awlistcounter8_0
+    }
+
+    .awlist61 {
+        list-style: none;
+        counter-reset: awlistcounter8_1
+    }
+
+    .awlist61>li:before {
+        content: '10.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist62 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 1
+    }
+
+    .awlist62>li:before {
+        content: '10.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist63 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 2
+    }
+
+    .awlist63>li:before {
+        content: '10.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist64 {
+        list-style: none;
+        counter-reset: awlistcounter8_0 10
+    }
+
+    .awlist64>li:before {
+        content: counter(awlistcounter8_0) '.';
+        counter-increment: awlistcounter8_0
+    }
+
+    .awlist65 {
+        list-style: none;
+        counter-reset: awlistcounter8_1
+    }
+
+    .awlist65>li:before {
+        content: '11.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist66 {
+        list-style: none;
+        counter-reset: awlistcounter1_0
+    }
+
+    .awlist66>li:before {
+        content: '(' counter(awlistcounter1_0, lower-latin) ')';
+        counter-increment: awlistcounter1_0
+    }
+
+    .awlist67 {
+        list-style: none;
+        counter-reset: awlistcounter1_0 1
+    }
+
+    .awlist67>li:before {
+        content: '(' counter(awlistcounter1_0, lower-latin) ')';
+        counter-increment: awlistcounter1_0
+    }
+
+    .awlist68 {
+        list-style: none;
+        counter-reset: awlistcounter8_0 11
+    }
+
+    .awlist68>li:before {
+        content: counter(awlistcounter8_0) '.';
+        counter-increment: awlistcounter8_0
+    }
+
+    .awlist69 {
+        list-style: none;
+        counter-reset: awlistcounter8_1
+    }
+
+    .awlist69>li:before {
+        content: '12.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist70 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 1
+    }
+
+    .awlist70>li:before {
+        content: '12.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist71 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 2
+    }
+
+    .awlist71>li:before {
+        content: '12.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist72 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 3
+    }
+
+    .awlist72>li:before {
+        content: '12.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist73 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 4
+    }
+
+    .awlist73>li:before {
+        content: '12.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist74 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 5
+    }
+
+    .awlist74>li:before {
+        content: '12.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist75 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 6
+    }
+
+    .awlist75>li:before {
+        content: '12.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist76 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 7
+    }
+
+    .awlist76>li:before {
+        content: '12.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist77 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 8
+    }
+
+    .awlist77>li:before {
+        content: '12.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist78 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 9
+    }
+
+    .awlist78>li:before {
+        content: '12.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist79 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 10
+    }
+
+    .awlist79>li:before {
+        content: '12.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist80 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 11
+    }
+
+    .awlist80>li:before {
+        content: '12.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist81 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 12
+    }
+
+    .awlist81>li:before {
+        content: '12.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist82 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 13
+    }
+
+    .awlist82>li:before {
+        content: '12.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .awlist83 {
+        list-style: none;
+        counter-reset: awlistcounter8_1 14
+    }
+
+    .awlist83>li:before {
+        content: '12.' counter(awlistcounter8_1) '.';
+        counter-increment: awlistcounter8_1
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        background: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .header {
+        background-color: #4CAF50;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .field {
+        margin-bottom: 15px;
+    }
+
+    .field label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .field span {
+        display: block;
+        padding: 10px;
+        background: #f1f1f1;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+</style>
+<div>
+    <div style="clear:both;">
+        <div dir="rtl" style="text-align:left;">
+            <table cellspacing="0" cellpadding="0" style="border-collapse: collapse; width: 100%;">
+                <tbody>
+                    <tr style="height:15pt;">
+                        <td style="width:139.45pt; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top;">
+                            <p dir="ltr" style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span
+                                    dir="ltr">&nbsp;</span></p>
+                        </td>
+                        <td style="width:139.45pt; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top;">
+                            <p dir="ltr" style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;">
+                                <span dir="ltr">&nbsp;</span></p>
+                        </td>
+                        <td style="width:139.45pt; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top;">
+                            <p dir="ltr" style="margin-top:0pt; margin-bottom:0pt; text-align:right; font-size:11pt;">
+                                <span dir="ltr">&nbsp;</span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="margin-top:0pt; margin-bottom:0pt; line-height:normal;">&nbsp;</p>
+    </div>
+    <p style="margin-top:0pt; margin-bottom:8pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-bottom:8pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-bottom:8pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <table cellspacing="0" cellpadding="0" style="border-collapse: collapse; width: 100%;">
+        <tbody>
+            <tr style="height:156pt;">
+                <td style="width:426.75pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:middle;">
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <strong><span style="font-family:'Times New Roman';">GRANT AGREEMENT</span></strong></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr style="height:356.25pt;">
+                <td style="width:426.75pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <strong><span style="font-family:'Times New Roman';">BETWEEN</span></strong></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman'; ">{{proposal.donor_name}}</span></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <strong><span style="font-family:'Times New Roman';">&nbsp;</span></strong><strong><span
+                                style="font-family:'Times New Roman';">(THE DONOR)</span></strong></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <strong><span style="font-family:'Times New Roman';">AND</span></strong></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman'; ">{{ngo_details.ngo_name}}</span>
+                    </p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <strong><span style="font-family:'Times New Roman';">(THE RECIPIENT)</span></strong></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:center; widows:0; orphans:0;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:center; widows:0; orphans:0;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:center; widows:0; orphans:0;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p
+        style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; widows:0; orphans:0; font-size:14pt;">
+        <strong>GRANT AGREEMENT</strong></p>
+    <p style="margin:0pt 18.7pt 8pt 36pt; text-indent:-36pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-bottom:8pt;"><span style="font-family:'Times New Roman';">This grant agreement
+            (&quot;</span><strong><span style="font-family:'Times New Roman';">Agreement</span></strong><span
+            style="font-family:'Times New Roman';">&quot;) is made on this&nbsp;</span><span
+            style="font-family:'Times New Roman'; ">{{other_details.modified_date}}</span><span
+            style="font-family:'Times New Roman';">&nbsp;at Bangalore, Karnataka and is effective as
+            of&nbsp;</span><span style="font-family:'Times New Roman'; ">{{other_details.start_date}},</span><span
+            style="font-family:'Times New Roman';">&nbsp;(&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Effective Date</span></strong><span
+            style="font-family:'Times New Roman';">&quot;)</span></p>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:center;"><strong><span
+                style="font-family:'Times New Roman';">BETWEEN</span></strong></p>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="A" class="awlist1" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:28.35pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:15.31pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><strong><span
+                    style="font-family:'Times New Roman';">Donor Name a philanthropy </span></strong><span
+                style="font-family:'Times New Roman';">incorporated under the laws of India, having its registered
+                office at 10</span><span
+                style="line-height:108%; font-family:'Times New Roman'; font-size:7.33pt;"><sup>th</sup></span><span
+                style="font-family:'Times New Roman';">&nbsp;Floor, Dr. Raj Kumar Road, Malleshwaram (W) Bangalore,
+                Karnataka 560055 (hereinafter referred to as &quot;</span><strong><span
+                    style="font-family:'Times New Roman';">Donor</span></strong><span
+                style="font-family:'Times New Roman';">&quot;, which expression shall, unless repugnant to the context
+                or meaning thereof, be deemed to include its nominee(s) and permitted assign(s)), of
+                the&nbsp;</span><strong><span style="font-family:'Times New Roman';">FIRST PART</span></strong><span
+                style="font-family:'Times New Roman';">;</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:center;"><strong><span
+                style="font-family:'Times New Roman';">AND</span></strong></p>
+    <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-bottom:10pt; text-align:justify;"><strong><span
+                style="font-family:'Times New Roman'; ">{{ngo_details.ngo_name}}</span></strong><span
+            style="font-family:'Times New Roman'; ">, registered as {{ngo_details.registration_of_the_organisaiton}}
+            having its registered office at&nbsp;</span><a name="_cmntref1"><span
+                style="font-family:'Times New Roman'; ">{{ngo_details.address_1}} {{ngo_details.address_2}}
+                {{ngo_details.address_3}} {{ngo_details.district_name}} {{ngo_details.state_name}}
+                {{ngo_details.pincode}}&nbsp;</span></a><a style="text-decoration:none;"><span
+                style="font-size:8pt;">[A1]</span></a><span style="font-family:'Times New Roman'; ">&nbsp;(hereinafter
+            referred as &ldquo;</span><strong><span
+                style="font-family:'Times New Roman'; ">Recipient</span></strong><span
+            style="font-family:'Times New Roman'; ">&rdquo; which expression shall be deemed to include its successors,
+            administrators, heirs, assigns and nominees), of the&nbsp;</span><strong><span
+                style="font-family:'Times New Roman'; ">SECOND PART</span></strong><span
+            style="font-family:'Times New Roman'; ">.</span></p>
+    <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify;"><span style="font-family:'Times New Roman';">The
+            Donor and the Recipient are herein referred to individually as a &quot;</span><strong><span
+                style="font-family:'Times New Roman';">Party</span></strong><span
+            style="font-family:'Times New Roman';">&quot; and collectively referred to as the &quot;</span><strong><span
+                style="font-family:'Times New Roman';">Parties</span></strong><span
+            style="font-family:'Times New Roman';">&quot;.</span></p>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt; text-indent:-36pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt; text-indent:-36pt; text-align:justify;"><strong><span
+                style="font-family:'Times New Roman';">WHEREAS</span></strong></p>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt; text-indent:-36pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="A" class="awlist2" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:15.31pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">The Donor is in the business of providing support services and
+                conducting testing related activities (hereinafter known as &quot;</span><strong><span
+                    style="font-family:'Times New Roman';">Business</span></strong><span
+                style="font-family:'Times New Roman';">&quot;).</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="A" class="awlist3" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:15.7pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman'; ">The Donor, has agreed to finance the below mentioned Project(s)
+                (defined below) of the Recipient, which has the necessary infrastructure, expertise and experience
+                required for carrying out, conducting and providing facilities for {project details}by way of a Grant
+                (defined below) of&nbsp;</span><strong><span style="font-family:'Times New Roman'; ">INR
+                    {{proposal.total_planned_budget}}/- </span></strong><span
+                style="font-family:'Times New Roman'; ">{{other_details.amount_in_words}})</span><span
+                style="font-family:'Times New Roman';">.</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-bottom:8pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="3" type="A" class="awlist4" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:15.81pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">The Parties have entered into this Agreement to record their
+                mutual understanding and set out the terms and conditions in relation to the Grant and other matters in
+                connection thereto which they agree will be interpreted, acted upon and governed in accordance with the
+                provisions of this Agreement.</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify;"><strong><span
+                style="font-family:'Times New Roman';">NOW THEREFORE,</span></strong><span
+            style="font-family:'Times New Roman';">&nbsp;in consideration of the premises and the mutual covenants set
+            forth herein, the sufficiency of which is hereby acknowledged, the Parties agree as follows:</span></p>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="1" class="awlist5" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:20.1pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>DEFINITION
+                AND INTERPRETATION</strong></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="1" class="awlist6" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>Definitions</strong>
+        </li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Affiliate</span></strong><span
+            style="font-family:'Times New Roman';">&quot; of the Recipient, means any Person that, directly or
+            indirectly, Controls, is Controlled by or is under common Control with the Recipient, whereas
+            &quot;</span><strong><span style="font-family:'Times New Roman';">Affiliate</span></strong><span
+            style="font-family:'Times New Roman';">&quot; of the Donor means any entity in which the Donor or its group
+            companies have directly or indirectly, certain economic interest. For avoidance of doubt, any reference to
+            an Affiliate of the Donor under this Agreement shall mean &quot;an Affiliate domiciled in
+            India&quot;;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Agents</span></strong><span
+            style="font-family:'Times New Roman';">&quot; means, in relation to a Person, that Person&apos;s directors,
+            officers, employees, advisers, agents and representatives;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Agreement</span></strong><span
+            style="font-family:'Times New Roman';">&quot; means this Agreement along with its recitals and schedules, as
+            amended, supplemented or replaced or otherwise modified from time to time, and any other document which, (a)
+            amends, supplements, replaces or otherwise modifies this Agreement or (b) by reference is made a part of
+            this Agreement;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Applicable Law</span></strong><span
+            style="font-family:'Times New Roman';">&quot; means, with respect to any Person, all provisions of laws,
+            statutes, ordinances, codes, standards, rules, regulations, permits or certificates of any Governmental
+            Authority, as may be updated from time to time, applicable to such Person or any of its assets or property,
+            and all judgments, injunctions, orders and decrees of any Governmental Authorities in proceedings or actions
+            in which such Person is a party or by which any of its assets or properties are bound or the rules or
+            regulations of any applicable governmental, quasi-governmental or self-regulating authority binding upon
+            such Party for the time being (whether or not having force in law);</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p
+        style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify; line-height:normal; widows:0; orphans:0;">
+        <span style="font-family:'Times New Roman';">&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Business</span></strong><span
+            style="font-family:'Times New Roman';">&quot;has the meaning ascribed to it under recital (A) of the
+            Agreement;</span></p>
+    <p
+        style="margin-top:0pt; margin-left:36pt; margin-bottom:0pt; text-align:justify; line-height:normal; widows:0; orphans:0;">
+        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Business Day</span></strong><span
+            style="font-family:'Times New Roman';">&quot; means a day (other than a Saturday or Sunday or a public
+            holiday) when commercial banks are open for ordinary banking business in Bangalore, India;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p
+        style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify; line-height:normal; widows:0; orphans:0;">
+        <span style="font-family:'Times New Roman';">&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Confidential Information</span></strong><span
+            style="font-family:'Times New Roman';">&quot; means all non-public information disclosed orally, visually,
+            electronically, in writing or in any tangible form of information by the Donor, its Affiliates, or their
+            respective Agents or contractors (each, a &quot;</span><strong><span
+                style="font-family:'Times New Roman';">Disclosing Party</span></strong><span
+            style="font-family:'Times New Roman';">&quot;) to the Recipient, its Affiliates or any Agents of any of them
+            (each, a &quot;</span><strong><span style="font-family:'Times New Roman';">Receiving
+                Party</span></strong><span style="font-family:'Times New Roman';">&quot;) that is designated as
+            confidential or that, given the nature of the information or the circumstances surrounding its disclosure,
+            reasonably should be considered as confidential. Confidential Information includes (i) non-public
+            information relating to the Disclosing Party&apos;s Business, trade secrets, technology (including software,
+            databases, data processing or communications networking systems), customers, suppliers, Business plans,
+            strategies, forecasts or forecast assumptions, operations, methods of doing Business, records, assets,
+            promotional and marketing activities, finances and other business affairs, (ii) third-party information that
+            the Disclosing Party is obligated to keep confidential, and (iii) the nature, content and existence of any
+            discussions or negotiations between the Parties, including the terms of this Agreement. For the avoidance of
+            doubt, all customer information and any information disclosed by the Donor while making the Grant shall be
+            treated as Confidential Information;</span></p>
+    <p
+        style="margin-top:0pt; margin-left:36pt; margin-bottom:0pt; text-align:justify; line-height:normal; widows:0; orphans:0;">
+        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p
+        style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify; line-height:normal; widows:0; orphans:0;">
+        <span style="font-family:'Times New Roman';">&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Control</span></strong><span
+            style="font-family:'Times New Roman';">&quot; means the possession, directly or indirectly, of the power to
+            direct or cause the direction of the management or policies of any Person, whether through the ownership of
+            over 50% (Fifty percent) of voting securities, through the power to appoint over half of the members of the
+            board of directors or similar governing body of such Person or by contract or otherwise and
+            &quot;</span><strong><span style="font-family:'Times New Roman';">Controls</span></strong><span
+            style="font-family:'Times New Roman';">&quot; and &quot;</span><strong><span
+                style="font-family:'Times New Roman';">Controlled</span></strong><span
+            style="font-family:'Times New Roman';">&quot; shall be understood accordingly;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Continuing Provisions</span></strong><span
+            style="font-family:'Times New Roman';">&quot; means Clause 1 (</span><em><span
+                style="font-family:'Times New Roman';">Definitions and Interpretation</span></em><span
+            style="font-family:'Times New Roman';">), Clause 5 (</span><em><span
+                style="font-family:'Times New Roman';">Representations and Warranties and Indemnity</span></em><span
+            style="font-family:'Times New Roman';">), Clause 7 (</span><em><span
+                style="font-family:'Times New Roman';">Confidentiality</span></em><span
+            style="font-family:'Times New Roman';">), Clause 11(</span><em><span
+                style="font-family:'Times New Roman';">Governing Law and Dispute Resolution</span></em><span
+            style="font-family:'Times New Roman';">), Clause 12 (</span><em><span
+                style="font-family:'Times New Roman';">Notices</span></em><span
+            style="font-family:'Times New Roman';">), and Clause 13 (</span><em><span
+                style="font-family:'Times New Roman';">Miscellaneous</span></em><span
+            style="font-family:'Times New Roman';">) of the Agreement.</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Dispute</span></strong><span
+            style="font-family:'Times New Roman';">&quot;has the meaning ascribed to it under Clause 11.1 of the
+            Agreement;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Financial Statements</span></strong><span
+            style="font-family:'Times New Roman';">&quot; with respect to a period, shall mean the balance sheet, profit
+            and loss account, statements of income and cash flows and statement of changes in shareholders&apos; equity,
+            prepared on a consolidated basis or otherwise, as may be required under the Applicable Law;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Grant</span></strong><span
+            style="font-family:'Times New Roman';">&quot; means a donation made by the Donor for a charitable purpose
+            and/or to benefit a cause by offering;&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Governmental Authority</span></strong><span
+            style="font-family:'Times New Roman';">&quot; means any instrumentality, subdivision, court, administrative
+            agency, commission, official or other authority of the Republic of India or any other country or any state,
+            province, municipality, locality or other government or political subdivision thereof, or any
+            quasi-governmental or private body exercising any regulatory, taxing, importing or other governmental or
+            quasi-governmental authority;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p
+        style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify; line-height:normal; widows:0; orphans:0;">
+        <span style="font-family:'Times New Roman';">&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Person</span></strong><span
+            style="font-family:'Times New Roman';">&quot; means a corporation, association, partnership (general or
+            limited), joint venture, estate, trust, limited liability company, limited liability partnership or any
+            other legal entity, individual or government, state or agency of a state;</span></p>
+    <p
+        style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify; line-height:normal; widows:0; orphans:0;">
+        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p
+        style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify; line-height:normal; widows:0; orphans:0;">
+        <span style="font-family:'Times New Roman';">&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Personnel</span></strong><span
+            style="font-family:'Times New Roman';">&quot;has the meaning ascribed to it under Clause 5.1(c)of the
+            Agreement;</span></p>
+    <p
+        style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify; line-height:normal; widows:0; orphans:0;">
+        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p
+        style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify; line-height:normal; widows:0; orphans:0;">
+        <span style="font-family:'Times New Roman';">&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Project</span></strong><span
+            style="font-family:'Times New Roman';">&quot; as briefly described under recital (C) above and as detailed
+            under&nbsp;</span><strong><span style="font-family:'Times New Roman';">Annexure I </span></strong><span
+            style="font-family:'Times New Roman';">of the Agreement;</span></p>
+    <p
+        style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify; line-height:normal; widows:0; orphans:0;">
+        <span style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p
+        style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify; line-height:normal; widows:0; orphans:0;">
+        <span style="font-family:'Times New Roman';">&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Project Completion Date</span></strong><span
+            style="font-family:'Times New Roman';">&quot; has the meaning ascribed to it under Clause 4.3 of the
+            Agreement;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&quot;</span><strong><span
+                style="font-family:'Times New Roman';">Tax</span></strong><span
+            style="font-family:'Times New Roman';">&quot; or &quot;</span><strong><span
+                style="font-family:'Times New Roman';">Taxation</span></strong><span
+            style="font-family:'Times New Roman';">&quot; means all forms of taxation, duties, levies, imposts and
+            social security charges, including without limitation corporate income tax, withholding tax, value added
+            tax, customs and excise duties, capital tax and other legal transaction taxes, real estate taxes, other
+            municipal taxes and duties, environmental taxes and duties and any other type of taxes duties or cess in any
+            relevant jurisdiction, together with any interest, penalties, surcharges or fines relating thereto, due,
+            payable, levied, imposed upon or claimed to be owed in any relevant jurisdiction;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="1" class="awlist7" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>Interpretation</strong>
+        </li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">In this Agreement, unless the context otherwise provides.</span></p>
+    <ol type="a" class="awlist8" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:16.41pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">Words using the singular or plural number also include the plural
+                or singular number, respectively.</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="a" class="awlist9" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:15.9pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">Any reference to any statute or statutory provision shall include
+                all subordinate legislation made from time to time under that provision (whether or not amended,
+                modified, re-enacted or consolidated) and such statute or provision as may be amended, modified,
+                re-enacted or consolidated.</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="3" type="a" class="awlist10" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:17.03pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">Any reference to an agreement, instrument or other document
+                (including a reference to this Agreement) herein shall be to such agreement, instrument or other
+                document as amended, supplemented or novated pursuant to the terms thereof.</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="4" type="a" class="awlist11" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:15.9pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">The Schedule, Annexure and Exhibits to this Agreement form an
+                integral part of this Agreement.</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="1" class="awlist12" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:20.1pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>PURPOSE
+                OF AGREEMENT</strong></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="1" class="awlist13" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Subject
+            to the proposal made by the Recipient and upon the terms and conditions contained in this Agreement, the
+            Donor agrees to provide to the Recipient and the Recipient agrees to obtain from the Donor, the Grant, on
+            the terms and conditions contained in this Agreement; and</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="1" class="awlist14" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Save
+            as may be otherwise provided by the Donor in writing, the Recipient agrees and undertakes that the proceeds
+            of the Grant shall be utilized exclusively for the purposes of undertaking Project and as per the terms set
+            out in this Agreement.</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="3" type="1" class="awlist15" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:20.1pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>CONDITION
+                PRECEDENT</strong></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="1" class="awlist16" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Notwithstanding
+            any other provision under this Agreement, the Donor is not obligated to disburse any Grants and shall have
+            the right to withdraw the Grants disbursed under this Agreement, if the Recipient:</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="a" class="awlist17" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:16.41pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">has not made a proposal before the Donor in relation to
+                undertaking the Project, in the manner required by the Donor;</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:56.7pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="a" class="awlist18" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:15.9pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">is prohibited or excluded from receiving such Grants under
+                Applicable Law for the time being in force in India; or</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:56.7pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="3" type="a" class="awlist19" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:17.03pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">has been involved in or is alleged to be involved in activities
+                which amount to contravention of any Applicable Law, including but not limited to the Foreign
+                Contribution Regulation Act, 2010 (&quot;</span><strong><span
+                    style="font-family:'Times New Roman';">FCRA</span></strong><span
+                style="font-family:'Times New Roman';">&quot;).</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="1" class="awlist20" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>The
+            provisions of this Clause 3 shall be a continuing obligation of the Recipient which shall apply throughout
+            the Term and any extension(s) thereof.</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="4" type="1" class="awlist21" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:20.1pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>DISBURSEMENT
+                OF GRANT</strong></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="1" class="awlist22" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>The
+            Grant shall be disbursed in the format and in the manner stipulated by the Donor under <strong>Annexure
+                II</strong> of the Agreement, subject to the compliance of the Recipient with the terms of this
+            Agreement. Notwithstanding anything stated herein, the Donor may, in its sole discretion and determination,
+            remit the Grant in any other manner that it may deem fit.</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt; text-align:justify;"><a name="_cmntref2"><span
+                style="font-family:'Times New Roman'; ">Subject to the Clause 4.1 above, the Grant shall be remitted,
+                transferred and delivered into the Recipient&apos;s bank account with {{ngo_details.bank_name}} Bank,
+                with its branch office located at {{ngo_details.branch_name}}, with IFSC Code {{ngo_details.ifsc_code}}
+                within the time period specified in&nbsp;</span><strong><span
+                    style="font-family:'Times New Roman'; ">Annexure II</span></strong><span
+                style="font-family:'Times New Roman'; ">&nbsp;or within any other time period determined by the Donor in
+                terms of Clause 4.1</span></a></p>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="1" class="awlist23" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:21.6pt; margin-bottom:8pt; text-indent:-18pt; text-align:justify; font-family:'Times New Roman';">
+            <span style="width:1.5pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;</span>The Recipient
+            represents and warrants that the Recipient&apos;s bank account specified under Clause 4.1 above is a
+            non-FCRA account. The Recipient further agrees to issue a declaration to this effect seven (7) days before
+            receipt of the Grant.</li>
+    </ol>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="3" type="1" class="awlist24" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="">The Grant shall be exclusively used for undertaking the Project detailed
+                under&nbsp;</span><strong><span style="">Annexure I </span></strong><span style="">within the project
+                duration of {{proposal.grant_duration_in_months}} months i.e. from&nbsp;</span><strong><span
+                    style="">{{other_details.start_date}} &ndash; {{other_details.end_date}} </span></strong><span
+                style="">&nbsp;</span><span style="">or within any other timeline as may be mutually agreed by the
+                Parties (&quot;</span><strong><span style="">Project Completion Date</span></strong><span
+                style="">&quot;). It is agreed between the Parties that the Project detailed under Annexure I may
+                continue to apply, in the manner mutually agreed between the Parties in writing, and the Recipient may
+                be provided additional grant amount as may be determined by Donor for Year II and Year III, if Parties
+                mutually agree to extend the term of this Agreement. Notwithstanding the aforesaid term, the Parties
+                agree that the grant amounts for Year II and Year III, as specified under Annexure II, are good faith
+                estimates and non-binding, and Donor may modify the same in case of extension of the term of this
+                Agreement.&nbsp;</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="5" type="1" class="awlist25" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:20.1pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>REPRESENTATION
+                AND WARRANTIES AND INDEMNITY</strong></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="1" class="awlist26" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>The
+            Recipient hereby represents and warrants that:</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="a" class="awlist27" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:16.41pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">it will undertake the Project in a competent and workmanlike
+                manner in accordance with the level of professional care customarily observed by highly skilled
+                professionals rendering similar services;</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:56.7pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="a" class="awlist28" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:15.9pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">the proposal, reports and/or other materials in connection with
+                the Project provided by or on behalf of the Recipient shall not violate or infringe any third
+                party&apos;s patents, trade secrets, trademarks, copyrights or other proprietary rights;</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="3" type="a" class="awlist29" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:17.03pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">it has adequate personnel (whether employed directly or
+                otherwise) (&quot;</span><strong><span
+                    style="font-family:'Times New Roman';">Personnel</span></strong><span
+                style="font-family:'Times New Roman';">&quot;) and resources with the necessary skills and
+                qualifications to undertake the Project in a timely manner and that the Recipient as a prudent employer
+                has sufficiently ascertained that the Personnel&apos;s credentials (including checking criminal track
+                records, background investigation or references), are suitable to undertake the Project under this
+                Agreement;</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="4" type="a" class="awlist30" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:15.9pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">it and its Personnel are in compliance and will comply, at
+                Recipient&apos;s sole cost, with all Applicable Law, including any order, judgment, notification, etc.
+                issued by any Governmental Authority having jurisdiction over Recipient in connection with undertaking
+                of the Project, and will hold, fully comply with and obtain or has already obtained (as applicable) all
+                the required licenses, required registrations, permits and approvals as may be required from time to
+                time under the Applicable Law;</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="5" type="a" class="awlist31" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:16.21pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">it has all rights necessary for (and is not subject to any
+                restriction, penalty, agreement, commitment, Applicable Law, rule, regulation, proceedings or order
+                which is violated by) execution and delivery of this Agreement and performance of its obligations under
+                this Agreement;</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="6" type="a" class="awlist32" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:18.32pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">if the Contract Labour (Regulation and Abolition) Act 1970
+                (&quot;</span><strong><span style="font-family:'Times New Roman';">CLRA</span></strong><span
+                style="font-family:'Times New Roman';">&quot;) is applicable to the Recipient, then the Recipient shall
+                make the requisite applications with the appropriate Governmental Authorities prior to using contract
+                labour for undertaking the Services under this Agreement and intimate the Donor accordingly;</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="7" type="a" class="awlist33" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:16.5pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">all Personnel are authorized to lawfully undertake the Project
+                pursuant to applicable immigration and work status Applicable Law;</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="8" type="a" class="awlist34" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:15.9pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">to the best of Recipient&apos;s knowledge after due inquiry,
+                Recipient&apos;s Personnel have not been convicted of a felony in the previous 7 (Seven) years, or, if
+                they have, the Recipient has (to the extent permitted under Applicable Law) provided information to the
+                Donor regarding the nature, severity, and date of each such conviction;&nbsp;</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="9" type="a" class="awlist35" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:19.15pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">that the Personnel are its own employees and shall not be
+                construed as employees of Donor at any time during the Agreement; and</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:56.7pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="10" type="a" class="awlist36" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:19.05pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">in connection with this Agreement will comply with all applicable
+                import, re-import, sanctions, anti-boycott, export, and re-export control laws, such as the Export
+                Administration Regulations, the International Traffic in Arms Regulations, and economic sanctions
+                programs implemented by the Office of Foreign Assets Control.</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:45pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="1" class="awlist37" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>The
+            Recipient hereby agrees to indemnify, defend and hold harmless the Donor, its Affiliates and Agents from and
+            against any and all claims, losses or damages which may be asserted against or incurred by the Donor, as a
+            result of or arising from, or in connection with or relating to: (a) breach, misrepresentation or inaccuracy
+            of any of the representation and warranties made under this Agreement, including Clause 4.3 and 5.1 above;
+            and (b) breach of, or failure to perform (whether in whole or part) any of the covenants, undertakings or
+            obligations under this Agreement (subject to the Force Majeure Clause hereinafter below), by making payment
+            to the Donor on demand in writing, of a sum equal to the aggregate of:</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="a" class="awlist38" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:16.41pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">the amount which should be necessary to put the Donor into the
+                financial position which would have existed had there been no breach of the representation or warranty
+                or covenants or undertakings or obligations in question; and</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:56.7pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="a" class="awlist39" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:15.9pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">all reasonable costs and expenses suffered or incurred by the
+                Donor as a result of or in connection with such breach of representation or warranty or covenants or
+                undertakings or obligations.</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="3" type="1" class="awlist40" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>In
+            addition to the above, Recipient agrees to indemnify, defend and hold harmless the Donor, from and against
+            any and all claims, cost, penalty, interest, losses and damages which may be asserted against the Donor, as
+            a result of, or arising from, or in connection with or relating to any default by the Recipient:: (a)
+            arising from any act or omission by Recipient and/or its Personnel, including without limitation any breach
+            or default under this Agreement, or allegation or claim of negligence, strict liability or misconduct;
+            and(b) with regard to any matter relating to Tax, its payment, deduction, filings thereof and any Disputes
+            in connection with the Taxation.</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:6pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">Recipient&apos;s duty to defend is independent of its duty to
+            indemnify. Recipient&apos;s obligations under this Clause are independent of all of its other obligations
+            under this Agreement. Recipient will use counsel reasonably satisfactory to the Donor to defend each claim,
+            and Donor will cooperate (at Recipient&apos;s expense) with Recipient in the defense. Recipient will not
+            consent to the entry of any judgment or enter into any settlement without Donor&apos;s prior written
+            consent, which may not be unreasonably withheld.</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">In connection with any action to enforce Recipient&apos;s obligations
+            under this Clause 5 with respect to any claim arising out of any bodily injury (including death) to any
+            person directly or indirectly employed by the Recipient, Recipient waives any immunity, defense or
+            protection under any workers&apos; compensation, industrial insurance or similar laws and assumes liability
+            for such claim. This paragraph will not be interpreted or construed as a waiver of the Recipient&apos;s
+            right to assert any such immunity, defense or protection directly against any of its own employees or such
+            employee&apos;s estate or other representatives.</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="6" type="1" class="awlist41" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:20.1pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>ETHICS
+                AND ANTI-CORRUPTION LAWS</strong>.</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="1" class="awlist42" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>The
+            Recipient agrees and undertakes to abide by Donor&apos;s Code of Business Conduct and Ethics available at <a
+                href="http://phx.corporate-ir.net/phoenix.zhtml?c=97664&p=irol-govConduct"
+                style="text-decoration:none;"><em><u><span
+                            style="color:#0000ff;">http://phx.corporate-ir.net/phoenix.zhtml?c=97664&amp;p=irol-govConduct</span></u></em></a>(the
+            &quot;<strong>Code</strong>&quot;) which prohibits paying of bribes to anyone for any reason, whether in
+            dealings with the government or the private sector or any statutory body. The Recipient shall not violate or
+            knowingly permit anyone to violate the Code&apos;s prohibition on bribery or any applicable anti-corruption
+            laws in performing under this Agreement. Donor shall have the right to immediately terminate or suspend
+            performance under this Agreement or take such other action, as may be available under law, if the Recipient
+            breaches this Clause. The Recipient shall maintain true, accurate and complete books and records concerning
+            any payments made to another party by the Recipient under the Agreement, including on behalf of the Donor.
+            Donor and its designated representative shall have the right to inspect the Recipient&apos;s books and
+            records to verify such payments and for compliance with this Clause.</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="1" class="awlist43" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Recipient
+            covenants and undertakes that it shall not make, authorize or tolerate to be made, in the performance of
+            this Agreement, any payment, loans or gifts, or promises or offers of payments, loans, gift, of any money or
+            anything of value, directly or indirectly, to or for the use or benefit of any employee of Donor or of its
+            Agents, Affiliate or associate, etc.</li>
+    </ol>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="7" type="1" class="awlist44" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:20.1pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>CONFIDENTIALITY</strong>
+        </li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="1" class="awlist45" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>The
+            Parties agree that the terms and existence of this Agreement shall be kept confidential by each Party,
+            except</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="a" class="awlist46" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:16.41pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">where required by law or any Governmental Authority; or</span>
+        </li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:56.7pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="a" class="awlist47" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:15.9pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">to such Persons or entities for whom the Parties to this
+                Agreement have approved in writing to disclose the terms and existence of this Agreement.</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="1" class="awlist48" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>All
+            information which any the Recipient may possess relating to the Donor as a result of negotiating or entering
+            into this Agreement, the Recipient shall not, in any manner, use or disclose any such Confidential
+            Information and at the request of the Donor, deliver promptly to the Donor or destroy, all tangible
+            embodiments (and all copies) of such information in its possession.</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:18pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:18pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="8" type="1" class="awlist49" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:20.1pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>AUDIT
+                AND REPORTING</strong></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="1" class="awlist50" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>The
+            Recipient shall provide the Donor with the audited Financial Statement, reports and other information
+            relating to the utilization and expenditure of the Grant amount in the Project as specified in the Annexure
+            III.</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="1" class="awlist51" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Notwithstanding
+            the other provisions of this Agreement, and subject to prior written notice of 30 days, the Donor has the
+            right to reasonably inspect the facilities, filing, books and records of the Recipient at reasonable working
+            hours. .</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="3" type="1" class="awlist52" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>The Recipient</span> shall provide a periodic disclosure of program
+            data to the donor. Such reports and data shall be submitted by the Recipient in a format and timeline
+            mutually decided by the Parties as per Annexure IV, V, and VI.</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="9" type="1" class="awlist53" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:20.1pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>TERM
+                AND TERMINATION</strong></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="1" class="awlist54" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>This
+            Agreement shall be effective from the Effective Date until the Project Completion Date unless the Parties
+            mutually agree to renew the Agreement for a further period of one year subject to terms as specified under
+            Clause 4.3 above. The Agreement may be terminated early by the Donor by providing a 45 (Forty Five) days
+            written notice to the Recipient on the occurrence of any of the following events:</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="a" class="awlist55" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:16.41pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">In the event of a breach by the Recipient of any of its
+                conditions precedent, representations, warranties, covenants, undertakings or obligations specified
+                herein and if such breach is not remedied within 45 (Forty Five) days;&nbsp;</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:56.7pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="a" class="awlist56" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:15.9pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">In case of non-compliance by the Recipient of the Donor&apos;s
+                and its Affiliate&apos;s anti-bribery policy or Code;&nbsp;</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="3" type="a" class="awlist57" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:17.03pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">If the Recipient is involved in, charge-sheeted in or put under
+                investigation in respect of contravention of the Applicable Law, including but not limited to FCRA;
+                and/or</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="4" type="a" class="awlist58" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify;"><span
+                style="width:15.9pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style="font-family:'Times New Roman';">If the Recipient is dissolved, wound-up, surrenders its charter,
+                makes an assignment in bankruptcy, makes a proposal to its creditors, or has a receiver appointed in
+                respect of any of its assets.</span></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="1" class="awlist59" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:11.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Within
+            7 (Seven) days of the termination of this Agreement in terms of Clause 9.1 above, the Recipient shall return
+            to the Donor, the un-utilized portion of Grant as available on the date of termination. Such return shall be
+            effected in the manner and form prescribed by the Donor in this regard. The Recipient shall also provide the
+            Donor with a certificate accompanied by such reports and documents, as may be requested by the Donor,
+            evidencing the utilization of Grant up to the date of termination.</li>
+    </ol>
+    <p style="margin-top:0pt; margin-bottom:8pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="10" type="1" class="awlist60" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:14.6pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>GOVERNING
+                LAW AND DISPUTE RESOLUTION</strong></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="1" class="awlist61" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:6.35pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;</span>This
+            Agreement shall be governed by and construed in accordance with the Applicable Laws of India. The Parties
+            irrevocably agree that, the courts at Bangalore, India shall have exclusive jurisdiction to settle any
+            controversy, conflict or dispute of any nature between the Parties arising out of or relating to or in
+            connection with any indemnity claim under this Agreement or any other provisions of this Agreement
+            (&quot;<strong>Dispute</strong>&quot;).</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="1" class="awlist62" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:6.35pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;</span>In
+            case of any Dispute between the Parties, they shall for a period of 30 (thirty) days from the date of such
+            Dispute, use all reasonable endeavours to resolve the matter amicably. If the Parties are unable to resolve
+            the Dispute amicably, such a Dispute shall be settled before the courts of Bangalore.</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="3" type="1" class="awlist63" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:6.35pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;</span>Nothing
+            contained hereinabove shall prejudice either Party&apos;s right to have recourse to any court having
+            jurisdiction for the purpose of interim or interlocutory orders.</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="11" type="1" class="awlist64" style="margin:0pt; padding-left:0pt;">
+        <li style="margin-left:28.35pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';"><span
+                style="width:14.6pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>NOTICES</strong>
+        </li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="1" class="awlist65" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:6.35pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;</span>Any
+            notice, document, or communication:</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="a" class="awlist66" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:16.14pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>given
+            by hand or by courier is deemed to be received at the commencement of the next Business Day following
+            delivery to that addressee; and</li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:56.7pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="a" class="awlist67" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:56.7pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:15.52pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>sent
+            by e-mail is deemed to be received at the commencement of the next Business Day following receipt by the
+            sending Party of an electronic confirmation of transmission of the notice to that addressee or e-mail
+            server.</li>
+    </ol>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="12" type="1" class="awlist68" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:14.6pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>MISCELLANEOUS</strong>
+        </li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol type="1" class="awlist69" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:6.35pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>No
+                Partnership</strong></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">No Party shall act as an agent of any other Party or have any
+            authority to act for or to bind any other Party, except as provided in this Agreement.</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="2" type="1" class="awlist70" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:6.35pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>Entire
+                Agreement</strong></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">This Agreement shall contain the entire understanding of the Parties
+            and shall supersede all prior agreements and understandings, both written and oral, among the Parties with
+            respect to the subject matter hereof and shall be binding on each of the Parties.</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="3" type="1" class="awlist71" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:6.35pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>Waiver</strong>
+        </li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">No amendment, modification or discharge of this Agreement shall be
+            valid or binding unless set forth in writing and duly executed by the Parties hereto. No waiver shall be
+            valid unless given in writing by the Party or Parties from whom such waiver is sought. Any such waiver shall
+            constitute a waiver only with respect to the specific matter described in such writing and shall in no way
+            impair the rights of the Party granting such waiver in any other respect or at any other time. Neither the
+            waiver by any of the Parties of a breach of or a default under any of the provisions of this Agreement, nor
+            the failure by any of the Parties, on one or more occasions, to enforce any of the provisions of this
+            Agreement or to exercise any right or privilege hereunder, shall be construed as a waiver of any other
+            breach or default of a similar nature, or as a waiver of any of such provisions, rights or privileges
+            hereunder.</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="4" type="1" class="awlist72" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:6.35pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>Independent
+                Rights</strong></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">Each of the rights of the Parties hereto under this Agreement are
+            independent, cumulative and without prejudice to all other rights available to them, and the exercise or
+            non-exercise of any such rights shall not prejudice or constitute a waiver of any other right of the Party,
+            whether under this Agreement or otherwise.</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="5" type="1" class="awlist73" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:6.35pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>Survival</strong>
+        </li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">If this Agreement is terminated in accordance with Clause 9.1 above,
+            it shall become void and of no further force and effect, except for the Continuing Provisions, provided that
+            termination shall, unless otherwise agreed by the Parties, be without prejudice to the accrued rights and
+            obligations of the Parties at the date of such termination, including the rights of any Party in respect of
+            a breach of this Agreement prior to such termination but shall not lead to any special, exemplary or
+            consequential damages.</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="6" type="1" class="awlist74" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:6.35pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>Specific
+                Performance</strong></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">The Parties agree that the Donor shall be entitled to an injunction,
+            restraining order, right for recovery, suit for specific performance or such other equitable relief as a
+            court of competent jurisdiction may deem necessary or appropriate to restrain the Recipient from committing
+            any violation or enforce the performance of the covenants, representations and obligations contained in this
+            Agreement. These injunctive remedies are cumulative and are in addition to any other rights and remedies
+            that the Donor may have at law or in equity.</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="7" type="1" class="awlist75" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:6.35pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>Non-Exclusive
+                Remedies</strong></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">The rights and remedies herein provided are cumulative and none is
+            exclusive of any other, or of any rights or remedies that any Party may otherwise have at Applicable Law(s)
+            or in equity. The rights and remedies of any Party based upon, arising out of or otherwise in respect of any
+            inaccuracy or breach of any representation, warranty or agreement or failure to fulfil any condition shall
+            in no way be limited by the fact that the act, omission, occurrence or other state of facts upon which any
+            claim of any such inaccuracy or breach is based may also be the subject matter of any other representation,
+            warranty, covenant or agreement as to which there is no inaccuracy or breach.</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="8" type="1" class="awlist76" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:6.35pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>Severability</strong>
+        </li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">Each and every obligation under this Agreement shall be treated as a
+            separate obligation and shall be severally enforceable as such and in the event of any obligation or
+            obligations being or becoming unenforceable in whole or in part, such provision or provisions shall be
+            deemed to be deleted from this Agreement and any such deletion shall not affect the enforceability of the
+            remainder of this Agreement not so deleted, provided the fundamental terms of this Agreement are not
+            altered.</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="9" type="1" class="awlist77" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:6.35pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>Assignment</strong>
+        </li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">This Agreement shall not be capable of assignment by either Party
+            without the prior written approval of the other Party. Notwithstanding the foregoing, the Donor may in its
+            sole discretion assign this Agreement (or any of its rights and obligations under this Agreement) without
+            the Recipient&apos;s consent: (a) to any of its Affiliates; or (b) in connection with any merger,
+            consolidation, reorganization, sale of all or substantially all of its assets or any similar
+            transaction.</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="10" type="1" class="awlist78" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span
+                style="width:0.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;</span><strong>Counterparts</strong>
+        </li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">This Agreement may be executed in one or more counterparts, each of
+            which shall be deemed an original but all of which together shall constitute one and the same instrument and
+            any Party may execute this Agreement by signing any one or more of such originals or counterparts.</span>
+    </p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:8pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="11" type="1" class="awlist79" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span style="width:0.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;</span><strong>No Strict
+                Construction</strong></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">The Parties have participated jointly in the negotiation and drafting
+            of this Agreement. In the event of any ambiguity or question of intent or interpretation arises, this
+            Agreement shall be construed as if drafted jointly by all Parties, and no presumption or burden of proof
+            shall arise favouring or disfavouring any Party by virtue of the authorship of any provision of this
+            Agreement.</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="12" type="1" class="awlist80" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span style="width:0.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;</span><strong>Stamp
+                Duty</strong></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">Any stamp payable in India on this Agreement shall borne by the
+            Recipient.</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="13" type="1" class="awlist81" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span style="width:0.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;</span><strong>Third
+                Party Rights</strong></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">A Person who is not a Party to the Agreement or the successor or
+            permitted assignee of either of the Parties shall have no right to enforce any of the terms of this
+            Agreement. The Parties may amend or vary this Agreement in accordance with its terms without the consent of
+            any other Person.</span></p>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="14" type="1" class="awlist82" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span style="width:0.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;</span><strong>Further
+                Assurance</strong></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">The Recipient shall from time to time and at their own cost do,
+            execute and deliver or procure to be done, executed and delivered all such further acts, documents and
+            things required by, and in a form satisfactory to the Donor, in order to give full effect to this Agreement
+            and its rights, powers and remedies under this Agreement.</span></p>
+    <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <ol start="15" type="1" class="awlist83" style="margin:0pt; padding-left:0pt;">
+        <li
+            style="margin-left:28.35pt; margin-bottom:8pt; text-indent:-28.35pt; text-align:justify; font-family:'Times New Roman';">
+            <span style="width:0.85pt; font:7pt 'Times New Roman'; display:inline-block;">&nbsp;</span><strong>Force
+                Majeure</strong></li>
+    </ol>
+    <p style="margin-top:0pt; margin-left:27pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">In no event shall the Recipient be responsible or liable for any
+            failure/ delay in the performance or its obligations hereunder arising out of or caused by, directly or
+            indirectly, forces beyond its control, including, without limitation, strikes, work stoppages, accidents,
+            natural catastrophes or acts of God, Pandemic, acts of war or terrorism, civil or military disturbance and
+            interruptions, loss or malfunctions of utilities, communications or computer services, the Recipient shall
+            use reasonable efforts which are consistent with general acceptable practices such as installation of solar
+            panels, to resume performance as soon as practicable under the circumstances.&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:27pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:27pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:0pt; text-align:justify;"><strong><span
+                style="font-family:'Times New Roman';">IN WITNESS WHEREOF</span></strong><span
+            style="font-family:'Times New Roman';">&nbsp;each Party has executed this Agreement or caused this Agreement
+            to be executed by its duly authorised representatives.</span></p>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-left:36pt; margin-bottom:0pt; text-align:justify;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <table cellspacing="0" cellpadding="0" style="border-collapse: collapse; width: 100%;">
+        <tbody>
+            <tr style="height:15pt;">
+                <td style="width:206.35pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><strong><span
+                                style="font-family:'Times New Roman';">SIGNED</span></strong><span
+                            style="font-family:'Times New Roman';">&nbsp;for and on behalf of:</span></p>
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+                <td style="width:14.4pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr style="height:12pt;">
+                <td style="width:206.35pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <strong><span style="font-family:'Times New Roman';">DONOR NAME</span></strong></p>
+                </td>
+                <td style="width:14.4pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr style="height:15pt;">
+                <td style="width:206.35pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+                <td style="width:14.4pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr style="height:15pt;">
+                <td style="width:206.35pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</span>
+                    </p>
+                </td>
+                <td style="width:14.4pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr style="height:15pt;">
+                <td style="width:206.35pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+                <td style="width:14.4pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr style="height:15pt;">
+                <td style="width:206.35pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">Name:&nbsp;</span></p>
+                </td>
+                <td style="width:14.4pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr style="height:15pt;">
+                <td style="width:206.35pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">Designation:&nbsp;</span></p>
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">Date:&nbsp;</span></p>
+                </td>
+                <td style="width:14.4pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr style="height:15pt;">
+                <td style="width:206.35pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+                <td style="width:14.4pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr style="height:15pt;">
+                <td style="width:206.35pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+                <td style="width:14.4pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr style="height:45pt;">
+                <td style="width:206.35pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><strong><span
+                                style="font-family:'Times New Roman';">SIGNED</span></strong><span
+                            style="font-family:'Times New Roman';">&nbsp;for and on behalf of:</span></p>
+                </td>
+                <td style="width:14.4pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr style="height:15pt;">
+                <td style="width:206.35pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p
+                        style="margin-top:0pt; margin-bottom:8pt; line-height:108%; widows:0; orphans:0; font-size:11pt;">
+                        <span style="font-family:'Times New Roman'; ">{{ngo_details.ngo_name}}</span></p>
+                </td>
+                <td style="width:14.4pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr style="height:15pt;">
+                <td style="width:206.35pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</span>
+                    </p>
+                </td>
+                <td style="width:14.4pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr style="height:15pt;">
+                <td style="width:206.35pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">Name:</span><span
+                            style="font-family:'Times New Roman';">&nbsp;&nbsp;&nbsp;</span></p>
+                </td>
+                <td style="width:14.4pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr style="height:15pt;">
+                <td style="width:206.35pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">Designation:</span></p>
+                </td>
+                <td style="width:14.4pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+            </tr>
+            <tr style="height:15pt;">
+                <td style="width:206.35pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">Place:</span><span
+                            style="font-family:'Times New Roman';">&nbsp;&nbsp;&nbsp;</span></p>
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">Email:</span></p>
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">Date:&nbsp;</span></p>
+                </td>
+                <td style="width:14.4pt; padding-right:5.25pt; padding-left:5.25pt; vertical-align:top;">
+                    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;"><span
+                            style="font-family:'Times New Roman';">&nbsp;</span></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:10pt;"><span
+            style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; font-size:14pt;"><span
+            style="font-family:'Times New Roman';">ANNEXURE I</span></p>
+</div>
+<div>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; font-size:12pt;"><a
+            name="_cmntref3"><u><span style="font-family:'Times New Roman'; ">PROJECT PROPOSAL</span></u></a></p>
+    <p style="margin-top:5pt; margin-bottom:3pt; line-height:108%; font-size:12pt;"><a name="_cmntref3"><u><span
+                    style="font-family:'Times New Roman'; ">Details</span></u></a></p>
+    <div class="container">
+        <div class="content">
+            <div class="field">
+                <label>Proposal Name:</label>
+                <span>{{proposal.proposal_name}}</span>
+            </div>
+            <div class="field">
+                <label>Donor:</label>
+                <span>{{proposal.donor_name}}</span>
+            </div>
+            <div class="field">
+                <label>Donor Stage:</label>
+                <span>{{proposal.donor_stage}}</span>
+            </div>
+            <div class="field">
+                <label>NGO:</label>
+                <span>{{proposal.ngo_name}}</span>
+            </div>
+            <div class="field">
+                <label>NGO Stage:</label>
+                <span>{{proposal.ngo_stage}}</span>
+            </div>
+            <div class="field">
+                <label>Implementation Type:</label>
+                <span>{{proposal.implementation_type}}</span>
+            </div>
+            <div class="field">
+                <label>Total Planned Budget:</label>
+                <span>{{proposal.total_planned_budget}}</span>
+            </div>
+            <div class="field">
+                <label>Programme:</label>
+                <span>{{proposal.programme}}</span>
+            </div>
+            <div class="field">
+                <label>Start Date:</label>
+                <span>{{other_details.start_date}}</span>
+            </div>
+            <div class="field">
+                <label>End Date:</label>
+                <span>{{other_details.end_date}}</span>
+            </div>
+        </div>
+    </div>
+    <p style="margin-top:5pt; margin-bottom:3pt; text-align:center; line-height:108%; font-size:12pt;"><a
+            name="_cmntref3"><u><span style="font-family:'Times New Roman'; ">LFA</span></u></a></p>
+    <p style="margin-top:5pt; margin-bottom:3pt; line-height:108%; font-size:12pt;"><a name="_cmntref3"><u><span
+                    style="font-family:'Times New Roman'; ">Inputs</span></u></a></p>
+    <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 16px; text-align: left;">
+        <thead>
+            <tr>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">ID</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">Input
+                    Name</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">KPI</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">
+                    Frequency</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">Total
+                    Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if inputs %}
+            {% for input in inputs %}
+            <tr style="background-color: {% if loop.index is even %}#f9f9f9{% else %}#ffffff{% endif %};">
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ input.name }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ input.input_name }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ input.kpi }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ input.frequency }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ input.total_target }}</td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="5"
+                    style="border: 1px solid #ddd; padding: 8px; text-align: center; font-style: italic; color: #888;">
+                    No data available
+                </td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    <p style="margin-top:5pt; margin-bottom:3pt; line-height:108%; font-size:12pt;"><a name="_cmntref3"><u><span
+                    style="font-family:'Times New Roman'; ">Outputs</span></u></a></p>
+    <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 16px; text-align: left;">
+        <thead>
+            <tr>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">ID</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">Input
+                    Name</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">KPI</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">
+                    Frequency</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">Total
+                    Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if outputs %}
+            {% for output in outputs %}
+            <tr style="background-color: {% if loop.index is even %}#f9f9f9{% else %}#ffffff{% endif %};">
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ output.name }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ output.output_name }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ output.kpi }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ output.frequency }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ output.total_target }}</td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="5"
+                    style="border: 1px solid #ddd; padding: 8px; text-align: center; font-style: italic; color: #888;">
+                    No data available
+                </td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    <p style="margin-top:5pt; margin-bottom:3pt; line-height:108%; font-size:12pt;"><a name="_cmntref3"><u><span
+                    style="font-family:'Times New Roman'; ">Outcomes</span></u></a></p>
+    <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 16px; text-align: left;">
+        <thead>
+            <tr>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">ID</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">Input
+                    Name</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">KPI</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">
+                    Frequency</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">Total
+                    Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if outcomes %}
+            {% for outcome in outcomes %}
+            <tr style="background-color: {% if loop.index is even %}#f9f9f9{% else %}#ffffff{% endif %};">
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ outcome.name }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ outcome.outcome_name }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ outcome.kpi }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ outcome.frequency }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ outcome.total_target }}</td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="5"
+                    style="border: 1px solid #ddd; padding: 8px; text-align: center; font-style: italic; color: #888;">
+                    No data available
+                </td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    <p style="margin-top:5pt; margin-bottom:3pt; line-height:108%; font-size:12pt;"><a name="_cmntref3"><u><span
+                    style="font-family:'Times New Roman'; ">Impacts</span></u></a></p>
+    <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 16px; text-align: left;">
+        <thead>
+            <tr>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">ID</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">Input
+                    Name</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">KPI</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">
+                    Frequency</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">Total
+                    Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if impacts %}
+            {% for impact in impacts %}
+            <tr style="background-color: {% if loop.index is even %}#f9f9f9{% else %}#ffffff{% endif %};">
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ impact.name }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ impact.impact_name }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ impact.kpi }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ impact.frequency }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ impact.total_target }}</td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="5"
+                    style="border: 1px solid #ddd; padding: 8px; text-align: center; font-style: italic; color: #888;">
+                    No data available
+                </td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    <p style="margin-top:5pt; margin-bottom:3pt; line-height:108%; font-size:12pt;"><a name="_cmntref3"><u><span
+                    style="font-family:'Times New Roman'; ">Milestone</span></u></a></p>
+    <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 16px; text-align: left;">
+        <thead>
+            <tr>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">Task
+                    Name</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">Assigned
+                    To</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">Task
+                    Type</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">Status
+                </th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">Priority
+                </th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">Start
+                    Date</th>
+                <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">Due Date
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if tasks %}
+            {% for task in tasks %}
+            <tr style="background-color: {% if loop.index is even %}#f9f9f9{% else %}#ffffff{% endif %};">
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ task.title }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ task.assigned_to }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ task.custom_task_type }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ task.status }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ task.priority }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ task.start_date }}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{{ task.due_date }}</td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="5"
+                    style="border: 1px solid #ddd; padding: 8px; text-align: center; font-style: italic; color: #888;">
+                    No data available
+                </td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+<p><br style="page-break-before:always; clear:both; mso-break-type:section-break;"></p>
+<p><br style="page-break-before:always; clear:both; mso-break-type:section-break;"></p>
+<p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:14pt;"><span
+    style="font-family:'Times New Roman';">&nbsp;</span></p>
+<p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:14pt;"><span
+    style="font-family:'Times New Roman';">&nbsp;</span></p>
+<p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:14pt;"><span
+    style="font-family:'Times New Roman';">&nbsp;</span></p>
+<div>
+    <div>
+        <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:12pt;"><span
+                style="font-family:'Times New Roman';">&nbsp;</span></p>
+                <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:14pt;"><span
+                    style="font-family:'Times New Roman';">&nbsp;</span></p>
+            <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:14pt;"><span
+                    style="font-family:'Times New Roman';">&nbsp;</span></p>
+        <p style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; font-size:14pt;"><span
+                style="font-family:'Times New Roman';">ANNEXURE II</span></p>
+        <p style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; font-size:12pt;"><u><span
+                    style="font-family:'Times New Roman';">BUDGET AND DISBURSEMENT TIMELINE</span></u></p>
+        
+        <div>
+            <p style="margin-top:5pt; margin-bottom:3pt; line-height:108%; font-size:12pt;"><a name="_cmntref3"><u><span
+                style="font-family:'Times New Roman'; ">Budget Allocation</span></u></a></p>
+            <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 16px; text-align: left;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">
+                            ID</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">
+                            Item Name</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">
+                            Budget head</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">
+                            Frequency</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">
+                            Total Planned Budget</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if budgets %}
+                    {% for budget in budgets %}
+                    <tr style="background-color: {% if loop.index is even %}#f9f9f9{% else %}#ffffff{% endif %};">
+                        <td style="border: 1px solid #ddd; padding: 8px;">{{ budget.name }}</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">{{ budget.item_name }}</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">{{ budget.budget_head }}</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">{{ budget.frequency }}</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">{{ budget.total_planned_budget }}</td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="5"
+                            style="border: 1px solid #ddd; padding: 8px; text-align: center; font-style: italic; color: #888;">
+                            No data available
+                        </td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+                        <p style="margin-top:5pt; margin-bottom:3pt; line-height:108%; font-size:12pt;"><a name="_cmntref3"><u><span
+                            style="font-family:'Times New Roman'; ">Tranche Schedule</span></u></a></p>
+            <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 16px; text-align: left;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">
+                            ID</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">
+                            Financial Year</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">
+                            Tranch No.</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">
+                            Planned Due Date</th>
+                        <!-- <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4; font-weight: bold;">Approval</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if tranches %}
+                    {% for tranche in tranches %}
+                    <tr style="background-color: {% if loop.index is even %}#f9f9f9{% else %}#ffffff{% endif %};">
+                        <td style="border: 1px solid #ddd; padding: 8px;">{{ tranche.name }}</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">{{ tranche.financial_year }}</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">{{ tranche.tranch_no }}</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">{{ tranche.planned_due_date }}</td>
+                        <!-- <td style="border: 1px solid #ddd; padding: 8px;">{{ tranche.total_planned_budget }}</td> -->
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="5"
+                            style="border: 1px solid #ddd; padding: 8px; text-align: center; font-style: italic; color: #888;">
+                            No data available
+                        </td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
