@@ -22,7 +22,9 @@
   "column_break_zeui",
   "gram_panchayat",
   "column_break_gjsm",
-  "village"
+  "village",
+  "section_break_wcfl",
+  "wf_comment"
  ],
  "fields": [
   {
@@ -123,6 +125,16 @@
    "label": "Total Target",
    "non_negative": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "section_break_wcfl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "wf_comment",
+   "fieldtype": "Small Text",
+   "label": "Comment",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -133,7 +145,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-17 09:14:51.706866",
+ "modified": "2025-01-17 11:22:43.578438",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Proposal Input",
