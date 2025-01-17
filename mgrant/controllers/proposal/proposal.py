@@ -6,7 +6,7 @@ from frappe.utils.file_manager import save_file
 
 def proposal_after_insert(self):
     module = frappe.db.get_single_value('mGrant Settings', 'module')
-    if module == "Donor" and self.ngo:
+    if module == "Donor" and self.ngo and self.donor_stage == "Application Received":
         # Fetch NGO and Donor emails
         ngo_email = frappe.db.get_value('NGO', self.ngo, 'email')
         donor_email = frappe.db.get_value('Donor', self.donor, 'email')
