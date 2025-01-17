@@ -9,11 +9,20 @@
   "section_break_wwse",
   "state",
   "district",
+<<<<<<< HEAD
   "grant",
   "column_break_zjal",
   "kpi",
   "input_name",
   "frequency",
+=======
+  "column_break_zeui",
+  "block",
+  "gram_panchayat",
+  "column_break_gjsm",
+  "village",
+  "wf_comment",
+>>>>>>> e4d1f169412a5c56d6961394156d58bae8a6e87e
   "section_break_tzvd",
   "planning_table",
   "summary_section",
@@ -202,6 +211,7 @@
    "options": "Donor"
   },
   {
+<<<<<<< HEAD
    "fieldname": "column_break_hqvg",
    "fieldtype": "Column Break"
   },
@@ -213,6 +223,12 @@
   {
    "fieldname": "column_break_dofs",
    "fieldtype": "Column Break"
+=======
+   "fieldname": "wf_comment",
+   "fieldtype": "Small Text",
+   "hidden": 1,
+   "label": "Comment"
+>>>>>>> e4d1f169412a5c56d6961394156d58bae8a6e87e
   }
  ],
  "index_web_pages_for_search": 1,
@@ -223,7 +239,11 @@
    "link_fieldname": "input"
   }
  ],
+<<<<<<< HEAD
  "modified": "2025-01-17 08:50:06.710176",
+=======
+ "modified": "2025-01-17 10:05:30.661733",
+>>>>>>> e4d1f169412a5c56d6961394156d58bae8a6e87e
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Input",
