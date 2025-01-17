@@ -161,7 +161,7 @@ const renderHeader = (files, view) => {
     return `
             <div class="row" id="galleryHeader" style="display: flex; justify-content: space-between; align-items: center; gap: 12px;padding:0px 14px;">
             <div style="gap: 16px; display: flex;">
-            <span class="text-dark" style="font-weight: 400; font-size: 14px;">Total records: ${files.length}</span>
+            <span class="text-dark" style="font-weight: 400; font-size: 12px;">Total records: ${files.length}</span>
             </div>
             <div style="display: flex; gap: 12px;">
             <button class="btn btn-light" style="display:none;" id="deleteSelectedButton">
