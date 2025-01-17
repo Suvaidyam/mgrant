@@ -244,18 +244,18 @@ const taskList = (task_list, selector) => {
             `
 <div class="table-responsive">
     <table class="table table-bordered">
-      <thead class="thead-light" >
-            <tr style="height: 32px !important;">
-                <th ><input type="checkbox" id="selectAllCheckBox" style="width: 20px !important; height: 20px !important; "></th>
-                <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073; ">Task Name</th>
-                <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Assigned To</th>
-                <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Task Type</th>
-                <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Status</th>
-                <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Priority</th>
-                <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Start Date</th>
-                <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Due Date</th>
-                <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Doc Type</th>
-                <th class="text-center align-middle" style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Action</th>
+      <thead style="background:#F3F3F3;" class="" >
+            <tr >
+                <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);" ><input type="checkbox" id="selectAllCheckBox" style="width: 20px !important; height: 20px !important; "></th>
+                <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Task Name</th>
+                <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Assigned To</th>
+                <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Task Type</th>
+                <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Status</th>
+                <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Priority</th>
+                <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Start Date</th>
+                <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Due Date</th>
+                <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Doc Type</th>
+                <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Action</th>
             </tr>
         </thead>
 
@@ -267,7 +267,7 @@ const taskList = (task_list, selector) => {
     <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;  ">${task.title}</td>
     <td>
         <div class="d-flex align-items-center" style="gap: 4px">
-            <div class="avatar bg-primary text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 20px; height: 20px;">A</div>
+            <div style=" width: 16px; height: 16px; background-color: ${getRandomColor()}; h" class="avatar  text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 20px; height: 20px;">A</div>
             <span style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">
                 ${task.assigned_to ?? 'No assigned available'}
             </span>
@@ -306,8 +306,8 @@ const taskList = (task_list, selector) => {
     <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">  ${task.reference_doctype ?? 'NO available'}   </td>
     <td class="">                                                                                                       
       <div class="dropdown">
-            <p title="action" class="pointer " id="dropdownMenuButton-${task.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-ellipsis-h " style="transform: rotate(90deg); font-size: 20px; width: 20px; height: 20px;"></i>
+            <p title="action" class="pointer d-flex justify-content-center  align-items-center " id="dropdownMenuButton-${task.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ⋮
 
             </p>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-${task.name}">
@@ -370,7 +370,7 @@ const getTaskList = async (frm, selector) => {
         ['mGrant Task', 'related_to', '=', frm.doc.name],
     ], ['*']);
     $(`[data-fieldname="${selector}"]`).html(`
-       <div class="d-flex flex-wrap justify-content-between align-items-center mb-3" style=".scrollable-buttons {
+       <div class="d-flex flex-wrap justify-content-between align-items-center" style=".scrollable-buttons {
         overflow-x: auto;
         white-space: nowrap;
     }
@@ -379,12 +379,10 @@ const getTaskList = async (frm, selector) => {
     }">
        
          <div id="total-task" style="gap: 16px; display: flex;">
-            <span class="text-dark" style="font-weight: 400; font-size: 14px; line-height: 15px; color: #6E7073;">
-                Total Task:
+            <span class="text-dark" style="font-weight: 400; font-size: 12px;  color: #6E7073;">
+                Total records: ${task_list.length}
             </span>
-            <span style="font-weight: 400; font-size: 14px; line-height: 15px; color: #0E1116;">
-                ${task_list.length}
-            </span>
+         
         </div>
 
     <div class="dropdown-task-status dropdown">
