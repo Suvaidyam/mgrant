@@ -89,7 +89,7 @@ async function get_note_list(frm, selector) {
         }
         .note_content {
             width: 100%;
-            padding: 20px;
+            // padding: 20px;
         }
         .title_links {
             width: 100%;
@@ -186,11 +186,10 @@ async function get_note_list(frm, selector) {
         }
 
 
-        .form-container{
-            padding:16px 16px 16px 16px;
-            border: 1px solid #801621;
-            border-radius: 8px;
-        }
+        // .form-container{
+        //     padding:16px 16px 16px 16px;
+        //     border-radius: 8px;
+        // }
         .frappe-control .ql-editor:not(.read-mode){
             min-height: 100px;
             Height: 36px;
