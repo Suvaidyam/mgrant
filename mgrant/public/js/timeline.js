@@ -61,7 +61,22 @@ const showTimelines = (frm, selector) => {
                 .table th, .table td { text-align: left; }
             </style>
             <div id="timeline-container">
-                <div id="timeline">${frm.timeline.timeline_wrapper.html()}</div>
+                <div id="timeline">
+                    ${frm.timeline.action_history.map(item => `
+                        <div class="timeline-item custom-timeline-border" data-timestamp="${item.creation}">
+                            <div class="timeline-content">
+                                ${item.content}
+                                <span> .
+                                    <span class="frappe-timestamp" 
+                                            data-timestamp="${item.creation}" 
+                                            title="${item.creation}">
+                                        ${formatDateTime(item.creation, true, true)}
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
                 <div id="data-timeline"></div>
             </div>
         `;
