@@ -332,10 +332,10 @@ style.innerHTML = `
         padding-bottom: 11px;
         margin-bottom: 11px;
     }
-        .es-icon {
-    fill:white;
-    stroke-width: 0;
-}
+    button.btn-primary > .es-icon {
+        fill:white;
+        stroke-width: 0;
+    }
 
     .attachment-item {
         display: flex;
@@ -456,8 +456,8 @@ async function renderEmails(email_list, frm, selector = null) {
                     </button>
                     <button class="btn-primary compose-btn">
                         <svg  class="es-icon es-line icon-xs" aria-hidden="true">
-                <use href="#es-line-add"></use>
-            </svg>
+                            <use href="#es-line-add"></use>
+                        </svg>
                     </button>
                 </div>
             </div>
