@@ -20,14 +20,14 @@ fixtures = [
     # 'Role',
     # 'Role Profile',
     # "DDFR",
-    # 'SVADatatable Configuration',
+    'SVADatatable Configuration',
     # 'Client Script',
     # 'Custom Field',
     # "Property Setter",
     # 'Custom HTML Block'
     # "Custom DocPerm",
     # "My Theme",
-    "Workflow",
+    # "Workflow",
     # "Workflow Action Master",
     # "Workflow State",
     # "RFP Type"
