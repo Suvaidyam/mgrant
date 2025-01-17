@@ -132,6 +132,9 @@ def generate_mou_doc(proposal):
 
         if proposal_details.mou_doc:
             existing_file = frappe.get_doc("File", {"file_url": proposal_details.mou_doc})
+            if frappe.db.exists("Gallery", {"image": proposal_details.mou_doc}):
+                existing_gallery = frappe.get_doc("Gallery", {"image": proposal_details.mou_doc})
+                existing_gallery.delete()
             existing_file.delete()
             frappe.db.commit()
 
@@ -169,6 +172,14 @@ def generate_mou_doc(proposal):
             frappe.db.set_value("Proposal", proposal_details.name, {
                 "mou_doc": file_doc.file_url,
             }, update_modified=False)
+            frappe.db.commit()
+
+            gallery = frappe.new_doc("Gallery")
+            gallery.document_type = "Proposal"
+            gallery.related_to = proposal
+            gallery.image = file_doc.file_url
+            gallery.title = filename
+            gallery.save(ignore_permissions=True)
             frappe.db.commit()
 
             frappe.sendmail(
