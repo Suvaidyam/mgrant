@@ -8,17 +8,17 @@
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "projects",
+ "icon": "grid",
  "idx": 0,
  "indicator_color": "green",
  "is_hidden": 0,
- "label": "Sub-grants",
+ "label": "Sub Grant",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-01-17 00:46:15.168921",
+ "modified": "2025-01-17 00:45:50.610083",
  "modified_by": "Administrator",
  "module": "Mgrant",
- "name": "Sub-grants",
+ "name": "Sub Grant",
  "number_cards": [
   {
    "label": "Sub Grant",
@@ -37,8 +37,8 @@
    "role": "Partner NGO"
   }
  ],
- "sequence_id": 7.0,
+ "sequence_id": 5.0,
  "shortcuts": [],
- "title": "Sub-grants",
+ "title": "Sub Grant",
  "type": "Workspace"
 }

@@ -37,10 +37,11 @@
    "label": "Quarter"
   },
   {
+   "description": "Auto-generated for MoU duration",
    "fieldname": "timespan",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Timespan",
+   "label": "Time Period (Auto-generated)",
    "read_only": 1,
    "reqd": 1
   },
@@ -52,10 +53,11 @@
    "non_negative": 1
   },
   {
+   "description": "Auto-calculated from reported achievement",
    "fieldname": "achievement",
    "fieldtype": "Int",
    "in_list_view": 1,
-   "label": "Achievement",
+   "label": "Achievement (Read Only)",
    "non_negative": 1,
    "read_only": 1
   },
@@ -69,7 +71,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-12-30 15:15:57.031531",
+ "modified": "2025-01-17 08:25:50.907511",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Input Planning Child",
