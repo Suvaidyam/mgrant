@@ -6,7 +6,7 @@ from frappe.utils.file_manager import save_file
 
 def proposal_after_insert(self):
     module = frappe.db.get_single_value('mGrant Settings', 'module')
-    if module == "Donor" and self.ngo and self.donor_stage == "Application Received":
+    if module == "Donor" and self.ngo and self.donor_stage == "Application Started":
         # Fetch NGO and Donor emails
         ngo_email = frappe.db.get_value('NGO', self.ngo, 'email')
         donor_email = frappe.db.get_value('Donor', self.donor, 'email')
@@ -94,11 +94,13 @@ def proposal_on_submit(self):
                     "village": village.village
                 })
         grant.insert(ignore_permissions=True,ignore_mandatory=True)
-        tranches = frappe.get_all("Grant Receipts", filters={"proposal": self.name}, pluck="name")
+        tranches = frappe.get_all("Proposal Grant Receipts", filters={"proposal": self.name}, fields=['*'])
         if len(tranches) > 0:
             for tranche in tranches:
-                tranche_doc = frappe.get_doc("Grant Receipts", tranche)
+                tranche_doc = frappe.new_doc("Grant Receipts")
+                tranche_doc.update(tranche)
                 tranche_doc.grant = grant.name
+                tranche_doc.flags.ignore_mandatory = True
                 tranche_doc.save(ignore_permissions=True)
         tasks = frappe.get_all("mGrant Task", filters={"reference_doctype": "Proposal","related_to":self.name},fields=['*'])
         for task in tasks:
@@ -106,6 +108,7 @@ def proposal_on_submit(self):
             task_doc.update(task)
             task_doc.reference_doctype = "Grant"
             task_doc.related_to = grant.name
+            task_doc.flags.ignore_mandatory = True
             task_doc.save(ignore_permissions=True)
         gallery_items = frappe.get_all("Gallery", filters={"document_type": "Proposal","related_to":self.name},fields=['*'])
         for gallery_item in gallery_items:
@@ -113,6 +116,7 @@ def proposal_on_submit(self):
             gallery_doc.update(gallery_item)
             gallery_doc.document_type = "Grant"
             gallery_doc.related_to = grant.name
+            gallery_doc.flags.ignore_mandatory = True
             gallery_doc.save(ignore_permissions=True)
 
 from datetime import datetime
