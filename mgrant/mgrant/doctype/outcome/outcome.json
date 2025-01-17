@@ -44,6 +44,7 @@
    "label": "Grant",
    "mandatory_depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "options": "Grant",
+   "read_only": 1,
    "reqd": 1,
    "search_index": 1
   },
@@ -231,7 +232,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-17 08:50:53.077274",
+ "modified": "2025-01-17 11:53:51.519670",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcome",

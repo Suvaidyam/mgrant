@@ -1,8 +1,12 @@
 import frappe
+from frappe.utils import money_in_words
+from frappe.utils.pdf import get_pdf
+from frappe.utils.file_manager import save_file
+
 
 def proposal_after_insert(self):
     module = frappe.db.get_single_value('mGrant Settings', 'module')
-    if module == "Donor" and self.ngo:
+    if module == "Donor" and self.ngo and self.donor_stage == "Application Received":
         # Fetch NGO and Donor emails
         ngo_email = frappe.db.get_value('NGO', self.ngo, 'email')
         donor_email = frappe.db.get_value('Donor', self.donor, 'email')
@@ -107,3 +111,59 @@ def proposal_on_submit(self):
             gallery_doc.document_type = "Grant"
             gallery_doc.related_to = grant.name
             gallery_doc.save(ignore_permissions=True)
+
+
+@frappe.whitelist()
+def generate_mou_doc(proposal):
+    if frappe.db.exists("Proposal", proposal):
+        proposal_details = frappe.get_doc("Proposal", proposal)
+        # donor_details = frappe.get_doc("Donor", proposal.donor)
+        ngo_details = frappe.get_doc("NGO", proposal_details.ngo)
+        inputs = frappe.get_list("Proposal Input", filters={"proposal": proposal}, fields=["name", "input_name", "kpi", "frequency", "total_target"])
+        outputs = frappe.get_list("Proposal Output", filters={"proposal": proposal}, fields=["name", "output_name", "kpi", "frequency", "total_target"])
+        impacts = frappe.get_list("Proposal Impact", filters={"proposal": proposal}, fields=["name", "impact_name", "kpi", "frequency", "total_target"])
+        outcomes = frappe.get_list("Proposal Outcome", filters={"proposal": proposal}, fields=["name", "outcome_name", "kpi", "frequency", "total_target"])
+        budgets = frappe.get_list("Proposal Budget Plan", filters={"proposal": proposal}, fields=["name", "item_name", "budget_head", "frequency", "total_planned_budget"])
+        tranches = frappe.get_list("Grant Receipts", filters={"proposal": proposal}, fields=["name", "financial_year", "tranch_no", "planned_due_date"])
+        tasks = frappe.get_list("mGrant Task", filters={"reference_doctype": 'Proposal',"related_to":proposal}, fields=["*"])
+        # return ngo_details
+
+        if proposal_details.mou_doc:
+            existing_file = frappe.get_doc("File", {"file_url": proposal_details.mou_doc})
+            existing_file.delete()
+            frappe.db.commit()
+
+        other_details = {}
+        # Format to desired output
+        formatted_modified_date = proposal_details.modified.strftime("%d-%m-%Y")
+        formatted_start_date = proposal_details.start_date.strftime("%d-%m-%Y")
+        formatted_end_date = proposal_details.end_date.strftime("%d-%m-%Y")
+        amount_in_words = money_in_words(proposal_details.total_planned_budget)
+
+        other_details["modified_date"] = formatted_modified_date
+        other_details["start_date"] = formatted_start_date
+        other_details["end_date"] = formatted_end_date
+        other_details["amount_in_words"] = amount_in_words
+        mou_template = frappe.render_template("mgrant/templates/pages/mou_template.html", {"proposal": proposal_details, "other_details": other_details,"ngo_details":ngo_details,"inputs":inputs,"outputs":outputs,"impacts":impacts,"outcomes":outcomes,"tasks":tasks,"budgets":budgets,"tranches":tranches})
+        
+        pdf = get_pdf(mou_template)
+        filename = f"{proposal}_MOU.pdf"
+
+        saved_file = save_file(
+            fname=filename,
+            content=pdf,
+            dt="Proposal",
+            dn=proposal,
+            is_private=0
+        )
+
+        if saved_file:
+            proposal_details.mou_doc = saved_file.file_url
+            proposal_details.flags.mou = True
+            proposal_details.save()
+            frappe.db.commit()
+            return saved_file.file_url
+        else:
+            frappe.throw("Error while saving MOU Document")
+    else:
+        frappe.throw(f"Proposal '{proposal}' does not exist")                        

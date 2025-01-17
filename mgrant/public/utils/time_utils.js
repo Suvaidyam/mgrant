@@ -1,6 +1,16 @@
+let dateFormat = 'yyyy-mm-dd';
+let timeFormat = 'HH:mm:ss';
+frappe.db.get_single_value('System Settings', 'date_format').then(value => {
+    dateFormat = value;
+});
+frappe.db.get_single_value('System Settings', 'time_format').then(value => {
+    timeFormat = value;
+
+});
+
+
 const getFormattedTime = async (time) => {
     let t = new Date(time);
-    let format = await frappe.db.get_single_value('System Settings', 'time_format');
     let formatted_time = '';
 
     const padZero = (num) => (num < 10 ? '0' : '') + num;
@@ -9,12 +19,12 @@ const getFormattedTime = async (time) => {
     const minutes = padZero(t.getMinutes());
     const seconds = padZero(t.getSeconds());
 
-    if (format === 'HH:mm:ss') {
+    if (timeFormat === 'HH:mm:ss') {
         formatted_time = `${hours}:${minutes}:${seconds}`;
-    } else if (format === 'HH:mm') {
+    } else if (timeFormat === 'HH:mm') {
         formatted_time = `${hours}:${minutes}`;
     } else {
-        throw new Error(`Unsupported time format: ${format}`);
+        throw new Error(`Unsupported time format: ${timeFormat}`);
     }
     return formatted_time;
 };
@@ -22,7 +32,9 @@ const getFormattedTime = async (time) => {
 
 
 // Common function to format date and time
-const formatDateTime = (dateTime, isDate = false, isTime = false, dateFormat = 'dd-mm-yyyy', timeFormat = 'HH:mm:ss') => {
+const formatDateTime = (dateTime, isDate = false, isTime = false) => {
+    // Default formats
+   
     if (!isDate && !isTime) {
         throw new Error("At least one of 'isDate' or 'isTime' must be true.");
     }
