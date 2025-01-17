@@ -37,10 +37,11 @@
    "label": "Quarter"
   },
   {
+   "description": "Auto-generated for MoU duration",
    "fieldname": "timespan",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Timespan",
+   "label": "Timespan (Auto-generated)",
    "read_only": 1,
    "reqd": 1
   },
@@ -69,7 +70,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-12-30 14:33:39.464403",
+ "modified": "2025-01-17 08:25:01.114607",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output Planning Child",

@@ -36,7 +36,7 @@
   {
    "fieldname": "proposal",
    "fieldtype": "Link",
-   "label": "Application ID",
+   "label": "Application",
    "options": "Proposal",
    "read_only": 1,
    "reqd": 1
@@ -76,7 +76,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-17 04:28:34.412021",
+ "modified": "2025-01-17 07:59:34.459302",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Proposal Budget Plan",

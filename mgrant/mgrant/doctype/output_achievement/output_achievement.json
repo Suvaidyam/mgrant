@@ -66,6 +66,7 @@
    "fetch_from": "grant.ngo",
    "fieldname": "ngo",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "NGO",
    "options": "NGO"
   },
@@ -73,13 +74,14 @@
    "fetch_from": "grant.donor",
    "fieldname": "donor",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Donor",
    "options": "Donor"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-17 02:04:04.184655",
+ "modified": "2025-01-17 09:39:38.639545",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output Achievement",
