@@ -103,8 +103,8 @@ const renderCardView = (files) => {
             <div class="row mt-3" style ="hight:100vh !important;"style="font-size:16px !important;">
                 ${files.length > 0 ? `
                     
-                    ${files.map(file => {
-        let extention = file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)[1].toLowerCase();
+                ${files.filter(file=> file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]).map(file => {
+        let extention = file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]?.toLowerCase();
         return `
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                             
@@ -161,7 +161,7 @@ const renderHeader = (files, view) => {
     return `
             <div class="row" id="galleryHeader" style="display: flex; justify-content: space-between; align-items: center; gap: 12px;padding:0px 14px;">
             <div style="gap: 16px; display: flex;">
-            <span class="text-dark" style="font-weight: 400; font-size: 14px;">Total records: ${files.length}</span>
+            <span class="text-dark" style="font-weight: 400; font-size: 12px;">Total records: ${files.length}</span>
             </div>
             <div style="display: flex; gap: 12px;">
             <button class="btn btn-light" style="display:none;" id="deleteSelectedButton">
@@ -204,8 +204,8 @@ const renderListView = (files) => {
             </tr>
             </thead>
             <tbody>
-            ${files.map(file => {
-        let extention = file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)[1].toLowerCase();
+            ${files.filter(file=> file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]).map(file => {
+        let extention = file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]?.toLowerCase();
         return `
                     <tr>
                         <td><input type="checkbox" class="toggleCheckbox" data-id="${file.name}" style="width: 20px !important; height: 20px !important;"></td>
