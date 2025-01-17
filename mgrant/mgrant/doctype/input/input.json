@@ -18,6 +18,9 @@
   "frequency",
   "total_target",
   "total_achievement",
+  "section_break_achu",
+  "ngo",
+  "donor",
   "section_break_dznz",
   "state",
   "district",
@@ -70,18 +73,21 @@
   {
    "fieldname": "block",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Block",
    "options": "Block"
   },
   {
    "fieldname": "gram_panchayat",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Gram Panchayat",
    "options": "Gram Panchayat"
   },
   {
    "fieldname": "village",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Village",
    "options": "Village"
   },
@@ -168,10 +174,29 @@
    "options": "Financial Year Child"
   },
   {
+   "fieldname": "section_break_achu",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fetch_from": "grant.ngo",
+   "fieldname": "ngo",
+   "fieldtype": "Link",
+   "label": "NGO",
+   "options": "NGO"
+  },
+  {
+   "fetch_from": "grant.donor",
+   "fieldname": "donor",
+   "fieldtype": "Link",
+   "label": "Donor",
+   "options": "Donor"
+  },
+  {
    "fieldname": "wf_comment",
    "fieldtype": "Small Text",
-   "label": "Comment/Review",
-   "read_only": 1
+   "hidden": 1,
+   "label": "Comment"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -182,7 +207,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-16 21:23:13.242668",
+ "modified": "2025-01-17 10:05:30.661733",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Input",
