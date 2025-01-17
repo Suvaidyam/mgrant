@@ -42,6 +42,7 @@
    "in_list_view": 1,
    "label": "Grant",
    "options": "Grant",
+   "read_only": 1,
    "reqd": 1,
    "search_index": 1
   },
@@ -225,7 +226,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-17 08:49:53.488656",
+ "modified": "2025-01-17 11:53:09.403181",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output",
