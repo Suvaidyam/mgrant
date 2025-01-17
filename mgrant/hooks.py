@@ -50,9 +50,11 @@ app_include_js = [
     f"/assets/mgrant/js/list_functions.js?ver={time.time()}",
     f"/assets/mgrant/js/kanban.js?ver={time.time()}",
     f"/assets/mgrant/js/overwrite_timeline.js?ver={time.time()}",
-    f"/assets/mgrant/js/form_sidebar.js?ver={time.time()}"
+    f"/assets/mgrant/js/form_sidebar.js?ver={time.time()}",
+    f"/assets/mgrant/js/sidebar.js?ver={time.time()}"
 ]
 
+extend_bootinfo = "mgrant.boot.boot_session"
 # include js, css files in header of web template
 # web_include_css = "/assets/mgrant/css/mgrant.css"
 # web_include_js = "/assets/mgrant/js/mgrant.js"
