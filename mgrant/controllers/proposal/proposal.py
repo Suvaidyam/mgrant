@@ -34,6 +34,9 @@ def proposal_on_update(self):
     if ((module == "Donor" and self.donor_stage == "MoU Signed") or (module == "NGO" and self.ngo_stage == "Grant Letter Signed")) and self.docstatus == 0:
         frappe.msgprint("Proposal is now converted to Grant")
         self.submit()
+    if self.donor_stage == "MoU Signing ongoing" and not self.mou_doc:
+        generate_mou_doc(self.name)
+
         
 def proposal_before_submit(self):
     module = frappe.db.get_single_value('mGrant Settings', 'module')
@@ -112,12 +115,12 @@ def proposal_on_submit(self):
             gallery_doc.related_to = grant.name
             gallery_doc.save(ignore_permissions=True)
 
-
+from datetime import datetime
 @frappe.whitelist()
 def generate_mou_doc(proposal):
     if frappe.db.exists("Proposal", proposal):
         proposal_details = frappe.get_doc("Proposal", proposal)
-        # donor_details = frappe.get_doc("Donor", proposal.donor)
+        donor_details = frappe.get_doc("Donor", proposal_details.donor)
         ngo_details = frappe.get_doc("NGO", proposal_details.ngo)
         inputs = frappe.get_list("Proposal Input", filters={"proposal": proposal}, fields=["name", "input_name", "kpi", "frequency", "total_target"])
         outputs = frappe.get_list("Proposal Output", filters={"proposal": proposal}, fields=["name", "output_name", "kpi", "frequency", "total_target"])
@@ -126,7 +129,6 @@ def generate_mou_doc(proposal):
         budgets = frappe.get_list("Proposal Budget Plan", filters={"proposal": proposal}, fields=["name", "item_name", "budget_head", "frequency", "total_planned_budget"])
         tranches = frappe.get_list("Grant Receipts", filters={"proposal": proposal}, fields=["name", "financial_year", "tranch_no", "planned_due_date"])
         tasks = frappe.get_list("mGrant Task", filters={"reference_doctype": 'Proposal',"related_to":proposal}, fields=["*"])
-        # return ngo_details
 
         if proposal_details.mou_doc:
             existing_file = frappe.get_doc("File", {"file_url": proposal_details.mou_doc})
@@ -134,7 +136,6 @@ def generate_mou_doc(proposal):
             frappe.db.commit()
 
         other_details = {}
-        # Format to desired output
         formatted_modified_date = proposal_details.modified.strftime("%d-%m-%Y")
         formatted_start_date = proposal_details.start_date.strftime("%d-%m-%Y")
         formatted_end_date = proposal_details.end_date.strftime("%d-%m-%Y")
@@ -147,7 +148,9 @@ def generate_mou_doc(proposal):
         mou_template = frappe.render_template("mgrant/templates/pages/mou_template.html", {"proposal": proposal_details, "other_details": other_details,"ngo_details":ngo_details,"inputs":inputs,"outputs":outputs,"impacts":impacts,"outcomes":outcomes,"tasks":tasks,"budgets":budgets,"tranches":tranches})
         
         pdf = get_pdf(mou_template)
-        filename = f"{proposal}_MOU.pdf"
+        today = frappe.utils.nowdate()
+        formated_today = datetime.strptime(today, "%Y-%m-%d").strftime("%d-%m-%Y")
+        filename = f"{proposal}_MoU_To_be_signed_{formated_today}.pdf"
 
         saved_file = save_file(
             fname=filename,
@@ -156,14 +159,48 @@ def generate_mou_doc(proposal):
             dn=proposal,
             is_private=0
         )
+        file_doc = frappe.get_doc("File", saved_file.name)
+        file_doc.file_name = filename
+        file_doc.file_url = f"/files/{filename}"
+        file_doc.save()
+        frappe.db.commit()
 
         if saved_file:
-            proposal_details.mou_doc = saved_file.file_url
-            proposal_details.flags.mou = True
-            proposal_details.save()
+            frappe.db.set_value("Proposal", proposal_details.name, {
+                "mou_doc": file_doc.file_url,
+            }, update_modified=False)
             frappe.db.commit()
-            return saved_file.file_url
+
+            frappe.sendmail(
+            recipients=[donor_details.email,ngo_details.email],
+            subject=f"MOU Document for {proposal}",
+            message=f"Please find attached the MOU Document for {proposal}",
+            attachments=[
+                {
+                    "fname": filename,
+                    "fcontent": pdf,
+                },
+            ],
+            reference_doctype="Proposal",
+            reference_name=proposal,
+            ) 
+            return file_doc.file_url
         else:
             frappe.throw("Error while saving MOU Document")
     else:
         frappe.throw(f"Proposal '{proposal}' does not exist")                        
+
+
+@frappe.whitelist()
+def upload_signed_mou(proposal, mou_signed_document):
+    if proposal and mou_signed_document:
+        if frappe.db.exists("Proposal", proposal):
+            frappe.db.set_value("Proposal", proposal, {
+                "mou_signed_document": mou_signed_document,
+            }, update_modified=False)
+            frappe.db.commit()
+            return "MOU Signed Document uploaded successfully"
+        else:
+            frappe.throw(f"Proposal '{proposal}' does not exist")
+    else:
+        frappe.throw("Please provide MOU Signed Document")

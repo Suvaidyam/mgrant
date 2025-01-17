@@ -151,54 +151,43 @@ const taskList = (task_list, selector) => {
                             : task?.status === 'Done'
                                 ? '#D4EDDA'
                                 : '#F8F9FA'}; border-radius: 4px; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px;">
-            <span 
-                title="Status" 
-                id="dropStatus-${task.name}" 
-                class="small dropdown-toggle badge pointer" 
-                style="color: ${task?.status === 'Canceled'
-                        ? '#D9534F'
-                        : task?.status === 'In Progress'
-                            ? '#F0AD4E'
-                            : task?.status === 'Done'
-                                ? '#5CB85C'
-                                : '#6C757D'
-                    };
-                    background-color: ${task?.status === 'Canceled'
-                        ? '#F8D7DA'
-                        : task?.status === 'In Progress'
-                            ? '#FFF3CD'
-                            : task?.status === 'Done'
-                                ? '#D4EDDA'
-                                : '#F8F9FA'};
-                    padding: 6px; 
-                    border-radius: 4px;" 
-                data-toggle="dropdown" 
-                aria-haspopup="true" 
-                aria-expanded="false">
-                ${task?.status ?? 'Status'}
-            </span>
-            <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
-                <a class="dropdown-item task-status" data-task="${task.name}" data-status="Backlog" >Backlog</a>
-                <a class="dropdown-item task-status" data-task="${task.name}" data-status="Todo" >Todo</a>
-                <a class="dropdown-item task-status" data-task="${task.name}" data-status="In Progress" >In Progress</a>
-                <a class="dropdown-item task-status" data-task="${task.name}" data-status="Done" >Done</a>
-                <a class="dropdown-item task-status" data-task="${task.name}" data-status="Cancelled" >Cancelled</a>
-                <a class="dropdown-item task-status" data-task="${task.name}" data-status="Delayed" >Delayed</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Document Type -->
-    <span class="ms-auto small" style="color: #6E7073; font-size: 12px;">
-        ${task.reference_doctype ?? 'N/A'}: 
-        <span style="color: #0E1116;">${task.related_to ?? 'N/A'}</span>
-    </span>
-</div>
-
-
-   
-
-
+                                    <span 
+                                        title="Status" 
+                                        id="dropStatus-${task.name}" 
+                                        class="small dropdown-toggle badge pointer" 
+                                        style="color: ${task?.status === 'Canceled'
+                                                ? '#D9534F'
+                                                : task?.status === 'In Progress'
+                                                    ? '#F0AD4E'
+                                                    : task?.status === 'Done'
+                                                        ? '#5CB85C'
+                                                        : '#6C757D'
+                                            };
+                                            background-color: ${task?.status === 'Canceled'
+                                                ? '#F8D7DA'
+                                                : task?.status === 'In Progress'
+                                                    ? '#FFF3CD'
+                                                    : task?.status === 'Done'
+                                                        ? '#D4EDDA'
+                                                        : '#F8F9FA'};
+                                            padding: 6px; 
+                                            border-radius: 4px;" 
+                                        data-toggle="dropdown" 
+                                        aria-haspopup="true" 
+                                        aria-expanded="false">
+                                        ${task?.status ?? 'Status'}
+                                    </span>
+                                    <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Backlog" >Backlog</a>
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Todo" >Todo</a>
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="In Progress" >In Progress</a>
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Done" >Done</a>
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Cancelled" >Cancelled</a>
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Delayed" >Delayed</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Due Date -->
                         <p class="small" style="color: #6E7073; padding-top: 16px;margin: 0;">
                             Due Date: <span class="text-danger">${task.due_date ? getFormattedDate(task.due_date) : '--:--'}</span>
@@ -254,7 +243,6 @@ const taskList = (task_list, selector) => {
                 <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Priority</th>
                 <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Start Date</th>
                 <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Due Date</th>
-                <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Doc Type</th>
                 <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Action</th>
             </tr>
         </thead>
@@ -303,7 +291,6 @@ const taskList = (task_list, selector) => {
     </td>
     <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">${task.start_date ? getFormattedDate(task.start_date) : '--:--'}</td>
     <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #FA4032;">${task.due_date ? getFormattedDate(task.due_date) : '--:--'}</td>
-    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">  ${task.reference_doctype ?? 'NO available'}   </td>
     <td class="">                                                                                                       
       <div class="dropdown">
             <p title="action" class="pointer d-flex justify-content-center  align-items-center " id="dropdownMenuButton-${task.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
