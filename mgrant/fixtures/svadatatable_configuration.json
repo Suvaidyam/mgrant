@@ -120,18 +120,6 @@
    {
     "connection_type": "Referenced",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "dn_reference_field": "custom_related_to",
-    "dt_reference_field": "custom_ref_doctype",
-    "html_field": "contacts",
-    "link_doctype": null,
-    "link_fieldname": null,
-    "listview_settings": "[\"salutation\",\"first_name\",\"custom_email\",\"custom_mobile_number\",\"custom_whatsapp_number\",\"custom_contact_type\",\"custom_source\",\"custom_designation1\",\"custom_department1\",\"custom_district\",\"custom_address_line_1\",\"custom_address_line_2\",\"image\"]",
-    "referenced_link_doctype": "Contact",
-    "template": null
-   },
-   {
-    "connection_type": "Referenced",
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": "related_to",
     "dt_reference_field": "reference_doctype",
     "html_field": "reportings",
@@ -212,11 +200,23 @@
     "listview_settings": "[\"parent_grant\",\"ngo\",\"donor\",\"start_date\",\"grant_name\",\"end_date\",\"grant_duration_in_months\",\"grant_type\",\"funding_type\"]",
     "referenced_link_doctype": null,
     "template": "Tasks"
+   },
+   {
+    "connection_type": "Referenced",
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "dn_reference_field": "custom_related_to",
+    "dt_reference_field": "custom_ref_doctype",
+    "html_field": "contacts",
+    "link_doctype": null,
+    "link_fieldname": null,
+    "listview_settings": "[\"first_name\",\"last_name\",\"custom_email\",\"custom_designation1\",\"custom_department1\"]",
+    "referenced_link_doctype": "Contact",
+    "template": "Tasks"
    }
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2025-01-16 17:27:59.931855",
+  "modified": "2025-01-17 10:10:51.312222",
   "name": "Grant",
   "parent_doctype": "Grant"
  },
@@ -424,18 +424,6 @@
     "template": "Tasks"
    },
    {
-    "connection_type": "Referenced",
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "dn_reference_field": "custom_related_to",
-    "dt_reference_field": "custom_ref_doctype",
-    "html_field": "contacts",
-    "link_doctype": null,
-    "link_fieldname": null,
-    "listview_settings": "[\"first_name\",\"last_name\",\"custom_mobile_number\",\"image\",\"custom_whatsapp_number\",\"custom_contact_type\",\"custom_source\"]",
-    "referenced_link_doctype": "Contact",
-    "template": "Tasks"
-   },
-   {
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -446,11 +434,23 @@
     "listview_settings": null,
     "referenced_link_doctype": null,
     "template": "Notes"
+   },
+   {
+    "connection_type": "Referenced",
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "dn_reference_field": "custom_related_to",
+    "dt_reference_field": "custom_ref_doctype",
+    "html_field": "contacts",
+    "link_doctype": null,
+    "link_fieldname": null,
+    "listview_settings": "[\"first_name\",\"last_name\",\"custom_email\",\"custom_designation1\",\"custom_department1\"]",
+    "referenced_link_doctype": "Contact",
+    "template": "Tasks"
    }
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2025-01-16 17:19:46.629474",
+  "modified": "2025-01-17 10:06:46.504127",
   "name": "Proposal",
   "parent_doctype": "Proposal"
  }
