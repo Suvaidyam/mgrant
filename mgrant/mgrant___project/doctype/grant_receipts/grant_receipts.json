@@ -12,7 +12,11 @@
   "column_break_eryd",
   "total_funds_planned",
   "financial_year",
+  "section_break_eazb",
+  "raise_request",
+  "section_break_aaeg",
   "proposal",
+  "column_break_kmhj",
   "grant",
   "section_break_vwlg",
   "request_status",
@@ -25,7 +29,9 @@
   "section_break_ffdl",
   "ngo",
   "column_break_kdvt",
-  "donor"
+  "donor",
+  "section_break_svga",
+  "wf_comment"
  ],
  "fields": [
   {
@@ -143,11 +149,39 @@
   {
    "fieldname": "column_break_kdvt",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_aaeg",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "column_break_kmhj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_eazb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "raise_request",
+   "fieldtype": "Button",
+   "label": "Raise Request"
+  },
+  {
+   "fieldname": "section_break_svga",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "wf_comment",
+   "fieldtype": "Small Text",
+   "label": "Comment",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-17 04:34:48.185465",
+ "modified": "2025-01-17 11:21:52.662550",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant Receipts",
