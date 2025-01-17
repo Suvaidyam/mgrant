@@ -72,7 +72,7 @@ style.innerHTML = `
    
     .top-header {
         align-items: center;
-        padding: 8px 16px;
+        padding: 8px 8px;
         border-bottom: 1px solid #e5e5e5;
         height: 48px;
         background:#f9f9f9 ;
@@ -82,12 +82,13 @@ style.innerHTML = `
         display: flex;
         align-items: center;
         gap: 8px;
-        justify-content: end;
+        justify-content: space-between;
+       
     }
 
     .header-icon {
-        width: 32px;
-        height: 32px;
+        width: 24px;
+        height: 24px;
         display: flex;
         border: none;
         align-items: center;
@@ -102,8 +103,8 @@ style.innerHTML = `
     }
 
     .compose-btn {
-        width: 32px;
-        height: 32px;
+        width: 24px;
+        height: 24px; 
         background: #d73925;
         color: white;
         border: none;
@@ -127,7 +128,7 @@ style.innerHTML = `
     }
 
     .tab-item {
-        padding: 12px 16px;
+        padding: 8px 16px;
         cursor: pointer;
         color: #666;
         font-size: 14px;
@@ -263,8 +264,9 @@ style.innerHTML = `
     }
 
     .email-detail-subject {
-        font-size: 24px;
+        font-size: 14px;
         color: #333;
+        font-weight: 500 !important;    
         margin: 0 ;
         font-weight: normal;
     }
@@ -442,6 +444,9 @@ async function renderEmails(email_list, frm, selector = null) {
         <div class="email-sidebar">
             <div class="top-header">
                 <div class="header-actions">
+                <span id="allEmailButton" class="tab-item active_tab">All</span>
+                <span id="inboxEmailButton" class="tab-item">Inbox</span>
+                <span id="sentEmailButton" class="tab-item">Sent</span>
                     <button class="header-icon">
                         <i class="fa fa-refresh" id="refresh_email_list" style="font-size: 18px; cursor: pointer; color: #666;"></i>
                     </button>
@@ -450,11 +455,7 @@ async function renderEmails(email_list, frm, selector = null) {
                     </button>
                 </div>
             </div>
-            <div class="email-tabs">
-                <div id="allEmailButton" class="tab-item active_tab">All</div>
-                <div id="inboxEmailButton" class="tab-item">Inbox</div>
-                <div id="sentEmailButton" class="tab-item">Sent</div>
-            </div>
+            
             <div class="email-list">
     `;
 
@@ -575,7 +576,7 @@ async function renderEmails(email_list, frm, selector = null) {
             <div class="email-detail">
                 <div class="email-detail-header">
                     <div class="email-detail-subject-container">
-                        <span class="email-detail-subject">${emailDoc?.subject}</span>
+                        <span class="email-detail-subject">Subject: ${emailDoc?.subject}</span>
                         <div class="action-buttons" id="action_icon">
                             <span class="email-counter">${currentEmailIndex + 1} of ${communication_list.length}</span>
                             <button class="nav-button" id="prev-email" ${currentEmailIndex === 0 ? 'disabled' : ''}>
@@ -595,7 +596,7 @@ async function renderEmails(email_list, frm, selector = null) {
                             <div class="meta-recipient">To: ${emailDoc?.recipients}</div>
                         </div>
                         <div class="meta-time">
-                            ${formatDateTime(emailDoc?.communication_date, true, true , '', 'hh:mm:ss a')}
+                            ${formatDateTime(emailDoc?.communication_date, true, true )}
                         </div>
                     </div>
                 </div>
