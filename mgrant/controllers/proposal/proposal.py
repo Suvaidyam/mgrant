@@ -184,7 +184,6 @@ def generate_mou_doc(proposal):
             reference_doctype="Proposal",
             reference_name=proposal,
             ) 
-
             return file_doc.file_url
         else:
             frappe.throw("Error while saving MOU Document")
