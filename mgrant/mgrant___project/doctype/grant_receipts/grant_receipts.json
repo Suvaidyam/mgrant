@@ -14,6 +14,8 @@
   "financial_year",
   "section_break_eazb",
   "raise_request",
+  "approve_request",
+  "disbursed",
   "section_break_aaeg",
   "proposal",
   "column_break_kmhj",
@@ -177,11 +179,21 @@
    "fieldtype": "Small Text",
    "label": "Comment",
    "read_only": 1
+  },
+  {
+   "fieldname": "approve_request",
+   "fieldtype": "Button",
+   "label": "Approve Request"
+  },
+  {
+   "fieldname": "disbursed",
+   "fieldtype": "Button",
+   "label": "Disbursed"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-17 11:21:52.662550",
+ "modified": "2025-01-17 13:50:23.186678",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant Receipts",
