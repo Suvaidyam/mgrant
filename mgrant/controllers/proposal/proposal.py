@@ -102,12 +102,12 @@ def proposal_on_submit(self):
                 tranche_doc.grant = grant.name
                 tranche_doc.flags.ignore_mandatory = True
                 tranche_doc.save(ignore_permissions=True)
-        tasks = frappe.get_all("mGrant Task", filters={"reference_doctype": "Proposal","related_to":self.name},fields=['*'])
+        tasks = frappe.get_all("ToDo", filters={"reference_type": "Proposal","reference_name":self.name},fields=['*'])
         for task in tasks:
-            task_doc = frappe.new_doc("mGrant Task")
+            task_doc = frappe.new_doc("ToDo")
             task_doc.update(task)
-            task_doc.reference_doctype = "Grant"
-            task_doc.related_to = grant.name
+            task_doc.reference_type = "Grant"
+            task_doc.reference_name = grant.name
             task_doc.flags.ignore_mandatory = True
             task_doc.save(ignore_permissions=True)
         gallery_items = frappe.get_all("Gallery", filters={"document_type": "Proposal","related_to":self.name},fields=['*'])
