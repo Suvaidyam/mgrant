@@ -292,18 +292,6 @@
   "child_confs": [],
   "child_doctypes": [
    {
-    "connection_type": "Direct",
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "dn_reference_field": null,
-    "dt_reference_field": null,
-    "html_field": "tranche",
-    "link_doctype": "Grant Receipts",
-    "link_fieldname": "proposal",
-    "listview_settings": "[\"financial_year\",\"tranch_no\",\"funds_planned\",\"planned_due_date\",\"funds_received\"]",
-    "referenced_link_doctype": null,
-    "template": null
-   },
-   {
     "connection_type": "Referenced",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": "related_to",
@@ -446,11 +434,23 @@
     "listview_settings": "[\"first_name\",\"last_name\",\"custom_email\",\"custom_designation1\",\"custom_department1\"]",
     "referenced_link_doctype": "Contact",
     "template": "Tasks"
+   },
+   {
+    "connection_type": "Direct",
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "dn_reference_field": null,
+    "dt_reference_field": null,
+    "html_field": "tranche",
+    "link_doctype": "Proposal Grant Receipts",
+    "link_fieldname": "proposal",
+    "listview_settings": "[\"tranch_no\",\"planned_due_date\",\"total_funds_planned\",\"raise_request\",\"approve_request\",\"disbursed\",\"wf_comment\"]",
+    "referenced_link_doctype": null,
+    "template": "Tasks"
    }
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2025-01-17 10:06:46.504127",
+  "modified": "2025-01-17 17:58:23.446162",
   "name": "Proposal",
   "parent_doctype": "Proposal"
  }

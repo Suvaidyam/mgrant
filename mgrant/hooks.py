@@ -27,7 +27,7 @@ fixtures = [
     # 'Custom HTML Block'
     # "Custom DocPerm",
     # "My Theme",
-    "Workflow",
+    # "Workflow",
     # "Workflow Action Master",
     # "Workflow State",
     # "RFP Type"

@@ -1,0 +1,177 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:PROP-GR-REC-{#####}",
+ "creation": "2025-01-17 17:42:35.133870",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tranch_no",
+  "planned_due_date",
+  "column_break_eryd",
+  "total_funds_planned",
+  "financial_year",
+  "section_break_eazb",
+  "raise_request",
+  "approve_request",
+  "disbursed",
+  "section_break_aaeg",
+  "proposal",
+  "section_break_ffdl",
+  "ngo",
+  "column_break_kdvt",
+  "donor",
+  "section_break_svga",
+  "wf_comment"
+ ],
+ "fields": [
+  {
+   "fieldname": "tranch_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tranche No.",
+   "reqd": 1
+  },
+  {
+   "fieldname": "planned_due_date",
+   "fieldtype": "Date",
+   "label": "Planned Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_eryd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_funds_planned",
+   "fieldtype": "Currency",
+   "label": "Total Funds Planned",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Financial Year",
+   "options": "Financial Year"
+  },
+  {
+   "fieldname": "section_break_eazb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "raise_request",
+   "fieldtype": "Button",
+   "label": "Raise Request"
+  },
+  {
+   "fieldname": "approve_request",
+   "fieldtype": "Button",
+   "label": "Approve Request"
+  },
+  {
+   "fieldname": "disbursed",
+   "fieldtype": "Button",
+   "label": "Disbursed"
+  },
+  {
+   "fieldname": "section_break_aaeg",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "proposal",
+   "fieldtype": "Link",
+   "label": "Application",
+   "options": "Proposal",
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_ffdl",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fetch_from": "proposal.ngo",
+   "fieldname": "ngo",
+   "fieldtype": "Link",
+   "label": "NGO",
+   "options": "NGO"
+  },
+  {
+   "fieldname": "column_break_kdvt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "proposal.donor",
+   "fieldname": "donor",
+   "fieldtype": "Link",
+   "label": "Donor",
+   "options": "Donor"
+  },
+  {
+   "fieldname": "section_break_svga",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "wf_comment",
+   "fieldtype": "Small Text",
+   "label": "Comment",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-17 17:48:28.053545",
+ "modified_by": "Administrator",
+ "module": "mGrant - Project",
+ "name": "Proposal Grant Receipts",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "NGO Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Partner NGO",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "tranch_no"
+}
