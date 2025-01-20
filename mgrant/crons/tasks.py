@@ -31,10 +31,10 @@ def send_email_notifications_7_days_before():
         for task in tasks:
             if task.allocated_to and task.allocated_to != "Administrator":
                 frappe.sendmail(
-                    recipients= task.allocated_to,
+                    recipients= [task.allocated_to],
                     subject="Task Reminder",
                     message="You have a task due 7 today. Please complete it on time."
-                )
+                )           
 def send_email_notifications_2_days_before():
     tasks = frappe.get_all("ToDo", 
         filters={
@@ -47,7 +47,7 @@ def send_email_notifications_2_days_before():
         for task in tasks:
             if task.allocated_to and task.allocated_to != "Administrator":
                 frappe.sendmail(
-                    recipients= task.allocated_to,
+                    recipients=[task.allocated_to],
                     subject="Task Reminder",
                     message="You have a task due 2 today. Please complete it on time."
                 )        
