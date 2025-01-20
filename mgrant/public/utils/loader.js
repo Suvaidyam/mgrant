@@ -36,7 +36,6 @@ const toggleLoader = (show, parentSelector='body') => {
         console.error("Parent element not found for selector:", parentSelector);
         return;
     }
-    console.log(parentElement,show,parentSelector,'loader');
     if (show) {
             const loaderMarkup = `
                 <div class="loader-body">
