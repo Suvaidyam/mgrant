@@ -85,6 +85,7 @@ style.innerHTML = `
         justify-content: space-between;
        
     }
+   
 
     .header-icon {
         width: 24px;
@@ -403,14 +404,11 @@ document.head.appendChild(style);
 
 var communication_list = []
 var email_wrapper = document.querySelector(`[data-fieldname="email"]`);
-
 async function renderEmails(email_list, frm, selector = null) {
     if (selector != null) {
         email_wrapper = document.querySelector(`[data-fieldname="${selector}"]`);
         email_wrapper.style.height = "80vh";
-        email_wrapper.innerHTML = "";
     }
-
 
     const formatDateGroup = (emailDate) => {
         const today = new Date();
@@ -642,9 +640,14 @@ async function renderEmails(email_list, frm, selector = null) {
 }
 
 const communication = async (frm, selector) => {
+    toggleLoader(true, selector);
     communication_list = await getDocList('Communication', [
         ['Communication', 'reference_name', '=', frm.doc.name],
         ['Communication', 'in_reply_to', '=', '']
     ], ['*']);
     await renderEmails(communication_list, frm, selector);
+    toggleLoader(false, selector);
+    
 }
+
+
