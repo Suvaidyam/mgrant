@@ -85,6 +85,7 @@ style.innerHTML = `
         justify-content: space-between;
        
     }
+   
 
     .header-icon {
         width: 24px;
@@ -332,6 +333,10 @@ style.innerHTML = `
         padding-bottom: 11px;
         margin-bottom: 11px;
     }
+    button.btn-primary > .es-icon {
+        fill:white;
+        stroke-width: 0;
+    }
 
     .attachment-item {
         display: flex;
@@ -399,14 +404,11 @@ document.head.appendChild(style);
 
 var communication_list = []
 var email_wrapper = document.querySelector(`[data-fieldname="email"]`);
-
 async function renderEmails(email_list, frm, selector = null) {
     if (selector != null) {
         email_wrapper = document.querySelector(`[data-fieldname="${selector}"]`);
         email_wrapper.style.height = "80vh";
-        email_wrapper.innerHTML = "";
     }
-
 
     const formatDateGroup = (emailDate) => {
         const today = new Date();
@@ -451,7 +453,9 @@ async function renderEmails(email_list, frm, selector = null) {
                         <i class="fa fa-refresh" id="refresh_email_list" style="font-size: 18px; cursor: pointer; color: #666;"></i>
                     </button>
                     <button class="btn-primary compose-btn">
-                        <i class="fa fa-plus"></i>
+                        <svg  class="es-icon es-line icon-xs" aria-hidden="true">
+                            <use href="#es-line-add"></use>
+                        </svg>
                     </button>
                 </div>
             </div>
@@ -636,9 +640,14 @@ async function renderEmails(email_list, frm, selector = null) {
 }
 
 const communication = async (frm, selector) => {
+    toggleLoader(true, selector);
     communication_list = await getDocList('Communication', [
         ['Communication', 'reference_name', '=', frm.doc.name],
         ['Communication', 'in_reply_to', '=', '']
     ], ['*']);
     await renderEmails(communication_list, frm, selector);
+    toggleLoader(false, selector);
+    
 }
+
+

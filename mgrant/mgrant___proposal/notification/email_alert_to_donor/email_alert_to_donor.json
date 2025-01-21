@@ -1,0 +1,30 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.donor_stage == \"Application Started\"",
+ "creation": "2025-01-20 15:33:50.642084",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Proposal",
+ "enabled": 1,
+ "event": "New",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "\n\n<p>A new application has been submitted by {{doc.ngo_name}}.\n<a href={{baseurl}}>View Application</a></p>\n\n<p>{{doc.baseurl}}</p>\n<p>{{baseurl}}</p>",
+ "message_type": "HTML",
+ "minutes_offset": 0,
+ "modified": "2025-01-20 16:30:03.079560",
+ "modified_by": "Administrator",
+ "module": "mGrant - Proposal",
+ "name": "Email Alert to Donor",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "donor_email"
+  }
+ ],
+ "send_system_notification": 1,
+ "send_to_all_assignees": 0,
+ "subject": "New Application Started"
+}

@@ -11,8 +11,10 @@
   "programme",
   "donor",
   "donor_name",
+  "donor_email",
   "ngo",
   "ngo_name",
+  "ngo_email",
   "vendor",
   "column_break_qmgi",
   "start_date",
@@ -26,6 +28,7 @@
   "donor_stage",
   "grant",
   "mou_doc",
+  "mou_signed_document",
   "descriptive_information_section",
   "theme",
   "sdg",
@@ -359,10 +362,9 @@
   },
   {
    "fieldname": "grant",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "hidden": 1,
-   "label": "Grant",
-   "options": "Grant"
+   "label": "Grant"
   },
   {
    "fieldname": "note_tab",
@@ -374,12 +376,12 @@
    "fieldtype": "HTML"
   },
   {
-   "default": "Application Received",
+   "default": "Application Started",
    "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
    "fieldname": "donor_stage",
    "fieldtype": "Select",
    "label": "Stage (Donor)",
-   "options": "Application Received\nEligible NGO\nInvited for Proposal\nProposal Submitted\nMoU Signing ongoing\nMoU Signed\nRejected\nOn Hold"
+   "options": "Application Started\nEligible NGO\nInvited for Proposal\nProposal Submitted\nMoU Signing ongoing\nMoU Signed\nRejected\nOn Hold"
   },
   {
    "default": "Lead",
@@ -436,9 +438,11 @@
    "label": "NGO Name"
   },
   {
+   "depends_on": "eval: doc.donor_stage == 'MoU Signing ongoing'",
    "fieldname": "mou_doc",
-   "fieldtype": "Attach",
-   "label": "MoU Document"
+   "fieldtype": "Data",
+   "label": "MoU Document",
+   "read_only": 1
   },
   {
    "fetch_from": "donor.donor_name",
@@ -446,12 +450,35 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Donor Name"
+  },
+  {
+   "depends_on": "eval: doc.donor_stage == 'MoU Signed'",
+   "fieldname": "mou_signed_document",
+   "fieldtype": "Data",
+   "label": "MoU Signed Document",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "donor.email",
+   "fieldname": "donor_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Donor Email",
+   "options": "Email"
+  },
+  {
+   "fetch_from": "ngo.email",
+   "fieldname": "ngo_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "NGO Email",
+   "options": "Email"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-17 03:51:12.290929",
+ "modified": "2025-01-20 16:25:22.172064",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",

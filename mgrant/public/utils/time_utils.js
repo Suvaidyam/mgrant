@@ -38,9 +38,6 @@ const formatDateTime = (dateTime, isDate = false, isTime = false) => {
     if (!isDate && !isTime) {
         throw new Error("At least one of 'isDate' or 'isTime' must be true.");
     }
-
-    console.log('Input DateTime:', dateTime);
-
     // Remove microseconds if present
     if (dateTime.includes('.')) {
         dateTime = dateTime.split('.')[0];
