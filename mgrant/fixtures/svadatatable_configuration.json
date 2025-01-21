@@ -5,42 +5,42 @@
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "link_doctype": "Budget Transaction",
     "link_fieldname": "budget_plan",
-    "listview_settings": "[\"as_on_date\",\"transaction\",\"budget_plan\"]",
+    "listview_settings": "[{\"label\":\"ID\",\"fieldname\":\"name\"},{\"label\":\"As on date\",\"fieldname\":\"as_on_date\"},{\"label\":\"Comment\",\"fieldname\":\"wf_comment\"},{\"label\":\"File\",\"fieldname\":\"file\"},{\"label\":\"Utilised Amount\",\"fieldname\":\"transaction\"}]",
     "parent_doctype": "Budget Plan and Utilisation"
    },
    {
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "link_doctype": "Fund Receipt Tracker",
     "link_fieldname": "grant_reciept",
-    "listview_settings": "[\"grant_reciept\",\"as_on_date\",\"funds_received\",\"supporting_document\",\"utr_number\"]",
+    "listview_settings": "[{\"label\":\"ID\",\"fieldname\":\"name\"},{\"label\":\"As on Date\",\"fieldname\":\"as_on_date\"},{\"label\":\"Funds Received\",\"fieldname\":\"funds_received\"},{\"label\":\"Supporting Document\",\"fieldname\":\"supporting_document\"},{\"label\":\"UTR Number\",\"fieldname\":\"utr_number\"}]",
     "parent_doctype": "Grant Receipts"
    },
    {
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "link_doctype": "Impact Achievement",
     "link_fieldname": "impact",
-    "listview_settings": "[\"impact\",\"as_on_date\",\"achievement\",\"supporting_document\"]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"as_on_date\",\"label\":\"As on date\"},{\"fieldname\":\"achievement\",\"label\":\"Achievement\"},{\"fieldname\":\"supporting_document\",\"label\":\"Supporting Document\"},{\"fieldname\":\"wf_comment\",\"label\":\"Comment\"}]",
     "parent_doctype": "Impact"
    },
    {
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "link_doctype": "Input Achievement",
     "link_fieldname": "input",
-    "listview_settings": "[\"input\",\"as_on_date\",\"achievement\",\"supporting_document\"]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"as_on_date\",\"label\":\"As on date\"},{\"fieldname\":\"achievement\",\"label\":\"Achievement\"},{\"fieldname\":\"supporting_document\",\"label\":\"Supporting Document\"},{\"fieldname\":\"wf_comment\",\"label\":\"Comment\"}]",
     "parent_doctype": "Input"
    },
    {
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "link_doctype": "Outcome Achievement",
     "link_fieldname": "outcome",
-    "listview_settings": "[\"outcome\",\"as_on_date\",\"achievement\",\"supporting_document\"]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"as_on_date\",\"label\":\"As on date\"},{\"fieldname\":\"achievement\",\"label\":\"Achievement\"},{\"fieldname\":\"supporting_document\",\"label\":\"Supporting Document\"},{\"fieldname\":\"wf_comment\",\"label\":\"Comment\"}]",
     "parent_doctype": "Outcome"
    },
    {
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "link_doctype": "Output Achievement",
     "link_fieldname": "output",
-    "listview_settings": "[\"output\",\"as_on_date\",\"achievement\",\"supporting_document\"]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"as_on_date\",\"label\":\"As on date\"},{\"fieldname\":\"achievement\",\"label\":\"Achievement\"},{\"fieldname\":\"supporting_document\",\"label\":\"Supporting Document\"},{\"fieldname\":\"wf_comment\",\"label\":\"Comment\"}]",
     "parent_doctype": "Output"
    }
   ],
@@ -216,7 +216,7 @@
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2025-01-21 17:06:40.067873",
+  "modified": "2025-01-21 17:40:47.652414",
   "name": "Grant",
   "parent_doctype": "Grant"
  },
