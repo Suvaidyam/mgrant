@@ -4,30 +4,6 @@ from frappe.utils.pdf import get_pdf
 from frappe.utils.file_manager import save_file
 
 
-def proposal_after_insert(self):
-    module = frappe.db.get_single_value('mGrant Settings', 'module')
-    if module == "Donor" and self.ngo and self.donor_stage == "Application Started":
-        # Fetch NGO and Donor emails
-        ngo_email = frappe.db.get_value('NGO', self.ngo, 'email')
-        donor_email = frappe.db.get_value('Donor', self.donor, 'email')
-        
-        # Send email to NGO
-        if ngo_email:
-            frappe.sendmail(
-                recipients=ngo_email,
-                subject='New Application Started',
-                message="Thank you for submitting your application. We are reviewing it and will shortly get back to you."
-            )
-        
-        # Send email to Donor
-        if donor_email:
-            frappe.sendmail(
-                recipients=donor_email,
-                subject='New Application Started',
-                message=f"<p>A new application has been submitted by {self.ngo_name}. "
-                        f"<a href='{frappe.utils.get_url()}/app/proposal/{self.name}'>View Application</a></p>"
-            )
-
 
 def proposal_on_update(self):
     module = frappe.db.get_single_value('mGrant Settings', 'module')
@@ -37,7 +13,7 @@ def proposal_on_update(self):
     if self.donor_stage == "MoU Signing ongoing" and not self.mou_doc:
         generate_mou_doc(self.name)
 
-        
+
 def proposal_before_submit(self):
     module = frappe.db.get_single_value('mGrant Settings', 'module')
     if module == "Donor" and self.donor_stage != "MoU Signed":
@@ -46,6 +22,7 @@ def proposal_before_submit(self):
         frappe.throw("Proposal is not in Grant Letter Signed stage")
         
 def proposal_on_submit(self):
+    self.file_url = f"{frappe.utils.get_url()}/app/proposal/{self.name}"
     module = frappe.db.get_single_value('mGrant Settings', 'module')
     if (module == "Donor" and self.donor_stage == "MoU Signed") or (module == "NGO" and self.ngo_stage == "Grant Letter Signed"):
         grant = frappe.new_doc("Grant")
