@@ -33,7 +33,9 @@
   "column_break_twjt",
   "gram_panchayat",
   "column_break_ztyr",
-  "village"
+  "village",
+  "section_break_xtcr",
+  "wf_comment"
  ],
  "fields": [
   {
@@ -213,6 +215,16 @@
   {
    "fieldname": "column_break_ouls",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_xtcr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "wf_comment",
+   "fieldtype": "Small Text",
+   "label": "Comment",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -223,7 +235,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-17 11:52:28.067596",
+ "modified": "2025-01-21 14:34:39.352618",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact",

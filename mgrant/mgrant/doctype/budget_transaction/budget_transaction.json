@@ -13,7 +13,9 @@
   "file",
   "section_break_zjag",
   "ngo",
-  "donor"
+  "donor",
+  "section_break_upps",
+  "wf_comment"
  ],
  "fields": [
   {
@@ -68,11 +70,21 @@
    "fieldname": "file",
    "fieldtype": "Attach",
    "label": "File"
+  },
+  {
+   "fieldname": "section_break_upps",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "wf_comment",
+   "fieldtype": "Small Text",
+   "label": "Comment",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-17 13:37:53.702321",
+ "modified": "2025-01-21 14:07:40.475483",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Transaction",
