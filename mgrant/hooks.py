@@ -20,7 +20,7 @@ fixtures = [
     # 'Role',
     # 'Role Profile',
     # "DDFR",
-    # 'SVADatatable Configuration',
+    'SVADatatable Configuration',
     # 'Client Script',
     # 'Custom Field',
     # "Property Setter",
@@ -53,7 +53,6 @@ app_include_js = [
     f"/assets/mgrant/js/overwrite_timeline.js?ver={time.time()}",
     f"/assets/mgrant/js/form_sidebar.js?ver={time.time()}",
     f"/assets/mgrant/js/sidebar.js?ver={time.time()}"
-
 ]
 
 extend_bootinfo = "mgrant.boot.boot_session"
