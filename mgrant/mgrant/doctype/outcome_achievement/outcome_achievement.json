@@ -15,7 +15,9 @@
   "supporting_document",
   "section_break_uhth",
   "ngo",
-  "donor"
+  "donor",
+  "section_break_limu",
+  "wf_comment"
  ],
  "fields": [
   {
@@ -77,11 +79,21 @@
    "hidden": 1,
    "label": "Donor",
    "options": "Donor"
+  },
+  {
+   "fieldname": "section_break_limu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "wf_comment",
+   "fieldtype": "Small Text",
+   "label": "Comment",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-17 09:41:08.730210",
+ "modified": "2025-01-21 14:28:09.518346",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcome Achievement",

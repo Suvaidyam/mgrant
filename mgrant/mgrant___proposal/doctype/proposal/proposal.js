@@ -54,7 +54,7 @@ frappe.ui.form.on("Proposal", {
                 frm.set_value("ngo", ngo[0])
             }
         }
-        frm.trigger('change_indicator_pill_content')
+        // frm.trigger('change_indicator_pill_content')
         frm.page.btn_primary.hide();
         if (frm.doc.states.length) {
             PREV_STATES = frm.doc.states;
@@ -178,19 +178,19 @@ frappe.ui.form.on("Proposal", {
             }
         }
     },
-    change_indicator_pill_content(frm) {
-        let index = 0
-        let interval = setInterval(() => {
-            let indicatorPill = document.querySelector('.indicator-pill')
-            if (indicatorPill) {
-                indicatorPill.innerHTML = frm.doc?.docstatus == 1 ? "<span>Signed</span>" : "<span>Open</span>";
-            }
-            if (index > 20 || indicatorPill) {
-                clearInterval(interval)
-            }
-            index++
-        }, 500)
-    },
+    // change_indicator_pill_content(frm) {
+    //     let index = 0
+    //     let interval = setInterval(() => {
+    //         let indicatorPill = document.querySelector('.indicator-pill')
+    //         if (indicatorPill) {
+    //             indicatorPill.innerHTML = frm.doc?.docstatus == 1 ? "<span>Signed</span>" : "<span>Open</span>";
+    //         }
+    //         if (index > 20 || indicatorPill) {
+    //             clearInterval(interval)
+    //         }
+    //         index++
+    //     }, 500)
+    // },
     prev_states(frm) {
         if (frm.doc.states.length) {
             PREV_STATES = frm.doc.states;

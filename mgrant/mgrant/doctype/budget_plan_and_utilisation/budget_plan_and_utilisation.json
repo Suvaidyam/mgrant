@@ -24,7 +24,9 @@
   "column_break_hybx",
   "start_date",
   "end_date",
-  "financial_years"
+  "financial_years",
+  "section_break_nnuu",
+  "wf_comment"
  ],
  "fields": [
   {
@@ -157,11 +159,21 @@
   {
    "fieldname": "column_break_ubpk",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_nnuu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "wf_comment",
+   "fieldtype": "Small Text",
+   "label": "Comment",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-17 07:45:09.786242",
+ "modified": "2025-01-21 14:01:56.824420",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Plan and Utilisation",
