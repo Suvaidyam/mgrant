@@ -36,6 +36,7 @@ fixtures = [
 # app_include_css = "/assets/mgrant/css/mgrant.css"
 import time
 app_include_js = [
+    f"/assets/mgrant/utils/loader.js?ver={time.time()}",
     f"/assets/mgrant/utils/setup.js?ver={time.time()}",
     f"/assets/mgrant/utils/date_utils.js?ver={time.time()}",
     f"/assets/mgrant/utils/time_utils.js?ver={time.time()}",
@@ -52,6 +53,7 @@ app_include_js = [
     f"/assets/mgrant/js/overwrite_timeline.js?ver={time.time()}",
     f"/assets/mgrant/js/form_sidebar.js?ver={time.time()}",
     f"/assets/mgrant/js/sidebar.js?ver={time.time()}"
+
 ]
 
 extend_bootinfo = "mgrant.boot.boot_session"
@@ -183,7 +185,9 @@ scheduler_events = {
         "0 1 * * *": [
             "mgrant.crons.tasks.mark_tasks_as_delayed",
             "mgrant.crons.reports.mark_reports_as_delayed",
-            "mgrant.crons.tranches.mark_tranches_as_delayed"
+            "mgrant.crons.tranches.mark_tranches_as_delayed",
+            "mgrant.crons.tasks.send_email_notifications_7_days_before",
+            "mgrant.crons.tasks.send_email_notifications_2_days_before"
         ]
     },
 	# "all": [

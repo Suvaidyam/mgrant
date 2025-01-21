@@ -1,4 +1,6 @@
 from datetime import datetime
+from frappe.utils import add_days, getdate
+
 def get_fiscal_quarter(date):
     date = datetime.strptime(str(date), '%Y-%m-%d')
     month = date.month  # month is 1-12 in Python
@@ -25,3 +27,13 @@ def get_month_quarter_year_based_on_date_and_yt(date,year_type):
         year = get_fiscal_year(date)
         quarter = get_fiscal_quarter(date)
     return month,quarter,year
+
+def add_business_days(start_date, business_days):
+    count = 0
+    current_date = getdate(start_date)
+    while count < business_days:
+        current_date = add_days(current_date, 1)
+        # Skip weekends (Saturday = 5, Sunday = 6)
+        if current_date.weekday() not in (5, 6):
+            count += 1
+    return current_date

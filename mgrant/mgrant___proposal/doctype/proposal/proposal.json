@@ -11,8 +11,10 @@
   "programme",
   "donor",
   "donor_name",
+  "donor_email",
   "ngo",
   "ngo_name",
+  "ngo_email",
   "vendor",
   "column_break_qmgi",
   "start_date",
@@ -455,12 +457,28 @@
    "fieldtype": "Data",
    "label": "MoU Signed Document",
    "read_only": 1
+  },
+  {
+   "fetch_from": "donor.email",
+   "fieldname": "donor_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Donor Email",
+   "options": "Email"
+  },
+  {
+   "fetch_from": "ngo.email",
+   "fieldname": "ngo_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "NGO Email",
+   "options": "Email"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-17 18:06:18.383901",
+ "modified": "2025-01-20 16:25:22.172064",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
