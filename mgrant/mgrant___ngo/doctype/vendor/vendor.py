@@ -5,6 +5,6 @@
 from frappe.model.document import Document
 from mgrant.controllers.ngo.vendor import vendor_after_insert
 
-class NGO(Document):
+class Vendor(Document):
 	def after_insert(self):
 		vendor_after_insert(self)

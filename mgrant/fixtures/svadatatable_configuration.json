@@ -53,7 +53,7 @@
     "html_field": "budget",
     "link_doctype": "Budget Plan and Utilisation",
     "link_fieldname": "grant",
-    "listview_settings": "[\"budget_head\",\"item_name\",\"financial_year\",\"total_planned_budget\",\"total_utilisation\",\"frequency\"]",
+    "listview_settings": "[{\"label\":\"ID\",\"fieldname\":\"name\"},{\"label\":\"Budget Head\",\"fieldname\":\"budget_head\"},{\"label\":\"Item Description\",\"fieldname\":\"item_name\"},{\"label\":\"Reporting Frequency\",\"fieldname\":\"frequency\"},{\"label\":\"Total Planned Budget\",\"fieldname\":\"total_planned_budget\"},{\"label\":\"Total Utilisation\",\"fieldname\":\"total_utilisation\"}]",
     "referenced_link_doctype": null,
     "template": null
    },
@@ -65,7 +65,7 @@
     "html_field": "tranche",
     "link_doctype": "Grant Receipts",
     "link_fieldname": "grant",
-    "listview_settings": "[\"financial_year\",\"tranch_no\",\"funds_planned\",\"planned_due_date\",\"request_status\",\"funds_requested\",\"fund_receipt_status\",\"funds_received\",\"total_funds_planned\",\"total_funds_received\"]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"tranch_no\",\"label\":\"Tranche No.\"},{\"fieldname\":\"financial_year\",\"label\":\"Financial Year\"},{\"fieldname\":\"total_funds_planned\",\"label\":\"Total Funds Planned\"},{\"fieldname\":\"total_funds_received\",\"label\":\"Total Funds Received\"},{\"fieldname\":\"planned_due_date\",\"label\":\"Planned Due Date\"},{\"fieldname\":\"wf_comment\",\"label\":\"Comment\"}]",
     "referenced_link_doctype": null,
     "template": null
    },
@@ -77,7 +77,7 @@
     "html_field": "output",
     "link_doctype": "Output",
     "link_fieldname": "grant",
-    "listview_settings": "[\"kpi\",\"financial_year\",\"output_name\",\"total_target\",\"total_achievement\",\"frequency\"]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"output_name\",\"label\":\"Output Description\"},{\"fieldname\":\"kpi\",\"label\":\"KPI\"},{\"fieldname\":\"start_date\",\"label\":\"MoU Start Date\"},{\"fieldname\":\"end_date\",\"label\":\"MoU End Date\"},{\"fieldname\":\"frequency\",\"label\":\"Frequency\"},{\"fieldname\":\"total_target\",\"label\":\"Total Target\"},{\"fieldname\":\"total_achievement\",\"label\":\"Total Achievement\"}]",
     "referenced_link_doctype": null,
     "template": null
    },
@@ -89,7 +89,7 @@
     "html_field": "outcome",
     "link_doctype": "Outcome",
     "link_fieldname": "grant",
-    "listview_settings": "[\"kpi\",\"financial_year\",\"outcome_name\",\"total_achievement\",\"frequency\",\"total_target\"]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"outcome_name\",\"label\":\"Outcome Description\"},{\"fieldname\":\"kpi\",\"label\":\"KPI\"},{\"fieldname\":\"frequency\",\"label\":\"Frequency\"},{\"fieldname\":\"total_target\",\"label\":\"Total Target\"},{\"fieldname\":\"total_achievement\",\"label\":\"Total Achievement\"},{\"fieldname\":\"start_date\",\"label\":\"MoU Start Date\"},{\"fieldname\":\"end_date\",\"label\":\"MoU End Date\"}]",
     "referenced_link_doctype": null,
     "template": null
    },
@@ -101,7 +101,7 @@
     "html_field": "impact",
     "link_doctype": "Impact",
     "link_fieldname": "grant",
-    "listview_settings": "[\"kpi\",\"impact_name\",\"financial_year\",\"total_target\",\"total_achievement\",\"frequency\"]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"impact_name\",\"label\":\"Impact Description\"},{\"fieldname\":\"kpi\",\"label\":\"KPI\"},{\"fieldname\":\"frequency\",\"label\":\"Reporting Frequency\"},{\"fieldname\":\"start_date\",\"label\":\"MoU Start Date\"},{\"fieldname\":\"end_date\",\"label\":\"MoU End Date\"},{\"fieldname\":\"total_target\",\"label\":\"Total Target\"},{\"fieldname\":\"total_achievement\",\"label\":\"Total Achievement\"}]",
     "referenced_link_doctype": null,
     "template": null
    },
@@ -113,7 +113,7 @@
     "html_field": "input",
     "link_doctype": "Input",
     "link_fieldname": "grant",
-    "listview_settings": "[\"kpi\",\"financial_year\",\"input_name\",\"total_target\",\"total_achievement\",\"frequency\"]",
+    "listview_settings": "[{\"label\":\"ID\",\"fieldname\":\"name\"},{\"label\":\"Input Description\",\"fieldname\":\"input_name\"},{\"label\":\"KPI\",\"fieldname\":\"kpi\"},{\"label\":\"MoU Start Date\",\"fieldname\":\"start_date\"},{\"label\":\"MoU End Date\",\"fieldname\":\"end_date\"},{\"label\":\"Total Target\",\"fieldname\":\"total_target\"},{\"label\":\"Total Achievement\",\"fieldname\":\"total_achievement\"},{\"label\":\"Comment\",\"fieldname\":\"wf_comment\"}]",
     "referenced_link_doctype": null,
     "template": null
    },
@@ -125,7 +125,7 @@
     "html_field": "reportings",
     "link_doctype": null,
     "link_fieldname": null,
-    "listview_settings": "[\"report_type\",\"report_name\",\"due_date\",\"submission_status\",\"report_linkfile\",\"submission_date\"]",
+    "listview_settings": "[{\"label\":\"ID\",\"fieldname\":\"name\"},{\"label\":\"Report Name\",\"fieldname\":\"report_name\"},{\"label\":\"Report Type\",\"fieldname\":\"report_type\"},{\"label\":\"Submission Date\",\"fieldname\":\"submission_date\"},{\"label\":\"Submission Status\",\"fieldname\":\"submission_status\"},{\"label\":\"Due Date\",\"fieldname\":\"due_date\"}]",
     "referenced_link_doctype": "Reporting",
     "template": null
    },
@@ -209,14 +209,14 @@
     "html_field": "contacts",
     "link_doctype": null,
     "link_fieldname": null,
-    "listview_settings": "[\"first_name\",\"last_name\",\"custom_email\",\"custom_designation1\",\"custom_department1\"]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"full_name\",\"label\":\"Full Name\"},{\"fieldname\":\"custom_email\",\"label\":\"Primary Email\"},{\"fieldname\":\"custom_mobile_number\",\"label\":\"Mobile Number\"},{\"fieldname\":\"custom_designation1\",\"label\":\"Designation\"},{\"fieldname\":\"department\",\"label\":\"Department\"}]",
     "referenced_link_doctype": "Contact",
     "template": "Tasks"
    }
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2025-01-17 10:10:51.312222",
+  "modified": "2025-01-21 17:06:40.067873",
   "name": "Grant",
   "parent_doctype": "Grant"
  },
@@ -231,7 +231,7 @@
     "html_field": "projects",
     "link_doctype": "Grant",
     "link_fieldname": "donor",
-    "listview_settings": "[\"grant_name\",\"start_date\",\"end_date\",\"project_duration_in_months\",\"grant_type\",\"funding_type\",\"implementation_category\",\"subgranting_status\"]",
+    "listview_settings": "[{\"label\":\"ID\",\"fieldname\":\"name\"},{\"label\":\"Grant Title\",\"fieldname\":\"grant_name\"},{\"label\":\"MoU Start Date\",\"fieldname\":\"start_date\"},{\"label\":\"MoU End Date\",\"fieldname\":\"end_date\"},{\"label\":\"Programme\",\"fieldname\":\"programme\"},{\"label\":\"Theme\",\"fieldname\":\"theme\"},{\"label\":\"SDG\",\"fieldname\":\"sdg\"},{\"label\":\"Total Disbursed Funds\",\"fieldname\":\"total_funds_received\"},{\"label\":\"Total Requested Funds\",\"fieldname\":\"total_amount_requested_from_donor\"},{\"label\":\"Total Sanctioned Funds\",\"fieldname\":\"total_planned_budget\"},{\"label\":\"Total Unspent Funds\",\"fieldname\":\"total_unspent_funds\"},{\"label\":\"Total Utilised Funds\",\"fieldname\":\"total_funds_utilised\"}]",
     "referenced_link_doctype": null,
     "template": null
    },
@@ -250,7 +250,7 @@
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2024-12-03 12:24:44.620526",
+  "modified": "2025-01-21 17:16:11.908575",
   "name": "Donor",
   "parent_doctype": "Donor"
  },
@@ -265,7 +265,7 @@
     "html_field": "grants",
     "link_doctype": "Grant",
     "link_fieldname": "ngo",
-    "listview_settings": "[\"grant_name\",\"start_date\",\"end_date\",\"donor\",\"project_duration_in_months\",\"grant_type\",\"funding_type\",\"implementation_category\"]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"grant_name\",\"label\":\"Grant Title\"},{\"fieldname\":\"start_date\",\"label\":\"MoU Start Date\"},{\"fieldname\":\"end_date\",\"label\":\"MoU End Date\"},{\"fieldname\":\"programme\",\"label\":\"Programme\"},{\"fieldname\":\"sdg\",\"label\":\"SDG\"},{\"fieldname\":\"theme\",\"label\":\"Theme\"},{\"fieldname\":\"total_funds_received\",\"label\":\"Total Disbursed Funds\"},{\"fieldname\":\"total_amount_requested_from_donor\",\"label\":\"Total Requested Funds\"},{\"fieldname\":\"total_planned_budget\",\"label\":\"Total Sanctioned Funds\"},{\"fieldname\":\"total_unspent_funds\",\"label\":\"Total Unspent Funds\"},{\"fieldname\":\"total_funds_utilised\",\"label\":\"Total Utilised Funds\"}]",
     "referenced_link_doctype": null,
     "template": null
    },
@@ -277,14 +277,14 @@
     "html_field": "contacts",
     "link_doctype": null,
     "link_fieldname": null,
-    "listview_settings": "[\"image\",\"salutation\",\"first_name\",\"last_name\",\"gender\",\"custom_email\",\"custom_mobile_number\",\"custom_whatsapp_number\",\"custom_designation1\"]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"full_name\",\"label\":\"Full Name\"},{\"fieldname\":\"custom_email\",\"label\":\"Primary Email\"},{\"fieldname\":\"custom_mobile_number\",\"label\":\"Mobile Number\"},{\"fieldname\":\"custom_department1\",\"label\":\"Department\"},{\"fieldname\":\"custom_designation1\",\"label\":\"Designation\"}]",
     "referenced_link_doctype": "Contact",
     "template": null
    }
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2024-12-03 12:42:08.190228",
+  "modified": "2025-01-21 17:18:48.336881",
   "name": "NGO",
   "parent_doctype": "NGO"
  },
@@ -299,7 +299,7 @@
     "html_field": "reportings",
     "link_doctype": null,
     "link_fieldname": null,
-    "listview_settings": "[\"report_type\",\"report_name\",\"due_date\",\"submission_status\",\"report_linkfile\",\"submission_date\"]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"report_name\",\"label\":\"Report Name\"},{\"fieldname\":\"report_type\",\"label\":\"Report Type\"},{\"fieldname\":\"due_date\",\"label\":\"Due Date\"},{\"fieldname\":\"submission_date\",\"label\":\"Submission Date\"},{\"fieldname\":\"submission_status\",\"label\":\"Submission Status\"}]",
     "referenced_link_doctype": "Reporting",
     "template": null
    },
@@ -359,7 +359,7 @@
     "html_field": "budget",
     "link_doctype": "Proposal Budget Plan",
     "link_fieldname": "proposal",
-    "listview_settings": "[\"item_name\",\"budget_head\",\"frequency\",\"total_planned_budget\"]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"item_name\",\"label\":\"Item Description\"},{\"fieldname\":\"budget_head\",\"label\":\"Budget Head\"},{\"fieldname\":\"frequency\",\"label\":\"Reporting Frequency\"},{\"fieldname\":\"total_planned_budget\",\"label\":\"Total Planned Budget\"},{\"fieldname\":\"wf_comment\",\"label\":\"Comment\"}]",
     "referenced_link_doctype": null,
     "template": "Tasks"
    },
@@ -371,7 +371,7 @@
     "html_field": "impact",
     "link_doctype": "Proposal Impact",
     "link_fieldname": "proposal",
-    "listview_settings": "[\"impact_name\",\"kpi\",\"frequency\",\"total_target\"]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"impact_name\",\"label\":\"Impact Description\"},{\"fieldname\":\"kpi\",\"label\":\"KPI\"},{\"fieldname\":\"frequency\",\"label\":\"Reporting Frequency\"},{\"fieldname\":\"total_target\",\"label\":\"Total Target\"},{\"fieldname\":\"wf_comment\",\"label\":\"Comment\"}]",
     "referenced_link_doctype": null,
     "template": "Tasks"
    },
@@ -383,7 +383,7 @@
     "html_field": "input",
     "link_doctype": "Proposal Input",
     "link_fieldname": "proposal",
-    "listview_settings": "[\"input_name\",\"kpi\",\"frequency\",\"total_target\"]",
+    "listview_settings": "[{\"label\":\"ID\",\"fieldname\":\"name\"},{\"label\":\"Input Description\",\"fieldname\":\"input_name\"},{\"label\":\"KPI\",\"fieldname\":\"kpi\"},{\"label\":\"Reporting Frequency\",\"fieldname\":\"frequency\"},{\"label\":\"Total Target\",\"fieldname\":\"total_target\"},{\"label\":\"Comment\",\"fieldname\":\"wf_comment\"}]",
     "referenced_link_doctype": null,
     "template": "Tasks"
    },
@@ -395,7 +395,7 @@
     "html_field": "outcome",
     "link_doctype": "Proposal Outcome",
     "link_fieldname": "proposal",
-    "listview_settings": "[\"outcome_name\",\"kpi\",\"frequency\",\"total_target\"]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"outcome_name\",\"label\":\"Outcome Description\"},{\"fieldname\":\"kpi\",\"label\":\"KPI\"},{\"fieldname\":\"frequency\",\"label\":\"Reporting Frequency\"},{\"fieldname\":\"total_target\",\"label\":\"Total Target\"},{\"fieldname\":\"wf_comment\",\"label\":\"Comment\"}]",
     "referenced_link_doctype": null,
     "template": "Tasks"
    },
@@ -407,7 +407,7 @@
     "html_field": "output",
     "link_doctype": "Proposal Output",
     "link_fieldname": "proposal",
-    "listview_settings": "[\"output_name\",\"kpi\",\"frequency\",\"total_target\"]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"output_name\",\"label\":\"Output Description\"},{\"fieldname\":\"kpi\",\"label\":\"KPI\"},{\"fieldname\":\"frequency\",\"label\":\"Reporting Frequency\"},{\"fieldname\":\"total_target\",\"label\":\"Total Target\"},{\"fieldname\":\"wf_comment\",\"label\":\"Comment\"}]",
     "referenced_link_doctype": null,
     "template": "Tasks"
    },
@@ -431,7 +431,7 @@
     "html_field": "contacts",
     "link_doctype": null,
     "link_fieldname": null,
-    "listview_settings": "[\"first_name\",\"last_name\",\"custom_email\",\"custom_designation1\",\"custom_department1\"]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"full_name\",\"label\":\"Full Name\"},{\"fieldname\":\"custom_email\",\"label\":\"Primary Email\"},{\"fieldname\":\"custom_mobile_number\",\"label\":\"Mobile Number\"},{\"fieldname\":\"custom_department1\",\"label\":\"Department\"},{\"fieldname\":\"custom_designation1\",\"label\":\"Designation\"}]",
     "referenced_link_doctype": "Contact",
     "template": "Tasks"
    },
@@ -443,15 +443,37 @@
     "html_field": "tranche",
     "link_doctype": "Proposal Grant Receipts",
     "link_fieldname": "proposal",
-    "listview_settings": "[\"tranch_no\",\"planned_due_date\",\"total_funds_planned\",\"raise_request\",\"approve_request\",\"disbursed\",\"wf_comment\"]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"tranch_no\",\"label\":\"Tranche No.\"},{\"fieldname\":\"financial_year\",\"label\":\"Financial Year\"},{\"fieldname\":\"planned_due_date\",\"label\":\"Planned Due Date\"},{\"fieldname\":\"total_funds_planned\",\"label\":\"Total Funds Planned\"},{\"fieldname\":\"wf_comment\",\"label\":\"Comment\"}]",
     "referenced_link_doctype": null,
     "template": "Tasks"
    }
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2025-01-17 17:58:23.446162",
+  "modified": "2025-01-21 17:13:23.233374",
   "name": "Proposal",
   "parent_doctype": "Proposal"
+ },
+ {
+  "child_confs": [],
+  "child_doctypes": [
+   {
+    "connection_type": "Referenced",
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "dn_reference_field": "custom_related_to",
+    "dt_reference_field": "custom_ref_doctype",
+    "html_field": "contacts",
+    "link_doctype": null,
+    "link_fieldname": null,
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"full_name\",\"label\":\"Full Name\"},{\"fieldname\":\"custom_email\",\"label\":\"Primary Email\"},{\"fieldname\":\"custom_mobile_number\",\"label\":\"Mobile Number\"},{\"fieldname\":\"department\",\"label\":\"Department\"},{\"fieldname\":\"custom_designation1\",\"label\":\"Designation\"}]",
+    "referenced_link_doctype": "Contact",
+    "template": "Tasks"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "SVADatatable Configuration",
+  "modified": "2025-01-21 17:24:10.981222",
+  "name": "Vendor",
+  "parent_doctype": "Vendor"
  }
 ]
