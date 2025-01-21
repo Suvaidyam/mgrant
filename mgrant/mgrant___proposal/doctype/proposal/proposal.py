@@ -15,6 +15,7 @@ class Proposal(Document):
 		proposal_on_submit(self)
 
 	def before_save(self):
+		user_roles = frappe.get_roles()  # Retrieves roles of the current user
 		wf_name = frappe.db.get_value("Workflow", {"document_type": self.doctype, "is_active": 1}, "name")
 		if wf_name:
 			wf = frappe.get_doc("Workflow", wf_name)
@@ -29,9 +30,11 @@ class Proposal(Document):
 					# Check transitions in the workflow
 					for wt in wf.transitions:
 						if wt.state == old_value:
-							print(f"Transition found: {wt.state} -> {wt.next_state}")
 							if wt.next_state == new_value:
-								valid_transition = True
+								if wt.allowed in user_roles:
+									valid_transition = True
+								else:
+									frappe.throw('Your  role does not have permission to perform this action')
 								break
 
 					# If no valid transition found, raise an error
