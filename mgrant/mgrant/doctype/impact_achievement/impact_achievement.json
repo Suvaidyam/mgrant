@@ -15,7 +15,9 @@
   "supporting_document",
   "section_break_qvxi",
   "ngo",
-  "donor"
+  "donor",
+  "section_break_wzuv",
+  "wf_comment"
  ],
  "fields": [
   {
@@ -77,11 +79,21 @@
    "hidden": 1,
    "label": "Donor",
    "options": "Donor"
+  },
+  {
+   "fieldname": "section_break_wzuv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "wf_comment",
+   "fieldtype": "Small Text",
+   "label": "Comment",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-17 09:38:53.954708",
+ "modified": "2025-01-21 14:38:08.874480",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact Achievement",
