@@ -26,7 +26,7 @@ const taskList = (task_list, selector) => {
     }
     const updateTaskStatus = (taskName, status, key) => {
         frappe.db.set_value('ToDo', taskName, key, status).then(() => {
-            if(key === 'custom_task_status'){
+            if (key === 'custom_task_status') {
                 key = 'Status';
             }
             frappe.show_alert({ message: __(`Task ${key} updated successfully`), indicator: 'green' });
@@ -159,20 +159,20 @@ const taskList = (task_list, selector) => {
                                         id="dropStatus-${task.name}" 
                                         class="small dropdown-toggle badge pointer" 
                                         style="color: ${task?.custom_task_status === 'Canceled'
-                                                ? '#D9534F'
-                                                : task?.custom_task_status === 'In Progress'
-                                                    ? '#F0AD4E'
-                                                    : task?.custom_task_status === 'Done'
-                                                        ? '#5CB85C'
-                                                        : '#6C757D'
-                                            };
+                        ? '#D9534F'
+                        : task?.custom_task_status === 'In Progress'
+                            ? '#F0AD4E'
+                            : task?.custom_task_status === 'Done'
+                                ? '#5CB85C'
+                                : '#6C757D'
+                    };
                                             background-color: ${task?.custom_task_status === 'Canceled'
-                                                ? '#F8D7DA'
-                                                : task?.custom_task_status === 'In Progress'
-                                                    ? '#FFF3CD'
-                                                    : task?.custom_task_status === 'Done'
-                                                        ? '#D4EDDA'
-                                                        : '#F8F9FA'};
+                        ? '#F8D7DA'
+                        : task?.custom_task_status === 'In Progress'
+                            ? '#FFF3CD'
+                            : task?.custom_task_status === 'Done'
+                                ? '#D4EDDA'
+                                : '#F8F9FA'};
                                             padding: 6px; 
                                             border-radius: 4px;" 
                                         data-toggle="dropdown" 
@@ -348,7 +348,7 @@ const taskList = (task_list, selector) => {
         let data = task_list.filter(task => task.name == taskName);
         form(data[0], 'Edit Task');
     });
-    
+
 }
 let task_list = [];
 let view = 'List View'
@@ -442,10 +442,10 @@ const getTaskList = async (frm, selector) => {
 </button>
         <!-- Card View Button -->
        <div class="dropdown">
-   <button class="btn btn-light" type="button" id="viewDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <!-- <button class="btn btn-light" type="button" id="viewDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="fa fa-th-large" style="color: #6E7073;"></i> ${view}
     <i class="fa fa-sort" style="color: #6E7073;"></i>
-  </button>
+  </button> -->
 
     <div class="dropdown-menu" aria-labelledby="viewDropdown">
         <span class="dropdown-item" id="cardViewBtn">
