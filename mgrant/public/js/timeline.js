@@ -99,12 +99,11 @@ const showTimelines = (frm, selector) => {
                 <td style="background-color:rgb(253,241,241)">${change[1]}</td>
                 <td style="background-color:rgb(229,245,232)">${change[2]}</td>
             </tr>`).join('');
-        const creationDate = new Date(item.creation);
         return `
             <div class="card mb-3">
                 <div class="card-header">
                     <div>${item.owner}</div>
-                    <div><p><strong>Creation:</strong> ${creationDate.toLocaleDateString('en-GB')} ${creationDate.toLocaleTimeString()}</p></div>
+                    <div><p><strong>Updated on:</strong> ${item?.creation ? formatDateTime(item.creation,true,true) : '--:--'}</p></div>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered">
