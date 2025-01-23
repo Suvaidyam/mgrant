@@ -18,7 +18,7 @@ function getMonthDifference(startDate, endDate) {
     return yearDifference * 12 + monthDifference;
 }
 let PREV_STATES = [];
-frappe.model.on('Proposal', '*', function (fieldname,value,doc) {
+frappe.model.on('Proposal', '*', function (fieldname, value, doc) {
     cur_frm.page.btn_primary.show();
 })
 frappe.ui.form.on("Proposal", {
@@ -44,17 +44,17 @@ frappe.ui.form.on("Proposal", {
         }, 500);
     },
     async refresh(frm) {
-        if(frm.is_new()){
-            let donor = await frappe.db.get_list('Donor',{limit:1,pluck:'name',order_by:'creation desc'})
-            if(donor.length > 0){
-                frm.set_value("donor",donor[0])
+        if (frm.is_new()) {
+            let donor = await frappe.db.get_list('Donor', { limit: 1, pluck: 'name', order_by: 'creation desc' })
+            if (donor.length > 0) {
+                frm.set_value("donor", donor[0])
             }
-            let ngo = await frappe.db.get_list('NGO',{limit:1,pluck:'name',order_by:'creation desc'})
-            if(ngo.length > 0){
-                frm.set_value("ngo",ngo[0])
+            let ngo = await frappe.db.get_list('NGO', { limit: 1, pluck: 'name', order_by: 'creation desc' })
+            if (ngo.length > 0) {
+                frm.set_value("ngo", ngo[0])
             }
         }
-        frm.trigger('change_indicator_pill_content')
+        // frm.trigger('change_indicator_pill_content')
         frm.page.btn_primary.hide();
         if (frm.doc.states.length) {
             PREV_STATES = frm.doc.states;
@@ -89,26 +89,79 @@ frappe.ui.form.on("Proposal", {
                 });
             }
         }
-        if (frm.doc?.donor_stage=='MoU Signing ongoing'){
-        frm.add_custom_button('Regenerate MOU', async function () {
-            let { message } = await frappe.call({
-                method: 'mgrant.controllers.proposal.proposal.generate_mou_doc',
-                args: {
-                    proposal: frm.doc.name
+        if (frm.doc?.donor_stage == 'MoU Signing ongoing' && frm.doc?.mou_doc) {
+            frm.add_custom_button('Download MOU', function () {
+                let file_path = frm.doc.mou_doc;
+                let file_url = file_path.replace(/#/g, "%23");
+                var link = document.createElement("a");
+                link.href = file_url;
+                link.download = file_path.split('/').pop();
+                link.style.display = "none";
+
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+        } else {
+            frm.remove_custom_button('Download MOU');
+        }
+
+        if (frm.doc?.donor_stage == 'MoU Signing ongoing') {
+            frm.add_custom_button('Regenerate MOU', async function () {
+                let { message } = await frappe.call({
+                    method: 'mgrant.controllers.proposal.proposal.generate_mou_doc',
+                    args: {
+                        proposal: frm.doc.name
+                    }
+                });
+                if (message) {
+                    frm.reload_doc();
+                    frappe.show_alert(__("MOU Generated Successfully"));
+                } else {
+                    frappe.msgprint(__("MOU Generation Failed"));
                 }
             });
-            if (message) {
-                frm.reload_doc();
-                frappe.show_alert(__("MOU Generated Successfully"));
-            } else {
-                frappe.msgprint(__("MOU Generation Failed"));
-            }
-        });
-     } else{
-        frm.remove_custom_button('Regenerate MOU');
-     }
+        } else {
+            frm.remove_custom_button('Regenerate MOU');
+        }
 
-        
+        if (frm.doc?.donor_stage == 'MoU Signed') {
+            frm.add_custom_button('Upload Signed MOU', async function () {
+                let dialog = new frappe.ui.Dialog({
+                    title: 'Upload Signed MOU',
+                    fields: [
+                        {
+                            fieldname: 'mou_signed_document',
+                            fieldtype: 'Attach',
+                            label: 'Attach MOU Document',
+                            reqd: 1
+                        }
+                    ],
+                    primary_action_label: 'Upload',
+                    primary_action: async function () {
+                        let { message } = await frappe.call({
+                            method: 'mgrant.controllers.proposal.proposal.upload_signed_mou',
+                            args: {
+                                proposal: frm.doc.name,
+                                mou_signed_document: dialog.get_value('mou_signed_document')
+                            }
+                        });
+                        if (message) {
+                            console.log(message, 'message');
+                            frm.reload_doc();
+                            frappe.show_alert(__("MOU Uploaded Successfully"));
+                            dialog.hide();
+                        } else {
+                            frappe.msgprint(__("MOU Upload Failed"));
+                        }
+                    }
+                });
+                dialog.show();
+            });
+        } else {
+            frm.remove_custom_button('Upload Signed MOU');
+        }
+
     },
     after_save(frm) {
         if (frappe.mgrant_settings.module == "Donor") {
@@ -125,19 +178,19 @@ frappe.ui.form.on("Proposal", {
             }
         }
     },
-    change_indicator_pill_content(frm) {
-        let index = 0
-        let interval = setInterval(() => {
-            let indicatorPill = document.querySelector('.indicator-pill')
-            if (indicatorPill) {
-                indicatorPill.innerHTML = frm.doc?.docstatus == 1 ? "<span>Signed</span>" : "<span>Open</span>";
-            }
-            if (index > 20 || indicatorPill) {
-                clearInterval(interval)
-            }
-            index++
-        }, 500)
-    },
+    // change_indicator_pill_content(frm) {
+    //     let index = 0
+    //     let interval = setInterval(() => {
+    //         let indicatorPill = document.querySelector('.indicator-pill')
+    //         if (indicatorPill) {
+    //             indicatorPill.innerHTML = frm.doc?.docstatus == 1 ? "<span>Signed</span>" : "<span>Open</span>";
+    //         }
+    //         if (index > 20 || indicatorPill) {
+    //             clearInterval(interval)
+    //         }
+    //         index++
+    //     }, 500)
+    // },
     prev_states(frm) {
         if (frm.doc.states.length) {
             PREV_STATES = frm.doc.states;

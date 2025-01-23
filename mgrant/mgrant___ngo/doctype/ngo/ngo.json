@@ -6,7 +6,6 @@
  "engine": "InnoDB",
  "field_order": [
   "basic_information_section",
-  "organisation_type",
   "ngo_name",
   "year_of_establishment",
   "registration_of_the_organisaiton",
@@ -300,15 +299,6 @@
    "label": "Work History"
   },
   {
-   "default": "NGO",
-   "fieldname": "organisation_type",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Organisation Type",
-   "options": "NGO\nVendor",
-   "reqd": 1
-  },
-  {
    "fieldname": "80g_certificate_number",
    "fieldtype": "Data",
    "label": "80G Certificate Number"
@@ -426,7 +416,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-17 00:36:32.599623",
+ "modified": "2025-01-21 09:59:06.370938",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",

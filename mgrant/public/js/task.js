@@ -19,13 +19,16 @@ const taskList = (task_list, selector) => {
         $('[data-toggle="tooltip"]').tooltip()
     })
     const deleteTask = (taskName) => {
-        frappe.db.delete_doc('mGrant Task', taskName).then(() => {
+        frappe.db.delete_doc('ToDo', taskName).then(() => {
             frappe.show_alert({ message: __(`Task deleted successfully`), indicator: 'green' });
             taskList(task_list.filter(task => task.name !== taskName));
         });
     }
     const updateTaskStatus = (taskName, status, key) => {
-        frappe.db.set_value('mGrant Task', taskName, key, status).then(() => {
+        frappe.db.set_value('ToDo', taskName, key, status).then(() => {
+            if (key === 'custom_task_status') {
+                key = 'Status';
+            }
             frappe.show_alert({ message: __(`Task ${key} updated successfully`), indicator: 'green' });
             const updatedTaskList = task_list.map(task => {
                 if (task.name === taskName) {
@@ -71,7 +74,7 @@ const taskList = (task_list, selector) => {
                                 title="task title"
                                 class="text-dark me-2"
                                 style="font-size: 16px; font-weight: 400; line-height: 17.6px; letter-spacing: 0.5%; color: #000;">
-                                ${task?.title}
+                                ${task?.custom_title}
                             </span>
                             <div class="d-flex align-items-center" style="gap: 24px;">
                                 <div class="dropdown">
@@ -102,10 +105,10 @@ const taskList = (task_list, selector) => {
                             <div 
                                 class="avatar  text-white rounded-circle d-flex justify-content-center align-items-center me-2" 
                                 style="width: 16px; height: 16px; background-color: ${getRandomColor()};">
-                                ${task.assigned_to ? task.assigned_to[0].toUpperCase() : '-'}
+                                ${task.allocated_to ? task.allocated_to[0].toUpperCase() : '-'}
                             </div>
                             <span style="color: #6E7073; font-size: 12px; font-weight: 400; line-height: 13.2px;">
-                                ${task.assigned_to ?? 'No Assignee'}
+                                ${task.allocated_to ?? 'No Assignee'}
                             </span>
                         </div>
                         <p 
@@ -144,64 +147,53 @@ const taskList = (task_list, selector) => {
         <!-- Status Dropdown -->
         <div 
             class="dropdown" 
-            style="width: 100px; height: 26px; background-color: ${task?.status === 'Canceled'
+            style="width: 100px; height: 26px; background-color: ${task?.custom_task_status === 'Canceled'
                         ? '#F8D7DA'
-                        : task?.status === 'In Progress'
+                        : task?.custom_task_status === 'In Progress'
                             ? '#FFF3CD'
-                            : task?.status === 'Done'
+                            : task?.custom_task_status === 'Done'
                                 ? '#D4EDDA'
                                 : '#F8F9FA'}; border-radius: 4px; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px;">
-            <span 
-                title="Status" 
-                id="dropStatus-${task.name}" 
-                class="small dropdown-toggle badge pointer" 
-                style="color: ${task?.status === 'Canceled'
+                                    <span 
+                                        title="Status" 
+                                        id="dropStatus-${task.name}" 
+                                        class="small dropdown-toggle badge pointer" 
+                                        style="color: ${task?.custom_task_status === 'Canceled'
                         ? '#D9534F'
-                        : task?.status === 'In Progress'
+                        : task?.custom_task_status === 'In Progress'
                             ? '#F0AD4E'
-                            : task?.status === 'Done'
+                            : task?.custom_task_status === 'Done'
                                 ? '#5CB85C'
                                 : '#6C757D'
                     };
-                    background-color: ${task?.status === 'Canceled'
+                                            background-color: ${task?.custom_task_status === 'Canceled'
                         ? '#F8D7DA'
-                        : task?.status === 'In Progress'
+                        : task?.custom_task_status === 'In Progress'
                             ? '#FFF3CD'
-                            : task?.status === 'Done'
+                            : task?.custom_task_status === 'Done'
                                 ? '#D4EDDA'
                                 : '#F8F9FA'};
-                    padding: 6px; 
-                    border-radius: 4px;" 
-                data-toggle="dropdown" 
-                aria-haspopup="true" 
-                aria-expanded="false">
-                ${task?.status ?? 'Status'}
-            </span>
-            <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
-                <a class="dropdown-item task-status" data-task="${task.name}" data-status="Backlog" >Backlog</a>
-                <a class="dropdown-item task-status" data-task="${task.name}" data-status="Todo" >Todo</a>
-                <a class="dropdown-item task-status" data-task="${task.name}" data-status="In Progress" >In Progress</a>
-                <a class="dropdown-item task-status" data-task="${task.name}" data-status="Done" >Done</a>
-                <a class="dropdown-item task-status" data-task="${task.name}" data-status="Cancelled" >Cancelled</a>
-                <a class="dropdown-item task-status" data-task="${task.name}" data-status="Delayed" >Delayed</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Document Type -->
-    <span class="ms-auto small" style="color: #6E7073; font-size: 12px;">
-        ${task.reference_doctype ?? 'N/A'}: 
-        <span style="color: #0E1116;">${task.related_to ?? 'N/A'}</span>
-    </span>
-</div>
-
-
-   
-
-
+                                            padding: 6px; 
+                                            border-radius: 4px;" 
+                                        data-toggle="dropdown" 
+                                        aria-haspopup="true" 
+                                        aria-expanded="false">
+                                        ${task?.custom_task_status ?? 'Status'}
+                                    </span>
+                                    <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Backlog" >Backlog</a>
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Todo" >Todo</a>
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="In Progress" >In Progress</a>
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Done" >Done</a>
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Cancelled" >Cancelled</a>
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Delayed" >Delayed</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Due Date -->
                         <p class="small" style="color: #6E7073; padding-top: 16px;margin: 0;">
-                            Due Date: <span class="text-danger">${task.due_date ? getFormattedDate(task.due_date) : '--:--'}</span>
+                            Due Date: <span class="${(task.date && (new Date(task.date) < new Date(frappe.datetime.get_today()))) ? 'text-danger' : 'text-muted'}">${task.date ? getFormattedDate(task.date) : '--:--'}</span>
                         </p>
                     </div>
                 </div>
@@ -229,7 +221,7 @@ const taskList = (task_list, selector) => {
             toggleVisibility('viewBulkDropdown', isChecked);
         });
 
-        ['priority', 'status'].forEach(type => {
+        ['priority', 'custom_task_status'].forEach(type => {
             document.querySelectorAll(`input[name="${type}"]`).forEach(input =>
                 input.addEventListener('click', function () {
                     selectedIds.length
@@ -254,7 +246,6 @@ const taskList = (task_list, selector) => {
                 <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Priority</th>
                 <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Start Date</th>
                 <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Due Date</th>
-                <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Doc Type</th>
                 <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Action</th>
             </tr>
         </thead>
@@ -264,20 +255,20 @@ const taskList = (task_list, selector) => {
                 return `
 <tr style="height: 32px !important;">
     <td><input type="checkbox" class="toggleCheckbox" data-id="${task.name}" style="width: 20px !important; height: 20px !important; text-align: center !important;" ></td>
-    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;  ">${task.title}</td>
+    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;  ">${task.custom_title}</td>
     <td>
         <div class="d-flex align-items-center" style="gap: 4px">
             <div style=" width: 16px; height: 16px; background-color: ${getRandomColor()}; h" class="avatar  text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 20px; height: 20px;">A</div>
             <span style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">
-                ${task.assigned_to ?? 'No assigned available'}
+                ${task.allocated_to ?? 'No assigned available'}
             </span>
         </div>
     </td>
     <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">${task?.custom_task_type ?? 'Not available'} </td>
     <td>
           <div class="dropdown"style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
-                    <span title="status" id="dropStatus-${task.name}" class="small dropdown-toggle bg-light pointer badge ${task?.status === 'Canceled' ? 'text-danger' : task?.status === 'In Progress' ? 'text-warning' : task?.status === 'Done' ? 'text-success' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        ${task?.status ?? 'Status'}
+                    <span title="status" id="dropStatus-${task.name}" class="small dropdown-toggle bg-light pointer badge ${task?.custom_task_status === 'Canceled' ? 'text-danger' : task?.custom_task_status === 'In Progress' ? 'text-warning' : task?.custom_task_status === 'Done' ? 'text-success' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ${task?.custom_task_status ?? 'Status'}
                     </span>
                     <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
                         <a class="dropdown-item task-status" data-task="${task.name}" data-status="Backlog">Backlog</a>
@@ -301,9 +292,8 @@ const taskList = (task_list, selector) => {
                     </div>
                 </div>
     </td>
-    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">${task.start_date ? getFormattedDate(task.start_date) : '--:--'}</td>
-    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #FA4032;">${task.due_date ? getFormattedDate(task.due_date) : '--:--'}</td>
-    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">  ${task.reference_doctype ?? 'NO available'}   </td>
+    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">${task.custom_start_date ? getFormattedDate(task.custom_start_date) : '--:--'}</td>
+    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%;" class="${(task.date && (new Date(task.date) < new Date(frappe.datetime.get_today()))) ? 'text-danger' : 'text-muted'}">${task.date ? getFormattedDate(task.date) : '--:--'}</td>
     <td class="">                                                                                                       
       <div class="dropdown">
             <p title="action" class="pointer d-flex justify-content-center  align-items-center " id="dropdownMenuButton-${task.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -328,7 +318,7 @@ const taskList = (task_list, selector) => {
         $('#bulkDeleteButton').on('click', function () {
             frappe.confirm('Are you sure you want to delete the selected tasks?', () => {
                 selectedIds.forEach(async taskName => {
-                    await frappe.db.delete_doc('mGrant Task', taskName)
+                    await frappe.db.delete_doc('ToDo', taskName)
                 });
                 taskList(task_list.filter(task => !selectedIds.includes(task.name)));
                 frappe.show_alert({ message: __(`Tasks deleted successfully`), indicator: 'green' });
@@ -346,7 +336,7 @@ const taskList = (task_list, selector) => {
     $('.task-status').on('click', function () {
         const taskName = $(this).data('task');
         const newStatus = $(this).data('status');
-        updateTaskStatus(taskName, newStatus, 'status');
+        updateTaskStatus(taskName, newStatus, 'custom_task_status');
     });
     $('.task-priority').on('click', function () {
         const taskName = $(this).data('task');
@@ -358,16 +348,18 @@ const taskList = (task_list, selector) => {
         let data = task_list.filter(task => task.name == taskName);
         form(data[0], 'Edit Task');
     });
+
 }
 let task_list = [];
 let view = 'List View'
 let tasks_selector = 'task-list';
 
 const getTaskList = async (frm, selector) => {
+    toggleLoader(true, selector);
     tasks_selector = selector;
-    task_list = await getDocList('mGrant Task', [
-        ['mGrant Task', 'reference_doctype', '=', frm.doc.doctype],
-        ['mGrant Task', 'related_to', '=', frm.doc.name],
+    task_list = await getDocList('ToDo', [
+        ['ToDo', 'reference_type', '=', frm.doc.doctype],
+        ['ToDo', 'reference_name', '=', frm.doc.name],
     ], ['*']);
     $(`[data-fieldname="${selector}"]`).html(`
        <div class="d-flex flex-wrap justify-content-between align-items-center" style=".scrollable-buttons {
@@ -416,27 +408,27 @@ const getTaskList = async (frm, selector) => {
                 Set Status
             </h6>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status" id="statusTodo" value="Todo">
+                <input class="form-check-input" type="radio" name="custom_task_status" id="statusTodo" value="Todo">
                 <label class="form-check-label" for="statusTodo">Todo</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status" id="statusBacklog" value="Backlog">
+                <input class="form-check-input" type="radio" name="custom_task_status" id="statusBacklog" value="Backlog">
                 <label class="form-check-label" for="statusBacklog">Backlog</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status" id="statusInProgress" value="In Progress">
+                <input class="form-check-input" type="radio" name="custom_task_status" id="statusInProgress" value="In Progress">
                 <label class="form-check-label" for="statusInProgress">In Progress</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status" id="statusDone" value="Done">
+                <input class="form-check-input" type="radio" name="custom_task_status" id="statusDone" value="Done">
                 <label class="form-check-label" for="statusDone">Done</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status" id="statusCancelled" value="Cancelled">
+                <input class="form-check-input" type="radio" name="custom_task_status" id="statusCancelled" value="Cancelled">
                 <label class="form-check-label" for="statusCancelled">Cancelled</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status" id="statusCancelled" value="Delayed">
+                <input class="form-check-input" type="radio" name="custom_task_status" id="statusCancelled" value="Delayed">
                 <label class="form-check-label" for="statusCancelled">Delayed</label>
             </div>
         </li>
@@ -450,10 +442,10 @@ const getTaskList = async (frm, selector) => {
 </button>
         <!-- Card View Button -->
        <div class="dropdown">
-   <button class="btn btn-light" type="button" id="viewDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <!-- <button class="btn btn-light" type="button" id="viewDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="fa fa-th-large" style="color: #6E7073;"></i> ${view}
     <i class="fa fa-sort" style="color: #6E7073;"></i>
-  </button>
+  </button> -->
 
     <div class="dropdown-menu" aria-labelledby="viewDropdown">
         <span class="dropdown-item" id="cardViewBtn">
@@ -504,6 +496,7 @@ const getTaskList = async (frm, selector) => {
         getTaskList(frm, selector);
 
     })
+    toggleLoader(false, selector);
 };
 const form = async (data = null, action, frm) => {
     let title = action === 'New Task' ? 'New Task' : 'Edit Task';
@@ -512,33 +505,33 @@ const form = async (data = null, action, frm) => {
     let fileds = await frappe.call({
         method: 'frappe.desk.form.load.getdoctype',
         args: {
-            doctype: 'mGrant Task',
+            doctype: 'ToDo',
             with_parent: 1,
             cached_timestamp: frappe.datetime.now_datetime()
         }
     });
 
     // Create the dialog form
-    let fields = fileds?.docs[0]?.fields.map(field => {
+    let fields = fileds?.docs[0]?.fields.filter((field) => !['Tab Break'].includes(field.fieldtype)).map(field => {
         if (action === 'Edit Task' && data) {
             if (data[field.fieldname]) {
                 field.default = data[field.fieldname];
             }
         }
         if (frm) {
-            if (field.fieldname === 'reference_doctype') {
+            if (field.fieldname === 'reference_type') {
                 field.default = frm.doc.doctype;
                 field.read_only = true;
             }
-            if (field.fieldname === 'related_to') {
+            if (field.fieldname === 'reference_name') {
                 field.default = frm.doc.name;
                 field.read_only = true;
             }
         } else {
-            if (field.fieldname === 'reference_doctype') {
+            if (field.fieldname === 'reference_type') {
                 field.read_only = true;
             }
-            if (field.fieldname === 'related_to') {
+            if (field.fieldname === 'reference_name') {
                 field.read_only = true;
             }
         }
@@ -552,7 +545,7 @@ const form = async (data = null, action, frm) => {
             if (action === 'New Task') {
                 // Create new task
                 frappe.db.insert({
-                    doctype: "mGrant Task",
+                    doctype: "ToDo",
                     ...values
                 }).then(new_doc => {
                     if (new_doc) {
@@ -570,7 +563,7 @@ const form = async (data = null, action, frm) => {
                 });
             } else if (action === 'Edit Task' && data) {
                 // Update existing task
-                frappe.db.set_value('mGrant Task', data.name, values).then(updated_doc => {
+                frappe.db.set_value('ToDo', data.name, values).then(updated_doc => {
                     if (updated_doc) {
                         frappe.show_alert({ message: __('Task updated successfully'), indicator: 'green' });
                         task_form.hide();

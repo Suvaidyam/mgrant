@@ -31,12 +31,13 @@ const append_gallery_styles = () => {
     .checkbox-container input[type="checkbox"] {
         margin-right: 10px;
     }
+ 
     /* Add checkbox on top of the image */
     .checkbox-container {
         position: absolute;
         top: 10px;
         left: 10px;
-        z-index: 10; /* Ensure checkbox is above the image */
+       /* Ensure checkbox is above the image */
     }
     .checkbox-container input[type="checkbox"] {
         width: 20px !important;
@@ -54,6 +55,7 @@ const append_gallery_styles = () => {
     }
     .image-container {
         position: relative;
+      
     }
 
     .image-container:hover .image-cover {
@@ -82,7 +84,8 @@ const append_gallery_styles = () => {
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
         background-color: rgba(0, 0, 0, 0.4);
-        z-index:20;
+   
+
     }
 
     .dropdown-menu a i {
@@ -106,7 +109,7 @@ const renderCardView = (files) => {
                 ${files.filter(file=> file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]).map(file => {
         let extention = file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]?.toLowerCase();
         return `
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 ">
                             
                         <div class="card gallery image-container">
                             <div class="image-card">
@@ -199,7 +202,7 @@ const renderListView = (files) => {
             <th><input type="checkbox" id="selectAllCheckBox" style="width: 20px !important; height: 20px !important;"></th>
             <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Item</th>
             <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Upload Date</th>
-            <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Image</th>
+            <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">File</th>
             <th style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">Action</th>
             </tr>
             </thead>
@@ -226,7 +229,7 @@ const renderListView = (files) => {
                         <td>
                             <div class="dropdown">
                                 <p title="action" class="pointer " id="dropdownMenuButton-" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-ellipsis-h " style="transform: rotate(90deg); font-size: 16px; width: 20px; height: 20px;"></i>
+                                    <i class=" " style="transform: rotate(90deg); font-size: 16px; width: 20px; height: 20px;"></i>
                                 </p>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-${file.name}">
                                     <a class="dropdown-item edit-btn"  data-id="${file.name}">Edit</a>
@@ -294,6 +297,8 @@ const updateGallery = (frm, files, view) => {
     if (view === 'Card') {
         galleryWrapper.querySelector('#gallery-body').innerHTML = renderCardView(files);
         galleryWrapper.querySelector('#gallery-body').style.height = '75vh';
+        galleryWrapper.querySelector('#gallery-body').style.minheight = '75vh';
+        galleryWrapper.querySelector('#gallery-body').style.overflow = 'auto';  
 
     } else {
         galleryWrapper.querySelector('#gallery-body').innerHTML = renderListView(files);
@@ -354,6 +359,7 @@ const updateGallery = (frm, files, view) => {
     });
 }
 const gallery_image = async (frm, selector) => {
+    toggleLoader(true, selector);
     var view = 'Card';
     append_gallery_styles();
     // Fetch files related to the document
@@ -410,5 +416,6 @@ const gallery_image = async (frm, selector) => {
         deleteSelectedButton.style.display = 'none';
         updateGallery(frm, gallery_files, view);
     });
+    toggleLoader(false, selector);
 };
 

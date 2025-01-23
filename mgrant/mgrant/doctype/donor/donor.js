@@ -19,6 +19,12 @@ frappe.ui.form.on("Donor", {
         setup_single_dependent(frm, "state", "state", "district");
         frm.set_value("district", "");
     },
+    mobile_number(frm){
+        let mobile_number = frm.doc.mobile_number;
+        if(mobile_number && mobile_number.length === 10){
+            validate_indian_phone_number_regex(mobile_number);
+        }
+    },
     validate(frm){
         if(frm.doc.website) {
             let website = frm.doc.website;
