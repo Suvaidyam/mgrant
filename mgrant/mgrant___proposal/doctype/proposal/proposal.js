@@ -106,25 +106,6 @@ frappe.ui.form.on("Proposal", {
             frm.remove_custom_button('Download MOU');
         }
 
-        if (frm.doc?.donor_stage == 'MoU Signing ongoing') {
-            frm.add_custom_button('Regenerate MOU', async function () {
-                let { message } = await frappe.call({
-                    method: 'mgrant.controllers.proposal.proposal.generate_mou_doc',
-                    args: {
-                        proposal: frm.doc.name
-                    }
-                });
-                if (message) {
-                    frm.reload_doc();
-                    frappe.show_alert(__("MOU Generated Successfully"));
-                } else {
-                    frappe.msgprint(__("MOU Generation Failed"));
-                }
-            });
-        } else {
-            frm.remove_custom_button('Regenerate MOU');
-        }
-
         if (frm.doc?.donor_stage == 'MoU Signed') {
             frm.add_custom_button('Upload Signed MOU', async function () {
                 let dialog = new frappe.ui.Dialog({
