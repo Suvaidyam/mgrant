@@ -12,7 +12,6 @@
   "utr_number",
   "supporting_document",
   "grant",
-  "proposal",
   "section_break_tvvo",
   "ngo",
   "donor"
@@ -33,15 +32,6 @@
    "options": "Grant Receipts",
    "read_only": 1,
    "reqd": 1
-  },
-  {
-   "fetch_from": "grant_reciept.proposal",
-   "fieldname": "proposal",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Proposal",
-   "options": "Proposal",
-   "read_only": 1
   },
   {
    "fetch_from": "budget.project",
@@ -92,7 +82,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-17 02:24:56.376562",
+ "modified": "2025-01-22 12:36:37.306793",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Fund Receipt Tracker",
