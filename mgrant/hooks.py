@@ -186,9 +186,7 @@ scheduler_events = {
         "0 1 * * *": [
             "mgrant.crons.tasks.mark_tasks_as_delayed",
             "mgrant.crons.reports.mark_reports_as_delayed",
-            "mgrant.crons.tranches.mark_tranches_as_delayed",
-            "mgrant.crons.tasks.send_email_notifications_7_days_before",
-            "mgrant.crons.tasks.send_email_notifications_2_days_before"
+            "mgrant.crons.tranches.mark_tranches_as_delayed"
         ]
     },
 	# "all": [
