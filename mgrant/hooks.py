@@ -22,8 +22,8 @@ fixtures = [
     # "DDFR",
     # 'SVADatatable Configuration',
     # 'Client Script',
-    # 'Custom Field',
-    # "Property Setter",
+    'Custom Field',
+    "Property Setter",
     # 'Custom HTML Block'
     # "Custom DocPerm",
     # "My Theme",
@@ -32,6 +32,7 @@ fixtures = [
     # "Workflow State",
     # "RFP Type",
     "Notification"
+    
 ]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"
