@@ -298,7 +298,7 @@
   {
    "fieldname": "timeline_tab",
    "fieldtype": "Tab Break",
-   "label": "Action History"
+   "label": "Change logs"
   },
   {
    "fieldname": "timeline",
@@ -338,6 +338,7 @@
   {
    "fieldname": "contacts_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Contacts"
   },
   {
@@ -478,7 +479,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-20 16:25:22.172064",
+ "modified": "2025-01-22 13:54:43.691417",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",

@@ -308,7 +308,7 @@
   {
    "fieldname": "timeline_tab",
    "fieldtype": "Tab Break",
-   "label": "Action History"
+   "label": "Change logs"
   },
   {
    "fieldname": "timeline",
@@ -475,7 +475,8 @@
   },
   {
    "fieldname": "contacts",
-   "fieldtype": "HTML"
+   "fieldtype": "HTML",
+   "hidden": 1
   },
   {
    "fieldname": "reportings_tab",
@@ -579,7 +580,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-17 09:16:35.157870",
+ "modified": "2025-01-22 13:53:34.758060",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
