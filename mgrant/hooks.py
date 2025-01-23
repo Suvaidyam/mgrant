@@ -22,8 +22,9 @@ fixtures = [
     # "DDFR",
     # 'SVADatatable Configuration',
     # 'Client Script',
-    'Custom Field',
-    "Property Setter",
+    # 'Custom Field',
+    # "Property Setter",
+    # "Translation",
     # 'Custom HTML Block'
     # "Custom DocPerm",
     # "My Theme",
@@ -31,7 +32,7 @@ fixtures = [
     # "Workflow Action Master",
     # "Workflow State",
     # "RFP Type",
-    "Notification"
+    # "Notification"
     
 ]
 # include js, css files in header of desk.html

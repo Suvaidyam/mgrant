@@ -6,7 +6,7 @@
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
- "external_link": "/app/mgrant-task/view/kanban/Status",
+ "external_link": "",
  "for_user": "",
  "hide_custom": 0,
  "icon": "project-1",
@@ -14,10 +14,10 @@
  "indicator_color": "green",
  "is_hidden": 0,
  "label": "Tasks",
- "link_to": "mGrant Task",
+ "link_to": "ToDo",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-01-11 11:25:04.386298",
+ "modified": "2025-01-23 19:31:32.038529",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Tasks",
@@ -37,5 +37,5 @@
  "sequence_id": 10.0,
  "shortcuts": [],
  "title": "Tasks",
- "type": "URL"
+ "type": "Link"
 }
