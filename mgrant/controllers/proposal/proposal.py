@@ -98,7 +98,7 @@ def proposal_on_submit(self):
 
 from datetime import datetime
 @frappe.whitelist()
-def generate_mou_doc(proposal='PROPOSAL-0008'):
+def generate_mou_doc(proposal):
     if frappe.db.exists("Proposal", proposal):
         proposal_details = frappe.get_doc("Proposal", proposal)
         donor_details = frappe.get_doc("Donor", proposal_details.donor)
