@@ -30,7 +30,8 @@ fixtures = [
     # "Workflow",
     # "Workflow Action Master",
     # "Workflow State",
-    # "RFP Type"
+    # "RFP Type",
+    "Notification"
 ]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"
@@ -160,9 +161,9 @@ doctype_js = {
 # ---------------
 # Override standard doctype classes
 
-# override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
-# }
+override_doctype_class = {
+	"Notification": "mgrant.overrides.notification.CustomNotification"
+}
 
 # Document Events
 # ---------------
@@ -215,10 +216,10 @@ scheduler_events = {
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "mgrant.event.get_events"
+# 	"frappe.email.doctype.notification.notification.get_documents_for_today": "mgrant.controllers.notifications.notifications.my_get_documents_for_today"
 # }
 #
-# each overriding function accepts a `data` argument;
+# each overriding function accepts a `data` argument;event
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {

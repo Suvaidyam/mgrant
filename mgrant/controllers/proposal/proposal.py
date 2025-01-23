@@ -98,7 +98,7 @@ def proposal_on_submit(self):
 
 from datetime import datetime
 @frappe.whitelist()
-def generate_mou_doc(proposal):
+def generate_mou_doc(proposal='PROPOSAL-0008'):
     if frappe.db.exists("Proposal", proposal):
         proposal_details = frappe.get_doc("Proposal", proposal)
         donor_details = frappe.get_doc("Donor", proposal_details.donor)
@@ -108,7 +108,7 @@ def generate_mou_doc(proposal):
         impacts = frappe.get_list("Proposal Impact", filters={"proposal": proposal}, fields=["name", "impact_name", "kpi", "frequency", "total_target"])
         outcomes = frappe.get_list("Proposal Outcome", filters={"proposal": proposal}, fields=["name", "outcome_name", "kpi", "frequency", "total_target"])
         budgets = frappe.get_list("Proposal Budget Plan", filters={"proposal": proposal}, fields=["name", "item_name", "budget_head", "frequency", "total_planned_budget"])
-        tranches = frappe.get_list("Grant Receipts", filters={"proposal": proposal}, fields=["name", "financial_year", "tranch_no", "planned_due_date"])
+        tranches = frappe.get_list("Proposal Grant Receipts", filters={"proposal": proposal}, fields=["name", "financial_year", "tranch_no", "planned_due_date"])
         tasks = frappe.get_list("mGrant Task", filters={"reference_doctype": 'Proposal',"related_to":proposal}, fields=["*"])
 
         if proposal_details.mou_doc:
@@ -129,8 +129,11 @@ def generate_mou_doc(proposal):
         other_details["start_date"] = formatted_start_date
         other_details["end_date"] = formatted_end_date
         other_details["amount_in_words"] = amount_in_words
-        mou_template = frappe.render_template("mgrant/templates/pages/mou_template.html", {"proposal": proposal_details, "other_details": other_details,"ngo_details":ngo_details,"inputs":inputs,"outputs":outputs,"impacts":impacts,"outcomes":outcomes,"tasks":tasks,"budgets":budgets,"tranches":tranches})
-        
+
+
+        print_format_template = frappe.get_doc("Print Format", "MoU Template").html
+        mou_template = frappe.render_template(print_format_template, {"proposal": proposal_details, "other_details": other_details,"ngo_details":ngo_details,"inputs":inputs,"outputs":outputs,"impacts":impacts,"outcomes":outcomes,"tasks":tasks,"budgets":budgets,"tranches":tranches})
+
         pdf = get_pdf(mou_template)
         today = frappe.utils.nowdate()
         formated_today = datetime.strptime(today, "%Y-%m-%d").strftime("%d-%m-%Y")
