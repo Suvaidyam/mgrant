@@ -24,6 +24,7 @@ fixtures = [
     # 'Client Script',
     'Custom Field',
     "Property Setter",
+    "Translation",
     # 'Custom HTML Block'
     # "Custom DocPerm",
     # "My Theme",
