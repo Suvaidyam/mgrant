@@ -28,7 +28,7 @@ def get_month_quarter_year_based_on_date_and_yt(date,year_type):
         quarter = get_fiscal_quarter(date)
     return month,quarter,year
 
-def add_business_days(start_date, business_days):
+def calculate_business_days(start_date, business_days):
     count = 0
     current_date = getdate(start_date)
     while count < business_days:
