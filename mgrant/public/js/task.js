@@ -541,6 +541,9 @@ const form = async (data = null, action, frm) => {
         if(field.fieldname === 'custom_task_type'){
             field.reqd = 1;
         }
+        if(field.fieldname === 'description'){
+            field.max_height = field.max_height || '150px';
+        }
         return field;
     });
     let task_form = new frappe.ui.Dialog({
