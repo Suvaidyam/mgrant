@@ -23,7 +23,9 @@ frappe.model.on('Proposal', '*', function (fieldname, value, doc) {
 })
 frappe.ui.form.on("Proposal", {
     onload(frm) {
-        frm.page.btn_primary.hide();
+        if(!frm.is_new()) {
+            frm.page.btn_primary.hide();
+        }
         if (frappe.mgrant_settings.module == "Donor") {
             if (frappe.user_roles.includes('NGO Admin') && frm.doc.application_status == "Completed") {
                 frm.disable_form()
@@ -53,9 +55,10 @@ frappe.ui.form.on("Proposal", {
             if (ngo.length > 0) {
                 frm.set_value("ngo", ngo[0])
             }
+        }else{
+            frm.page.btn_primary.hide();
         }
         // frm.trigger('change_indicator_pill_content')
-        frm.page.btn_primary.hide();
         if (frm.doc.states.length) {
             PREV_STATES = frm.doc.states;
         } else {
