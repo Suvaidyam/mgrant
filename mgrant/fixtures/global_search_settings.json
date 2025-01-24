@@ -1,0 +1,52 @@
+[
+ {
+  "allowed_in_global_search": [
+   {
+    "document_type": "Proposal"
+   },
+   {
+    "document_type": "Grant"
+   },
+   {
+    "document_type": "Proposal Input"
+   },
+   {
+    "document_type": "Input"
+   },
+   {
+    "document_type": "Proposal Output"
+   },
+   {
+    "document_type": "Output"
+   },
+   {
+    "document_type": "Proposal Outcome"
+   },
+   {
+    "document_type": "Outcome"
+   },
+   {
+    "document_type": "ToDo"
+   },
+   {
+    "document_type": "NGO"
+   },
+   {
+    "document_type": "Vendor"
+   },
+   {
+    "document_type": "Donor"
+   },
+   {
+    "document_type": "Proposal Impact"
+   },
+   {
+    "document_type": "Impact"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Global Search Settings",
+  "modified": "2025-01-24 12:50:51.094199",
+  "name": "Global Search Settings"
+ }
+]
