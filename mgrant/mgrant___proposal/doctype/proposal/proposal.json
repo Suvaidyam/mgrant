@@ -19,6 +19,7 @@
   "column_break_qmgi",
   "start_date",
   "end_date",
+  "project_closing_date",
   "grant_duration_in_months",
   "total_planned_budget",
   "implementation_type",
@@ -27,8 +28,8 @@
   "ngo_stage",
   "donor_stage",
   "grant",
-  "mou_doc",
   "mou_signed_document",
+  "mou_verified",
   "descriptive_information_section",
   "theme",
   "sdg",
@@ -84,14 +85,14 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Project Start Date",
-   "reqd": 1
+   "mandatory_depends_on": "eval: doc.donor_stage == 'MoU Signing ongoing';"
   },
   {
    "fieldname": "end_date",
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Project End Date",
-   "reqd": 1
+   "mandatory_depends_on": "eval: doc.donor_stage == 'MoU Signing ongoing';"
   },
   {
    "fieldname": "column_break_qmgi",
@@ -298,7 +299,7 @@
   {
    "fieldname": "timeline_tab",
    "fieldtype": "Tab Break",
-   "label": "Change logs"
+   "label": "Action History"
   },
   {
    "fieldname": "timeline",
@@ -310,7 +311,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Application Title",
-   "reqd": 1
+   "mandatory_depends_on": "eval: doc.donor_stage == 'MoU Signing ongoing';"
   },
   {
    "default": "0",
@@ -318,6 +319,7 @@
    "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Project Duration (in months)",
+   "mandatory_depends_on": "eval: doc.donor_stage == 'MoU Signing ongoing';",
    "non_negative": 1,
    "read_only": 1
   },
@@ -338,7 +340,6 @@
   {
    "fieldname": "contacts_tab",
    "fieldtype": "Tab Break",
-   "hidden": 1,
    "label": "Contacts"
   },
   {
@@ -439,13 +440,6 @@
    "label": "NGO Name"
   },
   {
-   "depends_on": "eval: doc.donor_stage == 'MoU Signing ongoing'",
-   "fieldname": "mou_doc",
-   "fieldtype": "Data",
-   "label": "MoU Document",
-   "read_only": 1
-  },
-  {
    "fetch_from": "donor.donor_name",
    "fieldname": "donor_name",
    "fieldtype": "Data",
@@ -453,11 +447,10 @@
    "label": "Donor Name"
   },
   {
-   "depends_on": "eval: doc.donor_stage == 'MoU Signed'",
+   "depends_on": "eval: doc.donor_stage == 'MoU Signed' || doc.donor_stage == 'MoU Signing ongoing'",
    "fieldname": "mou_signed_document",
-   "fieldtype": "Data",
-   "label": "MoU Signed Document",
-   "read_only": 1
+   "fieldtype": "Attach",
+   "label": "Upload signed MoU"
   },
   {
    "fetch_from": "donor.email",
@@ -474,12 +467,26 @@
    "hidden": 1,
    "label": "NGO Email",
    "options": "Email"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval: doc.donor_stage == 'MoU Signed' || doc.donor_stage == 'MoU Signing ongoing'",
+   "fieldname": "mou_verified",
+   "fieldtype": "Check",
+   "label": "I have uploaded the final signed MoU and verified everything"
+  },
+  {
+   "fieldname": "project_closing_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Project Closing Date",
+   "mandatory_depends_on": "eval: doc.donor_stage == 'MoU Signing ongoing';"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-22 13:54:43.691417",
+ "modified": "2025-01-24 00:28:51.238638",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",

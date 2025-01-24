@@ -535,6 +535,12 @@ const form = async (data = null, action, frm) => {
                 field.read_only = true;
             }
         }
+        if(field.fieldname === 'custom_title'){
+            field.reqd = 1;
+        }
+        if(field.fieldname === 'custom_task_type'){
+            field.reqd = 1;
+        }
         return field;
     });
     let task_form = new frappe.ui.Dialog({
