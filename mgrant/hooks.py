@@ -32,7 +32,8 @@ fixtures = [
     # "Workflow Action Master",
     # "Workflow State",
     # "RFP Type",
-    # "Notification"
+    # "Notification",
+    # "Print Format"
     
 ]
 # include js, css files in header of desk.html

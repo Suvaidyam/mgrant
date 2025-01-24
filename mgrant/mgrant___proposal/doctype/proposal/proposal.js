@@ -89,58 +89,13 @@ frappe.ui.form.on("Proposal", {
                 });
             }
         }
-        if (frm.doc?.donor_stage == 'MoU Signing ongoing' && frm.doc?.mou_doc) {
-            frm.add_custom_button('Download MOU', function () {
-                let file_path = frm.doc.mou_doc;
-                let file_url = file_path.replace(/#/g, "%23");
-                var link = document.createElement("a");
-                link.href = file_url;
-                link.download = file_path.split('/').pop();
-                link.style.display = "none";
-
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
+        if (frm.doc?.donor_stage == 'MoU Signing ongoing') {
+            frm.add_custom_button('Download MOU', async function () {
+                let proposal = frm.doc.name;
+                window.location.href = `/api/method/mgrant.controllers.proposal.proposal.generate_mou_doc?proposal=${proposal}`;
             });
         } else {
             frm.remove_custom_button('Download MOU');
-        }
-
-        if (frm.doc?.donor_stage == 'MoU Signed') {
-            frm.add_custom_button('Upload Signed MOU', async function () {
-                let dialog = new frappe.ui.Dialog({
-                    title: 'Upload Signed MOU',
-                    fields: [
-                        {
-                            fieldname: 'mou_signed_document',
-                            fieldtype: 'Attach',
-                            label: 'Attach MOU Document',
-                            reqd: 1
-                        }
-                    ],
-                    primary_action_label: 'Upload',
-                    primary_action: async function () {
-                        let { message } = await frappe.call({
-                            method: 'mgrant.controllers.proposal.proposal.upload_signed_mou',
-                            args: {
-                                proposal: frm.doc.name,
-                                mou_signed_document: dialog.get_value('mou_signed_document')
-                            }
-                        });
-                        if (message) {
-                            console.log(message, 'message');
-                            frm.reload_doc();
-                            frappe.show_alert(__("MOU Uploaded Successfully"));
-                            dialog.hide();
-                        } else {
-                            frappe.msgprint(__("MOU Upload Failed"));
-                        }
-                    }
-                });
-                dialog.show();
-            });
-        } else {
-            frm.remove_custom_button('Upload Signed MOU');
         }
 
     },
@@ -172,6 +127,17 @@ frappe.ui.form.on("Proposal", {
     //         index++
     //     }, 500)
     // },
+    mou_verified(frm) {
+        if (!frm.doc.mou_signed_document) {
+            frappe.msgprint(__("Please upload the MoU signed document"));
+            frm.set_value('mou_verified', 0);
+        }
+    },
+    mou_signed_document(frm) {
+        if (!frm.doc.mou_signed_document) {
+            frm.set_value('mou_verified', 0);
+        }
+    },
     prev_states(frm) {
         if (frm.doc.states.length) {
             PREV_STATES = frm.doc.states;
@@ -179,6 +145,7 @@ frappe.ui.form.on("Proposal", {
             PREV_STATES = [];
         }
     },
+
     states(frm) {
         console.log('State from field', frm.doc.states);
         let current_states = frm.doc.states;
@@ -248,6 +215,13 @@ frappe.ui.form.on("Proposal", {
                 return false;
             }
         }
+        // if (!frm.doc.mou_signed_document || frm.doc.mou_verified == 0) {
+        //     console.log(frm.doc.mou_signed_document, frm.doc.mou_verified);
+        //     frappe.msgprint(__('You cannot proceed to the next stage until MoU is verified.'));
+        //     frm.set_value('donor_stage', 'MoU Signing ongoing');
+        //     frappe.validated = false;
+        //     return false;
+        // }
     },
 });
 
