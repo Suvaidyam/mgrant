@@ -19,7 +19,7 @@
   "column_break_qmgi",
   "start_date",
   "end_date",
-  "project_closing_date",
+  "closing_date",
   "grant_duration_in_months",
   "total_planned_budget",
   "implementation_type",
@@ -85,14 +85,14 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Project Start Date",
-   "mandatory_depends_on": "eval: doc.donor_stage == 'MoU Signing ongoing';"
+   "mandatory_depends_on": "eval:['MoU Signing ongoing','MoU Signed'].includes(doc.donor_stage);"
   },
   {
    "fieldname": "end_date",
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Project End Date",
-   "mandatory_depends_on": "eval: doc.donor_stage == 'MoU Signing ongoing';"
+   "mandatory_depends_on": "eval:['MoU Signing ongoing','MoU Signed'].includes(doc.donor_stage);"
   },
   {
    "fieldname": "column_break_qmgi",
@@ -312,7 +312,7 @@
    "in_global_search": 1,
    "in_list_view": 1,
    "label": "Application Title",
-   "mandatory_depends_on": "eval: doc.donor_stage == 'MoU Signing ongoing';"
+   "mandatory_depends_on": "eval:['MoU Signing ongoing','MoU Signed'].includes(doc.donor_stage);"
   },
   {
    "default": "0",
@@ -320,7 +320,7 @@
    "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Project Duration (in months)",
-   "mandatory_depends_on": "eval: doc.donor_stage == 'MoU Signing ongoing';",
+   "mandatory_depends_on": "eval:['MoU Signing ongoing','MoU Signed'].includes(doc.donor_stage);",
    "non_negative": 1,
    "read_only": 1
   },
@@ -477,17 +477,16 @@
    "label": "I have uploaded the final signed MoU and verified everything"
   },
   {
-   "fieldname": "project_closing_date",
+   "fieldname": "closing_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Project Closing Date",
-   "mandatory_depends_on": "eval: doc.donor_stage == 'MoU Signing ongoing';"
+   "label": "Closing Date"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-24 12:33:22.800314",
+ "modified": "2025-01-24 14:39:53.955461",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
