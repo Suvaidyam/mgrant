@@ -299,7 +299,7 @@
   {
    "fieldname": "timeline_tab",
    "fieldtype": "Tab Break",
-   "label": "Action History"
+   "label": "Change logs"
   },
   {
    "fieldname": "timeline",
@@ -486,7 +486,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-24 14:39:53.955461",
+ "modified": "2025-01-25 11:56:10.290152",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",

@@ -22,8 +22,9 @@ fixtures = [
     # "DDFR",
     # 'SVADatatable Configuration',
     # 'Client Script',
-    # 'Custom Field',
-    # "Property Setter",
+    'Custom Field',
+    "Property Setter",
+    "Server Script",
     # "Translation",
     # 'Custom HTML Block'
     # "Custom DocPerm",
