@@ -144,7 +144,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-24 12:42:15.371607",
+ "modified": "2025-01-25 14:42:19.150168",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Proposal Output",
@@ -180,5 +180,6 @@
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],
- "title_field": "output_name"
+ "title_field": "output_name",
+ "track_changes": 1
 }
