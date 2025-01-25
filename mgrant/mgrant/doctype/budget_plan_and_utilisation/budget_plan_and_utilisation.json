@@ -65,7 +65,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "depends_on": "eval:doc.frequency != 'Lump Sum'",
    "fieldname": "planning_table",
    "fieldtype": "Table",
    "label": "Budget Breakdown",
@@ -78,7 +77,7 @@
    "in_filter": 1,
    "in_list_view": 1,
    "label": "Reporting Frequency",
-   "options": "Quarterly\nMonthly\nLump Sum",
+   "options": "Quarterly\nMonthly\nAnnually",
    "reqd": 1
   },
   {
@@ -106,8 +105,7 @@
    "in_filter": 1,
    "in_list_view": 1,
    "label": "Total Planned Budget",
-   "mandatory_depends_on": "eval:doc.frequency == 'Lump Sum'",
-   "read_only_depends_on": "eval:doc.frequency != 'Lump Sum'"
+   "read_only": 1
   },
   {
    "description": "Auto-calculated from reported utilisation",
@@ -178,7 +176,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-25 14:50:29.168883",
+ "modified": "2025-01-25 17:27:31.136741",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Plan and Utilisation",
