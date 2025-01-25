@@ -9,6 +9,8 @@
   "year_type",
   "primary_ngo",
   "letter_head",
+  "final_positive_stage",
+  "final_negative_stage",
   "allow_overutilization",
   "allow_subgranting",
   "tab_2_tab",
@@ -73,13 +75,24 @@
    "fieldname": "tab_2_tab",
    "fieldtype": "Tab Break",
    "label": "Sidebar Items"
+  },
+  {
+   "fieldname": "final_positive_stage",
+   "fieldtype": "Data",
+   "label": "Final positive stage (Proposal)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "final_negative_stage",
+   "fieldtype": "Data",
+   "label": "Final negative stage (Proposal)"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-01-23 19:09:09.809128",
+ "modified": "2025-01-25 16:29:35.607148",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",
