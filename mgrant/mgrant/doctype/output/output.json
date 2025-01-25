@@ -115,6 +115,7 @@
    "description": "Example: No. of students completing CS trainings",
    "fieldname": "output_name",
    "fieldtype": "Data",
+   "in_global_search": 1,
    "in_list_view": 1,
    "label": "Output Description",
    "reqd": 1
@@ -176,7 +177,6 @@
   {
    "fieldname": "financial_years",
    "fieldtype": "Table MultiSelect",
-   "hidden": 1,
    "label": "Financial Years",
    "options": "Financial Year Child"
   },
@@ -238,7 +238,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-21 14:18:22.656190",
+ "modified": "2025-01-24 12:35:52.993137",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output",

@@ -318,6 +318,7 @@
   {
    "fieldname": "grant_name",
    "fieldtype": "Data",
+   "in_global_search": 1,
    "in_list_view": 1,
    "label": "Grant Title",
    "reqd": 1
@@ -580,7 +581,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-22 13:53:34.758060",
+ "modified": "2025-01-24 12:34:08.115488",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",

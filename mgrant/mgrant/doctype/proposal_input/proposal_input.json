@@ -39,6 +39,7 @@
    "description": "\nExample: No. of students attending CS trainings",
    "fieldname": "input_name",
    "fieldtype": "Data",
+   "in_global_search": 1,
    "in_list_view": 1,
    "label": "Input Description",
    "reqd": 1
@@ -146,7 +147,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-22 14:42:33.467946",
+ "modified": "2025-01-24 12:42:33.805739",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Proposal Input",
