@@ -48,7 +48,6 @@
   {
    "fieldname": "grant",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "label": "Grant",
    "options": "Grant",
    "read_only": 1,
@@ -104,9 +103,8 @@
    "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Total Target",
-   "mandatory_depends_on": "eval:doc.frequency == 'Lump Sum'",
    "non_negative": 1,
-   "read_only_depends_on": "eval:doc.frequency != 'Lump Sum'"
+   "read_only": 1
   },
   {
    "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
@@ -156,7 +154,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Reporting Frequency",
-   "options": "Quarterly\nMonthly\nLump Sum",
+   "options": "Quarterly\nMonthly\nAnnually",
    "reqd": 1
   },
   {
@@ -169,7 +167,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "depends_on": "eval:doc.frequency != \"Lump Sum\"",
    "description": "This table auto-generates time period based on the MoU duration and reporting frequency. Utilisation is auto-populated.",
    "fieldname": "planning_table",
    "fieldtype": "Table",
@@ -232,7 +229,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-25 12:55:56.750407",
+ "modified": "2025-01-25 17:06:34.329121",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Input",

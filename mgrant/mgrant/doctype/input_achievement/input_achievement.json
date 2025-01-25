@@ -77,7 +77,7 @@
    "fieldtype": "Link",
    "hidden": 1,
    "label": "Donor",
-   "options": "NGO"
+   "options": "Donor"
   },
   {
    "fieldname": "section_break_fqux",
@@ -92,7 +92,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-21 14:17:10.223702",
+ "modified": "2025-01-25 16:43:09.613125",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Input Achievement",
