@@ -3,29 +3,64 @@ from frappe.utils import money_in_words
 from frappe.utils.pdf import get_pdf
 
 
+def proposal_before_save(self):
+    user_roles = frappe.get_roles()  # Retrieves roles of the current user
+    wf_name = frappe.db.get_value("Workflow", {"document_type": self.doctype, "is_active": 1}, "name")
+    if wf_name:
+        wf = frappe.get_doc("Workflow", wf_name)
+        old_doc = self.get_doc_before_save()
+        if old_doc:
+            # Get old and new workflow states
+            old_value = old_doc.get(wf.workflow_state_field)
+            new_value = self.get("donor_stage")
+            if old_value != new_value:
+                valid_transition = False
 
+                # Check transitions in the workflow
+                for wt in wf.transitions:
+                    if wt.state == old_value:
+                        if wt.next_state == new_value:
+                            if wt.allowed in user_roles:
+                                valid_transition = True
+                            else:
+                                frappe.throw('Your  role does not have permission to perform this action')
+                            break
+
+                # If no valid transition found, raise an error
+                if not valid_transition:
+                    frappe.throw(
+                        f"Invalid transition from '{old_value}' to '{new_value}'. "
+                        f"Expected transition: {', '.join([t.next_state for t in wf.transitions if t.state == old_value])}"
+                    )
+
+def proposal_on_validate(self):
+    final_positive_stage = frappe.db.get_single_value('mGrant Settings', 'final_positive_stage')
+    if not final_positive_stage:
+        return frappe.throw("Please set Final Positive Stage in <a href='/app/mgrant-settings/mGrant%20Settings'>mGrant Settings</a>")
 def proposal_on_update(self):
     module = frappe.db.get_single_value('mGrant Settings', 'module')
-    if ((module == "Donor" and self.donor_stage == "MoU Signed") or (module == "NGO" and self.ngo_stage == "Grant Letter Signed")) and self.docstatus == 0:
-        frappe.msgprint("Proposal is now converted to Grant")
+    final_positive_stage = frappe.db.get_single_value('mGrant Settings', 'final_positive_stage')
+    if ((module == "Donor" and self.donor_stage == final_positive_stage) or (module == "NGO" and self.ngo_stage == final_positive_stage)) and self.docstatus == 0:
         self.submit()
+        frappe.msgprint("Proposal is now converted to Grant")
 
 
 def proposal_before_submit(self):
     module = frappe.db.get_single_value('mGrant Settings', 'module')
-    if module == "Donor" and self.donor_stage != "MoU Signed":
-        frappe.throw("Proposal is not in MoU Signed stage")
-    elif module == "NGO" and self.ngo_stage != "Grant Letter Signed":
-        frappe.throw("Proposal is not in Grant Letter Signed stage")
+    final_positive_stage = frappe.db.get_single_value('mGrant Settings', 'final_positive_stage')
+    if module == "Donor" and self.donor_stage != final_positive_stage:
+        frappe.throw(f"Proposal is not in {final_positive_stage} stage")
+    elif module == "NGO" and self.ngo_stage != final_positive_stage:
+        frappe.throw(f"Proposal is not in {final_positive_stage} stage")
 
     if module == "Donor" and (self.mou_verified == 0 or not self.mou_signed_document):
         frappe.throw("MoU is not verified")
-          
-        
+
 def proposal_on_submit(self):
     self.file_url = f"{frappe.utils.get_url()}/app/proposal/{self.name}"
     module = frappe.db.get_single_value('mGrant Settings', 'module')
-    if (module == "Donor" and self.donor_stage == "MoU Signed") or (module == "NGO" and self.ngo_stage == "Grant Letter Signed"):
+    final_positive_stage = frappe.db.get_single_value('mGrant Settings','final_positive_stage')
+    if (module == "Donor" and self.donor_stage == final_positive_stage) or (module == "NGO" and self.ngo_stage == final_positive_stage):
         grant = frappe.new_doc("Grant")
         grant.proposal = self.name
         grant.donor = self.donor
