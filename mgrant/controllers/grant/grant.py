@@ -8,139 +8,6 @@ def grant_on_validate(self):
         msgw = frappe.get_doc("mGrant Settings Grant Wise",self.name)
         if msgw.year_type:
             year_type = msgw.year_type
-    # if self.proposal:
-    #     if frappe.db.exists("Proposal", self.proposal):
-    #         if not self.lfas_copied:
-    #             if self.start_date and self.end_date:
-    #                 budget_plans = frappe.get_all("Proposal Budget Plan", filters={"proposal": self.proposal}, fields=['*'])
-    #                 if len(budget_plans) > 0:
-    #                     total_planned_budget = float(0)
-    #                     for budget_plan in budget_plans:
-    #                         budget_plan_doc = frappe.new_doc("Budget Plan and Utilisation")
-    #                         budget_plan_doc.update(budget_plan)
-    #                         budget_plan_doc.grant = self.name
-    #                         budget_plan_doc.start_date = self.start_date
-    #                         budget_plan_doc.end_date = self.end_date
-    #                         if budget_plan_doc.get('frequency') in ['Quarterly','Monthly']:
-    #                             data = handle_frequency(budget_plan_doc.get('frequency'),[], self.start_date, self.end_date,year_type)
-    #                             if len(data) > 0:
-    #                                 each_quarter = 0
-    #                                 remainder = 0
-    #                                 total_budget = budget_plan_doc.total_planned_budget or 0
-    #                                 if total_budget > 0:
-    #                                     each_quarter = total_budget // len(data)  # Integer division
-    #                                     remainder = total_budget % len(data)  # Calculate the remaining amount
-    #                                 for item in data:
-    #                                     planned_amount = float(each_quarter + remainder)
-    #                                     item['planned_amount'] = planned_amount
-    #                                     budget_plan_doc.append("planning_table", item)
-    #                                     remainder = 0
-    #                                 total_planned_budget += float(total_budget) or float(0)
-    #                         budget_plan_doc.flags.ignore_mandatory = True
-    #                         budget_plan_doc.flags.from_grant_file = True
-    #                         budget_plan_doc.save(ignore_permissions=True)
-    #                     self.total_planned_budget = total_planned_budget
-    #                     self.total_funds_utilised = float(0)
-    #                     self.total_unspent_funds = total_planned_budget
-                            
-    #                 inputs = frappe.get_all("Proposal Input", filters={"proposal": self.proposal}, fields=['*'])
-    #                 if len(inputs) > 0:
-    #                     for input in inputs:
-    #                         input_doc = frappe.new_doc("Input")
-    #                         input_doc.update(input)
-    #                         input_doc.grant = self.name
-    #                         input_doc.start_date = self.start_date
-    #                         input_doc.end_date = self.end_date
-    #                         if input_doc.get('frequency') in ['Quarterly','Monthly']:
-    #                             data = handle_frequency(input_doc.get('frequency'),[], self.start_date, self.end_date,year_type)
-    #                             if len(data) > 0:
-    #                                 each_quarter = 0
-    #                                 remainder = 0
-    #                                 total_target = input_doc.total_target or 0
-    #                                 if total_target > 0:
-    #                                     each_quarter = total_target // len(data)  # Integer division
-    #                                     remainder = total_target % len(data)  # Calculate the remaining amount
-    #                                 for item in data:
-    #                                     target = float(each_quarter + remainder)
-    #                                     item['target'] = target
-    #                                     input_doc.append("planning_table", item)
-    #                                     remainder = 0
-    #                         input_doc.flags.ignore_mandatory = True
-    #                         input_doc.save(ignore_permissions=True)
-    #                 outputs = frappe.get_all("Proposal Output", filters={"proposal": self.proposal}, fields=['*'])
-    #                 if len(outputs) > 0:
-    #                     for output in outputs:
-    #                         output_doc = frappe.new_doc("Output")
-    #                         output_doc.update(output)
-    #                         output_doc.grant = self.name
-    #                         output_doc.start_date = self.start_date
-    #                         output_doc.end_date = self.end_date
-    #                         if output_doc.get('frequency') in ['Quarterly','Monthly']:
-    #                             data = handle_frequency(output_doc.get('frequency'),[], self.start_date, self.end_date,year_type)
-    #                             if len(data) > 0:
-    #                                 each_quarter = 0
-    #                                 remainder = 0
-    #                                 total_target = output_doc.total_target or 0
-    #                                 if total_target > 0:
-    #                                     each_quarter = total_target // len(data)  # Integer division
-    #                                     remainder = total_target % len(data)  # Calculate the remaining amount
-    #                                 for item in data:
-    #                                     target = float(each_quarter + remainder)
-    #                                     item['target'] = target
-    #                                     output_doc.append("planning_table", item)
-    #                                     remainder = 0
-    #                         output_doc.flags.ignore_mandatory = True
-    #                         output_doc.save(ignore_permissions=True)
-    #                 impacts = frappe.get_all("Proposal Impact", filters={"proposal": self.proposal}, fields=['*'])
-    #                 if len(impacts) > 0:
-    #                     for impact in impacts:
-    #                         impact_doc = frappe.new_doc("Impact")
-    #                         impact_doc.update(impact)
-    #                         impact_doc.grant = self.name
-    #                         impact_doc.start_date = self.start_date
-    #                         impact_doc.end_date = self.end_date
-    #                         if impact_doc.get('frequency') in ['Quarterly','Monthly']:
-    #                             data = handle_frequency(impact_doc.get('frequency'),[], self.start_date, self.end_date,year_type)
-    #                             if len(data) > 0:
-    #                                 each_quarter = 0
-    #                                 remainder = 0
-    #                                 total_target = impact_doc.total_target or 0
-    #                                 if total_target > 0:
-    #                                     each_quarter = total_target // len(data)  # Integer division
-    #                                     remainder = total_target % len(data)  # Calculate the remaining amount
-    #                                 for item in data:
-    #                                     target = float(each_quarter + remainder)
-    #                                     item['target'] = target
-    #                                     impact_doc.append("planning_table", item)
-    #                                     remainder = 0
-    #                         impact_doc.flags.ignore_mandatory = True
-    #                         impact_doc.save(ignore_permissions=True)
-    #                 outcomes = frappe.get_all("Proposal Outcome", filters={"proposal": self.proposal}, fields=['*'])
-    #                 if len(outcomes) > 0:
-    #                     for outcome in outcomes:
-    #                         outcome_doc = frappe.new_doc("Outcome")
-    #                         outcome_doc.update(outcome)
-    #                         outcome_doc.grant = self.name
-    #                         outcome_doc.start_date = self.start_date
-    #                         outcome_doc.end_date = self.end_date
-    #                         if outcome_doc.get('frequency') in ['Quarterly','Monthly']:
-    #                             data = handle_frequency(outcome_doc.get('frequency'),[], self.start_date, self.end_date,year_type)
-    #                             if len(data) > 0:
-    #                                 each_quarter = 0
-    #                                 remainder = 0
-    #                                 total_target = outcome_doc.total_target or 0
-    #                                 if total_target > 0:
-    #                                     each_quarter = total_target // len(data)  # Integer division
-    #                                     remainder = total_target % len(data)  # Calculate the remaining amount
-    #                                 for item in data:
-    #                                     target = float(each_quarter + remainder)
-    #                                     item['target'] = target
-    #                                     outcome_doc.append("planning_table", item)
-    #                                     remainder = 0
-    #                         outcome_doc.flags.ignore_mandatory = True
-    #                         outcome_doc.save(ignore_permissions=True)
-    #                 self.lfas_copied = 1
-    #                 return
     if not self.is_new() and self.lfas_copied:
         old_end_date = frappe.db.get_value("Grant", self.name, "end_date")
         if isinstance(self.end_date, str):
@@ -345,8 +212,10 @@ def extend_planning_and_end_date(self,year_type="Financial Year"):
                 for plan in doc.get('planning_table', []):
                     if doc.frequency == "Monthly":
                         existing_plan_keys.append(f"{plan.month}-{plan.year}")
-                    else:
+                    elif doc.frequency == "Quarterly":
                         existing_plan_keys.append(f"{plan.quarter}-{plan.year}")
+                    elif doc.frequency == "Annually":
+                        existing_plan_keys.append(f"{plan.year}")
             data = handle_frequency(doc.frequency,existing_plan_keys, self.start_date, self.end_date,year_type)
             if len(data) > 0:
                 for item in data:
@@ -392,6 +261,15 @@ def handle_frequency(frequency,existing_plan_keys, start_date, end_date, year_ty
                     "year": year
                 })
             current_date = advance_to_next_quarter(current_date, year_type)
+    elif frequency == "Annually":
+        year = start_date.year
+        timespan = f"{year}"
+        key = f"{year}"
+        if key not in existing_plan_keys:
+            planning_data.append({
+                "timespan": timespan,
+                "year": year
+            })
     return planning_data
 
 
