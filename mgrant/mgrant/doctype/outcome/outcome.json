@@ -117,6 +117,7 @@
    "description": "Example: No. of students placed",
    "fieldname": "outcome_name",
    "fieldtype": "Data",
+   "in_global_search": 1,
    "in_list_view": 1,
    "label": "Outcome Description",
    "reqd": 1
@@ -178,7 +179,6 @@
   {
    "fieldname": "financial_years",
    "fieldtype": "Table MultiSelect",
-   "hidden": 1,
    "label": "Financial Years",
    "options": "Financial Year Child"
   },
@@ -244,7 +244,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-21 14:25:57.138379",
+ "modified": "2025-01-24 12:36:23.245997",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcome",

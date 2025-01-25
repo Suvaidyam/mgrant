@@ -36,6 +36,7 @@
   {
    "fieldname": "donor_name",
    "fieldtype": "Data",
+   "in_global_search": 1,
    "in_list_view": 1,
    "label": "Donor Name",
    "reqd": 1
@@ -170,7 +171,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-16 22:45:37.375098",
+ "modified": "2025-01-24 12:39:46.185882",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Donor",

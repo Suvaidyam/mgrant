@@ -114,6 +114,7 @@
   {
    "fieldname": "impact_name",
    "fieldtype": "Data",
+   "in_global_search": 1,
    "in_list_view": 1,
    "label": "Impact Description",
    "reqd": 1
@@ -235,7 +236,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-21 14:34:39.352618",
+ "modified": "2025-01-24 12:37:00.535752",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact",
