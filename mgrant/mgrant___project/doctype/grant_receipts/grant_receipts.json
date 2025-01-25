@@ -28,8 +28,10 @@
   "total_funds_received",
   "section_break_ffdl",
   "ngo",
+  "ngo_email",
   "column_break_kdvt",
   "donor",
+  "donor_email",
   "section_break_svga",
   "wf_comment"
  ],
@@ -171,11 +173,27 @@
    "fieldname": "disbursed",
    "fieldtype": "Button",
    "label": "Disbursed"
+  },
+  {
+   "fetch_from": "ngo.email",
+   "fieldname": "ngo_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "NGO Email",
+   "options": "Email"
+  },
+  {
+   "fetch_from": "donor.email",
+   "fieldname": "donor_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Donor Email",
+   "options": "Email"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-24 12:43:15.945754",
+ "modified": "2025-01-24 15:51:56.373395",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant Receipts",
