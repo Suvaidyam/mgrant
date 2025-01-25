@@ -8,6 +8,7 @@
  "field_order": [
   "title",
   "description",
+  "notify",
   "reference_doctype",
   "related_to"
  ],
@@ -41,11 +42,17 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Related To"
+  },
+  {
+   "fieldname": "notify",
+   "fieldtype": "Table MultiSelect",
+   "label": "Notify",
+   "options": "SVA User Child"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-15 10:17:34.190123",
+ "modified": "2025-01-24 15:29:45.148933",
  "modified_by": "Administrator",
  "module": "mGrant - Master",
  "name": "mGrant Note",
