@@ -182,7 +182,7 @@ style.innerHTML = `
         margin-bottom: 4px;
     }
 
-    .avatar {
+    .email-avatar {
         width: 32px;
         height: 32px;
         border-radius: 50%;
@@ -252,11 +252,6 @@ style.innerHTML = `
         background: #fff;
         overflow-y: auto;
     }
-
-    // .email-detail {
-    //     max-width: 785px;
-    //     margin: 0 auto;
-    // }
 
     .email-detail-header {
         margin-bottom: 24px;
@@ -407,7 +402,7 @@ var email_wrapper = document.querySelector(`[data-fieldname="email"]`);
 async function renderEmails(email_list, frm, selector = null) {
     if (selector != null) {
         email_wrapper = document.querySelector(`[data-fieldname="${selector}"]`);
-        email_wrapper.style.height = "80vh";
+        email_wrapper.style.maxHeight = "70%";
     }
 
     const formatDateGroup = (emailDate) => {
@@ -476,7 +471,7 @@ async function renderEmails(email_list, frm, selector = null) {
                 ${groupedEmails[group].map((item, index) => `
                     <div class="email-item" data-email-id="${item.name}">
                         <div class="email-header">
-                            <div class="avatar" style="background-color: ${getRandomColor()};">
+                            <div class="email-avatar" style="background-color: ${getRandomColor()};">
                                 ${item?.sender[0]?.toUpperCase()}
                             </div>
                             <div class="email-content">
@@ -592,7 +587,7 @@ async function renderEmails(email_list, frm, selector = null) {
                         </div>
                     </div>
                     <div class="email-detail-meta">
-                        <div class="avatar" style="background-color: ${getRandomColor()};">
+                        <div class="email-avatar" style="background-color: ${getRandomColor()};">
                             ${emailDoc?.sender[0]?.toUpperCase()}
                         </div>
                         <div class="meta-content">
