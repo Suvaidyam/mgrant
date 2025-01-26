@@ -52,12 +52,13 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "Annually",
    "description": "Frequency at which financial reporting will be done for this item",
    "fieldname": "frequency",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Reporting Frequency",
-   "options": "Quarterly\nMonthly\nLump Sum",
+   "options": "Annually\nQuarterly\nMonthly",
    "reqd": 1
   },
   {
@@ -84,7 +85,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-25 14:40:37.297706",
+ "modified": "2025-01-25 18:25:15.073461",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Proposal Budget Plan",

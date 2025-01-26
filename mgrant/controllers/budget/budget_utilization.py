@@ -30,7 +30,6 @@ def utilization_on_update(self):
             month, quarter, year = get_month_quarter_year_based_on_date_and_yt(transaction.as_on_date, year_type)
             key = f"{quarter}-{year}"
             if key not in quarterly_keys:
-                print(quarterly_keys, key)
                 frappe.throw(f"Please make transactions for planned quarters only.")
             if key not in mq_utilisations:
                 mq_utilisations[key] = float(0)
@@ -89,7 +88,6 @@ def utilization_on_trash(self):
             month, quarter, year = get_month_quarter_year_based_on_date_and_yt(transaction.as_on_date, year_type)
             key = f"{quarter}-{year}"
             if key not in quarterly_keys:
-                print(quarterly_keys, key)
                 frappe.throw(f"Please make transactions for planned quarters only.")
             if key not in mq_utilisations:
                 mq_utilisations[key] = float(0)
