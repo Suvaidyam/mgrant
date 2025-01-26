@@ -66,7 +66,12 @@
   "budget",
   "financial_years",
   "tranche_tab",
+  "tranches_section",
   "tranche",
+  "fund_requests_section",
+  "fund_requests",
+  "fund_disbursements_section",
+  "fund_disbursements",
   "input_tab",
   "input",
   "output_tab",
@@ -239,7 +244,8 @@
   },
   {
    "fieldname": "tranche",
-   "fieldtype": "HTML"
+   "fieldtype": "HTML",
+   "label": "Tranches"
   },
   {
    "fieldname": "column_break_pyvg",
@@ -577,11 +583,35 @@
   {
    "fieldname": "column_break_dwqw",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fund_disbursements",
+   "fieldtype": "HTML",
+   "label": "Fund Disbursements"
+  },
+  {
+   "fieldname": "fund_requests",
+   "fieldtype": "HTML",
+   "label": "Fund Requests"
+  },
+  {
+   "fieldname": "tranches_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "fund_requests_section",
+   "fieldtype": "Section Break",
+   "label": "Fund Requests"
+  },
+  {
+   "fieldname": "fund_disbursements_section",
+   "fieldtype": "Section Break",
+   "label": "Fund Disbursements"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-24 12:34:08.115488",
+ "modified": "2025-01-26 18:16:19.571377",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
