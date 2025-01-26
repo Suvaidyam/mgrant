@@ -33,7 +33,9 @@
   "column_break_glel",
   "gram_panchayat",
   "column_break_rsnk",
-  "village"
+  "village",
+  "section_break_fclj",
+  "wf_comment"
  ],
  "fields": [
   {
@@ -95,9 +97,8 @@
    "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Total Target",
-   "mandatory_depends_on": "eval:doc.frequency == 'Lump Sum'",
    "non_negative": 1,
-   "read_only_depends_on": "eval:doc.frequency != 'Lump Sum'"
+   "read_only": 1
   },
   {
    "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
@@ -113,6 +114,7 @@
    "description": "Example: No. of students completing CS trainings",
    "fieldname": "output_name",
    "fieldtype": "Data",
+   "in_global_search": 1,
    "in_list_view": 1,
    "label": "Output Description",
    "reqd": 1
@@ -122,12 +124,13 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "Annually",
    "description": "Frequency at which achievement for this output indicator is reported",
    "fieldname": "frequency",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Frequency",
-   "options": "Quarterly\nMonthly\nLump Sum",
+   "options": "Annually\nQuarterly\nMonthly",
    "reqd": 1
   },
   {
@@ -136,7 +139,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "depends_on": "eval:doc.frequency != \"Lump Sum\"",
    "description": "This table auto-generates time period based on the MoU duration and reporting frequency. Utilisation is auto-populated.",
    "fieldname": "planning_table",
    "fieldtype": "Table",
@@ -174,7 +176,6 @@
   {
    "fieldname": "financial_years",
    "fieldtype": "Table MultiSelect",
-   "hidden": 1,
    "label": "Financial Years",
    "options": "Financial Year Child"
   },
@@ -216,6 +217,16 @@
   {
    "fieldname": "column_break_ubnn",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_fclj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "wf_comment",
+   "fieldtype": "Small Text",
+   "label": "Comment",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -226,7 +237,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-17 11:53:09.403181",
+ "modified": "2025-01-25 18:21:48.942836",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output",
@@ -275,5 +286,6 @@
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],
- "title_field": "output_name"
+ "title_field": "output_name",
+ "track_changes": 1
 }

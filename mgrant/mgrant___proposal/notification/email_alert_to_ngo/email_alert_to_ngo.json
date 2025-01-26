@@ -1,0 +1,31 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.donor_stage == \"Application Started\"",
+ "creation": "2025-01-20 15:29:31.732440",
+ "custom_using_business_days": 0,
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Proposal",
+ "enabled": 1,
+ "event": "New",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<p>Thank you for submitting your application. We are reviewing it and will shortly get back to you.</p>\n",
+ "message_type": "Markdown",
+ "minutes_offset": 0,
+ "modified": "2025-01-24 00:49:58.079825",
+ "modified_by": "Administrator",
+ "module": "mGrant - Proposal",
+ "name": "Email Alert to NGO",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "ngo_email"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "New Application Started"
+}

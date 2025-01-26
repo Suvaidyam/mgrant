@@ -18,12 +18,14 @@ function getMonthDifference(startDate, endDate) {
     return yearDifference * 12 + monthDifference;
 }
 let PREV_STATES = [];
-frappe.model.on('Proposal', '*', function (fieldname,value,doc) {
+frappe.model.on('Proposal', '*', function (fieldname, value, doc) {
     cur_frm.page.btn_primary.show();
 })
 frappe.ui.form.on("Proposal", {
     onload(frm) {
-        frm.page.btn_primary.hide();
+        if (!frm.is_new()) {
+            frm.page.btn_primary.hide();
+        }
         if (frappe.mgrant_settings.module == "Donor") {
             if (frappe.user_roles.includes('NGO Admin') && frm.doc.application_status == "Completed") {
                 frm.disable_form()
@@ -44,18 +46,19 @@ frappe.ui.form.on("Proposal", {
         }, 500);
     },
     async refresh(frm) {
-        if(frm.is_new()){
-            let donor = await frappe.db.get_list('Donor',{limit:1,pluck:'name',order_by:'creation desc'})
-            if(donor.length > 0){
-                frm.set_value("donor",donor[0])
+        if (frm.is_new()) {
+            let donor = await frappe.db.get_list('Donor', { limit: 1, pluck: 'name', order_by: 'creation desc' })
+            if (donor.length > 0) {
+                frm.set_value("donor", donor[0])
             }
-            let ngo = await frappe.db.get_list('NGO',{limit:1,pluck:'name',order_by:'creation desc'})
-            if(ngo.length > 0){
-                frm.set_value("ngo",ngo[0])
+            let ngo = await frappe.db.get_list('NGO', { limit: 1, pluck: 'name', order_by: 'creation desc' })
+            if (ngo.length > 0) {
+                frm.set_value("ngo", ngo[0])
             }
+        } else {
+            frm.page.btn_primary.hide();
         }
-        frm.trigger('change_indicator_pill_content')
-        frm.page.btn_primary.hide();
+        // frm.trigger('change_indicator_pill_content')
         if (frm.doc.states.length) {
             PREV_STATES = frm.doc.states;
         } else {
@@ -85,30 +88,19 @@ frappe.ui.form.on("Proposal", {
             if (rfp_doc?.additional_questions?.length) {
                 const wrapper = document.querySelector('[data-fieldname="additional_questions"]');
                 sva_render_form(wrapper, rfp_doc?.additional_questions, (doc) => {
-                    console.log("onSubmit", doc);
+                    // console.log("onSubmit", doc);
                 });
             }
         }
-        if (frm.doc?.donor_stage=='MoU Signing ongoing'){
-        frm.add_custom_button('Regenerate MOU', async function () {
-            let { message } = await frappe.call({
-                method: 'mgrant.controllers.proposal.proposal.generate_mou_doc',
-                args: {
-                    proposal: frm.doc.name
-                }
+        if (frm.doc?.donor_stage == 'MoU Signing ongoing') {
+            frm.add_custom_button('Download MOU', async function () {
+                let proposal = frm.doc.name;
+                window.location.href = `/api/method/mgrant.controllers.proposal.proposal.generate_mou_doc?proposal=${proposal}`;
             });
-            if (message) {
-                frm.reload_doc();
-                frappe.show_alert(__("MOU Generated Successfully"));
-            } else {
-                frappe.msgprint(__("MOU Generation Failed"));
-            }
-        });
-     } else{
-        frm.remove_custom_button('Regenerate MOU');
-     }
+        } else {
+            frm.remove_custom_button('Download MOU');
+        }
 
-        
     },
     after_save(frm) {
         if (frappe.mgrant_settings.module == "Donor") {
@@ -118,25 +110,35 @@ frappe.ui.form.on("Proposal", {
         }
     },
     before_save(frm) {
-        console.log('frappe.mgrant_settings.module :>> ', frappe.mgrant_settings.module);
         if (frappe.mgrant_settings.module == "Donor") {
             if (frappe.user_roles.includes('NGO Admin') && frm.doc.application_status == "Completed") {
                 frm.set_value('donor_stage', 'Proposal Submitted')
             }
         }
     },
-    change_indicator_pill_content(frm) {
-        let index = 0
-        let interval = setInterval(() => {
-            let indicatorPill = document.querySelector('.indicator-pill')
-            if (indicatorPill) {
-                indicatorPill.innerHTML = frm.doc?.docstatus == 1 ? "<span>Signed</span>" : "<span>Open</span>";
-            }
-            if (index > 20 || indicatorPill) {
-                clearInterval(interval)
-            }
-            index++
-        }, 500)
+    // change_indicator_pill_content(frm) {
+    //     let index = 0
+    //     let interval = setInterval(() => {
+    //         let indicatorPill = document.querySelector('.indicator-pill')
+    //         if (indicatorPill) {
+    //             indicatorPill.innerHTML = frm.doc?.docstatus == 1 ? "<span>Signed</span>" : "<span>Open</span>";
+    //         }
+    //         if (index > 20 || indicatorPill) {
+    //             clearInterval(interval)
+    //         }
+    //         index++
+    //     }, 500)
+    // },
+    mou_verified(frm) {
+        if (!frm.doc.mou_signed_document) {
+            frappe.msgprint(__("Please upload the MoU signed document"));
+            frm.set_value('mou_verified', 0);
+        }
+    },
+    mou_signed_document(frm) {
+        if (!frm.doc.mou_signed_document) {
+            frm.set_value('mou_verified', 0);
+        }
     },
     prev_states(frm) {
         if (frm.doc.states.length) {
@@ -145,8 +147,8 @@ frappe.ui.form.on("Proposal", {
             PREV_STATES = [];
         }
     },
+
     states(frm) {
-        console.log('State from field', frm.doc.states);
         let current_states = frm.doc.states;
         const removedStates = PREV_STATES.filter(state => !current_states.includes(state));
         if (removedStates.length) {
@@ -214,6 +216,13 @@ frappe.ui.form.on("Proposal", {
                 return false;
             }
         }
+        // if (!frm.doc.mou_signed_document || frm.doc.mou_verified == 0) {
+        //     console.log(frm.doc.mou_signed_document, frm.doc.mou_verified);
+        //     frappe.msgprint(__('You cannot proceed to the next stage until MoU is verified.'));
+        //     frm.set_value('donor_stage', 'MoU Signing ongoing');
+        //     frappe.validated = false;
+        //     return false;
+        // }
     },
 });
 

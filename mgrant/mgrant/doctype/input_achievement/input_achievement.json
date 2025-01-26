@@ -14,7 +14,9 @@
   "supporting_document",
   "section_break_tskf",
   "ngo",
-  "donor"
+  "donor",
+  "section_break_fqux",
+  "wf_comment"
  ],
  "fields": [
   {
@@ -75,12 +77,22 @@
    "fieldtype": "Link",
    "hidden": 1,
    "label": "Donor",
-   "options": "NGO"
+   "options": "Donor"
+  },
+  {
+   "fieldname": "section_break_fqux",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "wf_comment",
+   "fieldtype": "Small Text",
+   "label": "Comment",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-17 09:27:46.718106",
+ "modified": "2025-01-25 16:43:09.613125",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Input Achievement",

@@ -1,63 +1,7 @@
-function timeAgo(timestamp) {
-    if (!timestamp) return '--:--';
-    const now = Date.now();
-    timestamp = new Date(timestamp);
-    const diff = now - timestamp;
-    const second = 1000;
-    const minute = second * 60;
-    const hour = minute * 60;
-    const day = hour * 24;
-    const week = day * 7;
-    const month = day * 30;
-    const year = day * 365;
 
-    // If the timestamp is less than 1 minute ago
-    if (diff < minute) {
-        const seconds = Math.round(diff / second);
-        return seconds === 1 ? "1 second ago" : `${seconds} seconds ago`;
-    }
-
-    // If the timestamp is less than 1 hour ago
-    if (diff < hour) {
-        const minutes = Math.round(diff / minute);
-        return minutes === 1 ? "1 minute ago" : `${minutes} minutes ago`;
-    }
-
-    // If the timestamp is less than 1 day ago
-    if (diff < day) {
-        const hours = Math.round(diff / hour);
-        return hours === 1 ? "1 hour ago" : `${hours} hours ago`;
-    }
-
-    // If the timestamp is less than 2 days ago
-    if (diff < day * 2) {
-        return "Yesterday";
-    }
-
-    // If the timestamp is less than 1 week ago
-    if (diff < week) {
-        const days = Math.round(diff / day);
-        return days === 1 ? "1 day ago" : `${days} days ago`;
-    }
-
-    // If the timestamp is less than 1 month ago
-    if (diff < month) {
-        const weeks = Math.round(diff / week);
-        return weeks === 1 ? "1 week ago" : `${weeks} weeks ago`;
-    }
-
-    // If the timestamp is less than 1 year ago
-    if (diff < year) {
-        const months = Math.round(diff / month);
-        return months === 1 ? "1 month ago" : `${months} months ago`;
-    }
-
-    // If the timestamp is more than 1 year ago
-    const years = Math.round(diff / year);
-    return years === 1 ? "1 year ago" : `${years} years ago`;
-}
 
 async function get_note_list(frm, selector) {
+    toggleLoader(true, selector);
     const response = await frappe.call({
         method: 'frappe.client.get_list',
         args: {
@@ -68,6 +12,7 @@ async function get_note_list(frm, selector) {
         },
     });
     note_list = response.message;
+    toggleLoader(false, selector);
     const today = new Date(), yesterday = new Date(today);
     yesterday.setDate(today.getDate() - 1);
     const formatDate = date => new Date(date).toISOString().split('T')[0];
@@ -185,11 +130,6 @@ async function get_note_list(frm, selector) {
             margin-right: 10px;
         }
 
-
-        // .form-container{
-        //     padding:16px 16px 16px 16px;
-        //     border-radius: 8px;
-        // }
         .frappe-control .ql-editor:not(.read-mode){
             min-height: 100px;
             Height: 36px;

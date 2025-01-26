@@ -76,6 +76,65 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Masters",
+   "link_count": 5,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Demography Group",
+   "link_count": 0,
+   "link_to": "Demography Group",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Department",
+   "link_count": 0,
+   "link_to": "Department",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Designation",
+   "link_count": 0,
+   "link_to": "Designation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "KPIs",
+   "link_count": 0,
+   "link_to": "KPIs",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Units",
+   "link_count": 0,
+   "link_to": "Units",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Programme Masters",
    "link_count": 6,
    "link_type": "DocType",
@@ -164,8 +223,37 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Roles & User Settings",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Role Profile",
+   "link_count": 0,
+   "link_to": "Role Profile",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Users",
+   "link_count": 0,
+   "link_to": "SVA User",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Settings",
-   "link_count": 4,
+   "link_count": 6,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -213,18 +301,9 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Roles & User Settings",
-   "link_count": 3,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Role Profile",
+   "label": "Action log",
    "link_count": 0,
-   "link_to": "Role Profile",
+   "link_to": "Version",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -232,94 +311,15 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Users",
+   "label": "Deleted log",
    "link_count": 0,
-   "link_to": "SVA User",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Role",
-   "link_count": 0,
-   "link_to": "Role",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Masters",
-   "link_count": 6,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Demography Group",
-   "link_count": 0,
-   "link_to": "Demography Group",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Department",
-   "link_count": 0,
-   "link_to": "Department",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Designation",
-   "link_count": 0,
-   "link_to": "Designation",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "KPIs",
-   "link_count": 0,
-   "link_to": "KPIs",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Units",
-   "link_count": 0,
-   "link_to": "Units",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Due Diligence Failure Reason",
-   "link_count": 0,
-   "link_to": "DDFR",
+   "link_to": "Deleted Document",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
   }
  ],
- "modified": "2025-01-14 12:39:37.439322",
+ "modified": "2025-01-23 15:10:53.495261",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Settings",
@@ -336,7 +336,7 @@
    "role": "NGO Admin"
   }
  ],
- "sequence_id": 12.0,
+ "sequence_id": 14.0,
  "shortcuts": [],
  "title": "Settings",
  "type": "Workspace"

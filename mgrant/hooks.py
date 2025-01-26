@@ -24,18 +24,25 @@ fixtures = [
     # 'Client Script',
     # 'Custom Field',
     # "Property Setter",
+    # "Server Script",
+    # "Translation",
     # 'Custom HTML Block'
     # "Custom DocPerm",
     # "My Theme",
-    "Workflow",
+    # "Workflow",
     # "Workflow Action Master",
     # "Workflow State",
-    # "RFP Type"
+    # "RFP Type",
+    # "Notification",
+    # "Print Format",
+    # "Global Search Settings"
+    
 ]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"
 import time
 app_include_js = [
+    f"/assets/mgrant/utils/loader.js?ver={time.time()}",
     f"/assets/mgrant/utils/setup.js?ver={time.time()}",
     f"/assets/mgrant/utils/date_utils.js?ver={time.time()}",
     f"/assets/mgrant/utils/time_utils.js?ver={time.time()}",
@@ -159,9 +166,9 @@ doctype_js = {
 # ---------------
 # Override standard doctype classes
 
-# override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
-# }
+override_doctype_class = {
+	"Notification": "mgrant.overrides.notification.CustomNotification"
+}
 
 # Document Events
 # ---------------
@@ -212,10 +219,10 @@ scheduler_events = {
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "mgrant.event.get_events"
+# 	"frappe.email.doctype.notification.notification.get_documents_for_today": "mgrant.controllers.notifications.notifications.my_get_documents_for_today"
 # }
 #
-# each overriding function accepts a `data` argument;
+# each overriding function accepts a `data` argument;event
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {

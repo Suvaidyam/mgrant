@@ -34,6 +34,7 @@
    "description": "Example: No. of students completing CS trainings",
    "fieldname": "output_name",
    "fieldtype": "Data",
+   "in_global_search": 1,
    "in_list_view": 1,
    "label": "Output Description",
    "reqd": 1
@@ -99,21 +100,21 @@
   {
    "fieldname": "proposal",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Application",
    "mandatory_depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
    "options": "Proposal",
-   "reqd": 1,
    "search_index": 1
   },
   {
-   "default": "Quarterly",
+   "default": "Annually",
    "description": "Frequency at which reporting will be done for this output item",
    "fieldname": "frequency",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Reporting Frequency",
-   "options": "Quarterly\nMonthly\nLump Sum",
+   "options": "Annually\nQuarterly\nMonthly",
    "reqd": 1
   },
   {
@@ -143,7 +144,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-17 11:23:26.346517",
+ "modified": "2025-01-25 18:24:16.158968",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Proposal Output",
@@ -179,5 +180,6 @@
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],
- "title_field": "output_name"
+ "title_field": "output_name",
+ "track_changes": 1
 }

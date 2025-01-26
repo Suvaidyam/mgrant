@@ -85,6 +85,7 @@ style.innerHTML = `
         justify-content: space-between;
        
     }
+   
 
     .header-icon {
         width: 24px;
@@ -181,7 +182,7 @@ style.innerHTML = `
         margin-bottom: 4px;
     }
 
-    .avatar {
+    .email-avatar {
         width: 32px;
         height: 32px;
         border-radius: 50%;
@@ -251,11 +252,6 @@ style.innerHTML = `
         background: #fff;
         overflow-y: auto;
     }
-
-    // .email-detail {
-    //     max-width: 785px;
-    //     margin: 0 auto;
-    // }
 
     .email-detail-header {
         margin-bottom: 24px;
@@ -332,10 +328,10 @@ style.innerHTML = `
         padding-bottom: 11px;
         margin-bottom: 11px;
     }
-        .es-icon {
-    fill:white;
-    stroke-width: 0;
-}
+    button.btn-primary > .es-icon {
+        fill:white;
+        stroke-width: 0;
+    }
 
     .attachment-item {
         display: flex;
@@ -403,14 +399,11 @@ document.head.appendChild(style);
 
 var communication_list = []
 var email_wrapper = document.querySelector(`[data-fieldname="email"]`);
-
 async function renderEmails(email_list, frm, selector = null) {
     if (selector != null) {
         email_wrapper = document.querySelector(`[data-fieldname="${selector}"]`);
-        email_wrapper.style.height = "80vh";
-        email_wrapper.innerHTML = "";
+        email_wrapper.style.maxHeight = "70%";
     }
-
 
     const formatDateGroup = (emailDate) => {
         const today = new Date();
@@ -456,8 +449,8 @@ async function renderEmails(email_list, frm, selector = null) {
                     </button>
                     <button class="btn-primary compose-btn">
                         <svg  class="es-icon es-line icon-xs" aria-hidden="true">
-                <use href="#es-line-add"></use>
-            </svg>
+                            <use href="#es-line-add"></use>
+                        </svg>
                     </button>
                 </div>
             </div>
@@ -478,7 +471,7 @@ async function renderEmails(email_list, frm, selector = null) {
                 ${groupedEmails[group].map((item, index) => `
                     <div class="email-item" data-email-id="${item.name}">
                         <div class="email-header">
-                            <div class="avatar" style="background-color: ${getRandomColor()};">
+                            <div class="email-avatar" style="background-color: ${getRandomColor()};">
                                 ${item?.sender[0]?.toUpperCase()}
                             </div>
                             <div class="email-content">
@@ -594,7 +587,7 @@ async function renderEmails(email_list, frm, selector = null) {
                         </div>
                     </div>
                     <div class="email-detail-meta">
-                        <div class="avatar" style="background-color: ${getRandomColor()};">
+                        <div class="email-avatar" style="background-color: ${getRandomColor()};">
                             ${emailDoc?.sender[0]?.toUpperCase()}
                         </div>
                         <div class="meta-content">
@@ -642,9 +635,14 @@ async function renderEmails(email_list, frm, selector = null) {
 }
 
 const communication = async (frm, selector) => {
+    toggleLoader(true, selector);
     communication_list = await getDocList('Communication', [
         ['Communication', 'reference_name', '=', frm.doc.name],
         ['Communication', 'in_reply_to', '=', '']
     ], ['*']);
     await renderEmails(communication_list, frm, selector);
+    toggleLoader(false, selector);
+    
 }
+
+

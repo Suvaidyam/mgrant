@@ -18,7 +18,6 @@ frappe.views.KanbanView = class KanbanView extends frappe.views.KanbanView {
                 }
               
                 function make_dom() {
-                    console.log(card, 'card');
                     let wf_color = 'muted';
                     if(card.doc.workflow_state){
                         let wf = frappe.wfstates?.find(wf => wf?.name === card?.doc?.workflow_state);
@@ -28,12 +27,11 @@ frappe.views.KanbanView = class KanbanView extends frappe.views.KanbanView {
                     };
                     const htmlTemplate = `
                                             <div class="\${opts.disable_click}" style="width: 227px; max-width: 227px; margin-top:10px; height: auto; border-radius: 8px; background-color: #FFFFFF; padding: 16px 12px;" data-name="\${opts?.name}">
-                                                \${opts?.title ? \`
                                                 <div class="text-truncate" style="color: #111111; font-size: 14px; font-weight:500; line-height: 15.4px; letter-spacing: 0.25%; margin-bottom: 8px">
                                                     <a href="\${opts?.form_link}" style="text-decoration: none;">
-                                                        \${opts?.title}
+                                                        \${opts?.title || 'Title Not Set'}
                                                     </a>
-                                                </div> \` : ''}
+                                                </div>
                                                 \${opts?.doc?.owner ? \`
                                                 <div class="d-flex align-items-center" style="margin-bottom: 12px; gap: 4px">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="12px" height="12px" viewBox="0 0 256 256">
