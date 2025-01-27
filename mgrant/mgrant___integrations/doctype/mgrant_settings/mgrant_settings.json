@@ -17,7 +17,8 @@
   "proposal_stages_tab",
   "proposal_stages",
   "final_positive_stage",
-  "final_negative_stage"
+  "final_negative_stage",
+  "final_approval_stage"
  ],
  "fields": [
   {
@@ -100,13 +101,19 @@
    "fieldtype": "Table",
    "label": "Proposal Stages",
    "options": "Proposal Stages Child"
+  },
+  {
+   "fieldname": "final_approval_stage",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Approval stage (Proposal)"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-01-25 19:19:46.808964",
+ "modified": "2025-01-27 17:42:30.676714",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",
