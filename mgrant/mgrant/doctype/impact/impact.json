@@ -151,12 +151,13 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "Annually",
    "description": "Frequency at which achievement for this outcome indicator is reported",
    "fieldname": "frequency",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Reporting Frequency",
-   "options": "Quarterly\nMonthly\nAnnually",
+   "options": "Annually\nQuarterly\nMonthly",
    "reqd": 1
   },
   {
@@ -234,7 +235,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-25 17:04:53.959202",
+ "modified": "2025-01-25 18:22:48.521556",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact",

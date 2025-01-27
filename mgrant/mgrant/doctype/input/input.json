@@ -148,13 +148,13 @@
    "label": "MoU End Date"
   },
   {
-   "default": "Quarterly",
+   "default": "Annually",
    "description": "Frequency at which achievement for this input indicator is reported",
    "fieldname": "frequency",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Reporting Frequency",
-   "options": "Quarterly\nMonthly\nAnnually",
+   "options": "Annually\nQuarterly\nMonthly",
    "reqd": 1
   },
   {
@@ -229,7 +229,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-25 17:06:34.329121",
+ "modified": "2025-01-25 18:21:14.808679",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Input",

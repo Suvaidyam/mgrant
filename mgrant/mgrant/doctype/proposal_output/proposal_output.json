@@ -108,13 +108,13 @@
    "search_index": 1
   },
   {
-   "default": "Quarterly",
+   "default": "Annually",
    "description": "Frequency at which reporting will be done for this output item",
    "fieldname": "frequency",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Reporting Frequency",
-   "options": "Quarterly\nMonthly\nLump Sum",
+   "options": "Annually\nQuarterly\nMonthly",
    "reqd": 1
   },
   {
@@ -144,7 +144,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-25 14:42:19.150168",
+ "modified": "2025-01-25 18:24:16.158968",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Proposal Output",
