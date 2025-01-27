@@ -7,7 +7,7 @@ function getMonthDifference(startDate, endDate) {
     const start = new Date(startDate);
     const end = new Date(endDate);
     if (start > end) {
-        frappe.msgprint(__("End Date should be greater than Start Date"));
+        frappe.msgprint(__("Start Date will never never be greater than End Date"));
         frappe.validated = false
         return false;
     }
