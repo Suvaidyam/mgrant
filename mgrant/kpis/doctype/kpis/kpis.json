@@ -10,6 +10,7 @@
   "kpi_name",
   "kpi_type",
   "unit",
+  "donor",
   "column_break_vghm",
   "focus_area",
   "sdg",
@@ -72,12 +73,19 @@
    "label": "KPI Type",
    "options": "\nInput\nOutput\nOutcome\nImpact",
    "reqd": 1
+  },
+  {
+   "fieldname": "donor",
+   "fieldtype": "Table MultiSelect",
+   "label": "Donor",
+   "options": "Donor Child",
+   "reqd": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-24 14:42:56.248401",
+ "modified": "2025-01-24 10:07:44.312877",
  "modified_by": "Administrator",
  "module": "KPIs",
  "name": "KPIs",

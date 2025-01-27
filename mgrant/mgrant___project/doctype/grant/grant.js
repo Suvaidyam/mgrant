@@ -7,7 +7,7 @@ function getMonthDifference(startDate, endDate) {
     const start = new Date(startDate);
     const end = new Date(endDate);
     if (start > end) {
-        frappe.msgprint(__("End Date should be greater than Start Date"));
+        frappe.msgprint(__("Start Date will never never be greater than End Date"));
         frappe.validated = false
         return false;
     }
@@ -58,12 +58,24 @@ const mgrantSettings = (frm) => {
 }
 let PREV_STATES = [];
 frappe.ui.form.on("Grant", {
+    render(h) {
+        console.log("render", h);
+
+    },
     setup(frm) {
+        console.log("setup", frm);
         window.onFieldClick = (...args)=>{
             console.log("onFieldClick:",...args);
         };
+        window.onFieldValueChange = function(...args){
+            // if(){
+
+            // }
+            console.log("onFieldValueChange:",...args, this);
+        };
 	},
     async refresh(frm) {
+        // console.log("refresh", frm);
         if(frm.doc.states.length) {
             PREV_STATES = frm.doc.states;
         }else{

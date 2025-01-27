@@ -1,4 +1,4 @@
-# Copyright (c) 2024, Suvaidyam and Contributors
+# Copyright (c) 2025, Suvaidyam and Contributors
 # See license.txt
 
 # import frappe
@@ -12,18 +12,18 @@ EXTRA_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 IGNORE_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 
 
-class TestmGrantTask(UnitTestCase):
+class UnitTestFundRequest(UnitTestCase):
 	"""
-	Unit tests for mGrantTask.
+	Unit tests for FundRequest.
 	Use this class for testing individual functions and methods.
 	"""
 
 	pass
 
 
-class TestmGrantTask(IntegrationTestCase):
+class IntegrationTestFundRequest(IntegrationTestCase):
 	"""
-	Integration tests for mGrantTask.
+	Integration tests for FundRequest.
 	Use this class for testing interactions between multiple components.
 	"""
 

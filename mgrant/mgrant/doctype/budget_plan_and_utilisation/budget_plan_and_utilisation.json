@@ -50,6 +50,7 @@
    "description": "Example: Salary of Project Lead",
    "fieldname": "item_name",
    "fieldtype": "Data",
+   "in_global_search": 1,
    "in_list_view": 1,
    "label": "Item Description",
    "reqd": 1
@@ -64,19 +65,20 @@
    "fieldtype": "Section Break"
   },
   {
-   "depends_on": "eval:doc.frequency != 'Lump Sum'",
    "fieldname": "planning_table",
    "fieldtype": "Table",
    "label": "Budget Breakdown",
    "options": "Budget Planning Child"
   },
   {
+   "default": "Annually",
    "description": "Frequency at which utilisation for this budget item is reported",
    "fieldname": "frequency",
    "fieldtype": "Select",
+   "in_filter": 1,
    "in_list_view": 1,
    "label": "Reporting Frequency",
-   "options": "Quarterly\nMonthly\nLump Sum",
+   "options": "Annually\nQuarterly\nMonthly",
    "reqd": 1
   },
   {
@@ -84,6 +86,7 @@
    "fieldname": "start_date",
    "fieldtype": "Date",
    "hidden": 1,
+   "in_filter": 1,
    "in_list_view": 1,
    "label": "MoU Start Date"
   },
@@ -92,6 +95,7 @@
    "fieldname": "end_date",
    "fieldtype": "Date",
    "hidden": 1,
+   "in_filter": 1,
    "in_list_view": 1,
    "label": "MoU End Date"
   },
@@ -99,15 +103,16 @@
    "description": "Auto-calculated from budget breakdown below",
    "fieldname": "total_planned_budget",
    "fieldtype": "Currency",
+   "in_filter": 1,
    "in_list_view": 1,
    "label": "Total Planned Budget",
-   "mandatory_depends_on": "eval:doc.frequency == 'Lump Sum'",
-   "read_only_depends_on": "eval:doc.frequency != 'Lump Sum'"
+   "read_only": 1
   },
   {
    "description": "Auto-calculated from reported utilisation",
    "fieldname": "total_utilisation",
    "fieldtype": "Currency",
+   "in_filter": 1,
    "in_list_view": 1,
    "label": "Total Utilisation",
    "read_only": 1
@@ -116,7 +121,6 @@
    "description": "These are the FYs based on the MoU duration",
    "fieldname": "financial_years",
    "fieldtype": "Table MultiSelect",
-   "hidden": 1,
    "label": "Financial Years",
    "options": "Financial Year Child"
   },
@@ -173,7 +177,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-21 14:01:56.824420",
+ "modified": "2025-01-25 18:20:21.295653",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Plan and Utilisation",
@@ -219,5 +223,6 @@
  ],
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

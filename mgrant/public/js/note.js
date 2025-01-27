@@ -130,11 +130,6 @@ async function get_note_list(frm, selector) {
             margin-right: 10px;
         }
 
-
-        // .form-container{
-        //     padding:16px 16px 16px 16px;
-        //     border-radius: 8px;
-        // }
         .frappe-control .ql-editor:not(.read-mode){
             min-height: 100px;
             Height: 36px;

@@ -5,12 +5,14 @@ frappe.ui.form.Sidebar = class CustomSidebar extends frappe.ui.form.Sidebar {
             frm: this.frm,
             can_write: frappe.model.can_write(this.frm.doctype, this.frm.docname),
         });
-        
+		// items.push($(sidebar_content).filter('.assigned-to'))
 		this.sidebar = $('<div class="form-sidebar overlay-sidebar hidden-xs hidden-sm"></div>')
-			.html($(sidebar_content).filter('.form-tags'))
-			.appendTo(this.page.sidebar.empty());
+		.append($(sidebar_content).filter('.form-tags'))
+		.append($(sidebar_content).filter('.form-assignments'))
+		.appendTo(this.page.sidebar.empty());
             
 		this.make_tags();
+		this.make_assignments();
 		this.refresh();
     }
     refresh() {

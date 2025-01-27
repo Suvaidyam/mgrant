@@ -6,6 +6,7 @@ def outcome_ach_on_update(self):
     outcome_doc = frappe.get_doc("Outcome", self.outcome)
     monthly_keys = [f"{planning.month}-{planning.year}" for planning in outcome_doc.get("planning_table",[]) if outcome_doc.frequency == "Monthly"]
     quarterly_keys = [f"{planning.quarter}-{planning.year}" for planning in outcome_doc.get("planning_table",[]) if outcome_doc.frequency == "Quarterly"]
+    annual_keys = [f"{planning.year}" for planning in outcome_doc.get("planning_table",[]) if outcome_doc.frequency == "Annually"]
     year_type = frappe.db.get_single_value("mGrant Settings", "year_type") or "Financial Year"
     if frappe.db.exists("mGrant Settings Grant Wise",self.grant):
         msgw = frappe.get_doc("mGrant Settings Grant Wise",self.grant)
@@ -14,7 +15,6 @@ def outcome_ach_on_update(self):
     if not get_all_achievement:
         return
     mq_utilisations = {}
-    total_utilization = float(0)
     for achievement in get_all_achievement:
         if outcome_doc.get("frequency") == "Monthly":
             month = achievement.as_on_date.month - 1
@@ -33,8 +33,14 @@ def outcome_ach_on_update(self):
             if key not in mq_utilisations:
                 mq_utilisations[key] = float(0)
             mq_utilisations[key] += achievement.achievement
-        else:
-            total_utilization += achievement.achievement
+        elif outcome_doc.get("frequency") == "Annually":
+            year = achievement.as_on_date.year
+            key = f"{year}"
+            if key not in annual_keys:
+                frappe.throw(f"Please enter achievements for planned years only.")
+            if key not in mq_utilisations:
+                mq_utilisations[key] = float(0)
+            mq_utilisations[key] += achievement.achievement
     # Perform validation and update planning table in the same loop
     for planning in outcome_doc.get("planning_table", []):
         if outcome_doc.get("frequency") == "Monthly":
@@ -43,8 +49,9 @@ def outcome_ach_on_update(self):
         elif outcome_doc.get("frequency") == "Quarterly":
             key = f"{planning.quarter}-{planning.year}"
             planning.achievement = mq_utilisations.get(key, float(0))
-    if outcome_doc.get("frequency") not in ["Monthly", "Quarterly"]:
-        outcome_doc.total_achievement = total_utilization
+        elif outcome_doc.get("frequency") == "Annually":
+            key = f"{planning.year}"
+            planning.achievement = mq_utilisations.get(key, float(0))
     outcome_doc.save(ignore_permissions=True)
     
 def outcome_ach_on_trash(self):
@@ -52,6 +59,7 @@ def outcome_ach_on_trash(self):
     outcome_doc = frappe.get_doc("Outcome", self.outcome)
     monthly_keys = [f"{planning.month}-{planning.year}" for planning in outcome_doc.get("planning_table",[]) if outcome_doc.frequency == "Monthly"]
     quarterly_keys = [f"{planning.quarter}-{planning.year}" for planning in outcome_doc.get("planning_table",[]) if outcome_doc.frequency == "Quarterly"]
+    annual_keys = [f"{planning.year}" for planning in outcome_doc.get("planning_table",[]) if outcome_doc.frequency == "Annually"]
     year_type = frappe.db.get_single_value("mGrant Settings", "year_type") or "Financial Year"
     if frappe.db.exists("mGrant Settings Grant Wise",self.grant):
         msgw = frappe.get_doc("mGrant Settings Grant Wise",self.grant)
@@ -60,7 +68,6 @@ def outcome_ach_on_trash(self):
     if not get_all_achievement:
         return
     mq_utilisations = {}
-    total_utilization = float(0)
     for achievement in get_all_achievement:
         if outcome_doc.get("frequency") == "Monthly":
             month = achievement.as_on_date.month - 1
@@ -79,8 +86,14 @@ def outcome_ach_on_trash(self):
             if key not in mq_utilisations:
                 mq_utilisations[key] = float(0)
             mq_utilisations[key] += achievement.achievement
-        else:
-            total_utilization += achievement.achievement
+        elif outcome_doc.get("frequency") == "Annually":
+            year = achievement.as_on_date.year
+            key = f"{year}"
+            if key not in annual_keys:
+                frappe.throw(f"Please enter achievements for planned years only.")
+            if key not in mq_utilisations:
+                mq_utilisations[key] = float(0)
+            mq_utilisations[key] += achievement.achievement
     # Perform validation and update planning table in the same loop
     for planning in outcome_doc.get("planning_table", []):
         if outcome_doc.get("frequency") == "Monthly":
@@ -89,6 +102,7 @@ def outcome_ach_on_trash(self):
         elif outcome_doc.get("frequency") == "Quarterly":
             key = f"{planning.quarter}-{planning.year}"
             planning.achievement = mq_utilisations.get(key, float(0))
-    if outcome_doc.get("frequency") not in ["Monthly", "Quarterly"]:
-        outcome_doc.total_achievement = total_utilization
+        elif outcome_doc.get("frequency") == "Annually":
+            key = f"{planning.year}"
+            planning.achievement = mq_utilisations.get(key, float(0))
     outcome_doc.save(ignore_permissions=True)
