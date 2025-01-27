@@ -1,23 +1,22 @@
 {
  "app": "mgrant",
  "charts": [],
- "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Proposals\"}}]",
- "creation": "2025-01-08 11:12:52.618055",
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Applications\"}}]",
+ "creation": "2025-01-27 11:36:22.841037",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
- "external_link": "/app/proposal/view/kanban/Stage",
- "for_user": "",
+ "external_link": "/app/proposal/view/list",
+ "for_user": "Administrator",
  "hide_custom": 0,
  "icon": "file",
  "idx": 0,
  "indicator_color": "green",
  "is_hidden": 0,
  "label": "Applications",
- "link_to": "Proposal",
- "link_type": "DocType",
+ "link_type": "Page",
  "links": [],
- "modified": "2025-01-17 13:17:58.050737",
+ "modified": "2025-01-27 11:46:51.202543",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Applications",
@@ -28,16 +27,10 @@
  "quick_lists": [],
  "roles": [
   {
-   "role": "Administrator"
+   "role": "System Manager"
   },
   {
    "role": "NGO Admin"
-  },
-  {
-   "role": "Partner NGO"
-  },
-  {
-   "role": "Stage 1"
   }
  ],
  "sequence_id": 1.0,
