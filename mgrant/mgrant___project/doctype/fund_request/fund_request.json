@@ -1,0 +1,176 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:FD-{grant}-{#####}",
+ "creation": "2025-01-26 23:16:04.616829",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "description",
+  "request_date",
+  "column_break_eryd",
+  "requestedamount",
+  "section_break_aaeg",
+  "grant",
+  "financial_year",
+  "section_break_ffdl",
+  "ngo",
+  "ngo_email",
+  "column_break_kdvt",
+  "donor",
+  "donor_email",
+  "section_break_svga",
+  "wf_comment"
+ ],
+ "fields": [
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_eryd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_aaeg",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "grant",
+   "fieldtype": "Link",
+   "label": "Grant",
+   "mandatory_depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
+   "options": "Grant",
+   "search_index": 1
+  },
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Financial Year",
+   "options": "Financial Year"
+  },
+  {
+   "fieldname": "section_break_ffdl",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fetch_from": "grant.ngo",
+   "fieldname": "ngo",
+   "fieldtype": "Link",
+   "label": "NGO",
+   "options": "NGO"
+  },
+  {
+   "fetch_from": "ngo.email",
+   "fieldname": "ngo_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "NGO Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "column_break_kdvt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "grant.donor",
+   "fieldname": "donor",
+   "fieldtype": "Link",
+   "label": "Donor",
+   "options": "Donor"
+  },
+  {
+   "fetch_from": "donor.email",
+   "fieldname": "donor_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Donor Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "section_break_svga",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "wf_comment",
+   "fieldtype": "Small Text",
+   "label": "Comment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "request_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Request Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "requestedamount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Requested Amount",
+   "non_negative": 1,
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-26 23:16:41.832686",
+ "modified_by": "Administrator",
+ "module": "mGrant - Project",
+ "name": "Fund Request",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "NGO Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Partner NGO",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "description",
+ "track_changes": 1
+}
