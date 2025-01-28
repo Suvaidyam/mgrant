@@ -16,8 +16,9 @@
   "mgrant_logo",
   "proposal_stages_tab",
   "proposal_stages",
-  "final_positive_stage",
-  "final_negative_stage"
+  "sign_off_prerequisite",
+  "positive",
+  "negative"
  ],
  "fields": [
   {
@@ -79,18 +80,6 @@
    "label": "Sidebar Items"
   },
   {
-   "fieldname": "final_positive_stage",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Final positive stage (Proposal)"
-  },
-  {
-   "fieldname": "final_negative_stage",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Final negative stage (Proposal)"
-  },
-  {
    "fieldname": "proposal_stages_tab",
    "fieldtype": "Tab Break",
    "label": "Proposal Stages"
@@ -100,13 +89,31 @@
    "fieldtype": "Table",
    "label": "Proposal Stages",
    "options": "Proposal Stages Child"
+  },
+  {
+   "fieldname": "positive",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Final positive stage (Proposal)"
+  },
+  {
+   "fieldname": "negative",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Final negative stage (Proposal)"
+  },
+  {
+   "fieldname": "sign_off_prerequisite",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Sign-Off Prerequisite (Proposal)"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-01-25 19:19:46.808964",
+ "modified": "2025-01-28 11:07:33.407734",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",
