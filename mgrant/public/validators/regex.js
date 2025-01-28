@@ -13,7 +13,7 @@ function validate_ifsc(ifsc) {
     if (!ifscPattern.test(ifsc)) {
         frappe.msgprint(__("Invalid IFSC Code"));
         frappe.validated = false;
-    }else{
+    } else {
         frappe.validated = true;
     }
 }

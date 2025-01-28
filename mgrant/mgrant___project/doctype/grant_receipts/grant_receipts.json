@@ -13,6 +13,7 @@
   "total_funds_planned",
   "financial_year",
   "section_break_eazb",
+  "column_break_kmak",
   "raise_request",
   "approve_request",
   "disbursed",
@@ -189,11 +190,16 @@
    "hidden": 1,
    "label": "Donor Email",
    "options": "Email"
+  },
+  {
+   "fieldname": "column_break_kmak",
+   "fieldtype": "Column Break",
+   "hidden": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-25 14:51:30.064511",
+ "modified": "2025-01-28 14:30:10.390222",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant Receipts",
