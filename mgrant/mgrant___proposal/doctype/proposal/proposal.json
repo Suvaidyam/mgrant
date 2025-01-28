@@ -19,10 +19,10 @@
   "column_break_qmgi",
   "start_date",
   "end_date",
-  "closing_date",
   "grant_duration_in_months",
   "total_planned_budget",
   "implementation_type",
+  "closing_date",
   "column_break_nwys",
   "application_status",
   "ngo_stage",
@@ -44,6 +44,7 @@
   "theme",
   "sdg",
   "focus_area",
+  "column_break_jioh",
   "proposal_description",
   "geographical_information_section",
   "column_break_shct",
@@ -492,7 +493,7 @@
    "fieldname": "closing_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Closing Date"
+   "label": "Application Closing Date"
   },
   {
    "fieldname": "stage",
@@ -556,12 +557,16 @@
    "fieldtype": "Data",
    "label": "Level 3 Remarks",
    "permlevel": 3
+  },
+  {
+   "fieldname": "column_break_jioh",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-27 19:22:33.381599",
+ "modified": "2025-01-28 17:35:04.822735",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
