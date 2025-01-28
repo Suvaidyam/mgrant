@@ -100,6 +100,7 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "MoU Start Date",
+   "read_only_depends_on": "eval:doc.proposal && doc.start_date && doc.__unsaved != 0;",
    "reqd": 1
   },
   {
@@ -107,6 +108,7 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "MoU End Date",
+   "read_only_depends_on": "eval:doc.proposal && doc.end_date && doc.__unsaved != 0;",
    "reqd": 1
   },
   {
@@ -161,7 +163,8 @@
    "fieldname": "states",
    "fieldtype": "Table MultiSelect",
    "label": "States",
-   "options": "State Child"
+   "options": "State Child",
+   "read_only_depends_on": "eval:doc.proposal && doc.states.length != 0 && doc.__unsaved != 0;"
   },
   {
    "fieldname": "column_break_shct",
@@ -172,19 +175,22 @@
    "fieldname": "districts",
    "fieldtype": "Table MultiSelect",
    "label": "Districts",
-   "options": "District Child"
+   "options": "District Child",
+   "read_only_depends_on": "eval:doc.proposal && doc.districts.length != 0 && doc.__unsaved != 0;"
   },
   {
    "fieldname": "blocks",
    "fieldtype": "Table MultiSelect",
    "label": "Blocks",
-   "options": "Block Child"
+   "options": "Block Child",
+   "read_only_depends_on": "eval:doc.proposal && doc.blocks.length != 0 && doc.__unsaved != 0;"
   },
   {
    "fieldname": "demography_focus",
    "fieldtype": "Table",
    "label": "Demography Focus and Projected Beneficiary reach (Numbers)",
-   "options": "Demography Group Child"
+   "options": "Demography Group Child",
+   "read_only_depends_on": "eval:doc.proposal && doc.demography_focus.length > 0 && doc.__unsaved != 0;"
   },
   {
    "fieldname": "column_break_qmgi",
@@ -297,6 +303,7 @@
    "fieldtype": "Link",
    "label": "NGO",
    "options": "NGO",
+   "read_only_depends_on": "eval:doc.proposal && doc.ngo && doc.__unsaved != 0;",
    "reqd": 1,
    "search_index": 1
   },
@@ -307,6 +314,7 @@
    "label": "Donor",
    "mandatory_depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
    "options": "Donor",
+   "read_only_depends_on": "eval:doc.proposal && doc.donor && doc.__unsaved != 0;",
    "search_index": 1
   },
   {
@@ -325,6 +333,7 @@
    "in_global_search": 1,
    "in_list_view": 1,
    "label": "Grant Title",
+   "read_only_depends_on": "eval:doc.proposal && doc.grant_name && doc.__unsaved != 0;",
    "reqd": 1
   },
   {
@@ -338,7 +347,8 @@
    "fieldname": "villages",
    "fieldtype": "Table MultiSelect",
    "label": "Villages",
-   "options": "Village Child"
+   "options": "Village Child",
+   "read_only_depends_on": "eval:doc.proposal && doc.villages.length != 0 && doc.__unsaved != 0;"
   },
   {
    "fieldname": "column_break_evjf",
@@ -387,13 +397,15 @@
   {
    "fieldname": "grant_description",
    "fieldtype": "Small Text",
-   "label": "Grant Description"
+   "label": "Grant Description",
+   "read_only_depends_on": "eval:doc.proposal && doc.grant_description && doc.__unsaved != 0;"
   },
   {
    "fieldname": "programme",
    "fieldtype": "Link",
    "label": "Programme",
-   "options": "Programme"
+   "options": "Programme",
+   "read_only_depends_on": "eval:doc.proposal && doc.programme && doc.__unsaved != 0;"
   },
   {
    "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
@@ -459,19 +471,22 @@
    "fieldname": "theme",
    "fieldtype": "Link",
    "label": "Theme",
-   "options": "Themes"
+   "options": "Themes",
+   "read_only_depends_on": "eval:doc.proposal && doc.theme && doc.__unsaved != 0;"
   },
   {
    "fieldname": "sdg",
    "fieldtype": "Link",
    "label": "SDG",
-   "options": "SDGs"
+   "options": "SDGs",
+   "read_only_depends_on": "eval:doc.proposal && doc.sdg && doc.__unsaved != 0;"
   },
   {
    "fieldname": "focus_area",
    "fieldtype": "Link",
    "label": "Focus Area",
-   "options": "Focus Area"
+   "options": "Focus Area",
+   "read_only_depends_on": "eval:doc.proposal && doc.focus_area && doc.__unsaved != 0;"
   },
   {
    "fieldname": "contacts_tab",
@@ -507,6 +522,7 @@
    "hidden": 1,
    "label": "Implementation Type",
    "options": "Self Implementation\nSub Grant",
+   "read_only_depends_on": "eval:doc.proposal && doc.implementation_type && doc.__unsaved != 0;",
    "set_only_once": 1
   },
   {
@@ -599,7 +615,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-26 18:42:32.310962",
+ "modified": "2025-01-27 16:28:38.798109",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
