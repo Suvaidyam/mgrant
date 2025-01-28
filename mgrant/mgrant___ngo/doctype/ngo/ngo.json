@@ -134,9 +134,9 @@
   },
   {
    "fieldname": "theme",
-   "fieldtype": "Link",
+   "fieldtype": "Table MultiSelect",
    "label": "Theme (Area of work)",
-   "options": "Themes"
+   "options": "Themes Child"
   },
   {
    "fieldname": "work_references",
@@ -156,7 +156,8 @@
   },
   {
    "fieldname": "grants",
-   "fieldtype": "HTML"
+   "fieldtype": "HTML",
+   "hidden": 1
   },
   {
    "default": "contacts",
@@ -417,7 +418,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-25 14:15:22.465252",
+ "modified": "2025-01-28 13:10:20.108587",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",
