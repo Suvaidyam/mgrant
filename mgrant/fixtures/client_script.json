@@ -9,5 +9,27 @@
   "name": "File List",
   "script": "frappe.views.FileView.grid_view = true;\nfrappe.views.FileView.refresh();",
   "view": "List"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "ToDo",
+  "enabled": 1,
+  "modified": "2025-01-28 13:36:20.081063",
+  "module": null,
+  "name": "Task",
+  "script": "frappe.ui.form.on('ToDo', {\n\trefresh(frm) {\n\t\t// your code here\n\t},\n\tdate(frm){\n\t    if(frm.doc.custom_start_date && frm.doc.date){\n\t        let custom_start_date = new Date(frm.doc.custom_start_date);\n\t        let date = new Date(frm.doc.date)\n\t        if (custom_start_date > date){\n\t            frappe.throw(\"Due Date should be always more than Start Date\")\n\t            frappe.validated = false;\n\t        }\n\t    }\n\t},\n\tcustom_start_date(frm){\n        if(frm.doc.custom_start_date && frm.doc.date){\n            let custom_start_date = new Date(frm.doc.custom_start_date);\n            let date = new Date(frm.doc.date)\n            if (custom_start_date > date){\n                frappe.throw(\"Extended Date should be always more than Start Date\")\n                frappe.validated = false;\n            }\n        }\n\t},\n\tvalidate(frm){\n\t    if(frm.doc.custom_start_date && frm.doc.date){\n\t        let custom_start_date = new Date(frm.doc.custom_start_date);\n\t        let date = new Date(frm.doc.date)\n\t        if (custom_start_date > date){\n\t            frappe.throw(\"Extended Date should be always more than MoU End Date\")\n\t            frappe.validated = false;\n\t        }\n\t    }\n\t}\n})",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Contact",
+  "enabled": 1,
+  "modified": "2025-01-28 16:28:10.392855",
+  "module": null,
+  "name": "Contact",
+  "script": "frappe.ui.form.on('Contact', {\n\trefresh(frm) {\n\t\t\n\t},\n\tvalidate(frm){\n\t    if(frm.doc.custom_whatsapp_number.length == 10){\n\t        validate_indian_phone_number_regex(frm.doc.custom_whatsapp_number)\n\t    }\n\t},\n\tcustom_whatsapp_number(frm){\n\t    if(frm.doc.custom_whatsapp_number.length == 10){\n\t        validate_indian_phone_number_regex(frm.doc.custom_whatsapp_number)\n\t    }\n\t}\n})",
+  "view": "Form"
  }
 ]

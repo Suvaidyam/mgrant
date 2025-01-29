@@ -103,10 +103,10 @@ const append_gallery_styles = () => {
 
 const renderCardView = (files) => {
     return `
-            <div class="row mt-3" style ="hight:100vh !important;"style="font-size:16px !important;">
+            <div class="row mt-3" style ="hight:75% !important;"style="font-size:16px !important;">
                 ${files.length > 0 ? `
                     
-                ${files.filter(file=> file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]).map(file => {
+                ${files.filter(file => file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]).map(file => {
         let extention = file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]?.toLowerCase();
         return `
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 ">
@@ -123,12 +123,12 @@ const renderCardView = (files) => {
                         `<img src="${file.image}" class="card-img-top" alt="${file.title}">`
                         :
                         `<img src="/assets/mgrant/images/default-plchldr.png" style="object-fit: contain;" class="card-img-top">`}
-                            </div>
-                            <div class="image-cover">
-                                <div class="cover-header">
-                                    <div class="checkbox-container" >
-                                        <input type="checkbox" data-id="${file.name}" class="toggleCheckbox"/>
-                                    </div>
+                                                </div>
+                                                <div class="image-cover">
+                                                    <div class="cover-header">
+                                                        <div class="checkbox-container" >
+                                                            <input type="checkbox" data-id="${file.name}" class="toggleCheckbox"/>
+                                                        </div>
                                     <div class="dropdown dropeditBBTn">
                                         <p title="action" class="pointer " id="dropdownMenuButton-${file.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fa fa-ellipsis-h " style="transform: rotate(90deg); font-size: 16px; width: 20px; height: 20px; color: white;"></i>
@@ -140,7 +140,7 @@ const renderCardView = (files) => {
                                     </div>
                                 </div>
                                 <div class="cover-body" style="display:flex;align-items:center;justify-content:center;width:100%;">
-                                    <a href="${file.image}" target="__blank" style="margin-top:20px;max-width:50px;max-height:50px;padding:5px;border-radius:50%;background:#E2E2E2;"><img src="/assets/mgrant/images/eye-icon.png" style="max-width:40px;max-height:40px;"/></a>
+                                    <a href="${file.image}" target="__blank" style="margin-top:20px;max-width:50px;max-height:50px;padding:5px;border-radius:50%;background:#E2E2E2;"><img src="/assets/mgrant/images/eye-icon.png" style="max-width:30px;max-height:30px;"/></a>
                                 </div>
                             </div>
                         </div>
@@ -173,7 +173,7 @@ const renderHeader = (files, view) => {
             <div class="dropdown">
             <button class="btn btn-light" type="button" id="viewDropdown" data-toggle="dropdown">
             <i class="fa ${view === 'Card' ? 'fa-th-large' : 'fa-list'}" style="color: #6E7073;"></i> 
-            <span style="color: #6E7073;">${view} View</span>
+            <span style="color: #6E7073;" id="viewNameButton">${view} View</span>
             <i class="fa fa-sort" style="color: #6E7073;"></i>
             </button>
             <div class="dropdown-menu">
@@ -181,12 +181,8 @@ const renderHeader = (files, view) => {
             <span class="dropdown-item" id="listViewBtn"><i class="fa fa-list"></i> List View</span>
             </div>
             </div>
-            <button class="btn btn-light filter-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#6E7073" class="bi bi-filter" viewBox="0 0 16 16">
-            <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
-            </svg>
-            <span class="mx-2">Filters</span>
-            </button>
+            
+
             <button class="btn " id="customUploadButton" style="background-color: #801621; color: white; width: 90px; height: 28px; border-radius: 8px; font-size: 14px;">+ Upload</button>
             </div>
             </div>
@@ -207,7 +203,7 @@ const renderListView = (files) => {
             </tr>
             </thead>
             <tbody>
-            ${files.filter(file=> file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]).map(file => {
+            ${files.filter(file => file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]).map(file => {
         let extention = file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]?.toLowerCase();
         return `
                     <tr>
@@ -215,6 +211,7 @@ const renderListView = (files) => {
                         <td>${file.title}</td>
                         <td style="min-width:100px;">${getFormattedDate(file.creation)}</td>
                         <td>
+                            <a href="${file.image}" target="__blank">
                             ${(['pdf', 'doc', 'docx', 'xls', 'xlsx', 'csv', 'ppt', 'pptx', 'txt', 'rtf', 'odt', 'ods'].includes(extention)) ?
                 `<img src="/assets/mgrant/images/pdf-plchldr.png" style="object-fit: contain;width: 32px; max-height: 27px !important; border-radius: 4px;" class="card-img-top">`
                 :
@@ -225,6 +222,7 @@ const renderListView = (files) => {
                         `<img src="${file.image}" style="width: 32px; max-height: 27px !important; border-radius: 4px; object:cover;" alt="${file.title}">`
                         :
                         `<img src="/assets/mgrant/images/default-plchldr.png" style="object-fit: contain;width: 32px; max-height: 27px !important; border-radius: 4px;" class="card-img-top">`}
+                            </a>
                         </td>
                         <td>
                             <div class="dropdown">
@@ -298,7 +296,7 @@ const updateGallery = (frm, files, view) => {
         galleryWrapper.querySelector('#gallery-body').innerHTML = renderCardView(files);
         galleryWrapper.querySelector('#gallery-body').style.height = '75vh';
         galleryWrapper.querySelector('#gallery-body').style.minheight = '75vh';
-        galleryWrapper.querySelector('#gallery-body').style.overflow = 'auto';  
+        galleryWrapper.querySelector('#gallery-body').style.overflow = 'auto';
 
     } else {
         galleryWrapper.querySelector('#gallery-body').innerHTML = renderListView(files);
@@ -405,6 +403,7 @@ const gallery_image = async (frm, selector) => {
     $('#cardViewBtn').on('click', () => {
         view = 'Card';
         selectedFiles = [];
+        $(document).find('#viewNameButton').text('Card View');
         let deleteSelectedButton = document.getElementById('deleteSelectedButton');
         deleteSelectedButton.style.display = 'none';
         updateGallery(frm, gallery_files, view);
@@ -412,6 +411,7 @@ const gallery_image = async (frm, selector) => {
     $('#listViewBtn').on('click', () => {
         view = 'List';
         selectedFiles = [];
+        $(document).find('#viewNameButton').text('List View');
         let deleteSelectedButton = document.getElementById('deleteSelectedButton');
         deleteSelectedButton.style.display = 'none';
         updateGallery(frm, gallery_files, view);
@@ -419,3 +419,14 @@ const gallery_image = async (frm, selector) => {
     toggleLoader(false, selector);
 };
 
+
+
+
+//  Filter Button 
+
+{/* <button class="btn btn-light filter-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#6E7073" class="bi bi-filter" viewBox="0 0 16 16">
+        <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
+    </svg>
+    <span class="mx-2">Filters</span>
+</button> */}
