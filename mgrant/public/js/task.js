@@ -26,10 +26,7 @@ const taskList = (task_list, selector) => {
     }
     const updateTaskStatus = (taskName, status, key) => {
         frappe.db.set_value('ToDo', taskName, key, status).then(() => {
-            if (key === 'custom_task_status') {
-                key = 'Status';
-            }
-            frappe.show_alert({ message: __(`Task ${key} updated successfully`), indicator: 'green' });
+            frappe.show_alert({ message: __(`Task ${key === 'custom_task_status' ? 'Status' : key} updated successfully`), indicator: 'green' });
             const updatedTaskList = task_list.map(task => {
                 if (task.name === taskName) {
                     return { ...task, [key]: status };
@@ -181,7 +178,6 @@ const taskList = (task_list, selector) => {
                                         ${task?.custom_task_status ?? 'Status'}
                                     </span>
                                     <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
-                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Backlog" >Backlog</a>
                                         <a class="dropdown-item task-status" data-task="${task.name}" data-status="Todo" >Todo</a>
                                         <a class="dropdown-item task-status" data-task="${task.name}" data-status="In Progress" >In Progress</a>
                                         <a class="dropdown-item task-status" data-task="${task.name}" data-status="Done" >Done</a>
@@ -258,9 +254,9 @@ const taskList = (task_list, selector) => {
     <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;  ">${task.custom_title}</td>
     <td>
         <div class="d-flex align-items-center" style="gap: 4px">
-            <div style=" width: 16px; height: 16px; background-color: ${getRandomColor()}; h" class="avatar  text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 20px; height: 20px;">A</div>
+            <div style=" width: 20px; height: 20px; font-size: 12px; background-color: ${getRandomColor()}; h" class="avatar  text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 20px; height: 20px;">${task.custom_assigned_to ? task.custom_assigned_to[0].toUpperCase() : '-'}</div>
             <span style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">
-                ${task.allocated_to ?? 'No assigned available'}
+                ${task.custom_assigned_to ?? 'No Assignee'}
             </span>
         </div>
     </td>
@@ -271,7 +267,6 @@ const taskList = (task_list, selector) => {
                         ${task?.custom_task_status ?? 'Status'}
                     </span>
                     <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
-                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Backlog">Backlog</a>
                         <a class="dropdown-item task-status" data-task="${task.name}" data-status="Todo">Todo</a>
                         <a class="dropdown-item task-status" data-task="${task.name}" data-status="In Progress">In Progress</a>
                         <a class="dropdown-item task-status" data-task="${task.name}" data-status="Done">Done</a>
@@ -412,10 +407,6 @@ const getTaskList = async (frm, selector) => {
                 <label class="form-check-label" for="statusTodo">Todo</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="custom_task_status" id="statusBacklog" value="Backlog">
-                <label class="form-check-label" for="statusBacklog">Backlog</label>
-            </div>
-            <div class="form-check">
                 <input class="form-check-input" type="radio" name="custom_task_status" id="statusInProgress" value="In Progress">
                 <label class="form-check-label" for="statusInProgress">In Progress</label>
             </div>
@@ -530,6 +521,34 @@ const form = async (data = null, action, frm) => {
         if (field.fieldname === 'custom_task_type') {
             field.reqd = 1;
         }
+        if (field.fieldname == 'custom_start_date') {
+            field.onchange = () => {
+                if (cur_dialog.get_value('custom_start_date') && cur_dialog.get_value('date')) {
+                    if (new Date(cur_dialog.get_value('custom_start_date')) > new Date(cur_dialog.get_value('date'))) {
+                        frappe.throw({
+                            message: "Due Date should always be greater than Start Date"
+                        })
+                        frappe.validated = false;
+                    } else (
+                        frappe.validated = true
+                    )
+                }
+            }
+        }
+        if (field.fieldname == 'date') {
+            field.onchange = () => {
+                if (cur_dialog.get_value('custom_start_date') && cur_dialog.get_value('date')) {
+                    if (new Date(cur_dialog.get_value('custom_start_date')) > new Date(cur_dialog.get_value('date'))) {
+                        frappe.throw({
+                            message: "Due Date should always be greater than Start Date"
+                        })
+                        frappe.validated = false;
+                    } else (
+                        frappe.validated = true
+                    )
+                }
+            }
+        }
         if (field.fieldname === 'description') {
             field.max_height = field.max_height || '150px';
         }
@@ -541,6 +560,7 @@ const form = async (data = null, action, frm) => {
         primary_action_label: primaryActionLabel,
         primary_action(values) {
             if (action === 'New Task') {
+                // before-save
                 // Create new task
                 frappe.db.insert({
                     doctype: "ToDo",
