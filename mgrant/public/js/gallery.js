@@ -103,10 +103,10 @@ const append_gallery_styles = () => {
 
 const renderCardView = (files) => {
     return `
-            <div class="row mt-3" style ="hight:100vh !important;"style="font-size:16px !important;">
+            <div class="row mt-3" style ="hight:75vh !important;"style="font-size:16px !important;">
                 ${files.length > 0 ? `
                     
-                ${files.filter(file=> file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]).map(file => {
+                ${files.filter(file => file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]).map(file => {
         let extention = file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]?.toLowerCase();
         return `
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 ">
@@ -181,12 +181,8 @@ const renderHeader = (files, view) => {
             <span class="dropdown-item" id="listViewBtn"><i class="fa fa-list"></i> List View</span>
             </div>
             </div>
-            <button class="btn btn-light filter-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#6E7073" class="bi bi-filter" viewBox="0 0 16 16">
-            <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
-            </svg>
-            <span class="mx-2">Filters</span>
-            </button>
+            
+
             <button class="btn " id="customUploadButton" style="background-color: #801621; color: white; width: 90px; height: 28px; border-radius: 8px; font-size: 14px;">+ Upload</button>
             </div>
             </div>
@@ -207,7 +203,7 @@ const renderListView = (files) => {
             </tr>
             </thead>
             <tbody>
-            ${files.filter(file=> file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]).map(file => {
+            ${files.filter(file => file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]).map(file => {
         let extention = file.image.match(/\.(pdf|jpg|jpeg|png|img|mp4|webmp|mkv)(\?|#|$)/i)?.[1]?.toLowerCase();
         return `
                     <tr>
@@ -298,7 +294,7 @@ const updateGallery = (frm, files, view) => {
         galleryWrapper.querySelector('#gallery-body').innerHTML = renderCardView(files);
         galleryWrapper.querySelector('#gallery-body').style.height = '75vh';
         galleryWrapper.querySelector('#gallery-body').style.minheight = '75vh';
-        galleryWrapper.querySelector('#gallery-body').style.overflow = 'auto';  
+        galleryWrapper.querySelector('#gallery-body').style.overflow = 'auto';
 
     } else {
         galleryWrapper.querySelector('#gallery-body').innerHTML = renderListView(files);
@@ -419,3 +415,14 @@ const gallery_image = async (frm, selector) => {
     toggleLoader(false, selector);
 };
 
+
+
+
+//  Filter Button 
+
+{/* <button class="btn btn-light filter-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#6E7073" class="bi bi-filter" viewBox="0 0 16 16">
+        <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
+    </svg>
+    <span class="mx-2">Filters</span>
+</button> */}

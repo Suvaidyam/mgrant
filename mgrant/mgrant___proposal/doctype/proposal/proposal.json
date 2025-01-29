@@ -19,11 +19,10 @@
   "column_break_qmgi",
   "start_date",
   "end_date",
-  "closing_date",
   "grant_duration_in_months",
   "total_planned_budget",
   "implementation_type",
-  "test_doc",
+  "closing_date",
   "column_break_nwys",
   "application_status",
   "stage",
@@ -43,6 +42,7 @@
   "theme",
   "sdg",
   "focus_area",
+  "column_break_jioh",
   "proposal_description",
   "geographical_information_section",
   "column_break_shct",
@@ -393,7 +393,6 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "NGO",
-   "link_filters": "[[\"NGO\",\"organisation_type\",\"=\",\"NGO\"]]",
    "mandatory_depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
    "options": "NGO",
    "set_only_once": 1
@@ -415,8 +414,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Vendor",
-   "link_filters": "[[\"NGO\",\"organisation_type\",\"=\",\"Vendor\"]]",
-   "options": "NGO"
+   "options": "Vendor"
   },
   {
    "default": "Draft",
@@ -473,7 +471,7 @@
    "fieldname": "closing_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Closing Date"
+   "label": "Application Closing Date"
   },
   {
    "fieldname": "stage",
@@ -541,16 +539,14 @@
    "permlevel": 3
   },
   {
-   "fieldname": "test_doc",
-   "fieldtype": "Data",
-   "label": "Test Doc",
-   "mandatory_depends_on": "eval:frappe.mgrant_settings.sign_off_prerequisite == doc.stage"
+   "fieldname": "column_break_jioh",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-28 11:24:17.163815",
+ "modified": "2025-01-28 17:35:04.822735",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
