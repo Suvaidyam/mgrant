@@ -117,6 +117,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.wf_comment;",
    "fieldname": "wf_comment",
    "fieldtype": "Small Text",
    "label": "Comment",
@@ -125,7 +126,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-25 14:41:20.716250",
+ "modified": "2025-01-29 11:40:36.709464",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Proposal Grant Receipts",

@@ -221,6 +221,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.wf_comment;",
    "fieldname": "wf_comment",
    "fieldtype": "Small Text",
    "label": "Comment",
@@ -235,7 +236,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-25 18:22:48.521556",
+ "modified": "2025-01-29 11:37:55.462313",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact",
