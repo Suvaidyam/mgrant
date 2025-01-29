@@ -169,6 +169,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.wf_comment",
    "fieldname": "wf_comment",
    "fieldtype": "Small Text",
    "label": "Comment",
@@ -177,7 +178,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-25 18:20:21.295653",
+ "modified": "2025-01-29 11:31:36.735119",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Plan and Utilisation",
