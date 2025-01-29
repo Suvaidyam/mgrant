@@ -1,0 +1,46 @@
+{
+ "app": "mgrant",
+ "charts": [],
+ "content": "[{\"id\":\"BdiCniXawP\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Applications\",\"col\":4}}]",
+ "creation": "2025-01-08 11:12:52.618055",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "external_link": "",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "file",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Proposals",
+ "link_to": "Proposal",
+ "link_type": "DocType",
+ "links": [],
+ "modified": "2025-01-29 10:20:22.878700",
+ "modified_by": "Administrator",
+ "module": "mGrant - Proposal",
+ "name": "Proposals",
+ "number_cards": [
+  {
+   "label": "Applications",
+   "number_card_name": "Proposals"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "NGO Admin"
+  },
+  {
+   "role": "Administrator"
+  }
+ ],
+ "sequence_id": 1.0,
+ "shortcuts": [],
+ "title": "Proposals",
+ "type": "Workspace"
+}

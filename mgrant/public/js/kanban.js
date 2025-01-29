@@ -1,4 +1,9 @@
-frappe.views.KanbanView = class KanbanView extends frappe.views.KanbanView {
+frappe.views.KanbanView.get_kanbans('Proposal').then(kanbans => {
+    if (kanbans.length > 0) {
+        frappe.model.user_settings.update('Proposal',{...frappe.model.user_settings,'Kanban':{...frappe.model.user_settings['Kanban'],'last_kanban_board':kanbans[0].name}});   
+    }
+})
+frappe.views.KanbanView = class CustomKanbanView extends frappe.views.KanbanView {
     before_render() {
         if (this.doctype === "Proposal") {
             cur_list.page.set_title(__('Proposal'));
@@ -16,11 +21,10 @@ frappe.views.KanbanView = class KanbanView extends frappe.views.KanbanView {
                     make_dom(); // Customized DOM
                     render_card_meta(); // Meta information
                 }
-              
+
                 function make_dom() {
-                    console.log(card, 'card');
                     let wf_color = 'muted';
-                    if(card.doc.workflow_state){
+                    if (card.doc.workflow_state) {
                         let wf = frappe.wfstates?.find(wf => wf?.name === card?.doc?.workflow_state);
                         wf_color = wf?.style?.toLowerCase();
                     } else {
@@ -28,12 +32,11 @@ frappe.views.KanbanView = class KanbanView extends frappe.views.KanbanView {
                     };
                     const htmlTemplate = `
                                             <div class="\${opts.disable_click}" style="width: 227px; max-width: 227px; margin-top:10px; height: auto; border-radius: 8px; background-color: #FFFFFF; padding: 16px 12px;" data-name="\${opts?.name}">
-                                                \${opts?.title ? \`
                                                 <div class="text-truncate" style="color: #111111; font-size: 14px; font-weight:500; line-height: 15.4px; letter-spacing: 0.25%; margin-bottom: 8px">
                                                     <a href="\${opts?.form_link}" style="text-decoration: none;">
-                                                        \${opts?.title}
+                                                        \${opts?.title || 'Title Not Set'}
                                                     </a>
-                                                </div> \` : ''}
+                                                </div>
                                                 \${opts?.doc?.owner ? \`
                                                 <div class="d-flex align-items-center" style="margin-bottom: 12px; gap: 4px">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="12px" height="12px" viewBox="0 0 256 256">
@@ -124,24 +127,19 @@ frappe.views.KanbanView = class KanbanView extends frappe.views.KanbanView {
                         if (typeof amount !== "number" || isNaN(amount)) {
                             return "Invalid amount";
                         }
-                     
                         const suffixes = [
                             { value: 1e7, symbol: "Cr" },  // Crore
                             { value: 1e5, symbol: "L" },   // Lakh
                             { value: 1e3, symbol: "K" }    // Thousand
                         ];
-                     
                         for (const { value, symbol } of suffixes) {
                             if (amount >= value) {
                                 const formattedAmount = (amount / value).toFixed(1).replace(/\.0$/, ""); // Remove trailing .0
                                 return `${formattedAmount}${symbol}`;
                             }
                         }
-                     
                         return amount.toString(); // Return the number as is if no suffix is applicable
                     }
-                     
-
                     const parseHTML = (_html, ctx) => {
                         // Use backticks and ensure opts is correctly passed in
                         return new Function('opts', `return \`${_html}\`;`)(ctx);
@@ -202,8 +200,6 @@ frappe.views.KanbanView = class KanbanView extends frappe.views.KanbanView {
     }
     refresh() {
         super.refresh();
-
-        // Ensure custom rendering logic is applied after dragging
         this.wrapper.find(".kanban-column").each((_, column) => {
             $(column)
                 .find(".kanban-card")

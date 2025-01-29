@@ -456,19 +456,8 @@ const getTaskList = async (frm, selector) => {
         </span>
     </div>
 </div>
-        <!-- Filters Button -->
-       <button class="btn btn-light d-flex align-items-center filter-btn">
-    <!-- Filter Icon -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#6E7073" class="bi bi-filter" viewBox="0 0 16 16">
-        <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
-    </svg>
-    <!-- Label -->
-    <span class="mx-2" style="color: #6E7073;">Filters</span>
-    <!-- Vertical Line Separator -->
-   <div style="height: 20px; width: 1px; background-color: #6E7073; margin: 0 8px;"></div>
-    <!-- Close Icon -->
-    <span aria-hidden="true" style="font-size: 16px; line-height: 16px; display: inline-block; width: 16px; height: 16px; color: #6E7073;">&times;</span>
-    </button>
+      
+
         <!-- New Task Button -->
         <button class="btn btn-primary btn-sm" id="createTask">
             <svg class="es-icon es-line icon-xs" aria-hidden="true">
@@ -535,6 +524,15 @@ const form = async (data = null, action, frm) => {
                 field.read_only = true;
             }
         }
+        if (field.fieldname === 'custom_title') {
+            field.reqd = 1;
+        }
+        if (field.fieldname === 'custom_task_type') {
+            field.reqd = 1;
+        }
+        if (field.fieldname === 'description') {
+            field.max_height = field.max_height || '150px';
+        }
         return field;
     });
     let task_form = new frappe.ui.Dialog({
@@ -586,3 +584,21 @@ const form = async (data = null, action, frm) => {
     }
     task_form.show();
 };
+
+
+// Filter Button
+
+
+//   < !--Filters Button-- >
+//     <button class="btn btn-light d-flex align-items-center filter-btn">
+//         <!-- Filter Icon -->
+//         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#6E7073" class="bi bi-filter" viewBox="0 0 16 16">
+//             <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
+//         </svg>
+//         <!-- Label -->
+//         <span class="mx-2" style="color: #6E7073;">Filters</span>
+//         <!-- Vertical Line Separator -->
+//         <div style="height: 20px; width: 1px; background-color: #6E7073; margin: 0 8px;"></div>
+//         <!-- Close Icon -->
+//         <span aria-hidden="true" style="font-size: 16px; line-height: 16px; display: inline-block; width: 16px; height: 16px; color: #6E7073;">&times;</span>
+//     </button>  

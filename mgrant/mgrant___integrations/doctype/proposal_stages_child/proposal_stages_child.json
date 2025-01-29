@@ -1,0 +1,40 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-25 19:16:25.210045",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "stage",
+  "closure"
+ ],
+ "fields": [
+  {
+   "fieldname": "stage",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Stage",
+   "reqd": 1
+  },
+  {
+   "fieldname": "closure",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Closure",
+   "options": "\nSign-Off Prerequisite\nPositive\nNegative"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-01-28 10:12:22.670349",
+ "modified_by": "Administrator",
+ "module": "Mgrant - Integrations",
+ "name": "Proposal Stages Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

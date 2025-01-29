@@ -1,30 +1,84 @@
 import frappe
 from frappe.utils import money_in_words
 from frappe.utils.pdf import get_pdf
-from frappe.utils.file_manager import save_file
 
 
+def proposal_before_save(self):
+    user_roles = frappe.get_roles()  # Retrieves roles of the current user
+    wf_name = frappe.db.get_value("Workflow", {"document_type": self.doctype, "is_active": 1}, "name")
 
+    if wf_name:
+        wf = frappe.get_doc("Workflow", wf_name)
+        old_doc = self.get_doc_before_save()
+        if old_doc:
+            # Get old and new workflow states
+            old_value = old_doc.get(wf.workflow_state_field)
+            new_value = self.get("stage")
+            if old_value != new_value:
+                valid_transition = False
+
+                # Check transitions in the workflow
+                for wt in wf.transitions:
+                    if wt.state == old_value:
+                        if wt.next_state == new_value:
+                            if wt.allowed in user_roles:
+                                valid_transition = True
+                            else:
+                                frappe.throw('Your  role does not have permission to perform this action')
+                            break
+
+                # If no valid transition found, raise an error
+                if not valid_transition:
+                    frappe.throw(
+                        f"Invalid transition from '{old_value}' to '{new_value}'. "
+                        f"Expected transition: {', '.join([t.next_state for t in wf.transitions if t.state == old_value])}"
+                    )
+
+
+def proposal_on_validate(self):
+    positive = frappe.db.get_single_value('mGrant Settings', 'positive')
+    if not positive:
+        return frappe.throw("Please set Final Positive Stage in <a href='/app/mgrant-settings/mGrant%20Settings'>mGrant Settings</a>")
 def proposal_on_update(self):
-    module = frappe.db.get_single_value('mGrant Settings', 'module')
-    if ((module == "Donor" and self.donor_stage == "MoU Signed") or (module == "NGO" and self.ngo_stage == "Grant Letter Signed")) and self.docstatus == 0:
-        frappe.msgprint("Proposal is now converted to Grant")
+    positive = frappe.db.get_single_value('mGrant Settings', 'positive')
+    if ((self.stage == positive) or (self.stage == positive)) and self.docstatus == 0:
         self.submit()
-    if self.donor_stage == "MoU Signing ongoing" and not self.mou_doc:
-        generate_mou_doc(self.name)
+        frappe.msgprint("Proposal is now converted to Grant")
 
 
 def proposal_before_submit(self):
-    module = frappe.db.get_single_value('mGrant Settings', 'module')
-    if module == "Donor" and self.donor_stage != "MoU Signed":
-        frappe.throw("Proposal is not in MoU Signed stage")
-    elif module == "NGO" and self.ngo_stage != "Grant Letter Signed":
-        frappe.throw("Proposal is not in Grant Letter Signed stage")
+    positive = frappe.db.get_single_value('mGrant Settings', 'positive')
+    negative = frappe.db.get_single_value('mGrant Settings', 'negative')
         
+    if self.stage not in [positive, negative]:
+        frappe.throw(f"Proposal is neither in final positive stage nor in final negative stage")
+
+    if (self.mou_verified == 0 or not self.mou_signed_document):
+        frappe.throw("MoU is not verified")
+
+    required_fields = {
+        positive: [
+            ("proposal_name", "'Application Title' is required in Proposal"),
+            ("start_date", "'Project Start Date' is required in Proposal"),
+            ("end_date", "'Project End Date' is required in Proposal"),
+            ("level_1", "'Level 1' is required in Proposal"),
+            ("level_2", "'Level 2' is required in Proposal"),
+            ("level_3", "'Level 3' is required in Proposal")
+        ]
+    }
+    
+    for field, message in required_fields.get(self.stage, []):
+        if not getattr(self, field):
+            frappe.throw(message)
+
+
+
+
+
 def proposal_on_submit(self):
     self.file_url = f"{frappe.utils.get_url()}/app/proposal/{self.name}"
-    module = frappe.db.get_single_value('mGrant Settings', 'module')
-    if (module == "Donor" and self.donor_stage == "MoU Signed") or (module == "NGO" and self.ngo_stage == "Grant Letter Signed"):
+    positive = frappe.db.get_single_value('mGrant Settings','positive')
+    if (self.stage == positive) or (self.stage == positive):
         grant = frappe.new_doc("Grant")
         grant.proposal = self.name
         grant.donor = self.donor
@@ -80,44 +134,38 @@ def proposal_on_submit(self):
                 tranche_doc.flags.ignore_mandatory = True
                 tranche_doc.save(ignore_permissions=True)
         tasks = frappe.get_all("ToDo", filters={"reference_type": "Proposal","reference_name":self.name},fields=['*'])
-        for task in tasks:
-            task_doc = frappe.new_doc("ToDo")
-            task_doc.update(task)
-            task_doc.reference_type = "Grant"
-            task_doc.reference_name = grant.name
-            task_doc.flags.ignore_mandatory = True
-            task_doc.save(ignore_permissions=True)
+        if len(tasks) > 0:
+            for task in tasks:
+                task_doc = frappe.new_doc("ToDo")
+                task_doc.update(task)
+                task_doc.reference_type = "Grant"
+                task_doc.reference_name = grant.name
+                task_doc.flags.ignore_mandatory = True
+                task_doc.save(ignore_permissions=True)
         gallery_items = frappe.get_all("Gallery", filters={"document_type": "Proposal","related_to":self.name},fields=['*'])
-        for gallery_item in gallery_items:
-            gallery_doc = frappe.new_doc("Gallery")
-            gallery_doc.update(gallery_item)
-            gallery_doc.document_type = "Grant"
-            gallery_doc.related_to = grant.name
-            gallery_doc.flags.ignore_mandatory = True
-            gallery_doc.save(ignore_permissions=True)
+        if len(gallery_items) > 0:
+            for gallery_item in gallery_items:
+                gallery_doc = frappe.new_doc("Gallery")
+                gallery_doc.update(gallery_item)
+                gallery_doc.document_type = "Grant"
+                gallery_doc.related_to = grant.name
+                gallery_doc.flags.ignore_mandatory = True
+                gallery_doc.save(ignore_permissions=True)
 
 from datetime import datetime
 @frappe.whitelist()
-def generate_mou_doc(proposal):
+def generate_mou_doc(*args):
+    proposal = args[0] if args else frappe.form_dict.get('proposal')
     if frappe.db.exists("Proposal", proposal):
         proposal_details = frappe.get_doc("Proposal", proposal)
-        donor_details = frappe.get_doc("Donor", proposal_details.donor)
         ngo_details = frappe.get_doc("NGO", proposal_details.ngo)
         inputs = frappe.get_list("Proposal Input", filters={"proposal": proposal}, fields=["name", "input_name", "kpi", "frequency", "total_target"])
         outputs = frappe.get_list("Proposal Output", filters={"proposal": proposal}, fields=["name", "output_name", "kpi", "frequency", "total_target"])
         impacts = frappe.get_list("Proposal Impact", filters={"proposal": proposal}, fields=["name", "impact_name", "kpi", "frequency", "total_target"])
         outcomes = frappe.get_list("Proposal Outcome", filters={"proposal": proposal}, fields=["name", "outcome_name", "kpi", "frequency", "total_target"])
         budgets = frappe.get_list("Proposal Budget Plan", filters={"proposal": proposal}, fields=["name", "item_name", "budget_head", "frequency", "total_planned_budget"])
-        tranches = frappe.get_list("Grant Receipts", filters={"proposal": proposal}, fields=["name", "financial_year", "tranch_no", "planned_due_date"])
-        tasks = frappe.get_list("mGrant Task", filters={"reference_doctype": 'Proposal',"related_to":proposal}, fields=["*"])
-
-        if proposal_details.mou_doc:
-            existing_file = frappe.get_doc("File", {"file_url": proposal_details.mou_doc})
-            if frappe.db.exists("Gallery", {"image": proposal_details.mou_doc}):
-                existing_gallery = frappe.get_doc("Gallery", {"image": proposal_details.mou_doc})
-                existing_gallery.delete()
-            existing_file.delete()
-            frappe.db.commit()
+        tranches = frappe.get_list("Proposal Grant Receipts", filters={"proposal": proposal}, fields=["name", "financial_year", "tranch_no", "planned_due_date"])
+        tasks = frappe.get_list("ToDo", filters={"reference_type": 'Proposal',"reference_name":proposal}, fields=["*"])
 
         other_details = {}
         formatted_modified_date = proposal_details.modified.strftime("%d-%m-%Y")
@@ -129,70 +177,17 @@ def generate_mou_doc(proposal):
         other_details["start_date"] = formatted_start_date
         other_details["end_date"] = formatted_end_date
         other_details["amount_in_words"] = amount_in_words
-        mou_template = frappe.render_template("mgrant/templates/pages/mou_template.html", {"proposal": proposal_details, "other_details": other_details,"ngo_details":ngo_details,"inputs":inputs,"outputs":outputs,"impacts":impacts,"outcomes":outcomes,"tasks":tasks,"budgets":budgets,"tranches":tranches})
-        
+
+
+        print_format_template = frappe.get_doc("Print Format", "MoU Template").html
+        mou_template = frappe.render_template(print_format_template, {"proposal": proposal_details, "other_details": other_details,"ngo_details":ngo_details,"inputs":inputs,"outputs":outputs,"impacts":impacts,"outcomes":outcomes,"tasks":tasks,"budgets":budgets,"tranches":tranches})
+
         pdf = get_pdf(mou_template)
         today = frappe.utils.nowdate()
         formated_today = datetime.strptime(today, "%Y-%m-%d").strftime("%d-%m-%Y")
         filename = f"{proposal}_MoU_To_be_signed_{formated_today}.pdf"
-
-        saved_file = save_file(
-            fname=filename,
-            content=pdf,
-            dt="Proposal",
-            dn=proposal,
-            is_private=0
-        )
-        file_doc = frappe.get_doc("File", saved_file.name)
-        file_doc.file_name = filename
-        file_doc.file_url = f"/files/{filename}"
-        file_doc.save()
-        frappe.db.commit()
-
-        if saved_file:
-            frappe.db.set_value("Proposal", proposal_details.name, {
-                "mou_doc": file_doc.file_url,
-            }, update_modified=False)
-            frappe.db.commit()
-
-            gallery = frappe.new_doc("Gallery")
-            gallery.document_type = "Proposal"
-            gallery.related_to = proposal
-            gallery.image = file_doc.file_url
-            gallery.title = filename
-            gallery.save(ignore_permissions=True)
-            frappe.db.commit()
-
-            frappe.sendmail(
-            recipients=[donor_details.email,ngo_details.email],
-            subject=f"MOU Document for {proposal}",
-            message=f"Please find attached the MOU Document for {proposal}",
-            attachments=[
-                {
-                    "fname": filename,
-                    "fcontent": pdf,
-                },
-            ],
-            reference_doctype="Proposal",
-            reference_name=proposal,
-            ) 
-            return file_doc.file_url
-        else:
-            frappe.throw("Error while saving MOU Document")
+        frappe.local.response.filename = filename
+        frappe.local.response.filecontent = pdf
+        frappe.local.response.type = "download"
     else:
         frappe.throw(f"Proposal '{proposal}' does not exist")                        
-
-
-@frappe.whitelist()
-def upload_signed_mou(proposal, mou_signed_document):
-    if proposal and mou_signed_document:
-        if frappe.db.exists("Proposal", proposal):
-            frappe.db.set_value("Proposal", proposal, {
-                "mou_signed_document": mou_signed_document,
-            }, update_modified=False)
-            frappe.db.commit()
-            return "MOU Signed Document uploaded successfully"
-        else:
-            frappe.throw(f"Proposal '{proposal}' does not exist")
-    else:
-        frappe.throw("Please provide MOU Signed Document")

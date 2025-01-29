@@ -13,6 +13,7 @@
   "total_funds_planned",
   "financial_year",
   "section_break_eazb",
+  "column_break_kmak",
   "raise_request",
   "approve_request",
   "disbursed",
@@ -28,8 +29,10 @@
   "total_funds_received",
   "section_break_ffdl",
   "ngo",
+  "ngo_email",
   "column_break_kdvt",
   "donor",
+  "donor_email",
   "section_break_svga",
   "wf_comment"
  ],
@@ -52,6 +55,7 @@
   {
    "fieldname": "tranch_no",
    "fieldtype": "Data",
+   "in_global_search": 1,
    "in_list_view": 1,
    "label": "Tranche No.",
    "reqd": 1
@@ -156,6 +160,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.wf_comment",
    "fieldname": "wf_comment",
    "fieldtype": "Small Text",
    "label": "Comment",
@@ -170,11 +175,32 @@
    "fieldname": "disbursed",
    "fieldtype": "Button",
    "label": "Disbursed"
+  },
+  {
+   "fetch_from": "ngo.email",
+   "fieldname": "ngo_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "NGO Email",
+   "options": "Email"
+  },
+  {
+   "fetch_from": "donor.email",
+   "fieldname": "donor_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Donor Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "column_break_kmak",
+   "fieldtype": "Column Break",
+   "hidden": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-17 17:47:36.086316",
+ "modified": "2025-01-29 11:34:51.414496",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant Receipts",
@@ -223,5 +249,6 @@
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],
- "title_field": "tranch_no"
+ "title_field": "tranch_no",
+ "track_changes": 1
 }

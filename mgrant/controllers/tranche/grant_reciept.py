@@ -13,6 +13,9 @@ def grant_reciept_on_update(self):
         grant_doc.total_funds_received = total_funds_received
         grant_doc.flags.ignore_mandatory = True
         grant_doc.save(ignore_permissions=True)
+
+    if self.total_funds_planned < self.funds_requested:
+        frappe.throw("Total Funds Planned can't be greater than Funds Requested")
         
 def grant_reciept_on_trash(self):
     if self.grant:
