@@ -42,7 +42,6 @@ def get_mgrant_note_by_id(table_id):
 
 @frappe.whitelist()
 def get_versions(dt,dn):
-    print('===================',dt,dn)
     sql = f"""
         WITH extracted AS (
             SELECT
