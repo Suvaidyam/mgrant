@@ -63,9 +63,6 @@ frappe.ui.form.on("Grant", {
             console.log("onFieldClick:",...args);
         };
         window.onFieldValueChange = function(...args){
-            // if(){
-
-            // }
             console.log("onFieldValueChange:",...args, this);
         };
 	},
