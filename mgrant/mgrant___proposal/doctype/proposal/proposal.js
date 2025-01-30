@@ -6,7 +6,7 @@ function getMonthDifference(startDate, endDate) {
     const start = new Date(startDate);
     const end = new Date(endDate);
     if (start > end) {
-        frappe.msgprint(__("End Date should be greater than Start Date"));
+        frappe.msgprint(__({ message: "End Date should be greater than Start Date" }));
         frappe.validated = false
         return false;
     }
@@ -211,7 +211,7 @@ frappe.ui.form.on("Proposal", {
             const start = new Date(frm.doc.start_date);
             const end = new Date(frm.doc.end_date);
             if (start > end) {
-                frappe.throw(__("End Date should be greater than Start Date"));
+                frappe.throw(__({ message: "End Date should be greater than Start Date" }));
                 frappe.validated = false
                 return false;
             }
