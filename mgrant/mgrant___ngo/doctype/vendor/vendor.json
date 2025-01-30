@@ -48,6 +48,9 @@
   "due_diligence_validation",
   "reasons",
   "reason_for_due_diligence_fail",
+  "section_break_rkdp",
+  "is_blacklisted",
+  "reason_for_blacklisting",
   "bank_details_tab",
   "ifsc_code",
   "branch_name",
@@ -382,11 +385,29 @@
    "in_list_view": 1,
    "label": "Vendor Name",
    "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.is_blacklisted",
+   "fieldname": "section_break_rkdp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_blacklisted",
+   "fieldtype": "Check",
+   "label": "Is Blacklisted",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reason_for_blacklisting",
+   "fieldtype": "Small Text",
+   "label": "Reason For Blacklisting",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-30 13:27:50.605466",
+ "modified": "2025-01-30 17:46:46.822673",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "Vendor",
