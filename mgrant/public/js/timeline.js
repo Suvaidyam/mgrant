@@ -16,7 +16,8 @@ const showTimelines = async (frm, selector) => {
                         align-items: center;
                         }
                         .table { margin: 0px; }
-                        .table th, .table td { text-align: left; }
+                        .table th, .table td { text-align: left; padding:8px !important; }
+
                 </style>
                 <div id="timeline-container">
                     <div id="data-timeline"></div>
@@ -58,7 +59,7 @@ const showTimelines = async (frm, selector) => {
                                 </div>
                                 <div class="card-body">
                                     <table class="table table-bordered">
-                                        <thead>
+                                        <thead style="padding: 10px 10px !important">
                                             <tr><th>Field</th><th>Old Value</th><th>New Value</th></tr>
                                         </thead>
                                         <tbody>${changesHTML}</tbody>
