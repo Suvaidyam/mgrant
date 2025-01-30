@@ -37,10 +37,10 @@
   "doctype": "Client Script",
   "dt": "ToDo",
   "enabled": 1,
-  "modified": "2025-01-30 11:41:10.903001",
+  "modified": "2025-01-30 12:18:26.002682",
   "module": "Mgrant",
   "name": "Task List",
-  "script": "frappe.listview_settings['ToDo'] = {\n    formatters: {\n        date: function(value, data, row) {\n            let due_date = new Date(value);\n            let today = new Date();\n        \n            due_date.setHours(0, 0, 0, 0);\n            today.setHours(0, 0, 0, 0);\n        \n            console.log(row,'data : value');\n        \n            if (due_date < today && !['Cancelled','Done'].includes(row.custom_task_status)) {\n                return `<span class=\"text-danger\">${value}</span>`;\n            }\n            return value;\n        }\n    }\n};\n",
+  "script": "frappe.listview_settings['ToDo'] = {\n    formatters: {\n        date: function(value, data, row) {\n            let due_date = new Date(value);\n            let today = new Date();\n            due_date.setHours(0, 0, 0, 0);\n            today.setHours(0, 0, 0, 0);\n            if (due_date < today && !['Cancelled','Done'].includes(row.custom_task_status)) {\n                return `<span class=\"text-danger\">${value}</span>`;\n            }\n            return value;\n        }\n    }\n};\n",
   "view": "List"
  }
 ]
