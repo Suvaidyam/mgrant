@@ -107,7 +107,7 @@ const showTimelines = async (frm, selector) => {
             // Step 3: Populate the data-timeline
             const dataTimeline = document.getElementById('data-timeline');
             if (dataTimeline) {
-                let versions = await frappe.db.get_list('Version', {filters: {ref_doctype: frm.doctype, docname: frm.docname}, fields: ['*'],limit:1000, order_by: 'creation desc'});
+                let versions = await frappe.db.get_list('Version', { filters: { ref_doctype: frm.doctype, docname: frm.docname }, fields: ['*'], limit: 1000, order_by: 'creation desc' });
                 dataTimeline.innerHTML = versions.map(item => {
                     const changes = JSON.parse(item.data).changed.map(change => `
                         <tr>
@@ -129,7 +129,7 @@ const showTimelines = async (frm, selector) => {
                                 <div class="card-body">
                                     <table class="table table-bordered">
                                         <thead>
-                                            <tr><th>Property</th><th>Old Value</th><th>New Value</th></tr>
+                                            <tr><th>Field</th><th>Old Value</th><th>New Value</th></tr>
                                         </thead>
                                         <tbody>${changes}</tbody>
                                     </table>

@@ -28,13 +28,13 @@
   "doctype_event": "Before Save",
   "enable_rate_limit": 0,
   "event_frequency": "Weekly",
-  "modified": "2025-01-28 15:49:02.960894",
+  "modified": "2025-01-29 14:09:00.231746",
   "module": null,
   "name": "Task",
   "rate_limit_count": 5,
   "rate_limit_seconds": 86400,
   "reference_doctype": "ToDo",
-  "script": "if doc.custom_start_date and doc.due_date:\n    if doc.custom_start_date > doc.due_date:\n        frappe.throw(\"Due Date should always be greater than Start Date\")\n",
+  "script": "if doc.custom_start_date and doc.date:\n    if frappe.utils.getdate(doc.custom_start_date) > frappe.utils.getdate(doc.date):\n        frappe.throw(\"Due Date should always be greater than Start Date\")\n",
   "script_type": "DocType Event"
  }
 ]
