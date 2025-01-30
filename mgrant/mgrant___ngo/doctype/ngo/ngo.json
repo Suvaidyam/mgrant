@@ -9,6 +9,7 @@
   "ngo_name",
   "year_of_establishment",
   "registration_of_the_organisaiton",
+  "ngo_status",
   "column_break_bhnv",
   "primary_domain",
   "email",
@@ -59,12 +60,9 @@
   "column_break_hhtv",
   "fetch_bank_details",
   "work_history_tab",
-  "theme",
   "work_references",
   "impact",
   "about_organisation",
-  "contacts_tab",
-  "contacts",
   "grants_tab",
   "grants"
  ],
@@ -133,12 +131,6 @@
    "label": "Describe your organization\u2019s history, vision/mission, and major areas of intervention"
   },
   {
-   "fieldname": "theme",
-   "fieldtype": "Table MultiSelect",
-   "label": "Theme (Area of work)",
-   "options": "Themes Child"
-  },
-  {
    "fieldname": "work_references",
    "fieldtype": "Table",
    "label": "Please list top 3 projects related to proposed theme of work with references: ",
@@ -158,18 +150,6 @@
    "fieldname": "grants",
    "fieldtype": "HTML",
    "hidden": 1
-  },
-  {
-   "default": "contacts",
-   "fieldname": "contacts_tab",
-   "fieldtype": "Tab Break",
-   "label": "Contacts"
-  },
-  {
-   "default": "Contact",
-   "fieldname": "contacts",
-   "fieldtype": "HTML",
-   "options": "<div id=\"contacts\"></div>"
   },
   {
    "fieldname": "source_document",
@@ -298,7 +278,7 @@
   {
    "fieldname": "work_history_tab",
    "fieldtype": "Tab Break",
-   "label": "Work History"
+   "label": "Experiences"
   },
   {
    "fieldname": "80g_certificate_number",
@@ -414,11 +394,17 @@
    "hidden": 1,
    "in_list_view": 1,
    "label": "District Name"
+  },
+  {
+   "fieldname": "ngo_status",
+   "fieldtype": "Select",
+   "label": "NGO Status",
+   "options": "\nProspect\nGrantee"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-28 13:10:20.108587",
+ "modified": "2025-01-30 13:31:07.099581",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",
