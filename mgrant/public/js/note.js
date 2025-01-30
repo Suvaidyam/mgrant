@@ -186,7 +186,7 @@ async function get_note_list(frm, selector) {
 
             <div class="title_links mt-4">
                 ${groupedData.Today.length === 0 && groupedData.Yesterday.length === 0 && groupedData.Older.length === 0 ? `
-                    <div class="note_message">Notes Not Found</div>
+                    <div class="note_message">You haven't created a Record yet</div>
                 ` : `
                     ${['Today', 'Yesterday', 'Older'].map(group =>
         groupedData[group].length > 0 ? `
@@ -304,7 +304,7 @@ async function get_note_list(frm, selector) {
                         });
 
                     }
-                     
+
                     control.refresh();
 
                     // Explicitly set the value to ensure pre-fill
@@ -493,7 +493,7 @@ async function get_note_list(frm, selector) {
             if (validationFailed) return; // Stop if validation fails
             newNoteValues['reference_doctype'] = frm.doc.doctype;
             newNoteValues['related_to'] = frm.doc.name;
-           
+
             // Insert the new document
             try {
                 const { message } = await frappe.call({
