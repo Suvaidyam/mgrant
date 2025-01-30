@@ -41,11 +41,14 @@ def get_mgrant_note_by_id(table_id):
     return note[0]
 
 @frappe.whitelist()
-def get_versions(dt='Grant',dn='Grant-0142'):
+def get_versions(dt,dn):
+    print('===================',dt,dn)
     sql = f"""
         WITH extracted AS (
             SELECT
                 ver.name AS name,
+                ver.owner AS owner,
+                ver.creation AS creation,
                 ver.custom_actual_doctype,
                 ver.custom_actual_document_name,
                 ver.ref_doctype,
@@ -60,20 +63,37 @@ def get_versions(dt='Grant',dn='Grant-0142'):
                 )
             ) jt
             WHERE ver.ref_doctype = '{dt}' AND ver.docname = '{dn}'
+            LIMIT 1000
         )
         SELECT
             e.custom_actual_doctype,
             e.custom_actual_document_name,
+            e.ref_doctype,
+            usr.full_name AS owner,
+            e.creation AS creation,
             JSON_ARRAYAGG(
                 JSON_ARRAY(
-                    COALESCE(tf.label,ctf.label,e.field_name),
-                    COALESCE(e.old_value, ''),
-                    COALESCE(e.new_value, '')
+                    COALESCE(tf.label, ctf.label, e.field_name),
+                    COALESCE(
+                        CASE 
+                            WHEN e.old_value = 'null' OR e.old_value = '' THEN '(blank)' 
+                            ELSE e.old_value 
+                        END, 
+                        ''
+                    ),
+                    COALESCE(
+                        CASE 
+                            WHEN e.new_value = 'null' OR e.new_value = '' THEN '(blank)' 
+                            ELSE e.new_value 
+                        END
+                    , '')
                 )
             ) AS changed
         FROM extracted e
-        LEFT JOIN `tabDocField` AS tf ON  (e.field_name = tf.fieldname AND tf.parent IN (e.ref_doctype,e.custom_actual_doctype))
-        LEFT JOIN `tabCustom Field` AS ctf ON  (e.field_name = ctf.fieldname AND ctf.dt IN (e.ref_doctype,e.custom_actual_doctype))
-        GROUP BY e.name
+        LEFT JOIN `tabDocField` AS tf ON (e.field_name = tf.fieldname AND tf.parent IN (e.ref_doctype, e.custom_actual_doctype))
+        LEFT JOIN `tabCustom Field` AS ctf ON (e.field_name = ctf.fieldname AND ctf.dt IN (e.ref_doctype, e.custom_actual_doctype))
+        LEFT JOIN `tabUser` AS usr ON e.owner = usr.name
+        GROUP BY e.name 
+        ORDER BY e.creation DESC;
     """
     return frappe.db.sql(sql,as_dict=True)

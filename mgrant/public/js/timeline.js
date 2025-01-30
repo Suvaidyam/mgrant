@@ -7,25 +7,7 @@ const showTimelines = async (frm, selector) => {
     }
 
     if (!frm.is_new() && frm?.timeline?.timeline_wrapper) {
-        // Step 1: Fetch all user full names
-        const userOwners = frm.timeline.doc_info.versions.map(item => item.owner);
-        const uniqueOwners = [...new Set(userOwners)]; // Remove duplicates
-
         try {
-            // Fetch user full names in one API call
-            const userResponse = await frappe.db.get_list('User', {
-                filters: [['name', 'in', uniqueOwners]],
-                fields: ['name', 'full_name'],
-                limit: 10000
-            });
-
-            // Map owners to their full names
-            const userMap = {};
-            userResponse.forEach(user => {
-                userMap[user.name] = user.full_name || 'Unknown User';
-            });
-
-            // Step 2: Render the timeline
             timeline_wrapper.innerHTML = `
                 <style>
                     .card { margin-bottom: 10px; }
@@ -107,9 +89,27 @@ const showTimelines = async (frm, selector) => {
             // Step 3: Populate the data-timeline
             const dataTimeline = document.getElementById('data-timeline');
             if (dataTimeline) {
-                let versions = await frappe.db.get_list('Version', { filters: { ref_doctype: frm.doctype, docname: frm.docname }, fields: ['*'], limit: 1000, order_by: 'creation desc' });
+                // let versions = await frappe.db.get_list('Version', { filters: { ref_doctype: frm.doctype, docname: frm.docname }, fields: ['*'], limit: 1000, order_by: 'creation desc' });
+                let response = await frappe.call({
+                    method: "mgrant.apis.api.get_versions",
+                    args: {
+                        dt: frm.doctype,
+                        dn: frm.docname
+                    }
+                });
+
+                console.log('response :>> ', response);
+                let versions = response.message || [];
+
                 dataTimeline.innerHTML = versions.map(item => {
-                    const changes = JSON.parse(item.data).changed.map(change => `
+                    let changes = [];
+                    try {
+                        changes = JSON.parse(item.changed);
+                    } catch (error) {
+                        console.error("Error parsing 'changed' field:", error, item.changed);
+                    }
+
+                    const changesHTML = changes.map(change => `
                         <tr>
                             <td style="width:35%;">${change[0].split("_").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}</td>
                             <td style="background-color:rgb(253,241,241)">${change[1] ? change[1] : ''}</td>
@@ -123,7 +123,7 @@ const showTimelines = async (frm, selector) => {
                             </span>
                             <div style="width:100%;" class="card mb-3">
                                 <div class="card-header">
-                                    <div>${userMap[item.owner] || 'Unknown User'}</div>
+                                    <div>${item.owner}</div>
                                     <div><p><strong>Updated on:</strong> ${item?.creation ? formatDateTime(item.creation, true, true) : '--:--'}</p></div>
                                 </div>
                                 <div class="card-body">
@@ -131,7 +131,7 @@ const showTimelines = async (frm, selector) => {
                                         <thead>
                                             <tr><th>Field</th><th>Old Value</th><th>New Value</th></tr>
                                         </thead>
-                                        <tbody>${changes}</tbody>
+                                        <tbody>${changesHTML}</tbody>
                                     </table>
                                 </div>
                             </div>
