@@ -2,36 +2,43 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("NGO", {
-    refresh(frm) {
+    async refresh(frm) {
+        frm.set_df_property('active_documents', 'cannot_delete_rows', 1);
+        frm.set_df_property('expired_documents', 'cannot_delete_rows', 1);
+        frm.set_df_property('expired_documents', 'cannot_add_rows', 1);
+        if (frm.is_new()) {
+            let docs = await frappe.db.get_list('Statutory Documents', { filters: { status: 'Active' }, fields: ['*'] })
+            frm.set_value('active_documents', [])
+            frm.set_value('active_documents', [...docs.map(d => { return { document: d.name, ...d } })])
+            frm.refresh_field('active_documents')
+        }
         if (!frm.is_new()) {
-            if (frappe.boot.mgrant_settings.module == 'Donor') {
-                if (frm.doc.is_blacklisted) {
-                    frm.add_custom_button(__('Whitelist'), async function () {
-                        frappe.confirm('Are you sure you want to whitelist this NGO?', async function () {
-                            let res = await frappe.db.set_value("NGO", frm.doc.name, { "is_blacklisted": 0, 'reason_for_blacklisting': '' })
+            if (frm.doc.is_blacklisted) {
+                frm.add_custom_button(__('Whitelist'), async function () {
+                    frappe.confirm('Are you sure you want to whitelist this NGO?', async function () {
+                        let res = await frappe.db.set_value("NGO", frm.doc.name, { "is_blacklisted": 0, 'reason_for_blacklisting': '' })
+                        if (res) {
+                            frappe.show_alert({ message: __('NGO whitelisted successfully'), indicator: 'green' });
+                            frm.reload_doc();
+                        }
+                    })
+                });
+            } else {
+                frm.add_custom_button(__('Blacklist'), async function () {
+                    frappe.prompt([{
+                        fieldname: 'reason',
+                        fieldtype: 'Small Text',
+                        label: 'Reason',
+                        reqd: 1
+                    }],
+                        async function (values) {
+                            let res = await frappe.db.set_value("NGO", frm.doc.name, { "is_blacklisted": 1, 'reason_for_blacklisting': values.reason, 'ngo_status': '' })
                             if (res) {
-                                frappe.show_alert({ message: __('NGO whitelisted successfully'), indicator: 'green' });
+                                frappe.show_alert({ message: __('NGO blacklisted successfully'), indicator: 'green' });
                                 frm.reload_doc();
                             }
-                        })
-                    });
-                } else {
-                    frm.add_custom_button(__('Blacklist'), async function () {
-                        frappe.prompt([{
-                            fieldname: 'reason',
-                            fieldtype: 'Small Text',
-                            label: 'Reason',
-                            reqd: 1
-                        }],
-                            async function (values) {
-                                let res = await frappe.db.set_value("NGO", frm.doc.name, { "is_blacklisted": 1, 'reason_for_blacklisting': values.reason })
-                                if (res) {
-                                    frappe.show_alert({ message: __('NGO blacklisted successfully'), indicator: 'green' });
-                                    frm.reload_doc();
-                                }
-                            });
-                    });
-                }
+                        });
+                });
             }
         }
         // if (!frm.is_new() && !frm.doc.source_document) {
