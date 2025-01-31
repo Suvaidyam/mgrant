@@ -148,7 +148,8 @@
   },
   {
    "fieldname": "section_break_eazb",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "hidden": 1
   },
   {
    "fieldname": "raise_request",
@@ -200,7 +201,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-29 11:34:51.414496",
+ "modified": "2025-01-31 12:05:30.746206",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant Receipts",
