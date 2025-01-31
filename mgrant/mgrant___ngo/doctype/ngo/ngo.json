@@ -51,6 +51,9 @@
   "section_break_fvof",
   "is_blacklisted",
   "reason_for_blacklisting",
+  "documents_tab",
+  "active_documents",
+  "expired_documents",
   "bank_details_tab",
   "ifsc_code",
   "branch_name",
@@ -401,7 +404,8 @@
    "fieldname": "ngo_status",
    "fieldtype": "Select",
    "label": "NGO Status",
-   "options": "\nProspect\nGrantee"
+   "options": "\nProspect\nGrantee",
+   "read_only": 1
   },
   {
    "depends_on": "eval:doc.is_blacklisted",
@@ -420,11 +424,29 @@
    "fieldtype": "Small Text",
    "label": "Reason For Blacklisting",
    "read_only": 1
+  },
+  {
+   "fieldname": "documents_tab",
+   "fieldtype": "Tab Break",
+   "label": "Documents"
+  },
+  {
+   "fieldname": "active_documents",
+   "fieldtype": "Table",
+   "label": "Active Documents",
+   "options": "Statutory Documents Child"
+  },
+  {
+   "depends_on": "eval:doc.expired_documents.length > 0",
+   "fieldname": "expired_documents",
+   "fieldtype": "Table",
+   "label": "Expired Documents",
+   "options": "Statutory Documents Child"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-30 17:40:33.268482",
+ "modified": "2025-01-30 20:24:38.334795",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",
