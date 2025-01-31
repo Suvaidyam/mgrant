@@ -635,13 +635,11 @@ async function renderEmails(email_list, frm, selector = null) {
 }
 
 const communication = async (frm, selector) => {
-    toggleLoader(true, selector);
     communication_list = await getDocList('Communication', [
         ['Communication', 'reference_name', '=', frm.doc.name],
         ['Communication', 'in_reply_to', '=', '']
     ], ['*']);
     await renderEmails(communication_list, frm, selector);
-    toggleLoader(false, selector);
     
 }
 
