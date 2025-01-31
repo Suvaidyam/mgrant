@@ -19,18 +19,24 @@ frappe.ui.form.on("mGrant Settings", {
             return acc;
         }, {});
 
-        ['Positive', 'Negative', 'Sign-Off Prerequisite'].forEach(type => {
+        const closureFields = {
+            'Sign-Off Prerequisite': { field: 'sign_off_prerequisite', required: true },
+            'Positive': { field: 'positive', required: true },
+            'Negative': { field: 'negative', required: true },
+            'Neutral': { field: 'neutral', required: false }
+        };
+
+        Object.entries(closureFields).forEach(([type, { field, required }]) => {
             const typeStages = stages[type] || [];
+
             if (typeStages.length > 1) {
-                frappe.throw({ message: (`Only one "${type}" closure is allowed in Proposal Stages.`) });
+                frappe.throw({ message: `Only one "${type}" closure is allowed in Proposal Stages.` });
             }
-            if (typeStages.length == 0) {
-                frappe.throw({ message: (`Only one "${type}" closure is required in Proposal Stages.`) });
+            if (required && typeStages.length === 0) {
+                frappe.throw({ message: `Only one "${type}" closure is required in Proposal Stages.` });
             }
-            frm.set_value(
-                `${type.toLowerCase().replace(/[^a-z0-9]/g, '_')}`,
-                typeStages.length ? typeStages[0].stage : ''
-            );
+            frm.set_value(field, typeStages.length ? typeStages[0].stage : '');
         });
     }
+
 });
