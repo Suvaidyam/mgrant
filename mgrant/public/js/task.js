@@ -350,7 +350,6 @@ let view = 'List View'
 let tasks_selector = 'task-list';
 
 const getTaskList = async (frm, selector) => {
-    toggleLoader(true, selector);
     tasks_selector = selector;
     task_list = await getDocList('ToDo', [
         ['ToDo', 'reference_type', '=', frm.doc.doctype],
@@ -476,7 +475,6 @@ const getTaskList = async (frm, selector) => {
         getTaskList(frm, selector);
 
     })
-    toggleLoader(false, selector);
 };
 const form = async (data = null, action, frm) => {
     let title = action === 'New Task' ? 'New Task' : 'Edit Task';

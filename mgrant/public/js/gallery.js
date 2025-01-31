@@ -357,7 +357,6 @@ const updateGallery = (frm, files, view) => {
     });
 }
 const gallery_image = async (frm, selector) => {
-    toggleLoader(true, selector);
     var view = 'Card';
     append_gallery_styles();
     // Fetch files related to the document
@@ -416,7 +415,6 @@ const gallery_image = async (frm, selector) => {
         deleteSelectedButton.style.display = 'none';
         updateGallery(frm, gallery_files, view);
     });
-    toggleLoader(false, selector);
 };
 
 
