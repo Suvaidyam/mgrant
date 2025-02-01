@@ -9,5 +9,27 @@
   "name": "File List",
   "script": "frappe.views.FileView.grid_view = true;\nfrappe.views.FileView.refresh();",
   "view": "List"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "ToDo",
+  "enabled": 1,
+  "modified": "2025-01-29 17:23:46.050073",
+  "module": null,
+  "name": "Task",
+  "script": "frappe.ui.form.on('ToDo', {\n\trefresh(frm) {\n\t\t// your code here\n\t},\n\tdate(frm){\n\t    if(frm.doc.custom_start_date && frm.doc.date){\n\t        let custom_start_date = new Date(frm.doc.custom_start_date);\n\t        let date = new Date(frm.doc.date)\n\t        if (custom_start_date > date){\n\t            frappe.throw({message:\"Due Date should be always more than Start Date\"})\n\t            frappe.validated = false;\n\t        }\n\t    }\n\t},\n\tcustom_start_date(frm){\n        if(frm.doc.custom_start_date && frm.doc.date){\n            let custom_start_date = new Date(frm.doc.custom_start_date);\n            let date = new Date(frm.doc.date)\n            if (custom_start_date > date){\n                frappe.throw({message:\"Due Date should be always more than Start Date\"})\n                frappe.validated = false;\n            }\n        }\n\t},\n\tvalidate(frm){\n\t    if(frm.doc.custom_start_date && frm.doc.date){\n\t        let custom_start_date = new Date(frm.doc.custom_start_date);\n\t        let date = new Date(frm.doc.date)\n\t        if (custom_start_date > date){\n\t            frappe.throw({message:\"Due Date should be always more than Start Date\"})\n\t            frappe.validated = false;\n\t        }\n\t    }\n\t}\n})",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "ToDo",
+  "enabled": 1,
+  "modified": "2025-01-30 12:18:26.002682",
+  "module": "Mgrant",
+  "name": "Task List",
+  "script": "frappe.listview_settings['ToDo'] = {\n    formatters: {\n        date: function(value, data, row) {\n            let due_date = new Date(value);\n            let today = new Date();\n            due_date.setHours(0, 0, 0, 0);\n            today.setHours(0, 0, 0, 0);\n            if (due_date < today && !['Cancelled','Done'].includes(row.custom_task_status)) {\n                return `<span class=\"text-danger\">${value}</span>`;\n            }\n            return value;\n        }\n    }\n};\n",
+  "view": "List"
  }
 ]

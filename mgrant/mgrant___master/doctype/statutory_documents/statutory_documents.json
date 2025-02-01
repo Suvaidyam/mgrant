@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:document_title",
+ "creation": "2025-01-30 18:40:10.871766",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "document_title",
+  "column_break_hewh",
+  "status",
+  "section_break_pmsk",
+  "is_required",
+  "column_break_zvmm",
+  "required_attachment",
+  "column_break_rejc",
+  "has_expiry"
+ ],
+ "fields": [
+  {
+   "fieldname": "document_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Document Title",
+   "reqd": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_required",
+   "fieldtype": "Check",
+   "label": "Is Required"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_expiry",
+   "fieldtype": "Check",
+   "label": "Has Expiry"
+  },
+  {
+   "default": "1",
+   "fieldname": "required_attachment",
+   "fieldtype": "Check",
+   "label": "Required Attachment"
+  },
+  {
+   "fieldname": "column_break_hewh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_pmsk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_zvmm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_rejc",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-30 19:55:38.346006",
+ "modified_by": "Administrator",
+ "module": "mGrant - Master",
+ "name": "Statutory Documents",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Desk User",
+   "select": 1,
+   "share": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "document_title"
+}

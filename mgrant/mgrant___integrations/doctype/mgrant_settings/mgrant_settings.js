@@ -19,25 +19,24 @@ frappe.ui.form.on("mGrant Settings", {
             return acc;
         }, {});
 
-        ['Positive', 'Negative', 'Approval'].forEach(type => {
-            const typeStages = stages[type] || [];
-            if (typeStages.length > 1) {
-                frappe.throw({ message: __(`Only one "${type}" closure is allowed in Proposal Stages.`) });
-            }
-            if (typeStages.length == 0) {
-                frappe.throw({ message: __(`One "Positive" & "Negative" & "Approval" closure is required in Proposal Stages.`) });
-            }
+        const closureFields = {
+            'Sign-Off Prerequisite': { field: 'sign_off_prerequisite', required: true },
+            'Positive': { field: 'positive', required: true },
+            'Negative': { field: 'negative', required: true },
+            'Neutral': { field: 'neutral', required: false }
+        };
 
-            frm.set_value(
-                `final_${type.toLowerCase()}_stage`,
-                typeStages.length ? typeStages[0].stage : ''
-            );
+        Object.entries(closureFields).forEach(([type, { field, required }]) => {
+            const typeStages = stages[type] || [];
+
+            if (typeStages.length > 1) {
+                frappe.throw({ message: `Only one "${type}" closure is allowed in Proposal Stages.` });
+            }
+            if (required && typeStages.length === 0) {
+                frappe.throw({ message: `Only one "${type}" closure is required in Proposal Stages.` });
+            }
+            frm.set_value(field, typeStages.length ? typeStages[0].stage : '');
         });
     }
 
 });
-
-// frappe.ui.form.on('Proposal Stages Child', {
-//     closure(frm, cdt, cdn) {
-//     }
-// })

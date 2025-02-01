@@ -19,19 +19,17 @@
   "column_break_qmgi",
   "start_date",
   "end_date",
-  "closing_date",
   "grant_duration_in_months",
   "total_planned_budget",
   "implementation_type",
+  "closing_date",
   "column_break_nwys",
   "application_status",
-  "ngo_stage",
-  "donor_stage",
   "stage",
   "grant",
+  "section_break_vusm",
   "mou_signed_document",
   "mou_verified",
-  "section_break_vusm",
   "level_1",
   "level_1_remarks",
   "column_break_eyco",
@@ -44,6 +42,7 @@
   "theme",
   "sdg",
   "focus_area",
+  "column_break_jioh",
   "proposal_description",
   "geographical_information_section",
   "column_break_shct",
@@ -70,8 +69,6 @@
   "impact",
   "reportings_tab",
   "reportings",
-  "contacts_tab",
-  "contacts",
   "email_tab",
   "email",
   "gallery_tab",
@@ -94,15 +91,15 @@
    "fieldname": "start_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Project Start Date",
-   "mandatory_depends_on": "eval:frappe.mgrant_settings.final_approval_stage == doc.stage"
+   "label": "Grant Start Date",
+   "mandatory_depends_on": "eval:frappe.mgrant_settings.sign_off_prerequisite == doc.stage"
   },
   {
    "fieldname": "end_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Project End Date",
-   "mandatory_depends_on": "eval:frappe.mgrant_settings.final_approval_stage == doc.stage"
+   "label": "Grant End Date",
+   "mandatory_depends_on": "eval:frappe.mgrant_settings.sign_off_prerequisite == doc.stage"
   },
   {
    "fieldname": "column_break_qmgi",
@@ -322,15 +319,15 @@
    "in_global_search": 1,
    "in_list_view": 1,
    "label": "Application Title",
-   "mandatory_depends_on": "eval:frappe.mgrant_settings.final_approval_stage == doc.stage"
+   "mandatory_depends_on": "eval:frappe.mgrant_settings.sign_off_prerequisite == doc.stage"
   },
   {
    "default": "0",
    "fieldname": "grant_duration_in_months",
    "fieldtype": "Int",
    "in_list_view": 1,
-   "label": "Project Duration (in months)",
-   "mandatory_depends_on": "eval:frappe.mgrant_settings.final_approval_stage == doc.stage",
+   "label": "Grant Duration (in months)",
+   "mandatory_depends_on": "eval:frappe.mgrant_settings.sign_off_prerequisite == doc.stage",
    "non_negative": 1,
    "read_only": 1
   },
@@ -347,15 +344,6 @@
    "fieldname": "proposal_description",
    "fieldtype": "Small Text",
    "label": "Project Description"
-  },
-  {
-   "fieldname": "contacts_tab",
-   "fieldtype": "Tab Break",
-   "label": "Contacts"
-  },
-  {
-   "fieldname": "contacts",
-   "fieldtype": "HTML"
   },
   {
    "fieldname": "reportings_tab",
@@ -389,30 +377,12 @@
    "fieldtype": "HTML"
   },
   {
-   "default": "Application Started",
-   "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
-   "fieldname": "donor_stage",
-   "fieldtype": "Select",
-   "hidden": 1,
-   "label": "Stage (Donor)",
-   "options": "Application Started\nEligible NGO\nInvited for Proposal\nProposal Submitted\nMoU Signing ongoing\nMoU Signed\nRejected\nOn Hold"
-  },
-  {
-   "default": "Lead",
-   "depends_on": "eval:frappe.mgrant_settings.module == \"NGO\"",
-   "fieldname": "ngo_stage",
-   "fieldtype": "Select",
-   "hidden": 1,
-   "label": "Stage (NGO)",
-   "options": "Lead\nDiscussion Ongoing\nProposal to be Submitted\nProposal Submitted\nGrant Letter Signed\nRejected\nOn Hold/No Response"
-  },
-  {
    "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
    "fieldname": "ngo",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "NGO",
-   "link_filters": "[[\"NGO\",\"organisation_type\",\"=\",\"NGO\"]]",
+   "link_filters": "[[\"NGO\",\"is_blacklisted\",\"=\",0]]",
    "mandatory_depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
    "options": "NGO",
    "set_only_once": 1
@@ -434,15 +404,15 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Vendor",
-   "link_filters": "[[\"NGO\",\"organisation_type\",\"=\",\"Vendor\"]]",
-   "options": "NGO"
+   "link_filters": "[[\"Vendor\",\"is_blacklisted\",\"=\",0]]",
+   "options": "Vendor"
   },
   {
    "default": "Draft",
    "depends_on": "eval:frappe.user_roles.includes('NGO Admin')",
    "fieldname": "application_status",
    "fieldtype": "Select",
-   "label": "Application Status",
+   "label": "Application Status (For NGO)",
    "options": "Draft\nCompleted"
   },
   {
@@ -460,7 +430,7 @@
    "label": "Donor Name"
   },
   {
-   "depends_on": "eval:frappe.mgrant_settings.final_approval_stage == doc.stage",
+   "depends_on": "eval:[frappe.mgrant_settings.sign_off_prerequisite,frappe.mgrant_settings.positive].includes(doc.stage)",
    "fieldname": "mou_signed_document",
    "fieldtype": "Attach",
    "label": "Upload signed MoU"
@@ -483,7 +453,7 @@
   },
   {
    "default": "0",
-   "depends_on": "eval:frappe.mgrant_settings.final_approval_stage == doc.stage",
+   "depends_on": "eval:[frappe.mgrant_settings.sign_off_prerequisite,frappe.mgrant_settings.positive].includes(doc.stage)",
    "fieldname": "mou_verified",
    "fieldtype": "Check",
    "label": "I have uploaded the final signed MoU and verified everything"
@@ -492,7 +462,7 @@
    "fieldname": "closing_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Closing Date"
+   "label": "Application Closing Date"
   },
   {
    "fieldname": "stage",
@@ -501,16 +471,17 @@
   },
   {
    "fieldname": "section_break_vusm",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "MoU & Approvals"
   },
   {
    "default": "0",
-   "depends_on": "eval:frappe.mgrant_settings.final_approval_stage == doc.stage",
+   "depends_on": "eval:frappe.mgrant_settings.sign_off_prerequisite == doc.stage",
    "fieldname": "level_1",
    "fieldtype": "Check",
    "label": "Level 1",
-   "mandatory_depends_on": "eval:frappe.mgrant_settings.final_positive_stage == doc.stage",
-   "permlevel": 1
+   "permlevel": 1,
+   "read_only_depends_on": "eval:!(doc.mou_signed_document && doc.mou_verified == 1)"
   },
   {
    "depends_on": "eval:doc.level_1 == true;",
@@ -529,11 +500,12 @@
   },
   {
    "default": "0",
-   "depends_on": "eval:frappe.mgrant_settings.final_approval_stage == doc.stage",
+   "depends_on": "eval:frappe.mgrant_settings.sign_off_prerequisite == doc.stage",
    "fieldname": "level_2",
    "fieldtype": "Check",
    "label": "Level 2",
-   "permlevel": 2
+   "permlevel": 2,
+   "read_only_depends_on": "eval:!(doc.mou_signed_document && doc.mou_verified == 1)"
   },
   {
    "depends_on": "eval:doc.level_2 == true;",
@@ -544,11 +516,12 @@
   },
   {
    "default": "0",
-   "depends_on": "eval:frappe.mgrant_settings.final_approval_stage == doc.stage",
+   "depends_on": "eval:frappe.mgrant_settings.sign_off_prerequisite == doc.stage",
    "fieldname": "level_3",
    "fieldtype": "Check",
    "label": "Level 3",
-   "permlevel": 3
+   "permlevel": 3,
+   "read_only_depends_on": "eval:!(doc.mou_signed_document && doc.mou_verified == 1)"
   },
   {
    "depends_on": "eval:doc.level_3 == true;",
@@ -556,12 +529,16 @@
    "fieldtype": "Data",
    "label": "Level 3 Remarks",
    "permlevel": 3
+  },
+  {
+   "fieldname": "column_break_jioh",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-27 19:22:33.381599",
+ "modified": "2025-01-31 19:47:55.271154",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",

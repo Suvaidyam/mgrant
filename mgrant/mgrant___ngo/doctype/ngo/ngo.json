@@ -9,6 +9,7 @@
   "ngo_name",
   "year_of_establishment",
   "registration_of_the_organisaiton",
+  "ngo_status",
   "column_break_bhnv",
   "primary_domain",
   "email",
@@ -47,6 +48,12 @@
   "due_diligence_validation",
   "reasons",
   "reason_for_due_diligence_fail",
+  "section_break_fvof",
+  "is_blacklisted",
+  "reason_for_blacklisting",
+  "documents_tab",
+  "active_documents",
+  "expired_documents",
   "bank_details_tab",
   "ifsc_code",
   "branch_name",
@@ -59,12 +66,9 @@
   "column_break_hhtv",
   "fetch_bank_details",
   "work_history_tab",
-  "theme",
   "work_references",
   "impact",
   "about_organisation",
-  "contacts_tab",
-  "contacts",
   "grants_tab",
   "grants"
  ],
@@ -133,12 +137,6 @@
    "label": "Describe your organization\u2019s history, vision/mission, and major areas of intervention"
   },
   {
-   "fieldname": "theme",
-   "fieldtype": "Link",
-   "label": "Theme (Area of work)",
-   "options": "Themes"
-  },
-  {
    "fieldname": "work_references",
    "fieldtype": "Table",
    "label": "Please list top 3 projects related to proposed theme of work with references: ",
@@ -157,18 +155,6 @@
   {
    "fieldname": "grants",
    "fieldtype": "HTML"
-  },
-  {
-   "default": "contacts",
-   "fieldname": "contacts_tab",
-   "fieldtype": "Tab Break",
-   "label": "Contacts"
-  },
-  {
-   "default": "Contact",
-   "fieldname": "contacts",
-   "fieldtype": "HTML",
-   "options": "<div id=\"contacts\"></div>"
   },
   {
    "fieldname": "source_document",
@@ -297,7 +283,7 @@
   {
    "fieldname": "work_history_tab",
    "fieldtype": "Tab Break",
-   "label": "Work History"
+   "label": "Experiences"
   },
   {
    "fieldname": "80g_certificate_number",
@@ -413,11 +399,54 @@
    "hidden": 1,
    "in_list_view": 1,
    "label": "District Name"
+  },
+  {
+   "fieldname": "ngo_status",
+   "fieldtype": "Select",
+   "label": "NGO Status",
+   "options": "\nProspect\nGrantee",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.is_blacklisted",
+   "fieldname": "section_break_fvof",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_blacklisted",
+   "fieldtype": "Check",
+   "label": "Is Blacklisted",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reason_for_blacklisting",
+   "fieldtype": "Small Text",
+   "label": "Reason For Blacklisting",
+   "read_only": 1
+  },
+  {
+   "fieldname": "documents_tab",
+   "fieldtype": "Tab Break",
+   "label": "Documents"
+  },
+  {
+   "fieldname": "active_documents",
+   "fieldtype": "Table",
+   "label": "Active Documents",
+   "options": "Statutory Documents Child"
+  },
+  {
+   "depends_on": "eval:doc.expired_documents.length > 0",
+   "fieldname": "expired_documents",
+   "fieldtype": "Table",
+   "label": "Expired Documents",
+   "options": "Statutory Documents Child"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-25 14:15:22.465252",
+ "modified": "2025-01-30 20:24:38.334795",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",

@@ -6,6 +6,7 @@ from frappe.utils.pdf import get_pdf
 def proposal_before_save(self):
     user_roles = frappe.get_roles()  # Retrieves roles of the current user
     wf_name = frappe.db.get_value("Workflow", {"document_type": self.doctype, "is_active": 1}, "name")
+
     if wf_name:
         wf = frappe.get_doc("Workflow", wf_name)
         old_doc = self.get_doc_before_save()
@@ -33,30 +34,51 @@ def proposal_before_save(self):
                         f"Expected transition: {', '.join([t.next_state for t in wf.transitions if t.state == old_value])}"
                     )
 
+
 def proposal_on_validate(self):
-    final_positive_stage = frappe.db.get_single_value('mGrant Settings', 'final_positive_stage')
-    if not final_positive_stage:
+    positive = frappe.db.get_single_value('mGrant Settings', 'positive')
+    if not positive:
         return frappe.throw("Please set Final Positive Stage in <a href='/app/mgrant-settings/mGrant%20Settings'>mGrant Settings</a>")
 def proposal_on_update(self):
-    final_positive_stage = frappe.db.get_single_value('mGrant Settings', 'final_positive_stage')
-    if ((self.stage == final_positive_stage) or (self.stage == final_positive_stage)) and self.docstatus == 0:
+    positive = frappe.db.get_single_value('mGrant Settings', 'positive')
+    if ((self.stage == positive) or (self.stage == positive)) and self.docstatus == 0:
         self.submit()
         frappe.msgprint("Proposal is now converted to Grant")
 
 
 def proposal_before_submit(self):
-    final_positive_stage = frappe.db.get_single_value('mGrant Settings', 'final_positive_stage')
-    final_negative_stage = frappe.db.get_single_value('mGrant Settings', 'final_negative_stage')
-    if self.stage not in [final_positive_stage, final_negative_stage]:
+    positive = frappe.db.get_single_value('mGrant Settings', 'positive')
+    negative = frappe.db.get_single_value('mGrant Settings', 'negative')
+        
+    if self.stage not in [positive, negative]:
         frappe.throw(f"Proposal is neither in final positive stage nor in final negative stage")
 
     if (self.mou_verified == 0 or not self.mou_signed_document):
         frappe.throw("MoU is not verified")
 
+    required_fields = {
+        positive: [
+            ("proposal_name", "'Application Title' is required in Proposal"),
+            ("start_date", "'Grant Start Date' is required in Proposal"),
+            ("end_date", "'Grant End Date' is required in Proposal"),
+            ("level_1", "'Level 1' is required in Proposal"),
+            ("level_2", "'Level 2' is required in Proposal"),
+            ("level_3", "'Level 3' is required in Proposal")
+        ]
+    }
+    
+    for field, message in required_fields.get(self.stage, []):
+        if not getattr(self, field):
+            frappe.throw(message)
+
+
+
+
+
 def proposal_on_submit(self):
     self.file_url = f"{frappe.utils.get_url()}/app/proposal/{self.name}"
-    final_positive_stage = frappe.db.get_single_value('mGrant Settings','final_positive_stage')
-    if (self.stage == final_positive_stage) or (self.stage == final_positive_stage):
+    positive = frappe.db.get_single_value('mGrant Settings','positive')
+    if (self.stage == positive) or (self.stage == positive):
         grant = frappe.new_doc("Grant")
         grant.proposal = self.name
         grant.donor = self.donor

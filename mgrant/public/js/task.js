@@ -26,10 +26,7 @@ const taskList = (task_list, selector) => {
     }
     const updateTaskStatus = (taskName, status, key) => {
         frappe.db.set_value('ToDo', taskName, key, status).then(() => {
-            if (key === 'custom_task_status') {
-                key = 'Status';
-            }
-            frappe.show_alert({ message: __(`Task ${key} updated successfully`), indicator: 'green' });
+            frappe.show_alert({ message: __(`Task ${key === 'custom_task_status' ? 'Status' : key} updated successfully`), indicator: 'green' });
             const updatedTaskList = task_list.map(task => {
                 if (task.name === taskName) {
                     return { ...task, [key]: status };
@@ -181,7 +178,6 @@ const taskList = (task_list, selector) => {
                                         ${task?.custom_task_status ?? 'Status'}
                                     </span>
                                     <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
-                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Backlog" >Backlog</a>
                                         <a class="dropdown-item task-status" data-task="${task.name}" data-status="Todo" >Todo</a>
                                         <a class="dropdown-item task-status" data-task="${task.name}" data-status="In Progress" >In Progress</a>
                                         <a class="dropdown-item task-status" data-task="${task.name}" data-status="Done" >Done</a>
@@ -258,9 +254,9 @@ const taskList = (task_list, selector) => {
     <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;  ">${task.custom_title}</td>
     <td>
         <div class="d-flex align-items-center" style="gap: 4px">
-            <div style=" width: 16px; height: 16px; background-color: ${getRandomColor()}; h" class="avatar  text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 20px; height: 20px;">A</div>
+            <div style=" width: 20px; height: 20px; font-size: 12px; background-color: ${getRandomColor()}; h" class="avatar  text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 20px; height: 20px;">${task.custom_assigned_to ? task.custom_assigned_to[0].toUpperCase() : '-'}</div>
             <span style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">
-                ${task.allocated_to ?? 'No assigned available'}
+                ${task.custom_assigned_to ?? 'No Assignee'}
             </span>
         </div>
     </td>
@@ -271,7 +267,6 @@ const taskList = (task_list, selector) => {
                         ${task?.custom_task_status ?? 'Status'}
                     </span>
                     <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
-                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Backlog">Backlog</a>
                         <a class="dropdown-item task-status" data-task="${task.name}" data-status="Todo">Todo</a>
                         <a class="dropdown-item task-status" data-task="${task.name}" data-status="In Progress">In Progress</a>
                         <a class="dropdown-item task-status" data-task="${task.name}" data-status="Done">Done</a>
@@ -355,7 +350,6 @@ let view = 'List View'
 let tasks_selector = 'task-list';
 
 const getTaskList = async (frm, selector) => {
-    toggleLoader(true, selector);
     tasks_selector = selector;
     task_list = await getDocList('ToDo', [
         ['ToDo', 'reference_type', '=', frm.doc.doctype],
@@ -412,10 +406,6 @@ const getTaskList = async (frm, selector) => {
                 <label class="form-check-label" for="statusTodo">Todo</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="custom_task_status" id="statusBacklog" value="Backlog">
-                <label class="form-check-label" for="statusBacklog">Backlog</label>
-            </div>
-            <div class="form-check">
                 <input class="form-check-input" type="radio" name="custom_task_status" id="statusInProgress" value="In Progress">
                 <label class="form-check-label" for="statusInProgress">In Progress</label>
             </div>
@@ -456,19 +446,8 @@ const getTaskList = async (frm, selector) => {
         </span>
     </div>
 </div>
-        <!-- Filters Button -->
-       <button class="btn btn-light d-flex align-items-center filter-btn">
-    <!-- Filter Icon -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#6E7073" class="bi bi-filter" viewBox="0 0 16 16">
-        <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
-    </svg>
-    <!-- Label -->
-    <span class="mx-2" style="color: #6E7073;">Filters</span>
-    <!-- Vertical Line Separator -->
-   <div style="height: 20px; width: 1px; background-color: #6E7073; margin: 0 8px;"></div>
-    <!-- Close Icon -->
-    <span aria-hidden="true" style="font-size: 16px; line-height: 16px; display: inline-block; width: 16px; height: 16px; color: #6E7073;">&times;</span>
-    </button>
+      
+
         <!-- New Task Button -->
         <button class="btn btn-primary btn-sm" id="createTask">
             <svg class="es-icon es-line icon-xs" aria-hidden="true">
@@ -496,7 +475,6 @@ const getTaskList = async (frm, selector) => {
         getTaskList(frm, selector);
 
     })
-    toggleLoader(false, selector);
 };
 const form = async (data = null, action, frm) => {
     let title = action === 'New Task' ? 'New Task' : 'Edit Task';
@@ -535,13 +513,41 @@ const form = async (data = null, action, frm) => {
                 field.read_only = true;
             }
         }
-        if(field.fieldname === 'custom_title'){
+        if (field.fieldname === 'custom_title') {
             field.reqd = 1;
         }
-        if(field.fieldname === 'custom_task_type'){
+        if (field.fieldname === 'custom_task_type') {
             field.reqd = 1;
         }
-        if(field.fieldname === 'description'){
+        if (field.fieldname == 'custom_start_date') {
+            field.onchange = () => {
+                if (cur_dialog.get_value('custom_start_date') && cur_dialog.get_value('date')) {
+                    if (new Date(cur_dialog.get_value('custom_start_date')) > new Date(cur_dialog.get_value('date'))) {
+                        frappe.throw({
+                            message: "Due Date should always be greater than Start Date"
+                        })
+                        frappe.validated = false;
+                    } else (
+                        frappe.validated = true
+                    )
+                }
+            }
+        }
+        if (field.fieldname == 'date') {
+            field.onchange = () => {
+                if (cur_dialog.get_value('custom_start_date') && cur_dialog.get_value('date')) {
+                    if (new Date(cur_dialog.get_value('custom_start_date')) > new Date(cur_dialog.get_value('date'))) {
+                        frappe.throw({
+                            message: "Due Date should always be greater than Start Date"
+                        })
+                        frappe.validated = false;
+                    } else (
+                        frappe.validated = true
+                    )
+                }
+            }
+        }
+        if (field.fieldname === 'description') {
             field.max_height = field.max_height || '150px';
         }
         return field;
@@ -552,6 +558,7 @@ const form = async (data = null, action, frm) => {
         primary_action_label: primaryActionLabel,
         primary_action(values) {
             if (action === 'New Task') {
+                // before-save
                 // Create new task
                 frappe.db.insert({
                     doctype: "ToDo",
@@ -595,3 +602,21 @@ const form = async (data = null, action, frm) => {
     }
     task_form.show();
 };
+
+
+// Filter Button
+
+
+//   < !--Filters Button-- >
+//     <button class="btn btn-light d-flex align-items-center filter-btn">
+//         <!-- Filter Icon -->
+//         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#6E7073" class="bi bi-filter" viewBox="0 0 16 16">
+//             <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
+//         </svg>
+//         <!-- Label -->
+//         <span class="mx-2" style="color: #6E7073;">Filters</span>
+//         <!-- Vertical Line Separator -->
+//         <div style="height: 20px; width: 1px; background-color: #6E7073; margin: 0 8px;"></div>
+//         <!-- Close Icon -->
+//         <span aria-hidden="true" style="font-size: 16px; line-height: 16px; display: inline-block; width: 16px; height: 16px; color: #6E7073;">&times;</span>
+//     </button>  

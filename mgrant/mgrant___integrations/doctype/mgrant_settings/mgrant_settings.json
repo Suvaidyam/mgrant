@@ -16,9 +16,10 @@
   "mgrant_logo",
   "proposal_stages_tab",
   "proposal_stages",
-  "final_positive_stage",
-  "final_negative_stage",
-  "final_approval_stage"
+  "sign_off_prerequisite",
+  "positive",
+  "negative",
+  "neutral"
  ],
  "fields": [
   {
@@ -62,6 +63,7 @@
    "fieldtype": "Link",
    "ignore_user_permissions": 1,
    "label": "Primary NGO",
+   "link_filters": "[[\"NGO\",\"is_blacklisted\",\"=\",0]]",
    "options": "NGO"
   },
   {
@@ -80,18 +82,6 @@
    "label": "Sidebar Items"
   },
   {
-   "fieldname": "final_positive_stage",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Final positive stage (Proposal)"
-  },
-  {
-   "fieldname": "final_negative_stage",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Final negative stage (Proposal)"
-  },
-  {
    "fieldname": "proposal_stages_tab",
    "fieldtype": "Tab Break",
    "label": "Proposal Stages"
@@ -103,17 +93,35 @@
    "options": "Proposal Stages Child"
   },
   {
-   "fieldname": "final_approval_stage",
+   "fieldname": "positive",
    "fieldtype": "Data",
    "hidden": 1,
-   "label": "Approval stage (Proposal)"
+   "label": "Final positive stage (Proposal)"
+  },
+  {
+   "fieldname": "negative",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Final negative stage (Proposal)"
+  },
+  {
+   "fieldname": "sign_off_prerequisite",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Sign-Off Prerequisite (Proposal)"
+  },
+  {
+   "fieldname": "neutral",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Neutral (proposal)"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-01-27 17:42:30.676714",
+ "modified": "2025-01-31 12:34:39.789756",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",
