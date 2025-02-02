@@ -59,8 +59,8 @@ def proposal_before_submit(self):
     required_fields = {
         positive: [
             ("proposal_name", "'Application Title' is required in Proposal"),
-            ("start_date", "'Project Start Date' is required in Proposal"),
-            ("end_date", "'Project End Date' is required in Proposal"),
+            ("start_date", "'Grant Start Date' is required in Proposal"),
+            ("end_date", "'Grant End Date' is required in Proposal"),
             ("level_1", "'Level 1' is required in Proposal"),
             ("level_2", "'Level 2' is required in Proposal"),
             ("level_3", "'Level 3' is required in Proposal")

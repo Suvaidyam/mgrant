@@ -24,12 +24,12 @@
  {
   "docstatus": 0,
   "doctype": "Client Script",
-  "dt": "Contact",
+  "dt": "ToDo",
   "enabled": 1,
-  "modified": "2025-01-28 16:28:10.392855",
-  "module": null,
-  "name": "Contact",
-  "script": "frappe.ui.form.on('Contact', {\n\trefresh(frm) {\n\t\t\n\t},\n\tvalidate(frm){\n\t    if(frm.doc.custom_whatsapp_number.length == 10){\n\t        validate_indian_phone_number_regex(frm.doc.custom_whatsapp_number)\n\t    }\n\t},\n\tcustom_whatsapp_number(frm){\n\t    if(frm.doc.custom_whatsapp_number.length == 10){\n\t        validate_indian_phone_number_regex(frm.doc.custom_whatsapp_number)\n\t    }\n\t}\n})",
-  "view": "Form"
+  "modified": "2025-01-30 12:18:26.002682",
+  "module": "Mgrant",
+  "name": "Task List",
+  "script": "frappe.listview_settings['ToDo'] = {\n    formatters: {\n        date: function(value, data, row) {\n            let due_date = new Date(value);\n            let today = new Date();\n            due_date.setHours(0, 0, 0, 0);\n            today.setHours(0, 0, 0, 0);\n            if (due_date < today && !['Cancelled','Done'].includes(row.custom_task_status)) {\n                return `<span class=\"text-danger\">${value}</span>`;\n            }\n            return value;\n        }\n    }\n};\n",
+  "view": "List"
  }
 ]
