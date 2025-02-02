@@ -68,8 +68,11 @@
   "tranche_tab",
   "tranches_section",
   "tranche",
-  "fund_disbursements",
+  "column_break_emew",
   "fund_requests",
+  "section_break_teqb",
+  "fund_disbursements",
+  "column_break_gwab",
   "input_tab",
   "input",
   "output_tab",
@@ -612,11 +615,23 @@
   {
    "fieldname": "tranches_section",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_teqb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_gwab",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_emew",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-30 17:51:16.326755",
+ "modified": "2025-02-02 14:54:01.922535",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
