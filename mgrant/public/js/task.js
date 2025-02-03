@@ -59,7 +59,7 @@ const taskList = (task_list, selector) => {
                         background-color: white !important;
                         color: black !important;
                         border: 1px solid #D9D9D9 !important;
-                        opacity: 1 !important;  
+                        opacity: 1 !important;
                         max-width: 320px !important;
                     }
                 </style>
@@ -75,7 +75,7 @@ const taskList = (task_list, selector) => {
                             </span>
                             <div class="d-flex align-items-center" style="gap: 24px;">
                                 <div class="dropdown">
-                                    <p 
+                                    <p
                                         title="action"
                                         class="pointer pt-3"
                                         id="dropdownMenuButton-${task.name}"
@@ -89,18 +89,18 @@ const taskList = (task_list, selector) => {
                                         <a class="dropdown-item delete-btn" data-task="${task.name}">Delete</a>
                                     </div>
                                 </div>
-                                <input 
-                                    type="checkbox" 
-                                    class="toggleCheckbox form-check-input" 
-                                    data-id="${task.name}" 
+                                <input
+                                    type="checkbox"
+                                    class="toggleCheckbox form-check-input"
+                                    data-id="${task.name}"
                                     style="width: 20px !important; height: 20px !important;">
                             </div>
                         </div>
 
                         <!-- User Info -->
                         <div class="d-flex align-items-center text-muted small" style="gap: 6px;">
-                            <div 
-                                class="avatar  text-white rounded-circle d-flex justify-content-center align-items-center me-2" 
+                            <div
+                                class="avatar  text-white rounded-circle d-flex justify-content-center align-items-center me-2"
                                 style="width: 16px; height: 16px; background-color: ${getRandomColor()};">
                                 ${task.allocated_to ? task.allocated_to[0].toUpperCase() : '-'}
                             </div>
@@ -108,11 +108,11 @@ const taskList = (task_list, selector) => {
                                 ${task.allocated_to ?? 'No Assignee'}
                             </span>
                         </div>
-                        <p 
-                            style="margin-top: 8px;max-height:40px;min-height:40px;overflow:hidden;" 
-                            data-toggle="tooltip" 
-                            data-placement="bottom" 
-                            title='${task.description ?? "N/A"}' 
+                        <p
+                            style="margin-top: 8px;max-height:40px;min-height:40px;overflow:hidden;"
+                            data-toggle="tooltip"
+                            data-placement="bottom"
+                            title='${task.description ?? "N/A"}'
                             data-html="true">
                             ${stripHtmlTags(task.description) ?? "No Description"}
                         </p>
@@ -125,12 +125,12 @@ const taskList = (task_list, selector) => {
             style="width: 100px; height: 26px; border-radius: 4px; background-color: ${task?.priority === 'High' || task?.priority === 'Medium' ? '#FFEDEC' : '#ECFFF1'};  font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px;">
             <span
                 title="Priority"
-                id="dropPriority-${task.name}" 
+                id="dropPriority-${task.name}"
                 class="small dropdown-toggle badge pointer"
-                style="background-color: ${task?.priority === 'High' || task?.priority === 'Medium' ? '#FFEDEC' : '#ECFFF1'}; 
+                style="background-color: ${task?.priority === 'High' || task?.priority === 'Medium' ? '#FFEDEC' : '#ECFFF1'};
                 color: ${task?.priority === 'High' ? '#D9534F' : task?.priority === 'Medium' ? '#F0AD4E' : '#5CB85C'}; padding: 6px; border-radius: 4px;"
-                data-toggle="dropdown" 
-                aria-haspopup="true" 
+                data-toggle="dropdown"
+                aria-haspopup="true"
                 aria-expanded="false">
                 ${task?.priority ?? 'Low'}
             </span>
@@ -142,8 +142,8 @@ const taskList = (task_list, selector) => {
         </div>
 
         <!-- Status Dropdown -->
-        <div 
-            class="dropdown" 
+        <div
+            class="dropdown"
             style="width: 100px; height: 26px; background-color: ${task?.custom_task_status === 'Canceled'
                         ? '#F8D7DA'
                         : task?.custom_task_status === 'In Progress'
@@ -151,10 +151,10 @@ const taskList = (task_list, selector) => {
                             : task?.custom_task_status === 'Done'
                                 ? '#D4EDDA'
                                 : '#F8F9FA'}; border-radius: 4px; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px;">
-                                    <span 
-                                        title="Status" 
-                                        id="dropStatus-${task.name}" 
-                                        class="small dropdown-toggle badge pointer" 
+                                    <span
+                                        title="Status"
+                                        id="dropStatus-${task.name}"
+                                        class="small dropdown-toggle badge pointer"
                                         style="color: ${task?.custom_task_status === 'Canceled'
                         ? '#D9534F'
                         : task?.custom_task_status === 'In Progress'
@@ -170,10 +170,10 @@ const taskList = (task_list, selector) => {
                             : task?.custom_task_status === 'Done'
                                 ? '#D4EDDA'
                                 : '#F8F9FA'};
-                                            padding: 6px; 
-                                            border-radius: 4px;" 
-                                        data-toggle="dropdown" 
-                                        aria-haspopup="true" 
+                                            padding: 6px;
+                                            border-radius: 4px;"
+                                        data-toggle="dropdown"
+                                        aria-haspopup="true"
                                         aria-expanded="false">
                                         ${task?.custom_task_status ?? 'Status'}
                                     </span>
@@ -289,7 +289,7 @@ const taskList = (task_list, selector) => {
     </td>
     <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">${task.custom_start_date ? getFormattedDate(task.custom_start_date) : '--:--'}</td>
     <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%;" class="${(task.date && (new Date(task.date) < new Date(frappe.datetime.get_today()))) ? 'text-danger' : 'text-muted'}">${task.date ? getFormattedDate(task.date) : '--:--'}</td>
-    <td class="">                                                                                                       
+    <td class="">
       <div class="dropdown">
             <p title="action" class="pointer d-flex justify-content-center  align-items-center " id="dropdownMenuButton-${task.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 ⋮
@@ -363,12 +363,12 @@ const getTaskList = async (frm, selector) => {
     .scrollable-buttons .btn {
         display: inline-block;
     }">
-       
+
          <div id="total-task" style="gap: 16px; display: flex;">
             <span class="text-dark" style="font-weight: 400; font-size: 12px;  color: #6E7073;">
                 Total records: ${task_list.length}
             </span>
-         
+
         </div>
 
     <div class="dropdown-task-status dropdown">
@@ -446,7 +446,7 @@ const getTaskList = async (frm, selector) => {
         </span>
     </div>
 </div>
-      
+
 
         <!-- New Task Button -->
         <button class="btn btn-primary btn-sm" id="createTask">
@@ -459,7 +459,7 @@ const getTaskList = async (frm, selector) => {
 <div id="parent-view">
     ${view === 'Card View' ? `<div id="task-card" class="row"></div>` : `<div id="task-list" class=""></div>`}
 </div>
-       
+
         `);
     taskList(task_list);
     $('#createTask').on('click', function () {
@@ -619,4 +619,4 @@ const form = async (data = null, action, frm) => {
 //         <div style="height: 20px; width: 1px; background-color: #6E7073; margin: 0 8px;"></div>
 //         <!-- Close Icon -->
 //         <span aria-hidden="true" style="font-size: 16px; line-height: 16px; display: inline-block; width: 16px; height: 16px; color: #6E7073;">&times;</span>
-//     </button>  
+//     </button>
