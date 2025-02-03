@@ -63,14 +63,16 @@
   "tasks_tab",
   "tasks",
   "budget_tab",
+  "budget_dashboard",
   "budget",
   "financial_years",
   "tranche_tab",
   "section_break_joze",
   "dashboard",
   "section_break_xkmx",
-  "fund_requests",
   "column_break_aekz",
+  "fund_requests",
+  "fund_disbursements_section",
   "fund_disbursements",
   "input_tab",
   "input",
@@ -623,11 +625,20 @@
   {
    "fieldname": "column_break_aekz",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "budget_dashboard",
+   "fieldtype": "HTML",
+   "label": "Dashboard"
+  },
+  {
+   "fieldname": "fund_disbursements_section",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-03 13:41:39.412202",
+ "modified": "2025-02-03 17:27:54.499044",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
