@@ -9,6 +9,7 @@
  "field_order": [
   "description",
   "request_date",
+  "approved_amount",
   "column_break_eryd",
   "requestedamount",
   "section_break_aaeg",
@@ -118,11 +119,16 @@
    "label": "Requested Amount",
    "non_negative": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "approved_amount",
+   "fieldtype": "Currency",
+   "label": "Approved Amount"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-26 23:16:41.832686",
+ "modified": "2025-02-03 09:33:51.604641",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Fund Request",

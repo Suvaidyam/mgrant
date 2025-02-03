@@ -42,11 +42,11 @@
   "total_planned_budget",
   "total_funds_utilised",
   "total_unspent_funds",
-  "column_break_judq",
   "total_amount_requested_from_donor",
   "total_funds_received",
-  "column_break_ypir",
   "lfas_copied",
+  "column_break_judq",
+  "tranche",
   "section_break_vkwu",
   "demography_focus",
   "subgranting_information_section",
@@ -66,13 +66,12 @@
   "budget",
   "financial_years",
   "tranche_tab",
-  "tranches_section",
-  "tranche",
-  "column_break_emew",
+  "section_break_joze",
+  "dashboard",
+  "section_break_xkmx",
   "fund_requests",
-  "section_break_teqb",
+  "column_break_aekz",
   "fund_disbursements",
-  "column_break_gwab",
   "input_tab",
   "input",
   "output_tab",
@@ -247,7 +246,7 @@
   {
    "fieldname": "tranche_tab",
    "fieldtype": "Tab Break",
-   "label": "Tranche"
+   "label": "Fund Request & Disbursement"
   },
   {
    "fieldname": "tranche",
@@ -269,10 +268,6 @@
   },
   {
    "fieldname": "column_break_judq",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_ypir",
    "fieldtype": "Column Break"
   },
   {
@@ -324,7 +319,7 @@
   {
    "fieldname": "timeline_tab",
    "fieldtype": "Tab Break",
-   "label": "Change logs"
+   "label": "Change Logs"
   },
   {
    "fieldname": "timeline",
@@ -613,25 +608,26 @@
    "label": "Fund Requests"
   },
   {
-   "fieldname": "tranches_section",
+   "fieldname": "section_break_joze",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "section_break_teqb",
+   "fieldname": "dashboard",
+   "fieldtype": "HTML",
+   "label": "Dashboard"
+  },
+  {
+   "fieldname": "section_break_xkmx",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "column_break_gwab",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_emew",
+   "fieldname": "column_break_aekz",
    "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-02 14:54:01.922535",
+ "modified": "2025-02-03 13:41:39.412202",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
