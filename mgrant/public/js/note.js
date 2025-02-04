@@ -1,7 +1,6 @@
 
 
 async function get_note_list(frm, selector) {
-    toggleLoader(true, selector);
     const response = await frappe.call({
         method: 'frappe.client.get_list',
         args: {
@@ -12,7 +11,6 @@ async function get_note_list(frm, selector) {
         },
     });
     note_list = response.message;
-    toggleLoader(false, selector);
     const today = new Date(), yesterday = new Date(today);
     yesterday.setDate(today.getDate() - 1);
     const formatDate = date => new Date(date).toISOString().split('T')[0];

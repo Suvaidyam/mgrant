@@ -1,6 +1,5 @@
 const showTimelines = async (frm, selector) => {
     let timeline_wrapper = document.querySelector(`[data-fieldname="${selector}"]`);
-    toggleLoader(true, selector);
     if (!timeline_wrapper) {
         console.error(`Timeline wrapper for selector "${selector}" not found.`);
         return;
@@ -14,9 +13,10 @@ const showTimelines = async (frm, selector) => {
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
-                        }
-                        .table { margin: 0px; }
-                        .table th, .table td { text-align: left; }
+                    }
+                    .table { margin: 0px; }
+                    .table th, .table td { text-align: left; padding:8px !important; }
+
                 </style>
                 <div id="timeline-container">
                     <div id="data-timeline"></div>
@@ -53,12 +53,12 @@ const showTimelines = async (frm, selector) => {
                             </span>
                             <div style="width:100%;" class="card mb-3">
                                 <div class="card-header">
-                                    <div>${item.owner}</div>
-                                    <div><p><strong>Updated on:</strong> ${item?.creation ? formatDateTime(item.creation, true, true) : '--:--'}</p></div>
+                                    <p style="margin-bottom:0px !important;">${item.owner}</p>
+                                    <p style="margin-bottom:0px !important;"><strong>Updated on:</strong> ${item?.creation ? formatDateTime(item.creation, true, true) : '--:--'}</p>
                                 </div>
                                 <div class="card-body">
                                     <table class="table table-bordered">
-                                        <thead>
+                                        <thead style="padding: 10px 10px !important">
                                             <tr><th>Field</th><th>Old Value</th><th>New Value</th></tr>
                                         </thead>
                                         <tbody>${changesHTML}</tbody>
@@ -86,5 +86,4 @@ const showTimelines = async (frm, selector) => {
             timeline_wrapper.innerHTML = `<p>Error loading timeline data. Please try again later.</p>`;
         }
     }
-    toggleLoader(false, selector);
 };

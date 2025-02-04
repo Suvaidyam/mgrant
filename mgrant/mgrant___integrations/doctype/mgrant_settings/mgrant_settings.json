@@ -18,7 +18,8 @@
   "proposal_stages",
   "sign_off_prerequisite",
   "positive",
-  "negative"
+  "negative",
+  "neutral"
  ],
  "fields": [
   {
@@ -62,6 +63,7 @@
    "fieldtype": "Link",
    "ignore_user_permissions": 1,
    "label": "Primary NGO",
+   "link_filters": "[[\"NGO\",\"is_blacklisted\",\"=\",0]]",
    "options": "NGO"
   },
   {
@@ -107,13 +109,19 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Sign-Off Prerequisite (Proposal)"
+  },
+  {
+   "fieldname": "neutral",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Neutral (proposal)"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-01-28 11:07:33.407734",
+ "modified": "2025-01-31 12:34:39.789756",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",

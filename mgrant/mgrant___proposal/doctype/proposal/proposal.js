@@ -18,10 +18,13 @@ function getMonthDifference(startDate, endDate) {
     return yearDifference * 12 + monthDifference;
 }
 let PREV_STATES = [];
-frappe.model.on('Proposal', '*', function (fieldname, value, doc) {
+frappe.model.on('Proposal', '*', function () {
     cur_frm.page.btn_primary.show();
 })
 frappe.ui.form.on("Proposal", {
+    onload_post_render: (frm) => {
+        renderRibbons(frm)
+    },
     onload(frm) {
         if (!frm.is_new()) {
             frm.page.btn_primary.hide();
@@ -46,12 +49,13 @@ frappe.ui.form.on("Proposal", {
         }, 500);
     },
     async refresh(frm) {
+        renderRibbons(frm)
         if (frm.is_new()) {
             let donor = await frappe.db.get_list('Donor', { limit: 1, pluck: 'name', order_by: 'creation desc' })
             if (donor.length > 0) {
                 frm.set_value("donor", donor[0])
             }
-            let ngo = await frappe.db.get_list('NGO', { limit: 1, pluck: 'name', order_by: 'creation desc' })
+            let ngo = await frappe.db.get_list('NGO', { limit: 1, pluck: 'name' , filters:{'is_blacklisted':0}, order_by: 'creation ASC' })
             if (ngo.length > 0) {
                 frm.set_value("ngo", ngo[0])
             }
@@ -364,3 +368,150 @@ frappe.ui.form.on("Demography Group Child", {
         frappe.model.set_value(cdt, cdn, 'village', '');
     }
 });
+
+const renderRibbons = (frm) => {
+    const stages = frappe.boot.mgrant_settings.proposal_stages.map((stage) => stage.stage);
+    const positive = frappe.boot.mgrant_settings.positive;
+    const negative = frappe.boot.mgrant_settings.negative;
+    const currentStageIndex = stages.indexOf(frm.doc.stage);
+
+    function getStageClass(stage, index) {
+        if (index < currentStageIndex) return "complete";
+        if (index === currentStageIndex) return "current";
+        return "";
+    }
+
+    function getStageColor(stage, isCurrent, isComplete) {
+        if (stage === negative && isCurrent) return "#e60000";
+        if (stage === positive && isCurrent) return "#008000";
+        if (isComplete) return "rgba(174, 172, 172, 0.71)"; // Gray color for completed stages
+        return isCurrent ? "#801621" : "#F3F3F3";
+    }
+
+    const progress_bar = `
+    <div class="custom-progress-bar">
+        <button class="prev-button" onclick="scrollStepper(-1)">&#10094;</button>
+        <ul class="stepper">
+            ${stages
+            .map((stage, index) => {
+                const isComplete = index < currentStageIndex;
+                const stageClass = getStageClass(stage, index);
+                const stageColor = getStageColor(stage, index === currentStageIndex, isComplete);
+                const icon = stage === positive ? "👍" : stage === negative ? "👎" : "";
+                return `<li class="stepper__item ${stageClass}" style="background-color: ${stageColor};">${stage} ${icon}</li>`;
+            })
+            .join("")}
+        </ul>
+        <button class="next-button" onclick="scrollStepper(1)">&#10095;</button>
+    </div>`;
+
+    const style = `
+<style>
+    .custom-progress-bar {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        padding: 8px 10px;
+    }
+
+    .stepper {
+        display: flex;
+        padding: 0;
+        width: 100%;
+        list-style: none;
+        position: relative;
+        justify-content: center;
+        overflow: hidden;
+        white-space: nowrap;
+        scroll-behavior: smooth;
+    }
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    .stepper__item {
+        flex: 1;
+        padding: 0 30px;
+        margin: 0 -3px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        height: 32px; /* Set height to 32px */
+        line-height: 32px; /* Center text vertically */
+        -webkit-clip-path: polygon(10px 50%, 0% 0%, calc(100% - 10px) 0%, 100% 50%, calc(100% - 10px) 100%, 0% 100%);
+    }
+
+    .stepper__item.current {
+        font-weight: bold;
+        color: #FFFFFF;
+    }
+
+    .stepper__item.complete {
+        color: white;
+        background:rgba(169, 169, 169, 0.87); /* Gray color for completed stages */
+    }
+
+    .stepper__item:first-child {
+        -webkit-clip-path: polygon(0% 0%, calc(100% - 10px) 0%, 100% 50%, calc(100% - 10px) 100%, 0% 100%);
+    }
+
+    .stepper__item:last-child {
+        -webkit-clip-path: polygon(10px 50%, 0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+
+    .prev-button, .next-button {
+        background-color: #ddd;
+        border: none;
+        color: black;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        height: calc(100% - 16px); /* Adjust height to match stepper item height */
+    }
+
+    .prev-button {
+        left: 0;
+    }
+
+    .next-button {
+        right: 0;
+    }
+
+    .prev-button:hover, .next-button:hover {
+        background-color: #bbb;
+    }
+
+    @media (max-width: 768px) {
+        .stepper {
+            padding-left: 15px; /* Add padding to make the first stage visible */
+        }
+        .stepper__item {
+            padding: 0 15px;
+            font-size: 12px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .stepper {
+            padding-left: 10px; /* Add padding to make the first stage visible */
+        }
+        .stepper__item {
+            padding: 0 10px;
+            font-size: 10px;
+        }
+    }
+</style>`;
+
+    const wrapper = frm.$wrapper.find(".form-dashboard");
+    wrapper.find(".custom-progress-bar").remove();
+    wrapper.prepend(progress_bar + style);
+
+    window.scrollStepper = (direction) => {
+        const stepper = document.querySelector('.stepper');
+        const scrollAmount = stepper.clientWidth / 2;
+        stepper.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    };
+};
