@@ -11,6 +11,8 @@
   "as_on_date",
   "column_break_eryd",
   "disbursed_amount",
+  "disbursal_status",
+  "recipient_status",
   "section_break_aaeg",
   "grant",
   "financial_year",
@@ -125,11 +127,21 @@
    "fieldtype": "Link",
    "label": "Fund Request",
    "options": "Fund Request"
+  },
+  {
+   "fieldname": "disbursal_status",
+   "fieldtype": "Select",
+   "label": "Disbursal Status"
+  },
+  {
+   "fieldname": "recipient_status",
+   "fieldtype": "Select",
+   "label": "Recipient Status"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-03 21:03:49.856879",
+ "modified": "2025-02-04 10:42:32.682041",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Fund Disbursement",
