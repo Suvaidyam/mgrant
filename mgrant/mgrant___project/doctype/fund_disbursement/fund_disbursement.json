@@ -14,6 +14,7 @@
   "section_break_aaeg",
   "grant",
   "financial_year",
+  "fund_request",
   "section_break_ffdl",
   "ngo",
   "ngo_email",
@@ -118,11 +119,17 @@
    "label": "Disbursed Amount",
    "non_negative": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "fund_request",
+   "fieldtype": "Link",
+   "label": "Fund Request",
+   "options": "Fund Request"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-26 23:10:32.066721",
+ "modified": "2025-02-03 21:03:49.856879",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Fund Disbursement",

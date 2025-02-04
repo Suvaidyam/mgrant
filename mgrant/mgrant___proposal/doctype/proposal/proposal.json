@@ -69,8 +69,6 @@
   "impact",
   "reportings_tab",
   "reportings",
-  "contacts_tab",
-  "contacts",
   "email_tab",
   "email",
   "gallery_tab",
@@ -348,15 +346,6 @@
    "label": "Project Description"
   },
   {
-   "fieldname": "contacts_tab",
-   "fieldtype": "Tab Break",
-   "label": "Contacts"
-  },
-  {
-   "fieldname": "contacts",
-   "fieldtype": "HTML"
-  },
-  {
    "fieldname": "reportings_tab",
    "fieldtype": "Tab Break",
    "label": "Reporting"
@@ -549,7 +538,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-30 17:49:51.798742",
+ "modified": "2025-01-31 19:47:55.271154",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
