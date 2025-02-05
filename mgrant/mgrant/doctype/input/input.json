@@ -48,10 +48,10 @@
   {
    "fieldname": "grant",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Grant",
    "options": "Grant",
    "read_only": 1,
-   "reqd": 1,
    "search_index": 1
   },
   {
@@ -230,7 +230,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-29 11:36:28.129341",
+ "modified": "2025-02-05 16:55:17.483011",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Input",

@@ -20,7 +20,7 @@
  "label": "Financials",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-01-10 11:46:56.373550",
+ "modified": "2025-02-05 14:40:06.421260",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Financials",
@@ -60,6 +60,9 @@
   },
   {
    "role": "NGO Admin"
+  },
+  {
+   "role": "Donor Admin"
   }
  ],
  "sequence_id": 6.0,
