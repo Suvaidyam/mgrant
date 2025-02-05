@@ -14,7 +14,7 @@
  "is_hidden": 0,
  "label": "Grants",
  "links": [],
- "modified": "2025-01-13 18:31:11.463305",
+ "modified": "2025-02-05 16:27:03.464374",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grants",
@@ -36,16 +36,7 @@
    "role": "NGO Admin"
   },
   {
-   "role": "Stage 1"
-  },
-  {
-   "role": "Stage 2"
-  },
-  {
-   "role": "Stage 3"
-  },
-  {
-   "role": "Stage 4"
+   "role": "Donor Admin"
   }
  ],
  "sequence_id": 2.0,

@@ -15,7 +15,7 @@
  "label": "LFA",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-01-08 14:42:51.157115",
+ "modified": "2025-02-05 14:41:25.788667",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "LFA",
@@ -63,6 +63,9 @@
   },
   {
    "role": "NGO Admin"
+  },
+  {
+   "role": "Donor Admin"
   }
  ],
  "sequence_id": 7.0,
