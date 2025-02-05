@@ -11,6 +11,7 @@
   "as_on_date",
   "column_break_eryd",
   "disbursed_amount",
+  "utr_number",
   "section_break_aaeg",
   "grant",
   "financial_year",
@@ -125,11 +126,16 @@
    "fieldtype": "Link",
    "label": "Fund Request",
    "options": "Fund Request"
+  },
+  {
+   "fieldname": "utr_number",
+   "fieldtype": "Data",
+   "label": "UTR Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-03 21:03:49.856879",
+ "modified": "2025-02-04 17:40:48.517889",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Fund Disbursement",

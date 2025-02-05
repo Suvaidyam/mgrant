@@ -83,7 +83,7 @@
     "html_field": "fund_requests",
     "link_doctype": "Fund Request",
     "link_fieldname": "grant",
-    "listview_settings": "[{\"fieldname\":\"description\",\"label\":\"Description\",\"width\":\"2\"},{\"fieldname\":\"request_date\",\"label\":\"Request Date\",\"width\":\"2\"},{\"fieldname\":\"requestedamount\",\"label\":\"Requested Amount\",\"width\":\"2\"}]",
+    "listview_settings": "[{\"fieldname\":\"description\",\"label\":\"Description\",\"width\":\"2\"},{\"fieldname\":\"request_date\",\"label\":\"Request Date\",\"width\":\"2\"},{\"fieldname\":\"requested_amount\",\"label\":\"Requested Amount\",\"width\":\"2\"},{\"fieldname\":\"approved_amount\",\"label\":\"Approved Amount\",\"width\":\"2\"},{\"fieldname\":\"wf_comment\",\"label\":\"Comment\",\"width\":\"2\"}]",
     "referenced_link_doctype": null,
     "template": "Tasks"
    },
@@ -97,7 +97,7 @@
     "html_field": "fund_disbursements",
     "link_doctype": "Fund Disbursement",
     "link_fieldname": "grant",
-    "listview_settings": "[{\"fieldname\":\"description\",\"label\":\"Description\",\"width\":\"2\"},{\"fieldname\":\"disbursed_amount\",\"label\":\"Disbursed Amount\",\"width\":\"2\"},{\"fieldname\":\"as_on_date\",\"label\":\"As On Date\",\"width\":\"2\"}]",
+    "listview_settings": "[{\"label\":\"As On Date\",\"fieldname\":\"as_on_date\"},{\"label\":\"Comment\",\"fieldname\":\"wf_comment\"},{\"label\":\"Description\",\"fieldname\":\"description\"},{\"label\":\"Disbursed Amount\",\"fieldname\":\"disbursed_amount\"},{\"label\":\"Disbursal Status\",\"fieldname\":\"disbursal_status\"},{\"label\":\"Recipient Status\",\"fieldname\":\"recipient_status\"}]",
     "referenced_link_doctype": null,
     "template": "Tasks"
    },
@@ -272,7 +272,7 @@
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2025-02-02 14:51:33.640493",
+  "modified": "2025-02-04 10:48:30.189105",
   "name": "Grant",
   "parent_doctype": "Grant"
  },

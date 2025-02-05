@@ -115,7 +115,11 @@
   {
    "fieldname": "approved_amount",
    "fieldtype": "Currency",
-   "label": "Approved Amount"
+   "hidden": 1,
+   "label": "Approved Amount",
+   "non_negative": 1,
+   "precision": "2",
+   "read_only": 1
   },
   {
    "fieldname": "requested_amount",
@@ -128,7 +132,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-03 18:09:01.449637",
+ "modified": "2025-02-04 19:14:00.936707",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Fund Request",
@@ -176,7 +180,16 @@
  "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": [],
+ "states": [
+  {
+   "color": "Blue",
+   "title": "Approve"
+  },
+  {
+   "color": "Gray",
+   "title": "Test FR"
+  }
+ ],
  "title_field": "description",
  "track_changes": 1
 }
