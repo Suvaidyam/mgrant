@@ -329,7 +329,7 @@
    "type": "Link"
   }
  ],
- "modified": "2025-01-29 18:14:45.090103",
+ "modified": "2025-02-05 14:48:19.123811",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Settings",
@@ -344,6 +344,9 @@
   },
   {
    "role": "NGO Admin"
+  },
+  {
+   "role": "Donor Admin"
   }
  ],
  "sequence_id": 14.0,
