@@ -30,60 +30,6 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2025-01-14 13:29:20.314844",
-  "name": "Approved by S 2",
-  "style": "Success",
-  "workflow_state_name": "Approved by S 2"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-01-14 13:29:05.113886",
-  "name": "Approved by S 1",
-  "style": "Success",
-  "workflow_state_name": "Approved by S 1"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-01-13 21:34:11.881897",
-  "name": "Approved by S 3",
-  "style": "Success",
-  "workflow_state_name": "Approved by S 3"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-01-13 21:29:22.688393",
-  "name": "Rejected by S 1",
-  "style": "Danger",
-  "workflow_state_name": "Rejected by S 1"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-01-13 21:29:12.723811",
-  "name": "Rejected by S 2",
-  "style": "Danger",
-  "workflow_state_name": "Rejected by S 2"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-01-13 21:29:06.002790",
-  "name": "Rejected by S 3",
-  "style": "Danger",
-  "workflow_state_name": "Rejected by S 3"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
-  "icon": "",
   "modified": "2025-02-04 17:32:38.372823",
   "name": "Disbursed",
   "style": "Info",
