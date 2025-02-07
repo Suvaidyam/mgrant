@@ -26,7 +26,7 @@ fixtures = [
     "Property Setter",
     "Server Script",
     "Translation",
-    'Custom HTML Block'
+    'Custom HTML Block',
     # "My Theme",
     # "Workflow",
     # "Workflow Action Master",
