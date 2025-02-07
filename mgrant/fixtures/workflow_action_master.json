@@ -33,5 +33,19 @@
   "modified": "2025-01-13 17:08:10.805088",
   "name": "Approved by Stage 3",
   "workflow_action_name": "Approved by Stage 3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-02-04 17:34:09.796061",
+  "name": "Disburse",
+  "workflow_action_name": "Disburse"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-02-04 17:35:42.432831",
+  "name": "Receipt Confirm",
+  "workflow_action_name": "Receipt Confirm"
  }
 ]

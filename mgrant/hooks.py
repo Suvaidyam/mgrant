@@ -20,22 +20,22 @@ fixtures = [
     # 'Role',
     # 'Role Profile',
     # "DDFR",
-    'SVADatatable Configuration',
-    'Client Script',
-    'Custom Field',
-    "Property Setter",
-    "Server Script",
-    "Translation",
-    'Custom HTML Block',
+    # 'SVADatatable Configuration',
+    # 'Client Script',
+    # 'Custom Field',
+    # "Property Setter",
+    # "Server Script",
+    # "Translation",
+    # 'Custom HTML Block',
     # "My Theme",
     # "Workflow",
     # "Workflow Action Master",
     # "Workflow State",
     # "RFP Type",
-    "Notification",
-    "Print Format",
-    "Global Search Settings",
-    "Custom DocPerm"
+    # "Notification",
+    # "Print Format",
+    # "Global Search Settings",
+    # "Custom DocPerm"
 
 ]
 # include js, css files in header of desk.html
