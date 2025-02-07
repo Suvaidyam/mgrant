@@ -48,6 +48,9 @@
   "due_diligence_validation",
   "reasons",
   "reason_for_due_diligence_fail",
+  "section_break_rkdp",
+  "is_blacklisted",
+  "reason_for_blacklisting",
   "bank_details_tab",
   "ifsc_code",
   "branch_name",
@@ -60,14 +63,9 @@
   "column_break_hhtv",
   "fetch_bank_details",
   "work_history_tab",
-  "theme",
   "work_references",
   "impact",
-  "about_organisation",
-  "contacts_tab",
-  "contacts",
-  "grants_tab",
-  "grants"
+  "about_organisation"
  ],
  "fields": [
   {
@@ -362,13 +360,7 @@
   {
    "fieldname": "work_history_tab",
    "fieldtype": "Tab Break",
-   "label": "Work History"
-  },
-  {
-   "fieldname": "theme",
-   "fieldtype": "Table MultiSelect",
-   "label": "Theme (Area of work)",
-   "options": "Themes Child"
+   "label": "Experiences"
   },
   {
    "fieldname": "work_references",
@@ -387,39 +379,35 @@
    "label": "Describe your organization\u2019s history, vision/mission, and major areas of intervention"
   },
   {
-   "default": "contacts",
-   "fieldname": "contacts_tab",
-   "fieldtype": "Tab Break",
-   "label": "Contacts"
-  },
-  {
-   "default": "Contact",
-   "fieldname": "contacts",
-   "fieldtype": "HTML",
-   "options": "<div id=\"contacts\"></div>"
-  },
-  {
-   "fieldname": "grants_tab",
-   "fieldtype": "Tab Break",
-   "hidden": 1,
-   "label": "Grants"
-  },
-  {
-   "fieldname": "grants",
-   "fieldtype": "HTML"
-  },
-  {
    "fieldname": "vendor_name",
    "fieldtype": "Data",
    "in_global_search": 1,
    "in_list_view": 1,
    "label": "Vendor Name",
    "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.is_blacklisted",
+   "fieldname": "section_break_rkdp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_blacklisted",
+   "fieldtype": "Check",
+   "label": "Is Blacklisted",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reason_for_blacklisting",
+   "fieldtype": "Small Text",
+   "label": "Reason For Blacklisting",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-28 13:11:45.514122",
+ "modified": "2025-01-30 17:46:46.822673",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "Vendor",

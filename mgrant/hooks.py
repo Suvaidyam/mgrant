@@ -21,10 +21,10 @@ fixtures = [
     # 'Role Profile',
     # "DDFR",
     # 'SVADatatable Configuration',
-    'Client Script',
-    'Custom Field',
-    "Property Setter",
-    "Server Script",
+    # 'Client Script',
+    # 'Custom Field',
+    # "Property Setter",
+    # "Server Script",
     # "Translation",
     # 'Custom HTML Block'
     # "Custom DocPerm",
@@ -35,7 +35,8 @@ fixtures = [
     # "RFP Type",
     # "Notification",
     # "Print Format",
-    # "Global Search Settings"
+    # "Global Search Settings",
+    # "Custom DocPerm"
     
 ]
 # include js, css files in header of desk.html
@@ -58,7 +59,8 @@ app_include_js = [
     f"/assets/mgrant/js/kanban.js?ver={time.time()}",
     f"/assets/mgrant/js/overwrite_timeline.js?ver={time.time()}",
     f"/assets/mgrant/js/form_sidebar.js?ver={time.time()}",
-    f"/assets/mgrant/js/sidebar.js?ver={time.time()}"
+    f"/assets/mgrant/js/sidebar.js?ver={time.time()}",
+    f"/assets/mgrant/js/toolbar_override.js?ver={time.time()}"
 ]
 
 extend_bootinfo = "mgrant.boot.boot_session"

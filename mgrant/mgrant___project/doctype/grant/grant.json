@@ -42,11 +42,11 @@
   "total_planned_budget",
   "total_funds_utilised",
   "total_unspent_funds",
-  "column_break_judq",
   "total_amount_requested_from_donor",
   "total_funds_received",
-  "column_break_ypir",
   "lfas_copied",
+  "column_break_judq",
+  "tranche",
   "section_break_vkwu",
   "demography_focus",
   "subgranting_information_section",
@@ -63,13 +63,17 @@
   "tasks_tab",
   "tasks",
   "budget_tab",
+  "budget_dashboard",
   "budget",
   "financial_years",
   "tranche_tab",
-  "tranches_section",
-  "tranche",
-  "fund_disbursements",
+  "section_break_joze",
+  "dashboard",
+  "section_break_xkmx",
+  "column_break_aekz",
   "fund_requests",
+  "fund_disbursements_section",
+  "fund_disbursements",
   "input_tab",
   "input",
   "output_tab",
@@ -244,7 +248,7 @@
   {
    "fieldname": "tranche_tab",
    "fieldtype": "Tab Break",
-   "label": "Tranche"
+   "label": "Fund Request & Disbursement"
   },
   {
    "fieldname": "tranche",
@@ -266,10 +270,6 @@
   },
   {
    "fieldname": "column_break_judq",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_ypir",
    "fieldtype": "Column Break"
   },
   {
@@ -302,6 +302,7 @@
    "fieldname": "ngo",
    "fieldtype": "Link",
    "label": "NGO",
+   "link_filters": "[[\"NGO\",\"is_blacklisted\",\"=\",0]]",
    "options": "NGO",
    "read_only_depends_on": "eval:doc.proposal && doc.ngo && doc.__unsaved != 0;",
    "reqd": 1,
@@ -320,7 +321,7 @@
   {
    "fieldname": "timeline_tab",
    "fieldtype": "Tab Break",
-   "label": "Change logs"
+   "label": "Change Logs"
   },
   {
    "fieldname": "timeline",
@@ -609,13 +610,35 @@
    "label": "Fund Requests"
   },
   {
-   "fieldname": "tranches_section",
+   "fieldname": "section_break_joze",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "dashboard",
+   "fieldtype": "HTML",
+   "label": "Dashboard"
+  },
+  {
+   "fieldname": "section_break_xkmx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_aekz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "budget_dashboard",
+   "fieldtype": "HTML",
+   "label": "Dashboard"
+  },
+  {
+   "fieldname": "fund_disbursements_section",
    "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-27 16:28:38.798109",
+ "modified": "2025-02-03 17:27:54.499044",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",

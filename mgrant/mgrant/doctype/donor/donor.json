@@ -29,7 +29,9 @@
   "address_2",
   "address_3",
   "projects_tab",
-  "projects"
+  "projects",
+  "tasks_tab",
+  "tasks"
  ],
  "fields": [
   {
@@ -99,7 +101,8 @@
   {
    "fieldname": "pincode",
    "fieldtype": "Int",
-   "label": "Pincode"
+   "label": "Pincode",
+   "length": 6
   },
   {
    "fieldname": "org_email",
@@ -166,11 +169,20 @@
   {
    "fieldname": "column_break_emii",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tasks_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tasks"
+  },
+  {
+   "fieldname": "tasks",
+   "fieldtype": "HTML"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-29 14:42:43.933317",
+ "modified": "2025-02-05 15:01:59.643155",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Donor",

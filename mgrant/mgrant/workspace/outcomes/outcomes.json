@@ -16,7 +16,7 @@
  "link_to": "Outcome",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-01-08 15:18:55.707514",
+ "modified": "2025-02-05 14:42:07.160092",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcomes",
@@ -31,6 +31,9 @@
   },
   {
    "role": "NGO Admin"
+  },
+  {
+   "role": "Donor Admin"
   }
  ],
  "sequence_id": 16.0,
