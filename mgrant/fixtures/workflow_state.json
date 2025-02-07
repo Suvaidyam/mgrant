@@ -88,5 +88,23 @@
   "name": "Rejected by S 3",
   "style": "Danger",
   "workflow_state_name": "Rejected by S 3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-02-04 17:32:38.372823",
+  "name": "Disbursed",
+  "style": "Info",
+  "workflow_state_name": "Disbursed"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-02-04 17:33:08.108275",
+  "name": "Receipt Confirmed",
+  "style": "Success",
+  "workflow_state_name": "Receipt Confirmed"
  }
 ]

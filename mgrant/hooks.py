@@ -26,8 +26,7 @@ fixtures = [
     # "Property Setter",
     # "Server Script",
     # "Translation",
-    # 'Custom HTML Block'
-    # "Custom DocPerm",
+    # 'Custom HTML Block',
     # "My Theme",
     # "Workflow",
     # "Workflow Action Master",
@@ -37,7 +36,7 @@ fixtures = [
     # "Print Format",
     # "Global Search Settings",
     # "Custom DocPerm"
-    
+
 ]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"

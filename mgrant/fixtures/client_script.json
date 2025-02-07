@@ -2,6 +2,28 @@
  {
   "docstatus": 0,
   "doctype": "Client Script",
+  "dt": "Grant",
+  "enabled": 1,
+  "modified": "2025-01-27 11:49:08.882889",
+  "module": null,
+  "name": "Grant",
+  "script": "frappe.ui.form.on('Grant', {\n\trefresh(frm) {\n\t\t// your code here\n\t},\n\tcustom_extended_date(frm){\n\t    if(frm.doc.end_date && frm.doc.custom_extended_date){\n\t        let end_date = new Date(frm.doc.end_date);\n\t        let extended_date = new Date(frm.doc.custom_extended_date)\n\t        if (end_date > extended_date){\n\t            frappe.throw(\"Extended Date should be always more than MoU End Date\")\n\t            frappe.validated = false;\n\t        }\n\t    }\n\t},\n\tend_date(frm){\n\t    if(frm.doc.end_date && frm.doc.custom_extended_date){\n\t        let end_date = new Date(frm.doc.end_date);\n\t        let extended_date = new Date(frm.doc.custom_extended_date)\n\t        if (end_date > extended_date){\n\t            frappe.throw(\"Extended Date should be always more than MoU End Date\")\n\t            frappe.validated = false;\n\t        }\n\t    }\n\t},\n\tvalidate(frm){\n\t    if(frm.doc.end_date && frm.doc.custom_extended_date){\n\t        let end_date = new Date(frm.doc.end_date);\n\t        let extended_date = new Date(frm.doc.custom_extended_date)\n\t        if (end_date > extended_date){\n\t            frappe.throw(\"Extended Date should be always more than MoU End Date\")\n\t            frappe.validated = false;\n\t        }\n\t    }\n\t}\n})",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Contact",
+  "enabled": 1,
+  "modified": "2025-01-28 16:28:10.392855",
+  "module": null,
+  "name": "Contact",
+  "script": "frappe.ui.form.on('Contact', {\n\trefresh(frm) {\n\t\t\n\t},\n\tvalidate(frm){\n\t    if(frm.doc.custom_whatsapp_number.length == 10){\n\t        validate_indian_phone_number_regex(frm.doc.custom_whatsapp_number)\n\t    }\n\t},\n\tcustom_whatsapp_number(frm){\n\t    if(frm.doc.custom_whatsapp_number.length == 10){\n\t        validate_indian_phone_number_regex(frm.doc.custom_whatsapp_number)\n\t    }\n\t}\n})",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
   "dt": "File",
   "enabled": 1,
   "modified": "2024-12-23 14:51:24.828254",
