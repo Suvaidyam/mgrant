@@ -11,6 +11,7 @@
   "as_on_date",
   "column_break_eryd",
   "disbursed_amount",
+  "utr_number",
   "section_break_aaeg",
   "grant",
   "financial_year",
@@ -93,6 +94,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.wf_comment",
    "fieldname": "wf_comment",
    "fieldtype": "Small Text",
    "label": "Comment",
@@ -125,11 +127,16 @@
    "fieldtype": "Link",
    "label": "Fund Request",
    "options": "Fund Request"
+  },
+  {
+   "fieldname": "utr_number",
+   "fieldtype": "Data",
+   "label": "UTR Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-04 12:34:01.181433",
+ "modified": "2025-02-07 17:19:10.203348",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Fund Disbursement",
@@ -157,19 +164,6 @@
    "read": 1,
    "report": 1,
    "role": "NGO Admin",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Partner NGO",
-   "select": 1,
    "share": 1,
    "write": 1
   }

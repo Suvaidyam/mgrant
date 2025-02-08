@@ -2,15 +2,6 @@
  {
   "docstatus": 0,
   "doctype": "Workflow State",
-  "icon": "question-sign",
-  "modified": "2025-01-13 22:35:24.757834",
-  "name": "Pending",
-  "style": "",
-  "workflow_state_name": "Pending"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
   "icon": "ok-sign",
   "modified": "2024-12-20 16:15:11.724055",
   "name": "Approved",
@@ -39,54 +30,27 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2025-01-14 13:29:20.314844",
-  "name": "Approved by S 2",
+  "modified": "2025-02-04 17:32:38.372823",
+  "name": "Disbursed",
+  "style": "Info",
+  "workflow_state_name": "Disbursed"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-02-04 17:33:08.108275",
+  "name": "Receipt Confirmed",
   "style": "Success",
-  "workflow_state_name": "Approved by S 2"
+  "workflow_state_name": "Receipt Confirmed"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-01-14 13:29:05.113886",
-  "name": "Approved by S 1",
-  "style": "Success",
-  "workflow_state_name": "Approved by S 1"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-01-13 21:34:11.881897",
-  "name": "Approved by S 3",
-  "style": "Success",
-  "workflow_state_name": "Approved by S 3"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-01-13 21:29:22.688393",
-  "name": "Rejected by S 1",
-  "style": "Danger",
-  "workflow_state_name": "Rejected by S 1"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-01-13 21:29:12.723811",
-  "name": "Rejected by S 2",
-  "style": "Danger",
-  "workflow_state_name": "Rejected by S 2"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-01-13 21:29:06.002790",
-  "name": "Rejected by S 3",
-  "style": "Danger",
-  "workflow_state_name": "Rejected by S 3"
+  "icon": "question-sign",
+  "modified": "2025-01-13 22:35:24.757834",
+  "name": "Pending",
+  "style": "",
+  "workflow_state_name": "Pending"
  }
 ]

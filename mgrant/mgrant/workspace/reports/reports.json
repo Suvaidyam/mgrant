@@ -15,7 +15,7 @@
  "label": "Reports",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-01-08 13:33:21.247426",
+ "modified": "2025-02-05 14:38:11.340933",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Reports",
@@ -30,6 +30,9 @@
   },
   {
    "role": "NGO Admin"
+  },
+  {
+   "role": "Donor Admin"
   }
  ],
  "sequence_id": 5.0,

@@ -21,14 +21,16 @@ let PREV_STATES = [];
 frappe.model.on('Proposal', '*', function () {
     cur_frm.page.btn_primary.show();
 })
+
 frappe.ui.form.on("Proposal", {
     onload_post_render: (frm) => {
         renderRibbons(frm)
     },
-    onload(frm) {
+    async onload(frm) {
         if (!frm.is_new()) {
             frm.page.btn_primary.hide();
         }
+
         if (frappe.mgrant_settings.module == "Donor") {
             if (frappe.user_roles.includes('NGO Admin') && frm.doc.application_status == "Completed") {
                 frm.disable_form()
@@ -55,7 +57,7 @@ frappe.ui.form.on("Proposal", {
             if (donor.length > 0) {
                 frm.set_value("donor", donor[0])
             }
-            let ngo = await frappe.db.get_list('NGO', { limit: 1, pluck: 'name' , filters:{'is_blacklisted':0}, order_by: 'creation ASC' })
+            let ngo = await frappe.db.get_list('NGO', { limit: 1, pluck: 'name', filters: { 'is_blacklisted': 0 }, order_by: 'creation ASC' })
             if (ngo.length > 0) {
                 frm.set_value("ngo", ngo[0])
             }
@@ -96,7 +98,10 @@ frappe.ui.form.on("Proposal", {
                 });
             }
         }
-        if (frm.doc?.donor_stage == 'MoU Signing ongoing') {
+        sign_off_prerequisite = await frappe.db.get_single_value('mGrant Settings', 'sign_off_prerequisite').then(value => {
+            return value
+        });
+        if (frm.doc?.stage == sign_off_prerequisite) {
             frm.add_custom_button('Download MOU', async function () {
                 let proposal = frm.doc.name;
                 window.location.href = `/api/method/mgrant.controllers.proposal.proposal.generate_mou_doc?proposal=${proposal}`;
@@ -116,7 +121,7 @@ frappe.ui.form.on("Proposal", {
     before_save(frm) {
         if (frappe.mgrant_settings.module == "Donor") {
             if (frappe.user_roles.includes('NGO Admin') && frm.doc.application_status == "Completed") {
-                frm.set_value('donor_stage', 'Proposal Submitted')
+                frm.set_value('stage', 'Proposal Submitted')
             }
         }
     },

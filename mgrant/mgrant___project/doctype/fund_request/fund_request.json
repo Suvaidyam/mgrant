@@ -100,6 +100,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.wf_comment",
    "fieldname": "wf_comment",
    "fieldtype": "Small Text",
    "label": "Comment",
@@ -132,7 +133,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-04 10:36:25.010590",
+ "modified": "2025-02-07 17:17:43.230046",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Fund Request",
@@ -162,25 +163,21 @@
    "role": "NGO Admin",
    "share": 1,
    "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Partner NGO",
-   "select": 1,
-   "share": 1,
-   "write": 1
   }
  ],
  "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": [],
+ "states": [
+  {
+   "color": "Blue",
+   "title": "Approve"
+  },
+  {
+   "color": "Gray",
+   "title": "Test FR"
+  }
+ ],
  "title_field": "description",
  "track_changes": 1
 }
