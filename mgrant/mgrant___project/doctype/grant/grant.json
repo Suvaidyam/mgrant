@@ -31,7 +31,9 @@
   "theme",
   "sdg",
   "focus_area",
+  "column_break_dnll",
   "grant_description",
+  "column_break_aqum",
   "geographical_information_section",
   "column_break_shct",
   "states",
@@ -39,14 +41,17 @@
   "column_break_evjf",
   "blocks",
   "villages",
+  "column_break_syvc",
   "section_break_nbbo",
   "total_planned_budget",
-  "total_funds_utilised",
-  "total_unspent_funds",
   "total_amount_requested_from_donor",
-  "total_funds_received",
   "lfas_copied",
   "column_break_judq",
+  "total_funds_received",
+  "total_funds_utilised",
+  "column_break_jfsi",
+  "total_unspent_funds",
+  "section_break_atad",
   "tranche",
   "section_break_vkwu",
   "demography_focus",
@@ -202,9 +207,9 @@
    "fieldtype": "Column Break"
   },
   {
-   "collapsible": 1,
    "fieldname": "section_break_nbbo",
    "fieldtype": "Section Break",
+   "hide_border": 1,
    "label": "Financial Information"
   },
   {
@@ -641,11 +646,32 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Extended Date"
+  },
+  {
+   "fieldname": "column_break_dnll",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_aqum",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_syvc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_jfsi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_atad",
+   "fieldtype": "Section Break",
+   "hide_border": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-08 02:38:29.870923",
+ "modified": "2025-02-09 04:53:12.229488",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
