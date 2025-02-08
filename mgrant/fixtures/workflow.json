@@ -2,6 +2,424 @@
  {
   "docstatus": 0,
   "doctype": "Workflow",
+  "document_type": "Fund Disbursement",
+  "is_active": 1,
+  "modified": "2025-02-08 02:03:25.302362",
+  "name": "Fund Disbursement",
+  "override_status": 0,
+  "send_email_alert": 0,
+  "states": [
+   {
+    "allow_edit": "Donor Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Pending",
+    "update_field": "",
+    "update_value": null,
+    "workflow_builder_id": null
+   },
+   {
+    "allow_edit": "Donor Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Disbursed",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": null
+   },
+   {
+    "allow_edit": "Donor Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "Positive",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Receipt Confirmed",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": null
+   }
+  ],
+  "transitions": [
+   {
+    "action": "Disburse",
+    "allow_self_approval": 1,
+    "allowed": "Donor Admin",
+    "condition": null,
+    "next_state": "Disbursed",
+    "state": "Pending",
+    "workflow_builder_id": null
+   },
+   {
+    "action": "Receipt Confirm",
+    "allow_self_approval": 1,
+    "allowed": "Donor Admin",
+    "condition": null,
+    "next_state": "Receipt Confirmed",
+    "state": "Pending",
+    "workflow_builder_id": null
+   },
+   {
+    "action": "Receipt Confirm",
+    "allow_self_approval": 1,
+    "allowed": "NGO Admin",
+    "condition": null,
+    "next_state": "Receipt Confirmed",
+    "state": "Disbursed",
+    "workflow_builder_id": null
+   }
+  ],
+  "workflow_data": null,
+  "workflow_name": "Fund Disbursement",
+  "workflow_state_field": "workflow_state"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow",
+  "document_type": "Grant Receipts",
+  "is_active": 1,
+  "modified": "2025-02-05 23:11:11.697375",
+  "name": "Grant Receipts - Tranche",
+  "override_status": 0,
+  "send_email_alert": 0,
+  "states": [
+   {
+    "allow_edit": "Donor Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Pending",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": null
+   },
+   {
+    "allow_edit": "Donor Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "Positive",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Approved",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": null
+   },
+   {
+    "allow_edit": "Donor Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "Negative",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Rejected",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": null
+   }
+  ],
+  "transitions": [
+   {
+    "action": "Approve",
+    "allow_self_approval": 1,
+    "allowed": "Donor Admin",
+    "condition": null,
+    "next_state": "Approved",
+    "state": "Pending",
+    "workflow_builder_id": null
+   },
+   {
+    "action": "Reject",
+    "allow_self_approval": 1,
+    "allowed": "Donor Admin",
+    "condition": null,
+    "next_state": "Rejected",
+    "state": "Pending",
+    "workflow_builder_id": null
+   }
+  ],
+  "workflow_data": null,
+  "workflow_name": "Grant Receipts - Tranche",
+  "workflow_state_field": "workflow_state"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow",
+  "document_type": "Output",
+  "is_active": 1,
+  "modified": "2025-02-06 01:00:40.320568",
+  "name": "Output",
+  "override_status": 0,
+  "send_email_alert": 0,
+  "states": [
+   {
+    "allow_edit": "Donor Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Pending",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": null
+   },
+   {
+    "allow_edit": "NGO Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Pending",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": null
+   },
+   {
+    "allow_edit": "Donor Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "Positive",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Approved",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": null
+   },
+   {
+    "allow_edit": "Donor Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "Negative",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Rejected",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": null
+   }
+  ],
+  "transitions": [
+   {
+    "action": "Approve",
+    "allow_self_approval": 1,
+    "allowed": "Donor Admin",
+    "condition": null,
+    "next_state": "Approved",
+    "state": "Pending",
+    "workflow_builder_id": null
+   },
+   {
+    "action": "Reject",
+    "allow_self_approval": 1,
+    "allowed": "Donor Admin",
+    "condition": null,
+    "next_state": "Rejected",
+    "state": "Pending",
+    "workflow_builder_id": null
+   }
+  ],
+  "workflow_data": null,
+  "workflow_name": "Output",
+  "workflow_state_field": "workflow_state"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow",
+  "document_type": "Outcome",
+  "is_active": 1,
+  "modified": "2025-02-06 00:59:55.456010",
+  "name": "Outcome",
+  "override_status": 0,
+  "send_email_alert": 0,
+  "states": [
+   {
+    "allow_edit": "NGO Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Pending",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": null
+   },
+   {
+    "allow_edit": "Donor Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Pending",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": null
+   },
+   {
+    "allow_edit": "Donor Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "Positive",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Approved",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": null
+   },
+   {
+    "allow_edit": "Donor Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "Negative",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Rejected",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": null
+   }
+  ],
+  "transitions": [
+   {
+    "action": "Approve",
+    "allow_self_approval": 1,
+    "allowed": "Donor Admin",
+    "condition": null,
+    "next_state": "Approved",
+    "state": "Pending",
+    "workflow_builder_id": null
+   },
+   {
+    "action": "Reject",
+    "allow_self_approval": 1,
+    "allowed": "Donor Admin",
+    "condition": null,
+    "next_state": "Rejected",
+    "state": "Pending",
+    "workflow_builder_id": null
+   }
+  ],
+  "workflow_data": null,
+  "workflow_name": "Outcome",
+  "workflow_state_field": "workflow_state"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow",
+  "document_type": "Impact",
+  "is_active": 1,
+  "modified": "2025-02-06 01:02:32.012503",
+  "name": "Impact",
+  "override_status": 0,
+  "send_email_alert": 0,
+  "states": [
+   {
+    "allow_edit": "NGO Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Pending",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": null
+   },
+   {
+    "allow_edit": "Donor Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Pending",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": "1"
+   },
+   {
+    "allow_edit": "Donor Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "Positive",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Approved",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": "2"
+   },
+   {
+    "allow_edit": "Donor Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "Negative",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Rejected",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": "3"
+   }
+  ],
+  "transitions": [
+   {
+    "action": "Approve",
+    "allow_self_approval": 1,
+    "allowed": "Donor Admin",
+    "condition": null,
+    "next_state": "Approved",
+    "state": "Pending",
+    "workflow_builder_id": "action-1"
+   },
+   {
+    "action": "Reject",
+    "allow_self_approval": 1,
+    "allowed": "Donor Admin",
+    "condition": null,
+    "next_state": "Rejected",
+    "state": "Pending",
+    "workflow_builder_id": "action-2"
+   }
+  ],
+  "workflow_data": "[{\"type\":\"state\",\"dimensions\":{\"width\":107,\"height\":53},\"handleBounds\":{\"source\":[{\"id\":\"top\",\"position\":\"top\",\"x\":49.75,\"y\":-11,\"width\":7,\"height\":7},{\"id\":\"right\",\"position\":\"right\",\"x\":110.515625,\"y\":23,\"width\":7,\"height\":7},{\"id\":\"bottom\",\"position\":\"bottom\",\"x\":49.75,\"y\":57,\"width\":7,\"height\":7},{\"id\":\"left\",\"position\":\"left\",\"x\":-11,\"y\":23,\"width\":7,\"height\":7}]},\"computedPosition\":{\"x\":550,\"y\":100,\"z\":0},\"id\":\"1\",\"position\":{\"x\":550,\"y\":100}},{\"type\":\"state\",\"dimensions\":{\"width\":117,\"height\":53},\"handleBounds\":{\"source\":[{\"id\":\"top\",\"position\":\"top\",\"x\":54.921875,\"y\":-11,\"width\":7,\"height\":7},{\"id\":\"right\",\"position\":\"right\",\"x\":120.859375,\"y\":23,\"width\":7,\"height\":7},{\"id\":\"bottom\",\"position\":\"bottom\",\"x\":54.921875,\"y\":57,\"width\":7,\"height\":7},{\"id\":\"left\",\"position\":\"left\",\"x\":-11,\"y\":23,\"width\":7,\"height\":7}]},\"computedPosition\":{\"x\":950,\"y\":100,\"z\":0},\"id\":\"2\",\"position\":{\"x\":950,\"y\":100}},{\"type\":\"state\",\"dimensions\":{\"width\":111,\"height\":53},\"handleBounds\":{\"source\":[{\"id\":\"top\",\"position\":\"top\",\"x\":51.765625,\"y\":-11,\"width\":7,\"height\":7},{\"id\":\"right\",\"position\":\"right\",\"x\":114.546875,\"y\":23,\"width\":7,\"height\":7},{\"id\":\"bottom\",\"position\":\"bottom\",\"x\":51.765625,\"y\":57,\"width\":7,\"height\":7},{\"id\":\"left\",\"position\":\"left\",\"x\":-11,\"y\":23,\"width\":7,\"height\":7}]},\"computedPosition\":{\"x\":1350,\"y\":100,\"z\":0},\"id\":\"3\",\"position\":{\"x\":1350,\"y\":100}},{\"type\":\"action\",\"dimensions\":{\"width\":78,\"height\":33},\"handleBounds\":{\"source\":[{\"id\":\"top\",\"position\":\"top\",\"x\":36.125,\"y\":-2,\"width\":6,\"height\":6},{\"id\":\"right\",\"position\":\"right\",\"x\":74.25,\"y\":13.5,\"width\":6,\"height\":6},{\"id\":\"bottom\",\"position\":\"bottom\",\"x\":36.125,\"y\":29,\"width\":6,\"height\":6},{\"id\":\"left\",\"position\":\"left\",\"x\":-2,\"y\":13.5,\"width\":6,\"height\":6}]},\"computedPosition\":{\"x\":800,\"y\":120,\"z\":0},\"id\":\"action-1\",\"position\":{\"x\":800,\"y\":120},\"data\":{\"from_id\":\"1\",\"to_id\":\"2\"}},{\"type\":\"action\",\"dimensions\":{\"width\":64,\"height\":33},\"handleBounds\":{\"source\":[{\"id\":\"top\",\"position\":\"top\",\"x\":28.953125,\"y\":-2,\"width\":6,\"height\":6},{\"id\":\"right\",\"position\":\"right\",\"x\":59.90625,\"y\":13.5,\"width\":6,\"height\":6},{\"id\":\"bottom\",\"position\":\"bottom\",\"x\":28.953125,\"y\":29,\"width\":6,\"height\":6},{\"id\":\"left\",\"position\":\"left\",\"x\":-2,\"y\":13.5,\"width\":6,\"height\":6}]},\"computedPosition\":{\"x\":800,\"y\":120,\"z\":0},\"id\":\"action-2\",\"position\":{\"x\":800,\"y\":120},\"data\":{\"from_id\":\"1\",\"to_id\":\"3\"}},{\"sourceHandle\":\"right\",\"targetHandle\":\"left\",\"type\":\"transition\",\"source\":\"1\",\"target\":\"action-1\",\"updatable\":true,\"id\":\"edge-1-action-1\",\"animated\":true,\"sourceX\":667.515625,\"sourceY\":126.5,\"targetX\":798,\"targetY\":136.5},{\"sourceHandle\":\"right\",\"targetHandle\":\"left\",\"type\":\"transition\",\"source\":\"action-1\",\"target\":\"2\",\"updatable\":true,\"id\":\"edge-action-1-2\",\"animated\":true,\"sourceX\":880.25,\"sourceY\":136.5,\"targetX\":939,\"targetY\":126.5,\"markerEnd\":{\"type\":\"arrow\",\"width\":15,\"height\":15,\"strokeWidth\":1.5,\"color\":\"#687178\"}},{\"sourceHandle\":\"right\",\"targetHandle\":\"left\",\"type\":\"transition\",\"source\":\"1\",\"target\":\"action-2\",\"updatable\":true,\"id\":\"edge-1-action-2\",\"animated\":true,\"sourceX\":667.515625,\"sourceY\":126.5,\"targetX\":798,\"targetY\":136.5},{\"sourceHandle\":\"right\",\"targetHandle\":\"left\",\"type\":\"transition\",\"source\":\"action-2\",\"target\":\"3\",\"updatable\":true,\"id\":\"edge-action-2-3\",\"animated\":true,\"sourceX\":865.90625,\"sourceY\":136.5,\"targetX\":1339,\"targetY\":126.5,\"markerEnd\":{\"type\":\"arrow\",\"width\":15,\"height\":15,\"strokeWidth\":1.5,\"color\":\"#687178\"}}]",
+  "workflow_name": "Impact",
+  "workflow_state_field": "workflow_state"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow",
   "document_type": "Grant",
   "is_active": 1,
   "modified": "2024-12-29 16:10:24.939639",
@@ -181,212 +599,6 @@
  {
   "docstatus": 0,
   "doctype": "Workflow",
-  "document_type": "Input",
-  "is_active": 1,
-  "modified": "2025-01-13 21:38:06.403936",
-  "name": "Input",
-  "override_status": 0,
-  "send_email_alert": 0,
-  "states": [
-   {
-    "allow_edit": "Stage 1",
-    "avoid_status_override": 0,
-    "custom_closure": null,
-    "doc_status": "0",
-    "is_optional_state": 0,
-    "message": null,
-    "next_action_email_template": null,
-    "state": "Pending",
-    "update_field": null,
-    "update_value": null,
-    "workflow_builder_id": null
-   },
-   {
-    "allow_edit": "Stage 2",
-    "avoid_status_override": 0,
-    "custom_closure": null,
-    "doc_status": "0",
-    "is_optional_state": 0,
-    "message": null,
-    "next_action_email_template": null,
-    "state": "Approved by S 1",
-    "update_field": null,
-    "update_value": null,
-    "workflow_builder_id": null
-   },
-   {
-    "allow_edit": "Stage 3",
-    "avoid_status_override": 0,
-    "custom_closure": null,
-    "doc_status": "0",
-    "is_optional_state": 0,
-    "message": null,
-    "next_action_email_template": null,
-    "state": "Approved by S 2",
-    "update_field": null,
-    "update_value": null,
-    "workflow_builder_id": null
-   },
-   {
-    "allow_edit": "NGO Admin",
-    "avoid_status_override": 0,
-    "custom_closure": null,
-    "doc_status": "0",
-    "is_optional_state": 0,
-    "message": null,
-    "next_action_email_template": null,
-    "state": "Approved by S 3",
-    "update_field": null,
-    "update_value": null,
-    "workflow_builder_id": null
-   },
-   {
-    "allow_edit": "Stage 1",
-    "avoid_status_override": 0,
-    "custom_closure": null,
-    "doc_status": "0",
-    "is_optional_state": 0,
-    "message": null,
-    "next_action_email_template": null,
-    "state": "Rejected by S 1",
-    "update_field": null,
-    "update_value": null,
-    "workflow_builder_id": null
-   },
-   {
-    "allow_edit": "Stage 2",
-    "avoid_status_override": 0,
-    "custom_closure": null,
-    "doc_status": "0",
-    "is_optional_state": 0,
-    "message": null,
-    "next_action_email_template": null,
-    "state": "Rejected by S 2",
-    "update_field": null,
-    "update_value": null,
-    "workflow_builder_id": null
-   },
-   {
-    "allow_edit": "Stage 3",
-    "avoid_status_override": 0,
-    "custom_closure": null,
-    "doc_status": "0",
-    "is_optional_state": 0,
-    "message": null,
-    "next_action_email_template": null,
-    "state": "Rejected by S 3",
-    "update_field": null,
-    "update_value": null,
-    "workflow_builder_id": null
-   },
-   {
-    "allow_edit": "NGO Admin",
-    "avoid_status_override": 0,
-    "custom_closure": null,
-    "doc_status": "0",
-    "is_optional_state": 0,
-    "message": null,
-    "next_action_email_template": null,
-    "state": "Approved",
-    "update_field": null,
-    "update_value": null,
-    "workflow_builder_id": null
-   },
-   {
-    "allow_edit": "NGO Admin",
-    "avoid_status_override": 0,
-    "custom_closure": null,
-    "doc_status": "0",
-    "is_optional_state": 0,
-    "message": null,
-    "next_action_email_template": null,
-    "state": "Rejected",
-    "update_field": null,
-    "update_value": null,
-    "workflow_builder_id": null
-   }
-  ],
-  "transitions": [
-   {
-    "action": "Approve",
-    "allow_self_approval": 1,
-    "allowed": "Stage 1",
-    "condition": null,
-    "next_state": "Approved by S 1",
-    "state": "Pending",
-    "workflow_builder_id": null
-   },
-   {
-    "action": "Approve",
-    "allow_self_approval": 1,
-    "allowed": "Stage 2",
-    "condition": null,
-    "next_state": "Approved by S 2",
-    "state": "Approved by S 1",
-    "workflow_builder_id": null
-   },
-   {
-    "action": "Approve",
-    "allow_self_approval": 1,
-    "allowed": "Stage 3",
-    "condition": null,
-    "next_state": "Approved by S 3",
-    "state": "Approved by S 2",
-    "workflow_builder_id": null
-   },
-   {
-    "action": "Reject",
-    "allow_self_approval": 1,
-    "allowed": "Stage 1",
-    "condition": null,
-    "next_state": "Rejected by S 1",
-    "state": "Pending",
-    "workflow_builder_id": null
-   },
-   {
-    "action": "Reject",
-    "allow_self_approval": 1,
-    "allowed": "Stage 2",
-    "condition": null,
-    "next_state": "Rejected by S 2",
-    "state": "Approved by S 1",
-    "workflow_builder_id": null
-   },
-   {
-    "action": "Reject",
-    "allow_self_approval": 1,
-    "allowed": "Stage 3",
-    "condition": null,
-    "next_state": "Rejected by S 3",
-    "state": "Approved by S 2",
-    "workflow_builder_id": null
-   },
-   {
-    "action": "Approve",
-    "allow_self_approval": 1,
-    "allowed": "NGO Admin",
-    "condition": null,
-    "next_state": "Approved",
-    "state": "Approved by S 3",
-    "workflow_builder_id": null
-   },
-   {
-    "action": "Reject",
-    "allow_self_approval": 1,
-    "allowed": "NGO Admin",
-    "condition": null,
-    "next_state": "Rejected",
-    "state": "Approved by S 3",
-    "workflow_builder_id": null
-   }
-  ],
-  "workflow_data": null,
-  "workflow_name": "Input",
-  "workflow_state_field": "workflow_state"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow",
   "document_type": "Fund Request",
   "is_active": 1,
   "modified": "2025-02-03 21:01:33.170771",
@@ -461,13 +673,26 @@
  {
   "docstatus": 0,
   "doctype": "Workflow",
-  "document_type": "Fund Disbursement",
-  "is_active": 0,
-  "modified": "2025-02-04 10:45:08.275870",
-  "name": "Fund Disbursement (Disbursal Status)",
+  "document_type": "Input",
+  "is_active": 1,
+  "modified": "2025-02-08 02:03:50.682735",
+  "name": "Input",
   "override_status": 0,
   "send_email_alert": 0,
   "states": [
+   {
+    "allow_edit": "Donor Admin",
+    "avoid_status_override": 0,
+    "custom_closure": "",
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "state": "Pending",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": null
+   },
    {
     "allow_edit": "NGO Admin",
     "avoid_status_override": 0,
@@ -477,12 +702,12 @@
     "message": null,
     "next_action_email_template": null,
     "state": "Pending",
-    "update_field": "",
+    "update_field": null,
     "update_value": null,
     "workflow_builder_id": null
    },
    {
-    "allow_edit": "NGO Admin",
+    "allow_edit": "Donor Admin",
     "avoid_status_override": 0,
     "custom_closure": "Positive",
     "doc_status": "0",
@@ -495,7 +720,7 @@
     "workflow_builder_id": null
    },
    {
-    "allow_edit": "NGO Admin",
+    "allow_edit": "Donor Admin",
     "avoid_status_override": 0,
     "custom_closure": "Negative",
     "doc_status": "0",
@@ -512,7 +737,7 @@
    {
     "action": "Approve",
     "allow_self_approval": 1,
-    "allowed": "Admin",
+    "allowed": "Donor Admin",
     "condition": null,
     "next_state": "Approved",
     "state": "Pending",
@@ -521,7 +746,7 @@
    {
     "action": "Reject",
     "allow_self_approval": 1,
-    "allowed": "Admin",
+    "allowed": "Donor Admin",
     "condition": null,
     "next_state": "Rejected",
     "state": "Pending",
@@ -529,81 +754,7 @@
    }
   ],
   "workflow_data": null,
-  "workflow_name": "Fund Disbursement (Disbursal Status)",
-  "workflow_state_field": "disbursal_status"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow",
-  "document_type": "Fund Disbursement",
-  "is_active": 1,
-  "modified": "2025-02-04 10:47:14.954616",
-  "name": "Fund Disbursement (Recipient Status)",
-  "override_status": 0,
-  "send_email_alert": 0,
-  "states": [
-   {
-    "allow_edit": "NGO Admin",
-    "avoid_status_override": 0,
-    "custom_closure": "",
-    "doc_status": "0",
-    "is_optional_state": 0,
-    "message": null,
-    "next_action_email_template": null,
-    "state": "Pending",
-    "update_field": "",
-    "update_value": null,
-    "workflow_builder_id": "1"
-   },
-   {
-    "allow_edit": "NGO Admin",
-    "avoid_status_override": 0,
-    "custom_closure": "Positive",
-    "doc_status": "0",
-    "is_optional_state": 0,
-    "message": null,
-    "next_action_email_template": null,
-    "state": "Approved",
-    "update_field": null,
-    "update_value": null,
-    "workflow_builder_id": "2"
-   },
-   {
-    "allow_edit": "NGO Admin",
-    "avoid_status_override": 0,
-    "custom_closure": "Negative",
-    "doc_status": "0",
-    "is_optional_state": 0,
-    "message": null,
-    "next_action_email_template": null,
-    "state": "Rejected",
-    "update_field": null,
-    "update_value": null,
-    "workflow_builder_id": "3"
-   }
-  ],
-  "transitions": [
-   {
-    "action": "Approve",
-    "allow_self_approval": 1,
-    "allowed": "NGO Admin",
-    "condition": null,
-    "next_state": "Approved",
-    "state": "Pending",
-    "workflow_builder_id": "action-1"
-   },
-   {
-    "action": "Reject",
-    "allow_self_approval": 1,
-    "allowed": "NGO Admin",
-    "condition": null,
-    "next_state": "Rejected",
-    "state": "Pending",
-    "workflow_builder_id": "action-2"
-   }
-  ],
-  "workflow_data": "[{\"type\":\"state\",\"dimensions\":{\"width\":106,\"height\":53},\"handleBounds\":{\"source\":[{\"id\":\"top\",\"position\":\"top\",\"x\":49.6590576171875,\"y\":-11.079544067382812,\"width\":7,\"height\":7},{\"id\":\"right\",\"position\":\"right\",\"x\":110.397705078125,\"y\":22.91192626953125,\"width\":7,\"height\":7},{\"id\":\"bottom\",\"position\":\"bottom\",\"x\":49.6590576171875,\"y\":56.9176025390625,\"width\":7,\"height\":7},{\"id\":\"left\",\"position\":\"left\",\"x\":-11.07952880859375,\"y\":22.91192626953125,\"width\":7,\"height\":7}]},\"computedPosition\":{\"x\":265,\"y\":38,\"z\":0},\"id\":\"1\",\"position\":{\"x\":265,\"y\":38}},{\"type\":\"state\",\"dimensions\":{\"width\":117,\"height\":53},\"handleBounds\":{\"source\":[{\"id\":\"top\",\"position\":\"top\",\"x\":54.82958984375,\"y\":-11.079544067382812,\"width\":7,\"height\":7},{\"id\":\"right\",\"position\":\"right\",\"x\":120.7386474609375,\"y\":22.91192626953125,\"width\":7,\"height\":7},{\"id\":\"bottom\",\"position\":\"bottom\",\"x\":54.82958984375,\"y\":56.9176025390625,\"width\":7,\"height\":7},{\"id\":\"left\",\"position\":\"left\",\"x\":-11.0794677734375,\"y\":22.91192626953125,\"width\":7,\"height\":7}]},\"computedPosition\":{\"x\":865.6362576507702,\"y\":-92.8314110839536,\"z\":0},\"id\":\"2\",\"position\":{\"x\":865.6362576507702,\"y\":-92.8314110839536}},{\"type\":\"state\",\"dimensions\":{\"width\":110,\"height\":53},\"handleBounds\":{\"source\":[{\"id\":\"top\",\"position\":\"top\",\"x\":51.6619873046875,\"y\":-11.079544067382812,\"width\":7,\"height\":7},{\"id\":\"right\",\"position\":\"right\",\"x\":114.4176025390625,\"y\":22.91192626953125,\"width\":7,\"height\":7},{\"id\":\"bottom\",\"position\":\"bottom\",\"x\":51.6619873046875,\"y\":56.9176025390625,\"width\":7,\"height\":7},{\"id\":\"left\",\"position\":\"left\",\"x\":-11.0794677734375,\"y\":22.91192626953125,\"width\":7,\"height\":7}]},\"computedPosition\":{\"x\":862.8998209598046,\"y\":135.1515593121791,\"z\":0},\"id\":\"3\",\"position\":{\"x\":862.8998209598046,\"y\":135.1515593121791}},{\"type\":\"action\",\"dimensions\":{\"width\":78,\"height\":33},\"handleBounds\":{\"source\":[{\"id\":\"top\",\"position\":\"top\",\"x\":36.0228271484375,\"y\":-2.08807373046875,\"width\":6,\"height\":6},{\"id\":\"right\",\"position\":\"right\",\"x\":74.133544921875,\"y\":13.409088134765625,\"width\":6,\"height\":6},{\"id\":\"bottom\",\"position\":\"bottom\",\"x\":36.0228271484375,\"y\":28.920455932617188,\"width\":6,\"height\":6},{\"id\":\"left\",\"position\":\"left\",\"x\":-2.0880126953125,\"y\":13.409088134765625,\"width\":6,\"height\":6}]},\"computedPosition\":{\"x\":660,\"y\":-84.18405761718759,\"z\":0},\"id\":\"action-1\",\"position\":{\"x\":660,\"y\":-84.18405761718759},\"data\":{\"from_id\":\"1\",\"to_id\":\"2\"}},{\"type\":\"action\",\"dimensions\":{\"width\":64,\"height\":33},\"handleBounds\":{\"source\":[{\"id\":\"top\",\"position\":\"top\",\"x\":28.8494873046875,\"y\":-2.08807373046875,\"width\":6,\"height\":6},{\"id\":\"right\",\"position\":\"right\",\"x\":59.7869873046875,\"y\":13.409088134765625,\"width\":6,\"height\":6},{\"id\":\"bottom\",\"position\":\"bottom\",\"x\":28.8494873046875,\"y\":28.920455932617188,\"width\":6,\"height\":6},{\"id\":\"left\",\"position\":\"left\",\"x\":-2.0880126953125,\"y\":13.409088134765625,\"width\":6,\"height\":6}]},\"computedPosition\":{\"x\":672.6841820378366,\"y\":146.31847435075457,\"z\":0},\"id\":\"action-2\",\"position\":{\"x\":672.6841820378366,\"y\":146.31847435075457},\"data\":{\"from_id\":\"1\",\"to_id\":\"3\"}},{\"sourceHandle\":\"right\",\"targetHandle\":\"left\",\"type\":\"transition\",\"source\":\"1\",\"target\":\"action-1\",\"updatable\":true,\"id\":\"edge-1-action-1\",\"animated\":true,\"sourceX\":382.397705078125,\"sourceY\":64.41192626953125,\"targetX\":657.9119873046875,\"targetY\":-67.77496948242197},{\"sourceHandle\":\"right\",\"targetHandle\":\"left\",\"type\":\"transition\",\"source\":\"action-1\",\"target\":\"2\",\"updatable\":true,\"id\":\"edge-action-1-2\",\"animated\":true,\"sourceX\":740.133544921875,\"sourceY\":-67.77496948242197,\"targetX\":854.5567898773327,\"targetY\":-66.41948481442235,\"markerEnd\":{\"type\":\"arrow\",\"width\":15,\"height\":15,\"strokeWidth\":1.5,\"color\":\"#687178\"}},{\"sourceHandle\":\"right\",\"targetHandle\":\"left\",\"type\":\"transition\",\"source\":\"1\",\"target\":\"action-2\",\"updatable\":true,\"id\":\"edge-1-action-2\",\"animated\":true,\"sourceX\":382.397705078125,\"sourceY\":64.41192626953125,\"targetX\":670.5961693425241,\"targetY\":162.7275624855202},{\"sourceHandle\":\"right\",\"targetHandle\":\"left\",\"type\":\"transition\",\"source\":\"action-2\",\"target\":\"3\",\"updatable\":true,\"id\":\"edge-action-2-3\",\"animated\":true,\"sourceX\":738.4711693425241,\"sourceY\":162.7275624855202,\"targetX\":851.8203531863671,\"targetY\":161.56348558171035,\"markerEnd\":{\"type\":\"arrow\",\"width\":15,\"height\":15,\"strokeWidth\":1.5,\"color\":\"#687178\"}}]",
-  "workflow_name": "Fund Disbursement (Recipient Status)",
-  "workflow_state_field": "disbursal_status"
+  "workflow_name": "Input",
+  "workflow_state_field": "workflow_state"
  }
 ]

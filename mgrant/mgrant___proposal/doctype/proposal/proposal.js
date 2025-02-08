@@ -96,7 +96,7 @@ frappe.ui.form.on("Proposal", {
                 });
             }
         }
-        if (frm.doc?.donor_stage == 'MoU Signing ongoing') {
+        if (frm.doc?.stage == 'MoU Signing ongoing') {
             frm.add_custom_button('Download MOU', async function () {
                 let proposal = frm.doc.name;
                 window.location.href = `/api/method/mgrant.controllers.proposal.proposal.generate_mou_doc?proposal=${proposal}`;
@@ -116,7 +116,7 @@ frappe.ui.form.on("Proposal", {
     before_save(frm) {
         if (frappe.mgrant_settings.module == "Donor") {
             if (frappe.user_roles.includes('NGO Admin') && frm.doc.application_status == "Completed") {
-                frm.set_value('donor_stage', 'Proposal Submitted')
+                frm.set_value('stage', 'Proposal Submitted')
             }
         }
     },

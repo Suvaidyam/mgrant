@@ -24,20 +24,25 @@ const taskList = (task_list, selector) => {
             taskList(task_list.filter(task => task.name !== taskName));
         });
     }
-    const updateTaskStatus = (taskName, status, key) => {
-        frappe.db.set_value('ToDo', taskName, key, status).then(() => {
-            frappe.show_alert({ message: __(`Task ${key === 'custom_task_status' ? 'Status' : key} updated successfully`), indicator: 'green' });
-            const updatedTaskList = task_list.map(task => {
-                if (task.name === taskName) {
-                    return { ...task, [key]: status };
-                }
-                return task;
-            });
-            taskList(updatedTaskList);
-        }).catch(error => {
-            console.error('Error updating task status:', error);
-            frappe.show_alert({ message: __('Error updating task status'), indicator: 'red' });
-        });
+    const updateTaskStatus = async (taskNames, status, key) => {
+        let updatedTaskList = [...task_list]; // Clone the task list
+
+        for (let i = 0; i < taskNames.length; i++) {
+            await new Promise(resolve => setTimeout(resolve, 200)); // Delay 200ms
+
+            try {
+                await frappe.db.set_value('ToDo', taskNames[i], key, status);
+                updatedTaskList = updatedTaskList.map(task =>
+                    task.name === taskNames[i] ? { ...task, [key]: status } : task
+                );
+            } catch (error) {
+                console.error(`Error updating ${taskNames[i]}:`, error);
+            }
+        }
+
+        taskList(updatedTaskList); // Update UI once after all updates
+        cur_frm.refresh();
+        frappe.show_alert({ message: __('All tasks updated successfully'), indicator: 'green' });
     };
     if (task_list.length == 0) {
         $('#parent-view').css('height', '75vh');
@@ -220,8 +225,9 @@ const taskList = (task_list, selector) => {
         ['priority', 'custom_task_status'].forEach(type => {
             document.querySelectorAll(`input[name="${type}"]`).forEach(input =>
                 input.addEventListener('click', function () {
+
                     selectedIds.length
-                        ? selectedIds.forEach(id => updateTaskStatus(id, this.value, type))
+                        ? updateTaskStatus(selectedIds, this.value, type)
                         : console.error(`No tasks selected for ${type}.`);
                 })
             );
@@ -311,14 +317,21 @@ const taskList = (task_list, selector) => {
         );
 
         $('#bulkDeleteButton').on('click', function () {
-            frappe.confirm('Are you sure you want to delete the selected tasks?', () => {
-                selectedIds.forEach(async taskName => {
-                    await frappe.db.delete_doc('ToDo', taskName)
-                });
+            frappe.confirm('Are you sure you want to delete the selected tasks?', async () => {
+                for (const taskName of selectedIds) {
+                    try {
+                        await frappe.db.delete_doc('ToDo', taskName);
+                        await new Promise(resolve => setTimeout(resolve, 100));
+                    } catch (error) {
+                        console.error(`Failed to delete ${taskName}:`, error);
+                    }
+                }
                 taskList(task_list.filter(task => !selectedIds.includes(task.name)));
-                frappe.show_alert({ message: __(`Tasks deleted successfully`), indicator: 'green' });
+                cur_frm.refresh();
+                frappe.show_alert({ message: __('Tasks deleted successfully'), indicator: 'green' });
             });
         });
+
 
     }
 
@@ -572,6 +585,7 @@ const form = async (data = null, action, frm) => {
                         } else {
                             taskList([new_doc, ...task_list]);
                         }
+                        frm.refresh()
                     }
                 }).catch(error => {
                     console.error(error);
