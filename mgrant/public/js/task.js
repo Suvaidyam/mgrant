@@ -24,21 +24,29 @@ const taskList = (task_list, selector) => {
             taskList(task_list.filter(task => task.name !== taskName));
         });
     }
-    const updateTaskStatus = (taskName, status, key) => {
-        frappe.db.set_value('ToDo', taskName, key, status).then(() => {
-            frappe.show_alert({ message: __(`Task ${key === 'custom_task_status' ? 'Status' : key} updated successfully`), indicator: 'green' });
-            const updatedTaskList = task_list.map(task => {
-                if (task.name === taskName) {
-                    return { ...task, [key]: status };
-                }
-                return task;
-            });
-            taskList(updatedTaskList);
-        }).catch(error => {
-            console.error('Error updating task status:', error);
-            frappe.show_alert({ message: __('Error updating task status'), indicator: 'red' });
-        });
+    const updateTaskStatus = async (taskNames, status, key) => {
+        let updatedTaskList = [...task_list]; // Clone the task list
+    
+        await Promise.allSettled(
+            taskNames.map((taskName, index) => 
+                new Promise(resolve => setTimeout(resolve, index * 200)) // Apply delay
+                    .then(() => frappe.db.set_value('ToDo', taskName, key, status))
+                    .then(() => {
+                        updatedTaskList = updatedTaskList.map(task =>
+                            task.name === taskName ? { ...task, [key]: status } : task
+                        );
+                    })
+                    .catch(error => console.error(`Error updating ${taskName}:`, error))
+            )
+        );
+    
+        taskList(updatedTaskList);
+        frappe.show_alert({ message: __('All tasks updated successfully'), indicator: 'green' });
+    
+        if (cur_frm) cur_frm.refresh();
     };
+    
+    
     if (task_list.length == 0) {
         $('#parent-view').css('height', '75vh');
         $('#parent-view').html(`
@@ -220,8 +228,9 @@ const taskList = (task_list, selector) => {
         ['priority', 'custom_task_status'].forEach(type => {
             document.querySelectorAll(`input[name="${type}"]`).forEach(input =>
                 input.addEventListener('click', function () {
+
                     selectedIds.length
-                        ? selectedIds.forEach(id => updateTaskStatus(id, this.value, type))
+                        ? updateTaskStatus(selectedIds, this.value, type)
                         : console.error(`No tasks selected for ${type}.`);
                 })
             );
@@ -234,7 +243,7 @@ const taskList = (task_list, selector) => {
     <table class="table table-bordered">
       <thead style="background:#F3F3F3;" class="" >
             <tr >
-                <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);" ><input type="checkbox" id="selectAllCheckBox" style="width: 20px !important; height: 20px !important; "></th>
+                <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);" ><input type="checkbox" id="selectAllCheckBox" style="width: 16px !important; height: 16px !important; "></th>
                 <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Task Name</th>
                 <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Assigned To</th>
                 <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Task Type</th>
@@ -250,11 +259,11 @@ const taskList = (task_list, selector) => {
             ${task_list.map(task => {
                 return `
 <tr style="height: 32px !important;">
-    <td><input type="checkbox" class="toggleCheckbox" data-id="${task.name}" style="width: 20px !important; height: 20px !important; text-align: center !important;" ></td>
+    <td><input type="checkbox" class="toggleCheckbox" data-id="${task.name}" style="width: 16px !important; height: 16px !important; text-align: center !important;" ></td>
     <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;  ">${task.custom_title}</td>
     <td>
         <div class="d-flex align-items-center" style="gap: 4px">
-            <div style=" width: 20px; height: 20px; font-size: 12px; background-color: ${getRandomColor()}; h" class="avatar  text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 20px; height: 20px;">${task.custom_assigned_to ? task.custom_assigned_to[0].toUpperCase() : '-'}</div>
+            <div style=" width: 16px; height: 16px; font-size: 12px; background-color: ${getRandomColor()}; h" class="avatar  text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 20px; height: 20px;">${task.custom_assigned_to ? task.custom_assigned_to[0].toUpperCase() : '-'}</div>
             <span style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">
                 ${task.custom_assigned_to ?? 'No Assignee'}
             </span>
@@ -311,14 +320,22 @@ const taskList = (task_list, selector) => {
         );
 
         $('#bulkDeleteButton').on('click', function () {
-            frappe.confirm('Are you sure you want to delete the selected tasks?', () => {
-                selectedIds.forEach(async taskName => {
-                    await frappe.db.delete_doc('ToDo', taskName)
-                });
-                taskList(task_list.filter(task => !selectedIds.includes(task.name)));
-                frappe.show_alert({ message: __(`Tasks deleted successfully`), indicator: 'green' });
+            frappe.confirm('Are you sure you want to delete the selected tasks?', async () => {
+                task_list = task_list.filter(task => !selectedIds.includes(task.name))
+                for (const taskName of selectedIds) {
+                    try {
+                        await frappe.db.delete_doc('ToDo', taskName);
+                        await new Promise(resolve => setTimeout(resolve, 100));
+                    } catch (error) {
+                        console.error(`Failed to delete ${taskName}:`, error);
+                    }
+                }
+                taskList(task_list);
+                cur_frm.refresh();
+                frappe.show_alert({ message: __('Tasks deleted successfully'), indicator: 'green' });
             });
         });
+
 
     }
 
@@ -563,12 +580,13 @@ const form = async (data = null, action, frm) => {
                 frappe.db.insert({
                     doctype: "ToDo",
                     ...values
-                }).then(new_doc => {
+                }).then(async(new_doc) => {
                     if (new_doc) {
                         frappe.show_alert({ message: __('Task created successfully'), indicator: 'green' });
+                        frm.refresh()
                         task_form.hide();
                         if (task_list.length === 0) {
-                            getTaskList(frm, tasks_selector);
+                           await getTaskList(frm, tasks_selector);
                         } else {
                             taskList([new_doc, ...task_list]);
                         }
