@@ -2,16 +2,16 @@
  {
   "docstatus": 0,
   "doctype": "Workflow Action Master",
-  "modified": "2024-12-20 16:15:11.745777",
-  "name": "Approve",
-  "workflow_action_name": "Approve"
+  "modified": "2025-02-04 17:34:09.796061",
+  "name": "Disburse",
+  "workflow_action_name": "Disburse"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow Action Master",
-  "modified": "2024-12-20 16:15:11.747036",
-  "name": "Reject",
-  "workflow_action_name": "Reject"
+  "modified": "2025-02-04 17:35:42.432831",
+  "name": "Receipt Confirm",
+  "workflow_action_name": "Receipt Confirm"
  },
  {
   "docstatus": 0,
@@ -30,15 +30,15 @@
  {
   "docstatus": 0,
   "doctype": "Workflow Action Master",
-  "modified": "2025-02-04 17:34:09.796061",
-  "name": "Disburse",
-  "workflow_action_name": "Disburse"
+  "modified": "2024-12-20 16:15:11.745777",
+  "name": "Approve",
+  "workflow_action_name": "Approve"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow Action Master",
-  "modified": "2025-02-04 17:35:42.432831",
-  "name": "Receipt Confirm",
-  "workflow_action_name": "Receipt Confirm"
+  "modified": "2024-12-20 16:15:11.747036",
+  "name": "Reject",
+  "workflow_action_name": "Reject"
  }
 ]
