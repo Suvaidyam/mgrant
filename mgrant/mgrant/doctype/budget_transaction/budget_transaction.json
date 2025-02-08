@@ -77,6 +77,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.wf_comment",
    "fieldname": "wf_comment",
    "fieldtype": "Small Text",
    "label": "Comment",
@@ -85,7 +86,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-07 15:56:09.088011",
+ "modified": "2025-02-08 12:06:37.118869",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Transaction",

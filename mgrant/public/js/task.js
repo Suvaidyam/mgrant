@@ -26,24 +26,27 @@ const taskList = (task_list, selector) => {
     }
     const updateTaskStatus = async (taskNames, status, key) => {
         let updatedTaskList = [...task_list]; // Clone the task list
-
-        for (let i = 0; i < taskNames.length; i++) {
-            await new Promise(resolve => setTimeout(resolve, 200)); // Delay 200ms
-
-            try {
-                await frappe.db.set_value('ToDo', taskNames[i], key, status);
-                updatedTaskList = updatedTaskList.map(task =>
-                    task.name === taskNames[i] ? { ...task, [key]: status } : task
-                );
-            } catch (error) {
-                console.error(`Error updating ${taskNames[i]}:`, error);
-            }
-        }
-
-        taskList(updatedTaskList); // Update UI once after all updates
-        cur_frm.refresh();
+    
+        await Promise.allSettled(
+            taskNames.map((taskName, index) => 
+                new Promise(resolve => setTimeout(resolve, index * 200)) // Apply delay
+                    .then(() => frappe.db.set_value('ToDo', taskName, key, status))
+                    .then(() => {
+                        updatedTaskList = updatedTaskList.map(task =>
+                            task.name === taskName ? { ...task, [key]: status } : task
+                        );
+                    })
+                    .catch(error => console.error(`Error updating ${taskName}:`, error))
+            )
+        );
+    
+        taskList(updatedTaskList);
         frappe.show_alert({ message: __('All tasks updated successfully'), indicator: 'green' });
+    
+        if (cur_frm) cur_frm.refresh();
     };
+    
+    
     if (task_list.length == 0) {
         $('#parent-view').css('height', '75vh');
         $('#parent-view').html(`
@@ -240,7 +243,7 @@ const taskList = (task_list, selector) => {
     <table class="table table-bordered">
       <thead style="background:#F3F3F3;" class="" >
             <tr >
-                <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);" ><input type="checkbox" id="selectAllCheckBox" style="width: 20px !important; height: 20px !important; "></th>
+                <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);" ><input type="checkbox" id="selectAllCheckBox" style="width: 16px !important; height: 16px !important; "></th>
                 <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Task Name</th>
                 <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Assigned To</th>
                 <th class=" font-weight-bold align-middle" style="font-weight: 500; font-size: 12px;  color: rgb(82, 82, 82);">Task Type</th>
@@ -256,18 +259,18 @@ const taskList = (task_list, selector) => {
             ${task_list.map(task => {
                 return `
 <tr style="height: 32px !important;">
-    <td><input type="checkbox" class="toggleCheckbox" data-id="${task.name}" style="width: 20px !important; height: 20px !important; text-align: center !important;" ></td>
-    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;  ">${task.custom_title}</td>
-    <td>
+    <td style="padding: 0.5rem; vertical-align: middle;"><input type="checkbox" class="toggleCheckbox" data-id="${task.name}" style="width: 16px !important; height: 16px !important; text-align: center !important;" ></td>
+    <td style="padding: 0.5rem; vertical-align: middle;" style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;  ">${task.custom_title}</td>
+    <td style="padding: 0.5rem; vertical-align: middle;">
         <div class="d-flex align-items-center" style="gap: 4px">
-            <div style=" width: 20px; height: 20px; font-size: 12px; background-color: ${getRandomColor()}; h" class="avatar  text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 20px; height: 20px;">${task.custom_assigned_to ? task.custom_assigned_to[0].toUpperCase() : '-'}</div>
+            <div style=" width: 16px; height: 16px; font-size: 12px; background-color: ${getRandomColor()}; h" class="avatar  text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 20px; height: 20px;">${task.custom_assigned_to ? task.custom_assigned_to[0].toUpperCase() : '-'}</div>
             <span style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">
                 ${task.custom_assigned_to ?? 'No Assignee'}
             </span>
         </div>
     </td>
-    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">${task?.custom_task_type ?? 'Not available'} </td>
-    <td>
+    <td style="padding: 0.5rem; vertical-align: middle;" style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">${task?.custom_task_type ?? 'Not available'} </td>
+    <td style="padding: 0.5rem; vertical-align: middle;">
           <div class="dropdown"style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
                     <span title="status" id="dropStatus-${task.name}" class="small dropdown-toggle bg-light pointer badge ${task?.custom_task_status === 'Canceled' ? 'text-danger' : task?.custom_task_status === 'In Progress' ? 'text-warning' : task?.custom_task_status === 'Done' ? 'text-success' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         ${task?.custom_task_status ?? 'Status'}
@@ -281,7 +284,7 @@ const taskList = (task_list, selector) => {
                 </div>
                 </div>
     </td>
-    <td>
+    <td style="padding: 0.5rem; vertical-align: middle;">
         <div class="dropdown" style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
                     <span title="Priority" id="dropPriority-${task.name}" class=" small dropdown-toggle badge bg-light pointer ${task?.priority === 'High' ? 'text-danger' : task?.priority === 'Medium' ? 'text-warning' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                         ${task?.priority ?? 'Low'}
@@ -293,9 +296,9 @@ const taskList = (task_list, selector) => {
                     </div>
                 </div>
     </td>
-    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">${task.custom_start_date ? getFormattedDate(task.custom_start_date) : '--:--'}</td>
-    <td style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%;" class="${(task.date && (new Date(task.date) < new Date(frappe.datetime.get_today()))) ? 'text-danger' : 'text-muted'}">${task.date ? getFormattedDate(task.date) : '--:--'}</td>
-    <td class="">
+    <td style="padding: 0.5rem; vertical-align: middle;" style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">${task.custom_start_date ? getFormattedDate(task.custom_start_date) : '--:--'}</td>
+    <td style="padding: 0.5rem; vertical-align: middle;" style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%;" class="${(task.date && (new Date(task.date) < new Date(frappe.datetime.get_today()))) ? 'text-danger' : 'text-muted'}">${task.date ? getFormattedDate(task.date) : '--:--'}</td>
+    <td style="padding: 0.5rem; vertical-align: middle;" class="">
       <div class="dropdown">
             <p title="action" class="pointer d-flex justify-content-center  align-items-center " id="dropdownMenuButton-${task.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 ⋮
@@ -318,6 +321,7 @@ const taskList = (task_list, selector) => {
 
         $('#bulkDeleteButton').on('click', function () {
             frappe.confirm('Are you sure you want to delete the selected tasks?', async () => {
+                task_list = task_list.filter(task => !selectedIds.includes(task.name))
                 for (const taskName of selectedIds) {
                     try {
                         await frappe.db.delete_doc('ToDo', taskName);
@@ -326,7 +330,7 @@ const taskList = (task_list, selector) => {
                         console.error(`Failed to delete ${taskName}:`, error);
                     }
                 }
-                taskList(task_list.filter(task => !selectedIds.includes(task.name)));
+                taskList(task_list);
                 cur_frm.refresh();
                 frappe.show_alert({ message: __('Tasks deleted successfully'), indicator: 'green' });
             });
@@ -576,16 +580,16 @@ const form = async (data = null, action, frm) => {
                 frappe.db.insert({
                     doctype: "ToDo",
                     ...values
-                }).then(new_doc => {
+                }).then(async(new_doc) => {
                     if (new_doc) {
                         frappe.show_alert({ message: __('Task created successfully'), indicator: 'green' });
+                        frm.refresh()
                         task_form.hide();
                         if (task_list.length === 0) {
-                            getTaskList(frm, tasks_selector);
+                           await getTaskList(frm, tasks_selector);
                         } else {
                             taskList([new_doc, ...task_list]);
                         }
-                        frm.refresh()
                     }
                 }).catch(error => {
                     console.error(error);
