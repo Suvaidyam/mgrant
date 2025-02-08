@@ -49,6 +49,7 @@ app_include_js = [
     f"/assets/mgrant/validators/regex.js?ver={time.time()}",
     f"/assets/mgrant/utils/dependent.js?ver={time.time()}",
     f"/assets/mgrant/utils/render-form.js?ver={time.time()}",
+    f"/assets/mgrant/js/list_view_extension.js?ver={time.time()}",
     f"/assets/mgrant/js/communication.js?ver={time.time()}",
     f"/assets/mgrant/js/task.js?ver={time.time()}",
     f"/assets/mgrant/js/gallery.js?ver={time.time()}",

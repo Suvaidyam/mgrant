@@ -26,6 +26,7 @@
   "funding_type",
   "subgranting_status",
   "grant_agreement_mou",
+  "extended_date",
   "descriptive_information_section",
   "theme",
   "sdg",
@@ -634,11 +635,17 @@
   {
    "fieldname": "fund_disbursements_section",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "extended_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Extended Date"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-03 17:27:54.499044",
+ "modified": "2025-02-08 02:38:29.870923",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
