@@ -100,6 +100,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.wf_comment",
    "fieldname": "wf_comment",
    "fieldtype": "Small Text",
    "label": "Comment",
@@ -132,7 +133,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-05 12:27:23.210693",
+ "modified": "2025-02-07 17:17:43.230046",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Fund Request",
