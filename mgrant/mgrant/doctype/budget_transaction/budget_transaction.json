@@ -7,17 +7,17 @@
  "engine": "InnoDB",
  "field_order": [
   "transaction",
-  "budget_plan",
-  "grant",
   "column_break_vfvn",
   "as_on_date",
   "column_break_zrte",
   "file",
-  "section_break_zjag",
-  "ngo",
-  "donor",
   "section_break_upps",
-  "wf_comment"
+  "wf_comment",
+  "section_break_zjag",
+  "budget_plan",
+  "grant",
+  "ngo",
+  "donor"
  ],
  "fields": [
   {
@@ -95,7 +95,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-09 00:10:25.955039",
+ "modified": "2025-02-09 05:38:21.352221",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Transaction",
