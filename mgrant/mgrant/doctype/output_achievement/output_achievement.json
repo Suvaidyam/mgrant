@@ -7,17 +7,22 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "output",
   "as_on_date",
-  "grant",
   "column_break_cqau",
   "achievement",
+  "column_break_mbvk",
   "supporting_document",
+  "section_break_evis",
+  "wf_comment",
+  "column_break_tdrn",
+  "column_break_qoae",
   "section_break_psxg",
+  "grant",
+  "output",
   "ngo",
   "donor",
-  "section_break_evis",
-  "wf_comment"
+  "column_break_xnrx",
+  "column_break_iudm"
  ],
  "fields": [
   {
@@ -89,11 +94,31 @@
    "fieldtype": "Small Text",
    "label": "Comment",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_mbvk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_tdrn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qoae",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_xnrx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_iudm",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-21 14:20:55.584699",
+ "modified": "2025-02-09 05:53:17.990307",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output Achievement",

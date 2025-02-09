@@ -9,16 +9,13 @@
   "ngo_name",
   "year_of_establishment",
   "registration_of_the_organisaiton",
-  "ngo_status",
   "column_break_bhnv",
-  "primary_domain",
   "email",
   "website",
-  "column_break_qnhh",
-  "focus_area",
-  "contact",
-  "status",
   "source_document",
+  "column_break_qnhh",
+  "primary_domain",
+  "focus_area",
   "location_information_section",
   "state",
   "state_name",
@@ -48,9 +45,18 @@
   "due_diligence_validation",
   "reasons",
   "reason_for_due_diligence_fail",
+  "column_break_nsyn",
+  "column_break_qtqw",
   "section_break_fvof",
+  "column_break_wbwf",
+  "ngo_status",
+  "status",
+  "column_break_mfas",
+  "column_break_gyau",
+  "section_break_opzj",
   "is_blacklisted",
   "reason_for_blacklisting",
+  "column_break_medm",
   "documents_tab",
   "active_documents",
   "expired_documents",
@@ -69,6 +75,12 @@
   "work_references",
   "impact",
   "about_organisation",
+  "due_diligence_tab",
+  "due_diligence_html",
+  "section_break_ivgg",
+  "countries_where_ngo_works",
+  "located_countries",
+  "_reasons",
   "grants_tab",
   "grants"
  ],
@@ -119,12 +131,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "contact",
-   "fieldtype": "Link",
-   "label": "Contact",
-   "options": "Contact"
-  },
-  {
    "default": "Active",
    "fieldname": "status",
    "fieldtype": "Select",
@@ -159,7 +165,6 @@
   {
    "fieldname": "source_document",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Source Document"
   },
   {
@@ -408,7 +413,7 @@
    "read_only": 1
   },
   {
-   "depends_on": "eval:doc.is_blacklisted",
+   "depends_on": "eval:!doc.__islocal",
    "fieldname": "section_break_fvof",
    "fieldtype": "Section Break"
   },
@@ -416,8 +421,7 @@
    "default": "0",
    "fieldname": "is_blacklisted",
    "fieldtype": "Check",
-   "label": "Is Blacklisted",
-   "read_only": 1
+   "label": "Is Blacklisted"
   },
   {
    "fieldname": "reason_for_blacklisting",
@@ -442,11 +446,74 @@
    "fieldtype": "Table",
    "label": "Expired Documents",
    "options": "Statutory Documents Child"
+  },
+  {
+   "depends_on": "eval:doc.is_blacklisted==1",
+   "fieldname": "column_break_mfas",
+   "fieldtype": "Column Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "section_break_opzj",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "column_break_nsyn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qtqw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_gyau",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_medm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wbwf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "due_diligence_tab",
+   "fieldtype": "Tab Break",
+   "label": "Due Diligence"
+  },
+  {
+   "fieldname": "due_diligence_html",
+   "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "countries_where_ngo_works",
+   "fieldtype": "Table MultiSelect",
+   "label": "Countries where NGO Works",
+   "options": "Country Child"
+  },
+  {
+   "fieldname": "located_countries",
+   "fieldtype": "Table MultiSelect",
+   "label": "Countries where NGO is Located and Registered",
+   "options": "Country Child"
+  },
+  {
+   "fieldname": "_reasons",
+   "fieldtype": "Table MultiSelect",
+   "label": "Reasons",
+   "options": "DDFR Child"
+  },
+  {
+   "fieldname": "section_break_ivgg",
+   "fieldtype": "Section Break",
+   "hidden": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-30 20:24:38.334795",
+ "modified": "2025-02-09 03:41:42.329877",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",

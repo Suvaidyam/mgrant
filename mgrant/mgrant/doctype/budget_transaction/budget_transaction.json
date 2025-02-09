@@ -6,16 +6,18 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "budget_plan",
-  "as_on_date",
   "transaction",
-  "grant",
+  "column_break_vfvn",
+  "as_on_date",
+  "column_break_zrte",
   "file",
-  "section_break_zjag",
-  "ngo",
-  "donor",
   "section_break_upps",
-  "wf_comment"
+  "wf_comment",
+  "section_break_zjag",
+  "budget_plan",
+  "grant",
+  "ngo",
+  "donor"
  ],
  "fields": [
   {
@@ -81,11 +83,19 @@
    "fieldtype": "Small Text",
    "label": "Comment",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_vfvn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zrte",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-07 15:56:09.088011",
+ "modified": "2025-02-09 05:38:21.352221",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Transaction",
