@@ -60,6 +60,8 @@
   "column_break_yzhm",
   "blocks",
   "villages",
+  "column_break_wspr",
+  "rfp",
   "tasks_tab",
   "tasks",
   "budget_tab",
@@ -570,12 +572,22 @@
   {
    "fieldname": "column_break_lsho",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wspr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rfp",
+   "fieldtype": "Link",
+   "label": "RFP",
+   "options": "RFP"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-09 05:10:51.048327",
+ "modified": "2025-02-09 11:19:17.699894",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
