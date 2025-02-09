@@ -7,13 +7,14 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "state",
-  "district",
-  "grant",
-  "column_break_tozy",
+  "frequency",
   "kpi",
   "impact_name",
-  "frequency",
+  "column_break_tozy",
+  "state",
+  "district",
+  "column_break_hzxg",
+  "wf_comment",
   "section_break_sayd",
   "planning_table",
   "summary_section",
@@ -22,20 +23,16 @@
   "total_achievement",
   "section_break_jjnl",
   "start_date",
+  "grant",
   "end_date",
   "financial_years",
   "column_break_wplt",
   "ngo",
   "donor",
-  "section_break_vxxu",
-  "column_break_lxyt",
+  "column_break_prls",
   "block",
-  "column_break_twjt",
   "gram_panchayat",
-  "column_break_ztyr",
-  "village",
-  "section_break_xtcr",
-  "wf_comment"
+  "village"
  ],
  "fields": [
   {
@@ -73,21 +70,18 @@
   {
    "fieldname": "block",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Block",
    "options": "Block"
   },
   {
    "fieldname": "gram_panchayat",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Gram Panchayat",
    "options": "Gram Panchayat"
   },
   {
    "fieldname": "village",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Village",
    "options": "Village"
   },
@@ -117,18 +111,6 @@
    "in_list_view": 1,
    "label": "Impact Description",
    "reqd": 1
-  },
-  {
-   "fieldname": "column_break_twjt",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_vxxu",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_ztyr",
-   "fieldtype": "Column Break"
   },
   {
    "fetch_from": "grant.start_date",
@@ -204,10 +186,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_lxyt",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "summary_section",
    "fieldtype": "Section Break",
    "label": "Summary"
@@ -217,15 +195,19 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_xtcr",
-   "fieldtype": "Section Break"
-  },
-  {
    "depends_on": "eval:doc.wf_comment;",
    "fieldname": "wf_comment",
    "fieldtype": "Small Text",
    "label": "Comment",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_hzxg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_prls",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -236,7 +218,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-02-05 16:57:54.865569",
+ "modified": "2025-02-09 05:57:35.270340",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact",
