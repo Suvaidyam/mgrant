@@ -65,14 +65,14 @@ frappe.ui.form.on("Grant", {
         window.onFieldValueChange = function(...args){
             console.log("onFieldValueChange:",...args, this);
         };
-        // window.SVADialog = {
-        //     'Budget Plan and Utilisation':async(action,fields, name,row, columns)=>{
-        //         console.log("SVADialog:",name, action, row, columns, fields);
-        //     },
-        //     'Input Achievement':async(action,fields, name,row, columns)=>{
-        //         console.log("SVADialog:",name, action, row, columns, fields);
-        //     }
-        // }
+        window.SVADialog = {
+            'Budget Plan and Utilisation':async(action,fields, name,row, columns)=>{
+                console.log("SVADialog:",name, action, row, columns, fields);
+            },
+            'Input Achievement':async(action,fields, name,row, columns)=>{
+                console.log("SVADialog:",name, action, row, columns, fields);
+            }
+        }
 	},
     async refresh(frm) {
         // console.log("refresh", frm);
