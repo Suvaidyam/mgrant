@@ -81,6 +81,7 @@
   {
    "fieldname": "wf_comment",
    "fieldtype": "Small Text",
+   "hidden": 1,
    "label": "Comment",
    "read_only": 1
   },
@@ -95,7 +96,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-09 05:38:21.352221",
+ "modified": "2025-02-09 11:53:54.363157",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Transaction",

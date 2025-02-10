@@ -5,6 +5,9 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "pan_number",
+  "column_break_dbsz",
+  "column_break_hoof",
   "basic_information_section",
   "ngo_name",
   "year_of_establishment",
@@ -30,7 +33,6 @@
   "document_information_section",
   "registration_number",
   "registration_certificate",
-  "pan_number",
   "pan_copy_upload",
   "column_break_vadv",
   "12aa_registration_number",
@@ -62,15 +64,19 @@
   "expired_documents",
   "bank_details_tab",
   "ifsc_code",
-  "branch_name",
+  "fetch_bank_details",
+  "column_break_wxpf",
   "bank_name",
-  "swift_code",
+  "branch_name",
+  "column_break_txtp",
+  "section_break_nugo",
   "column_break_mimi",
+  "swift_code",
+  "fcranon_fcra",
+  "column_break_vpox",
   "account_holder_name",
   "account_number",
-  "fcranon_fcra",
   "column_break_hhtv",
-  "fetch_bank_details",
   "work_history_tab",
   "work_references",
   "impact",
@@ -509,11 +515,35 @@
    "fieldname": "section_break_ivgg",
    "fieldtype": "Section Break",
    "hidden": 1
+  },
+  {
+   "fieldname": "column_break_dbsz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_hoof",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_nugo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_wxpf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_txtp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_vpox",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-09 03:41:42.329877",
+ "modified": "2025-02-09 12:26:48.180192",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",

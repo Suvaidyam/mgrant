@@ -62,9 +62,9 @@ frappe.ui.form.on("Grant", {
         window.onFieldClick = (...args)=>{
             console.log("onFieldClick:",...args);
         };
-        window.onFieldValueChange = function(...args){
-            console.log("onFieldValueChange:",...args, this);
-        };
+        // window.onFieldValueChange = function(...args){
+        //     console.log("onFieldValueChange:",...args, this);
+        // };
         // window.SVADialog = {
         //     'Budget Plan and Utilisation':async(action,fields, name,row, columns)=>{
         //         console.log("SVADialog:",name, action, row, columns, fields);

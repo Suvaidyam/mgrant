@@ -90,6 +90,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.wf_comment",
    "fieldname": "wf_comment",
    "fieldtype": "Small Text",
    "label": "Comment",
@@ -118,7 +119,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-09 05:53:17.990307",
+ "modified": "2025-02-10 10:52:51.306816",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output Achievement",
