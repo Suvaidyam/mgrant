@@ -73,9 +73,10 @@
    "mandatory_depends_on": "eval:doc.submission_status == \"Submitted\""
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-05 16:23:27.319057",
+ "modified": "2025-02-08 15:41:15.998326",
  "modified_by": "Administrator",
  "module": "mGrant - Task",
  "name": "Reporting",
