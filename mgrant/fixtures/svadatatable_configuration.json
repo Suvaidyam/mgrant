@@ -5,7 +5,7 @@
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "link_doctype": "Budget Transaction",
     "link_fieldname": "budget_plan",
-    "listview_settings": "[{\"label\":\"ID\",\"fieldname\":\"name\"},{\"label\":\"As on date\",\"fieldname\":\"as_on_date\"},{\"label\":\"Comment\",\"fieldname\":\"wf_comment\"},{\"label\":\"File\",\"fieldname\":\"file\"},{\"label\":\"Utilised Amount\",\"fieldname\":\"transaction\"}]",
+    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\",\"width\":\"2\"},{\"fieldname\":\"as_on_date\",\"label\":\"As on date\",\"width\":\"2\"},{\"fieldname\":\"transaction\",\"label\":\"Utilised Amount\",\"width\":\"2\"},{\"fieldname\":\"file\",\"label\":\"File\",\"width\":\"2\"},{\"fieldname\":\"wf_comment\",\"label\":\"Comment\",\"width\":\"2\"}]",
     "parent_doctype": "Budget Plan and Utilisation"
    },
    {
@@ -272,7 +272,7 @@
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2025-02-04 10:48:30.189105",
+  "modified": "2025-02-09 00:11:20.928956",
   "name": "Grant",
   "parent_doctype": "Grant"
  },
@@ -332,23 +332,23 @@
     "template": null
    },
    {
-    "connection_type": "Referenced",
+    "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "dn_reference_field": "custom_related_to",
-    "dt_reference_field": "custom_ref_doctype",
+    "dn_reference_field": null,
+    "dt_reference_field": null,
     "extend_condition": 0,
-    "extended_condition": null,
-    "html_field": "contacts",
-    "link_doctype": null,
-    "link_fieldname": null,
-    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"full_name\",\"label\":\"Full Name\"},{\"fieldname\":\"custom_email\",\"label\":\"Primary Email\"},{\"fieldname\":\"custom_mobile_number\",\"label\":\"Mobile Number\"},{\"fieldname\":\"custom_department1\",\"label\":\"Department\"},{\"fieldname\":\"custom_designation1\",\"label\":\"Designation\"}]",
-    "referenced_link_doctype": "Contact",
-    "template": null
+    "extended_condition": "{}",
+    "html_field": "due_diligence_html",
+    "link_doctype": "NGO Due Diligence",
+    "link_fieldname": "ngo",
+    "listview_settings": "[{\"label\":\"Due diligence clearance valid until.\",\"fieldname\":\"due_diligence_validation\"}]",
+    "referenced_link_doctype": null,
+    "template": "Tasks"
    }
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2025-01-21 17:18:48.336881",
+  "modified": "2025-02-09 03:20:05.854940",
   "name": "NGO",
   "parent_doctype": "NGO"
  },

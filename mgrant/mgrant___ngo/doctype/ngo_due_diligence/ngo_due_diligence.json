@@ -1,0 +1,386 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-09 00:14:06.058535",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_orth",
+  "ngo",
+  "column_break_zpbq",
+  "column_break_erdk",
+  "section_break_lqqm",
+  "ngo_name",
+  "year_of_incorporationcommencement",
+  "column_break_jcla",
+  "registration_of_the_organisaiton",
+  "website",
+  "column_break_uggg",
+  "pan_number",
+  "ngo_size",
+  "section_break_vxkx",
+  "working_countries",
+  "column_break_bdko",
+  "located_countries",
+  "column_break_vpur",
+  "annual_turnover",
+  "section_break_clsy",
+  "business_office_address",
+  "column_break_ihro",
+  "registered_office_address",
+  "column_break_qscv",
+  "key_personnel_information_section",
+  "table_fcls",
+  "upload_the_following_documents_section",
+  "pan",
+  "80g_certificate",
+  "12a_certificate",
+  "column_break_ffky",
+  "csr_1_form",
+  "trust_deed",
+  "fcra",
+  "column_break_xtoe",
+  "gst_number",
+  "3_yrs_balance_sheet",
+  "3_yrs_annual_report",
+  "section_break_lqxf",
+  "has_code_of_conduct",
+  "code_of_conduct_attachment",
+  "column_break_xswl",
+  "column_break_axix",
+  "legal_and_regulatory_issues_section",
+  "investigation_status",
+  "litigation_status",
+  "table_kqtm",
+  "section_break_pbqf",
+  "family_members_in_org",
+  "table_rgtw",
+  "section_break_twda",
+  "due_diligence_validation",
+  "reason_for_due_diligence_fail",
+  "column_break_jhcn",
+  "_reasons",
+  "hidden_fields_section",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_lqqm",
+   "fieldtype": "Section Break",
+   "hide_border": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "NGO Due Diligence",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "ngo",
+   "fieldtype": "Link",
+   "label": "NGO",
+   "options": "NGO"
+  },
+  {
+   "fieldname": "ngo_name",
+   "fieldtype": "Data",
+   "label": "Legal Name of the Entity"
+  },
+  {
+   "fieldname": "year_of_incorporationcommencement",
+   "fieldtype": "Data",
+   "label": "Year of Incorporation/Commencement"
+  },
+  {
+   "fieldname": "registration_of_the_organisaiton",
+   "fieldtype": "Data",
+   "label": "Registration of the Organisation"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website"
+  },
+  {
+   "fieldname": "pan_number",
+   "fieldtype": "Data",
+   "label": "PAN Number"
+  },
+  {
+   "fieldname": "ngo_size",
+   "fieldtype": "Int",
+   "label": "NGO Size"
+  },
+  {
+   "fieldname": "registered_office_address",
+   "fieldtype": "Small Text",
+   "label": "Registered Office Address",
+   "max_height": "70px"
+  },
+  {
+   "fieldname": "business_office_address",
+   "fieldtype": "Small Text",
+   "label": "Business Office Address",
+   "max_height": "70px"
+  },
+  {
+   "fieldname": "hidden_fields_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "hide_border": 1,
+   "label": "Hidden Fields"
+  },
+  {
+   "fieldname": "column_break_zpbq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_erdk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_jcla",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_uggg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "located_countries",
+   "fieldtype": "Table MultiSelect",
+   "label": "Countries where NGO is Located and Registered",
+   "options": "Country Child"
+  },
+  {
+   "fieldname": "working_countries",
+   "fieldtype": "Table MultiSelect",
+   "label": "Countries where NGO Works",
+   "options": "Country Child"
+  },
+  {
+   "fieldname": "section_break_clsy",
+   "fieldtype": "Section Break",
+   "hide_border": 1
+  },
+  {
+   "fieldname": "column_break_ihro",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qscv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_vxkx",
+   "fieldtype": "Section Break",
+   "hide_border": 1
+  },
+  {
+   "fieldname": "column_break_bdko",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_vpur",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "annual_turnover",
+   "fieldtype": "Currency",
+   "label": "Annual Turnover"
+  },
+  {
+   "fieldname": "table_fcls",
+   "fieldtype": "Table",
+   "options": "NGO Members"
+  },
+  {
+   "fieldname": "upload_the_following_documents_section",
+   "fieldtype": "Section Break",
+   "label": "Government Registrations/Licenses/Documents (Upload the following documents)"
+  },
+  {
+   "fieldname": "pan",
+   "fieldtype": "Attach",
+   "label": "PAN"
+  },
+  {
+   "fieldname": "80g_certificate",
+   "fieldtype": "Attach",
+   "label": "80G Certificate"
+  },
+  {
+   "fieldname": "column_break_ffky",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "12a_certificate",
+   "fieldtype": "Attach",
+   "label": "12A Certificate"
+  },
+  {
+   "fieldname": "csr_1_form",
+   "fieldtype": "Attach",
+   "label": "CSR 1 Form"
+  },
+  {
+   "fieldname": "column_break_xtoe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "trust_deed",
+   "fieldtype": "Attach",
+   "label": "Trust Deed/Memorandum of Association/Article of Association"
+  },
+  {
+   "fieldname": "fcra",
+   "fieldtype": "Attach",
+   "label": "FCRA"
+  },
+  {
+   "fieldname": "gst_number",
+   "fieldtype": "Attach",
+   "label": "GST Number"
+  },
+  {
+   "fieldname": "3_yrs_balance_sheet",
+   "fieldtype": "Attach",
+   "label": "3 Yrs Balance Sheet"
+  },
+  {
+   "fieldname": "3_yrs_annual_report",
+   "fieldtype": "Attach",
+   "label": "3 Yrs Annual Report"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_code_of_conduct",
+   "fieldtype": "Check",
+   "label": "Does your organisation have a Written Code of Conduct"
+  },
+  {
+   "depends_on": "eval:doc.has_code_of_conduct==1",
+   "fieldname": "code_of_conduct_attachment",
+   "fieldtype": "Attach",
+   "label": "Code of Conduct Attachment"
+  },
+  {
+   "fieldname": "key_personnel_information_section",
+   "fieldtype": "Section Break",
+   "label": "Key Personnel Information"
+  },
+  {
+   "fieldname": "section_break_lqxf",
+   "fieldtype": "Section Break",
+   "label": "Compliance and Ethics"
+  },
+  {
+   "fieldname": "column_break_xswl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_axix",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "legal_and_regulatory_issues_section",
+   "fieldtype": "Section Break",
+   "label": "Legal and Regulatory Issues"
+  },
+  {
+   "default": "0",
+   "description": "Please let us know if the NGO or its Key Personnel have been implicated in the past or have an on-ongoing investigation by any regulatory or law enforcement agency?",
+   "fieldname": "investigation_status",
+   "fieldtype": "Check",
+   "label": "Has the NGO or its Key Personnel been implicated in any past or ongoing investigation?"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.investigation_status==1",
+   "fieldname": "litigation_status",
+   "fieldtype": "Check",
+   "label": "Are there any disposed/ pending civil/ criminal litigation cases against the NGO or its Key Personnel?"
+  },
+  {
+   "depends_on": "eval:doc.litigation_status==1",
+   "fieldname": "table_kqtm",
+   "fieldtype": "Table",
+   "options": "Litigation Child"
+  },
+  {
+   "fieldname": "section_break_pbqf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "family_members_in_org",
+   "fieldtype": "Check",
+   "label": "Family Members Working in our Organization/Affiliates"
+  },
+  {
+   "depends_on": "eval:doc.family_members_in_org==1",
+   "fieldname": "table_rgtw",
+   "fieldtype": "Table",
+   "options": "Family Members"
+  },
+  {
+   "fieldname": "due_diligence_validation",
+   "fieldtype": "Date",
+   "label": "Due diligence clearance valid until."
+  },
+  {
+   "fieldname": "reason_for_due_diligence_fail",
+   "fieldtype": "Small Text",
+   "label": "Reason for due diligence fail."
+  },
+  {
+   "fieldname": "_reasons",
+   "fieldtype": "Table MultiSelect",
+   "label": "Reasons",
+   "options": "DDFR Child"
+  },
+  {
+   "fieldname": "section_break_orth",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "section_break_twda",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_jhcn",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-02-09 03:42:16.314300",
+ "modified_by": "Administrator",
+ "module": "mGrant - NGO",
+ "name": "NGO Due Diligence",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
