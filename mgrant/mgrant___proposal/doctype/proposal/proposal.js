@@ -114,7 +114,7 @@ frappe.ui.form.on("Proposal", {
     after_save(frm) {
         if (frappe.mgrant_settings.module == "Donor") {
             if (frappe.user_roles.includes('NGO Admin') && frm.doc.application_status == "Completed") {
-                frm.disable_form()
+                frm.set_df_property('application_status', 'read_only', 1)
             }
         }
     },
