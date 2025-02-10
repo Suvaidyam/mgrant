@@ -111,16 +111,16 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "MoU Start Date",
-   "read_only_depends_on": "eval:doc.proposal && doc.start_date && doc.__unsaved != 0;",
-   "reqd": 1
+   "mandatory_depends_on": "eval:!frappe.user_roles.includes('NGO Admin')",
+   "read_only_depends_on": "eval:doc.proposal && doc.start_date && doc.__unsaved != 0 || frappe.user_roles.includes('NGO Admin');"
   },
   {
    "fieldname": "end_date",
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "MoU End Date",
-   "read_only_depends_on": "eval:doc.proposal && doc.end_date && doc.__unsaved != 0;",
-   "reqd": 1
+   "mandatory_depends_on": "eval:!frappe.user_roles.includes('NGO Admin')",
+   "read_only_depends_on": "eval:doc.proposal && doc.end_date && doc.__unsaved != 0 || frappe.user_roles.includes('NGO Admin');"
   },
   {
    "fieldname": "budget_tab",
@@ -311,18 +311,18 @@
    "label": "NGO",
    "link_filters": "[[\"NGO\",\"is_blacklisted\",\"=\",0]]",
    "options": "NGO",
-   "read_only_depends_on": "eval:doc.proposal && doc.ngo && doc.__unsaved != 0;",
+   "read_only_depends_on": "eval:doc.proposal && doc.ngo && doc.__unsaved != 0 || frappe.user_roles.includes('NGO Admin');",
    "reqd": 1,
    "search_index": 1
   },
   {
-   "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
+   "depends_on": "eval:!frappe.user_roles.includes('NGO Admin');",
    "fieldname": "donor",
    "fieldtype": "Link",
    "label": "Donor",
    "mandatory_depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
    "options": "Donor",
-   "read_only_depends_on": "eval:doc.proposal && doc.donor && doc.__unsaved != 0;",
+   "read_only_depends_on": "eval:doc.proposal && doc.donor && doc.__unsaved != 0",
    "search_index": 1
   },
   {
@@ -341,7 +341,8 @@
    "in_global_search": 1,
    "in_list_view": 1,
    "label": "Grant Title",
-   "read_only_depends_on": "eval:doc.proposal && doc.grant_name && doc.__unsaved != 0;",
+   "mandatory_depends_on": "eval:!frappe.user_roles.includes('NGO Admin')",
+   "read_only_depends_on": "eval:doc.proposal && doc.grant_name && doc.__unsaved != 0 || frappe.user_roles.includes('NGO Admin');",
    "reqd": 1
   },
   {
@@ -367,9 +368,11 @@
    "fieldname": "grant_status",
    "fieldtype": "Select",
    "label": "Grant Status",
-   "options": "Active\nInactive"
+   "options": "Active\nInactive",
+   "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin');"
   },
   {
+   "depends_on": "eval:!frappe.user_roles.includes('NGO Admin');",
    "fieldname": "grant_type",
    "fieldtype": "Select",
    "label": "Grant Type",
@@ -379,7 +382,8 @@
    "fieldname": "funding_type",
    "fieldtype": "Select",
    "label": "Funding Type",
-   "options": "FC\nNon-FC"
+   "options": "FC\nNon-FC",
+   "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin');"
   },
   {
    "default": "Sub-granting Inactive",
@@ -389,13 +393,15 @@
    "hidden": 1,
    "label": "Sub-granting Status",
    "options": "Sub-granting Inactive\nSub-granting Active",
-   "read_only": 1
+   "read_only": 1,
+   "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin');"
   },
   {
    "fieldname": "grant_agreement_mou",
    "fieldtype": "Attach",
    "label": "Grant Agreement/MoU",
-   "read_only": 1
+   "read_only": 1,
+   "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin');"
   },
   {
    "fieldname": "descriptive_information_section",
@@ -413,7 +419,7 @@
    "fieldtype": "Link",
    "label": "Programme",
    "options": "Programme",
-   "read_only_depends_on": "eval:doc.proposal && doc.programme && doc.__unsaved != 0;"
+   "read_only_depends_on": "eval:doc.proposal && doc.programme && doc.__unsaved != 0 || frappe.user_roles.includes('NGO Admin');"
   },
   {
    "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
@@ -646,7 +652,8 @@
    "fieldname": "extended_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Extended Date"
+   "label": "Extended Date",
+   "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin');"
   },
   {
    "fieldname": "column_break_dnll",
@@ -673,12 +680,13 @@
    "fieldname": "vendor",
    "fieldtype": "Link",
    "label": "Vendor",
-   "options": "Vendor"
+   "options": "Vendor",
+   "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin');"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-10 14:31:54.792660",
+ "modified": "2025-02-10 18:27:34.158096",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
