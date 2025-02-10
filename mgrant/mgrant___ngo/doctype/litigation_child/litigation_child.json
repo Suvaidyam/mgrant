@@ -1,0 +1,68 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-09 02:19:15.965384",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "entity_name",
+  "regulatory_authority",
+  "date",
+  "case_number",
+  "nature_of_issue",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "entity_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Entity Name"
+  },
+  {
+   "fieldname": "regulatory_authority",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Court/Regulatory Authority"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date"
+  },
+  {
+   "fieldname": "case_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Case Number"
+  },
+  {
+   "fieldname": "nature_of_issue",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Nature of Issue"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Pending\nDisposed"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-02-09 02:24:48.982623",
+ "modified_by": "Administrator",
+ "module": "mGrant - NGO",
+ "name": "Litigation Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

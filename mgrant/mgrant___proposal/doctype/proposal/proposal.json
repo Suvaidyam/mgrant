@@ -10,25 +10,17 @@
   "proposal_name",
   "programme",
   "donor",
-  "donor_name",
-  "donor_email",
-  "donor_poc_name",
   "ngo",
-  "ngo_name",
-  "ngo_email",
-  "ngo_poc_name",
   "vendor",
   "column_break_qmgi",
   "start_date",
   "end_date",
   "grant_duration_in_months",
   "total_planned_budget",
-  "implementation_type",
   "closing_date",
   "column_break_nwys",
   "application_status",
   "stage",
-  "grant",
   "section_break_vusm",
   "mou_signed_document",
   "mou_verified",
@@ -46,15 +38,30 @@
   "focus_area",
   "column_break_jioh",
   "proposal_description",
+  "column_break_lsho",
   "geographical_information_section",
   "column_break_shct",
   "states",
   "districts",
   "column_break_evjf",
-  "blocks",
-  "villages",
   "section_break_vkwu",
   "demography_focus",
+  "hidden_fields_section",
+  "ngo_name",
+  "ngo_poc_name",
+  "ngo_email",
+  "column_break_duyu",
+  "donor_name",
+  "donor_poc_name",
+  "donor_email",
+  "column_break_vwoq",
+  "grant",
+  "implementation_type",
+  "column_break_yzhm",
+  "blocks",
+  "villages",
+  "column_break_wspr",
+  "rfp",
   "tasks_tab",
   "tasks",
   "budget_tab",
@@ -421,14 +428,12 @@
    "fetch_from": "ngo.ngo_name",
    "fieldname": "ngo_name",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "NGO Name"
   },
   {
    "fetch_from": "donor.donor_name",
    "fieldname": "donor_name",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Donor Name"
   },
   {
@@ -441,7 +446,6 @@
    "fetch_from": "donor.email",
    "fieldname": "donor_email",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Donor Email",
    "options": "Email"
   },
@@ -449,7 +453,6 @@
    "fetch_from": "ngo.email",
    "fieldname": "ngo_email",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "NGO Email",
    "options": "Email"
   },
@@ -540,21 +543,51 @@
    "fetch_from": "ngo.contact",
    "fieldname": "ngo_poc_name",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "NGO PoC name"
   },
   {
    "fetch_from": "donor.contact_first_name",
    "fieldname": "donor_poc_name",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Donor PoC Name"
+  },
+  {
+   "fieldname": "hidden_fields_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Hidden Fields"
+  },
+  {
+   "fieldname": "column_break_duyu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_vwoq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_yzhm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_lsho",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wspr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rfp",
+   "fieldtype": "Link",
+   "label": "RFP",
+   "options": "RFP"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-08 15:52:24.422580",
+ "modified": "2025-02-09 11:19:17.699894",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
