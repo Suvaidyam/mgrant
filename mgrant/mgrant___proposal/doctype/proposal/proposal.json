@@ -20,6 +20,7 @@
   "closing_date",
   "column_break_nwys",
   "application_status",
+  "grant",
   "stage",
   "section_break_vusm",
   "mou_signed_document",
@@ -38,7 +39,6 @@
   "focus_area",
   "column_break_jioh",
   "proposal_description",
-  "column_break_lsho",
   "geographical_information_section",
   "column_break_shct",
   "states",
@@ -46,22 +46,15 @@
   "column_break_evjf",
   "section_break_vkwu",
   "demography_focus",
-  "hidden_fields_section",
   "ngo_name",
   "ngo_poc_name",
   "ngo_email",
-  "column_break_duyu",
   "donor_name",
   "donor_poc_name",
   "donor_email",
-  "column_break_vwoq",
-  "grant",
   "implementation_type",
-  "column_break_yzhm",
   "blocks",
   "villages",
-  "column_break_wspr",
-  "rfp",
   "tasks_tab",
   "tasks",
   "budget_tab",
@@ -470,11 +463,6 @@
    "label": "Application Closing Date"
   },
   {
-   "fieldname": "stage",
-   "fieldtype": "Select",
-   "label": "Stage"
-  },
-  {
    "fieldname": "section_break_vusm",
    "fieldtype": "Section Break",
    "label": "MoU & Approvals"
@@ -540,10 +528,10 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "ngo.contact",
    "fieldname": "ngo_poc_name",
    "fieldtype": "Data",
-   "label": "NGO PoC name"
+   "label": "NGO PoC name",
+   "read_only": 1
   },
   {
    "fetch_from": "donor.contact_first_name",
@@ -552,42 +540,15 @@
    "label": "Donor PoC Name"
   },
   {
-   "fieldname": "hidden_fields_section",
-   "fieldtype": "Section Break",
-   "hidden": 1,
-   "label": "Hidden Fields"
-  },
-  {
-   "fieldname": "column_break_duyu",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_vwoq",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_yzhm",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_lsho",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_wspr",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "rfp",
-   "fieldtype": "Link",
-   "label": "RFP",
-   "options": "RFP"
+   "fieldname": "stage",
+   "fieldtype": "Select",
+   "label": "Stage"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-09 11:19:17.699894",
+ "modified": "2025-02-10 10:02:06.938747",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
