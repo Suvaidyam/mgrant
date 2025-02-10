@@ -14,7 +14,9 @@
   "grant",
   "section_break_tvvo",
   "ngo",
-  "donor"
+  "donor",
+  "section_break_jbro",
+  "wf_comment"
  ],
  "fields": [
   {
@@ -78,11 +80,21 @@
    "fieldtype": "Link",
    "label": "Donor",
    "options": "Donor"
+  },
+  {
+   "fieldname": "section_break_jbro",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.wf_comment",
+   "fieldname": "wf_comment",
+   "fieldtype": "Small Text",
+   "label": "Comment"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-05 17:00:44.085960",
+ "modified": "2025-02-10 11:15:48.223967",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Fund Receipt Tracker",

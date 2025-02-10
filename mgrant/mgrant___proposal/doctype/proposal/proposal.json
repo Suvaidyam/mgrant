@@ -528,6 +528,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "ngo.email",
    "fieldname": "ngo_poc_name",
    "fieldtype": "Data",
    "label": "NGO PoC name",
@@ -548,7 +549,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-10 10:02:06.938747",
+ "modified": "2025-02-10 11:01:14.946423",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
