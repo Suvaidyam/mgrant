@@ -38,29 +38,29 @@
   "focus_area",
   "column_break_jioh",
   "proposal_description",
-  "column_break_lsho",
+  "column_break_nuci",
   "geographical_information_section",
   "column_break_shct",
   "states",
   "districts",
   "column_break_evjf",
-  "section_break_vkwu",
+  "demography_information_section",
   "demography_focus",
-  "hidden_fields_section",
+  "section_break_vkwu",
   "ngo_name",
   "ngo_poc_name",
   "ngo_email",
-  "column_break_duyu",
+  "column_break_dcdx",
   "donor_name",
   "donor_poc_name",
   "donor_email",
-  "column_break_vwoq",
+  "column_break_nzsg",
   "grant",
   "implementation_type",
-  "column_break_yzhm",
+  "column_break_yqgd",
   "blocks",
   "villages",
-  "column_break_wspr",
+  "column_break_qdez",
   "rfp",
   "tasks_tab",
   "tasks",
@@ -152,11 +152,9 @@
    "options": "Programme"
   },
   {
-   "collapsible": 1,
    "fieldname": "section_break_vkwu",
    "fieldtype": "Section Break",
-   "hide_border": 1,
-   "label": "Demography Information"
+   "hidden": 1
   },
   {
    "fieldname": "demography_focus",
@@ -411,6 +409,7 @@
    "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
    "fieldname": "vendor",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Vendor",
    "link_filters": "[[\"Vendor\",\"is_blacklisted\",\"=\",0]]",
@@ -468,11 +467,6 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Application Closing Date"
-  },
-  {
-   "fieldname": "stage",
-   "fieldtype": "Select",
-   "label": "Stage"
   },
   {
    "fieldname": "section_break_vusm",
@@ -540,10 +534,11 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "ngo.contact",
+   "fetch_from": "ngo.email",
    "fieldname": "ngo_poc_name",
    "fieldtype": "Data",
-   "label": "NGO PoC name"
+   "label": "NGO PoC name",
+   "read_only": 1
   },
   {
    "fetch_from": "donor.contact_first_name",
@@ -552,29 +547,35 @@
    "label": "Donor PoC Name"
   },
   {
-   "fieldname": "hidden_fields_section",
+   "fieldname": "stage",
+   "fieldtype": "Select",
+   "label": "Stage"
+  },
+  {
+   "fieldname": "column_break_nuci",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "demography_information_section",
    "fieldtype": "Section Break",
-   "hidden": 1,
-   "label": "Hidden Fields"
+   "hide_border": 1,
+   "label": "Demography Information"
   },
   {
-   "fieldname": "column_break_duyu",
+   "fieldname": "column_break_dcdx",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_vwoq",
+   "fieldname": "column_break_nzsg",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_yzhm",
+   "fieldname": "column_break_yqgd",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_lsho",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_wspr",
+   "fieldname": "column_break_qdez",
    "fieldtype": "Column Break"
   },
   {
@@ -587,7 +588,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-09 11:19:17.699894",
+ "modified": "2025-02-10 16:25:23.231242",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",

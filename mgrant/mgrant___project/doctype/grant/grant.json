@@ -16,6 +16,7 @@
   "programme",
   "ngo",
   "donor",
+  "vendor",
   "column_break_qmgi",
   "start_date",
   "end_date",
@@ -667,11 +668,17 @@
    "fieldname": "section_break_atad",
    "fieldtype": "Section Break",
    "hide_border": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "label": "Vendor",
+   "options": "Vendor"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-09 04:53:12.229488",
+ "modified": "2025-02-10 14:31:54.792660",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
