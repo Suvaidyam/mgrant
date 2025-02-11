@@ -23,7 +23,7 @@ fixtures = [
     # 'SVADatatable Configuration',
     # 'Client Script',
     'Custom Field',
-    # "Property Setter",
+    "Property Setter",
     "Server Script",
     # "Translation",
     # 'Custom HTML Block',
