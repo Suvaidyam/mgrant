@@ -88,7 +88,9 @@
   "located_countries",
   "_reasons",
   "grants_tab",
-  "grants"
+  "grants",
+  "applications_tab",
+  "applications"
  ],
  "fields": [
   {
@@ -539,11 +541,20 @@
   {
    "fieldname": "column_break_vpox",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "applications_tab",
+   "fieldtype": "Tab Break",
+   "label": "Applications"
+  },
+  {
+   "fieldname": "applications",
+   "fieldtype": "HTML"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-10 13:12:38.700726",
+ "modified": "2025-02-11 16:26:55.078417",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",
