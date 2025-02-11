@@ -7,17 +7,18 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "impact",
   "as_on_date",
-  "grant",
   "column_break_cqau",
   "achievement",
+  "column_break_wyqz",
   "supporting_document",
-  "section_break_qvxi",
-  "ngo",
-  "donor",
   "section_break_wzuv",
-  "wf_comment"
+  "wf_comment",
+  "section_break_qvxi",
+  "impact",
+  "grant",
+  "ngo",
+  "donor"
  ],
  "fields": [
   {
@@ -85,15 +86,20 @@
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.wf_comment",
    "fieldname": "wf_comment",
    "fieldtype": "Small Text",
    "label": "Comment",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_wyqz",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-21 14:38:08.874480",
+ "modified": "2025-02-10 10:51:12.069645",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impact Achievement",

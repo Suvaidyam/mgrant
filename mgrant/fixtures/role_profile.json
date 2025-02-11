@@ -29,9 +29,9 @@
   "custom_belongs_to": "Donor",
   "docstatus": 0,
   "doctype": "Role Profile",
-  "modified": "2025-02-05 13:08:10.666808",
+  "modified": "2025-02-10 11:26:09.959893",
   "name": "Donor Admin",
-  "role_profile": "Donor Admin",
+  "role_profile": "Admin",
   "roles": [
    {
     "role": "Donor Admin"
