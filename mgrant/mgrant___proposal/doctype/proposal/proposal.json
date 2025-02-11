@@ -20,7 +20,6 @@
   "closing_date",
   "column_break_nwys",
   "application_status",
-  "grant",
   "stage",
   "section_break_vusm",
   "mou_signed_document",
@@ -39,22 +38,30 @@
   "focus_area",
   "column_break_jioh",
   "proposal_description",
+  "column_break_nuci",
   "geographical_information_section",
   "column_break_shct",
   "states",
   "districts",
   "column_break_evjf",
-  "section_break_vkwu",
+  "demography_information_section",
   "demography_focus",
+  "section_break_vkwu",
   "ngo_name",
   "ngo_poc_name",
   "ngo_email",
+  "column_break_dcdx",
   "donor_name",
   "donor_poc_name",
   "donor_email",
+  "column_break_nzsg",
+  "grant",
   "implementation_type",
+  "column_break_yqgd",
   "blocks",
   "villages",
+  "column_break_qdez",
+  "rfp",
   "tasks_tab",
   "tasks",
   "budget_tab",
@@ -142,14 +149,13 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Programme",
-   "options": "Programme"
+   "options": "Programme",
+   "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin')"
   },
   {
-   "collapsible": 1,
    "fieldname": "section_break_vkwu",
    "fieldtype": "Section Break",
-   "hide_border": 1,
-   "label": "Demography Information"
+   "hidden": 1
   },
   {
    "fieldname": "demography_focus",
@@ -334,12 +340,13 @@
    "read_only": 1
   },
   {
+   "depends_on": "eval:frappe.user_roles.includes(\"Administrator\")  || !frappe.user_roles.includes('NGO Admin')",
    "fieldname": "donor",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Donor",
+   "mandatory_depends_on": "eval:frappe.user_roles.includes(\"Administrator\")  || !frappe.user_roles.includes('NGO Admin')",
    "options": "Donor",
-   "reqd": 1,
    "set_only_once": 1
   },
   {
@@ -401,7 +408,7 @@
    "options": "<h1>No questions available.</h1>"
   },
   {
-   "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
+   "depends_on": "eval:!frappe.user_roles.includes('NGO Admin')",
    "fieldname": "vendor",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -451,7 +458,7 @@
   },
   {
    "default": "0",
-   "depends_on": "eval:[frappe.mgrant_settings.sign_off_prerequisite,frappe.mgrant_settings.positive].includes(doc.stage)",
+   "depends_on": "eval:doc.mou_signed_document && [frappe.mgrant_settings.sign_off_prerequisite,frappe.mgrant_settings.positive].includes(doc.stage)",
    "fieldname": "mou_verified",
    "fieldtype": "Check",
    "label": "I have uploaded the final signed MoU and verified everything"
@@ -543,13 +550,47 @@
   {
    "fieldname": "stage",
    "fieldtype": "Select",
-   "label": "Stage"
+   "label": "Stage",
+   "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin')"
+  },
+  {
+   "fieldname": "column_break_nuci",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "demography_information_section",
+   "fieldtype": "Section Break",
+   "hide_border": 1,
+   "label": "Demography Information"
+  },
+  {
+   "fieldname": "column_break_dcdx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_nzsg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_yqgd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qdez",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rfp",
+   "fieldtype": "Link",
+   "label": "RFP",
+   "options": "RFP"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-10 11:01:14.946423",
+ "modified": "2025-02-10 19:06:57.640492",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
