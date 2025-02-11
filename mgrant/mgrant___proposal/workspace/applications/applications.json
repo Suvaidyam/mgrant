@@ -16,7 +16,7 @@
  "label": "Applications",
  "link_type": "Page",
  "links": [],
- "modified": "2025-02-05 14:36:34.025976",
+ "modified": "2025-02-11 11:57:39.425041",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Applications",
@@ -36,9 +36,6 @@
   },
   {
    "role": "NGO Admin"
-  },
-  {
-   "role": "Donor Admin"
   }
  ],
  "sequence_id": 1.0,
