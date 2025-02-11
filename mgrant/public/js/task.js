@@ -1,5 +1,5 @@
 const getTaskList = async (frm, selector) => {
-     
+
     new mGrantTask({
         frm: frm,
         selector: selector
@@ -9,7 +9,7 @@ const getTaskList = async (frm, selector) => {
 class mGrantTask {
     constructor({ frm = null, selector = null }) {
         this.frm = frm;
-        this.selector = selector; 
+        this.selector = selector;
         this.task_list = [];
     }
     getRandomColor() {
@@ -21,11 +21,13 @@ class mGrantTask {
         return color;
     }
     async show_task(currentPage = 1) {
-        let limit = 100;
-        let total_records = await frappe.db.count('ToDo', {filters:{
-            reference_type: this.frm.doc.doctype,
-            reference_name: this.frm.doc.name
-        }}
+        let limit = 10;
+        let total_records = await frappe.db.count('ToDo', {
+            filters: {
+                reference_type: this.frm.doc.doctype,
+                reference_name: this.frm.doc.name
+            }
+        }
         );
 
         let total_pages = Math.ceil(total_records / limit);
@@ -116,8 +118,8 @@ class mGrantTask {
                     </div>
                 </div>
                 <!-- Task List -->
-               ${this.task_list.length > 0 
-                ?`
+               ${this.task_list.length > 0
+                ? `
                 <div style="overflow-y:auto;">
                  <table style="margin: 0px !important;" class="table table-bordered form-grid-container form-grid">
                     <thead>
@@ -196,7 +198,7 @@ class mGrantTask {
                     </tbody>
                 </table>
                 </div>
-                `:`
+                `: `
                 <div style="flex-direction: column; height: 200px;" class="d-flex justify-content-center align-items-center" >
                     <svg class="icon icon-xl" style="stroke: var(--text-light);">
                         <use href="#icon-small-file"></use>
@@ -205,36 +207,36 @@ class mGrantTask {
                     ">You haven't created a Recored yet</p>
                 </div>
                 `}
-                <div class="d-flex flex-wrap py-2 justify-content-between align-items-center">
+                <div class="d-flex flex-wrap py-2 justify-content-between">
                     <!-- New Task Button -->
-                    <button class="btn btn-secondary btn-sm" id="createTask">
+                    <button style="height:36px;" class="btn btn-secondary btn-sm" id="createTask">
                     <svg class="es-icon es-line icon-xs" aria-hidden="true">
                         <use href="#es-line-add"></use>
                     </svg> Add row
                     </button>
                     <!-- Pagination -->
-                   <!-- ${total_pages > 1 ?`
+                   ${total_pages > 1 ? `
                      <nav aria-label="Page navigation example">
                         <ul class="pagination">
                             <li class="page-item">
-                            <a class="page-link prev-page disabled" aria-label="Previous">
+                            <a class="page-link prev-page ${currentPage==1?'disabled':''}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span class="sr-only">Previous</span>
                             </a>
                             </li>
                             ${total_pages > 0 ? Array.from({ length: total_pages }, (_, i) => i + 1).map(p => `
-                                <li class="page-item ${p==currentPage?'active':''}"><a class="page-link">${p}</a></li>
+                                <li class="page-item ${p == currentPage ? 'active' : ''}"><a class="page-link">${p}</a></li>
                             `).join('') : ''}
                             
                             <li class="page-item">
-                            <a class="page-link next-page" aria-label="Next">
+                            <a class="page-link next-page ${total_pages==currentPage?'disabled':''}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span class="sr-only">Next</span>
                             </a>
                             </li>
                         </ul>
                     </nav>
-                    `:''} -->
+                    `: ''} 
                 </div>
             </div>
         `);
@@ -259,7 +261,6 @@ class mGrantTask {
             const isChecked = $(e.currentTarget).prop('checked');
             $('.toggleCheckbox').prop('checked', isChecked);
             selectedIds = isChecked ? this.task_list?.map(x => x.name) : [];
-            console.log(selectedIds)
             toggleVisibility('bulkDeleteButton', selectedIds.length > 0);
             // toggleVisibility('total_records', selectedIds.length === 0, 'flex');
             toggleVisibility('viewBulkDropdown', selectedIds.length > 0);
@@ -311,20 +312,24 @@ class mGrantTask {
                 console.error(`Task ${taskName} not found.`);
             }
         }.bind(this));
-         // pageination
-        // $(document).on('click', '.page-link', (e) => {
-        //     let page = $(e.target).text(); 
-        //     this.show_task(Number(page)); 
-        // });
-        // // 
-        // $(document).on('click', '.prev-page', (e) => {
-        //     if (currentPage > 1) this.show_task(currentPage - 1);
-        // });
-    
-        // $(document).on('click', '.next-page', (e) => {
-        //     if (currentPage < total_pages) this.show_task(currentPage + 1);
-        // });
-        
+        // pageination
+        // Unbind existing event listeners before binding new ones
+        $(document).off('click', '.page-link').on('click', '.page-link', (e) => {
+            let page = Number($(e.target).text());
+            if (!isNaN(page)) {
+                this.show_task(page);
+            }
+        });
+
+        $(document).off('click', '.prev-page').on('click', '.prev-page', (e) => {
+            if (currentPage > 1) this.show_task(currentPage - 1);
+        });
+
+        $(document).off('click', '.next-page').on('click', '.next-page', (e) => {
+            if (currentPage < total_pages) this.show_task(currentPage + 1);
+        });
+
+
         // bulk delete
         $('#bulkDeleteButton').on('click', function () {
             frappe.confirm('Are you sure you want to delete the selected tasks?', async () => {
@@ -337,12 +342,12 @@ class mGrantTask {
                         console.error(`Failed to delete ${taskName}:`, error);
                     }
                 }
-                this.show_task(); 
+                this.show_task();
                 frappe.show_alert({ message: __('Tasks deleted successfully'), indicator: 'green' });
             });
         }.bind(this));
     }
-    
+
     // Update Task Status
     async updateTaskStatus(taskIds, status, key) {
 
@@ -350,7 +355,7 @@ class mGrantTask {
             taskIds.map((taskName, index) =>
                 new Promise(resolve => setTimeout(resolve, index * 200)) // Apply delay
                     .then(() => frappe.db.set_value('ToDo', taskName, key, status))
-                    .then(() =>{
+                    .then(() => {
                         this.task_list = this.task_list.map(task => {
                             if (task.name === taskName) {
                                 task[key] = status;
@@ -373,10 +378,10 @@ class mGrantTask {
             frappe.show_alert({ message: __(`Task deleted successfully`), indicator: 'green' });
         });
     }
-    async form (data = null, action, frm){
+    async form(data = null, action, frm) {
         let title = action === 'New Task' ? 'New Task' : 'Edit Task';
         let primaryActionLabel = action === 'New Task' ? 'Save' : 'Update';
-    
+
         let fileds = await frappe.call({
             method: 'frappe.desk.form.load.getdoctype',
             args: {
@@ -385,7 +390,7 @@ class mGrantTask {
                 cached_timestamp: frappe.datetime.now_datetime()
             }
         });
-    
+
         // Create the dialog form
         let fields = fileds?.docs[0]?.fields.filter((field) => !['Tab Break'].includes(field.fieldtype)).map(field => {
             if (action === 'Edit Task' && data) {
@@ -420,7 +425,7 @@ class mGrantTask {
                 field.onchange = () => {
                     if (cur_dialog?.get_value('custom_start_date') && cur_dialog.get_value('date')) {
                         if (new Date(cur_dialog?.get_value('custom_start_date')) > new Date(cur_dialog.get_value('date'))) {
-                            cur_dialog.set_value('date','')
+                            cur_dialog.set_value('date', '')
                             frappe.throw({
                                 message: "Due Date should always be greater than Start Date"
                             })
@@ -435,7 +440,7 @@ class mGrantTask {
                 field.onchange = () => {
                     if (cur_dialog?.get_value('custom_start_date') && cur_dialog?.get_value('date')) {
                         if (new Date(cur_dialog?.get_value('custom_start_date')) > new Date(cur_dialog?.get_value('date'))) {
-                            cur_dialog.set_value('date','')
+                            cur_dialog.set_value('date', '')
                             frappe.throw({
                                 message: "Due Date should always be greater than Start Date"
                             })
@@ -455,13 +460,13 @@ class mGrantTask {
             title: title,
             fields: fields,
             primary_action_label: primaryActionLabel,
-            primary_action: function(values) {
+            primary_action: function (values) {
                 if (action === 'New Task') {
                     // Create new task logic
                     frappe.db.insert({
                         doctype: "ToDo",
                         ...values
-                    }).then(async(new_doc) => {
+                    }).then(async (new_doc) => {
                         if (new_doc) {
                             frappe.show_alert({ message: __('Task created successfully'), indicator: 'green' });
                             this.show_task();
@@ -491,9 +496,9 @@ class mGrantTask {
                     });
                 }
             }.bind(this)
-            
+
         });
-    
+
         if (action === 'Edit Task' && data) {
             task_form.set_values(data);
         }
