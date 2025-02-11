@@ -16,8 +16,12 @@
   "mgrant_logo",
   "proposal_stages_tab",
   "proposal_stages",
+  "section_break_vayp",
+  "update_stages",
+  "column_break_ukqa",
   "sign_off_prerequisite",
   "positive",
+  "column_break_qnkv",
   "negative",
   "neutral",
   "approval_proposal_section",
@@ -97,7 +101,8 @@
    "fieldname": "proposal_stages",
    "fieldtype": "Table",
    "label": "Proposal Stages",
-   "options": "Proposal Stages Child"
+   "options": "Proposal Stages Child",
+   "read_only": 1
   },
   {
    "fieldname": "positive",
@@ -169,13 +174,30 @@
    "hidden": 1,
    "label": "Level 3 (Email)",
    "read_only": 1
+  },
+  {
+   "fieldname": "update_stages",
+   "fieldtype": "Button",
+   "label": "Update Stages"
+  },
+  {
+   "fieldname": "section_break_vayp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_ukqa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qnkv",
+   "fieldtype": "Column Break"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-02-11 11:36:27.215296",
+ "modified": "2025-02-11 20:37:05.189459",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",
