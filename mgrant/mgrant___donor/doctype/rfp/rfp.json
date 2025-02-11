@@ -14,13 +14,19 @@
   "invitation_type",
   "donor",
   "column_break_eywv",
-  "spoc",
+  "spoc_email",
+  "spoc_name",
   "deadline",
   "budget_ceiling",
   "column_break_cefz",
   "section_break_rmzh",
   "objective",
   "column_break_sgxv",
+  "section_break_xkpc",
+  "donor_poc",
+  "column_break_sitx",
+  "donor_email",
+  "donor_name",
   "monitoring_configuration_tab",
   "geolevel_configuration",
   "geolevel_budget_allocation",
@@ -97,14 +103,6 @@
   {
    "fieldname": "column_break_eywv",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "spoc",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "SPOC",
-   "options": "Contact",
-   "reqd": 1
   },
   {
    "fieldname": "deadline",
@@ -315,12 +313,57 @@
    "fieldname": "additional_questions",
    "fieldtype": "Table",
    "options": "DocField"
+  },
+  {
+   "fieldname": "section_break_xkpc",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Hidden field"
+  },
+  {
+   "fetch_from": "donor.contact_first_name",
+   "fieldname": "donor_poc",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Donor PoC"
+  },
+  {
+   "fetch_from": "donor.email",
+   "fieldname": "donor_email",
+   "fieldtype": "Data",
+   "label": "Donor Email"
+  },
+  {
+   "fieldname": "column_break_sitx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "donor.donor_name",
+   "fieldname": "donor_name",
+   "fieldtype": "Data",
+   "label": "Donor Name"
+  },
+  {
+   "fieldname": "spoc_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "SPOC Name",
+   "options": "Contact",
+   "reqd": 1
+  },
+  {
+   "fieldname": "spoc_email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "SPOC Email",
+   "options": "Email",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-15 02:27:57.558758",
+ "modified": "2025-02-11 20:26:59.857676",
  "modified_by": "Administrator",
  "module": "mGrant - Donor",
  "name": "RFP",
