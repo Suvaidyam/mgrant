@@ -2,6 +2,19 @@ import frappe
 from mgrant.utils import get_state_closure
 
 def validate(self):
+    if self.request_date:
+        dt = frappe.utils.getdate(self.request_date)
+        mgrant_settings = frappe.get_doc("mGrant Settings")
+        if frappe.db.exists("mGrant Settings Grant Wise", self.grant):
+            mgrant_settings = frappe.get_doc("mGrant Settings Grant Wise", self.grant)
+        if mgrant_settings.get('year_type') == "Financial Year":
+            if dt.month < 4:
+                self.financial_year = f"FY-{dt.year-1}"
+            else:
+                self.financial_year = f"FY-{dt.year}"
+        else:
+            self.financial_year = f"FY-{dt.year}"
+            
     if self.requested_amount and self.approved_amount:
         if self.approved_amount > self.requested_amount:
             frappe.throw("Approved Amount cannot be greater than Requested Amount")

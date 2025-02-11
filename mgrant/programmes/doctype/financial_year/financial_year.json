@@ -7,7 +7,8 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "financial_year_name"
+  "financial_year_name",
+  "label"
  ],
  "fields": [
   {
@@ -17,12 +18,18 @@
    "label": "Financial Year Name",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "fieldname": "label",
+   "fieldtype": "Data",
+   "label": "Label",
+   "reqd": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-23 18:04:10.294558",
+ "modified": "2025-02-11 16:17:19.367315",
  "modified_by": "Administrator",
  "module": "Programmes",
  "name": "Financial Year",
@@ -80,5 +87,5 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "financial_year_name"
+ "title_field": "label"
 }
