@@ -51,6 +51,7 @@ frappe.ui.form.on("Proposal", {
         }, 500);
     },
     async refresh(frm) {
+        
         renderRibbons(frm)
         if (frm.is_new()) {
             let donor = await frappe.db.get_list('Donor', { limit: 1, pluck: 'name', order_by: 'creation desc' })
@@ -89,6 +90,39 @@ frappe.ui.form.on("Proposal", {
         setup_multiselect_dependency(frm, 'Block', 'districts', 'district', 'blocks', 'district');
         setup_multiselect_dependency(frm, 'Village', 'blocks', 'block', 'villages', 'block');
 
+        if (frm.doc.rfp){
+            frappe.model.with_doc("RFP", frm.doc.rfp).then(doc => {
+                let table_data = doc?.table_aycd || [];
+                level_1_data = table_data?.filter(row => row?.approver_level === 'Level 1');
+                level_2_data = table_data?.filter(row => row?.approver_level === 'Level 2');
+                level_3_data = table_data?.filter(row => row?.approver_level === 'Level 3');
+
+                if (level_1_data?.length > 0){
+                    frm.set_value('level_1_users', level_1_data);
+                    frm.refresh_field('level_1_users'); 
+                    frm.set_df_property('level_1', 'hidden', 0)
+                    frm.set_df_property('level_1_remarks', 'hidden', 0)
+                } else {
+                    frm.set_df_property('level_1', 'hidden', 1)
+                    frm.set_df_property('level_1_remarks', 'hidden', 1)
+                }
+                if (level_2_data?.length > 0){
+                    frm.set_df_property('level_2', 'hidden', 0)
+                    frm.set_df_property('level_2_remarks', 'hidden', 0)
+                } else {
+                    frm.set_df_property('level_2', 'hidden', 1)
+                    frm.set_df_property('level_2_remarks', 'hidden', 1)
+                }
+                if (level_3_data?.length > 0){
+                    frm.set_df_property('level_3', 'hidden', 0)
+                    frm.set_df_property('level_3_remarks', 'hidden', 0)
+                } else {
+                    frm.set_df_property('level_3', 'hidden', 1)
+                    frm.set_df_property('level_3_remarks', 'hidden', 1)
+                }
+            });
+        }
+        
         if (frm.doc?.rfp) {
             let rfp_doc = await frappe.db.get_doc('RFP', frm.doc?.rfp)
             if (rfp_doc?.additional_questions?.length) {
