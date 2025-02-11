@@ -3,7 +3,7 @@
   "cards": [
    {
     "background_color": null,
-    "card_label": "Total Commitment",
+    "card_label": "Total Commitment Amount",
     "hover_background_color": null,
     "hover_text_color": null,
     "hover_value_color": null,
@@ -12,7 +12,7 @@
     "icon_value": null,
     "info": null,
     "is_visible": 1,
-    "number_card": "Total Planned Budget Overview",
+    "number_card": "Total Commitment Amount",
     "sequence": 1,
     "text_color": null,
     "value_color": null
@@ -26,16 +26,16 @@
     "icon_color": null,
     "icon_type": "FontAwesome",
     "icon_value": null,
-    "info": "",
+    "info": null,
     "is_visible": 1,
-    "number_card": "Funds Received Status",
+    "number_card": "Total Disbursed Amount",
     "sequence": 2,
     "text_color": null,
     "value_color": null
    },
    {
     "background_color": null,
-    "card_label": "Total Utilised",
+    "card_label": "Total Utilised Amount",
     "hover_background_color": null,
     "hover_text_color": null,
     "hover_value_color": null,
@@ -44,7 +44,7 @@
     "icon_value": null,
     "info": null,
     "is_visible": 1,
-    "number_card": "Funds Utilization Summary",
+    "number_card": "Total Utilised Amount",
     "sequence": 3,
     "text_color": null,
     "value_color": null
@@ -58,7 +58,7 @@
     "icon_color": null,
     "icon_type": "FontAwesome",
     "icon_value": null,
-    "info": "Total Disbursed Amount - Total Utilised Amount",
+    "info": null,
     "is_visible": 1,
     "number_card": "Unutilised Disbursed Amount",
     "sequence": 4,
@@ -71,15 +71,15 @@
   "doctype": "Visualization Mapper",
   "doctype_field": "Grant",
   "mapper_type": "Number Card",
-  "modified": "2025-02-11 08:28:35.106844",
-  "name": "VM-000002",
-  "wrapper_field": "budget_dashboard"
+  "modified": "2025-02-11 16:03:28.950416",
+  "name": "VM-000006",
+  "wrapper_field": "dashboard"
  },
  {
   "cards": [
    {
     "background_color": null,
-    "card_label": "Total Commitment",
+    "card_label": "Total Commitment Amount",
     "hover_background_color": null,
     "hover_text_color": null,
     "hover_value_color": null,
@@ -88,7 +88,7 @@
     "icon_value": null,
     "info": null,
     "is_visible": 1,
-    "number_card": "Total Planned Budget Overview",
+    "number_card": "Total Commitment Amount",
     "sequence": 1,
     "text_color": null,
     "value_color": null
@@ -102,16 +102,16 @@
     "icon_color": null,
     "icon_type": "FontAwesome",
     "icon_value": null,
-    "info": "",
+    "info": null,
     "is_visible": 1,
-    "number_card": "Funds Received Status",
+    "number_card": "Total Disbursed Amount",
     "sequence": 2,
     "text_color": null,
     "value_color": null
    },
    {
     "background_color": null,
-    "card_label": "Total Utilised",
+    "card_label": "Total Utilised Amount",
     "hover_background_color": null,
     "hover_text_color": null,
     "hover_value_color": null,
@@ -120,7 +120,7 @@
     "icon_value": null,
     "info": null,
     "is_visible": 1,
-    "number_card": "Funds Utilization Summary",
+    "number_card": "Total Utilised Amount",
     "sequence": 3,
     "text_color": null,
     "value_color": null
@@ -134,7 +134,7 @@
     "icon_color": null,
     "icon_type": "FontAwesome",
     "icon_value": null,
-    "info": "Total Disbursed Amount - Total Utilised Amount",
+    "info": null,
     "is_visible": 1,
     "number_card": "Unutilised Disbursed Amount",
     "sequence": 4,
@@ -147,9 +147,9 @@
   "doctype": "Visualization Mapper",
   "doctype_field": "Grant",
   "mapper_type": "Number Card",
-  "modified": "2025-02-11 08:34:38.055308",
-  "name": "VM-000003",
-  "wrapper_field": "dashboard"
+  "modified": "2025-02-11 16:05:12.126823",
+  "name": "VM-000007",
+  "wrapper_field": "budget_dashboard"
  },
  {
   "cards": [
@@ -223,9 +223,9 @@
   "doctype": "Visualization Mapper",
   "doctype_field": "Grant",
   "mapper_type": "Number Card",
-  "modified": "2025-02-11 10:34:35.479237",
-  "name": "VM-000004",
-  "wrapper_field": "general_tasks"
+  "modified": "2025-02-11 16:14:45.387498",
+  "name": "VM-000008",
+  "wrapper_field": "general_task"
  },
  {
   "cards": [
@@ -299,8 +299,8 @@
   "doctype": "Visualization Mapper",
   "doctype_field": "Grant",
   "mapper_type": "Number Card",
-  "modified": "2025-02-11 10:34:10.931868",
-  "name": "VM-000005",
+  "modified": "2025-02-11 16:14:33.859911",
+  "name": "VM-000009",
   "wrapper_field": "milestones_task"
  }
 ]
