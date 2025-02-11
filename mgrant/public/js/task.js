@@ -177,7 +177,7 @@ class mGrantTask {
                                     </div>
                                 </td>
                                 <td style="white-space: nowrap;">${task.custom_start_date ? getFormattedDate(task.custom_start_date) : '--:--'}</td> 
-                                <td style="padding: 0.5rem; vertical-align: middle;" style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%;" class="${(task.date && (new Date(task.date) < new Date(frappe.datetime.get_today()))) ? 'text-danger' : 'text-muted'}">${task.date ? getFormattedDate(task.date) : '--:--'}</td>
+                                <td style="white-space: nowrap;font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%;" class="${(task.date && (new Date(task.date) < new Date(frappe.datetime.get_today()))) ? 'text-danger' : 'text-muted'}">${task.date ? getFormattedDate(task.date) : '--:--'}</td>
                                     
                                 <td>
                                     <div class="dropdown">
