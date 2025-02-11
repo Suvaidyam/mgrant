@@ -1,747 +1,774 @@
 {
-   "actions": [],
-   "autoname": "format:Grant-{####}",
-   "creation": "2024-08-12 17:29:52.004077",
-   "doctype": "DocType",
-   "engine": "InnoDB",
-   "field_order": [
-      "sub_granting_section",
-      "column_break_jbnd",
-      "implementation_type",
-      "column_break_htax",
-      "parent_grant",
-      "column_break_vssb",
-      "section_break_psro",
-      "grant_name",
-      "programme",
-      "ngo",
-      "donor",
-      "vendor",
-      "column_break_qmgi",
-      "start_date",
-      "end_date",
-      "grant_duration_in_months",
-      "grant_status",
-      "column_break_nwys",
-      "grant_type",
-      "funding_type",
-      "subgranting_status",
-      "grant_agreement_mou",
-      "extended_date",
-      "descriptive_information_section",
-      "theme",
-      "sdg",
-      "focus_area",
-      "column_break_dnll",
-      "grant_description",
-      "column_break_aqum",
-      "geographical_information_section",
-      "column_break_shct",
-      "states",
-      "districts",
-      "column_break_evjf",
-      "blocks",
-      "villages",
-      "column_break_syvc",
-      "section_break_nbbo",
-      "total_planned_budget",
-      "total_amount_requested_from_donor",
-      "lfas_copied",
-      "column_break_judq",
-      "total_funds_received",
-      "total_funds_utilised",
-      "column_break_jfsi",
-      "total_unspent_funds",
-      "section_break_atad",
-      "tranche",
-      "section_break_vkwu",
-      "demography_focus",
-      "subgranting_information_section",
-      "partner_ngo",
-      "parnter_vendor",
-      "column_break_dwqw",
-      "total_funds_subgranted",
-      "total_subgrant_utilisation",
-      "section_break_cerd",
-      "column_break_jmwk",
-      "proposal",
-      "column_break_pyvg",
-      "column_break_rsvl",
-      "tasks_tab",
-      "section_break_luwf",
-      "general_tasks",
-      "milestones_task_section",
-      "milestones_task",
-      "section_break_qgvn",
-      "tasks",
-      "budget_tab",
-      "budget_dashboard",
-      "budget",
-      "financial_years",
-      "tranche_tab",
-      "section_break_joze",
-      "dashboard",
-      "section_break_xkmx",
-      "column_break_aekz",
-      "fund_requests",
-      "fund_disbursements_section",
-      "fund_disbursements",
-      "input_tab",
-      "input",
-      "output_tab",
-      "output",
-      "outcome_tab",
-      "outcome",
-      "impact_tab",
-      "impact",
-      "reportings_tab",
-      "reportings",
-      "contacts_tab",
-      "contacts",
-      "email_tab",
-      "email",
-      "gallery_tab",
-      "gallery",
-      "amended_from",
-      "sub_grants_tab",
-      "sub_grants",
-      "notes_tab",
-      "notes",
-      "timeline_tab",
-      "timeline",
-      "section_break_myzu",
-      "test"
-   ],
-   "fields": [
-      {
-         "fieldname": "start_date",
-         "fieldtype": "Date",
-         "in_list_view": 1,
-         "label": "MoU Start Date",
-         "mandatory_depends_on": "eval:!frappe.user_roles.includes('NGO Admin')",
-         "read_only_depends_on": "eval:doc.proposal && doc.start_date && doc.__unsaved != 0 || frappe.user_roles.includes('NGO Admin');"
-      },
-      {
-         "fieldname": "end_date",
-         "fieldtype": "Date",
-         "in_list_view": 1,
-         "label": "MoU End Date",
-         "mandatory_depends_on": "eval:!frappe.user_roles.includes('NGO Admin')",
-         "read_only_depends_on": "eval:doc.proposal && doc.end_date && doc.__unsaved != 0 || frappe.user_roles.includes('NGO Admin');"
-      },
-      {
-         "fieldname": "budget_tab",
-         "fieldtype": "Tab Break",
-         "label": "Budget"
-      },
-      {
-         "fieldname": "budget",
-         "fieldtype": "HTML"
-      },
-      {
-         "fieldname": "output_tab",
-         "fieldtype": "Tab Break",
-         "label": "Output"
-      },
-      {
-         "fieldname": "output",
-         "fieldtype": "HTML"
-      },
-      {
-         "fieldname": "outcome_tab",
-         "fieldtype": "Tab Break",
-         "label": "Outcome"
-      },
-      {
-         "fieldname": "outcome",
-         "fieldtype": "HTML"
-      },
-      {
-         "fieldname": "impact_tab",
-         "fieldtype": "Tab Break",
-         "label": "Impact"
-      },
-      {
-         "fieldname": "impact",
-         "fieldtype": "HTML"
-      },
-      {
-         "default": "email",
-         "fieldname": "email_tab",
-         "fieldtype": "Tab Break",
-         "label": "Email"
-      },
-      {
-         "default": "Communication",
-         "fieldname": "email",
-         "fieldtype": "HTML",
-         "options": "<div id=\"email\"></div>"
-      },
-      {
-         "fieldname": "states",
-         "fieldtype": "Table MultiSelect",
-         "label": "States",
-         "options": "State Child",
-         "read_only_depends_on": "eval:doc.proposal && doc.states.length != 0 && doc.__unsaved != 0;"
-      },
-      {
-         "fieldname": "column_break_shct",
-         "fieldtype": "Column Break",
-         "options": "Block Child"
-      },
-      {
-         "fieldname": "districts",
-         "fieldtype": "Table MultiSelect",
-         "label": "Districts",
-         "options": "District Child",
-         "read_only_depends_on": "eval:doc.proposal && doc.districts.length != 0 && doc.__unsaved != 0;"
-      },
-      {
-         "fieldname": "blocks",
-         "fieldtype": "Table MultiSelect",
-         "label": "Blocks",
-         "options": "Block Child",
-         "read_only_depends_on": "eval:doc.proposal && doc.blocks.length != 0 && doc.__unsaved != 0;"
-      },
-      {
-         "fieldname": "demography_focus",
-         "fieldtype": "Table",
-         "label": "Demography Focus and Projected Beneficiary reach (Numbers)",
-         "options": "Demography Group Child",
-         "read_only_depends_on": "eval:doc.proposal && doc.demography_focus.length > 0 && doc.__unsaved != 0;"
-      },
-      {
-         "fieldname": "column_break_qmgi",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "section_break_nbbo",
-         "fieldtype": "Section Break",
-         "hide_border": 1,
-         "label": "Financial Information"
-      },
-      {
-         "fieldname": "total_amount_requested_from_donor",
-         "fieldtype": "Currency",
-         "label": "Total Requested Funds",
-         "read_only": 1
-      },
-      {
-         "default": "tasks",
-         "fieldname": "tasks_tab",
-         "fieldtype": "Tab Break",
-         "label": "Milestone/Task"
-      },
-      {
-         "default": "gallery",
-         "fieldname": "gallery_tab",
-         "fieldtype": "Tab Break",
-         "label": "Files"
-      },
-      {
-         "default": "gallery",
-         "description": "File",
-         "fieldname": "gallery",
-         "fieldtype": "HTML",
-         "options": "<div id=\"gallery\"></div>"
-      },
-      {
-         "fieldname": "column_break_nwys",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "section_break_cerd",
-         "fieldtype": "Section Break",
-         "label": "Additional Information"
-      },
-      {
-         "fieldname": "section_break_psro",
-         "fieldtype": "Section Break",
-         "label": "Basic Information"
-      },
-      {
-         "fieldname": "tranche_tab",
-         "fieldtype": "Tab Break",
-         "label": "Fund Request & Disbursement"
-      },
-      {
-         "fieldname": "tranche",
-         "fieldtype": "HTML",
-         "label": "Tranches"
-      },
-      {
-         "fieldname": "column_break_pyvg",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "column_break_rsvl",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "tasks",
-         "fieldtype": "HTML",
-         "options": "<div id=\"tasks\"></div>"
-      },
-      {
-         "fieldname": "column_break_judq",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "input_tab",
-         "fieldtype": "Tab Break",
-         "label": "Input"
-      },
-      {
-         "fieldname": "input",
-         "fieldtype": "HTML"
-      },
-      {
-         "fieldname": "proposal",
-         "fieldtype": "Link",
-         "hidden": 1,
-         "label": "Application",
-         "options": "Proposal"
-      },
-      {
-         "fieldname": "amended_from",
-         "fieldtype": "Link",
-         "label": "Amended From",
-         "no_copy": 1,
-         "options": "Grant",
-         "print_hide": 1,
-         "read_only": 1,
-         "search_index": 1
-      },
-      {
-         "fieldname": "ngo",
-         "fieldtype": "Link",
-         "label": "NGO",
-         "link_filters": "[[\"NGO\",\"is_blacklisted\",\"=\",0]]",
-         "options": "NGO",
-         "read_only_depends_on": "eval:doc.proposal && doc.ngo && doc.__unsaved != 0 || frappe.user_roles.includes('NGO Admin');",
-         "reqd": 1,
-         "search_index": 1
-      },
-      {
-         "depends_on": "eval:!frappe.user_roles.includes('NGO Admin');",
-         "fieldname": "donor",
-         "fieldtype": "Link",
-         "label": "Donor",
-         "mandatory_depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
-         "options": "Donor",
-         "read_only_depends_on": "eval:doc.proposal && doc.donor && doc.__unsaved != 0",
-         "search_index": 1
-      },
-      {
-         "fieldname": "timeline_tab",
-         "fieldtype": "Tab Break",
-         "label": "Change Logs"
-      },
-      {
-         "fieldname": "timeline",
-         "fieldtype": "HTML",
-         "options": "<div id=\"timeline\"></div>\n"
-      },
-      {
-         "fieldname": "grant_name",
-         "fieldtype": "Data",
-         "in_global_search": 1,
-         "in_list_view": 1,
-         "label": "Grant Title",
-         "mandatory_depends_on": "eval:!frappe.user_roles.includes('NGO Admin')",
-         "read_only_depends_on": "eval:doc.proposal && doc.grant_name && doc.__unsaved != 0 || frappe.user_roles.includes('NGO Admin');",
-         "reqd": 1
-      },
-      {
-         "collapsible": 1,
-         "fieldname": "section_break_vkwu",
-         "fieldtype": "Section Break",
-         "hide_border": 1,
-         "label": "Demography Information"
-      },
-      {
-         "fieldname": "villages",
-         "fieldtype": "Table MultiSelect",
-         "label": "Villages",
-         "options": "Village Child",
-         "read_only_depends_on": "eval:doc.proposal && doc.villages.length != 0 && doc.__unsaved != 0;"
-      },
-      {
-         "fieldname": "column_break_evjf",
-         "fieldtype": "Column Break"
-      },
-      {
-         "default": "Active",
-         "fieldname": "grant_status",
-         "fieldtype": "Select",
-         "label": "Grant Status",
-         "options": "Active\nInactive",
-         "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin');"
-      },
-      {
-         "depends_on": "eval:!frappe.user_roles.includes('NGO Admin');",
-         "fieldname": "grant_type",
-         "fieldtype": "Select",
-         "label": "Grant Type",
-         "options": "CSR\nNon-CSR"
-      },
-      {
-         "fieldname": "funding_type",
-         "fieldtype": "Select",
-         "label": "Funding Type",
-         "options": "FC\nNon-FC",
-         "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin');"
-      },
-      {
-         "default": "Sub-granting Inactive",
-         "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
-         "fieldname": "subgranting_status",
-         "fieldtype": "Select",
-         "hidden": 1,
-         "label": "Sub-granting Status",
-         "options": "Sub-granting Inactive\nSub-granting Active",
-         "read_only": 1,
-         "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin');"
-      },
-      {
-         "fieldname": "grant_agreement_mou",
-         "fieldtype": "Attach",
-         "label": "Grant Agreement/MoU",
-         "read_only": 1,
-         "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin');"
-      },
-      {
-         "fieldname": "descriptive_information_section",
-         "fieldtype": "Section Break",
-         "label": "Grant Narrative"
-      },
-      {
-         "fieldname": "grant_description",
-         "fieldtype": "Small Text",
-         "label": "Grant Description",
-         "read_only_depends_on": "eval:doc.proposal && doc.grant_description && doc.__unsaved != 0;"
-      },
-      {
-         "fieldname": "programme",
-         "fieldtype": "Link",
-         "label": "Programme",
-         "options": "Programme",
-         "read_only_depends_on": "eval:doc.proposal && doc.programme && doc.__unsaved != 0 || frappe.user_roles.includes('NGO Admin');"
-      },
-      {
-         "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
-         "fieldname": "partner_ngo",
-         "fieldtype": "Table MultiSelect",
-         "hidden": 1,
-         "label": "Sub-grantee (NGO)",
-         "options": "NGO Child"
-      },
-      {
-         "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
-         "fieldname": "parnter_vendor",
-         "fieldtype": "Table MultiSelect",
-         "hidden": 1,
-         "label": "Sub-grantee (Vendor)",
-         "options": "Vendor Child"
-      },
-      {
-         "fieldname": "total_planned_budget",
-         "fieldtype": "Currency",
-         "label": "Total Sanctioned Funds",
-         "read_only": 1
-      },
-      {
-         "fieldname": "total_funds_received",
-         "fieldtype": "Currency",
-         "label": "Total Disbursed Funds",
-         "read_only": 1
-      },
-      {
-         "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
-         "fieldname": "total_funds_subgranted",
-         "fieldtype": "Currency",
-         "label": "Total Funds Sub-granted",
-         "read_only": 1
-      },
-      {
-         "fieldname": "total_funds_utilised",
-         "fieldtype": "Currency",
-         "label": "Total Utilised Funds",
-         "read_only": 1
-      },
-      {
-         "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
-         "fieldname": "total_subgrant_utilisation",
-         "fieldtype": "Currency",
-         "label": "Total Sub-grant Utilisation",
-         "read_only": 1
-      },
-      {
-         "fieldname": "total_unspent_funds",
-         "fieldtype": "Currency",
-         "label": "Total Unspent Funds",
-         "read_only": 1
-      },
-      {
-         "collapsible": 1,
-         "fieldname": "geographical_information_section",
-         "fieldtype": "Section Break",
-         "label": "Geographical Information"
-      },
-      {
-         "fieldname": "theme",
-         "fieldtype": "Link",
-         "label": "Theme",
-         "options": "Themes",
-         "read_only_depends_on": "eval:doc.proposal && doc.theme && doc.__unsaved != 0;"
-      },
-      {
-         "fieldname": "sdg",
-         "fieldtype": "Link",
-         "label": "SDG",
-         "options": "SDGs",
-         "read_only_depends_on": "eval:doc.proposal && doc.sdg && doc.__unsaved != 0;"
-      },
-      {
-         "fieldname": "focus_area",
-         "fieldtype": "Link",
-         "label": "Focus Area",
-         "options": "Focus Area",
-         "read_only_depends_on": "eval:doc.proposal && doc.focus_area && doc.__unsaved != 0;"
-      },
-      {
-         "fieldname": "contacts_tab",
-         "fieldtype": "Tab Break",
-         "label": "Contacts"
-      },
-      {
-         "fieldname": "contacts",
-         "fieldtype": "HTML",
-         "hidden": 1
-      },
-      {
-         "fieldname": "reportings_tab",
-         "fieldtype": "Tab Break",
-         "label": "Reporting"
-      },
-      {
-         "fieldname": "reportings",
-         "fieldtype": "HTML"
-      },
-      {
-         "default": "0",
-         "fieldname": "grant_duration_in_months",
-         "fieldtype": "Int",
-         "label": "Grant Duration (in months)",
-         "non_negative": 1,
-         "read_only": 1
-      },
-      {
-         "default": "Self Implementation",
-         "fieldname": "implementation_type",
-         "fieldtype": "Select",
-         "hidden": 1,
-         "label": "Implementation Type",
-         "options": "Self Implementation\nSub Grant",
-         "read_only_depends_on": "eval:doc.proposal && doc.implementation_type && doc.__unsaved != 0;",
-         "set_only_once": 1
-      },
-      {
-         "fieldname": "column_break_htax",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "column_break_vssb",
-         "fieldtype": "Column Break"
-      },
-      {
-         "depends_on": "eval:doc.implementation_type == \"Sub Grant\"",
-         "fieldname": "parent_grant",
-         "fieldtype": "Link",
-         "label": "Parent Grant",
-         "link_filters": "[[\"Grant\",\"implementation_type\",\"=\",\"Self Implementation\"]]",
-         "mandatory_depends_on": "eval:doc.implementation_type == \"Sub Grant\"",
-         "options": "Grant",
-         "set_only_once": 1
-      },
-      {
-         "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
-         "fieldname": "sub_grants_tab",
-         "fieldtype": "Tab Break",
-         "label": "Sub-grants"
-      },
-      {
-         "fieldname": "sub_grants",
-         "fieldtype": "HTML"
-      },
-      {
-         "fieldname": "column_break_jbnd",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "notes_tab",
-         "fieldtype": "Tab Break",
-         "label": "Notes"
-      },
-      {
-         "fieldname": "notes",
-         "fieldtype": "HTML"
-      },
-      {
-         "fieldname": "sub_granting_section",
-         "fieldtype": "Section Break"
-      },
-      {
-         "fieldname": "financial_years",
-         "fieldtype": "Table MultiSelect",
-         "hidden": 1,
-         "is_virtual": 1,
-         "label": "Financial Years",
-         "options": "Financial Year Child"
-      },
-      {
-         "default": "0",
-         "fieldname": "lfas_copied",
-         "fieldtype": "Check",
-         "hidden": 1,
-         "label": "LFAs Migration (System Field)"
-      },
-      {
-         "fieldname": "column_break_jmwk",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "subgranting_information_section",
-         "fieldtype": "Section Break",
-         "label": "Subgranting Information"
-      },
-      {
-         "fieldname": "column_break_dwqw",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "fund_disbursements",
-         "fieldtype": "HTML",
-         "label": "Fund Disbursements"
-      },
-      {
-         "fieldname": "fund_requests",
-         "fieldtype": "HTML",
-         "label": "Fund Requests"
-      },
-      {
-         "fieldname": "section_break_joze",
-         "fieldtype": "Section Break"
-      },
-      {
-         "fieldname": "dashboard",
-         "fieldtype": "HTML",
-         "label": "Dashboard"
-      },
-      {
-         "fieldname": "section_break_xkmx",
-         "fieldtype": "Section Break"
-      },
-      {
-         "fieldname": "column_break_aekz",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "budget_dashboard",
-         "fieldtype": "HTML",
-         "label": "Dashboard"
-      },
-      {
-         "fieldname": "fund_disbursements_section",
-         "fieldtype": "Section Break"
-      },
-      {
-         "fieldname": "extended_date",
-         "fieldtype": "Date",
-         "in_list_view": 1,
-         "label": "Extended Date",
-         "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin');"
-      },
-      {
-         "fieldname": "column_break_dnll",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "column_break_aqum",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "column_break_syvc",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "column_break_jfsi",
-         "fieldtype": "Column Break"
-      },
-      {
-         "fieldname": "section_break_atad",
-         "fieldtype": "Section Break",
-         "hide_border": 1
-      },
-      {
-         "fieldname": "vendor",
-         "fieldtype": "Link",
-         "label": "Vendor",
-         "options": "Vendor",
-         "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin');"
-      }
-   ],
-   "index_web_pages_for_search": 1,
-   "links": [],
-   "modified": "2025-02-10 18:27:34.158096",
-   "modified_by": "Administrator",
-   "module": "mGrant - Project",
-   "name": "Grant",
-   "naming_rule": "Expression",
-   "owner": "Administrator",
-   "permissions": [
-      {
-         "create": 1,
-         "delete": 1,
-         "email": 1,
-         "export": 1,
-         "print": 1,
-         "read": 1,
-         "report": 1,
-         "role": "System Manager",
-         "share": 1,
-         "write": 1
-      },
-      {
-         "create": 1,
-         "delete": 1,
-         "email": 1,
-         "export": 1,
-         "print": 1,
-         "read": 1,
-         "report": 1,
-         "role": "NGO Admin",
-         "share": 1,
-         "write": 1
-      },
-      {
-         "email": 1,
-         "export": 1,
-         "print": 1,
-         "read": 1,
-         "report": 1,
-         "role": "Partner NGO",
-         "select": 1,
-         "share": 1,
-         "write": 1
-      }
-   ],
-   "show_title_field_in_link": 1,
-   "sort_field": "creation",
-   "sort_order": "DESC",
-   "states": [],
-   "title_field": "grant_name",
-   "track_changes": 1,
-   "track_seen": 1,
-   "track_views": 1
+ "actions": [],
+ "autoname": "format:Grant-{####}",
+ "creation": "2024-08-12 17:29:52.004077",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sub_granting_section",
+  "column_break_jbnd",
+  "implementation_type",
+  "column_break_htax",
+  "parent_grant",
+  "column_break_vssb",
+  "section_break_psro",
+  "grant_name",
+  "programme",
+  "ngo",
+  "donor",
+  "vendor",
+  "column_break_qmgi",
+  "start_date",
+  "end_date",
+  "grant_duration_in_months",
+  "grant_status",
+  "column_break_nwys",
+  "grant_type",
+  "funding_type",
+  "subgranting_status",
+  "grant_agreement_mou",
+  "extended_date",
+  "descriptive_information_section",
+  "theme",
+  "sdg",
+  "focus_area",
+  "column_break_dnll",
+  "grant_description",
+  "column_break_aqum",
+  "geographical_information_section",
+  "column_break_shct",
+  "states",
+  "districts",
+  "column_break_evjf",
+  "blocks",
+  "villages",
+  "column_break_syvc",
+  "section_break_nbbo",
+  "total_planned_budget",
+  "total_amount_requested_from_donor",
+  "lfas_copied",
+  "column_break_judq",
+  "total_funds_received",
+  "total_funds_utilised",
+  "column_break_jfsi",
+  "total_unspent_funds",
+  "section_break_atad",
+  "tranche",
+  "section_break_vkwu",
+  "demography_focus",
+  "subgranting_information_section",
+  "partner_ngo",
+  "parnter_vendor",
+  "column_break_dwqw",
+  "total_funds_subgranted",
+  "total_subgrant_utilisation",
+  "section_break_cerd",
+  "column_break_jmwk",
+  "proposal",
+  "column_break_pyvg",
+  "column_break_rsvl",
+  "tasks_tab",
+  "section_break_sddg",
+  "b",
+  "general_task",
+  "a",
+  "milestones_task",
+  "general_tasks_section",
+  "tasks",
+  "budget_tab",
+  "budget_dashboard",
+  "budget",
+  "financial_years",
+  "tranche_tab",
+  "section_break_joze",
+  "dashboard",
+  "section_break_xkmx",
+  "column_break_aekz",
+  "fund_requests",
+  "fund_disbursements_section",
+  "fund_disbursements",
+  "input_tab",
+  "input",
+  "output_tab",
+  "output",
+  "outcome_tab",
+  "outcome",
+  "impact_tab",
+  "impact",
+  "reportings_tab",
+  "reportings",
+  "contacts_tab",
+  "contacts",
+  "email_tab",
+  "email",
+  "gallery_tab",
+  "gallery",
+  "amended_from",
+  "sub_grants_tab",
+  "sub_grants",
+  "notes_tab",
+  "notes",
+  "timeline_tab",
+  "timeline"
+ ],
+ "fields": [
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "MoU Start Date",
+   "mandatory_depends_on": "eval:!frappe.user_roles.includes('NGO Admin')",
+   "read_only_depends_on": "eval:doc.proposal && doc.start_date && doc.__unsaved != 0 || frappe.user_roles.includes('NGO Admin');"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "MoU End Date",
+   "mandatory_depends_on": "eval:!frappe.user_roles.includes('NGO Admin')",
+   "read_only_depends_on": "eval:doc.proposal && doc.end_date && doc.__unsaved != 0 || frappe.user_roles.includes('NGO Admin');"
+  },
+  {
+   "fieldname": "budget_tab",
+   "fieldtype": "Tab Break",
+   "label": "Budget"
+  },
+  {
+   "fieldname": "budget",
+   "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "output_tab",
+   "fieldtype": "Tab Break",
+   "label": "Output"
+  },
+  {
+   "fieldname": "output",
+   "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "outcome_tab",
+   "fieldtype": "Tab Break",
+   "label": "Outcome"
+  },
+  {
+   "fieldname": "outcome",
+   "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "impact_tab",
+   "fieldtype": "Tab Break",
+   "label": "Impact"
+  },
+  {
+   "fieldname": "impact",
+   "fieldtype": "HTML"
+  },
+  {
+   "default": "email",
+   "fieldname": "email_tab",
+   "fieldtype": "Tab Break",
+   "label": "Email"
+  },
+  {
+   "default": "Communication",
+   "fieldname": "email",
+   "fieldtype": "HTML",
+   "options": "<div id=\"email\"></div>"
+  },
+  {
+   "fieldname": "states",
+   "fieldtype": "Table MultiSelect",
+   "label": "States",
+   "options": "State Child",
+   "read_only_depends_on": "eval:doc.proposal && doc.states.length != 0 && doc.__unsaved != 0;"
+  },
+  {
+   "fieldname": "column_break_shct",
+   "fieldtype": "Column Break",
+   "options": "Block Child"
+  },
+  {
+   "fieldname": "districts",
+   "fieldtype": "Table MultiSelect",
+   "label": "Districts",
+   "options": "District Child",
+   "read_only_depends_on": "eval:doc.proposal && doc.districts.length != 0 && doc.__unsaved != 0;"
+  },
+  {
+   "fieldname": "blocks",
+   "fieldtype": "Table MultiSelect",
+   "label": "Blocks",
+   "options": "Block Child",
+   "read_only_depends_on": "eval:doc.proposal && doc.blocks.length != 0 && doc.__unsaved != 0;"
+  },
+  {
+   "fieldname": "demography_focus",
+   "fieldtype": "Table",
+   "label": "Demography Focus and Projected Beneficiary reach (Numbers)",
+   "options": "Demography Group Child",
+   "read_only_depends_on": "eval:doc.proposal && doc.demography_focus.length > 0 && doc.__unsaved != 0;"
+  },
+  {
+   "fieldname": "column_break_qmgi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_nbbo",
+   "fieldtype": "Section Break",
+   "hide_border": 1,
+   "label": "Financial Information"
+  },
+  {
+   "fieldname": "total_amount_requested_from_donor",
+   "fieldtype": "Currency",
+   "label": "Total Requested Funds",
+   "read_only": 1
+  },
+  {
+   "default": "tasks",
+   "fieldname": "tasks_tab",
+   "fieldtype": "Tab Break",
+   "label": "Milestone/Task"
+  },
+  {
+   "default": "gallery",
+   "fieldname": "gallery_tab",
+   "fieldtype": "Tab Break",
+   "label": "Files"
+  },
+  {
+   "default": "gallery",
+   "description": "File",
+   "fieldname": "gallery",
+   "fieldtype": "HTML",
+   "options": "<div id=\"gallery\"></div>"
+  },
+  {
+   "fieldname": "column_break_nwys",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_cerd",
+   "fieldtype": "Section Break",
+   "label": "Additional Information"
+  },
+  {
+   "fieldname": "section_break_psro",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "tranche_tab",
+   "fieldtype": "Tab Break",
+   "label": "Fund Request & Disbursement"
+  },
+  {
+   "fieldname": "tranche",
+   "fieldtype": "HTML",
+   "label": "Tranches"
+  },
+  {
+   "fieldname": "column_break_pyvg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_rsvl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tasks",
+   "fieldtype": "HTML",
+   "options": "<div id=\"tasks\"></div>"
+  },
+  {
+   "fieldname": "column_break_judq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "input_tab",
+   "fieldtype": "Tab Break",
+   "label": "Input"
+  },
+  {
+   "fieldname": "input",
+   "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "proposal",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Application",
+   "options": "Proposal"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Grant",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "ngo",
+   "fieldtype": "Link",
+   "label": "NGO",
+   "link_filters": "[[\"NGO\",\"is_blacklisted\",\"=\",0]]",
+   "options": "NGO",
+   "read_only_depends_on": "eval:doc.proposal && doc.ngo && doc.__unsaved != 0 || frappe.user_roles.includes('NGO Admin');",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "depends_on": "eval:!frappe.user_roles.includes('NGO Admin');",
+   "fieldname": "donor",
+   "fieldtype": "Link",
+   "label": "Donor",
+   "mandatory_depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
+   "options": "Donor",
+   "read_only_depends_on": "eval:doc.proposal && doc.donor && doc.__unsaved != 0",
+   "search_index": 1
+  },
+  {
+   "fieldname": "timeline_tab",
+   "fieldtype": "Tab Break",
+   "label": "Change Logs"
+  },
+  {
+   "fieldname": "timeline",
+   "fieldtype": "HTML",
+   "options": "<div id=\"timeline\"></div>\n"
+  },
+  {
+   "fieldname": "grant_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Grant Title",
+   "mandatory_depends_on": "eval:!frappe.user_roles.includes('NGO Admin')",
+   "read_only_depends_on": "eval:doc.proposal && doc.grant_name && doc.__unsaved != 0 || frappe.user_roles.includes('NGO Admin');",
+   "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_vkwu",
+   "fieldtype": "Section Break",
+   "hide_border": 1,
+   "label": "Demography Information"
+  },
+  {
+   "fieldname": "villages",
+   "fieldtype": "Table MultiSelect",
+   "label": "Villages",
+   "options": "Village Child",
+   "read_only_depends_on": "eval:doc.proposal && doc.villages.length != 0 && doc.__unsaved != 0;"
+  },
+  {
+   "fieldname": "column_break_evjf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Active",
+   "fieldname": "grant_status",
+   "fieldtype": "Select",
+   "label": "Grant Status",
+   "options": "Active\nInactive",
+   "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin');"
+  },
+  {
+   "depends_on": "eval:!frappe.user_roles.includes('NGO Admin');",
+   "fieldname": "grant_type",
+   "fieldtype": "Select",
+   "label": "Grant Type",
+   "options": "CSR\nNon-CSR"
+  },
+  {
+   "fieldname": "funding_type",
+   "fieldtype": "Select",
+   "label": "Funding Type",
+   "options": "FC\nNon-FC",
+   "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin');"
+  },
+  {
+   "default": "Sub-granting Inactive",
+   "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
+   "fieldname": "subgranting_status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Sub-granting Status",
+   "options": "Sub-granting Inactive\nSub-granting Active",
+   "read_only": 1,
+   "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin');"
+  },
+  {
+   "fieldname": "grant_agreement_mou",
+   "fieldtype": "Attach",
+   "label": "Grant Agreement/MoU",
+   "read_only": 1,
+   "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin');"
+  },
+  {
+   "fieldname": "descriptive_information_section",
+   "fieldtype": "Section Break",
+   "label": "Grant Narrative"
+  },
+  {
+   "fieldname": "grant_description",
+   "fieldtype": "Small Text",
+   "label": "Grant Description",
+   "read_only_depends_on": "eval:doc.proposal && doc.grant_description && doc.__unsaved != 0;"
+  },
+  {
+   "fieldname": "programme",
+   "fieldtype": "Link",
+   "label": "Programme",
+   "options": "Programme",
+   "read_only_depends_on": "eval:doc.proposal && doc.programme && doc.__unsaved != 0 || frappe.user_roles.includes('NGO Admin');"
+  },
+  {
+   "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
+   "fieldname": "partner_ngo",
+   "fieldtype": "Table MultiSelect",
+   "hidden": 1,
+   "label": "Sub-grantee (NGO)",
+   "options": "NGO Child"
+  },
+  {
+   "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
+   "fieldname": "parnter_vendor",
+   "fieldtype": "Table MultiSelect",
+   "hidden": 1,
+   "label": "Sub-grantee (Vendor)",
+   "options": "Vendor Child"
+  },
+  {
+   "fieldname": "total_planned_budget",
+   "fieldtype": "Currency",
+   "label": "Total Sanctioned Funds",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_funds_received",
+   "fieldtype": "Currency",
+   "label": "Total Disbursed Funds",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
+   "fieldname": "total_funds_subgranted",
+   "fieldtype": "Currency",
+   "label": "Total Funds Sub-granted",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_funds_utilised",
+   "fieldtype": "Currency",
+   "label": "Total Utilised Funds",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
+   "fieldname": "total_subgrant_utilisation",
+   "fieldtype": "Currency",
+   "label": "Total Sub-grant Utilisation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_unspent_funds",
+   "fieldtype": "Currency",
+   "label": "Total Unspent Funds",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "geographical_information_section",
+   "fieldtype": "Section Break",
+   "label": "Geographical Information"
+  },
+  {
+   "fieldname": "theme",
+   "fieldtype": "Link",
+   "label": "Theme",
+   "options": "Themes",
+   "read_only_depends_on": "eval:doc.proposal && doc.theme && doc.__unsaved != 0;"
+  },
+  {
+   "fieldname": "sdg",
+   "fieldtype": "Link",
+   "label": "SDG",
+   "options": "SDGs",
+   "read_only_depends_on": "eval:doc.proposal && doc.sdg && doc.__unsaved != 0;"
+  },
+  {
+   "fieldname": "focus_area",
+   "fieldtype": "Link",
+   "label": "Focus Area",
+   "options": "Focus Area",
+   "read_only_depends_on": "eval:doc.proposal && doc.focus_area && doc.__unsaved != 0;"
+  },
+  {
+   "fieldname": "contacts_tab",
+   "fieldtype": "Tab Break",
+   "label": "Contacts"
+  },
+  {
+   "fieldname": "contacts",
+   "fieldtype": "HTML",
+   "hidden": 1
+  },
+  {
+   "fieldname": "reportings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Reporting"
+  },
+  {
+   "fieldname": "reportings",
+   "fieldtype": "HTML"
+  },
+  {
+   "default": "0",
+   "fieldname": "grant_duration_in_months",
+   "fieldtype": "Int",
+   "label": "Grant Duration (in months)",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "default": "Self Implementation",
+   "fieldname": "implementation_type",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Implementation Type",
+   "options": "Self Implementation\nSub Grant",
+   "read_only_depends_on": "eval:doc.proposal && doc.implementation_type && doc.__unsaved != 0;",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "column_break_htax",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_vssb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.implementation_type == \"Sub Grant\"",
+   "fieldname": "parent_grant",
+   "fieldtype": "Link",
+   "label": "Parent Grant",
+   "link_filters": "[[\"Grant\",\"implementation_type\",\"=\",\"Self Implementation\"]]",
+   "mandatory_depends_on": "eval:doc.implementation_type == \"Sub Grant\"",
+   "options": "Grant",
+   "set_only_once": 1
+  },
+  {
+   "depends_on": "eval:doc.implementation_type == \"Self Implementation\"",
+   "fieldname": "sub_grants_tab",
+   "fieldtype": "Tab Break",
+   "label": "Sub-grants"
+  },
+  {
+   "fieldname": "sub_grants",
+   "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "column_break_jbnd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notes_tab",
+   "fieldtype": "Tab Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "sub_granting_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "financial_years",
+   "fieldtype": "Table MultiSelect",
+   "hidden": 1,
+   "is_virtual": 1,
+   "label": "Financial Years",
+   "options": "Financial Year Child"
+  },
+  {
+   "default": "0",
+   "fieldname": "lfas_copied",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "LFAs Migration (System Field)"
+  },
+  {
+   "fieldname": "column_break_jmwk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "subgranting_information_section",
+   "fieldtype": "Section Break",
+   "label": "Subgranting Information"
+  },
+  {
+   "fieldname": "column_break_dwqw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fund_disbursements",
+   "fieldtype": "HTML",
+   "label": "Fund Disbursements"
+  },
+  {
+   "fieldname": "fund_requests",
+   "fieldtype": "HTML",
+   "label": "Fund Requests"
+  },
+  {
+   "fieldname": "section_break_joze",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "dashboard",
+   "fieldtype": "HTML",
+   "label": "Dashboard"
+  },
+  {
+   "fieldname": "section_break_xkmx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_aekz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "budget_dashboard",
+   "fieldtype": "HTML",
+   "label": "Dashboard"
+  },
+  {
+   "fieldname": "fund_disbursements_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "extended_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Extended Date",
+   "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin');"
+  },
+  {
+   "fieldname": "column_break_dnll",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_aqum",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_syvc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_jfsi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_atad",
+   "fieldtype": "Section Break",
+   "hide_border": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "label": "Vendor",
+   "options": "Vendor",
+   "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin');"
+  },
+  {
+   "fieldname": "general_tasks_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_sddg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "general_task",
+   "fieldtype": "HTML",
+   "label": "General Task"
+  },
+  {
+   "fieldname": "milestones_task",
+   "fieldtype": "HTML",
+   "label": "Milestones Task"
+  },
+  {
+   "fieldname": "a",
+   "fieldtype": "Heading",
+   "label": "Milestones Task"
+  },
+  {
+   "fieldname": "b",
+   "fieldtype": "Heading",
+   "label": "General Tasks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-11 16:22:12.805344",
+ "modified_by": "Administrator",
+ "module": "mGrant - Project",
+ "name": "Grant",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "NGO Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Partner NGO",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "grant_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
 }
