@@ -1,4 +1,19 @@
 import frappe
+
+def grant_reciept_on_validate(self):
+    if self.planned_due_date:
+        dt = frappe.utils.getdate(self.planned_due_date)
+        mgrant_settings = frappe.get_doc("mGrant Settings")
+        if frappe.db.exists("mGrant Settings Grant Wise", self.grant):
+            mgrant_settings = frappe.get_doc("mGrant Settings Grant Wise", self.grant)
+        if mgrant_settings.get('year_type') == "Financial Year":
+            if dt.month < 4:
+                self.financial_year = f"FY-{dt.year-1}"
+            else:
+                self.financial_year = f"FY-{dt.year}"
+        else:
+            self.financial_year = f"FY-{dt.year}"
+        
 def grant_reciept_on_update(self):
     if self.grant:
         grant_doc = frappe.get_doc('Grant', self.grant)

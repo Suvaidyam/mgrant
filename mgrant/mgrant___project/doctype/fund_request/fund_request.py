@@ -7,16 +7,16 @@ from mgrant.controllers.financial.fund_request.hooks import validate,after_save,
 class FundRequest(Document):
 	def validate(self):
 		validate(self)
-		pass
+		
 	def after_save(self):
 		after_save(self)
-		pass
+		
 	def on_update(self):
 		on_update(self)
-		pass
+		
 	def on_trash(self):
 		on_trash(self)
-		pass
+		
 	def on_submit(self):
 		print("Fund Request Submitted", self.name)
-		pass
+		
