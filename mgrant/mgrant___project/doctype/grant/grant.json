@@ -67,6 +67,11 @@
   "column_break_pyvg",
   "column_break_rsvl",
   "tasks_tab",
+  "section_break_luwf",
+  "general_tasks",
+  "milestones_task_section",
+  "milestones_task",
+  "section_break_qgvn",
   "tasks",
   "budget_tab",
   "budget_dashboard",
@@ -102,7 +107,9 @@
   "notes_tab",
   "notes",
   "timeline_tab",
-  "timeline"
+  "timeline",
+  "section_break_myzu",
+  "test"
  ],
  "fields": [
   {
@@ -667,11 +674,44 @@
    "fieldname": "section_break_atad",
    "fieldtype": "Section Break",
    "hide_border": 1
+  },
+  {
+   "fieldname": "section_break_myzu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "test",
+   "fieldtype": "HTML",
+   "label": "test"
+  },
+  {
+   "fieldname": "section_break_luwf",
+   "fieldtype": "Section Break",
+   "label": "General Tasks"
+  },
+  {
+   "fieldname": "general_tasks",
+   "fieldtype": "HTML",
+   "label": "General Tasks"
+  },
+  {
+   "fieldname": "milestones_task_section",
+   "fieldtype": "Section Break",
+   "label": "Milestones Task"
+  },
+  {
+   "fieldname": "milestones_task",
+   "fieldtype": "HTML",
+   "label": "Milestones Task"
+  },
+  {
+   "fieldname": "section_break_qgvn",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-09 04:53:12.229488",
+ "modified": "2025-02-11 10:25:41.290719",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",

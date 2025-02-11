@@ -1,0 +1,23 @@
+{
+ "creation": "2025-02-11 08:26:05.533800",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "dynamic_filters_json": "{}",
+ "filters_json": "{}",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 0,
+ "is_standard": 1,
+ "label": "Unutilised Disbursed Amount",
+ "modified": "2025-02-11 08:26:05.533800",
+ "modified_by": "Administrator",
+ "module": "mGrant - Project",
+ "name": "Unutilised Disbursed Amount",
+ "owner": "Administrator",
+ "report_field": "unutilised_disbursed_amount",
+ "report_function": "Sum",
+ "report_name": "Grant Financial Summary",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Daily",
+ "type": "Report"
+}
