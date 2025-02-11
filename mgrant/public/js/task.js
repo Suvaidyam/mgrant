@@ -1,41 +1,56 @@
 const getTaskList = async (frm, selector) => {
-    let task_list = await getDocList('ToDo', [
-        ['ToDo', 'reference_type', '=', frm.doc.doctype],
-        ['ToDo', 'reference_name', '=', frm.doc.name],
-    ], ['*']);
+     
     new mGrantTask({
         frm: frm,
-        selector: selector,
-        task_list: task_list
+        selector: selector
     }).show_task();
 }
 
 class mGrantTask {
-    constructor({ frm = null, selector = null, task_list = [] }) {
+    constructor({ frm = null, selector = null }) {
         this.frm = frm;
-        this.selector = selector;
-        this.task_list = task_list;
+        this.selector = selector; 
+        this.task_list = [];
     }
+    getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+    async show_task(currentPage = 1) {
+        let limit = 100;
+        let total_records = await frappe.db.count('ToDo', {filters:{
+            reference_type: this.frm.doc.doctype,
+            reference_name: this.frm.doc.name
+        }}
+        );
 
-    show_task() {
-        let task_list = this.task_list; // Store reference
+        let total_pages = Math.ceil(total_records / limit);
+        currentPage = Math.max(1, Math.min(currentPage, total_pages));
+        let start = (currentPage - 1) * limit;
+
+        this.task_list = await frappe.db.get_list('ToDo', {
+            fields: ['*'],
+            filters: {
+                reference_type: this.frm.doc.doctype,
+                reference_name: this.frm.doc.name
+            },
+            order_by: 'modified desc',
+            start: start,
+            limit: limit,
+        }); // Store reference
         let selectedIds = [];
 
         $(`[data-fieldname="${this.selector}"]`).html(`
             <div class="task-list" id="task-list">
                 <div class="d-flex pb-2 flex-wrap justify-content-between align-items-center">
                     <div class="d-flex flex-wrap">
-                        <p class="text-muted" style="font-weight:bold;">${this.frm.active_tab_map[this.frm.doc.name].label}</p>
-                    </div>
-                    <div class="d-flex flex-wrap" >
-                        <p class="text-muted" id="total_records">Total records: ${task_list.length}</p>
-                        <div class="d-flex flex-wrap " style="gap: 8px;">
-                            <!-- Delete Button -->
-                            <button id="bulkDeleteButton" class="btn btn-light mx-8" style="color: #6E7073; display: none;">
-                            <i class="fa fa-trash" style="color: #6E7073;"></i>
-                            </button>
-                            <!-- Edit Button -->
-                             <div class="dropdown-task-status dropdown">
+                       <!-- <p class="text-muted" style="font-weight:bold;">${this.frm.active_tab_map[this.frm.doc.name].label}</p> -->
+                       <!-- Edit Button -->
+                            <div class="dropdown-task-status dropdown">
                                 <button class="btn btn-light dropdown-toggle" style="display:none;" type="button" id="viewBulkDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Set Status
                                 </button>
@@ -88,39 +103,56 @@ class mGrantTask {
                                     </li>
                                 </div>
                             </div>
+                    </div>
+                    <div class="d-flex flex-wrap" >
+                        <!-- <p class="text-muted" id="total_records">Total records: ${total_records}</p> -->
+                        <div class="d-flex flex-wrap " style="gap: 8px;">
+                            <!-- Delete Button -->
+                            <button id="bulkDeleteButton" class="btn mx-8" style="color: #6E7073; display: none;background-color: #FFF1E7;">
+                            <i class="fa fa-trash" style="color: #E03636;"></i>
+                            </button>
+                            
                         </div>
                     </div>
                 </div>
                 <!-- Task List -->
-               ${task_list.length > 0 
+               ${this.task_list.length > 0 
                 ?`
+                <div style="overflow-y:auto;">
                  <table style="margin: 0px !important;" class="table table-bordered form-grid-container form-grid">
                     <thead>
                         <tr>
-                            <th style="width: 40px; text-align: center; position: sticky; left: 0px;">
+                            <th style="width: 40px; text-align: center; position: sticky; left: 0px;background-color: #F8F8F8;">
                                 <input type="checkbox" id="selectAllCheckBox">
                             </th>
-                            <th>Task Name</th>
-                            <th>Assigned To</th>
-                            <th>Task Type</th>
+                            <th style="white-space: nowrap;">Task Name</th>
+                            <th style="white-space: nowrap;">Assigned To</th>
+                            <th style="white-space: nowrap;">Task Type</th>
                             <th>Status</th>
                             <th>Priority</th>
-                            <th>Start Date</th>
-                            <th>Due Date</th>
+                            <th style="white-space: nowrap;">Start Date</th>
+                            <th style="white-space: nowrap;">Due Date</th>
                         </tr>
                     </thead>
                     <tbody style="background-color: #fff;">
-                        ${task_list.map(task => `
+                        ${this.task_list.map(task => `
                             <tr>
-                                <td style="width: 40px; text-align: center; position: sticky; left: 0px;">
+                                <td style="width: 40px; text-align: center; position: sticky; left: 0px; background-color: #fff;">
                                     <input type="checkbox" class="toggleCheckbox" data-id="${task.name}">
                                 </td>
                                 <td>${task.custom_title}</td>
-                                <td>${task.assigned_to ?? 'No Assignee'}</td>
-                                <td>${task.custom_task_type}</td>
+                                <td>
+                                    <div class="d-flex align-items-center" style="gap: 4px">
+                                        <div  style="white-space: nowrap; width: 16px; height: 16px; font-size: 12px; background-color: ${this.getRandomColor()}; h" class="avatar  text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 20px; height: 20px;">${task.custom_assigned_to ? task.custom_assigned_to[0].toUpperCase() : '-'}</div>
+                                        <span style="white-space: nowrap; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">
+                                            ${task.custom_assigned_to ?? 'No Assignee'}
+                                        </span>
+                                    </div>
+                                </td>
+                                <td style="white-space: nowrap;">${task.custom_task_type}</td>
                                 <td>
                                     <div class="dropdown"style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
-                                        <span title="status" id="dropStatus-${task.name}" class="small dropdown-toggle bg-light pointer badge ${task?.custom_task_status === 'Canceled' ? 'text-danger' : task?.custom_task_status === 'In Progress' ? 'text-warning' : task?.custom_task_status === 'Done' ? 'text-success' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span title="status" id="dropStatus-${task.name}" class="small dropdown-toggle bg-light pointer badge ${task?.custom_task_status === 'Cancelled' ? 'text-danger' : task?.custom_task_status === 'In Progress' ? 'text-warning' : task?.custom_task_status === 'Done' ? 'text-success' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             ${task?.custom_task_status ?? 'Status'}
                                         </span>
                                         <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
@@ -144,8 +176,9 @@ class mGrantTask {
                                         </div>
                                     </div>
                                 </td>
-                                <td>${task.custom_start_date ?? '--:--'}</td>
-                                <td>${task.date ?? '--:--'}</td>
+                                <td style="white-space: nowrap;">${task.custom_start_date ? getFormattedDate(task.custom_start_date) : '--:--'}</td> 
+                                <td style="padding: 0.5rem; vertical-align: middle;" style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%;" class="${(task.date && (new Date(task.date) < new Date(frappe.datetime.get_today()))) ? 'text-danger' : 'text-muted'}">${task.date ? getFormattedDate(task.date) : '--:--'}</td>
+                                    
                                 <td>
                                     <div class="dropdown">
                                         <span title="action" class="pointer d-flex justify-content-center  align-items-center " id="dropdownMenuButton-${task.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -162,6 +195,7 @@ class mGrantTask {
                         `).join('')}
                     </tbody>
                 </table>
+                </div>
                 `:`
                 <div style="flex-direction: column; height: 200px;" class="d-flex justify-content-center align-items-center" >
                     <svg class="icon icon-xl" style="stroke: var(--text-light);">
@@ -171,41 +205,65 @@ class mGrantTask {
                     ">You haven't created a Recored yet</p>
                 </div>
                 `}
-                <div class="d-flex flex-wrap py-2">
+                <div class="d-flex flex-wrap py-2 justify-content-between align-items-center">
                     <!-- New Task Button -->
-                    <button class="btn btn-primary btn-sm" id="createTask">
+                    <button class="btn btn-secondary btn-sm" id="createTask">
                     <svg class="es-icon es-line icon-xs" aria-hidden="true">
                         <use href="#es-line-add"></use>
-                    </svg> New Tasks
+                    </svg> Add row
                     </button>
+                    <!-- Pagination -->
+                   <!-- ${total_pages > 1 ?`
+                     <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                            <a class="page-link prev-page disabled" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            </li>
+                            ${total_pages > 0 ? Array.from({ length: total_pages }, (_, i) => i + 1).map(p => `
+                                <li class="page-item ${p==currentPage?'active':''}"><a class="page-link">${p}</a></li>
+                            `).join('') : ''}
+                            
+                            <li class="page-item">
+                            <a class="page-link next-page" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    `:''} -->
                 </div>
             </div>
         `);
         const toggleVisibility = (id, show, type = 'block') => (document.getElementById(id).style.display = show ? type : 'none');
 
         // Bind event for individual checkboxes
-        $(document).on('change', '.toggleCheckbox', function () {
-            const id = $(this).data('id');
-            if (this.checked) {
+        $(document).on('change', '.toggleCheckbox', function (e) {
+            const id = $(e.currentTarget).data('id');
+            if (e.currentTarget.checked) {
                 selectedIds.push(id);
             } else {
                 selectedIds = selectedIds.filter(x => x !== id);
             }
-            $('#selectAllCheckBox').prop('checked', selectedIds.length === task_list.length);
+            $('#selectAllCheckBox').prop('checked', selectedIds.length === this.task_list.length);
             toggleVisibility('bulkDeleteButton', selectedIds.length > 0);
-            toggleVisibility('total_records', selectedIds.length === 0, 'flex');
+            // toggleVisibility('total_records', selectedIds.length === 0, 'flex');
             toggleVisibility('viewBulkDropdown', selectedIds.length > 0);
-        });
+        }.bind(this));
 
         // Bind event for "Select All" checkbox
-        $(document).on('change', '#selectAllCheckBox', function () {
-            const isChecked = this.checked;
+        $(document).on('change', '#selectAllCheckBox', function (e) {
+            const isChecked = $(e.currentTarget).prop('checked');
             $('.toggleCheckbox').prop('checked', isChecked);
-            selectedIds = isChecked ? task_list.map(x => x.name) : [];
+            selectedIds = isChecked ? this.task_list?.map(x => x.name) : [];
+            console.log(selectedIds)
             toggleVisibility('bulkDeleteButton', selectedIds.length > 0);
-            toggleVisibility('total_records', selectedIds.length === 0, 'flex');
+            // toggleVisibility('total_records', selectedIds.length === 0, 'flex');
             toggleVisibility('viewBulkDropdown', selectedIds.length > 0);
-        });
+        }.bind(this));
 
         // Bulk Update Task Status and Priority
         ['priority', 'custom_task_status'].forEach(type => {
@@ -253,10 +311,24 @@ class mGrantTask {
                 console.error(`Task ${taskName} not found.`);
             }
         }.bind(this));
+         // pageination
+        // $(document).on('click', '.page-link', (e) => {
+        //     let page = $(e.target).text(); 
+        //     this.show_task(Number(page)); 
+        // });
+        // // 
+        // $(document).on('click', '.prev-page', (e) => {
+        //     if (currentPage > 1) this.show_task(currentPage - 1);
+        // });
+    
+        // $(document).on('click', '.next-page', (e) => {
+        //     if (currentPage < total_pages) this.show_task(currentPage + 1);
+        // });
+        
         // bulk delete
         $('#bulkDeleteButton').on('click', function () {
             frappe.confirm('Are you sure you want to delete the selected tasks?', async () => {
-                task_list = task_list.filter(task => !selectedIds.includes(task.name))
+                this.task_list = this.task_list.filter(task => !selectedIds.includes(task.name))
                 for (const taskName of selectedIds) {
                     try {
                         await frappe.db.delete_doc('ToDo', taskName);
@@ -265,26 +337,26 @@ class mGrantTask {
                         console.error(`Failed to delete ${taskName}:`, error);
                     }
                 }
-                this.show_task();
-                cur_frm.refresh();
+                this.show_task(); 
                 frappe.show_alert({ message: __('Tasks deleted successfully'), indicator: 'green' });
             });
         }.bind(this));
-
     }
+    
     // Update Task Status
     async updateTaskStatus(taskIds, status, key) {
-        console.log(status, key)
-        let updatedTaskList = [...this.task_list];
 
         await Promise.allSettled(
             taskIds.map((taskName, index) =>
                 new Promise(resolve => setTimeout(resolve, index * 200)) // Apply delay
                     .then(() => frappe.db.set_value('ToDo', taskName, key, status))
-                    .then(() => {
-                        updatedTaskList = updatedTaskList.map(task =>
-                            task.name === taskName ? { ...task, [key]: status } : task
-                        );
+                    .then(() =>{
+                        this.task_list = this.task_list.map(task => {
+                            if (task.name === taskName) {
+                                task[key] = status;
+                            }
+                            return task;
+                        });
                     })
                     .catch(error => console.error(`Error updating ${taskName}:`, error))
             )
@@ -293,11 +365,11 @@ class mGrantTask {
         this.show_task()
         frappe.show_alert({ message: __('tasks updated successfully'), indicator: 'green' });
 
-        if (cur_frm) cur_frm.refresh();
+        // if (cur_frm) cur_frm.refresh();
     }
     deleteTask = (taskName) => {
         frappe.db.delete_doc('ToDo', taskName).then(() => {
-            this.frm.refresh();
+            this.show_task();
             frappe.show_alert({ message: __(`Task deleted successfully`), indicator: 'green' });
         });
     }
@@ -383,39 +455,43 @@ class mGrantTask {
             title: title,
             fields: fields,
             primary_action_label: primaryActionLabel,
-            primary_action(values) {
+            primary_action: function(values) {
                 if (action === 'New Task') {
-                    // before-save
-                    // Create new task
+                    // Create new task logic
                     frappe.db.insert({
                         doctype: "ToDo",
                         ...values
                     }).then(async(new_doc) => {
                         if (new_doc) {
                             frappe.show_alert({ message: __('Task created successfully'), indicator: 'green' });
-                            frm.refresh()
+                            this.show_task();
                             task_form.hide();
-                            cur_frm.refresh();
                         }
                     }).catch(error => {
                         console.error(error);
                         frappe.show_alert({ message: __('There was an error creating the task'), indicator: 'red' });
                     });
                 } else if (action === 'Edit Task' && data) {
-                    // Update existing task
+                    // Update existing task logic
                     frappe.db.set_value('ToDo', data.name, values).then(updated_doc => {
                         if (updated_doc) {
                             frappe.show_alert({ message: __('Task updated successfully'), indicator: 'green' });
+                            this.task_list = this.task_list.map(task => {
+                                if (task.name === data.name) {
+                                    task = { ...task, ...values };
+                                }
+                                return task;
+                            });
+                            this.show_task();
                             task_form.hide();
-                            // Optionally update the task list with the updated document
-                            cur_frm.refresh();
                         }
                     }).catch(error => {
                         console.error(error);
                         frappe.show_alert({ message: __('There was an error updating the task'), indicator: 'red' });
                     });
                 }
-            }
+            }.bind(this)
+            
         });
     
         if (action === 'Edit Task' && data) {
