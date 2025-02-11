@@ -8,25 +8,26 @@
  "field_order": [
   "details_section",
   "frequency",
-  "budget_head",
-  "item_name",
   "column_break_gyjd",
-  "grant",
+  "budget_head",
+  "column_break_cqxr",
+  "item_name",
   "section_break_hlsm",
   "planning_table",
   "summary_section",
   "total_planned_budget",
   "column_break_ubpk",
   "total_utilisation",
+  "section_break_nnuu",
+  "wf_comment",
   "section_break_mynd",
+  "grant",
   "ngo",
   "donor",
   "column_break_hybx",
   "start_date",
   "end_date",
-  "financial_years",
-  "section_break_nnuu",
-  "wf_comment"
+  "financial_years"
  ],
  "fields": [
   {
@@ -40,11 +41,11 @@
   {
    "fieldname": "grant",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Grant ID",
    "options": "Grant",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "description": "Example: Salary of Project Lead",
@@ -174,11 +175,15 @@
    "fieldtype": "Small Text",
    "label": "Comment",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_cqxr",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-29 11:31:36.735119",
+ "modified": "2025-02-09 05:37:23.265439",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Plan and Utilisation",

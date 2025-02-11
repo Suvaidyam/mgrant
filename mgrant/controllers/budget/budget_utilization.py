@@ -1,7 +1,19 @@
 import frappe
 from mgrant.utils import get_month_quarter_year_based_on_date_and_yt
+from datetime import datetime
+from frappe.utils import getdate
+
+def validate_future_date(as_on_date):
+    """Validate that as_on_date is not a future date"""
+    # Convert string date to datetime.date object using frappe's getdate utility
+    transaction_date = getdate(as_on_date)
+    current_date = datetime.now().date()
+    
+    if transaction_date > current_date:
+        frappe.throw(" `As on date` cannot be a future date")
 
 def utilization_on_update(self):
+    validate_future_date(self.as_on_date)
     get_all_transaction = frappe.db.get_list("Budget Transaction", filters={"budget_plan":self.budget_plan}, fields=["transaction","budget_plan","as_on_date"],ignore_permissions=True)
     buget_plan_utl_doc = frappe.get_doc("Budget Plan and Utilisation", self.budget_plan)
     monthly_keys = [f"{planning.month}-{planning.year}" for planning in buget_plan_utl_doc.get("planning_table",[]) if buget_plan_utl_doc.frequency == "Monthly"]
@@ -116,3 +128,5 @@ def utilization_on_trash(self):
             key = f"{planning.year}"
             planning.utilised_amount = mq_utilisations.get(key, float(0))
     buget_plan_utl_doc.save(ignore_permissions=True)
+
+

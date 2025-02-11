@@ -3,245 +3,280 @@
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2006",
-  "modified": "2025-01-03 11:17:52.228977",
+  "label": "FY 2006-07",
+  "modified": "2025-02-11 16:29:23.335707",
   "name": "FY-2006"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2007",
-  "modified": "2025-01-03 11:17:52.245472",
+  "label": "FY 2007-08",
+  "modified": "2025-02-11 16:29:23.324088",
   "name": "FY-2007"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2008",
-  "modified": "2025-01-03 11:17:52.251366",
+  "label": "FY 2008-09",
+  "modified": "2025-02-11 16:29:23.312243",
   "name": "FY-2008"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2009",
-  "modified": "2025-01-03 11:17:52.256937",
+  "label": "FY 2009-10",
+  "modified": "2025-02-11 16:29:23.300394",
   "name": "FY-2009"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2010",
-  "modified": "2025-01-03 11:17:52.262631",
+  "label": "FY 2010-11",
+  "modified": "2025-02-11 16:29:23.288472",
   "name": "FY-2010"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2011",
-  "modified": "2025-01-03 11:17:52.268949",
+  "label": "FY 2011-12",
+  "modified": "2025-02-11 16:29:23.276880",
   "name": "FY-2011"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2012",
-  "modified": "2025-01-03 11:17:52.274422",
+  "label": "FY 2012-13",
+  "modified": "2025-02-11 16:29:23.264636",
   "name": "FY-2012"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2013",
-  "modified": "2025-01-03 11:17:52.280564",
+  "label": "FY 2013-14",
+  "modified": "2025-02-11 16:29:23.253231",
   "name": "FY-2013"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2014",
-  "modified": "2025-01-03 11:17:52.287086",
+  "label": "FY 2014-15",
+  "modified": "2025-02-11 16:29:23.241727",
   "name": "FY-2014"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2015",
-  "modified": "2025-01-03 11:17:52.292689",
+  "label": "FY 2015-16",
+  "modified": "2025-02-11 16:29:23.229073",
   "name": "FY-2015"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2016",
-  "modified": "2025-01-03 11:17:52.299895",
+  "label": "FY 2016-17",
+  "modified": "2025-02-11 16:29:23.217593",
   "name": "FY-2016"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2017",
-  "modified": "2025-01-03 11:17:52.306882",
+  "label": "FY 2017-18",
+  "modified": "2025-02-11 16:29:23.204485",
   "name": "FY-2017"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2018",
-  "modified": "2025-01-03 11:17:52.313223",
+  "label": "FY 2018-19",
+  "modified": "2025-02-11 16:29:23.192406",
   "name": "FY-2018"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2019",
-  "modified": "2025-01-03 11:17:52.319797",
+  "label": "FY 2019-20",
+  "modified": "2025-02-11 16:29:23.180797",
   "name": "FY-2019"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2020",
-  "modified": "2025-01-03 11:17:52.325451",
+  "label": "FY 2020-21",
+  "modified": "2025-02-11 16:29:23.169732",
   "name": "FY-2020"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2021",
-  "modified": "2025-01-03 11:17:52.331062",
+  "label": "FY 2021-22",
+  "modified": "2025-02-11 16:29:23.157521",
   "name": "FY-2021"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2022",
-  "modified": "2025-01-03 11:17:52.337943",
+  "label": "FY 2022-23",
+  "modified": "2025-02-11 16:29:23.144469",
   "name": "FY-2022"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2023",
-  "modified": "2025-01-03 11:17:52.343470",
+  "label": "FY 2023-24",
+  "modified": "2025-02-11 16:29:23.132878",
   "name": "FY-2023"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2025",
-  "modified": "2025-01-03 11:17:52.355746",
+  "label": "FY 2025-26",
+  "modified": "2025-02-11 16:29:23.121097",
   "name": "FY-2025"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2026",
-  "modified": "2025-01-03 11:17:52.361747",
+  "label": "FY 2026-27",
+  "modified": "2025-02-11 16:29:23.108795",
   "name": "FY-2026"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2027",
-  "modified": "2025-01-03 11:17:52.368247",
+  "label": "FY 2027-28",
+  "modified": "2025-02-11 16:29:23.095862",
   "name": "FY-2027"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2028",
-  "modified": "2025-01-03 11:17:52.374091",
+  "label": "FY 2028-29",
+  "modified": "2025-02-11 16:29:23.083915",
   "name": "FY-2028"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2029",
-  "modified": "2025-01-03 11:17:52.380332",
+  "label": "FY 2029-30",
+  "modified": "2025-02-11 16:29:23.072048",
   "name": "FY-2029"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2030",
-  "modified": "2025-01-03 11:17:52.386877",
+  "label": "FY 2030-31",
+  "modified": "2025-02-11 16:29:23.060684",
   "name": "FY-2030"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2031",
-  "modified": "2025-01-03 11:17:52.392685",
+  "label": "FY 2031-32",
+  "modified": "2025-02-11 16:29:23.049725",
   "name": "FY-2031"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2032",
-  "modified": "2025-01-03 11:17:52.398742",
+  "label": "FY 2032-33",
+  "modified": "2025-02-11 16:29:23.037827",
   "name": "FY-2032"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2033",
-  "modified": "2025-01-03 11:17:52.405169",
+  "label": "FY 2033-34",
+  "modified": "2025-02-11 16:29:23.025571",
   "name": "FY-2033"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2034",
-  "modified": "2025-01-03 11:17:52.410787",
+  "label": "FY 2034-35",
+  "modified": "2025-02-11 16:29:23.012464",
   "name": "FY-2034"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2035",
-  "modified": "2025-01-03 11:17:52.417711",
+  "label": "FY 2035-36",
+  "modified": "2025-02-11 16:29:23.000642",
   "name": "FY-2035"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2036",
-  "modified": "2025-01-03 11:17:52.424051",
+  "label": "FY 2036-37",
+  "modified": "2025-02-11 16:29:22.987954",
   "name": "FY-2036"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2037",
-  "modified": "2025-01-03 11:17:52.431831",
+  "label": "FY 2037-38",
+  "modified": "2025-02-11 16:29:22.976094",
   "name": "FY-2037"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2038",
-  "modified": "2025-01-03 11:17:52.438834",
+  "label": "FY 2038-39",
+  "modified": "2025-02-11 16:29:22.964060",
   "name": "FY-2038"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2039",
-  "modified": "2025-01-03 11:17:52.444672",
+  "label": "FY 2039-40",
+  "modified": "2025-02-11 16:29:22.952223",
   "name": "FY-2039"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2040",
-  "modified": "2025-01-03 11:17:52.450657",
+  "label": "FY 2040-41",
+  "modified": "2025-02-11 16:29:22.939918",
   "name": "FY-2040"
  },
  {
   "docstatus": 0,
   "doctype": "Financial Year",
   "financial_year_name": "2024",
-  "modified": "2024-12-30 16:07:52.248302",
+  "label": "FY 2024-25",
+  "modified": "2025-02-11 16:29:22.913381",
   "name": "FY-2024"
  }
 ]

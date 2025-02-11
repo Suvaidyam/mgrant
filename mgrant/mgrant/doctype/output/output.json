@@ -8,13 +8,14 @@
  "engine": "InnoDB",
  "field_order": [
   "detail_section",
-  "state",
-  "district",
-  "grant",
-  "column_break_nkzm",
+  "frequency",
   "kpi",
   "output_name",
-  "frequency",
+  "column_break_nkzm",
+  "state",
+  "district",
+  "column_break_pkpr",
+  "wf_comment",
   "section_break_ftkm",
   "planning_table",
   "summary_section",
@@ -22,30 +23,27 @@
   "column_break_ubnn",
   "total_achievement",
   "section_break_rkjw",
+  "grant",
   "start_date",
   "end_date",
   "financial_years",
   "column_break_elyy",
   "donor",
   "ngo",
-  "section_break_ncln",
+  "column_break_kquj",
   "block",
-  "column_break_glel",
   "gram_panchayat",
-  "column_break_rsnk",
-  "village",
-  "section_break_fclj",
-  "wf_comment"
+  "village"
  ],
  "fields": [
   {
    "fieldname": "grant",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Grant",
    "options": "Grant",
    "read_only": 1,
-   "reqd": 1,
    "search_index": 1
   },
   {
@@ -73,21 +71,18 @@
   {
    "fieldname": "block",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Block",
    "options": "Block"
   },
   {
    "fieldname": "gram_panchayat",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Gram Panchayat",
    "options": "Gram Panchayat"
   },
   {
    "fieldname": "village",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Village",
    "options": "Village"
   },
@@ -118,10 +113,6 @@
    "in_list_view": 1,
    "label": "Output Description",
    "reqd": 1
-  },
-  {
-   "fieldname": "column_break_glel",
-   "fieldtype": "Column Break"
   },
   {
    "default": "Annually",
@@ -166,14 +157,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_ncln",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_rsnk",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "financial_years",
    "fieldtype": "Table MultiSelect",
    "label": "Financial Years",
@@ -206,8 +189,7 @@
   },
   {
    "fieldname": "detail_section",
-   "fieldtype": "Section Break",
-   "label": "Detail"
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "summary_section",
@@ -219,15 +201,19 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_fclj",
-   "fieldtype": "Section Break"
-  },
-  {
    "depends_on": "eval:doc.wf_comment;",
    "fieldname": "wf_comment",
    "fieldtype": "Small Text",
    "label": "Comment",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_pkpr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_kquj",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -238,7 +224,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-29 11:36:57.623210",
+ "modified": "2025-02-09 05:56:13.790988",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output",

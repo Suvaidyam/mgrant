@@ -16,7 +16,7 @@
  "link_to": "File",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-01-10 14:11:20.404387",
+ "modified": "2025-02-05 14:39:50.514173",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Files",
@@ -31,6 +31,9 @@
   },
   {
    "role": "NGO Admin"
+  },
+  {
+   "role": "Donor Admin"
   }
  ],
  "sequence_id": 6.0,

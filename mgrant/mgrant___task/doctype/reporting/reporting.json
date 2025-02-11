@@ -33,16 +33,16 @@
   {
    "fieldname": "reference_doctype",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Reference DocType",
-   "options": "DocType",
-   "reqd": 1
+   "options": "DocType"
   },
   {
    "fieldname": "related_to",
    "fieldtype": "Dynamic Link",
+   "hidden": 1,
    "label": "Related to",
-   "options": "reference_doctype",
-   "reqd": 1
+   "options": "reference_doctype"
   },
   {
    "fieldname": "due_date",
@@ -73,9 +73,10 @@
    "mandatory_depends_on": "eval:doc.submission_status == \"Submitted\""
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-25 14:45:43.241284",
+ "modified": "2025-02-08 15:41:15.998326",
  "modified_by": "Administrator",
  "module": "mGrant - Task",
  "name": "Reporting",

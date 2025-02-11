@@ -7,13 +7,13 @@
  "engine": "InnoDB",
  "field_order": [
   "section_break_wwse",
-  "state",
-  "district",
-  "grant",
-  "column_break_zjal",
+  "frequency",
   "kpi",
   "input_name",
-  "frequency",
+  "column_break_zjal",
+  "state",
+  "district",
+  "column_break_kecp",
   "wf_comment",
   "section_break_tzvd",
   "planning_table",
@@ -21,19 +21,18 @@
   "total_target",
   "column_break_dofs",
   "total_achievement",
-  "section_break_dznz",
-  "gram_panchayat",
-  "column_break_zeui",
-  "village",
-  "column_break_gjsm",
-  "block",
   "section_break_achu",
+  "grant",
   "start_date",
   "end_date",
   "financial_years",
   "column_break_hqvg",
   "ngo",
-  "donor"
+  "donor",
+  "column_break_qtdx",
+  "block",
+  "gram_panchayat",
+  "village"
  ],
  "fields": [
   {
@@ -48,10 +47,10 @@
   {
    "fieldname": "grant",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Grant",
    "options": "Grant",
    "read_only": 1,
-   "reqd": 1,
    "search_index": 1
   },
   {
@@ -118,20 +117,7 @@
   },
   {
    "fieldname": "section_break_wwse",
-   "fieldtype": "Section Break",
-   "label": "Detail"
-  },
-  {
-   "fieldname": "column_break_zeui",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_dznz",
    "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_gjsm",
-   "fieldtype": "Column Break"
   },
   {
    "fetch_from": "grant.start_date",
@@ -220,6 +206,14 @@
    "fieldtype": "Small Text",
    "label": "Comment",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_kecp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qtdx",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -230,7 +224,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-01-29 11:36:28.129341",
+ "modified": "2025-02-09 05:44:15.596136",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Input",

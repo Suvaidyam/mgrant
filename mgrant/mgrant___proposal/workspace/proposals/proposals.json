@@ -17,7 +17,7 @@
  "link_to": "Proposal",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-01-29 10:20:22.878700",
+ "modified": "2025-02-11 11:56:28.904650",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposals",
@@ -33,10 +33,10 @@
  "quick_lists": [],
  "roles": [
   {
-   "role": "NGO Admin"
+   "role": "Administrator"
   },
   {
-   "role": "Administrator"
+   "role": "Donor Admin"
   }
  ],
  "sequence_id": 1.0,

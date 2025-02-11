@@ -16,7 +16,7 @@
  "idx": 0,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2025-01-08 12:22:56.850345",
+ "modified": "2025-02-05 23:56:30.845219",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Total Budget Utilisations",
@@ -32,6 +32,9 @@
   },
   {
    "role": "NGO Admin"
+  },
+  {
+   "role": "Donor Admin"
   }
  ],
  "timeout": 0

@@ -41,7 +41,7 @@ def proposal_on_validate(self):
         return frappe.throw("Please set Final Positive Stage in <a href='/app/mgrant-settings/mGrant%20Settings'>mGrant Settings</a>")
 def proposal_on_update(self):
     positive = frappe.db.get_single_value('mGrant Settings', 'positive')
-    if ((self.stage == positive) or (self.stage == positive)) and self.docstatus == 0:
+    if (self.stage == positive) and self.docstatus == 0:
         self.submit()
         frappe.msgprint("Proposal is now converted to Grant")
 

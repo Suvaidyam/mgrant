@@ -6,27 +6,31 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "budget_plan",
-  "as_on_date",
   "transaction",
-  "grant",
+  "column_break_vfvn",
+  "as_on_date",
+  "column_break_zrte",
   "file",
-  "section_break_zjag",
-  "ngo",
-  "donor",
   "section_break_upps",
-  "wf_comment"
+  "wf_comment",
+  "section_break_zjag",
+  "budget_plan",
+  "grant",
+  "ngo",
+  "donor"
  ],
  "fields": [
   {
    "fieldname": "as_on_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "As on date",
    "reqd": 1
   },
   {
    "fieldname": "transaction",
    "fieldtype": "Currency",
+   "in_list_view": 1,
    "label": "Utilised Amount",
    "non_negative": 1,
    "reqd": 1
@@ -34,10 +38,9 @@
   {
    "fieldname": "budget_plan",
    "fieldtype": "Link",
-   "in_list_view": 1,
+   "hidden": 1,
    "label": "Budget Plan",
-   "options": "Budget Plan and Utilisation",
-   "reqd": 1
+   "options": "Budget Plan and Utilisation"
   },
   {
    "fetch_from": "budget_plan.grant",
@@ -78,13 +81,22 @@
   {
    "fieldname": "wf_comment",
    "fieldtype": "Small Text",
+   "hidden": 1,
    "label": "Comment",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_vfvn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zrte",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-21 14:07:40.475483",
+ "modified": "2025-02-09 11:53:54.363157",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Transaction",
