@@ -1,7 +1,11 @@
 from frappe.model.document import Document
 import frappe
+from mgrant.controllers.tranche.fund_disbursement import fund_disbursement_on_validate
 
 class FundDisbursement(Document):
+    def validate(self):
+        fund_disbursement_on_validate(self)
+        
     def on_update(self):
         # Calculate total disbursed amount for this grant only
         ttotal_disbursed_amount = frappe.db.sql(f""" 

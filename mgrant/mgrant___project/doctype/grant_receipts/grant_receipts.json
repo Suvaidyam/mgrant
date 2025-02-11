@@ -35,9 +35,9 @@
   {
    "fieldname": "financial_year",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Financial Year",
-   "options": "Financial Year"
+   "options": "Financial Year",
+   "read_only": 1
   },
   {
    "fieldname": "grant",
@@ -173,7 +173,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-07 16:33:26.149719",
+ "modified": "2025-02-11 17:11:13.780751",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant Receipts",
