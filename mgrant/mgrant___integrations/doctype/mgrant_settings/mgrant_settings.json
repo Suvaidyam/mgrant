@@ -150,26 +150,32 @@
    "fetch_from": "level_1.email",
    "fieldname": "level_1_email",
    "fieldtype": "Data",
-   "label": "Level 1 (Email)"
+   "hidden": 1,
+   "label": "Level 1 (Email)",
+   "read_only": 1
   },
   {
    "fetch_from": "level_2.email",
    "fieldname": "level_2_email",
    "fieldtype": "Data",
-   "label": "Level 2 (Email)"
+   "hidden": 1,
+   "label": "Level 2 (Email)",
+   "read_only": 1
   },
   {
    "fetch_from": "level_3.email",
    "fieldname": "level_3_email",
    "fieldtype": "Data",
-   "label": "Level 3 (Email)"
+   "hidden": 1,
+   "label": "Level 3 (Email)",
+   "read_only": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-02-11 10:46:34.173432",
+ "modified": "2025-02-11 11:36:27.215296",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",
