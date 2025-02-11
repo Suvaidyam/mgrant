@@ -1,0 +1,23 @@
+{
+ "creation": "2025-02-11 15:59:44.814885",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "dynamic_filters_json": "{}",
+ "filters_json": "{}",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 0,
+ "is_standard": 1,
+ "label": "Total Commitment Amount",
+ "modified": "2025-02-11 15:59:44.814885",
+ "modified_by": "Administrator",
+ "module": "Mgrant",
+ "name": "Total Commitment Amount",
+ "owner": "Administrator",
+ "report_field": "total_planned_budget",
+ "report_function": "Sum",
+ "report_name": "Grant Financial",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Daily",
+ "type": "Report"
+}

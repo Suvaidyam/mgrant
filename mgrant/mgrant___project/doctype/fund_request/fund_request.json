@@ -12,9 +12,9 @@
   "requested_amount",
   "column_break_eryd",
   "approved_amount",
+  "financial_year",
   "section_break_aaeg",
   "grant",
-  "financial_year",
   "section_break_ffdl",
   "ngo",
   "ngo_email",
@@ -52,9 +52,9 @@
   {
    "fieldname": "financial_year",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Financial Year",
-   "options": "Financial Year"
+   "options": "Financial Year",
+   "read_only": 1
   },
   {
    "fieldname": "section_break_ffdl",
@@ -133,7 +133,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-07 17:17:43.230046",
+ "modified": "2025-02-11 17:41:27.679319",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Fund Request",

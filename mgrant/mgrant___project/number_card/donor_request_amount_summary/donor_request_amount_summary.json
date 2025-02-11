@@ -1,0 +1,23 @@
+{
+ "creation": "2025-02-10 09:27:28.424645",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "dynamic_filters_json": "{}",
+ "filters_json": "{}",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 0,
+ "is_standard": 1,
+ "label": "Donor Request Amount Summary ",
+ "modified": "2025-02-10 09:27:28.424645",
+ "modified_by": "Administrator",
+ "module": "mGrant - Project",
+ "name": "Donor Request Amount Summary",
+ "owner": "Administrator",
+ "report_field": "total_amount_requested_from_donor",
+ "report_function": "Sum",
+ "report_name": "Grant Financial Summary",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Daily",
+ "type": "Report"
+}

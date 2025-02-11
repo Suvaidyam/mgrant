@@ -1,0 +1,62 @@
+{
+ "add_total_row": 0,
+ "columns": [
+  {
+   "fieldname": "total_planned_budget",
+   "fieldtype": "Currency",
+   "label": "Total Commitment Amount",
+   "width": 0
+  },
+  {
+   "fieldname": "total_funds_received",
+   "fieldtype": "Currency",
+   "label": "Total Disbursed Amount",
+   "width": 0
+  },
+  {
+   "fieldname": "total_funds_utilised",
+   "fieldtype": "Currency",
+   "label": "Total Utilised Amount",
+   "width": 0
+  },
+  {
+   "fieldname": "total_unspent_funds",
+   "fieldtype": "Currency",
+   "label": "Unutilised Disbursed Amount",
+   "width": 0
+  },
+  {
+   "fieldname": "total_amount_requested_from_donor",
+   "fieldtype": "Currency",
+   "label": "Total Requested Funds",
+   "width": 0
+  }
+ ],
+ "creation": "2025-02-11 14:49:10.546802",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2025-02-11 15:58:44.784661",
+ "modified_by": "Administrator",
+ "module": "mGrant - Project",
+ "name": "Grant Financial",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT \n    total_planned_budget,\n    total_funds_received,\n    total_funds_utilised,\n    total_unspent_funds,\n    total_amount_requested_from_donor\nFROM \n    `tabGrant`\n",
+ "ref_doctype": "Grant",
+ "report_name": "Grant Financial",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "NGO Admin"
+  },
+  {
+   "role": "Partner NGO"
+  }
+ ],
+ "timeout": 0
+}

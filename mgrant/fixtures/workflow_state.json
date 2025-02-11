@@ -52,5 +52,59 @@
   "name": "Pending",
   "style": "",
   "workflow_state_name": "Pending"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-02-11 18:18:44.884482",
+  "name": "Application Started",
+  "style": "",
+  "workflow_state_name": "Application Started"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-02-11 18:20:09.141235",
+  "name": "Proposal Submitted",
+  "style": "",
+  "workflow_state_name": "Proposal Submitted"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-02-11 18:20:17.668443",
+  "name": "MOU Signing ongoing",
+  "style": "",
+  "workflow_state_name": "MOU Signing ongoing"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-02-11 18:20:26.331910",
+  "name": "MOU Signed",
+  "style": "",
+  "workflow_state_name": "MOU Signed"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-02-11 18:20:44.806773",
+  "name": "On Hold",
+  "style": "",
+  "workflow_state_name": "On Hold"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-02-11 20:29:06.759083",
+  "name": "Proposal Under Review",
+  "style": "",
+  "workflow_state_name": "Proposal Under Review"
  }
 ]

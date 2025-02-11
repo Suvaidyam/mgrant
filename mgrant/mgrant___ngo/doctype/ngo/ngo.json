@@ -88,7 +88,9 @@
   "located_countries",
   "_reasons",
   "grants_tab",
-  "grants"
+  "grants",
+  "applications_tab",
+  "applications"
  ],
  "fields": [
   {
@@ -412,11 +414,11 @@
    "label": "District Name"
   },
   {
+   "default": "Prospect",
    "fieldname": "ngo_status",
    "fieldtype": "Select",
    "label": "NGO Status",
-   "options": "\nProspect\nGrantee",
-   "read_only": 1
+   "options": "\nProspect\nGrantee\nBlacklisted"
   },
   {
    "depends_on": "eval:!doc.__islocal",
@@ -427,6 +429,7 @@
    "default": "0",
    "fieldname": "is_blacklisted",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Is Blacklisted"
   },
   {
@@ -461,8 +464,7 @@
   },
   {
    "fieldname": "section_break_opzj",
-   "fieldtype": "Section Break",
-   "hidden": 1
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "column_break_nsyn",
@@ -539,11 +541,20 @@
   {
    "fieldname": "column_break_vpox",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "applications_tab",
+   "fieldtype": "Tab Break",
+   "label": "Applications"
+  },
+  {
+   "fieldname": "applications",
+   "fieldtype": "HTML"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-09 12:26:48.180192",
+ "modified": "2025-02-11 16:26:55.078417",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",
