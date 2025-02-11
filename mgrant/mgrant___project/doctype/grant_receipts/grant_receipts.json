@@ -12,11 +12,6 @@
   "column_break_eryd",
   "total_funds_planned",
   "financial_year",
-  "section_break_eazb",
-  "column_break_kmak",
-  "raise_request",
-  "approve_request",
-  "disbursed",
   "section_break_aaeg",
   "grant",
   "section_break_vwlg",
@@ -123,7 +118,8 @@
   },
   {
    "fieldname": "section_break_vwlg",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "hidden": 1
   },
   {
    "fieldname": "column_break_tcen",
@@ -131,7 +127,8 @@
   },
   {
    "fieldname": "section_break_vzzy",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "hidden": 1
   },
   {
    "fieldname": "column_break_fpsf",
@@ -147,16 +144,6 @@
    "hidden": 1
   },
   {
-   "fieldname": "section_break_eazb",
-   "fieldtype": "Section Break",
-   "hidden": 1
-  },
-  {
-   "fieldname": "raise_request",
-   "fieldtype": "Button",
-   "label": "Raise Request"
-  },
-  {
    "fieldname": "section_break_svga",
    "fieldtype": "Section Break"
   },
@@ -166,16 +153,6 @@
    "fieldtype": "Small Text",
    "label": "Comment",
    "read_only": 1
-  },
-  {
-   "fieldname": "approve_request",
-   "fieldtype": "Button",
-   "label": "Approve Request"
-  },
-  {
-   "fieldname": "disbursed",
-   "fieldtype": "Button",
-   "label": "Disbursed"
   },
   {
    "fetch_from": "ngo.email",
@@ -192,16 +169,11 @@
    "hidden": 1,
    "label": "Donor Email",
    "options": "Email"
-  },
-  {
-   "fieldname": "column_break_kmak",
-   "fieldtype": "Column Break",
-   "hidden": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-31 12:05:30.746206",
+ "modified": "2025-02-07 16:33:26.149719",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant Receipts",

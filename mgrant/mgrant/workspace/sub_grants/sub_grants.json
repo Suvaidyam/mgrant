@@ -15,7 +15,7 @@
  "label": "Sub-grants",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-01-17 00:46:15.168921",
+ "modified": "2025-02-05 14:37:52.184717",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Sub-grants",
@@ -35,6 +35,9 @@
   },
   {
    "role": "Partner NGO"
+  },
+  {
+   "role": "Donor Admin"
   }
  ],
  "sequence_id": 7.0,

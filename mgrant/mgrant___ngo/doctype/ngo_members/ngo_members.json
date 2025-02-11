@@ -1,0 +1,119 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-09 00:49:52.160357",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "member_name",
+  "business_title",
+  "gender",
+  "column_break_hkag",
+  "date_of_birth",
+  "contact_number",
+  "email",
+  "column_break_yjeq",
+  "education",
+  "experience",
+  "background",
+  "column_break_ljgb",
+  "website",
+  "tax_id_number",
+  "residential_address"
+ ],
+ "fields": [
+  {
+   "fieldname": "member_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name of Key Personnel"
+  },
+  {
+   "fieldname": "business_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Business Title"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Gender",
+   "options": "Male\nFemale\nOther"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Email Address"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Individual's Website"
+  },
+  {
+   "fieldname": "tax_id_number",
+   "fieldtype": "Data",
+   "label": "Individual's Registration/Tax ID Number"
+  },
+  {
+   "fieldname": "residential_address",
+   "fieldtype": "Small Text",
+   "label": "Residential Address",
+   "max_height": "75px"
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Phone",
+   "in_list_view": 1,
+   "label": "Contact Number"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "education",
+   "fieldtype": "Data",
+   "label": "Education (with years of qualification)"
+  },
+  {
+   "fieldname": "experience",
+   "fieldtype": "Data",
+   "label": "Experience (along with years)"
+  },
+  {
+   "fieldname": "background",
+   "fieldtype": "Data",
+   "label": "Background"
+  },
+  {
+   "fieldname": "column_break_hkag",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_yjeq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ljgb",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-02-09 01:05:42.448302",
+ "modified_by": "Administrator",
+ "module": "mGrant - NGO",
+ "name": "NGO Members",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
