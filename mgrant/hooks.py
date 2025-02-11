@@ -35,7 +35,8 @@ fixtures = [
     # "Notification",
     # "Print Format",
     # "Global Search Settings",
-    # "Custom DocPerm"
+    # "Custom DocPerm",
+    "Visualization Mapper"
 
 ]
 # include js, css files in header of desk.html
