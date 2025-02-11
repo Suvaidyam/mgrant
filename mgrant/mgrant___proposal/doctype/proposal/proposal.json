@@ -476,19 +476,17 @@
   },
   {
    "default": "0",
-   "depends_on": "eval:frappe.mgrant_settings.sign_off_prerequisite == doc.stage",
+   "depends_on": "eval:frappe.mgrant_settings.level_1_email == frappe.session.user_email",
    "fieldname": "level_1",
    "fieldtype": "Check",
-   "label": "Level 1",
-   "permlevel": 1,
-   "read_only_depends_on": "eval:!(doc.mou_signed_document && doc.mou_verified == 1)"
+   "label": "Level 1"
   },
   {
-   "depends_on": "eval:doc.level_1 == true;",
+   "depends_on": "eval:frappe.mgrant_settings.level_1_email == frappe.session.user_email && doc.level_1 == true",
    "fieldname": "level_1_remarks",
    "fieldtype": "Data",
    "label": "Level 1 Remarks ",
-   "permlevel": 1
+   "read_only_depends_on": "eval:frappe.mgrant_settings.level_1_email != frappe.session.user_email"
   },
   {
    "fieldname": "column_break_ddun",
@@ -500,35 +498,31 @@
   },
   {
    "default": "0",
-   "depends_on": "eval:frappe.mgrant_settings.sign_off_prerequisite == doc.stage",
+   "depends_on": "eval:frappe.mgrant_settings.level_2_email == frappe.session.user_email",
    "fieldname": "level_2",
    "fieldtype": "Check",
-   "label": "Level 2",
-   "permlevel": 2,
-   "read_only_depends_on": "eval:!(doc.mou_signed_document && doc.mou_verified == 1)"
+   "label": "Level 2"
   },
   {
-   "depends_on": "eval:doc.level_2 == true;",
+   "depends_on": "eval:frappe.mgrant_settings.level_2_email == frappe.session.user_email  && doc.level_2 == true",
    "fieldname": "level_2_remarks",
    "fieldtype": "Data",
    "label": "Level 2 Remarks",
-   "permlevel": 2
+   "read_only_depends_on": "eval:frappe.mgrant_settings.level_2_email != frappe.session.user_email"
   },
   {
    "default": "0",
-   "depends_on": "eval:frappe.mgrant_settings.sign_off_prerequisite == doc.stage",
+   "depends_on": "eval:frappe.mgrant_settings.level_3_email == frappe.session.user_email",
    "fieldname": "level_3",
    "fieldtype": "Check",
-   "label": "Level 3",
-   "permlevel": 3,
-   "read_only_depends_on": "eval:!(doc.mou_signed_document && doc.mou_verified == 1)"
+   "label": "Level 3"
   },
   {
-   "depends_on": "eval:doc.level_3 == true;",
+   "depends_on": "eval:frappe.mgrant_settings.level_3_email == frappe.session.user_email  && doc.level_3 == true",
    "fieldname": "level_3_remarks",
    "fieldtype": "Data",
    "label": "Level 3 Remarks",
-   "permlevel": 3
+   "read_only_depends_on": "eval:frappe.mgrant_settings.level_3_email != frappe.session.user_email"
   },
   {
    "fieldname": "column_break_jioh",
@@ -590,7 +584,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-10 19:06:57.640492",
+ "modified": "2025-02-11 11:30:26.923244",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",

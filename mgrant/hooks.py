@@ -18,17 +18,17 @@ fixtures = [
     # 'SDGs',
     # 'Budget heads',
     # 'Role',
-    'Role Profile',
+    # 'Role Profile',
     # "DDFR",
     # 'SVADatatable Configuration',
     # 'Client Script',
-    'Custom Field',
-    "Property Setter",
+    # 'Custom Field',
+    # "Property Setter",
     # "Server Script",
     # "Translation",
     # 'Custom HTML Block',
     # "My Theme",
-    "Workflow",
+    # "Workflow",
     # "Workflow Action Master",
     # "Workflow State",
     # "RFP Type",
@@ -36,7 +36,7 @@ fixtures = [
     # "Print Format",
     # "Global Search Settings",
     # "Custom DocPerm",
-    "Visualization Mapper"
+    # "Visualization Mapper"
 
 ]
 # include js, css files in header of desk.html
@@ -193,7 +193,9 @@ scheduler_events = {
         "0 1 * * *": [
             "mgrant.crons.tasks.mark_tasks_as_delayed",
             "mgrant.crons.reports.mark_reports_as_delayed",
-            "mgrant.crons.tranches.mark_tranches_as_delayed"
+            "mgrant.crons.tranches.mark_tranches_as_delayed",
+            "mgrant.controllers.ngo.ngo.ngo_status_cron",
+            "mgrant.controllers.ngo.vendor.vendor_status_cron",
         ]
     },
 	# "all": [
