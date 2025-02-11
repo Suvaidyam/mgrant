@@ -1,28 +1,41 @@
 [
-    {
-        "docstatus": 0,
-        "doctype": "Role Profile",
-        "modified": "2024-12-23 16:46:11.394144",
-        "name": "NGO Admin",
-        "role_profile": "NGO Admin",
-        "custom_belongs_to": "NGO",
-        "roles": [
-            {
-                "role": "NGO Admin"
-            }
-        ]
-    },
-    {
-        "docstatus": 0,
-        "doctype": "Role Profile",
-        "modified": "2024-12-23 16:46:33.929404",
-        "name": "Partner NGO",
-        "role_profile": "Partner NGO",
-        "custom_belongs_to": "NGO",
-        "roles": [
-            {
-                "role": "Partner NGO"
-            }
-        ]
-    }
+ {
+  "custom_belongs_to": "NGO",
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-12-23 16:46:11.394144",
+  "name": "NGO Admin",
+  "role_profile": "NGO Admin",
+  "roles": [
+   {
+    "role": "NGO Admin"
+   }
+  ]
+ },
+ {
+  "custom_belongs_to": "NGO",
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-12-23 16:46:33.929404",
+  "name": "Partner NGO",
+  "role_profile": "Partner NGO",
+  "roles": [
+   {
+    "role": "Partner NGO"
+   }
+  ]
+ },
+ {
+  "custom_belongs_to": "Donor",
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2025-02-10 11:26:09.959893",
+  "name": "Donor Admin",
+  "role_profile": "Admin",
+  "roles": [
+   {
+    "role": "Donor Admin"
+   }
+  ]
+ }
 ]

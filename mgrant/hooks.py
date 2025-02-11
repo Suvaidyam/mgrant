@@ -26,8 +26,7 @@ fixtures = [
     # "Property Setter",
     # "Server Script",
     # "Translation",
-    # 'Custom HTML Block'
-    # "Custom DocPerm",
+    # 'Custom HTML Block',
     # "My Theme",
     # "Workflow",
     # "Workflow Action Master",
@@ -35,8 +34,10 @@ fixtures = [
     # "RFP Type",
     # "Notification",
     # "Print Format",
-    # "Global Search Settings"
-    
+    # "Global Search Settings",
+    # "Custom DocPerm",
+    # "Visualization Mapper"
+
 ]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"
@@ -49,6 +50,7 @@ app_include_js = [
     f"/assets/mgrant/validators/regex.js?ver={time.time()}",
     f"/assets/mgrant/utils/dependent.js?ver={time.time()}",
     f"/assets/mgrant/utils/render-form.js?ver={time.time()}",
+    f"/assets/mgrant/js/list_view_extension.js?ver={time.time()}",
     f"/assets/mgrant/js/communication.js?ver={time.time()}",
     f"/assets/mgrant/js/task.js?ver={time.time()}",
     f"/assets/mgrant/js/gallery.js?ver={time.time()}",
@@ -58,7 +60,7 @@ app_include_js = [
     f"/assets/mgrant/js/kanban.js?ver={time.time()}",
     f"/assets/mgrant/js/overwrite_timeline.js?ver={time.time()}",
     f"/assets/mgrant/js/form_sidebar.js?ver={time.time()}",
-    f"/assets/mgrant/js/sidebar.js?ver={time.time()}",
+    # f"/assets/mgrant/js/sidebar.js?ver={time.time()}",
     f"/assets/mgrant/js/toolbar_override.js?ver={time.time()}"
 ]
 
@@ -191,7 +193,9 @@ scheduler_events = {
         "0 1 * * *": [
             "mgrant.crons.tasks.mark_tasks_as_delayed",
             "mgrant.crons.reports.mark_reports_as_delayed",
-            "mgrant.crons.tranches.mark_tranches_as_delayed"
+            "mgrant.crons.tranches.mark_tranches_as_delayed",
+            "mgrant.controllers.ngo.ngo.ngo_status_cron",
+            "mgrant.controllers.ngo.vendor.vendor_status_cron",
         ]
     },
 	# "all": [

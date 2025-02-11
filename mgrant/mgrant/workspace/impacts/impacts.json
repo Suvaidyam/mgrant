@@ -16,7 +16,7 @@
  "link_to": "Impact",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-01-08 15:19:12.108636",
+ "modified": "2025-02-05 14:42:18.781325",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Impacts",
@@ -31,6 +31,9 @@
   },
   {
    "role": "NGO Admin"
+  },
+  {
+   "role": "Donor Admin"
   }
  ],
  "sequence_id": 17.0,
