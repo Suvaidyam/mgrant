@@ -1,16 +1,22 @@
-const getTaskList = async (frm, selector) => {
+// const getTaskList = async (frm, selector) => {
 
-    new mGrantTask({
-        frm: frm,
-        selector: selector
-    }).show_task();
-}
+//     new mGrantTask({
+//         frm: frm,
+//         selector: selector
+//     }).show_task();
+// }
 
 class mGrantTask {
-    constructor({ frm = null, selector = null }) {
+    constructor(frm = null, wrapper = null) {
+        // debugger
+        this.wrapper = wrapper;
         this.frm = frm;
-        this.selector = selector;
         this.task_list = [];
+        if(frm){
+            this.show_task();
+        }
+        console.log("frm::\n\n",frm);
+
     }
     getRandomColor() {
         const letters = '0123456789ABCDEF';
@@ -45,8 +51,8 @@ class mGrantTask {
             limit: limit,
         }); // Store reference
         let selectedIds = [];
-
-        $(`[data-fieldname="${this.selector}"]`).html(`
+        let el = document.createElement('div');
+        el.innerHTML = `
             <div class="task-list" id="task-list">
                 <div class="d-flex pb-2 flex-wrap justify-content-between align-items-center">
                     <div class="d-flex flex-wrap">
@@ -113,7 +119,7 @@ class mGrantTask {
                             <button id="bulkDeleteButton" class="btn mx-8" style="color: #6E7073; display: none;background-color: #FFF1E7;">
                             <i class="fa fa-trash" style="color: #E03636;"></i>
                             </button>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -124,7 +130,7 @@ class mGrantTask {
                  <table style="margin: 0px !important;" class="table table-bordered">
                     <thead style="font-size: 12px;">
                         <tr>
-                            
+
                             <th class="row-check sortable-handle col" style="width: 40px; text-align: center; position: sticky; left: 0px; background-color: #F8F8F8;">
                                 <input type="checkbox" id="selectAllCheckBox">
                             </th>
@@ -179,7 +185,7 @@ class mGrantTask {
                                         </div>
                                     </div>
                                 </td>
-                                <td style="white-space: nowrap;">${task.custom_start_date ? getFormattedDate(task.custom_start_date) : '--:--'}</td> 
+                                <td style="white-space: nowrap;">${task.custom_start_date ? getFormattedDate(task.custom_start_date) : '--:--'}</td>
                                 <td style="white-space: nowrap;font-size: 12px !important;" class="${(task.date && (new Date(task.date) < new Date(frappe.datetime.get_today()))) ? 'text-danger' : 'text-muted'}">${task.date ? getFormattedDate(task.date) : '--:--'}</td>
                                 <td>
                                     <div class="dropdown">
@@ -198,7 +204,7 @@ class mGrantTask {
                     </tbody>
                 </table>
                 </div>
-                
+
                 `: `
                 <div style="flex-direction: column; height: 200px;" class="d-flex justify-content-center align-items-center" >
                     <svg class="icon icon-xl" style="stroke: var(--text-light);">
@@ -228,7 +234,7 @@ class mGrantTask {
                             ${total_pages > 0 ? Array.from({ length: total_pages }, (_, i) => i + 1).map(p => `
                                 <li class="page-item ${p == currentPage ? 'active' : ''}"><a class="page-link">${p}</a></li>
                             `).join('') : ''}
-                            
+
                             <li class="page-item">
                             <a class="page-link next-page ${total_pages==currentPage?'disabled':''}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
@@ -237,10 +243,14 @@ class mGrantTask {
                             </li>
                         </ul>
                     </nav>
-                    `: ''} 
+                    `: ''}
                 </div>
             </div>
-        `);
+        `;
+        if(this.wrapper.innerHTML){
+            this.wrapper.innerHTML = ''
+        }
+        this.wrapper.appendChild(el);
         const toggleVisibility = (id, show, type = 'block') => {
             console.log(id, show, type)
             document.getElementById(id).style.display = show ? type : 'none'
@@ -286,7 +296,7 @@ class mGrantTask {
         $('#createTask').on('click', function () {
             this.form(null, 'New Task', this.frm);
         }.bind(this));
-        // 
+        //
 
         $('.delete-btn').on('click', function (e) {
             const taskName = $(e.currentTarget).data('task');
