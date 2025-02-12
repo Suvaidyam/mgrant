@@ -23,14 +23,7 @@
   "positive",
   "column_break_qnkv",
   "negative",
-  "neutral",
-  "approval_proposal_section",
-  "level_1",
-  "level_1_email",
-  "level_2",
-  "level_2_email",
-  "level_3",
-  "level_3_email"
+  "neutral"
  ],
  "fields": [
   {
@@ -129,53 +122,6 @@
    "label": "Neutral (proposal)"
   },
   {
-   "fieldname": "approval_proposal_section",
-   "fieldtype": "Section Break",
-   "label": "Approval (Proposal)"
-  },
-  {
-   "fieldname": "level_1",
-   "fieldtype": "Link",
-   "label": "Level 1",
-   "options": "SVA User"
-  },
-  {
-   "fieldname": "level_2",
-   "fieldtype": "Link",
-   "label": "Level 2",
-   "options": "SVA User"
-  },
-  {
-   "fieldname": "level_3",
-   "fieldtype": "Link",
-   "label": "Level 3",
-   "options": "SVA User"
-  },
-  {
-   "fetch_from": "level_1.email",
-   "fieldname": "level_1_email",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Level 1 (Email)",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "level_2.email",
-   "fieldname": "level_2_email",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Level 2 (Email)",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "level_3.email",
-   "fieldname": "level_3_email",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Level 3 (Email)",
-   "read_only": 1
-  },
-  {
    "fieldname": "update_stages",
    "fieldtype": "Button",
    "label": "Update Stages"
@@ -197,7 +143,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-02-11 20:37:05.189459",
+ "modified": "2025-02-11 23:13:04.796348",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",

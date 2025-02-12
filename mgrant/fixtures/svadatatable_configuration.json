@@ -10,13 +10,6 @@
    },
    {
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "link_doctype": "Fund Receipt Tracker",
-    "link_fieldname": "grant_reciept",
-    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\",\"width\":\"2\"},{\"fieldname\":\"as_on_date\",\"label\":\"As on Date\",\"width\":\"2\"},{\"fieldname\":\"funds_received\",\"label\":\"Funds Received\",\"width\":\"2\"},{\"fieldname\":\"utr_number\",\"label\":\"UTR Number\",\"width\":\"2\"}]",
-    "parent_doctype": "Grant Receipts"
-   },
-   {
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "link_doctype": "Impact Achievement",
     "link_fieldname": "impact",
     "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"as_on_date\",\"label\":\"As on date\"},{\"fieldname\":\"achievement\",\"label\":\"Achievement\"},{\"fieldname\":\"supporting_document\",\"label\":\"Supporting Document\"},{\"fieldname\":\"wf_comment\",\"label\":\"Comment\"}]",
@@ -69,7 +62,7 @@
     "html_field": "tranche",
     "link_doctype": "Grant Receipts",
     "link_fieldname": "grant",
-    "listview_settings": "[{\"fieldname\":\"tranch_no\",\"label\":\"Tranche No.\",\"width\":\"2\"},{\"fieldname\":\"total_funds_planned\",\"label\":\"Total Funds Planned\",\"width\":\"2\"},{\"fieldname\":\"planned_due_date\",\"label\":\"Planned Due Date\",\"width\":\"2\"}]",
+    "listview_settings": "[{\"label\":\"Planned Due Date\",\"fieldname\":\"planned_due_date\"},{\"label\":\"Total Funds Planned\",\"fieldname\":\"total_funds_planned\"},{\"label\":\"Tranche No.\",\"fieldname\":\"tranch_no\"},{\"label\":\"Financial Year\",\"fieldname\":\"financial_year\"}]",
     "referenced_link_doctype": null,
     "template": null
    },
@@ -272,7 +265,7 @@
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2025-02-11 10:25:03.499106",
+  "modified": "2025-02-12 13:29:27.723018",
   "name": "Grant",
   "parent_doctype": "Grant"
  },

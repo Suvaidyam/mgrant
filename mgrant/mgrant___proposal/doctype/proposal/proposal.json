@@ -62,6 +62,7 @@
   "villages",
   "column_break_qdez",
   "rfp",
+  "level_1_users",
   "tasks_tab",
   "tasks",
   "budget_tab",
@@ -477,17 +478,15 @@
   },
   {
    "default": "0",
-   "depends_on": "eval:frappe.mgrant_settings.level_1_email == frappe.session.user_email",
    "fieldname": "level_1",
    "fieldtype": "Check",
    "label": "Level 1"
   },
   {
-   "depends_on": "eval:frappe.mgrant_settings.level_1_email == frappe.session.user_email && doc.level_1 == true",
+   "depends_on": "eval:doc.level_1 == true;",
    "fieldname": "level_1_remarks",
    "fieldtype": "Data",
-   "label": "Level 1 Remarks ",
-   "read_only_depends_on": "eval:frappe.mgrant_settings.level_1_email != frappe.session.user_email"
+   "label": "Level 1 Remarks "
   },
   {
    "fieldname": "column_break_ddun",
@@ -499,31 +498,27 @@
   },
   {
    "default": "0",
-   "depends_on": "eval:frappe.mgrant_settings.level_2_email == frappe.session.user_email",
    "fieldname": "level_2",
    "fieldtype": "Check",
    "label": "Level 2"
   },
   {
-   "depends_on": "eval:frappe.mgrant_settings.level_2_email == frappe.session.user_email  && doc.level_2 == true",
+   "depends_on": "eval:doc.level_2 == true",
    "fieldname": "level_2_remarks",
    "fieldtype": "Data",
-   "label": "Level 2 Remarks",
-   "read_only_depends_on": "eval:frappe.mgrant_settings.level_2_email != frappe.session.user_email"
+   "label": "Level 2 Remarks"
   },
   {
    "default": "0",
-   "depends_on": "eval:frappe.mgrant_settings.level_3_email == frappe.session.user_email",
    "fieldname": "level_3",
    "fieldtype": "Check",
    "label": "Level 3"
   },
   {
-   "depends_on": "eval:frappe.mgrant_settings.level_3_email == frappe.session.user_email  && doc.level_3 == true",
+   "depends_on": "eval:doc.level_3 == true",
    "fieldname": "level_3_remarks",
    "fieldtype": "Data",
-   "label": "Level 3 Remarks",
-   "read_only_depends_on": "eval:frappe.mgrant_settings.level_3_email != frappe.session.user_email"
+   "label": "Level 3 Remarks"
   },
   {
    "fieldname": "column_break_jioh",
@@ -580,12 +575,19 @@
    "fieldtype": "Link",
    "label": "RFP",
    "options": "RFP"
+  },
+  {
+   "fieldname": "level_1_users",
+   "fieldtype": "Table MultiSelect",
+   "hidden": 1,
+   "label": "Level 1 Users",
+   "options": "Level 1 User Child"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-11 19:29:23.218742",
+ "modified": "2025-02-12 00:26:45.823421",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
