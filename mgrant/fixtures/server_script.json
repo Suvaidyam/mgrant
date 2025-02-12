@@ -47,13 +47,13 @@
   "doctype_event": "After Save",
   "enable_rate_limit": 0,
   "event_frequency": "All",
-  "modified": "2025-02-11 19:49:20.700557",
+  "modified": "2025-02-12 13:41:46.417639",
   "module": "mGrant - Proposal",
   "name": "Application",
   "rate_limit_count": 5,
   "rate_limit_seconds": 86400,
   "reference_doctype": "Workflow",
-  "script": "if doc.document_type == \"Proposal\":\n    grant_settings = frappe.get_doc(\"mGrant Settings\")\n    grant_settings.proposal_stages = []\n    for state in doc.states:\n        try:\n            closure_value = state.custom_closure\n        except AttributeError:\n            pass \n        grant_settings.append(\"proposal_stages\", {\n            \"stage\": state.state,\n            \"closure\": closure_value\n        })\n    grant_settings.save(ignore_permissions=True)\n",
+  "script": "if doc.document_type == \"Proposal\":\n    grant_settings = frappe.get_doc(\"mGrant Settings\")\n    kanban_board = frappe.get_doc(\"Kanban Board\", {'reference_doctype': \"Proposal\", \"field_name\": \"stage\"})\n    grant_settings.proposal_stages = []\n    kanban_board.columns = []\n    for state in doc.states:\n        try:\n            closure_value = state.custom_closure\n        except AttributeError:\n            pass \n        grant_settings.append(\"proposal_stages\", {\n            \"stage\": state.state,\n            \"closure\": closure_value\n        })\n        kanban_board.append(\"columns\", {\n            \"column_name\": state.state,\n            \"status\": \"Active\",\n            \"indicator\": \"Gray\"\n        })\n    grant_settings.save(ignore_permissions=True)\n    kanban_board.save(ignore_permissions=True)\n",
   "script_type": "DocType Event"
  }
 ]
