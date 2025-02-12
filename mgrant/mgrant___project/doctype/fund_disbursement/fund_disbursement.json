@@ -33,9 +33,9 @@
   {
    "fieldname": "financial_year",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Financial Year",
-   "options": "Financial Year"
+   "options": "Financial Year",
+   "read_only": 1
   },
   {
    "fieldname": "section_break_aaeg",
@@ -136,7 +136,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-07 17:19:10.203348",
+ "modified": "2025-02-11 17:38:47.174865",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Fund Disbursement",

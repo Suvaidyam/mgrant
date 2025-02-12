@@ -344,11 +344,25 @@
     "listview_settings": "[{\"label\":\"Due diligence clearance valid until.\",\"fieldname\":\"due_diligence_validation\"}]",
     "referenced_link_doctype": null,
     "template": "Tasks"
+   },
+   {
+    "connection_type": "Direct",
+    "crud_permissions": "[\"read\"]",
+    "dn_reference_field": null,
+    "dt_reference_field": null,
+    "extend_condition": 0,
+    "extended_condition": "{}",
+    "html_field": "applications",
+    "link_doctype": "Proposal",
+    "link_fieldname": "ngo",
+    "listview_settings": "[{\"fieldname\":\"proposal_name\",\"label\":\"Application Title\",\"width\":\"2\"},{\"fieldname\":\"programme\",\"label\":\"Programme\",\"width\":\"2\"},{\"fieldname\":\"donor\",\"label\":\"Donor\",\"width\":\"2\"},{\"fieldname\":\"ngo\",\"label\":\"Sub-grantee NGO\",\"width\":\"2\"},{\"fieldname\":\"vendor\",\"label\":\"Sub-grantee Vendor\",\"width\":\"2\"},{\"fieldname\":\"start_date\",\"label\":\"Project Start Date\",\"width\":\"2\"},{\"fieldname\":\"end_date\",\"label\":\"Project End Date\",\"width\":\"2\"},{\"fieldname\":\"grant_duration_in_months\",\"label\":\"Project Duration (in months)\",\"width\":\"2\"},{\"fieldname\":\"total_planned_budget\",\"label\":\"Total Planned Budget\",\"width\":\"2\"},{\"fieldname\":\"closing_date\",\"label\":\"Application Closing Date\",\"width\":\"2\"},{\"fieldname\":\"theme\",\"label\":\"Theme\",\"width\":\"2\"},{\"fieldname\":\"sdg\",\"label\":\"SDG\",\"width\":\"2\"},{\"fieldname\":\"focus_area\",\"label\":\"Focus Area\",\"width\":\"2\"}]",
+    "referenced_link_doctype": null,
+    "template": "Tasks"
    }
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2025-02-09 03:20:05.854940",
+  "modified": "2025-02-11 18:02:25.360544",
   "name": "NGO",
   "parent_doctype": "NGO"
  },
