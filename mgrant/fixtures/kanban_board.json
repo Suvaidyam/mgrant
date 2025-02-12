@@ -1,0 +1,110 @@
+[
+ {
+  "columns": [
+   {
+    "column_name": "Application Started",
+    "indicator": "Gray",
+    "order": "[]",
+    "status": "Active"
+   },
+   {
+    "column_name": "Proposal Submitted",
+    "indicator": "Gray",
+    "order": "[]",
+    "status": "Active"
+   },
+   {
+    "column_name": "Proposal Under Review",
+    "indicator": "Gray",
+    "order": "[]",
+    "status": "Active"
+   },
+   {
+    "column_name": "MOU Signing ongoing",
+    "indicator": "Gray",
+    "order": "[]",
+    "status": "Active"
+   },
+   {
+    "column_name": "MOU Signed",
+    "indicator": "Gray",
+    "order": "[]",
+    "status": "Active"
+   },
+   {
+    "column_name": "Rejected",
+    "indicator": "Gray",
+    "order": "[]",
+    "status": "Active"
+   },
+   {
+    "column_name": "On Hold",
+    "indicator": "Gray",
+    "order": "[]",
+    "status": "Active"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Kanban Board",
+  "field_name": "stage",
+  "fields": null,
+  "filters": null,
+  "kanban_board_name": "stage",
+  "modified": "2025-02-12 13:43:14.230121",
+  "name": "stage",
+  "private": 0,
+  "reference_doctype": "Proposal",
+  "show_labels": 0
+ },
+ {
+  "columns": [
+   {
+    "column_name": "Backlog",
+    "indicator": "Gray",
+    "order": "[]",
+    "status": "Active"
+   },
+   {
+    "column_name": "Todo",
+    "indicator": "Gray",
+    "order": "[\"TASK-000049\", \"TASK-000011\"]",
+    "status": "Active"
+   },
+   {
+    "column_name": "In Progress",
+    "indicator": "Gray",
+    "order": "[]",
+    "status": "Active"
+   },
+   {
+    "column_name": "Done",
+    "indicator": "Gray",
+    "order": "[]",
+    "status": "Active"
+   },
+   {
+    "column_name": "Cancelled",
+    "indicator": "Gray",
+    "order": "[]",
+    "status": "Active"
+   },
+   {
+    "column_name": "Delayed",
+    "indicator": "Gray",
+    "order": "[]",
+    "status": "Active"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Kanban Board",
+  "field_name": "custom_task_status",
+  "fields": null,
+  "filters": null,
+  "kanban_board_name": "Task",
+  "modified": "2025-02-12 13:46:26.848093",
+  "name": "Task",
+  "private": 0,
+  "reference_doctype": "ToDo",
+  "show_labels": 0
+ }
+]
