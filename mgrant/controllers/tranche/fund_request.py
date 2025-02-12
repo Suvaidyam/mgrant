@@ -1,5 +1,5 @@
 import frappe
-from mgrant.utils import get_state_closure
+from mgrant.utils import get_state_closure, get_positive_state_closure
 
 def validate(self):
     if self.request_date:
@@ -23,11 +23,10 @@ def after_save(self):
     print("Fund Request Saved", self.doctype)
 
 def on_update(self):
-    # Calculate total requested amount for this grant only
-    total_requested_amount = frappe.db.sql(""" 
-        SELECT SUM(requested_amount) FROM `tabFund Request` WHERE `grant` = %s
-    """, (self.grant,))[0][0] or 0
-
+    positive_state = get_positive_state_closure(self.doctype)
+    requests = frappe.get_list("Fund Request", filters={"grant": self.grant,"workflow_state":positive_state}, pluck="requested_amount",limit=10000,ignore_permissions=True)
+    total_requested_amount = float(sum(requests) or 0)
+    
     # Update total amount requested in the Grant document
     if self.grant:
         frappe.db.set_value("Grant", self.grant, "total_amount_requested_from_donor", total_requested_amount)
@@ -37,7 +36,7 @@ def on_update(self):
     if state_status == "Positive":
         if frappe.db.exists("Fund Disbursement", {"fund_request": self.name}):
             frappe.throw("Fund Disbursement already created for this Fund Request")
-
+            
         # Create new Fund Disbursement document
         _doc = frappe.new_doc("Fund Disbursement")
         _doc.fund_request = self.name
@@ -48,4 +47,12 @@ def on_update(self):
         _doc.insert()
 
 def on_trash(self):
-    print("Fund Request Deleted", self.name)
+    positive_state = get_positive_state_closure(self.doctype)
+    if self.workflow_state == positive_state:
+        return frappe.throw(f"Cannot delete Fund Request in {positive_state} state")
+        
+    requests = frappe.get_list("Fund Request", filters={"grant": self.grant,"name":['!=',self.name],"workflow_state":positive_state}, pluck="requested_amount",limit=10000,ignore_permissions=True)
+    total_requested_amount = float(sum(requests) or 0)
+    
+    if self.grant:
+        frappe.db.set_value("Grant", self.grant, "total_amount_requested_from_donor", total_requested_amount)

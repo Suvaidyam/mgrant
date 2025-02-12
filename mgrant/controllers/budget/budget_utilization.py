@@ -1,5 +1,5 @@
 import frappe
-from mgrant.utils import get_month_quarter_year_based_on_date_and_yt
+from mgrant.utils import get_month_quarter_year_based_on_date_and_yt,get_positive_state_closure
 from datetime import datetime
 from frappe.utils import getdate
 
@@ -14,7 +14,8 @@ def validate_future_date(as_on_date):
 
 def utilization_on_update(self):
     validate_future_date(self.as_on_date)
-    get_all_transaction = frappe.db.get_list("Budget Transaction", filters={"budget_plan":self.budget_plan}, fields=["transaction","budget_plan","as_on_date"],ignore_permissions=True)
+    positive_state = get_positive_state_closure(self.doctype)
+    get_all_transaction = frappe.db.get_list("Budget Transaction", filters={"budget_plan":self.budget_plan,"workflow_state":positive_state}, fields=["transaction","budget_plan","as_on_date"],ignore_permissions=True)
     buget_plan_utl_doc = frappe.get_doc("Budget Plan and Utilisation", self.budget_plan)
     monthly_keys = [f"{planning.month}-{planning.year}" for planning in buget_plan_utl_doc.get("planning_table",[]) if buget_plan_utl_doc.frequency == "Monthly"]
     quarterly_keys = [f"{planning.quarter}-{planning.year}" for planning in buget_plan_utl_doc.get("planning_table",[]) if buget_plan_utl_doc.frequency == "Quarterly"]
@@ -72,7 +73,8 @@ def utilization_on_update(self):
     buget_plan_utl_doc.save(ignore_permissions=True)
     
 def utilization_on_trash(self):
-    get_all_transaction = frappe.db.get_list("Budget Transaction", filters={"budget_plan":self.budget_plan,'name':['!=',self.name]}, fields=["transaction","budget_plan","as_on_date"],ignore_permissions=True)
+    positive_state = get_positive_state_closure(self.doctype)
+    get_all_transaction = frappe.db.get_list("Budget Transaction", filters={"budget_plan":self.budget_plan,'name':['!=',self.name],"workflow_state":positive_state}, fields=["transaction","budget_plan","as_on_date"],ignore_permissions=True)
     buget_plan_utl_doc = frappe.get_doc("Budget Plan and Utilisation", self.budget_plan)
     monthly_keys = [f"{planning.month}-{planning.year}" for planning in buget_plan_utl_doc.get("planning_table",[]) if buget_plan_utl_doc.frequency == "Monthly"]
     quarterly_keys = [f"{planning.quarter}-{planning.year}" for planning in buget_plan_utl_doc.get("planning_table",[]) if buget_plan_utl_doc.frequency == "Quarterly"]

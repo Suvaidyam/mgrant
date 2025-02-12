@@ -1,5 +1,5 @@
 import frappe
-def proposal_grant_on_validate(self):
+def proposal_grant_rec_on_validate(self):
     if self.proposal:
         budgets = frappe.get_list("Proposal Budget Plan", filters={"proposal": self.proposal}, pluck="total_planned_budget",limit=10000,ignore_permissions=True)
         grant_reciepts = frappe.get_list("Proposal Grant Receipts", filters={"proposal": self.proposal}, pluck="total_funds_planned",limit=10000,ignore_permissions=True)

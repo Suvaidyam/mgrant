@@ -3,7 +3,7 @@
 
 # import frappe
 from frappe.model.document import Document
-from mgrant.controllers.financial.fund_request.hooks import validate,after_save, on_update, on_trash 
+from apps.mgrant.mgrant.controllers.tranche.fund_request import validate,after_save, on_update, on_trash 
 class FundRequest(Document):
 	def validate(self):
 		validate(self)
