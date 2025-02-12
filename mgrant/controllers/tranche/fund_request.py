@@ -1,5 +1,6 @@
 import frappe
 from mgrant.utils import get_state_closure, get_positive_state_closure
+from frappe.utils import today
 
 def validate(self):
     if self.request_date:
@@ -23,11 +24,10 @@ def after_save(self):
     print("Fund Request Saved", self.doctype)
 
 def on_update(self):
+    request_validation(self)
     positive_state = get_positive_state_closure(self.doctype)
     requests = frappe.get_list("Fund Request", filters={"grant": self.grant,"workflow_state":positive_state}, pluck="requested_amount",limit=10000,ignore_permissions=True)
     total_requested_amount = float(sum(requests) or 0)
-    
-    # Update total amount requested in the Grant document
     if self.grant:
         frappe.db.set_value("Grant", self.grant, "total_amount_requested_from_donor", total_requested_amount)
     
@@ -48,11 +48,21 @@ def on_update(self):
 
 def on_trash(self):
     positive_state = get_positive_state_closure(self.doctype)
-    if self.workflow_state == positive_state:
-        return frappe.throw(f"Cannot delete Fund Request in {positive_state} state")
-        
     requests = frappe.get_list("Fund Request", filters={"grant": self.grant,"name":['!=',self.name],"workflow_state":positive_state}, pluck="requested_amount",limit=10000,ignore_permissions=True)
     total_requested_amount = float(sum(requests) or 0)
-    
     if self.grant:
         frappe.db.set_value("Grant", self.grant, "total_amount_requested_from_donor", total_requested_amount)
+        
+def request_validation(self):
+    gr_positive_state = get_positive_state_closure("Grant Receipts")
+    disb_positive_state = get_positive_state_closure("Fund Disbursement")
+    fr_positive_state = get_positive_state_closure(self.doctype)
+    if self.grant:
+        planned_tranches = frappe.get_list("Grant Receipts", filters={"grant": self.grant,"workflow_state":gr_positive_state,"planned_due_date":["<=",today()]}, pluck="total_funds_planned",limit=10000,ignore_permissions=True)
+        requests = frappe.get_list("Fund Request", filters={"grant": self.grant,"workflow_state":fr_positive_state}, pluck="requested_amount",limit=10000,ignore_permissions=True)
+        disbs = frappe.get_list("Fund Disbursement", filters={"grant": self.grant,"workflow_state":disb_positive_state}, pluck="disbursed_amount",limit=10000,ignore_permissions=True)
+        total_funds_planned = float(sum(planned_tranches) or 0)
+        total_requested_amount = float(sum(requests) or 0)
+        total_disbursements = float(sum(disbs) or 0)
+        remained_disbursements = total_funds_planned - total_disbursements
+        frappe.throw(f"{total_funds_planned}-{total_requested_amount}-{total_disbursements}-{remained_disbursements}")
