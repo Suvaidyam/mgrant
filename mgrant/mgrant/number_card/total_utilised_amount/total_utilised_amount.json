@@ -1,0 +1,23 @@
+{
+ "creation": "2025-02-11 16:01:43.447022",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "dynamic_filters_json": "{}",
+ "filters_json": "{}",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 0,
+ "is_standard": 1,
+ "label": "Total Utilised Amount",
+ "modified": "2025-02-11 16:01:43.447022",
+ "modified_by": "Administrator",
+ "module": "Mgrant",
+ "name": "Total Utilised Amount",
+ "owner": "Administrator",
+ "report_field": "total_funds_utilised",
+ "report_function": "Sum",
+ "report_name": "Grant Financial",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Daily",
+ "type": "Report"
+}

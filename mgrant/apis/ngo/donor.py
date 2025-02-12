@@ -13,7 +13,7 @@ def convert_datetime_to_string(data):
 
 @frappe.whitelist()
 def sync_donors_from_central_repo():
-    conf = frappe.get_doc("mGrant API Integrations")
+    conf = frappe.get_doc("mGrant API Intebaseurlgrations")
     if not conf.base_url:
         return frappe.throw("Base URL is required")
     url = f"{conf.base_url}/api/method/mgrant_central_repo.apis.api.get_donors"
