@@ -1,8 +1,9 @@
 import frappe
-from mgrant.utils import get_month_quarter_year_based_on_date_and_yt
+from mgrant.utils import get_month_quarter_year_based_on_date_and_yt,get_positive_state_closure
 
 def input_ach_on_update(self):
-    get_all_achievement = frappe.db.get_list("Input Achievement", filters={"input": self.input}, fields=["achievement","as_on_date"],ignore_permissions=True)
+    positive_state = get_positive_state_closure(self.doctype)
+    get_all_achievement = frappe.db.get_list("Input Achievement", filters={"input": self.input,"workflow_state":positive_state}, fields=["achievement","as_on_date"],ignore_permissions=True)
     input_doc = frappe.get_doc("Input", self.input)
     monthly_keys = [f"{planning.month}-{planning.year}" for planning in input_doc.get("planning_table",[]) if input_doc.frequency == "Monthly"]
     quarterly_keys = [f"{planning.quarter}-{planning.year}" for planning in input_doc.get("planning_table",[]) if input_doc.frequency == "Quarterly"]
@@ -57,7 +58,8 @@ def input_ach_on_update(self):
     input_doc.save(ignore_permissions=True)
     
 def input_ach_on_trash(self):
-    get_all_achievement = frappe.db.get_list("Input Achievement", filters={"input": self.input,'name':['!=',self.name]}, fields=["achievement","as_on_date"],ignore_permissions=True)
+    positive_state = get_positive_state_closure(self.doctype)
+    get_all_achievement = frappe.db.get_list("Input Achievement", filters={"input": self.input,'name':['!=',self.name],"workflow_state":positive_state}, fields=["achievement","as_on_date"],ignore_permissions=True)
     input_doc = frappe.get_doc("Input", self.input)
     monthly_keys = [f"{planning.month}-{planning.year}" for planning in input_doc.get("planning_table",[]) if input_doc.frequency == "Monthly"]
     quarterly_keys = [f"{planning.quarter}-{planning.year}" for planning in input_doc.get("planning_table",[]) if input_doc.frequency == "Quarterly"]
