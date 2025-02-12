@@ -1,4 +1,5 @@
 import frappe
+from mgrant.utils import get_positive_state_closure
 
 def fund_disbursement_on_validate(self):
     if self.as_on_date:
@@ -13,3 +14,13 @@ def fund_disbursement_on_validate(self):
                 self.financial_year = f"FY-{dt.year}"
         else:
             self.financial_year = f"FY-{dt.year}"
+
+def fund_disbursement_on_update(self):
+    positive_state = get_positive_state_closure(self.doctype)
+    if self.grant:
+        disbursements = frappe.get_list("Fund Disbursement", filters={"grant": self.grant,"workflow_state":positive_state}, pluck="disbursed_amount",limit=10000,ignore_permissions=True)
+        total_disbursed_amount = float(sum(disbursements) or 0)
+        frappe.db.set_value("Grant", self.grant, "total_funds_received", total_disbursed_amount,update_modified=False)
+        
+def fund_disbursement_on_trash(self):
+    pass

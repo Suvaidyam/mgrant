@@ -55,14 +55,16 @@ def on_trash(self):
         
 def request_validation(self):
     gr_positive_state = get_positive_state_closure("Grant Receipts")
-    disb_positive_state = get_positive_state_closure("Fund Disbursement")
     fr_positive_state = get_positive_state_closure(self.doctype)
     if self.grant:
         planned_tranches = frappe.get_list("Grant Receipts", filters={"grant": self.grant,"workflow_state":gr_positive_state,"planned_due_date":["<=",today()]}, pluck="total_funds_planned",limit=10000,ignore_permissions=True)
-        requests = frappe.get_list("Fund Request", filters={"grant": self.grant,"workflow_state":fr_positive_state}, pluck="requested_amount",limit=10000,ignore_permissions=True)
-        disbs = frappe.get_list("Fund Disbursement", filters={"grant": self.grant,"workflow_state":disb_positive_state}, pluck="disbursed_amount",limit=10000,ignore_permissions=True)
+        disbs = frappe.get_list("Fund Disbursement", filters={"grant": self.grant}, pluck="disbursed_amount",limit=10000,ignore_permissions=True)
         total_funds_planned = float(sum(planned_tranches) or 0)
-        total_requested_amount = float(sum(requests) or 0)
         total_disbursements = float(sum(disbs) or 0)
         remained_disbursements = total_funds_planned - total_disbursements
-        frappe.throw(f"{total_funds_planned}-{total_requested_amount}-{total_disbursements}-{remained_disbursements}")
+        if self.workflow_state == fr_positive_state:
+            if self.approved_amount > remained_disbursements:
+                frappe.throw(f"Approved Amount cannot be greater than ({remained_disbursements}).")
+        else:
+            if self.requested_amount > remained_disbursements:
+                frappe.throw(f"Requested Amount cannot be greater than ({remained_disbursements}).")
