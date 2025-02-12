@@ -578,6 +578,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:(frappe.boot.user_team && frappe.boot.user_team == \"Donor\")",
    "fieldname": "notes_tab",
    "fieldtype": "Tab Break",
    "label": "Notes"
@@ -720,7 +721,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-11 16:22:12.805344",
+ "modified": "2025-02-11 19:28:46.368005",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",

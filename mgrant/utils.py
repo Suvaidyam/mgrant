@@ -2,6 +2,13 @@ from datetime import datetime
 from frappe.utils import add_days, getdate
 import frappe
 
+def get_positive_state_closure(doctype):
+    sql = f"select state, custom_closure from `tabWorkflow Document State` where parent='{doctype}' and custom_closure = 'Positive'"
+    list = frappe.db.sql(sql, as_dict=1)
+    if len(list) > 0:
+        return list[0].state
+    return None
+
 def get_state_closure(doctype, wf_state):
     sql = f"select state, custom_closure from `tabWorkflow Document State` where parent='{doctype}' and state='{wf_state}' and custom_closure in ('Positive', 'Negative')"
     list = frappe.db.sql(sql, as_dict=1)
