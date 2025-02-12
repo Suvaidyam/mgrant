@@ -1,8 +1,9 @@
 import frappe
-from mgrant.utils import get_month_quarter_year_based_on_date_and_yt
+from mgrant.utils import get_month_quarter_year_based_on_date_and_yt,get_positive_state_closure
 
 def outcome_ach_on_update(self):
-    get_all_achievement = frappe.db.get_list("Outcome Achievement", filters={"outcome": self.outcome}, fields=["achievement","as_on_date"],ignore_permissions=True)
+    positive_state = get_positive_state_closure(self.doctype)
+    get_all_achievement = frappe.db.get_list("Outcome Achievement", filters={"outcome": self.outcome,"workflow_state":positive_state}, fields=["achievement","as_on_date"],ignore_permissions=True)
     outcome_doc = frappe.get_doc("Outcome", self.outcome)
     monthly_keys = [f"{planning.month}-{planning.year}" for planning in outcome_doc.get("planning_table",[]) if outcome_doc.frequency == "Monthly"]
     quarterly_keys = [f"{planning.quarter}-{planning.year}" for planning in outcome_doc.get("planning_table",[]) if outcome_doc.frequency == "Quarterly"]
@@ -55,7 +56,8 @@ def outcome_ach_on_update(self):
     outcome_doc.save(ignore_permissions=True)
     
 def outcome_ach_on_trash(self):
-    get_all_achievement = frappe.db.get_list("Outcome Achievement", filters={"outcome": self.outcome,'name':['!=',self.name]}, fields=["achievement","as_on_date"],ignore_permissions=True)
+    positive_state = get_positive_state_closure(self.doctype)
+    get_all_achievement = frappe.db.get_list("Outcome Achievement", filters={"outcome": self.outcome,'name':['!=',self.name],"workflow_state":positive_state}, fields=["achievement","as_on_date"],ignore_permissions=True)
     outcome_doc = frappe.get_doc("Outcome", self.outcome)
     monthly_keys = [f"{planning.month}-{planning.year}" for planning in outcome_doc.get("planning_table",[]) if outcome_doc.frequency == "Monthly"]
     quarterly_keys = [f"{planning.quarter}-{planning.year}" for planning in outcome_doc.get("planning_table",[]) if outcome_doc.frequency == "Quarterly"]

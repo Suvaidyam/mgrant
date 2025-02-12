@@ -1,4 +1,5 @@
 import frappe
+from mgrant.utils import get_positive_state_closure
 
 def budget_validate(self):
     if self.frequency in ('Quarterly', 'Monthly','Annually'):
@@ -15,10 +16,11 @@ def budget_validate(self):
             return frappe.throw("Total Utilisation can't be greater than Total Planned Buget.")
         
 def budget_on_update(self):
+    positive_state = get_positive_state_closure(self.doctype)
     if not self.flags.from_grant_file:
         if self.grant:
             grant_doc = frappe.get_doc('Grant', self.grant)
-            budgets = frappe.db.get_list('Budget Plan and Utilisation', filters={'grant': self.grant}, fields=['name', 'total_planned_budget','total_utilisation'],limit_page_length=1000,ignore_permissions=True)
+            budgets = frappe.db.get_list('Budget Plan and Utilisation', filters={'grant': self.grant,"workflow_state":positive_state}, fields=['name', 'total_planned_budget','total_utilisation'],limit_page_length=1000,ignore_permissions=True)
             total_planned_budget = float(0)
             total_utilisation = float(0)
             if len(budgets) > 0:
@@ -32,7 +34,7 @@ def budget_on_update(self):
             # SubGrantee Calculation
             if grant_doc.implementation_type == 'Sub Grant':
                 sub_grants = frappe.db.get_list('Grant', filters={'implementation_type':"Sub Grant",'parent_grant': grant_doc.parent_grant}, pluck='name',limit_page_length=1000,ignore_permissions=True)
-                sub_granted_budgets = frappe.db.get_list('Budget Plan and Utilisation', filters={'grant': ['in', sub_grants]}, fields=['name', 'total_planned_budget','total_utilisation'],limit_page_length=10000,ignore_permissions=True)
+                sub_granted_budgets = frappe.db.get_list('Budget Plan and Utilisation', filters={'grant': ['in', sub_grants],"workflow_state":positive_state}, fields=['name', 'total_planned_budget','total_utilisation'],limit_page_length=10000,ignore_permissions=True)
                 paren_grant_doc = frappe.get_doc('Grant', grant_doc.parent_grant)
                 total_fund_subgranted = float(0)
                 total_subgranted_utilisation = float(0)
@@ -53,9 +55,10 @@ def budget_on_update(self):
                 grant_doc.save(ignore_permissions=True)
         
 def budget_on_trash(self):
+    positive_state = get_positive_state_closure(self.doctype)
     if self.grant:
         grant_doc = frappe.get_doc('Grant', self.grant)
-        budgets = frappe.db.get_list('Budget Plan and Utilisation', filters={'grant': self.grant,'name': ['!=', self.name]}, fields=['name', 'total_planned_budget','total_utilisation'],limit_page_length=1000,ignore_permissions=True)
+        budgets = frappe.db.get_list('Budget Plan and Utilisation', filters={'grant': self.grant,'name': ['!=', self.name],"workflow_state":positive_state}, fields=['name', 'total_planned_budget','total_utilisation'],limit_page_length=1000,ignore_permissions=True)
         total_planned_budget = float(0)
         total_utilisation = float(0)
         if len(budgets) > 0:
@@ -69,7 +72,7 @@ def budget_on_trash(self):
         # SubGrantee Calculation
         if grant_doc.implementation_type == 'Sub Grant':
             sub_grants = frappe.db.get_list('Grant', filters={'implementation_type':"Sub Grant",'parent_grant': grant_doc.parent_grant}, pluck='name',limit_page_length=1000,ignore_permissions=True)
-            sub_granted_budgets = frappe.db.get_list('Budget Plan and Utilisation', filters={'grant': ['in', sub_grants],'name': ['!=', self.name]}, fields=['name', 'total_planned_budget','total_utilisation'],limit_page_length=10000,ignore_permissions=True)
+            sub_granted_budgets = frappe.db.get_list('Budget Plan and Utilisation', filters={'grant': ['in', sub_grants],'name': ['!=', self.name],"workflow_state":positive_state}, fields=['name', 'total_planned_budget','total_utilisation'],limit_page_length=10000,ignore_permissions=True)
             paren_grant_doc = frappe.get_doc('Grant', grant_doc.parent_grant)
             total_fund_subgranted = float(0)
             total_subgranted_utilisation = float(0)

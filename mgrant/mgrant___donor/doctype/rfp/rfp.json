@@ -345,10 +345,9 @@
   },
   {
    "fieldname": "spoc_name",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "SPOC Name",
-   "options": "Contact",
    "reqd": 1
   },
   {
@@ -363,7 +362,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-11 20:26:59.857676",
+ "modified": "2025-02-11 22:53:59.459542",
  "modified_by": "Administrator",
  "module": "mGrant - Donor",
  "name": "RFP",
