@@ -17,6 +17,9 @@ def grant_reciept_on_validate(self):
         
 def grant_reciept_on_update(self):
     validate_grant_reciept(self)
+
+def grant_reciept_on_trash(self):
+    pass
         
 def validate_grant_reciept(self):
     bp_positive_state = get_positive_state_closure("Budget Plan and Utilisation")
