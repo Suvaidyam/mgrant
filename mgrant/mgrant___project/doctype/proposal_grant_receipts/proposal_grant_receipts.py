@@ -2,11 +2,8 @@
 # For license information, please see license.txt
 
 from frappe.model.document import Document
-from mgrant.controllers.tranche.proposal_grant_reciept import proposal_grant_reciept_on_update, proposal_grant_reciept_on_trash
+from mgrant.controllers.tranche.proposal_grant_reciept import proposal_grant_on_validate
 
 class ProposalGrantReceipts(Document):
-	def on_update(self):
-		proposal_grant_reciept_on_update(self)
-
-	def on_trash(self):
-		proposal_grant_reciept_on_trash(self)
+	def validate(self):
+		proposal_grant_on_validate(self)
