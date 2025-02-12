@@ -1,16 +1,22 @@
-const getTaskList = async (frm, selector) => {
+// const getTaskList = async (frm, selector) => {
 
-    new mGrantTask({
-        frm: frm,
-        selector: selector
-    }).show_task();
-}
+//     new mGrantTask({
+//         frm: frm,
+//         selector: selector
+//     }).show_task();
+// }
 
 class mGrantTask {
-    constructor({ frm = null, selector = null }) {
+    constructor(frm = null, wrapper = null) {
+        // debugger
+        this.wrapper = wrapper;
         this.frm = frm;
-        this.selector = selector;
         this.task_list = [];
+        if(frm){
+            this.show_task();
+        }
+        console.log("frm::\n\n",frm);
+
     }
     getRandomColor() {
         const letters = '0123456789ABCDEF';
@@ -45,8 +51,8 @@ class mGrantTask {
             limit: limit,
         }); // Store reference
         let selectedIds = [];
-
-        $(`[data-fieldname="${this.selector}"]`).html(`
+        let el = document.createElement('div');
+        el.innerHTML = `
             <div class="task-list" id="task-list">
                 <div class="d-flex pb-2 flex-wrap justify-content-between align-items-center">
                     <div class="d-flex flex-wrap">
@@ -113,46 +119,47 @@ class mGrantTask {
                             <button id="bulkDeleteButton" class="btn mx-8" style="color: #6E7073; display: none;background-color: #FFF1E7;">
                             <i class="fa fa-trash" style="color: #E03636;"></i>
                             </button>
-                            
+
                         </div>
                     </div>
                 </div>
                 <!-- Task List -->
                ${this.task_list.length > 0
                 ? `
-                <div style="overflow-y:auto;">
-                 <table style="margin: 0px !important;" class="table table-bordered form-grid-container form-grid">
-                    <thead>
+                <div style="overflow-y:auto;" class="form-grid-container form-grid">
+                 <table style="margin: 0px !important;" class="table table-bordered">
+                    <thead style="font-size: 12px;">
                         <tr>
-                            <th style="width: 40px; text-align: center; position: sticky; left: 0px;background-color: #F8F8F8;">
+
+                            <th class="row-check sortable-handle col" style="width: 40px; text-align: center; position: sticky; left: 0px; background-color: #F8F8F8;">
                                 <input type="checkbox" id="selectAllCheckBox">
                             </th>
-                            <th style="white-space: nowrap;">Task Name</th>
-                            <th style="white-space: nowrap;">Assigned To</th>
-                            <th style="white-space: nowrap;">Task Type</th>
-                            <th>Status</th>
-                            <th>Priority</th>
-                            <th style="white-space: nowrap;">Start Date</th>
-                            <th style="white-space: nowrap;">Due Date</th>
+                            <th class="static-area ellipsis">Task Name</th>
+                            <th class="static-area ellipsis">Assigned To</th>
+                            <th class="static-area ellipsis">Task Type</th>
+                            <th class="static-area ellipsis">Status</th>
+                            <th class="static-area ellipsis">Priority</th>
+                            <th class="static-area ellipsis">Start Date</th>
+                            <th class="static-area ellipsis">Due Date</th>
                         </tr>
                     </thead>
-                    <tbody style="background-color: #fff;">
+                    <tbody style="background-color: #fff; font-size: 12px;">
                         ${this.task_list.map(task => `
-                            <tr>
-                                <td style="width: 40px; text-align: center; position: sticky; left: 0px; background-color: #fff;">
+                            <tr class="grid-row">
+                                <td class="row-check sortable-handle col" style="width: 40px; text-align: center; position: sticky; left: 0px; background-color: #fff;">
                                     <input type="checkbox" class="toggleCheckbox" data-id="${task.name}">
                                 </td>
-                                <td>${task.custom_title}</td>
+                                <td class="col grid-static-col col-xs-3 ">${task.custom_title}</td>
                                 <td>
                                     <div class="d-flex align-items-center" style="gap: 4px">
-                                        <div  style="white-space: nowrap; width: 16px; height: 16px; font-size: 12px; background-color: ${this.getRandomColor()}; h" class="avatar  text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 20px; height: 20px;">${task.custom_assigned_to ? task.custom_assigned_to[0].toUpperCase() : '-'}</div>
-                                        <span style="white-space: nowrap; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">
+                                        <div  style="white-space: nowrap; width: 16px; height: 16px; background-color: ${this.getRandomColor()}; h" class="avatar  text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 20px; height: 20px;">${task.custom_assigned_to ? task.custom_assigned_to[0].toUpperCase() : '-'}</div>
+                                        <span style="white-space: nowrap; font-weight: 400; letter-spacing: 0.25%; color: #6E7073;">
                                             ${task.custom_assigned_to ?? 'No Assignee'}
                                         </span>
                                     </div>
                                 </td>
                                 <td style="white-space: nowrap;">${task.custom_task_type}</td>
-                                <td>
+                                <td style="padding: 5px 8px !important;">
                                     <div class="dropdown"style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
                                         <span title="status" id="dropStatus-${task.name}" class="small dropdown-toggle bg-light pointer badge ${task?.custom_task_status === 'Cancelled' ? 'text-danger' : task?.custom_task_status === 'In Progress' ? 'text-warning' : task?.custom_task_status === 'Done' ? 'text-success' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             ${task?.custom_task_status ?? 'Status'}
@@ -166,7 +173,7 @@ class mGrantTask {
                                         </div>
                                     </div>
                                 </td>
-                                <td>
+                                <td style="padding: 5px 8px !important;">
                                     <div class="dropdown" style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
                                         <span title="Priority" id="dropPriority-${task.name}" class=" small dropdown-toggle badge bg-light pointer ${task?.priority === 'High' ? 'text-danger' : task?.priority === 'Medium' ? 'text-warning' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                                             ${task?.priority ?? 'Low'}
@@ -178,9 +185,8 @@ class mGrantTask {
                                         </div>
                                     </div>
                                 </td>
-                                <td style="white-space: nowrap;">${task.custom_start_date ? getFormattedDate(task.custom_start_date) : '--:--'}</td> 
-                                <td style="white-space: nowrap;font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%;" class="${(task.date && (new Date(task.date) < new Date(frappe.datetime.get_today()))) ? 'text-danger' : 'text-muted'}">${task.date ? getFormattedDate(task.date) : '--:--'}</td>
-                                    
+                                <td style="white-space: nowrap;">${task.custom_start_date ? getFormattedDate(task.custom_start_date) : '--:--'}</td>
+                                <td style="white-space: nowrap;font-size: 12px !important;" class="${(task.date && (new Date(task.date) < new Date(frappe.datetime.get_today()))) ? 'text-danger' : 'text-muted'}">${task.date ? getFormattedDate(task.date) : '--:--'}</td>
                                 <td>
                                     <div class="dropdown">
                                         <span title="action" class="pointer d-flex justify-content-center  align-items-center " id="dropdownMenuButton-${task.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -198,6 +204,7 @@ class mGrantTask {
                     </tbody>
                 </table>
                 </div>
+
                 `: `
                 <div style="flex-direction: column; height: 200px;" class="d-flex justify-content-center align-items-center" >
                     <svg class="icon icon-xl" style="stroke: var(--text-light);">
@@ -209,7 +216,7 @@ class mGrantTask {
                 `}
                 <div class="d-flex flex-wrap py-2 justify-content-between">
                     <!-- New Task Button -->
-                    <button style="height:36px;" class="btn btn-secondary btn-sm" id="createTask">
+                    <button style="height:30px;" class="btn btn-secondary btn-sm" id="createTask">
                     <svg class="es-icon es-line icon-xs" aria-hidden="true">
                         <use href="#es-line-add"></use>
                     </svg> Add row
@@ -227,7 +234,7 @@ class mGrantTask {
                             ${total_pages > 0 ? Array.from({ length: total_pages }, (_, i) => i + 1).map(p => `
                                 <li class="page-item ${p == currentPage ? 'active' : ''}"><a class="page-link">${p}</a></li>
                             `).join('') : ''}
-                            
+
                             <li class="page-item">
                             <a class="page-link next-page ${total_pages==currentPage?'disabled':''}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
@@ -236,14 +243,21 @@ class mGrantTask {
                             </li>
                         </ul>
                     </nav>
-                    `: ''} 
+                    `: ''}
                 </div>
             </div>
-        `);
-        const toggleVisibility = (id, show, type = 'block') => (document.getElementById(id).style.display = show ? type : 'none');
+        `;
+        if(this.wrapper.innerHTML){
+            this.wrapper.innerHTML = ''
+        }
+        this.wrapper.appendChild(el);
+        const toggleVisibility = (id, show, type = 'block') => {
+            console.log(id, show, type)
+            document.getElementById(id).style.display = show ? type : 'none'
+        };
 
         // Bind event for individual checkboxes
-        $(document).on('change', '.toggleCheckbox', function (e) {
+        $(document).off('change', '.toggleCheckbox').on('change', '.toggleCheckbox', function (e) {
             const id = $(e.currentTarget).data('id');
             if (e.currentTarget.checked) {
                 selectedIds.push(id);
@@ -257,10 +271,11 @@ class mGrantTask {
         }.bind(this));
 
         // Bind event for "Select All" checkbox
-        $(document).on('change', '#selectAllCheckBox', function (e) {
+        $(document).off('change', '#selectAllCheckBox').on('change', '#selectAllCheckBox', function (e) {
             const isChecked = $(e.currentTarget).prop('checked');
             $('.toggleCheckbox').prop('checked', isChecked);
             selectedIds = isChecked ? this.task_list?.map(x => x.name) : [];
+            console.log(selectedIds)
             toggleVisibility('bulkDeleteButton', selectedIds.length > 0);
             // toggleVisibility('total_records', selectedIds.length === 0, 'flex');
             toggleVisibility('viewBulkDropdown', selectedIds.length > 0);
@@ -281,7 +296,7 @@ class mGrantTask {
         $('#createTask').on('click', function () {
             this.form(null, 'New Task', this.frm);
         }.bind(this));
-        // 
+        //
 
         $('.delete-btn').on('click', function (e) {
             const taskName = $(e.currentTarget).data('task');
