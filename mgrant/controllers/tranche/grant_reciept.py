@@ -1,4 +1,5 @@
 import frappe
+from mgrant.utils import get_positive_state_closure
 
 def grant_reciept_on_validate(self):
     if self.planned_due_date:
@@ -15,34 +16,18 @@ def grant_reciept_on_validate(self):
             self.financial_year = f"FY-{dt.year}"
         
 def grant_reciept_on_update(self):
-    if self.grant:
-        grant_doc = frappe.get_doc('Grant', self.grant)
-        tranches = frappe.db.get_list('Grant Receipts', filters={'grant': self.grant}, fields=['name', 'funds_requested','total_funds_received'],limit_page_length=1000,ignore_permissions=True)
-        total_funds_received = float(0)
-        total_funds_requested = float(0)
-        if len(tranches) > 0:
-            for tranche in tranches:
-                total_funds_received += float(tranche.total_funds_received or 0)
-                total_funds_requested += float(tranche.funds_requested or 0)
-        grant_doc.total_amount_requested_from_donor = total_funds_requested
-        grant_doc.total_funds_received = total_funds_received
-        grant_doc.flags.ignore_mandatory = True
-        grant_doc.save(ignore_permissions=True)
-    if self.total_funds_received and self.funds_requested:
-        if float(self.total_funds_received) < float(self.funds_requested):
-            frappe.throw("Total Funds Planned can't be greater than Funds Requested")
+    validate_grant_reciept(self)
 
 def grant_reciept_on_trash(self):
+    pass
+        
+def validate_grant_reciept(self):
+    bp_positive_state = get_positive_state_closure("Budget Plan and Utilisation")
+    gr_positive_state = get_positive_state_closure(self.doctype)
     if self.grant:
-        grant_doc = frappe.get_doc('Grant', self.grant)
-        tranches = frappe.db.get_list('Grant Receipts', filters={'grant': self.grant, 'name': ['!=', self.name]}, fields=['name', 'funds_requested','total_funds_received'],limit_page_length=1000,ignore_permissions=True)
-        total_funds_received = float(0)
-        total_funds_requested = float(0)
-        if len(tranches) > 0:
-            for tranche in tranches:
-                total_funds_received += float(tranche.total_funds_received or 0)
-                total_funds_requested += float(tranche.funds_requested or 0)
-        grant_doc.total_amount_requested_from_donor = total_funds_requested
-        grant_doc.total_funds_received = total_funds_received
-        grant_doc.flags.ignore_mandatory = True
-        grant_doc.save(ignore_permissions=True)
+        budgets = frappe.get_list("Budget Plan and Utilisation", filters={"grant": self.grant,"workflow_state":bp_positive_state}, pluck="total_planned_budget",limit=10000,ignore_permissions=True)
+        grant_reciepts = frappe.get_list("Grant Receipts", filters={"grant": self.grant,"workflow_state":gr_positive_state}, pluck="total_funds_planned",limit=10000,ignore_permissions=True)
+        total_funds_planned = float(sum(grant_reciepts) or 0)
+        total_planned_budget = float(sum(budgets) or 0)
+        if total_funds_planned > total_planned_budget:
+            return frappe.throw("Total funds planned should be less than or equal to total planned budget")
