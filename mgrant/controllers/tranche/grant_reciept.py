@@ -2,15 +2,6 @@ import frappe
 from mgrant.utils import get_positive_state_closure
 
 def grant_reciept_on_validate(self):
-    positive_state = get_positive_state_closure(self.doctype)
-    if self.grant:
-        budgets = frappe.get_list("Budget Plan and Utilisation", filters={"grant": self.grant,"workflow_state":positive_state}, pluck="total_planned_budget",limit=10000,ignore_permissions=True)
-        grant_reciepts = frappe.get_list("Grant Receipts", filters={"grant": self.grant,"workflow_state":"Approved"}, pluck="total_funds_planned",limit=10000,ignore_permissions=True)
-        total_funds_planned = float(sum(grant_reciepts) or 0) + float(self.total_funds_planned)
-        total_planned_budget = float(sum(budgets) or 0)
-        if total_funds_planned > total_planned_budget:
-            return frappe.throw("Total funds planned should be less than or equal to total planned budget")
-        
     if self.planned_due_date:
         dt = frappe.utils.getdate(self.planned_due_date)
         mgrant_settings = frappe.get_doc("mGrant Settings")
@@ -27,6 +18,7 @@ def grant_reciept_on_validate(self):
 def grant_reciept_on_update(self):
     positive_state = get_positive_state_closure(self.doctype)
     if self.grant:
+        validate_grant_reciept(self)
         grant_doc = frappe.get_doc('Grant', self.grant)
         tranches = frappe.db.get_list('Grant Receipts', filters={'grant': self.grant,"workflow_state":positive_state}, fields=['name', 'funds_requested','total_funds_received'],limit_page_length=1000,ignore_permissions=True)
         total_funds_received = float(0)
@@ -52,3 +44,14 @@ def grant_reciept_on_trash(self):
         grant_doc.total_funds_received = total_funds_received
         grant_doc.flags.ignore_mandatory = True
         grant_doc.save(ignore_permissions=True)
+        
+def validate_grant_reciept(self):
+    bp_positive_state = get_positive_state_closure("Budget Plan and Utilisation")
+    gr_positive_state = get_positive_state_closure(self.doctype)
+    if self.grant:
+        budgets = frappe.get_list("Budget Plan and Utilisation", filters={"grant": self.grant,"workflow_state":bp_positive_state}, pluck="total_planned_budget",limit=10000,ignore_permissions=True)
+        grant_reciepts = frappe.get_list("Grant Receipts", filters={"grant": self.grant,"workflow_state":gr_positive_state}, pluck="total_funds_planned",limit=10000,ignore_permissions=True)
+        total_funds_planned = float(sum(grant_reciepts) or 0)
+        total_planned_budget = float(sum(budgets) or 0)
+        if total_funds_planned > total_planned_budget:
+            return frappe.throw("Total funds planned should be less than or equal to total planned budget")
