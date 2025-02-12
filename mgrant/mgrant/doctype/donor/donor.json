@@ -116,7 +116,6 @@
    "label": "Website"
   },
   {
-   "depends_on": "eval:frappe.mgrant_settings.module == 'NGO'",
    "fieldname": "donor_type",
    "fieldtype": "Select",
    "label": "Donor Type",
@@ -182,7 +181,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-05 15:01:59.643155",
+ "modified": "2025-02-12 18:32:01.792350",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Donor",
