@@ -40,5 +40,47 @@
   "modified": "2024-12-20 16:15:11.747036",
   "name": "Reject",
   "workflow_action_name": "Reject"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-02-11 18:25:11.883828",
+  "name": "Proposal Submitted",
+  "workflow_action_name": "Proposal Submitted"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-02-11 18:25:18.221105",
+  "name": "MOU Signing ongoing",
+  "workflow_action_name": "MOU Signing ongoing"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-02-11 18:25:25.323688",
+  "name": "MOU Signed",
+  "workflow_action_name": "MOU Signed"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-02-11 18:25:45.732929",
+  "name": "Rejected",
+  "workflow_action_name": "Rejected"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-02-11 18:25:55.503137",
+  "name": "On Hold",
+  "workflow_action_name": "On Hold"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-02-11 20:29:41.340333",
+  "name": "Proposal Under Review",
+  "workflow_action_name": "Proposal Under Review"
  }
 ]

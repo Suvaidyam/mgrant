@@ -1,16 +1,22 @@
-const getTaskList = async (frm, selector) => {
-     
-    new mGrantTask({
-        frm: frm,
-        selector: selector
-    }).show_task();
-}
+// const getTaskList = async (frm, selector) => {
+
+//     new mGrantTask({
+//         frm: frm,
+//         selector: selector
+//     }).show_task();
+// }
 
 class mGrantTask {
-    constructor({ frm = null, selector = null }) {
+    constructor(frm = null, wrapper = null) {
+        // debugger
         this.frm = frm;
-        this.selector = selector; 
+        this.wrapper = wrapper;
         this.task_list = [];
+        this.total_pages = 1;
+        this.currentPage = 1;
+        if (frm) {
+            this.show_task();
+        }
     }
     getRandomColor() {
         const letters = '0123456789ABCDEF';
@@ -20,18 +26,245 @@ class mGrantTask {
         }
         return color;
     }
-    async show_task(currentPage = 1) {
-        let limit = 100;
-        let total_records = await frappe.db.count('ToDo', {filters:{
-            reference_type: this.frm.doc.doctype,
-            reference_name: this.frm.doc.name
-        }}
+    getActionBar() {
+        let actions = [
+            {
+                category: 'Set Priority',
+                name: 'priority',
+                actions: [
+                    {
+                        name: 'High',
+                        color: 'red'
+                    },
+                    {
+                        name: 'Medium',
+                        color: 'yellow'
+                    },
+                    {
+                        name: 'Low',
+                        color: 'green'
+                    }
+                ]
+            },
+            {
+                category: 'Set Status',
+                name: 'custom_task_status',
+                actions: [
+                    {
+                        name: 'Todo',
+                        color: 'grey'
+                    },
+                    {
+                        name: 'In Progress',
+                        color: 'yellow'
+                    },
+                    {
+                        name: 'Done',
+                        color: 'green'
+                    },
+                    {
+                        name: 'Cancelled',
+                        color: 'red'
+                    },
+                    {
+                        name: 'Delayed',
+                        color: 'red'
+                    }
+                ]
+            }
+        ]
+        let action_menu = document.createElement('div');
+        action_menu.className = 'dropdown-menu';
+        action_menu.setAttribute('aria-labelledby', 'viewDropdown')
+        action_menu.style = 'padding: 12px;'
+        for (let action of actions) {
+            let li = document.createElement('li');
+            let h6 = document.createElement('h6');
+            h6.className = 'dropdown-header';
+            h6.style = 'font-weight: 400; font-size: 10px; line-height: 11px; color: #0E1116;';
+            h6.innerHTML = action.category;
+            li.appendChild(h6);
+            for (let act of action.actions) {
+                let div = document.createElement('div');
+                div.className = 'form-check';
+                div.innerHTML = `
+                    <input class="form-check-input" type="radio" name="${action.name}" id="${act.name}" value="${act.name}">
+                    <span style="display: inline-block; width: 8px; height: 8px; background-color: ${act?.color}; border-radius: 50%; margin-bottom: 2px;"></span>
+                    <label class="form-check-label" for="${act.name}">
+                       ${act.name}
+                    </label>
+                `;
+                li.appendChild(div);
+            }
+            action_menu.appendChild(li);
+        }
+
+        let el = document.createElement('div');
+        el.className = 'd-flex flex-wrap pb-2 justify-content-between align-items-center';
+        let main = document.createElement('div')
+        main.className = 'dropdown-task-status dropdown';
+        el.appendChild(main);
+        main.innerHTML = ` 
+                <button class="btn btn-light dropdown-toggle" type="button" id="viewBulkDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Set Status
+                </button>
+                ${action_menu.outerHTML} 
+        `
+        el.innerHTML += `
+        <button id="bulkDeleteButton" class="btn mx-8" style="color: #6E7073;background-color: #FFF1E7;">
+                <i class="fa fa-trash" style="color: #E03636;"></i>
+            </button>
+        `
+        return el;
+    }
+    createTable() {
+        let el = document.createElement('div');
+        el.style = 'overflow-y:auto;'
+        el.className = 'form-grid-container form-grid';
+        el.innerHTML = `
+            <table style="margin: 0px !important;" class="table table-bordered">
+                <thead style="font-size: 12px;">
+                    <tr>
+
+                        <th class="row-check sortable-handle col" style="width: 40px; text-align: center; position: sticky; left: 0px; background-color: #F8F8F8;">
+                            <input type="checkbox" id="selectAllCheckBox">
+                        </th>
+                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">Task Name</th>
+                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">Assigned To</th>
+                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">Task Type</th>
+                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">Status</th>
+                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">Priority</th>
+                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">Start Date</th>
+                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">Due Date</th>
+                    </tr>
+                </thead>
+                <tbody style="background-color: #fff; font-size: 12px;">
+                    ${this.task_list.map(task => `
+                        <tr class="grid-row">
+                            <td class="row-check sortable-handle col" style="width: 40px; text-align: center; position: sticky; left: 0px; background-color: #fff;">
+                                <input type="checkbox" class="toggleCheckbox" data-id="${task.name}">
+                            </td>
+                            <td class="col grid-static-col col-xs-3 ">${task.custom_title}</td>
+                            <td>
+                                <div class="d-flex align-items-center" style="gap: 4px">
+                                    <div  style="white-space: nowrap; width: 16px; height: 16px; background-color: ${this.getRandomColor()}; h" class="avatar  text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 20px; height: 20px;">${task.custom_assigned_to ? task.custom_assigned_to[0].toUpperCase() : '-'}</div>
+                                    <span style="white-space: nowrap; font-weight: 400; letter-spacing: 0.25%; color: #6E7073;">
+                                        ${task.custom_assigned_to ?? 'No Assignee'}
+                                    </span>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">${task.custom_task_type}</td>
+                            <td style="padding: 5px 8px !important;">
+                                <div class="dropdown"style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
+                                    <span title="status" id="dropStatus-${task.name}" class="small dropdown-toggle bg-light pointer badge ${task?.custom_task_status === 'Cancelled' ? 'text-danger' : task?.custom_task_status === 'In Progress' ? 'text-warning' : task?.custom_task_status === 'Done' ? 'text-success' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${task?.custom_task_status ?? 'Status'}
+                                    </span>
+                                    <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Todo">Todo</a>
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="In Progress">In Progress</a>
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Done">Done</a>
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Cancelled">Cancelled</a>
+                                        <a class="dropdown-item task-status" data-task="${task.name}" data-status="Delayed">Delayed</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="padding: 5px 8px !important;">
+                                <div class="dropdown" style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
+                                    <span title="Priority" id="dropPriority-${task.name}" class=" small dropdown-toggle badge bg-light pointer ${task?.priority === 'High' ? 'text-danger' : task?.priority === 'Medium' ? 'text-warning' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                        ${task?.priority ?? 'Low'}
+                                    </span>
+                                    <div class="dropdown-menu" aria-labelledby="dropPriority-${task.name}">
+                                        <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="Low">Low</a>
+                                        <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="Medium">Medium</a>
+                                        <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="High">High</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">${task.custom_start_date ? getFormattedDate(task.custom_start_date) : '--:--'}</td>
+                            <td style="white-space: nowrap;font-size: 12px !important;" class="${(task.date && (new Date(task.date) < new Date(frappe.datetime.get_today()))) ? 'text-danger' : 'text-muted'}">${task.date ? getFormattedDate(task.date) : '--:--'}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <span title="action" class="pointer d-flex justify-content-center  align-items-center " id="dropdownMenuButton-${task.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ⋮
+                                    </span>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-${task.name}">
+                                        <a class="dropdown-item edit-btn" data-task="${task.name}">Edit</a>
+                                        <a class="dropdown-item delete-btn" data-task="${task.name}">Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                            </td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+        `
+        return el;
+    }
+    createFooter() {
+        let el = document.createElement('div');
+        el.className = 'd-flex flex-wrap py-2 justify-content-between';
+        el.innerHTML = `
+            <!-- New Task Button -->
+            <button style="height:30px;" class="btn btn-secondary btn-sm" id="createTask">
+            <svg class="es-icon es-line icon-xs" aria-hidden="true">
+                <use href="#es-line-add"></use>
+            </svg> Add row
+            </button>
+            <!-- Pagination -->
+            ${this.total_pages > 1 ? `
+                <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                    <a style="padding: 0.35rem 0.75rem !important;" class="page-link prev-page ${this.currentPage == 1 ? 'disabled' : ''}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    </li>
+                    ${this.total_pages > 0 ? Array.from({ length: this.total_pages }, (_, i) => i + 1).map(p => `
+                        <li class="page-item ${p == this.currentPage ? 'active' : ''}">
+                            <a class="page-link" style="padding: 0.35rem 0.75rem !important;">${p}</a>
+                        </li>
+                    `).join('') : ''}
+
+                    <li class="page-item">
+                    <a style="padding: 0.35rem 0.75rem !important;" class="page-link next-page ${this.total_pages == this.currentPage ? 'disabled' : ''}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                    </li>
+                </ul>
+            </nav>
+            `: ''}
+        `
+        return el;
+    }
+    noDataFound() {
+        let el = document.createElement('div');
+        el.style = 'flex-direction: column; height: 200px;'
+        e.addClass('d-flex justify-content-center align-items-center')
+        el.innerHTML = `
+            <svg class="icon icon-xl" style="stroke: var(--text-light);">
+                <use href="#icon-small-file"></use>
+            </svg>
+            <p class="text-muted">You haven't created a Recored yet</p>
+        `
+        return el;
+    }
+    async show_task() {
+        let limit = 10;
+        let total_records = await frappe.db.count('ToDo', {
+            filters: {
+                reference_type: this.frm.doc.doctype,
+                reference_name: this.frm.doc.name
+            }
+        }
         );
 
-        let total_pages = Math.ceil(total_records / limit);
-        currentPage = Math.max(1, Math.min(currentPage, total_pages));
-        let start = (currentPage - 1) * limit;
-
+        this.total_pages = Math.ceil(total_records / limit);
+        this.currentPage = Math.max(1, Math.min(this.currentPage, this.total_pages));
+        let start = (this.currentPage - 1) * limit;
+        
         this.task_list = await frappe.db.get_list('ToDo', {
             fields: ['*'],
             filters: {
@@ -43,205 +276,61 @@ class mGrantTask {
             limit: limit,
         }); // Store reference
         let selectedIds = [];
+        if (document.getElementById('task-list')) {
+            document.getElementById('task-list').remove();
+        }
+        let task_container = document.createElement('div');
+        task_container.classList.add('task-list');
+        task_container.id = 'task-list';
+        task_container.innerHTML = `
+            <div id="task-header"></div>
+            <div id="task-body"></div>
+            <div id="task-footer"></div>
+        `
+        task_container.querySelector('#task-body').appendChild(this.createTable());
+        task_container.querySelector('#task-footer').appendChild(this.createFooter());
+        this.wrapper.appendChild(task_container);
 
-        $(`[data-fieldname="${this.selector}"]`).html(`
-            <div class="task-list" id="task-list">
-                <div class="d-flex pb-2 flex-wrap justify-content-between align-items-center">
-                    <div class="d-flex flex-wrap">
-                       <!-- <p class="text-muted" style="font-weight:bold;">${this.frm.active_tab_map[this.frm.doc.name].label}</p> -->
-                       <!-- Edit Button -->
-                            <div class="dropdown-task-status dropdown">
-                                <button class="btn btn-light dropdown-toggle" style="display:none;" type="button" id="viewBulkDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Set Status
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="viewDropdown" style="padding: 12px;">
-                                    <li>
-                                        <h6 class="dropdown-header" style="font-weight: 400; font-size: 10px; line-height: 11px; color: #0E1116;">
-                                            Set Priority
-                                        </h6>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="priority" id="priorityHigh" value="High">
-                                            <span style="display: inline-block; width: 8px; height: 8px; background-color: red; border-radius: 50%; margin-bottom: 2px;"></span>
-                                            <label class="form-check-label" for="priorityHigh">High</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="priority" id="priorityMedium" value="Medium">
-                                            <span style="display: inline-block; width: 8px; height: 8px; background-color: #FA6E32; border-radius: 50%; margin-bottom: 2px;"></span>
-                                            <label class="form-check-label" for="priorityMedium">Medium</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="priority" id="priorityLow" value="Low">
-                                            <span style="display: inline-block; width: 8px; height: 8px; background-color: #03B151; border-radius: 50%; margin-bottom: 2px;"></span>
-                                            <label class="form-check-label" for="priorityLow">Low</label>
-                                        </div>
-                                        <hr>
-                                    </li>
-                                    <li>
-                                        <h6 class="dropdown-header" style="font-weight: 400; font-size: 10px; line-height: 11px; color: #0E1116;">
-                                            Set Status
-                                        </h6>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="custom_task_status" id="statusTodo" value="Todo">
-                                            <label class="form-check-label" for="statusTodo">Todo</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="custom_task_status" id="statusInProgress" value="In Progress">
-                                            <label class="form-check-label" for="statusInProgress">In Progress</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="custom_task_status" id="statusDone" value="Done">
-                                            <label class="form-check-label" for="statusDone">Done</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="custom_task_status" id="statusCancelled" value="Cancelled">
-                                            <label class="form-check-label" for="statusCancelled">Cancelled</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="custom_task_status" id="statusCancelled" value="Delayed">
-                                            <label class="form-check-label" for="statusCancelled">Delayed</label>
-                                        </div>
-                                    </li>
-                                </div>
-                            </div>
-                    </div>
-                    <div class="d-flex flex-wrap" >
-                        <!-- <p class="text-muted" id="total_records">Total records: ${total_records}</p> -->
-                        <div class="d-flex flex-wrap " style="gap: 8px;">
-                            <!-- Delete Button -->
-                            <button id="bulkDeleteButton" class="btn mx-8" style="color: #6E7073; display: none;background-color: #FFF1E7;">
-                            <i class="fa fa-trash" style="color: #E03636;"></i>
-                            </button>
-                            
-                        </div>
-                    </div>
-                </div>
-                <!-- Task List -->
-               ${this.task_list.length > 0 
-                ?`
-                <div style="overflow-y:auto;">
-                 <table style="margin: 0px !important;" class="table table-bordered form-grid-container form-grid">
-                    <thead>
-                        <tr>
-                            <th style="width: 40px; text-align: center; position: sticky; left: 0px;background-color: #F8F8F8;">
-                                <input type="checkbox" id="selectAllCheckBox">
-                            </th>
-                            <th style="white-space: nowrap;">Task Name</th>
-                            <th style="white-space: nowrap;">Assigned To</th>
-                            <th style="white-space: nowrap;">Task Type</th>
-                            <th>Status</th>
-                            <th>Priority</th>
-                            <th style="white-space: nowrap;">Start Date</th>
-                            <th style="white-space: nowrap;">Due Date</th>
-                        </tr>
-                    </thead>
-                    <tbody style="background-color: #fff;">
-                        ${this.task_list.map(task => `
-                            <tr>
-                                <td style="width: 40px; text-align: center; position: sticky; left: 0px; background-color: #fff;">
-                                    <input type="checkbox" class="toggleCheckbox" data-id="${task.name}">
-                                </td>
-                                <td>${task.custom_title}</td>
-                                <td>
-                                    <div class="d-flex align-items-center" style="gap: 4px">
-                                        <div  style="white-space: nowrap; width: 16px; height: 16px; font-size: 12px; background-color: ${this.getRandomColor()}; h" class="avatar  text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 20px; height: 20px;">${task.custom_assigned_to ? task.custom_assigned_to[0].toUpperCase() : '-'}</div>
-                                        <span style="white-space: nowrap; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; color: #6E7073;">
-                                            ${task.custom_assigned_to ?? 'No Assignee'}
-                                        </span>
-                                    </div>
-                                </td>
-                                <td style="white-space: nowrap;">${task.custom_task_type}</td>
-                                <td>
-                                    <div class="dropdown"style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
-                                        <span title="status" id="dropStatus-${task.name}" class="small dropdown-toggle bg-light pointer badge ${task?.custom_task_status === 'Cancelled' ? 'text-danger' : task?.custom_task_status === 'In Progress' ? 'text-warning' : task?.custom_task_status === 'Done' ? 'text-success' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            ${task?.custom_task_status ?? 'Status'}
-                                        </span>
-                                        <div class="dropdown-menu" aria-labelledby="dropStatus-${task.name}">
-                                            <a class="dropdown-item task-status" data-task="${task.name}" data-status="Todo">Todo</a>
-                                            <a class="dropdown-item task-status" data-task="${task.name}" data-status="In Progress">In Progress</a>
-                                            <a class="dropdown-item task-status" data-task="${task.name}" data-status="Done">Done</a>
-                                            <a class="dropdown-item task-status" data-task="${task.name}" data-status="Cancelled">Cancelled</a>
-                                            <a class="dropdown-item task-status" data-task="${task.name}" data-status="Delayed">Delayed</a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="dropdown" style="width: 100px; height: 26px; border-radius: 4px; background-color: #F1F1F1; color: #0E1116; font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%; display: flex; align-items: center; justify-content: center; gap: 4px">
-                                        <span title="Priority" id="dropPriority-${task.name}" class=" small dropdown-toggle badge bg-light pointer ${task?.priority === 'High' ? 'text-danger' : task?.priority === 'Medium' ? 'text-warning' : 'text-muted'}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                                            ${task?.priority ?? 'Low'}
-                                        </span>
-                                        <div class="dropdown-menu" aria-labelledby="dropPriority-${task.name}">
-                                            <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="Low">Low</a>
-                                            <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="Medium">Medium</a>
-                                            <a class="dropdown-item task-priority" data-task="${task.name}" data-priority="High">High</a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td style="white-space: nowrap;">${task.custom_start_date ? getFormattedDate(task.custom_start_date) : '--:--'}</td> 
-                                <td style="padding: 0.5rem; vertical-align: middle;" style="font-weight: 400; font-size: 14px; line-height: 15.4px; letter-spacing: 0.25%;" class="${(task.date && (new Date(task.date) < new Date(frappe.datetime.get_today()))) ? 'text-danger' : 'text-muted'}">${task.date ? getFormattedDate(task.date) : '--:--'}</td>
-                                    
-                                <td>
-                                    <div class="dropdown">
-                                        <span title="action" class="pointer d-flex justify-content-center  align-items-center " id="dropdownMenuButton-${task.name}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            ⋮
-                                        </span>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-${task.name}">
-                                            <a class="dropdown-item edit-btn" data-task="${task.name}">Edit</a>
-                                            <a class="dropdown-item delete-btn" data-task="${task.name}">Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                                </td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-                </div>
-                `:`
-                <div style="flex-direction: column; height: 200px;" class="d-flex justify-content-center align-items-center" >
-                    <svg class="icon icon-xl" style="stroke: var(--text-light);">
-                        <use href="#icon-small-file"></use>
-                    </svg>
-                    <p class="text-muted
-                    ">You haven't created a Recored yet</p>
-                </div>
-                `}
-                <div class="d-flex flex-wrap py-2 justify-content-between align-items-center">
-                    <!-- New Task Button -->
-                    <button class="btn btn-secondary btn-sm" id="createTask">
-                    <svg class="es-icon es-line icon-xs" aria-hidden="true">
-                        <use href="#es-line-add"></use>
-                    </svg> Add row
-                    </button>
-                    <!-- Pagination -->
-                   <!-- ${total_pages > 1 ?`
-                     <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item">
-                            <a class="page-link prev-page disabled" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            </li>
-                            ${total_pages > 0 ? Array.from({ length: total_pages }, (_, i) => i + 1).map(p => `
-                                <li class="page-item ${p==currentPage?'active':''}"><a class="page-link">${p}</a></li>
-                            `).join('') : ''}
-                            
-                            <li class="page-item">
-                            <a class="page-link next-page" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    `:''} -->
-                </div>
-            </div>
-        `);
-        const toggleVisibility = (id, show, type = 'block') => (document.getElementById(id).style.display = show ? type : 'none');
+        const toggleVisibility = (show) => {
+            if (show) {
+                // let action_bar = this.getActionBar();
+                task_container.querySelector('#task-header').innerHTML = '';
+                task_container.querySelector('#task-header').appendChild(this.getActionBar());
+
+                // Bulk Update Task Status and Priority
+                ['priority', 'custom_task_status'].forEach(type => {
+                    document.querySelectorAll(`input[name="${type}"]`).forEach(input => {
+                        input.addEventListener('click', (event) => {
+                            selectedIds.length
+                                ? this.updateTaskStatus(selectedIds, event.target.value, type)
+                                : console.error(`No tasks selected for ${type}.`);
+                        });
+                    });
+                });
+
+                // bulk delete
+                $('#bulkDeleteButton').on('click', function () {
+                    frappe.confirm('Are you sure you want to delete the selected tasks?', async () => {
+                        this.task_list = this.task_list.filter(task => !selectedIds.includes(task.name))
+                        for (const taskName of selectedIds) {
+                            try {
+                                await frappe.db.delete_doc('ToDo', taskName);
+                                await new Promise(resolve => setTimeout(resolve, 100));
+                            } catch (error) {
+                                console.error(`Failed to delete ${taskName}:`, error);
+                            }
+                        }
+                        this.show_task();
+                        frappe.show_alert({ message: __('Tasks deleted successfully'), indicator: 'green' });
+                    });
+                }.bind(this));
+            } else {
+                task_container.querySelector('#task-header').innerHTML = '';
+            }
+        };
 
         // Bind event for individual checkboxes
-        $(document).on('change', '.toggleCheckbox', function (e) {
+        $(document).off('change', '.toggleCheckbox').on('change', '.toggleCheckbox', function (e) {
             const id = $(e.currentTarget).data('id');
             if (e.currentTarget.checked) {
                 selectedIds.push(id);
@@ -249,38 +338,22 @@ class mGrantTask {
                 selectedIds = selectedIds.filter(x => x !== id);
             }
             $('#selectAllCheckBox').prop('checked', selectedIds.length === this.task_list.length);
-            toggleVisibility('bulkDeleteButton', selectedIds.length > 0);
-            // toggleVisibility('total_records', selectedIds.length === 0, 'flex');
-            toggleVisibility('viewBulkDropdown', selectedIds.length > 0);
+            toggleVisibility(selectedIds.length > 0);
         }.bind(this));
 
         // Bind event for "Select All" checkbox
-        $(document).on('change', '#selectAllCheckBox', function (e) {
+        $(document).off('change', '#selectAllCheckBox').on('change', '#selectAllCheckBox', function (e) {
             const isChecked = $(e.currentTarget).prop('checked');
             $('.toggleCheckbox').prop('checked', isChecked);
             selectedIds = isChecked ? this.task_list?.map(x => x.name) : [];
-            console.log(selectedIds)
-            toggleVisibility('bulkDeleteButton', selectedIds.length > 0);
-            // toggleVisibility('total_records', selectedIds.length === 0, 'flex');
-            toggleVisibility('viewBulkDropdown', selectedIds.length > 0);
+            toggleVisibility(selectedIds.length > 0);
         }.bind(this));
 
-        // Bulk Update Task Status and Priority
-        ['priority', 'custom_task_status'].forEach(type => {
-            document.querySelectorAll(`input[name="${type}"]`).forEach(input => {
-                input.addEventListener('click', (event) => {
-                    console.log(event.target.value);
-                    selectedIds.length
-                        ? this.updateTaskStatus(selectedIds, event.target.value, type)
-                        : console.error(`No tasks selected for ${type}.`);
-                });
-            });
-        });
         // New Task
         $('#createTask').on('click', function () {
             this.form(null, 'New Task', this.frm);
         }.bind(this));
-        // 
+        //
 
         $('.delete-btn').on('click', function (e) {
             const taskName = $(e.currentTarget).data('task');
@@ -311,38 +384,36 @@ class mGrantTask {
                 console.error(`Task ${taskName} not found.`);
             }
         }.bind(this));
-         // pageination
-        // $(document).on('click', '.page-link', (e) => {
-        //     let page = $(e.target).text(); 
-        //     this.show_task(Number(page)); 
-        // });
-        // // 
-        // $(document).on('click', '.prev-page', (e) => {
-        //     if (currentPage > 1) this.show_task(currentPage - 1);
-        // });
-    
-        // $(document).on('click', '.next-page', (e) => {
-        //     if (currentPage < total_pages) this.show_task(currentPage + 1);
-        // });
-        
-        // bulk delete
-        $('#bulkDeleteButton').on('click', function () {
-            frappe.confirm('Are you sure you want to delete the selected tasks?', async () => {
-                this.task_list = this.task_list.filter(task => !selectedIds.includes(task.name))
-                for (const taskName of selectedIds) {
-                    try {
-                        await frappe.db.delete_doc('ToDo', taskName);
-                        await new Promise(resolve => setTimeout(resolve, 100));
-                    } catch (error) {
-                        console.error(`Failed to delete ${taskName}:`, error);
-                    }
-                }
-                this.show_task(); 
-                frappe.show_alert({ message: __('Tasks deleted successfully'), indicator: 'green' });
-            });
-        }.bind(this));
+        // pageination
+        // Unbind existing event listeners before binding new ones
+        $(document).off('click', '.page-link').on('click', '.page-link', (e) => {
+            let page = Number($(e.target).text());
+            if (!isNaN(page)) { 
+                this.show_task();
+                this.createFooter();
+                this.currentPage = page;
+            }
+        });
+
+        $(document).off('click', '.prev-page').on('click', '.prev-page', (e) => {
+            if (this.currentPage > 1){
+                this.show_task();
+                this.createFooter();
+                this.currentPage = (this.currentPage - 1)
+            } 
+        });
+
+        $(document).off('click', '.next-page').on('click', '.next-page', (e) => {
+            if (this.currentPage < this.total_pages){
+                this.show_task();
+                this.createFooter();
+                this.currentPage = (this.currentPage + 1)
+            } 
+        });
+
+
     }
-    
+
     // Update Task Status
     async updateTaskStatus(taskIds, status, key) {
 
@@ -350,7 +421,7 @@ class mGrantTask {
             taskIds.map((taskName, index) =>
                 new Promise(resolve => setTimeout(resolve, index * 200)) // Apply delay
                     .then(() => frappe.db.set_value('ToDo', taskName, key, status))
-                    .then(() =>{
+                    .then(() => {
                         this.task_list = this.task_list.map(task => {
                             if (task.name === taskName) {
                                 task[key] = status;
@@ -373,10 +444,10 @@ class mGrantTask {
             frappe.show_alert({ message: __(`Task deleted successfully`), indicator: 'green' });
         });
     }
-    async form (data = null, action, frm){
+    async form(data = null, action, frm) {
         let title = action === 'New Task' ? 'New Task' : 'Edit Task';
         let primaryActionLabel = action === 'New Task' ? 'Save' : 'Update';
-    
+
         let fileds = await frappe.call({
             method: 'frappe.desk.form.load.getdoctype',
             args: {
@@ -385,7 +456,7 @@ class mGrantTask {
                 cached_timestamp: frappe.datetime.now_datetime()
             }
         });
-    
+
         // Create the dialog form
         let fields = fileds?.docs[0]?.fields.filter((field) => !['Tab Break'].includes(field.fieldtype)).map(field => {
             if (action === 'Edit Task' && data) {
@@ -420,7 +491,7 @@ class mGrantTask {
                 field.onchange = () => {
                     if (cur_dialog?.get_value('custom_start_date') && cur_dialog.get_value('date')) {
                         if (new Date(cur_dialog?.get_value('custom_start_date')) > new Date(cur_dialog.get_value('date'))) {
-                            cur_dialog.set_value('date','')
+                            cur_dialog.set_value('date', '')
                             frappe.throw({
                                 message: "Due Date should always be greater than Start Date"
                             })
@@ -435,7 +506,7 @@ class mGrantTask {
                 field.onchange = () => {
                     if (cur_dialog?.get_value('custom_start_date') && cur_dialog?.get_value('date')) {
                         if (new Date(cur_dialog?.get_value('custom_start_date')) > new Date(cur_dialog?.get_value('date'))) {
-                            cur_dialog.set_value('date','')
+                            cur_dialog.set_value('date', '')
                             frappe.throw({
                                 message: "Due Date should always be greater than Start Date"
                             })
@@ -455,16 +526,18 @@ class mGrantTask {
             title: title,
             fields: fields,
             primary_action_label: primaryActionLabel,
-            primary_action: function(values) {
+            primary_action: function (values) {
                 if (action === 'New Task') {
                     // Create new task logic
                     frappe.db.insert({
                         doctype: "ToDo",
                         ...values
-                    }).then(async(new_doc) => {
+                    }).then(async (new_doc) => {
                         if (new_doc) {
                             frappe.show_alert({ message: __('Task created successfully'), indicator: 'green' });
                             this.show_task();
+                            this.createFooter();
+                            this.currentPage = 1;
                             task_form.hide();
                         }
                     }).catch(error => {
@@ -483,6 +556,8 @@ class mGrantTask {
                                 return task;
                             });
                             this.show_task();
+                            this.createFooter();
+                            this.currentPage = 1;
                             task_form.hide();
                         }
                     }).catch(error => {
@@ -491,9 +566,9 @@ class mGrantTask {
                     });
                 }
             }.bind(this)
-            
+
         });
-    
+
         if (action === 'Edit Task' && data) {
             task_form.set_values(data);
         }

@@ -69,9 +69,8 @@
   "column_break_rsvl",
   "tasks_tab",
   "section_break_sddg",
-  "b",
   "general_task",
-  "a",
+  "milestones_task_section",
   "milestones_task",
   "general_tasks_section",
   "tasks",
@@ -578,6 +577,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:(frappe.boot.user_team && frappe.boot.user_team == \"Donor\")",
    "fieldname": "notes_tab",
    "fieldtype": "Tab Break",
    "label": "Notes"
@@ -695,7 +695,8 @@
   },
   {
    "fieldname": "section_break_sddg",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "General Tasks"
   },
   {
    "fieldname": "general_task",
@@ -708,19 +709,14 @@
    "label": "Milestones Task"
   },
   {
-   "fieldname": "a",
-   "fieldtype": "Heading",
+   "fieldname": "milestones_task_section",
+   "fieldtype": "Section Break",
    "label": "Milestones Task"
-  },
-  {
-   "fieldname": "b",
-   "fieldtype": "Heading",
-   "label": "General Tasks"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-11 16:22:12.805344",
+ "modified": "2025-02-13 00:59:52.543422",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",

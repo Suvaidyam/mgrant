@@ -7,7 +7,8 @@
  "engine": "InnoDB",
  "field_order": [
   "user",
-  "full_name"
+  "full_name",
+  "approver_level"
  ],
  "fields": [
   {
@@ -26,12 +27,19 @@
    "label": "Full Name",
    "read_only": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "approver_level",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Approver Level",
+   "options": "\nLevel 1\nLevel 2\nLevel 3"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-01-14 15:41:48.621616",
+ "modified": "2025-02-11 20:28:05.763256",
  "modified_by": "Administrator",
  "module": "mGrant - Donor",
  "name": "Evaluation Panel",

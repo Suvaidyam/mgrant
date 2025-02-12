@@ -14,14 +14,6 @@
   "financial_year",
   "section_break_aaeg",
   "grant",
-  "section_break_vwlg",
-  "request_status",
-  "column_break_tcen",
-  "funds_requested",
-  "section_break_vzzy",
-  "fund_receipt_status",
-  "column_break_fpsf",
-  "total_funds_received",
   "section_break_ffdl",
   "ngo",
   "ngo_email",
@@ -35,9 +27,9 @@
   {
    "fieldname": "financial_year",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Financial Year",
-   "options": "Financial Year"
+   "options": "Financial Year",
+   "read_only": 1
   },
   {
    "fieldname": "grant",
@@ -62,33 +54,8 @@
    "reqd": 1
   },
   {
-   "fieldname": "request_status",
-   "fieldtype": "Select",
-   "label": "Request Status",
-   "options": "\nRequest Raised\nRequest Pending"
-  },
-  {
-   "fieldname": "funds_requested",
-   "fieldtype": "Currency",
-   "label": "Funds Requested",
-   "non_negative": 1
-  },
-  {
-   "fieldname": "fund_receipt_status",
-   "fieldtype": "Select",
-   "label": "Fund Receipt Status",
-   "options": "\nDue\nDue - Delayed\nPaid\nDisputed"
-  },
-  {
    "fieldname": "column_break_eryd",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "total_funds_received",
-   "fieldtype": "Currency",
-   "label": "Total Funds Received",
-   "non_negative": 1,
-   "read_only": 1
   },
   {
    "fieldname": "total_funds_planned",
@@ -115,24 +82,6 @@
    "fieldtype": "Link",
    "label": "Donor",
    "options": "Donor"
-  },
-  {
-   "fieldname": "section_break_vwlg",
-   "fieldtype": "Section Break",
-   "hidden": 1
-  },
-  {
-   "fieldname": "column_break_tcen",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_vzzy",
-   "fieldtype": "Section Break",
-   "hidden": 1
-  },
-  {
-   "fieldname": "column_break_fpsf",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "column_break_kdvt",
@@ -173,7 +122,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-07 16:33:26.149719",
+ "modified": "2025-02-12 13:29:06.256600",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant Receipts",
