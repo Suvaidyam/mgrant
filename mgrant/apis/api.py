@@ -51,6 +51,7 @@ def get_versions(dt,dn):
                 ver.custom_actual_doctype,
                 ver.custom_actual_document_name,
                 ver.ref_doctype,
+                ver.docname,
                 jt.elem AS changed_elem,
                 JSON_UNQUOTE(JSON_EXTRACT(jt.elem, '$[0]')) AS field_name,
                 JSON_UNQUOTE(JSON_EXTRACT(jt.elem, '$[1]')) AS old_value,
@@ -70,6 +71,7 @@ def get_versions(dt,dn):
             e.ref_doctype,
             usr.full_name AS owner,
             e.creation AS creation,
+            e.docname,
             JSON_ARRAYAGG(
                 JSON_ARRAY(
                     COALESCE(tf.label, ctf.label, e.field_name),
