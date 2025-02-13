@@ -30,6 +30,7 @@
   {
    "fieldname": "kpi_name",
    "fieldtype": "Data",
+   "in_global_search": 1,
    "label": "KPI Name",
    "reqd": 1
   },
@@ -85,7 +86,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-24 10:07:44.312877",
+ "modified": "2025-02-13 13:16:42.845595",
  "modified_by": "Administrator",
  "module": "KPIs",
  "name": "KPIs",
