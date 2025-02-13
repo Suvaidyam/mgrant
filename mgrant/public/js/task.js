@@ -1,11 +1,3 @@
-// const getTaskList = async (frm, selector) => {
-
-//     new mGrantTask({
-//         frm: frm,
-//         selector: selector
-//     }).show_task();
-// }
-
 class mGrantTask {
     constructor(frm = null, wrapper = null) {
         // debugger
@@ -139,7 +131,15 @@ class mGrantTask {
                     </tr>
                 </thead>
                 <tbody style="background-color: #fff; font-size: 12px;">
-                    ${this.task_list.map(task => `
+                    ${this.task_list.length === 0 
+                        ? `
+                        <tr>
+                            <td colspan="9" style="height:92px; text-align: center; font-size: 14px; color: #6c757d; background-color: #F8F8F8; line-height: 92px;">
+                                No rows
+                            </td>
+                        </tr>
+                        ` 
+                        :this.task_list.map(task => `
                         <tr class="grid-row">
                             <td class="row-check sortable-handle col" style="width: 40px; text-align: center; position: sticky; left: 0px; background-color: #fff;">
                                 <input type="checkbox" class="toggleCheckbox" data-id="${task.name}">
@@ -204,41 +204,66 @@ class mGrantTask {
     createFooter() {
         let el = document.createElement('div');
         el.className = 'd-flex flex-wrap py-2 justify-content-between';
+        
+        let totalPages = this.total_pages;
+        let currentPage = this.currentPage;
+        
+        const getPagination = () => {
+            if (totalPages <= 7) {
+                return Array.from({ length: totalPages }, (_, i) => i + 1);
+            }
+    
+            let pages = new Set([1, 2, totalPages - 1, totalPages]);
+    
+            if (currentPage > 3) pages.add(currentPage - 1);
+            if (currentPage > 2) pages.add(currentPage);
+            if (currentPage < totalPages - 1) pages.add(currentPage + 1);
+    
+            let result = [];
+            let prev = 0;
+            [...pages].sort((a, b) => a - b).forEach(page => {
+                if (prev && page - prev > 1) {
+                    result.push("...");
+                }
+                result.push(page);
+                prev = page;
+            });
+    
+            return result;
+        };
+    
         el.innerHTML = `
-            <!-- New Task Button -->
             <button style="height:30px;" class="btn btn-secondary btn-sm" id="createTask">
-            <svg class="es-icon es-line icon-xs" aria-hidden="true">
-                <use href="#es-line-add"></use>
-            </svg> Add row
+                <svg class="es-icon es-line icon-xs" aria-hidden="true">
+                    <use href="#es-line-add"></use>
+                </svg> Add row
             </button>
-            <!-- Pagination -->
-            ${this.total_pages > 1 ? `
-                <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item">
-                    <a style="padding: 0.35rem 0.75rem !important;" class="page-link prev-page ${this.currentPage == 1 ? 'disabled' : ''}" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    </li>
-                    ${this.total_pages > 0 ? Array.from({ length: this.total_pages }, (_, i) => i + 1).map(p => `
-                        <li class="page-item ${p == this.currentPage ? 'active' : ''}">
-                            <a class="page-link" style="padding: 0.35rem 0.75rem !important;">${p}</a>
+            ${totalPages > 1 ? `
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a style="padding: 0.35rem 0.75rem !important;" class="page-link prev-page ${currentPage == 1 ? 'disabled' : ''}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
                         </li>
-                    `).join('') : ''}
-
-                    <li class="page-item">
-                    <a style="padding: 0.35rem 0.75rem !important;" class="page-link next-page ${this.total_pages == this.currentPage ? 'disabled' : ''}" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                    </li>
-                </ul>
-            </nav>
-            `: ''}
-        `
+                        ${getPagination().map(p => `
+                            <li class="page-item ${p == currentPage ? 'active' : ''} ${p === "..." ? "disabled" : ""}">
+                                <a style="padding: 0.35rem 0.75rem !important;" class="page-link">${p}</a>
+                            </li>
+                        `).join('')}
+                        <li class="page-item">
+                            <a style="padding: 0.35rem 0.75rem !important;" class="page-link next-page ${currentPage == totalPages ? 'disabled' : ''}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            ` : ''}
+        `;
+        
         return el;
     }
+    
     noDataFound() {
         let el = document.createElement('div');
         el.style = 'flex-direction: column; height: 200px;'
