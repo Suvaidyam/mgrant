@@ -56,14 +56,24 @@ def proposal_before_submit(self):
     if (self.mou_verified == 0 or not self.mou_signed_document):
         frappe.throw("MoU is not verified")
 
+    if self.rfp and self.stage == positive:
+        rfps = frappe.get_doc("RFP", self.rfp)
+        if rfps:
+            level_1_user = next((row for row in rfps.table_aycd if row.approver_level == "Level 1"), None)
+            level_2_user = next((row for row in rfps.table_aycd if row.approver_level == "Level 2"), None)
+            level_3_user = next((row for row in rfps.table_aycd if row.approver_level == "Level 3"), None)
+            if level_1_user and not self.level_1:
+                frappe.throw("'Level 1' is required in Proposal")
+            if level_2_user and not self.level_2:
+                frappe.throw("'Level 2' is required in Proposal")
+            if level_3_user and not self.level_3:
+                frappe.throw("'Level 3' is required in Proposal")
+
     required_fields = {
         positive: [
             ("proposal_name", "'Application Title' is required in Proposal"),
             ("start_date", "'Grant Start Date' is required in Proposal"),
             ("end_date", "'Grant End Date' is required in Proposal"),
-            ("level_1", "'Level 1' is required in Proposal"),
-            ("level_2", "'Level 2' is required in Proposal"),
-            ("level_3", "'Level 3' is required in Proposal")
         ]
     }
     
