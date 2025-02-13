@@ -21,9 +21,12 @@ def vendor_status_cron(self):
         self.vendor_status = "Prospect"
 
 def vendor_after_insert(self):
+    vendor_role = frappe.db.get_single_value("mGrant Settings", "vendor_admin_role")
+    if not vendor_role:
+       return frappe.throw("Vendor Admin Role not set in <a target='_blank' href='/app/mgrant-settings#defaults_tab'>mGrant Settings</a>")
     new_user = frappe.new_doc("SVA User")
     new_user.email = self.email
-    new_user.role_profile = "Partner NGO"
+    new_user.role_profile = vendor_role
     if len(self.vendor_name.split(" ")) > 2:
         new_user.first_name = self.vendor_name.split(" ")[0]
         new_user.middle_name = self.vendor_name.split(" ")[1]
