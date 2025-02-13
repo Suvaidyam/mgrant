@@ -30,7 +30,7 @@ def budget_on_update(self):
             grant_doc.total_planned_budget = total_planned_budget
             grant_doc.total_funds_utilised = total_utilisation
             grant_doc.total_unspent_funds = total_planned_budget - total_utilisation
-        
+
             # SubGrantee Calculation
             if grant_doc.implementation_type == 'Sub Grant':
                 sub_grants = frappe.db.get_list('Grant', filters={'implementation_type':"Sub Grant",'parent_grant': grant_doc.parent_grant}, pluck='name',limit_page_length=1000,ignore_permissions=True)
