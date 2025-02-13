@@ -1,6 +1,5 @@
 import frappe
 from mgrant.utils import get_state_closure, get_positive_state_closure
-from frappe.utils import today
 
 def validate(self):
     if self.request_date:
@@ -57,7 +56,7 @@ def request_validation(self):
     gr_positive_state = get_positive_state_closure("Grant Receipts")
     fr_positive_state = get_positive_state_closure(self.doctype)
     if self.grant:
-        planned_tranches = frappe.get_list("Grant Receipts", filters={"grant": self.grant,"workflow_state":gr_positive_state,"planned_due_date":["<=",today()]}, pluck="total_funds_planned",limit=10000,ignore_permissions=True)
+        planned_tranches = frappe.get_list("Grant Receipts", filters={"grant": self.grant,"workflow_state":gr_positive_state,"planned_due_date":["<=",self.request_date]}, pluck="total_funds_planned",limit=10000,ignore_permissions=True)
         disbs = frappe.get_list("Fund Disbursement", filters={"grant": self.grant}, pluck="disbursed_amount",limit=10000,ignore_permissions=True)
         total_funds_planned = float(sum(planned_tranches) or 0)
         total_disbursements = float(sum(disbs) or 0)
