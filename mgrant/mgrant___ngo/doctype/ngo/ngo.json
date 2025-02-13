@@ -90,7 +90,9 @@
   "grants_tab",
   "grants",
   "applications_tab",
-  "applications"
+  "applications",
+  "users_tab",
+  "ngo_users"
  ],
  "fields": [
   {
@@ -550,11 +552,20 @@
   {
    "fieldname": "applications",
    "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "users_tab",
+   "fieldtype": "Tab Break",
+   "label": "Users"
+  },
+  {
+   "fieldname": "ngo_users",
+   "fieldtype": "HTML"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-11 16:26:55.078417",
+ "modified": "2025-02-13 11:42:37.934607",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",
