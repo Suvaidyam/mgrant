@@ -470,7 +470,8 @@ class mGrantTask {
         });
     }
     async form(data = null, action, frm) {
-        let title = action === 'New Task' ? 'New Task' : 'Edit Task';
+        let label = frm.active_tab_map[frm.doc.name].label;
+        let title = action === 'New Task' ? 'New '+label : 'Edit '+label;
         let primaryActionLabel = action === 'New Task' ? 'Save' : 'Update';
 
         let fileds = await frappe.call({
