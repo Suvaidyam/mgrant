@@ -160,6 +160,7 @@
   {
    "fieldname": "financial_years",
    "fieldtype": "Table MultiSelect",
+   "hidden": 1,
    "label": "Financial Years",
    "options": "Financial Year Child"
   },
@@ -225,7 +226,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-02-09 05:55:22.867931",
+ "modified": "2025-02-13 12:20:00.199639",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Outcome",
