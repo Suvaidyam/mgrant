@@ -1,4 +1,4 @@
-# Copyright (c) 2024, Suvaidyam and Contributors
+# Copyright (c) 2025, Suvaidyam and Contributors
 # See license.txt
 
 # import frappe

@@ -141,6 +141,7 @@
   {
    "fieldname": "focus_area",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Focus Area",
    "options": "Focus Area"
@@ -587,7 +588,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-12 23:00:00.214729",
+ "modified": "2025-02-13 13:05:51.135077",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
