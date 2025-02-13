@@ -158,6 +158,13 @@ def generate_mou_doc(*args):
     proposal = args[0] if args else frappe.form_dict.get('proposal')
     if frappe.db.exists("Proposal", proposal):
         proposal_details = frappe.get_doc("Proposal", proposal)
+        if not proposal_details.start_date or not proposal_details.end_date:
+            frappe.local.response.http_status_code = 400
+            return {
+            "status": "error",
+            "message": "Please set Grant Start Date and Grant End Date in Proposal"
+        }
+            
         ngo_details = frappe.get_doc("NGO", proposal_details.ngo)
         inputs = frappe.get_list("Proposal Input", filters={"proposal": proposal}, fields=["name", "input_name", "kpi", "frequency", "total_target"])
         outputs = frappe.get_list("Proposal Output", filters={"proposal": proposal}, fields=["name", "output_name", "kpi", "frequency", "total_target"])
