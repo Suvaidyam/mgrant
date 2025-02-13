@@ -245,7 +245,7 @@
   {
    "fieldname": "input_tab",
    "fieldtype": "Tab Break",
-   "label": "Input"
+   "label": "Indicators"
   },
   {
    "fieldname": "input",
@@ -588,7 +588,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-13 13:05:51.135077",
+ "modified": "2025-02-13 14:55:54.629833",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
