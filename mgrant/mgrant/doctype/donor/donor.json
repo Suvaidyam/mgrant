@@ -31,7 +31,9 @@
   "projects_tab",
   "projects",
   "tasks_tab",
-  "tasks"
+  "tasks",
+  "users_tab",
+  "donor_users"
  ],
  "fields": [
   {
@@ -177,11 +179,20 @@
   {
    "fieldname": "tasks",
    "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "users_tab",
+   "fieldtype": "Tab Break",
+   "label": "Users"
+  },
+  {
+   "fieldname": "donor_users",
+   "fieldtype": "HTML"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-12 18:32:01.792350",
+ "modified": "2025-02-13 13:40:56.345143",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Donor",

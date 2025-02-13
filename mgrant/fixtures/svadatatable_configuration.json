@@ -559,11 +559,25 @@
     "listview_settings": null,
     "referenced_link_doctype": null,
     "template": "Tasks"
+   },
+   {
+    "connection_type": "Is Custom Design",
+    "crud_permissions": null,
+    "dn_reference_field": null,
+    "dt_reference_field": null,
+    "extend_condition": 0,
+    "extended_condition": "{}",
+    "html_field": "donor_users",
+    "link_doctype": null,
+    "link_fieldname": null,
+    "listview_settings": null,
+    "referenced_link_doctype": null,
+    "template": "Linked Users"
    }
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2025-01-30 10:43:08.247864",
+  "modified": "2025-02-13 13:41:35.476317",
   "name": "Donor",
   "number_cards": [],
   "parent_doctype": "Donor"
@@ -613,11 +627,25 @@
     "listview_settings": "[{\"fieldname\":\"proposal_name\",\"label\":\"Application Title\",\"width\":\"2\"},{\"fieldname\":\"programme\",\"label\":\"Programme\",\"width\":\"2\"},{\"fieldname\":\"donor\",\"label\":\"Donor\",\"width\":\"2\"},{\"fieldname\":\"ngo\",\"label\":\"Sub-grantee NGO\",\"width\":\"2\"},{\"fieldname\":\"vendor\",\"label\":\"Sub-grantee Vendor\",\"width\":\"2\"},{\"fieldname\":\"start_date\",\"label\":\"Project Start Date\",\"width\":\"2\"},{\"fieldname\":\"end_date\",\"label\":\"Project End Date\",\"width\":\"2\"},{\"fieldname\":\"grant_duration_in_months\",\"label\":\"Project Duration (in months)\",\"width\":\"2\"},{\"fieldname\":\"total_planned_budget\",\"label\":\"Total Planned Budget\",\"width\":\"2\"},{\"fieldname\":\"closing_date\",\"label\":\"Application Closing Date\",\"width\":\"2\"},{\"fieldname\":\"theme\",\"label\":\"Theme\",\"width\":\"2\"},{\"fieldname\":\"sdg\",\"label\":\"SDG\",\"width\":\"2\"},{\"fieldname\":\"focus_area\",\"label\":\"Focus Area\",\"width\":\"2\"}]",
     "referenced_link_doctype": null,
     "template": "Tasks"
+   },
+   {
+    "connection_type": "Is Custom Design",
+    "crud_permissions": null,
+    "dn_reference_field": null,
+    "dt_reference_field": null,
+    "extend_condition": 0,
+    "extended_condition": "{}",
+    "html_field": "ngo_users",
+    "link_doctype": null,
+    "link_fieldname": null,
+    "listview_settings": null,
+    "referenced_link_doctype": null,
+    "template": "Linked Users"
    }
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2025-02-11 18:02:25.360544",
+  "modified": "2025-02-13 13:40:16.099459",
   "name": "NGO",
   "number_cards": [],
   "parent_doctype": "NGO"
@@ -821,23 +849,23 @@
   "child_confs": [],
   "child_doctypes": [
    {
-    "connection_type": "Referenced",
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "dn_reference_field": "custom_related_to",
-    "dt_reference_field": "custom_ref_doctype",
+    "connection_type": "Is Custom Design",
+    "crud_permissions": null,
+    "dn_reference_field": null,
+    "dt_reference_field": null,
     "extend_condition": 0,
-    "extended_condition": null,
-    "html_field": "contacts",
+    "extended_condition": "{}",
+    "html_field": "vendor_users",
     "link_doctype": null,
     "link_fieldname": null,
-    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"full_name\",\"label\":\"Full Name\"},{\"fieldname\":\"custom_email\",\"label\":\"Primary Email\"},{\"fieldname\":\"custom_mobile_number\",\"label\":\"Mobile Number\"},{\"fieldname\":\"department\",\"label\":\"Department\"},{\"fieldname\":\"custom_designation1\",\"label\":\"Designation\"}]",
-    "referenced_link_doctype": "Contact",
-    "template": "Tasks"
+    "listview_settings": null,
+    "referenced_link_doctype": null,
+    "template": "Linked Users"
    }
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2025-01-21 17:24:10.981222",
+  "modified": "2025-02-13 15:01:23.985564",
   "name": "Vendor",
   "number_cards": [],
   "parent_doctype": "Vendor"
