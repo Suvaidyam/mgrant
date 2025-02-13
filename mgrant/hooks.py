@@ -184,6 +184,11 @@ override_doctype_class = {
 # 		"on_trash": "method"
 # 	}
 # }
+# doc_events = {
+#     "NGO Due Diligence": {
+#         "on_update": "mgrant.doc_events.ngo_due_diligence.events.on_update",
+#     }
+# }
 
 # Scheduled Tasks
 # ---------------
