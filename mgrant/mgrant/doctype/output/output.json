@@ -2,7 +2,7 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "format:OUTPUT-{#####}",
- "creation": "2024-11-29 21:24:26.781883",
+ "creation": "2025-02-13 12:20:53.263554",
  "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -37,14 +37,18 @@
  ],
  "fields": [
   {
-   "fieldname": "grant",
-   "fieldtype": "Link",
-   "hidden": 1,
+   "fieldname": "detail_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "Annually",
+   "description": "Frequency at which achievement for this output indicator is reported",
+   "fieldname": "frequency",
+   "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Grant",
-   "options": "Grant",
-   "read_only": 1,
-   "search_index": 1
+   "label": "Frequency",
+   "options": "Annually\nQuarterly\nMonthly",
+   "reqd": 1
   },
   {
    "description": "This is a standard list of KPIs",
@@ -55,6 +59,19 @@
    "link_filters": "[[\"KPIs\",\"kpi_type\",\"=\",\"Output\"]]",
    "options": "KPIs",
    "reqd": 1
+  },
+  {
+   "description": "Example: No. of students completing CS trainings",
+   "fieldname": "output_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Output Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_nkzm",
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "state",
@@ -69,60 +86,15 @@
    "options": "District"
   },
   {
-   "fieldname": "block",
-   "fieldtype": "Link",
-   "label": "Block",
-   "options": "Block"
+   "fieldname": "column_break_pkpr",
+   "fieldtype": "Column Break"
   },
   {
-   "fieldname": "gram_panchayat",
-   "fieldtype": "Link",
-   "label": "Gram Panchayat",
-   "options": "Gram Panchayat"
-  },
-  {
-   "fieldname": "village",
-   "fieldtype": "Link",
-   "label": "Village",
-   "options": "Village"
-  },
-  {
-   "description": "Auto-calculated from the target breakdown below",
-   "fieldname": "total_target",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Total Target",
-   "non_negative": 1,
+   "depends_on": "eval:doc.wf_comment;",
+   "fieldname": "wf_comment",
+   "fieldtype": "Small Text",
+   "label": "Comment",
    "read_only": 1
-  },
-  {
-   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
-   "description": "Auto-calculated from reported achievement",
-   "fieldname": "total_achievement",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Total Achievement",
-   "non_negative": 1,
-   "read_only": 1
-  },
-  {
-   "description": "Example: No. of students completing CS trainings",
-   "fieldname": "output_name",
-   "fieldtype": "Data",
-   "in_global_search": 1,
-   "in_list_view": 1,
-   "label": "Output Description",
-   "reqd": 1
-  },
-  {
-   "default": "Annually",
-   "description": "Frequency at which achievement for this output indicator is reported",
-   "fieldname": "frequency",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Frequency",
-   "options": "Annually\nQuarterly\nMonthly",
-   "reqd": 1
   },
   {
    "depends_on": "eval:doc.frequency != 'Lump Sum'",
@@ -135,6 +107,49 @@
    "fieldtype": "Table",
    "label": "Target Breakdown",
    "options": "Output Planning Child"
+  },
+  {
+   "fieldname": "summary_section",
+   "fieldtype": "Section Break",
+   "label": "Summary"
+  },
+  {
+   "description": "Auto-calculated from the target breakdown below",
+   "fieldname": "total_target",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Target",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ubnn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:(cur_frm.doc.doctype == 'Grant')",
+   "description": "Auto-calculated from reported achievement",
+   "fieldname": "total_achievement",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Achievement",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_rkjw",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "grant",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Grant",
+   "options": "Grant",
+   "read_only": 1,
+   "search_index": 1
   },
   {
    "fetch_from": "grant.start_date",
@@ -153,27 +168,15 @@
    "label": "MoU End Date"
   },
   {
-   "fieldname": "column_break_nkzm",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "financial_years",
    "fieldtype": "Table MultiSelect",
+   "hidden": 1,
    "label": "Financial Years",
    "options": "Financial Year Child"
   },
   {
-   "fieldname": "section_break_rkjw",
-   "fieldtype": "Section Break",
-   "hidden": 1
-  },
-  {
-   "fetch_from": "grant.ngo",
-   "fieldname": "ngo",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "NGO",
-   "options": "NGO"
+   "fieldname": "column_break_elyy",
+   "fieldtype": "Column Break"
   },
   {
    "fetch_from": "grant.donor",
@@ -184,36 +187,34 @@
    "options": "Donor"
   },
   {
-   "fieldname": "column_break_elyy",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "detail_section",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "summary_section",
-   "fieldtype": "Section Break",
-   "label": "Summary"
-  },
-  {
-   "fieldname": "column_break_ubnn",
-   "fieldtype": "Column Break"
-  },
-  {
-   "depends_on": "eval:doc.wf_comment;",
-   "fieldname": "wf_comment",
-   "fieldtype": "Small Text",
-   "label": "Comment",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break_pkpr",
-   "fieldtype": "Column Break"
+   "fetch_from": "grant.ngo",
+   "fieldname": "ngo",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "NGO",
+   "options": "NGO"
   },
   {
    "fieldname": "column_break_kquj",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "block",
+   "fieldtype": "Link",
+   "label": "Block",
+   "options": "Block"
+  },
+  {
+   "fieldname": "gram_panchayat",
+   "fieldtype": "Link",
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat"
+  },
+  {
+   "fieldname": "village",
+   "fieldtype": "Link",
+   "label": "Village",
+   "options": "Village"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -224,7 +225,7 @@
    "link_fieldname": "input"
   }
  ],
- "modified": "2025-02-09 05:56:13.790988",
+ "modified": "2025-02-13 12:21:21.254583",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Output",

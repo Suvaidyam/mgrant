@@ -141,6 +141,7 @@
   {
    "fieldname": "focus_area",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Focus Area",
    "options": "Focus Area"
@@ -244,7 +245,7 @@
   {
    "fieldname": "input_tab",
    "fieldtype": "Tab Break",
-   "label": "Input"
+   "label": "Indicators"
   },
   {
    "fieldname": "input",
@@ -587,7 +588,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-12 23:00:00.214729",
+ "modified": "2025-02-13 14:55:54.629833",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",

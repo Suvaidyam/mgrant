@@ -23,7 +23,13 @@
   "positive",
   "column_break_qnkv",
   "negative",
-  "neutral"
+  "neutral",
+  "defaults_tab",
+  "role_section",
+  "ngo_admin_role",
+  "vendor_admin_role",
+  "column_break_ystb",
+  "donor_admin_role"
  ],
  "fields": [
   {
@@ -137,13 +143,49 @@
   {
    "fieldname": "column_break_qnkv",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "defaults_tab",
+   "fieldtype": "Tab Break",
+   "label": "Defaults"
+  },
+  {
+   "fieldname": "ngo_admin_role",
+   "fieldtype": "Link",
+   "label": "NGO Admin Role",
+   "link_filters": "[[\"Role Profile\",\"custom_belongs_to\",\"=\",\"NGO\"]]",
+   "options": "Role Profile"
+  },
+  {
+   "fieldname": "donor_admin_role",
+   "fieldtype": "Link",
+   "label": "Donor Admin Role",
+   "link_filters": "[[\"Role Profile\",\"custom_belongs_to\",\"=\",\"Donor\"]]",
+   "options": "Role Profile"
+  },
+  {
+   "fieldname": "column_break_ystb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vendor_admin_role",
+   "fieldtype": "Link",
+   "label": "Vendor Admin Role",
+   "link_filters": "[[\"Role Profile\",\"custom_belongs_to\",\"=\",\"Vendor\"]]",
+   "options": "Role Profile"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "role_section",
+   "fieldtype": "Section Break",
+   "label": "Role"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-02-11 23:13:04.796348",
+ "modified": "2025-02-13 15:25:27.939863",
  "modified_by": "Administrator",
  "module": "Mgrant - Integrations",
  "name": "mGrant Settings",
