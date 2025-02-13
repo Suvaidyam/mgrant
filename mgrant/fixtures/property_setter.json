@@ -337,6 +337,22 @@
  },
  {
   "default_value": null,
+  "doc_type": "NGO Due Diligence",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "due_diligence_validation",
+  "is_system_generated": 0,
+  "modified": "2025-02-13 13:23:37.636425",
+  "module": null,
+  "name": "NGO Due Diligence-due_diligence_validation-wf_state_field",
+  "property": "wf_state_field",
+  "property_type": "",
+  "row_name": null,
+  "value": "Approve"
+ },
+ {
+  "default_value": null,
   "doc_type": "Reporting",
   "docstatus": 0,
   "doctype": "Property Setter",
