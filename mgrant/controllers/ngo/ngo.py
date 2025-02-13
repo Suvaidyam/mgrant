@@ -23,9 +23,12 @@ def ngo_status_cron(self):
 
 
 def ngo_after_insert(self):
+    ngo_role = frappe.db.get_single_value("mGrant Settings", "ngo_admin_role")
+    if not ngo_role:
+        return frappe.throw("NGO Admin Role not set in <a target='_blank' href='/app/mgrant-settings#defaults_tab'>mGrant Settings</a>")
     new_user = frappe.new_doc("SVA User")
     new_user.email = self.email
-    new_user.role_profile = "Partner NGO"
+    new_user.role_profile = ngo_role
     if len(self.ngo_name.split(" ")) > 2:
         new_user.first_name = self.ngo_name.split(" ")[0]
         new_user.middle_name = self.ngo_name.split(" ")[1]
