@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:DD-{###}",
  "creation": "2025-02-09 00:14:06.058535",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -57,11 +58,13 @@
   "table_rgtw",
   "section_break_twda",
   "due_diligence_validation",
-  "reason_for_due_diligence_fail",
+  "status",
   "column_break_jhcn",
-  "_reasons",
+  "reasons",
+  "reason_for_due_diligence_fail",
   "hidden_fields_section",
-  "amended_from"
+  "amended_from",
+  "created_on"
  ],
  "fields": [
   {
@@ -86,29 +89,47 @@
    "options": "NGO"
   },
   {
+   "fetch_from": "ngo.ngo_name",
+   "fetch_if_empty": 1,
    "fieldname": "ngo_name",
    "fieldtype": "Data",
-   "label": "Legal Name of the Entity"
+   "in_list_view": 1,
+   "label": "Legal Name of the Entity",
+   "reqd": 1
   },
   {
+   "fetch_from": "ngo.year_of_establishment",
+   "fetch_if_empty": 1,
    "fieldname": "year_of_incorporationcommencement",
    "fieldtype": "Data",
-   "label": "Year of Incorporation/Commencement"
+   "in_list_view": 1,
+   "label": "Year of Incorporation/Commencement",
+   "reqd": 1
   },
   {
+   "fetch_from": "ngo.registration_of_the_organisaiton",
+   "fetch_if_empty": 1,
    "fieldname": "registration_of_the_organisaiton",
    "fieldtype": "Data",
-   "label": "Registration of the Organisation"
+   "in_list_view": 1,
+   "label": "Registration of the Organisation",
+   "reqd": 1
   },
   {
+   "fetch_from": "ngo.website",
+   "fetch_if_empty": 1,
    "fieldname": "website",
    "fieldtype": "Data",
    "label": "Website"
   },
   {
+   "fetch_from": "ngo.pan_number",
+   "fetch_if_empty": 1,
    "fieldname": "pan_number",
    "fieldtype": "Data",
-   "label": "PAN Number"
+   "in_list_view": 1,
+   "label": "PAN Number",
+   "reqd": 1
   },
   {
    "fieldname": "ngo_size",
@@ -330,18 +351,12 @@
   {
    "fieldname": "due_diligence_validation",
    "fieldtype": "Date",
-   "label": "Due diligence clearance valid until."
+   "label": "Due diligence clearance valid until"
   },
   {
    "fieldname": "reason_for_due_diligence_fail",
    "fieldtype": "Small Text",
    "label": "Reason for due diligence fail."
-  },
-  {
-   "fieldname": "_reasons",
-   "fieldtype": "Table MultiSelect",
-   "label": "Reasons",
-   "options": "DDFR Child"
   },
   {
    "fieldname": "section_break_orth",
@@ -355,15 +370,36 @@
   {
    "fieldname": "column_break_jhcn",
    "fieldtype": "Column Break"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nActive\nExpired",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reasons",
+   "fieldtype": "Table MultiSelect",
+   "label": "Reasons",
+   "options": "DDFR Child"
+  },
+  {
+   "default": "Today",
+   "fieldname": "created_on",
+   "fieldtype": "Date",
+   "label": "Created On"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-09 03:42:16.314300",
+ "modified": "2025-02-12 19:50:56.220311",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO Due Diligence",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
