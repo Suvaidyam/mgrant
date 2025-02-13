@@ -122,6 +122,7 @@
    "description": "These are the FYs based on the MoU duration",
    "fieldname": "financial_years",
    "fieldtype": "Table MultiSelect",
+   "hidden": 1,
    "label": "Financial Years",
    "options": "Financial Year Child"
   },
@@ -183,7 +184,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-09 05:37:23.265439",
+ "modified": "2025-02-13 12:19:01.953837",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Budget Plan and Utilisation",
