@@ -151,7 +151,7 @@
    "in_list_view": 1,
    "label": "Programme",
    "options": "Programme",
-   "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin')"
+   "read_only_depends_on": "eval:frappe.boot.user_team == \"NGO\""
   },
   {
    "fieldname": "section_break_vkwu",
@@ -341,7 +341,7 @@
    "read_only": 1
   },
   {
-   "depends_on": "eval:frappe.user_roles.includes(\"Administrator\")  || !frappe.user_roles.includes('NGO Admin')",
+   "depends_on": "eval:frappe.boot.user_team != \"NGO\"",
    "fieldname": "donor",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -388,7 +388,7 @@
    "fieldtype": "HTML"
   },
   {
-   "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
+   "depends_on": "eval:frappe.boot.user_team == \"Donor\"",
    "fieldname": "ngo",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -410,7 +410,7 @@
    "options": "<h1>No questions available.</h1>"
   },
   {
-   "depends_on": "eval:!frappe.user_roles.includes('NGO Admin')",
+   "depends_on": "eval:frappe.boot.user_team != \"NGO\"",
    "fieldname": "vendor",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -420,7 +420,7 @@
   },
   {
    "default": "Draft",
-   "depends_on": "eval:frappe.user_roles.includes('NGO Admin')",
+   "depends_on": "eval:frappe.boot.user_team == \"NGO\"",
    "fieldname": "application_status",
    "fieldtype": "Select",
    "label": "Application Status (For NGO)",
@@ -541,7 +541,7 @@
    "fieldname": "stage",
    "fieldtype": "Select",
    "label": "Stage",
-   "read_only_depends_on": "eval:frappe.user_roles.includes('NGO Admin')"
+   "read_only_depends_on": "eval:frappe.boot.user_team == \"NGO\""
   },
   {
    "fieldname": "column_break_nuci",
@@ -587,7 +587,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-12 00:26:45.823421",
+ "modified": "2025-02-12 23:00:00.214729",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",

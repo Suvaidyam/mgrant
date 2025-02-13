@@ -2,6 +2,26 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("NGO", {
+    setup(frm) {
+        window.SVAHandleParentFieldProps = (fields, doctype, name, mode)=>{
+            if(doctype=='NGO Due Diligence'){
+                for(let field of fields){
+                    if(field.fetch_from && field.fetch_from?.startsWith('ngo.')){
+                        field.default = frm.doc[field.fetch_from.split('.')[1]];
+                        field.fetch_from = '';
+                        if(field.default){
+                            field.read_only = 1;
+                        }
+                    }
+                    if(field.fieldname=="_reasons"){
+                        console.log("Field",field);
+
+                    }
+                }
+            }
+            return fields;
+        };
+    },
     async refresh(frm) {
         frm.set_df_property('active_documents', 'cannot_delete_rows', 1);
         frm.set_df_property('expired_documents', 'cannot_delete_rows', 1);

@@ -59,7 +59,7 @@ app_include_js = [
     f"/assets/mgrant/js/list_functions.js?ver={time.time()}",
     f"/assets/mgrant/js/kanban.js?ver={time.time()}",
     f"/assets/mgrant/js/overwrite_timeline.js?ver={time.time()}",
-    f"/assets/mgrant/js/form_sidebar.js?ver={time.time()}",
+    # f"/assets/mgrant/js/form_sidebar.js?ver={time.time()}",
     # f"/assets/mgrant/js/sidebar.js?ver={time.time()}",
     f"/assets/mgrant/js/toolbar_override.js?ver={time.time()}"
 ]
@@ -183,6 +183,11 @@ override_doctype_class = {
 # 		"on_cancel": "method",
 # 		"on_trash": "method"
 # 	}
+# }
+# doc_events = {
+#     "NGO Due Diligence": {
+#         "on_update": "mgrant.doc_events.ngo_due_diligence.events.on_update",
+#     }
 # }
 
 # Scheduled Tasks
