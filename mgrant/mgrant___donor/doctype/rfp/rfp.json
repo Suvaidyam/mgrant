@@ -94,6 +94,7 @@
    "reqd": 1
   },
   {
+   "default": "Closed Call",
    "fieldname": "invitation_type",
    "fieldtype": "Select",
    "label": "Invitation Type",
@@ -365,7 +366,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-12 16:32:08.117384",
+ "modified": "2025-02-14 16:23:23.478502",
  "modified_by": "Administrator",
  "module": "mGrant - Donor",
  "name": "RFP",

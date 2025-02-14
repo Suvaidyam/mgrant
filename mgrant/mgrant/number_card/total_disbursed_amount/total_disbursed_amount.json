@@ -5,11 +5,11 @@
  "dynamic_filters_json": "{}",
  "filters_json": "{}",
  "function": "Count",
- "idx": 0,
+ "idx": 32,
  "is_public": 0,
  "is_standard": 1,
  "label": "Total Disbursed Amount",
- "modified": "2025-02-11 16:01:24.341257",
+ "modified": "2025-02-14 13:54:38.218886",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Total Disbursed Amount",
@@ -17,7 +17,7 @@
  "report_field": "total_funds_received",
  "report_function": "Sum",
  "report_name": "Grant Financial",
- "show_percentage_stats": 1,
+ "show_percentage_stats": 0,
  "stats_time_interval": "Daily",
  "type": "Report"
 }
