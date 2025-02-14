@@ -312,7 +312,7 @@
   {
    "fieldname": "input_tab",
    "fieldtype": "Tab Break",
-   "label": "Input"
+   "label": "indicator"
   },
   {
    "fieldname": "input",
@@ -857,7 +857,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-13 12:02:14.222515",
+ "modified": "2025-02-14 11:58:35.353041",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
