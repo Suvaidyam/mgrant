@@ -11,7 +11,7 @@
  "is_public": 0,
  "is_standard": 1,
  "label": "Total Fund Requested",
- "modified": "2025-01-08 12:24:55.276244",
+ "modified": "2025-02-14 13:54:38.937262",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Total Fund Requested",
@@ -20,7 +20,7 @@
  "report_field": "total_funds_requested",
  "report_function": "Sum",
  "report_name": "Total Fund Requested",
- "show_percentage_stats": 1,
+ "show_percentage_stats": 0,
  "stats_time_interval": "Monthly",
  "type": "Report"
 }

@@ -9,7 +9,7 @@
  "is_public": 0,
  "is_standard": 1,
  "label": "Total Expense",
- "modified": "2024-10-02 18:38:24.277884",
+ "modified": "2025-02-14 13:54:39.259827",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Total Expense",
@@ -17,7 +17,7 @@
  "report_field": "total_expense",
  "report_function": "Sum",
  "report_name": "Total Expense",
- "show_percentage_stats": 1,
+ "show_percentage_stats": 0,
  "stats_time_interval": "Daily",
  "type": "Report"
 }

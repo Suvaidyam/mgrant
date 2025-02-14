@@ -16,7 +16,7 @@ function getMonthDifference(startDate, endDate) {
     const monthDifference = end.getMonth() - start.getMonth();
 
     // Total months difference
-    return yearDifference * 12 + monthDifference;
+    return yearDifference * 12 + monthDifference + 1;
 }
 
 const mgrantSettings = (frm) => {
@@ -59,8 +59,8 @@ const mgrantSettings = (frm) => {
 let PREV_STATES = [];
 frappe.ui.form.on("Grant", {
     setup(frm) {
-        window.onFieldClick = (...args)=>{
-            console.log("onFieldClick:",...args);
+        window.onFieldClick = (...args) => {
+            console.log("onFieldClick:", ...args);
         };
         // window.onFieldValueChange = function(...args){
         //     console.log("onFieldValueChange:",...args, this);
@@ -73,12 +73,12 @@ frappe.ui.form.on("Grant", {
         //         console.log("SVADialog:",name, action, row, columns, fields);
         //     }
         // }
-	},
+    },
     async refresh(frm) {
         // console.log("refresh", frm);
-        if(frm.doc.states.length) {
+        if (frm.doc.states.length) {
             PREV_STATES = frm.doc.states;
-        }else{
+        } else {
             PREV_STATES = [];
         }
         if (!frm.is_new()) {
@@ -108,25 +108,25 @@ frappe.ui.form.on("Grant", {
         setup_multiselect_dependency(frm, 'Block', 'districts', 'district', 'blocks', 'district');
         setup_multiselect_dependency(frm, 'Village', 'blocks', 'block', 'villages', 'block');
     },
-    prev_states(frm){
-        if(frm.doc.states.length) {
+    prev_states(frm) {
+        if (frm.doc.states.length) {
             PREV_STATES = frm.doc.states;
-        }else{
+        } else {
             PREV_STATES = [];
         }
     },
     states(frm) {
         let current_states = frm.doc.states;
         const removedStates = PREV_STATES.filter(state => !current_states.includes(state));
-        if(removedStates.length){
-            const demography_focuses_related_to_rm_state = frm.doc.demography_focus.filter(df => removedStates.map((state)=> state.state).includes(df.state));
+        if (removedStates.length) {
+            const demography_focuses_related_to_rm_state = frm.doc.demography_focus.filter(df => removedStates.map((state) => state.state).includes(df.state));
             if (demography_focuses_related_to_rm_state.length) {
                 frappe.msgprint(__("Please remove the state from Demography Focus to remove the state from Grant"));
                 frm.set_value('states', PREV_STATES);
-            }else{
+            } else {
                 frm.trigger('prev_states');
             }
-        }else{
+        } else {
             setup_multiselect_dependency(frm, 'District', 'states', 'state', 'districts', 'state');
             frm.set_value({ districts: [], blocks: [], villages: [] });
             frm.trigger('prev_states');

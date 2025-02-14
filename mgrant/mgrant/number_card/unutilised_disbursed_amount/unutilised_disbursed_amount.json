@@ -5,11 +5,11 @@
  "dynamic_filters_json": "{}",
  "filters_json": "{}",
  "function": "Count",
- "idx": 0,
+ "idx": 19,
  "is_public": 0,
  "is_standard": 1,
  "label": "Unutilised Disbursed Amount",
- "modified": "2025-02-13 00:47:40.281184",
+ "modified": "2025-02-14 13:54:37.954613",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Unutilised Disbursed Amount",
@@ -17,7 +17,7 @@
  "report_field": "total_unspent_funds",
  "report_function": "Sum",
  "report_name": "Grant Financial",
- "show_percentage_stats": 1,
+ "show_percentage_stats": 0,
  "stats_time_interval": "Daily",
  "type": "Report"
 }
