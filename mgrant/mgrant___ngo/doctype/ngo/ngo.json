@@ -42,11 +42,11 @@
   "csr_1_certificate_upload",
   "due_diligence_section",
   "is_due_diligence_cleared",
+  "column_break_nsyn",
   "due_diligence_validation",
+  "column_break_qtqw",
   "reasons",
   "reason_for_due_diligence_fail",
-  "column_break_nsyn",
-  "column_break_qtqw",
   "section_break_fvof",
   "column_break_wbwf",
   "ngo_status",
@@ -319,21 +319,21 @@
    "fieldname": "is_due_diligence_cleared",
    "fieldtype": "Select",
    "label": "Is due diligence cleared?",
-   "mandatory_depends_on": "eval:frappe.boot.user_team == \"NGO\"",
-   "options": "Yes\nNo"
+   "options": "Yes\nNo",
+   "read_only_depends_on": "eval:frappe.boot.user_team == \"NGO\""
   },
   {
    "depends_on": "eval:doc.is_due_diligence_cleared == 'Yes'",
    "fieldname": "due_diligence_validation",
    "fieldtype": "Date",
-   "label": "Due diligence clearance valid until.",
+   "label": "Due diligence clearance valid until",
    "read_only_depends_on": "eval:frappe.boot.user_team == \"NGO\""
   },
   {
-   "depends_on": "eval: doc.reasons.map((reason) => reason.reason).some((reason) => reason === 'Other' || reason === 'Others')",
+   "depends_on": "eval: (doc.reasons.map((reason) => reason.reason).some((reason) => reason === 'Other' || reason === 'Others') && frappe.boot.user_team != \"NGO\")",
    "fieldname": "reason_for_due_diligence_fail",
    "fieldtype": "Small Text",
-   "label": "Reason for due diligence fail.",
+   "label": "Reason for due diligence fail",
    "read_only_depends_on": "eval:frappe.boot.user_team == \"NGO\""
   },
   {
@@ -394,7 +394,7 @@
    "read_only": 1
   },
   {
-   "depends_on": "eval:doc.is_due_diligence_cleared == 'No'",
+   "depends_on": "eval:(doc.is_due_diligence_cleared == 'No' && frappe.boot.user_team != \"NGO\")",
    "fieldname": "reasons",
    "fieldtype": "Table MultiSelect",
    "label": "Reasons",
@@ -560,7 +560,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-14 14:15:42.796500",
+ "modified": "2025-02-14 14:31:53.990264",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",
