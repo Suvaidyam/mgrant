@@ -59,9 +59,6 @@
   "is_blacklisted",
   "reason_for_blacklisting",
   "column_break_medm",
-  "documents_tab",
-  "active_documents",
-  "expired_documents",
   "bank_details_tab",
   "ifsc_code",
   "fetch_bank_details",
@@ -77,16 +74,19 @@
   "account_holder_name",
   "account_number",
   "column_break_hhtv",
-  "work_history_tab",
-  "work_references",
-  "impact",
-  "about_organisation",
   "due_diligence_tab",
   "due_diligence_html",
   "section_break_ivgg",
   "countries_where_ngo_works",
   "located_countries",
   "_reasons",
+  "documents_tab",
+  "active_documents",
+  "expired_documents",
+  "work_history_tab",
+  "work_references",
+  "impact",
+  "about_organisation",
   "grants_tab",
   "grants",
   "applications_tab",
@@ -298,7 +298,8 @@
   {
    "fieldname": "work_history_tab",
    "fieldtype": "Tab Break",
-   "label": "Experiences"
+   "hidden": 1,
+   "label": "Work History"
   },
   {
    "fieldname": "80g_certificate_number",
@@ -317,11 +318,12 @@
    "label": "Due diligence"
   },
   {
+   "default": "No",
    "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
    "fieldname": "is_due_diligence_cleared",
    "fieldtype": "Select",
    "label": "Is due diligence cleared?",
-   "options": "\nYes\nNo"
+   "options": "Yes\nNo"
   },
   {
    "depends_on": "eval:doc.is_due_diligence_cleared == 'Yes'",
@@ -565,7 +567,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-13 11:42:37.934607",
+ "modified": "2025-02-14 09:35:56.311021",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",

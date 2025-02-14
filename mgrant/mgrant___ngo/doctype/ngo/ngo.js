@@ -31,6 +31,12 @@ frappe.ui.form.on("NGO", {
             frm.set_value('active_documents', [])
             frm.set_value('active_documents', [...docs.map(d => { return { document: d.name, ...d } })])
             frm.refresh_field('active_documents')
+            let default_reasons = await frappe.db.get_list('DDFR', { filters: { name: ['IN',['Others','Other']] }, pluck: 'name' })
+            if (default_reasons.length > 0) {
+                frm.add_child('reasons', { reason: default_reasons[0] })
+                frm.refresh_field('reasons')
+                frm.set_value('reason_for_due_diligence_fail','Due Diligence not added/approved.')
+            }
         }
         if (!frm.is_new()) {
             if (frm.doc.is_blacklisted) {

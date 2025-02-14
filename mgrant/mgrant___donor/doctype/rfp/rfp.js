@@ -3,13 +3,21 @@
 
 frappe.ui.form.on("RFP", {
 	async refresh(frm) {
-
+        frm.fields_dict["table_aycd"].grid.get_field("user").get_query = function (doc, cdt, cdn) {
+            let selected_users = (frm.doc.table_aycd || []).map(row => row.user).filter(user => user);
+            selected_users.push('Administrator');
+            return {
+                filters: {
+                    "name": ["not in", selected_users]
+                }
+            };
+        };
 	},
-
 });
+
 frappe.ui.form.on("Evaluation and Review Criteria", {
 	refresh(frm) {
-
+        
 	},
     weightage:async function(frm, cdt, cdn){
         let row = frappe.get_doc(cdt, cdn);
@@ -27,4 +35,16 @@ frappe.ui.form.on("Evaluation and Review Criteria", {
             return;
         }
     }
+});
+
+
+frappe.ui.form.on("RFP Invitation", {
+
+	before_invitation_remove (frm, cdt, cdn) {
+        let row = frappe.get_doc(cdt, cdn);
+        if(row.status == "Sent"){
+            frappe.throw('You can not delete the row which is already sent.')
+            return false;
+        }
+    },
 });
