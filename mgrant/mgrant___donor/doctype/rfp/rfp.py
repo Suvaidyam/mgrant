@@ -106,7 +106,7 @@ class RFP(Document):
 					if len(level1_users):
 						proposal.level_1_users = [frappe.get_doc({"doctype": "Level 1 User Child","parent": proposal.name,"parentfield": "level_1_users","parenttype": "Proposal","user": user}).save(ignore_permissions=True) for user in level1_users]
 					else:
-						proposal.ledoctype_jsvel_1_users = []	
+						proposal.level_1_users = []	
 					if len(level2_users):
 						proposal.level_2_users = [frappe.get_doc({"doctype": "Level 2 User Child","parent": proposal.name,"parentfield": "level_2_users","parenttype": "Proposal","user": user}).save(ignore_permissions=True) for user in level2_users]
 					else:
@@ -130,7 +130,5 @@ class RFP(Document):
 					proposal.level_2_users = []
 					proposal.level_3_users = []
 					proposal.save()
-
-
 
 
