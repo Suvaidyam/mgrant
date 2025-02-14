@@ -5,5 +5,19 @@
   "modified": "2025-01-14 12:48:05.565976",
   "name": "Other",
   "reason": "Other"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "DDFR",
+  "modified": "2025-02-14 14:32:24.840386",
+  "name": "Expired",
+  "reason": "Expired"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "DDFR",
+  "modified": "2025-02-14 14:32:41.659335",
+  "name": "Not Approved",
+  "reason": "Not Approved"
  }
 ]
