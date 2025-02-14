@@ -318,11 +318,12 @@
    "label": "Due diligence"
   },
   {
+   "default": "No",
    "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
    "fieldname": "is_due_diligence_cleared",
    "fieldtype": "Select",
    "label": "Is due diligence cleared?",
-   "options": "\nYes\nNo"
+   "options": "Yes\nNo"
   },
   {
    "depends_on": "eval:doc.is_due_diligence_cleared == 'Yes'",
@@ -566,7 +567,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-13 19:16:11.771816",
+ "modified": "2025-02-14 09:35:56.311021",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",
