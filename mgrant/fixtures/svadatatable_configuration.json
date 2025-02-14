@@ -266,7 +266,7 @@
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2025-02-13 12:06:10.098767",
+  "modified": "2025-02-14 12:36:32.117139",
   "name": "Grant",
   "number_cards": [
    {
@@ -399,7 +399,7 @@
    },
    {
     "background_color": null,
-    "card_label": "General Tasks Open",
+    "card_label": "Open",
     "hover_background_color": null,
     "hover_text_color": null,
     "hover_value_color": null,
@@ -415,7 +415,7 @@
    },
    {
     "background_color": null,
-    "card_label": "General Tasks In-Progress",
+    "card_label": "In-Progress",
     "hover_background_color": null,
     "hover_text_color": null,
     "hover_value_color": null,
@@ -431,7 +431,7 @@
    },
    {
     "background_color": null,
-    "card_label": "General Tasks Delayed",
+    "card_label": "Delayed",
     "hover_background_color": null,
     "hover_text_color": null,
     "hover_value_color": null,
@@ -447,7 +447,7 @@
    },
    {
     "background_color": null,
-    "card_label": "General Tasks Close",
+    "card_label": "Close",
     "hover_background_color": null,
     "hover_text_color": null,
     "hover_value_color": null,
@@ -463,7 +463,7 @@
    },
    {
     "background_color": null,
-    "card_label": "Milestones Open",
+    "card_label": "Open",
     "hover_background_color": null,
     "hover_text_color": null,
     "hover_value_color": null,
@@ -479,7 +479,7 @@
    },
    {
     "background_color": null,
-    "card_label": "Milestones In-Progress",
+    "card_label": "In-Progress",
     "hover_background_color": null,
     "hover_text_color": null,
     "hover_value_color": null,
@@ -495,7 +495,7 @@
    },
    {
     "background_color": null,
-    "card_label": "Milestones Close",
+    "card_label": "Close",
     "hover_background_color": null,
     "hover_text_color": null,
     "hover_value_color": null,
@@ -511,7 +511,7 @@
    },
    {
     "background_color": null,
-    "card_label": "Milestones Delayed",
+    "card_label": "Delayed",
     "hover_background_color": null,
     "hover_text_color": null,
     "hover_value_color": null,
