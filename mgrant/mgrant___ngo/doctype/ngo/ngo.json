@@ -10,6 +10,9 @@
   "year_of_establishment",
   "registration_of_the_organisaiton",
   "column_break_bhnv",
+  "contact_first_name",
+  "contact_last_name",
+  "contact_full_name",
   "email",
   "website",
   "source_document",
@@ -556,11 +559,29 @@
   {
    "fieldname": "ngo_users",
    "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "contact_first_name",
+   "fieldtype": "Data",
+   "label": "Contact First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contact_last_name",
+   "fieldtype": "Data",
+   "label": "Contact Last Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contact_full_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Contact Full Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-14 14:31:53.990264",
+ "modified": "2025-02-14 16:02:09.091380",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",
