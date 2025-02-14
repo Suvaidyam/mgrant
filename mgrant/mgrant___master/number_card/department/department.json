@@ -11,14 +11,14 @@
  "is_public": 0,
  "is_standard": 1,
  "label": "Department",
- "modified": "2024-11-28 17:23:01.918208",
+ "modified": "2025-02-14 13:54:39.120499",
  "modified_by": "Administrator",
  "module": "mGrant - Master",
  "name": "Department",
  "owner": "Administrator",
  "parent_document_type": "",
  "report_function": "Sum",
- "show_percentage_stats": 1,
+ "show_percentage_stats": 0,
  "stats_time_interval": "Daily",
  "type": "Document Type"
 }
