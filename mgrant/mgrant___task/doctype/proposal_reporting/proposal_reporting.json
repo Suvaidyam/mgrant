@@ -1,26 +1,19 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:REPORTING-{####}",
- "creation": "2024-12-01 13:11:57.859627",
+ "autoname": "format:P-REPORTING-{####}",
+ "creation": "2025-02-14 18:16:40.300672",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "report_type",
   "report_name",
   "due_date",
-  "column_break_tzvk",
-  "submission_status",
-  "report_linkfile",
-  "submission_date",
-  "section_break_wwkp",
-  "grant",
-  "column_break_fvzn",
+  "section_break_rtyf",
+  "proposal",
+  "column_break_qatm",
   "donor",
-  "column_break_mygj",
-  "ngo",
-  "column_break_daar",
-  "vendor"
+  "column_break_flyx"
  ],
  "fields": [
   {
@@ -44,82 +37,39 @@
    "reqd": 1
   },
   {
-   "fieldname": "submission_status",
-   "fieldtype": "Select",
-   "label": "Submission Status",
-   "options": "Due\nIn Draft\nSubmitted\nDelayed",
-   "reqd": 1
-  },
-  {
-   "depends_on": "eval:doc.submission_status == \"Submitted\"",
-   "fieldname": "report_linkfile",
-   "fieldtype": "Attach",
-   "label": "Report Link/File",
-   "mandatory_depends_on": "eval:doc.submission_status == \"Submitted\""
-  },
-  {
-   "depends_on": "eval:doc.submission_status == \"Submitted\"",
-   "fieldname": "submission_date",
-   "fieldtype": "Date",
-   "label": "Submission Date",
-   "mandatory_depends_on": "eval:doc.submission_status == \"Submitted\""
-  },
-  {
-   "fieldname": "column_break_tzvk",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_wwkp",
+   "fieldname": "section_break_rtyf",
    "fieldtype": "Section Break",
    "hidden": 1
   },
   {
-   "fieldname": "grant",
+   "fieldname": "proposal",
    "fieldtype": "Link",
-   "label": "Grant",
-   "options": "Grant"
+   "label": "Proposal",
+   "options": "Proposal",
+   "reqd": 1
   },
   {
-   "fetch_from": "grant.donor",
+   "fetch_from": "proposal.donor",
    "fieldname": "donor",
    "fieldtype": "Link",
    "label": "Donor",
    "options": "Donor"
   },
   {
-   "fetch_from": "grant.ngo",
-   "fieldname": "ngo",
-   "fieldtype": "Link",
-   "label": "NGO",
-   "options": "NGO"
-  },
-  {
-   "fieldname": "column_break_fvzn",
+   "fieldname": "column_break_qatm",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_mygj",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fetch_from": "grant.vendor",
-   "fieldname": "vendor",
-   "fieldtype": "Link",
-   "label": "Vendor",
-   "options": "Vendor"
-  },
-  {
-   "fieldname": "column_break_daar",
+   "fieldname": "column_break_flyx",
    "fieldtype": "Column Break"
   }
  ],
- "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-14 18:42:47.278068",
+ "modified": "2025-02-14 18:49:32.440748",
  "modified_by": "Administrator",
  "module": "mGrant - Task",
- "name": "Reporting",
+ "name": "Proposal Reporting",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
