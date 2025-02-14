@@ -11,14 +11,14 @@
  "is_public": 0,
  "is_standard": 1,
  "label": "Tranches",
- "modified": "2025-01-08 12:00:43.237300",
+ "modified": "2025-02-14 13:54:38.912464",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Tranches",
  "owner": "Administrator",
  "parent_document_type": "",
  "report_function": "Sum",
- "show_percentage_stats": 1,
+ "show_percentage_stats": 0,
  "stats_time_interval": "Monthly",
  "type": "Document Type"
 }
