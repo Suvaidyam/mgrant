@@ -10,7 +10,7 @@ def ngo_dd_on_update(self):
     positive_closure = get_positive_state_closure(self.doctype)
     if self.workflow_state == positive_closure:
         if self.ngo:
-            ngo_dds = frappe.get_list("NGO Due Diligence", filters={"ngo": self.ngo,'name':['!=',self.name],"status":["!=","Inactive"]},pluck='name',limit=1000,ignore_permissions=True)
+            ngo_dds = frappe.get_list("NGO Due Diligence", filters={"ngo": self.ngo,'name':['!=',self.name],"status":["NOT IN",["Inactive","Expired"]]},pluck='name',limit=1000,ignore_permissions=True)
             for ngo_dd in ngo_dds:
                 frappe.db.set_value("NGO Due Diligence", ngo_dd, "status", "Inactive",update_modified=False)
             ngo_doc = frappe.get_doc("NGO", self.ngo)
