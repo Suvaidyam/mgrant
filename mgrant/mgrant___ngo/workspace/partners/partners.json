@@ -15,7 +15,7 @@
  "label": "Partners",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-02-05 14:48:56.595812",
+ "modified": "2025-02-14 10:20:35.661789",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "Partners",
@@ -39,6 +39,9 @@
   },
   {
    "role": "Administrator"
+  },
+  {
+   "role": "NGO Admin"
   }
  ],
  "sequence_id": 24.0,
