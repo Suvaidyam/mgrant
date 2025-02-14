@@ -40,6 +40,7 @@
   ],
   "child_doctypes": [
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -54,6 +55,7 @@
     "template": null
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -68,6 +70,7 @@
     "template": null
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -82,6 +85,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -96,6 +100,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -110,6 +115,7 @@
     "template": null
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -124,6 +130,7 @@
     "template": null
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -138,6 +145,7 @@
     "template": null
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -152,20 +160,7 @@
     "template": null
    },
    {
-    "connection_type": "Referenced",
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "dn_reference_field": "related_to",
-    "dt_reference_field": "reference_doctype",
-    "extend_condition": 0,
-    "extended_condition": null,
-    "html_field": "reportings",
-    "link_doctype": null,
-    "link_fieldname": null,
-    "listview_settings": "[{\"fieldname\":\"report_name\",\"label\":\"Report Name\",\"width\":\"2\"},{\"fieldname\":\"report_type\",\"label\":\"Report Type\",\"width\":\"2\"},{\"fieldname\":\"submission_date\",\"label\":\"Submission Date\",\"width\":\"2\"},{\"fieldname\":\"submission_status\",\"label\":\"Submission Status\",\"width\":\"2\"},{\"fieldname\":\"due_date\",\"label\":\"Due Date\",\"width\":\"2\"}]",
-    "referenced_link_doctype": "Reporting",
-    "template": null
-   },
-   {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -180,6 +175,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -194,6 +190,7 @@
     "template": "Email"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -208,6 +205,7 @@
     "template": "Timeline"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -222,6 +220,7 @@
     "template": "Gallery"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -236,20 +235,7 @@
     "template": "Notes"
    },
    {
-    "connection_type": "Direct",
-    "crud_permissions": "[\"read\"]",
-    "dn_reference_field": null,
-    "dt_reference_field": null,
-    "extend_condition": 0,
-    "extended_condition": null,
-    "html_field": "sub_grants",
-    "link_doctype": "Grant",
-    "link_fieldname": "parent_grant",
-    "listview_settings": "[\"parent_grant\",\"ngo\",\"donor\",\"start_date\",\"grant_name\",\"end_date\",\"grant_duration_in_months\",\"grant_type\",\"funding_type\"]",
-    "referenced_link_doctype": null,
-    "template": "Tasks"
-   },
-   {
+    "action_label": null,
     "connection_type": "Referenced",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": "custom_related_to",
@@ -262,11 +248,26 @@
     "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"full_name\",\"label\":\"Full Name\"},{\"fieldname\":\"custom_email\",\"label\":\"Primary Email\"},{\"fieldname\":\"custom_mobile_number\",\"label\":\"Mobile Number\"},{\"fieldname\":\"custom_designation1\",\"label\":\"Designation\"},{\"fieldname\":\"department\",\"label\":\"Department\"}]",
     "referenced_link_doctype": "Contact",
     "template": "Tasks"
+   },
+   {
+    "action_label": null,
+    "connection_type": "Direct",
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "dn_reference_field": null,
+    "dt_reference_field": null,
+    "extend_condition": 0,
+    "extended_condition": "{}",
+    "html_field": "reportings",
+    "link_doctype": "Reporting",
+    "link_fieldname": "grant",
+    "listview_settings": "[{\"fieldname\":\"report_name\",\"label\":\"Report Name\",\"width\":\"2\"},{\"fieldname\":\"report_type\",\"label\":\"Report Type\",\"width\":\"2\"},{\"fieldname\":\"submission_status\",\"label\":\"Submission Status\",\"width\":\"2\"},{\"fieldname\":\"due_date\",\"label\":\"Due Date\",\"width\":\"2\"},{\"fieldname\":\"submission_date\",\"label\":\"Submission Date\",\"width\":\"2\"}]",
+    "referenced_link_doctype": null,
+    "template": "Tasks"
    }
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2025-02-14 12:36:32.117139",
+  "modified": "2025-02-14 19:04:17.489441",
   "name": "Grant",
   "number_cards": [
    {
@@ -533,6 +534,7 @@
   "child_confs": [],
   "child_doctypes": [
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\"]",
     "dn_reference_field": null,
@@ -547,6 +549,7 @@
     "template": null
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -561,6 +564,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -587,6 +591,7 @@
   "child_confs": [],
   "child_doctypes": [
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\"]",
     "dn_reference_field": null,
@@ -601,6 +606,7 @@
     "template": null
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -615,6 +621,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\"]",
     "dn_reference_field": null,
@@ -629,6 +636,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -655,20 +663,7 @@
   "child_confs": [],
   "child_doctypes": [
    {
-    "connection_type": "Referenced",
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "dn_reference_field": "related_to",
-    "dt_reference_field": "reference_doctype",
-    "extend_condition": 0,
-    "extended_condition": null,
-    "html_field": "reportings",
-    "link_doctype": null,
-    "link_fieldname": null,
-    "listview_settings": "[{\"fieldname\":\"report_name\",\"label\":\"Report Name\",\"width\":\"2\"},{\"fieldname\":\"report_type\",\"label\":\"Report Type\",\"width\":\"2\"},{\"fieldname\":\"due_date\",\"label\":\"Due Date\",\"width\":\"2\"},{\"fieldname\":\"submission_date\",\"label\":\"Submission Date\",\"width\":\"2\"},{\"fieldname\":\"submission_status\",\"label\":\"Submission Status\",\"width\":\"2\"}]",
-    "referenced_link_doctype": "Reporting",
-    "template": null
-   },
-   {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -683,6 +678,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -697,6 +693,7 @@
     "template": "Email"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -711,6 +708,7 @@
     "template": "Timeline"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -725,6 +723,7 @@
     "template": "Gallery"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -739,6 +738,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -753,6 +753,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -767,6 +768,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -781,6 +783,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -795,6 +798,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -809,20 +813,7 @@
     "template": "Notes"
    },
    {
-    "connection_type": "Referenced",
-    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
-    "dn_reference_field": "custom_related_to",
-    "dt_reference_field": "custom_ref_doctype",
-    "extend_condition": 0,
-    "extended_condition": null,
-    "html_field": "contacts",
-    "link_doctype": null,
-    "link_fieldname": null,
-    "listview_settings": "[{\"fieldname\":\"name\",\"label\":\"ID\"},{\"fieldname\":\"full_name\",\"label\":\"Full Name\"},{\"fieldname\":\"custom_email\",\"label\":\"Primary Email\"},{\"fieldname\":\"custom_mobile_number\",\"label\":\"Mobile Number\"},{\"fieldname\":\"custom_department1\",\"label\":\"Department\"},{\"fieldname\":\"custom_designation1\",\"label\":\"Designation\"}]",
-    "referenced_link_doctype": "Contact",
-    "template": "Tasks"
-   },
-   {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -835,11 +826,26 @@
     "listview_settings": "[{\"fieldname\":\"tranch_no\",\"label\":\"Tranche No.\",\"width\":\"2\"},{\"fieldname\":\"financial_year\",\"label\":\"Financial Year\",\"width\":\"2\"},{\"fieldname\":\"planned_due_date\",\"label\":\"Planned Due Date\",\"width\":\"2\"},{\"fieldname\":\"total_funds_planned\",\"label\":\"Total Funds Planned\",\"width\":\"2\"},{\"fieldname\":\"wf_comment\",\"label\":\"Comment\",\"width\":\"2\"}]",
     "referenced_link_doctype": null,
     "template": "Tasks"
+   },
+   {
+    "action_label": null,
+    "connection_type": "Direct",
+    "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
+    "dn_reference_field": null,
+    "dt_reference_field": null,
+    "extend_condition": 0,
+    "extended_condition": "{}",
+    "html_field": "reportings",
+    "link_doctype": "Proposal Reporting",
+    "link_fieldname": "proposal",
+    "listview_settings": "[{\"fieldname\":\"report_name\",\"label\":\"Report Name\",\"width\":\"2\"},{\"fieldname\":\"report_type\",\"label\":\"Report Type\",\"width\":\"2\"},{\"fieldname\":\"due_date\",\"label\":\"Due Date\",\"width\":\"2\"},{\"fieldname\":\"owner\",\"label\":\"Created By\",\"width\":\"2\"},{\"fieldname\":\"modified_by\",\"label\":\"Modified By\",\"width\":\"2\"}]",
+    "referenced_link_doctype": null,
+    "template": "Tasks"
    }
   ],
   "docstatus": 0,
   "doctype": "SVADatatable Configuration",
-  "modified": "2025-02-11 10:23:32.211254",
+  "modified": "2025-02-14 19:01:44.024659",
   "name": "Proposal",
   "number_cards": [],
   "parent_doctype": "Proposal"
@@ -849,6 +855,7 @@
   "child_confs": [],
   "child_doctypes": [
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
