@@ -1,5 +1,18 @@
 [
  {
+  "custom_belongs_to": null,
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2025-01-14 19:10:06.687000",
+  "name": "CEO",
+  "role_profile": "CEO",
+  "roles": [
+   {
+    "role": "CEO"
+   }
+  ]
+ },
+ {
   "custom_belongs_to": "NGO",
   "docstatus": 0,
   "doctype": "Role Profile",
@@ -35,6 +48,54 @@
   "roles": [
    {
     "role": "Donor Admin"
+   }
+  ]
+ },
+ {
+  "custom_belongs_to": null,
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2025-01-14 19:09:36.910106",
+  "name": "Lead, Grant Management",
+  "role_profile": "Lead, Grant Management",
+  "roles": [
+   {
+    "role": "Lead, Grant Management"
+   }
+  ]
+ },
+ {
+  "custom_belongs_to": null,
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2025-01-14 16:54:24.089961",
+  "name": "Lead, Partnerships",
+  "role_profile": "Lead, Partnerships",
+  "roles": [
+   {
+    "role": "Lead, Partnerships"
+   }
+  ]
+ },
+ {
+  "custom_belongs_to": "NGO",
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2025-02-14 14:51:20.962862",
+  "name": "Test",
+  "role_profile": "Test",
+  "roles": []
+ },
+ {
+  "custom_belongs_to": "Donor",
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2025-02-14 15:36:07.269785",
+  "name": "Organisation Admin",
+  "role_profile": "Organisation Admin",
+  "roles": [
+   {
+    "role": "Organisation Admin"
    }
   ]
  }
