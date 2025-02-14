@@ -22,6 +22,16 @@ frappe.model.on('Proposal', '*', function () {
     cur_frm.page.btn_primary.show();
 })
 
+async function get_rfp (rfp) {
+    if (rfp) {
+      let rfp_doc = await frappe.call({
+            method: "mgrant.controllers.proposal.proposal.get_rfp",
+            args: { rfp: rfp },
+        });
+        return rfp_doc?.message;
+    }
+}
+
 frappe.ui.form.on("Proposal", {
     onload_post_render: (frm) => {
         renderRibbons(frm)
@@ -91,8 +101,8 @@ frappe.ui.form.on("Proposal", {
         setup_multiselect_dependency(frm, 'Village', 'blocks', 'block', 'villages', 'block');
 
         if (frm.doc.rfp) {
-            frappe.model.with_doc("RFP", frm.doc.rfp).then(doc => {
-                let table_data = doc?.table_aycd || [];
+                let rfp_doc = await get_rfp(frm.doc.rfp)
+                let table_data = rfp_doc?.table_aycd || [];
                 level_1_data = table_data?.filter(row => row?.approver_level === 'Level 1');
                 level_2_data = table_data?.filter(row => row?.approver_level === 'Level 2');
                 level_3_data = table_data?.filter(row => row?.approver_level === 'Level 3');
@@ -137,7 +147,6 @@ frappe.ui.form.on("Proposal", {
                     frm.set_df_property('level_3', 'hidden', 1)
                     frm.set_df_property('level_3_remarks', 'hidden', 1)
                 }
-            });
         }
 
         if (frm.doc?.rfp) {
