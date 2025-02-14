@@ -40,6 +40,7 @@
   ],
   "child_doctypes": [
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -54,6 +55,7 @@
     "template": null
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -68,6 +70,7 @@
     "template": null
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -82,6 +85,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -96,6 +100,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -110,6 +115,7 @@
     "template": null
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -124,6 +130,7 @@
     "template": null
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -138,6 +145,7 @@
     "template": null
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -152,6 +160,7 @@
     "template": null
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -166,6 +175,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -180,6 +190,7 @@
     "template": "Email"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -194,6 +205,7 @@
     "template": "Timeline"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -208,6 +220,7 @@
     "template": "Gallery"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -222,6 +235,7 @@
     "template": "Notes"
    },
    {
+    "action_label": null,
     "connection_type": "Referenced",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": "custom_related_to",
@@ -236,6 +250,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -519,6 +534,7 @@
   "child_confs": [],
   "child_doctypes": [
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\"]",
     "dn_reference_field": null,
@@ -533,6 +549,7 @@
     "template": null
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -547,6 +564,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -573,6 +591,7 @@
   "child_confs": [],
   "child_doctypes": [
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\"]",
     "dn_reference_field": null,
@@ -587,6 +606,7 @@
     "template": null
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -601,6 +621,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\"]",
     "dn_reference_field": null,
@@ -615,6 +636,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -641,6 +663,7 @@
   "child_confs": [],
   "child_doctypes": [
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -655,6 +678,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -669,6 +693,7 @@
     "template": "Email"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -683,6 +708,7 @@
     "template": "Timeline"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -697,6 +723,7 @@
     "template": "Gallery"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -711,6 +738,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -725,6 +753,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -739,6 +768,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -753,6 +783,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -767,6 +798,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
@@ -781,6 +813,7 @@
     "template": "Notes"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -795,6 +828,7 @@
     "template": "Tasks"
    },
    {
+    "action_label": null,
     "connection_type": "Direct",
     "crud_permissions": "[\"read\",\"write\",\"create\",\"delete\"]",
     "dn_reference_field": null,
@@ -821,6 +855,7 @@
   "child_confs": [],
   "child_doctypes": [
    {
+    "action_label": null,
     "connection_type": "Is Custom Design",
     "crud_permissions": null,
     "dn_reference_field": null,
