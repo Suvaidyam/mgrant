@@ -44,6 +44,7 @@
    "reqd": 1
   },
   {
+   "fetch_from": "ngo.contact_full_name",
    "fieldname": "full_name",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -64,7 +65,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-02-13 10:08:00.930268",
+ "modified": "2025-02-14 16:16:32.290603",
  "modified_by": "Administrator",
  "module": "mGrant - Donor",
  "name": "RFP Invitation",

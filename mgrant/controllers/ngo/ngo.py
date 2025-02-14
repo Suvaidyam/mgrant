@@ -47,5 +47,12 @@ def ngo_after_insert(self):
         usr_perm.insert(ignore_permissions=True)
 
 def ngo_before_save(self):
+    f_name = self.contact_first_name
+    l_name = self.contact_last_name
+    if f_name and l_name:
+        self.contact_full_name = f"{f_name} {l_name}"
+    else:
+        self.contact_full_name = f_name or l_name	
+               
     if not self.is_new():
         ngo_status_cron(self)
