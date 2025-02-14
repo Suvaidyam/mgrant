@@ -3,7 +3,11 @@
 
 # import frappe
 from frappe.model.document import Document
-
+from mgrant.controllers.ngo_dd.ngo_dd import ngo_dd_on_update,ngo_dd_on_validate
 
 class NGODueDiligence(Document):
-	pass
+	def on_update(self):
+		ngo_dd_on_update(self)
+
+	def validate(self):
+		ngo_dd_on_validate(self)

@@ -63,6 +63,8 @@
   "column_break_qdez",
   "rfp",
   "level_1_users",
+  "level_2_users",
+  "level_3_users",
   "tasks_tab",
   "tasks",
   "budget_tab",
@@ -141,6 +143,7 @@
   {
    "fieldname": "focus_area",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Focus Area",
    "options": "Focus Area"
@@ -244,7 +247,7 @@
   {
    "fieldname": "input_tab",
    "fieldtype": "Tab Break",
-   "label": "Input"
+   "label": "Indicators"
   },
   {
    "fieldname": "input",
@@ -582,12 +585,26 @@
    "hidden": 1,
    "label": "Level 1 Users",
    "options": "Level 1 User Child"
+  },
+  {
+   "fieldname": "level_2_users",
+   "fieldtype": "Table MultiSelect",
+   "hidden": 1,
+   "label": "Level 2 Users",
+   "options": "Level 2 User Child"
+  },
+  {
+   "fieldname": "level_3_users",
+   "fieldtype": "Table MultiSelect",
+   "hidden": 1,
+   "label": "Level 3 Users",
+   "options": "Level 3 User Child"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-12 23:00:00.214729",
+ "modified": "2025-02-13 17:10:32.169110",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
