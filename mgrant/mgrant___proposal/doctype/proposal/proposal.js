@@ -15,7 +15,7 @@ function getMonthDifference(startDate, endDate) {
     const monthDifference = end.getMonth() - start.getMonth();
 
     // Total months difference
-    return yearDifference * 12 + monthDifference;
+    return yearDifference * 12 + monthDifference + 1;
 }
 let PREV_STATES = [];
 frappe.model.on('Proposal', '*', function () {
@@ -97,24 +97,24 @@ frappe.ui.form.on("Proposal", {
                 level_2_data = table_data?.filter(row => row?.approver_level === 'Level 2');
                 level_3_data = table_data?.filter(row => row?.approver_level === 'Level 3');
 
-                if(level_1_data?.map(r => r.user)?.includes(frappe.session.user)){
+                if (level_1_data?.map(r => r.user)?.includes(frappe.session.user)) {
                     frm.set_df_property('level_1', 'read_only', 0)
                 } else {
                     frm.set_df_property('level_1', 'read_only', 1)
                 }
 
-                if(level_2_data?.map(r => r.user)?.includes(frappe.session.user)){
+                if (level_2_data?.map(r => r.user)?.includes(frappe.session.user)) {
                     frm.set_df_property('level_2', 'read_only', 0)
                 } else {
                     frm.set_df_property('level_2', 'read_only', 1)
                 }
 
-                if(level_3_data?.map(r => r.user)?.includes(frappe.session.user)){
+                if (level_3_data?.map(r => r.user)?.includes(frappe.session.user)) {
                     frm.set_df_property('level_3', 'read_only', 0)
                 } else {
                     frm.set_df_property('level_3', 'read_only', 1)
                 }
-                
+
 
                 if (level_1_data?.length > 0) {
                     frm.set_df_property('level_1', 'hidden', 0)
