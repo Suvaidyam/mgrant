@@ -45,6 +45,8 @@
   "frequency_outcome",
   "frequency_impact",
   "column_break_bnjw",
+  "attachment_and_resources_tab",
+  "table_eqwp",
   "evaluation_panel_tab",
   "table_aycd",
   "evaluation_and_review_criteria_tab",
@@ -53,8 +55,6 @@
   "total",
   "additional_questions_tab",
   "additional_questions",
-  "attachment_and_resources_tab",
-  "table_eqwp",
   "invitation_tab",
   "section_break_tzwz",
   "invitation"
@@ -129,6 +129,7 @@
   {
    "fieldname": "monitoring_configuration_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Monitoring Configuration"
   },
   {
@@ -224,6 +225,7 @@
   {
    "fieldname": "evaluation_and_review_criteria_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Evaluation and Review Criteria"
   },
   {
@@ -240,6 +242,7 @@
   {
    "fieldname": "additional_questions_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Additional Questions"
   },
   {
@@ -362,7 +365,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-11 22:53:59.459542",
+ "modified": "2025-02-12 16:32:08.117384",
  "modified_by": "Administrator",
  "module": "mGrant - Donor",
  "name": "RFP",

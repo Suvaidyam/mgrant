@@ -31,11 +31,11 @@ frappe.ui.form.on("Proposal", {
             frm.page.btn_primary.hide();
         }
 
-        if (frappe.mgrant_settings.module == "Donor") {
-            if (frappe.user_roles.includes('NGO Admin') && frm.doc.application_status == "Completed") {
-                frm.disable_form()
-            }
-        }
+        // if (frappe.mgrant_settings.module == "Donor") {
+        //     if (frappe.user_roles.includes('NGO Admin') && frm.doc.application_status == "Completed") {
+        //         frm.disable_form()
+        //     }
+        // }
         let index = 0;
         let submit_banner;
         let interval = setInterval(() => {
@@ -97,9 +97,26 @@ frappe.ui.form.on("Proposal", {
                 level_2_data = table_data?.filter(row => row?.approver_level === 'Level 2');
                 level_3_data = table_data?.filter(row => row?.approver_level === 'Level 3');
 
+                if(level_1_data?.map(r => r.user)?.includes(frappe.session.user)){
+                    frm.set_df_property('level_1', 'read_only', 0)
+                } else {
+                    frm.set_df_property('level_1', 'read_only', 1)
+                }
+
+                if(level_2_data?.map(r => r.user)?.includes(frappe.session.user)){
+                    frm.set_df_property('level_2', 'read_only', 0)
+                } else {
+                    frm.set_df_property('level_2', 'read_only', 1)
+                }
+
+                if(level_3_data?.map(r => r.user)?.includes(frappe.session.user)){
+                    frm.set_df_property('level_3', 'read_only', 0)
+                } else {
+                    frm.set_df_property('level_3', 'read_only', 1)
+                }
+                
+
                 if (level_1_data?.length > 0) {
-                    frm.set_value('level_1_users', level_1_data);
-                    frm.refresh_field('level_1_users');
                     frm.set_df_property('level_1', 'hidden', 0)
                     frm.set_df_property('level_1_remarks', 'hidden', 0)
                 } else {
@@ -138,7 +155,37 @@ frappe.ui.form.on("Proposal", {
         if (frm.doc?.stage == sign_off_prerequisite) {
             frm.add_custom_button('Download MOU', async function () {
                 let proposal = frm.doc.name;
-                window.location.href = `/api/method/mgrant.controllers.proposal.proposal.generate_mou_doc?proposal=${proposal}`;
+
+                if (!frm.doc.start_date || !frm.doc.end_date) {
+                    frappe.msgprint(__('Please set Grant Start Date and Grant End Date in Proposal'));
+                    return;
+                }
+
+                try {
+                    let response = await fetch(`/api/method/mgrant.controllers.proposal.proposal.generate_mou_doc?proposal=${proposal}`);
+                    if (!response.ok) {
+                        let error = await response.json();
+                        frappe.msgprint(error.message || "Failed to generate MOU document.");
+                        return;
+                    }
+
+                    let blob = await response.blob();
+                    let url = window.URL.createObjectURL(blob);
+                    let a = document.createElement('a');
+
+                    a.href = url;
+                    let today = frappe.datetime.get_today();
+                    let [year, month, day] = today.split("-");
+                    let todayFormatted = `${day}-${month}-${year}`;
+
+                    a.download = `${frm.doc.name}__MoU_To_be_signed_${todayFormatted}.pdf`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                } catch (error) {
+                    frappe.msgprint("Error while downloading MOU document.");
+                }
             });
         } else {
             frm.remove_custom_button('Download MOU');
