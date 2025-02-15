@@ -11,3 +11,6 @@ class NGO(Document):
 
 	def before_save(self):
 		ngo_before_save(self)
+
+
+

@@ -1,0 +1,1853 @@
+[
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"id\":\"oCHUJ9QoqJ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Masters</b></span>\",\"col\":12}},{\"id\":\"NZkSiacTAS\",\"type\":\"card\",\"data\":{\"card_name\":\"Programme Masters\",\"col\":4}},{\"id\":\"0TTWy5PdRq\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}},{\"id\":\"WWbwg4lPx7\",\"type\":\"card\",\"data\":{\"card_name\":\"Geography List\",\"col\":4}},{\"id\":\"ODuqIcXKpZ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Settings &amp; Integrations</b></span>\",\"col\":12}},{\"id\":\"PfR6vrfK59\",\"type\":\"card\",\"data\":{\"card_name\":\"mGrant Settings\",\"col\":4}},{\"id\":\"L0HSEN51JP\",\"type\":\"card\",\"data\":{\"card_name\":\"Data\",\"col\":4}},{\"id\":\"hRgft8mlSS\",\"type\":\"card\",\"data\":{\"card_name\":\"Integrations\",\"col\":4}},{\"id\":\"RGdSEBSs3r\",\"type\":\"card\",\"data\":{\"card_name\":\"Roles & User Settings\",\"col\":4}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "integration",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Settings",
+  "link_to": null,
+  "link_type": null,
+  "links": [
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Masters",
+    "link_count": 5,
+    "link_to": null,
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Card Break"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Demography Group",
+    "link_count": 0,
+    "link_to": "Demography Group",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Department",
+    "link_count": 0,
+    "link_to": "Department",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Designation",
+    "link_count": 0,
+    "link_to": "Designation",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "KPIs",
+    "link_count": 0,
+    "link_to": "KPIs",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Units",
+    "link_count": 0,
+    "link_to": "Units",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Programme Masters",
+    "link_count": 6,
+    "link_to": null,
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Card Break"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Programme",
+    "link_count": 0,
+    "link_to": "Programme",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Budget heads",
+    "link_count": 0,
+    "link_to": "Budget heads",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Financial Year",
+    "link_count": 0,
+    "link_to": "Financial Year",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Focus Area",
+    "link_count": 0,
+    "link_to": "Focus Area",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Themes",
+    "link_count": 0,
+    "link_to": "Themes",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "SDGs",
+    "link_count": 0,
+    "link_to": "SDGs",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Integrations",
+    "link_count": 1,
+    "link_to": null,
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Card Break"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "mGrant API Integrations",
+    "link_count": 0,
+    "link_to": "mGrant API Integrations",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Roles & User Settings",
+    "link_count": 2,
+    "link_to": null,
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Card Break"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Role Profile",
+    "link_count": 0,
+    "link_to": "Role Profile",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Users",
+    "link_count": 0,
+    "link_to": "SVA User",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Data",
+    "link_count": 2,
+    "link_to": null,
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Card Break"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Deletion Log",
+    "link_count": 0,
+    "link_to": "Deleted Document",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Activity Log",
+    "link_count": 0,
+    "link_to": "Version",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "mGrant Settings",
+    "link_count": 5,
+    "link_to": null,
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Card Break"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Org Settings",
+    "link_count": 0,
+    "link_to": "mGrant Settings",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "My Theme",
+    "link_count": 0,
+    "link_to": "My Theme",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "mGrant Letter Head",
+    "link_count": 0,
+    "link_to": "mGrant Letter Head",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Datatable Configuration",
+    "link_count": 0,
+    "link_to": "SVADatatable Configuration",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Print Format",
+    "link_count": 0,
+    "link_to": "Print Format",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Geography List",
+    "link_count": 5,
+    "link_to": null,
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Card Break"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "State",
+    "link_count": 0,
+    "link_to": "State",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "District",
+    "link_count": 0,
+    "link_to": "District",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Block",
+    "link_count": 0,
+    "link_to": "Block",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Gram Panchayat",
+    "link_count": 0,
+    "link_to": "Gram Panchayat",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Village",
+    "link_count": 0,
+    "link_to": "Village",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   }
+  ],
+  "modified": "2025-02-13 22:34:29.009739",
+  "module": "Mgrant",
+  "name": "Settings",
+  "number_cards": [],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "NGO Admin"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 8.0,
+  "shortcuts": [],
+  "title": "Settings",
+  "type": "Workspace"
+ },
+ {
+  "app": "mgrant",
+  "charts": [
+   {
+    "chart_name": "Fund Sanctioned vs Funds Utilised",
+    "label": "Fund Sanctioned vs Funds Utilised"
+   },
+   {
+    "chart_name": "Active Grants Allocated to Different NGOs",
+    "label": "Active Grants Allocated to Different NGOs"
+   },
+   {
+    "chart_name": "Bifurcation of Grants as per SDGs",
+    "label": "Bifurcation of Grants as per SDGs"
+   },
+   {
+    "chart_name": "Theme Based Bifurcation of Grants",
+    "label": "Theme Based Bifurcation of Grants"
+   }
+  ],
+  "content": "[{\"id\":\"qSR_rAjk3F\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Grant\",\"col\":6}},{\"id\":\"0nvDBH7Qh7\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Projects\",\"col\":6}},{\"id\":\"dXdg0T7WJD\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Fund Requested\",\"col\":3}},{\"id\":\"Xt3IROftz_\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Tranches\",\"col\":3}},{\"id\":\"Lk57yuBfbC\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Fund Recieved\",\"col\":3}},{\"id\":\"4IWiDjGLDg\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Budget Utilisations\",\"col\":3}},{\"id\":\"EEfMEMXhnS\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Active Grants Allocated to Different NGOs\",\"col\":12}},{\"id\":\"eXgeFh3oJa\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Fund Sanctioned vs Funds Utilised\",\"col\":12}},{\"id\":\"d0It_sY-0r\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Bifurcation of Grants as per SDGs\",\"col\":6}},{\"id\":\"O2r2AJlj6m\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Theme Based Bifurcation of Grants\",\"col\":6}},{\"id\":\"qlS-w0biI4\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Commitment Amount\",\"col\":4}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "project-2",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Grant Workspace",
+  "link_to": null,
+  "link_type": null,
+  "links": [],
+  "modified": "2025-02-14 18:56:25.158312",
+  "module": "mGrant - Project",
+  "name": "Grant Workspace",
+  "number_cards": [
+   {
+    "label": "Active Projects",
+    "number_card_name": "Active Projects"
+   },
+   {
+    "label": "Tranches",
+    "number_card_name": "Tranches"
+   },
+   {
+    "label": "Total Commitment Amount",
+    "number_card_name": "Total Commitment Amount"
+   },
+   {
+    "label": "Grant",
+    "number_card_name": "Grant"
+   },
+   {
+    "label": "Total Fund Recieved",
+    "number_card_name": "Total Fund Recieved"
+   },
+   {
+    "label": "Total Fund Requested",
+    "number_card_name": "Total Fund Requested"
+   },
+   {
+    "label": "Total Budget Utilisations",
+    "number_card_name": "Total Budget Utilisations"
+   }
+  ],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "NGO Admin"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 3.0,
+  "shortcuts": [],
+  "title": "Grant Workspace",
+  "type": "Workspace"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"id\":\"qSR_rAjk3F\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Grant\",\"col\":4}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "project-2",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Grants",
+  "link_to": null,
+  "link_type": null,
+  "links": [],
+  "modified": "2025-02-11 17:05:47.352535",
+  "module": "mGrant - Project",
+  "name": "Grants",
+  "number_cards": [
+   {
+    "label": "Grant",
+    "number_card_name": "Grant"
+   }
+  ],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "NGO Admin"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 2.0,
+  "shortcuts": [],
+  "title": "Grants",
+  "type": "Workspace"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"id\":\"u0JByTWdgJ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Contacts</span>\",\"col\":12}},{\"id\":\"b8R__iqOm7\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Contact\",\"col\":12}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "dialpad",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Contacts",
+  "link_to": "Contact",
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-09 18:36:37.374861",
+  "module": "Mgrant",
+  "name": "Contacts",
+  "number_cards": [],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [
+   {
+    "document_type": "Contact",
+    "label": "Contact",
+    "quick_list_filter": "[]"
+   }
+  ],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "NGO Admin"
+   }
+  ],
+  "sequence_id": 5.0,
+  "shortcuts": [],
+  "title": "Contacts",
+  "type": "Link"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Gallery.\"}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "image",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Files",
+  "link_to": "File",
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-05 14:39:50.514173",
+  "module": "Mgrant",
+  "name": "Files",
+  "number_cards": [],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "NGO Admin"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 6.0,
+  "shortcuts": [],
+  "title": "Files",
+  "type": "Link"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"id\":\"FaMsIGj8LX\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Tasks</span>\",\"col\":12}},{\"id\":\"Ro575glwqb\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Tasks\",\"col\":12}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": "",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "project-1",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Tasks",
+  "link_to": "ToDo",
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-13 22:34:29.003142",
+  "module": "Mgrant",
+  "name": "Tasks",
+  "number_cards": [],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "NGO Admin"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 6.0,
+  "shortcuts": [],
+  "title": "Tasks",
+  "type": "Link"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"id\":\"EZyp_HUkbc\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Sub Grant\",\"col\":4}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "projects",
+  "indicator_color": "green",
+  "is_hidden": 1,
+  "label": "Sub-grants",
+  "link_to": null,
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-05 14:37:52.184717",
+  "module": "Mgrant",
+  "name": "Sub-grants",
+  "number_cards": [
+   {
+    "label": "Sub Grant",
+    "number_card_name": "Sub Grant"
+   }
+  ],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "NGO Admin"
+   },
+   {
+    "role": "Partner NGO"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 7.0,
+  "shortcuts": [],
+  "title": "Sub-grants",
+  "type": "Workspace"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"id\":\"EZyp_HUkbc\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Sub Grant\",\"col\":4}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "grid",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Sub Grant",
+  "link_to": null,
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-01-17 00:45:50.610083",
+  "module": "Mgrant",
+  "name": "Sub Grant",
+  "number_cards": [
+   {
+    "label": "Sub Grant",
+    "number_card_name": "Sub Grant"
+   }
+  ],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "NGO Admin"
+   },
+   {
+    "role": "Partner NGO"
+   }
+  ],
+  "sequence_id": 5.0,
+  "shortcuts": [],
+  "title": "Sub Grant",
+  "type": "Workspace"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"id\":\"BdiCniXawP\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Applications\",\"col\":4}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": "",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "file",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Proposals",
+  "link_to": "Proposal",
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-11 11:56:28.904650",
+  "module": "mGrant - Proposal",
+  "name": "Proposals",
+  "number_cards": [
+   {
+    "label": "Applications",
+    "number_card_name": "Proposals"
+   }
+  ],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 1.0,
+  "shortcuts": [],
+  "title": "Proposals",
+  "type": "Workspace"
+ },
+ {
+  "app": "mgrant",
+  "charts": [
+   {
+    "chart_name": "Stage-wise Summary of Applications",
+    "label": "Stage-wise Summary of Applications"
+   },
+   {
+    "chart_name": "Theme-wise Summary of Application",
+    "label": "Theme-wise Summary of Application"
+   },
+   {
+    "chart_name": "Focus Area-wise Summary of Application",
+    "label": "Focus Area-wise Summary of Application"
+   },
+   {
+    "chart_name": "SDG-wise Summary of Application",
+    "label": "SDG-wise Summary of Application"
+   }
+  ],
+  "content": "[{\"id\":\"BdiCniXawP\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Applications\",\"col\":6}},{\"id\":\"FyvY09IBJL\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Programmes\",\"col\":6}},{\"id\":\"ZObLTvqlkT\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Stage-wise Summary of Applications\",\"col\":12}},{\"id\":\"p8-dDfcT5w\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Theme-wise Summary of Application\",\"col\":6}},{\"id\":\"2eZGqnRNNe\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Focus Area-wise Summary of Application\",\"col\":6}},{\"id\":\"IsQWIVL0B4\",\"type\":\"chart\",\"data\":{\"chart_name\":\"SDG-wise Summary of Application\",\"col\":12}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": "",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "file",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Applications Workspace",
+  "link_to": "Proposal",
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-14 13:59:29.200067",
+  "module": "mGrant - Proposal",
+  "name": "Applications Workspace",
+  "number_cards": [
+   {
+    "label": "Applications",
+    "number_card_name": "Proposals"
+   },
+   {
+    "label": "Programmes",
+    "number_card_name": "Programmes"
+   }
+  ],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "NGO Admin"
+   },
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 2.0,
+  "shortcuts": [],
+  "title": "Applications Workspace",
+  "type": "Workspace"
+ },
+ {
+  "app": "mgrant",
+  "charts": [
+   {
+    "chart_name": "Active Grants from Donors",
+    "label": "Active Grants from Donors"
+   },
+   {
+    "chart_name": "Funds Sanctioned By the Donors",
+    "label": "Funds Sanctioned By the Donors"
+   }
+  ],
+  "content": "[{\"id\":\"R4f4BOaiqk\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Donors\",\"col\":6}},{\"id\":\"wbMBqO4LKB\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Active Grants from Donors\",\"col\":12}},{\"id\":\"W99qREOkjI\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Funds Sanctioned By the Donors\",\"col\":12}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "share",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Donor Workspace",
+  "link_to": null,
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-14 13:47:09.081805",
+  "module": "Mgrant",
+  "name": "Donor Workspace",
+  "number_cards": [
+   {
+    "label": "Donors",
+    "number_card_name": "Donors"
+   }
+  ],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 4.0,
+  "shortcuts": [],
+  "title": "Donor Workspace",
+  "type": "Workspace"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"id\":\"R4f4BOaiqk\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Donors\",\"col\":4}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "share",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Donors",
+  "link_to": null,
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-14 10:21:16.403389",
+  "module": "Mgrant",
+  "name": "Donors",
+  "number_cards": [
+   {
+    "label": "Donors",
+    "number_card_name": "Donors"
+   }
+  ],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 2.0,
+  "shortcuts": [],
+  "title": "Donors",
+  "type": "Workspace"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"id\":\"v6d-P5MYGH\",\"type\":\"paragraph\",\"data\":{\"text\":\"Upcoming\",\"col\":12}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "table",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Reports",
+  "link_to": null,
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-14 07:44:05.443076",
+  "module": "Mgrant",
+  "name": "Reports",
+  "number_cards": [],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "NGO Admin"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 7.0,
+  "shortcuts": [],
+  "title": "Reports",
+  "type": "Workspace"
+ },
+ {
+  "app": "mgrant",
+  "charts": [
+   {
+    "chart_name": "Budget Head wise Planning and Utilisation",
+    "label": "Budget Head wise Planning and Utilisation"
+   }
+  ],
+  "content": "[{\"id\":\"rCHpJfCKTp\",\"type\":\"header\",\"data\":{\"text\":\"<span style=\\\"font-size: 16px;\\\">Tranches</span>\",\"col\":12}},{\"id\":\"3AEJdoqMQU\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Tranches\",\"col\":4}},{\"id\":\"TaKa6beqlV\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Fund Requested\",\"col\":4}},{\"id\":\"1Y9WQdgs-Z\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Fund Recieved\",\"col\":4}},{\"id\":\"4c9p8xmdRE\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Budget</b></span>\",\"col\":12}},{\"id\":\"Tk5GB6rnKB\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Budgets\",\"col\":4}},{\"id\":\"-cCrhKXsv-\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Budget Planned\",\"col\":4}},{\"id\":\"HxiKh7oBkP\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Budget Utilised\",\"col\":4}},{\"id\":\"wcSHYM3EFl\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Budget Head wise Planning and Utilisation\",\"col\":12}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "equity",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Financials",
+  "link_to": null,
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-05 14:40:06.421260",
+  "module": "mGrant - Project",
+  "name": "Financials",
+  "number_cards": [
+   {
+    "label": "Total Budget Utilised",
+    "number_card_name": "Total Budget Utilisations"
+   },
+   {
+    "label": "Budgets",
+    "number_card_name": "Budgets"
+   },
+   {
+    "label": "Tranches",
+    "number_card_name": "Tranches"
+   },
+   {
+    "label": "Total Budget Planned",
+    "number_card_name": "Budget Plans"
+   },
+   {
+    "label": "Total Fund Requested",
+    "number_card_name": "Total Fund Requested"
+   },
+   {
+    "label": "Total Fund Recieved",
+    "number_card_name": "Total Fund Recieved"
+   }
+  ],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "NGO Admin"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 6.0,
+  "shortcuts": [],
+  "title": "Financials",
+  "type": "Workspace"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Input\"}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "shrink",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Inputs",
+  "link_to": "Input",
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-05 14:41:40.039213",
+  "module": "Mgrant",
+  "name": "Inputs",
+  "number_cards": [],
+  "parent_page": "LFA",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "NGO Admin"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 14.0,
+  "shortcuts": [],
+  "title": "Inputs",
+  "type": "Link"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Output\"}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "expand-alt",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Outputs",
+  "link_to": "Output",
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-05 14:41:49.925694",
+  "module": "Mgrant",
+  "name": "Outputs",
+  "number_cards": [],
+  "parent_page": "LFA",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "NGO Admin"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 15.0,
+  "shortcuts": [],
+  "title": "Outputs",
+  "type": "Link"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Outcome\"}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "arrow-up-right",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Outcomes",
+  "link_to": "Outcome",
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-05 14:42:07.160092",
+  "module": "Mgrant",
+  "name": "Outcomes",
+  "number_cards": [],
+  "parent_page": "LFA",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "NGO Admin"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 16.0,
+  "shortcuts": [],
+  "title": "Outcomes",
+  "type": "Link"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Impact\"}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "group-by",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Impacts",
+  "link_to": "Impact",
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-05 14:42:18.781325",
+  "module": "Mgrant",
+  "name": "Impacts",
+  "number_cards": [],
+  "parent_page": "LFA",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "NGO Admin"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 17.0,
+  "shortcuts": [],
+  "title": "Impacts",
+  "type": "Link"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"id\":\"JY8kB6rcIi\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Welcome to mGrant, AFEF's grant management system.</span>\",\"col\":12}},{\"id\":\"ToOWo4uhya\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"QMAIhTx6rg\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"TZo_vLY89V\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vbVMmuCQJi\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Grants Summary</b></span>\",\"col\":12}},{\"id\":\"3rmhsw2K1-\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"eV1Fs2_K4E\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"YnYKVP_1mR\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Grants\",\"col\":3}},{\"id\":\"qteIUfLgRD\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Commitment to NGOs\",\"col\":3}},{\"id\":\"SG2FlFvuJX\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Utilised\",\"col\":3}},{\"id\":\"FLvfAZZuPY\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"j2-BKIA-th\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"o0qcqBpiBt\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"Y8gzAb8dLD\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Activity Summary</b></span>\",\"col\":12}},{\"id\":\"lyBtXSIWvy\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"tgno2SpvJ7\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"WnSej4apuS\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Your Upcoming Tasks\",\"col\":6}},{\"id\":\"xEBugqjq1R\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Upcoming Reporting\",\"col\":5}},{\"id\":\"oKhwKA-xg1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"uJDqasL22P\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"4xDCBRjHB6\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Upcoming Tranches\",\"col\":6}},{\"id\":\"8HQx91v0hj\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Recent Grants\",\"col\":6}},{\"id\":\"3MXK8CmcU8\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"8zT7xFfkcg\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"IsZymEvzO_\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mH2GcKzC5D\",\"type\":\"paragraph\",\"data\":{\"text\":\"<b>Contact Us:</b> For inquiries or feedback, please fill out the form here.\",\"col\":9}},{\"id\":\"rCcYckGJJH\",\"type\":\"card\",\"data\":{\"card_name\":\"Quick Links\",\"col\":3}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "home",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Home",
+  "link_to": null,
+  "link_type": "DocType",
+  "links": [
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Quick Links",
+    "link_count": 4,
+    "link_to": null,
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Card Break"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Grants",
+    "link_count": 0,
+    "link_to": "Grant",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "NGO's Applications",
+    "link_count": 0,
+    "link_to": "Proposal",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "NGOs List",
+    "link_count": 0,
+    "link_to": "NGO",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "description": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Donor List",
+    "link_count": 0,
+    "link_to": "Donor",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "report_ref_doctype": null,
+    "type": "Link"
+   }
+  ],
+  "modified": "2025-02-14 15:37:29.486629",
+  "module": "Mgrant",
+  "name": "Home",
+  "number_cards": [
+   {
+    "label": "Active Grants",
+    "number_card_name": "Active Projects"
+   },
+   {
+    "label": "Total Commitment to NGOs",
+    "number_card_name": "Total Commitment Amount"
+   },
+   {
+    "label": "Total Utilised",
+    "number_card_name": "Total Utilised Amount"
+   }
+  ],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [
+   {
+    "document_type": "ToDo",
+    "label": "Your Upcoming Tasks",
+    "quick_list_filter": "[[\"ToDo\",\"status\",\"=\",\"Open\",false],[\"ToDo\",\"date\",\"Timespan\",\"this month\",false]]"
+   },
+   {
+    "document_type": "Reporting",
+    "label": "Upcoming Reporting",
+    "quick_list_filter": "[[\"Reporting\",\"submission_status\",\"!=\",\"Submitted\",false],[\"Reporting\",\"due_date\",\"Timespan\",\"this month\",false]]"
+   },
+   {
+    "document_type": "Grant Tranches",
+    "label": "Upcoming Tranches",
+    "quick_list_filter": "[[\"Grant Tranches\",\"planned_due_date\",\"Timespan\",\"this month\",false]]"
+   },
+   {
+    "document_type": "Grant",
+    "label": "Recent Grants",
+    "quick_list_filter": "[[\"Grant\",\"creation\",\"Timespan\",\"last month\",false]]"
+   }
+  ],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "NGO Admin"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 1.0,
+  "shortcuts": [],
+  "title": "Home",
+  "type": "Workspace"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"id\":\"oi8NGORyZu\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Dashboard</span>\",\"col\":12}},{\"id\":\"qDhBrnW_aS\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Will be available soon...<b></b></span>\",\"col\":12}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "dashboard-list",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Dashboard",
+  "link_to": null,
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-05 14:42:38.420644",
+  "module": "Mgrant",
+  "name": "Dashboard",
+  "number_cards": [],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "NGO Admin"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 8.0,
+  "shortcuts": [],
+  "title": "Dashboard",
+  "type": "Workspace"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"id\":\"o7lnZ-KPF7\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total NGOs\",\"col\":4}},{\"id\":\"BaCxSXptts\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Vendors\",\"col\":4}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "accounting",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Partners",
+  "link_to": null,
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-14 10:20:35.661789",
+  "module": "mGrant - NGO",
+  "name": "Partners",
+  "number_cards": [
+   {
+    "label": "Total Vendors",
+    "number_card_name": "Vendors"
+   },
+   {
+    "label": "Total NGOs",
+    "number_card_name": "NGOs"
+   }
+  ],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Donor Admin"
+   },
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "NGO Admin"
+   }
+  ],
+  "sequence_id": 24.0,
+  "shortcuts": [],
+  "title": "Partners",
+  "type": "Workspace"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Data\"}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "grid",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Data",
+  "link_to": "Data Import",
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-01-14 13:30:41.338692",
+  "module": null,
+  "name": "Data",
+  "number_cards": [],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 23.0,
+  "shortcuts": [],
+  "title": "Data",
+  "type": "Link"
+ },
+ {
+  "app": "mgrant",
+  "charts": [
+   {
+    "chart_name": "Stage-wise Summary of Applications",
+    "label": "Stage-wise Summary of Applications"
+   },
+   {
+    "chart_name": "Program-wise number of applicants",
+    "label": "Program-wise number of applicants"
+   },
+   {
+    "chart_name": "Focus Area-wise Summary of Application",
+    "label": "Focus Area-wise Summary of Application"
+   },
+   {
+    "chart_name": "SDG-wise Summary of Application",
+    "label": "SDG-wise Summary of Application"
+   }
+  ],
+  "content": "[{\"id\":\"L7U3OElH5K\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Applications received\",\"col\":6}},{\"id\":\"TxZGi_eG-d\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Programmes\",\"col\":6}},{\"id\":\"72qrhOgPKH\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Stage-wise Summary of Applications\",\"col\":12}},{\"id\":\"nVSOQ3ec6T\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Program-wise number of applicants\",\"col\":12}},{\"id\":\"f6U9BBafqh\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Focus Area-wise Summary of Application\",\"col\":12}},{\"id\":\"nrJM-i69pB\",\"type\":\"chart\",\"data\":{\"chart_name\":\"SDG-wise Summary of Application\",\"col\":12}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": "/app/proposal/view/list",
+  "for_user": "Administrator",
+  "hide_custom": 0,
+  "icon": "file",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Applications",
+  "link_to": null,
+  "link_type": "Page",
+  "links": [],
+  "modified": "2025-02-11 13:49:37.075655",
+  "module": "mGrant - Proposal",
+  "name": "Applications",
+  "number_cards": [
+   {
+    "label": "Total Applications received",
+    "number_card_name": "Total Applications received"
+   },
+   {
+    "label": "Programmes",
+    "number_card_name": "Programmes"
+   }
+  ],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "System Manager"
+   },
+   {
+    "role": "NGO Admin"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 1.0,
+  "shortcuts": [],
+  "title": "Applications",
+  "type": "URL"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"type\":\"header\",\"data\":{\"text\":\"My Profile\"}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "grid",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "My Profile",
+  "link_to": "NGO",
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-14 14:08:09.032312",
+  "module": "mGrant - NGO",
+  "name": "My Profile",
+  "number_cards": [],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "NGO Admin"
+   }
+  ],
+  "sequence_id": 24.0,
+  "shortcuts": [],
+  "title": "My Profile",
+  "type": "Link"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"id\":\"5-fQ7ECP50\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"RFP\",\"col\":4}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "table",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "RFP Workspace",
+  "link_to": null,
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-14 14:42:21.036654",
+  "module": "mGrant - Proposal",
+  "name": "RFP Workspace",
+  "number_cards": [
+   {
+    "label": "RFP",
+    "number_card_name": "RFPs"
+   }
+  ],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 2.0,
+  "shortcuts": [],
+  "title": "RFP",
+  "type": "Workspace"
+ },
+ {
+  "app": "mgrant",
+  "charts": [],
+  "content": "[{\"id\":\"DwXP2B2U3S\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Total Targets</b></span>\",\"col\":12}},{\"id\":\"nLh7rfB2Tk\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Input Target\",\"col\":3}},{\"id\":\"tBQwWYMV7J\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Output Target\",\"col\":3}},{\"id\":\"7KO26VTZiJ\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Outcome Target\",\"col\":3}},{\"id\":\"50JKLiHogP\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Impact Target\",\"col\":3}},{\"id\":\"ZTlFYcM0dB\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Total Achievements</b></span>\",\"col\":12}},{\"id\":\"z67jVpqVUz\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Input Achievement\",\"col\":3}},{\"id\":\"61CA68qPvQ\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Output Achievement\",\"col\":3}},{\"id\":\"mWGakZ-8D8\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Outcome Achievement\",\"col\":3}},{\"id\":\"eUoxQ5df6g\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Impact Achievement\",\"col\":3}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "external_link": null,
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "grid",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "LFA",
+  "link_to": null,
+  "link_type": "DocType",
+  "links": [],
+  "modified": "2025-02-05 14:41:25.788667",
+  "module": "Mgrant",
+  "name": "LFA",
+  "number_cards": [
+   {
+    "label": "Input Target",
+    "number_card_name": "Total Target - 2"
+   },
+   {
+    "label": "Output Target",
+    "number_card_name": "Total Target"
+   },
+   {
+    "label": "Outcome Target",
+    "number_card_name": "Total Target -1"
+   },
+   {
+    "label": "Impact Target",
+    "number_card_name": "Total Target - 3"
+   },
+   {
+    "label": "Output Achievement",
+    "number_card_name": "Total Achievement"
+   },
+   {
+    "label": "Outcome Achievement",
+    "number_card_name": "Total Achievement-1"
+   },
+   {
+    "label": "Input Achievement",
+    "number_card_name": "Total Achievement (Input)"
+   },
+   {
+    "label": "Impact Achievement",
+    "number_card_name": "Total Achievement - 2"
+   }
+  ],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "role": "Administrator"
+   },
+   {
+    "role": "NGO Admin"
+   },
+   {
+    "role": "Donor Admin"
+   }
+  ],
+  "sequence_id": 7.0,
+  "shortcuts": [],
+  "title": "LFA",
+  "type": "Workspace"
+ }
+]

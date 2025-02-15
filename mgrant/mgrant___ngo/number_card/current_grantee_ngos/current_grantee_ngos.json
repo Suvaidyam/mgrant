@@ -11,14 +11,14 @@
  "is_public": 0,
  "is_standard": 1,
  "label": "Current Grantee NGOs",
- "modified": "2024-11-05 16:43:29.388337",
+ "modified": "2025-02-14 13:54:39.341883",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "Current Grantee NGOs",
  "owner": "Administrator",
  "parent_document_type": "",
  "report_function": "Sum",
- "show_percentage_stats": 1,
+ "show_percentage_stats": 0,
  "stats_time_interval": "Daily",
  "type": "Document Type"
 }

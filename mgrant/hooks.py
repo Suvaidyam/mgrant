@@ -36,8 +36,9 @@ fixtures = [
     # "Print Format",
     # "Global Search Settings",
     # "Custom DocPerm",
-    # "Visualization Mapper"
-
+    # "Dashboard Chart",
+    # "Number Card",
+    # "Workspace"
 ]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"

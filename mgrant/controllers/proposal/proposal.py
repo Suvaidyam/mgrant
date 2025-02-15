@@ -208,3 +208,13 @@ def generate_mou_doc(*args):
         frappe.local.response.type = "download"
     else:
         frappe.throw(f"Proposal '{proposal}' does not exist")                        
+
+
+@frappe.whitelist(allow_guest=True)
+def get_rfp(rfp):
+    if frappe.db.exists("RFP", rfp):
+        rfp_details = frappe.get_doc("RFP", rfp)
+        rfp_details.check_permission = lambda *args, **kwargs: None  # Ignores permissions
+        return rfp_details
+    else:
+        frappe.throw(f"RFP '{rfp}' does not exist")
