@@ -7,7 +7,7 @@ from datetime import datetime
 from mgrant.utils import get_state_closure, get_positive_state_closure
 
 
-def gerate_disbursement_memo_pdf(doc):
+def generate_disbursement_memo_pdf(doc):
     if frappe.db.exists("Print Format", "Disbursement Memo Template"):
         print_format_template = frappe.get_doc("Print Format", "Disbursement Memo Template").html
         if isinstance(doc["modified"], str):
@@ -39,8 +39,8 @@ def gerate_disbursement_memo_pdf(doc):
     else:
         frappe.throw("Print Format 'Disbursement Memo Template' not found ")        
 
-def gerate_disbursement_memo(doc):
-    pdf = gerate_disbursement_memo_pdf(doc)
+def generate_disbursement_memo(doc):
+    pdf = generate_disbursement_memo_pdf(doc)
     file_name = f"{doc.name}.pdf"
     try:
         saved_file = save_file(
@@ -101,14 +101,13 @@ def on_update(self):
         _doc.as_on_date = frappe.utils.now_datetime()
         _doc.insert()
 
-        gerate_disbursement_memo(_doc.as_dict())
-        # enqueue(
-        #     method=gerate_disbursement_memo,
-        #     queue="default",
-        #     timeout=300,
-        #     job_name=f"gerate_disbursement_memo{_doc.name}",
-        #     doc = _doc.as_dict()
-        # )    
+        enqueue(
+            method=generate_disbursement_memo,
+            queue="default",
+            timeout=300,
+            job_name=f"generate_disbursement_memo{_doc.name}",
+            doc = _doc.as_dict()
+        )    
 
 def on_trash(self):
     positive_state = get_positive_state_closure(self.doctype)
