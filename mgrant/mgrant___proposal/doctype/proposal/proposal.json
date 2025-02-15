@@ -73,12 +73,6 @@
   "tranche",
   "input_tab",
   "input",
-  "output_tab",
-  "output",
-  "outcome_tab",
-  "outcome",
-  "impact_tab",
-  "impact",
   "reportings_tab",
   "reportings",
   "email_tab",
@@ -254,33 +248,6 @@
    "fieldtype": "HTML"
   },
   {
-   "fieldname": "output_tab",
-   "fieldtype": "Tab Break",
-   "label": "Output"
-  },
-  {
-   "fieldname": "output",
-   "fieldtype": "HTML"
-  },
-  {
-   "fieldname": "outcome_tab",
-   "fieldtype": "Tab Break",
-   "label": "Outcome"
-  },
-  {
-   "fieldname": "outcome",
-   "fieldtype": "HTML"
-  },
-  {
-   "fieldname": "impact_tab",
-   "fieldtype": "Tab Break",
-   "label": "Impact"
-  },
-  {
-   "fieldname": "impact",
-   "fieldtype": "HTML"
-  },
-  {
    "default": "email",
    "fieldname": "email_tab",
    "fieldtype": "Tab Break",
@@ -318,7 +285,7 @@
   {
    "fieldname": "timeline_tab",
    "fieldtype": "Tab Break",
-   "label": "Change logs"
+   "label": "Change Logs"
   },
   {
    "fieldname": "timeline",
@@ -603,7 +570,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-14 19:45:04.458447",
+ "modified": "2025-02-15 14:33:31.670255",
  "modified_by": "Administrator",
  "module": "mGrant - Proposal",
  "name": "Proposal",
