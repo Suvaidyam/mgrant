@@ -113,12 +113,6 @@
   "fund_disbursements",
   "input_tab",
   "input",
-  "output_tab",
-  "output",
-  "outcome_tab",
-  "outcome",
-  "impact_tab",
-  "impact",
   "reportings_tab",
   "reportings",
   "contacts_tab",
@@ -159,33 +153,6 @@
   },
   {
    "fieldname": "budget",
-   "fieldtype": "HTML"
-  },
-  {
-   "fieldname": "output_tab",
-   "fieldtype": "Tab Break",
-   "label": "Output"
-  },
-  {
-   "fieldname": "output",
-   "fieldtype": "HTML"
-  },
-  {
-   "fieldname": "outcome_tab",
-   "fieldtype": "Tab Break",
-   "label": "Outcome"
-  },
-  {
-   "fieldname": "outcome",
-   "fieldtype": "HTML"
-  },
-  {
-   "fieldname": "impact_tab",
-   "fieldtype": "Tab Break",
-   "label": "Impact"
-  },
-  {
-   "fieldname": "impact",
    "fieldtype": "HTML"
   },
   {
@@ -312,7 +279,7 @@
   {
    "fieldname": "input_tab",
    "fieldtype": "Tab Break",
-   "label": "indicator"
+   "label": "Indicators"
   },
   {
    "fieldname": "input",
@@ -857,7 +824,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-14 11:58:35.353041",
+ "modified": "2025-02-15 14:33:50.089570",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Grant",
