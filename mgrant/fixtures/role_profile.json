@@ -37,5 +37,27 @@
     "role": "Donor Admin"
    }
   ]
+ },
+ {
+  "custom_belongs_to": "NGO",
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2025-02-14 14:51:20.962862",
+  "name": "Test",
+  "role_profile": "Test",
+  "roles": []
+ },
+ {
+  "custom_belongs_to": "Donor",
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2025-02-14 15:36:07.269785",
+  "name": "Organisation Admin",
+  "role_profile": "Organisation Admin",
+  "roles": [
+   {
+    "role": "Organisation Admin"
+   }
+  ]
  }
 ]

@@ -36,8 +36,9 @@ fixtures = [
     # "Print Format",
     # "Global Search Settings",
     # "Custom DocPerm",
-    # "Visualization Mapper"
-
+    # "Dashboard Chart",
+    # "Number Card",
+    # "Workspace"
 ]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mgrant/css/mgrant.css"
@@ -196,6 +197,7 @@ override_doctype_class = {
 scheduler_events = {
     "cron": {
         "0 1 * * *": [
+            "mgrant.crons.ngo.mark_ngo_dd_expired",
             "mgrant.crons.tasks.mark_tasks_as_delayed",
             "mgrant.crons.reports.mark_reports_as_delayed",
             "mgrant.crons.tranches.mark_tranches_as_delayed",

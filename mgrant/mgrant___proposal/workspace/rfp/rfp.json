@@ -1,0 +1,40 @@
+{
+ "app": "mgrant",
+ "charts": [],
+ "content": "[{\"id\":\"5-fQ7ECP50\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"RFP\",\"col\":4}}]",
+ "creation": "2025-02-14 20:09:01.472706",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "table",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "RFP",
+ "link_to": "RFP",
+ "link_type": "DocType",
+ "links": [],
+ "modified": "2025-02-15 10:02:01.496710",
+ "modified_by": "Administrator",
+ "module": "mGrant - Proposal",
+ "name": "RFP",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Administrator"
+  },
+  {
+   "role": "Donor Admin"
+  }
+ ],
+ "sequence_id": 2.0,
+ "shortcuts": [],
+ "title": "RFP",
+ "type": "Link"
+}

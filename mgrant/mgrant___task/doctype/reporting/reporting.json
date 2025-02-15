@@ -9,11 +9,18 @@
   "report_type",
   "report_name",
   "due_date",
+  "column_break_tzvk",
   "submission_status",
   "report_linkfile",
   "submission_date",
-  "reference_doctype",
-  "related_to"
+  "section_break_wwkp",
+  "grant",
+  "column_break_fvzn",
+  "donor",
+  "column_break_mygj",
+  "ngo",
+  "column_break_daar",
+  "vendor"
  ],
  "fields": [
   {
@@ -31,32 +38,17 @@
    "reqd": 1
   },
   {
-   "fieldname": "reference_doctype",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Reference DocType",
-   "options": "DocType"
-  },
-  {
-   "fieldname": "related_to",
-   "fieldtype": "Dynamic Link",
-   "hidden": 1,
-   "label": "Related to",
-   "options": "reference_doctype"
-  },
-  {
    "fieldname": "due_date",
    "fieldtype": "Date",
    "label": "Due Date",
    "reqd": 1
   },
   {
-   "depends_on": "eval:cur_frm.doctype != 'Proposal'",
    "fieldname": "submission_status",
    "fieldtype": "Select",
    "label": "Submission Status",
-   "mandatory_depends_on": "eval:cur_frm.doctype != 'Proposal'",
-   "options": "Due\nIn Draft\nSubmitted\nDelayed"
+   "options": "Due\nIn Draft\nSubmitted\nDelayed",
+   "reqd": 1
   },
   {
    "depends_on": "eval:doc.submission_status == \"Submitted\"",
@@ -71,12 +63,60 @@
    "fieldtype": "Date",
    "label": "Submission Date",
    "mandatory_depends_on": "eval:doc.submission_status == \"Submitted\""
+  },
+  {
+   "fieldname": "column_break_tzvk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_wwkp",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "grant",
+   "fieldtype": "Link",
+   "label": "Grant",
+   "options": "Grant"
+  },
+  {
+   "fetch_from": "grant.donor",
+   "fieldname": "donor",
+   "fieldtype": "Link",
+   "label": "Donor",
+   "options": "Donor"
+  },
+  {
+   "fetch_from": "grant.ngo",
+   "fieldname": "ngo",
+   "fieldtype": "Link",
+   "label": "NGO",
+   "options": "NGO"
+  },
+  {
+   "fieldname": "column_break_fvzn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_mygj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "grant.vendor",
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "label": "Vendor",
+   "options": "Vendor"
+  },
+  {
+   "fieldname": "column_break_daar",
+   "fieldtype": "Column Break"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-08 15:41:15.998326",
+ "modified": "2025-02-14 18:42:47.278068",
  "modified_by": "Administrator",
  "module": "mGrant - Task",
  "name": "Reporting",
@@ -116,7 +156,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Partner NGO",
+   "role": "Donor Admin",
    "select": 1,
    "share": 1,
    "write": 1

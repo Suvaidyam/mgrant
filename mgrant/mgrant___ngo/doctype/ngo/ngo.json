@@ -5,14 +5,14 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "pan_number",
-  "column_break_dbsz",
-  "column_break_hoof",
   "basic_information_section",
   "ngo_name",
   "year_of_establishment",
   "registration_of_the_organisaiton",
   "column_break_bhnv",
+  "contact_first_name",
+  "contact_last_name",
+  "contact_full_name",
   "email",
   "website",
   "source_document",
@@ -33,6 +33,7 @@
   "document_information_section",
   "registration_number",
   "registration_certificate",
+  "pan_number",
   "pan_copy_upload",
   "column_break_vadv",
   "12aa_registration_number",
@@ -44,11 +45,11 @@
   "csr_1_certificate_upload",
   "due_diligence_section",
   "is_due_diligence_cleared",
+  "column_break_nsyn",
   "due_diligence_validation",
+  "column_break_qtqw",
   "reasons",
   "reason_for_due_diligence_fail",
-  "column_break_nsyn",
-  "column_break_qtqw",
   "section_break_fvof",
   "column_break_wbwf",
   "ngo_status",
@@ -59,9 +60,6 @@
   "is_blacklisted",
   "reason_for_blacklisting",
   "column_break_medm",
-  "documents_tab",
-  "active_documents",
-  "expired_documents",
   "bank_details_tab",
   "ifsc_code",
   "fetch_bank_details",
@@ -77,16 +75,19 @@
   "account_holder_name",
   "account_number",
   "column_break_hhtv",
-  "work_history_tab",
-  "work_references",
-  "impact",
-  "about_organisation",
   "due_diligence_tab",
   "due_diligence_html",
   "section_break_ivgg",
   "countries_where_ngo_works",
   "located_countries",
   "_reasons",
+  "documents_tab",
+  "active_documents",
+  "expired_documents",
+  "work_history_tab",
+  "work_references",
+  "impact",
+  "about_organisation",
   "grants_tab",
   "grants",
   "applications_tab",
@@ -109,23 +110,20 @@
    "in_list_view": 1,
    "label": "Year of Establishment",
    "non_negative": 1,
-   "options": "\n1900\n1901\n1902\n1903\n1904\n1905\n1906\n1907\n1908\n1909\n1910\n1911\n1912\n1913\n1914\n1915\n1916\n1917\n1918\n1919\n1920\n1921\n1922\n1923\n1924\n1925\n1926\n1927\n1928\n1929\n1930\n1931\n1932\n1933\n1934\n1935\n1936\n1937\n1938\n1939\n1940\n1941\n1942\n1943\n1944\n1945\n1946\n1947\n1948\n1949\n1950\n1951\n1952\n1953\n1954\n1955\n1956\n1957\n1958\n1959\n1960\n1961\n1962\n1963\n1964\n1965\n1966\n1967\n1968\n1969\n1970\n1971\n1972\n1973\n1974\n1975\n1976\n1977\n1978\n1979\n1980\n1981\n1982\n1983\n1984\n1985\n1986\n1987\n1988\n1989\n1990\n1991\n1992\n1993\n1994\n1995\n1996\n1997\n1998\n1999\n2000\n2001\n2002\n2003\n2004\n2005\n2006\n2007\n2008\n2009\n2010\n2011\n2012\n2013\n2014\n2015\n2016\n2017\n2018\n2019\n2020\n2021\n2022\n2023\n2024",
-   "reqd": 1
+   "options": "\n1900\n1901\n1902\n1903\n1904\n1905\n1906\n1907\n1908\n1909\n1910\n1911\n1912\n1913\n1914\n1915\n1916\n1917\n1918\n1919\n1920\n1921\n1922\n1923\n1924\n1925\n1926\n1927\n1928\n1929\n1930\n1931\n1932\n1933\n1934\n1935\n1936\n1937\n1938\n1939\n1940\n1941\n1942\n1943\n1944\n1945\n1946\n1947\n1948\n1949\n1950\n1951\n1952\n1953\n1954\n1955\n1956\n1957\n1958\n1959\n1960\n1961\n1962\n1963\n1964\n1965\n1966\n1967\n1968\n1969\n1970\n1971\n1972\n1973\n1974\n1975\n1976\n1977\n1978\n1979\n1980\n1981\n1982\n1983\n1984\n1985\n1986\n1987\n1988\n1989\n1990\n1991\n1992\n1993\n1994\n1995\n1996\n1997\n1998\n1999\n2000\n2001\n2002\n2003\n2004\n2005\n2006\n2007\n2008\n2009\n2010\n2011\n2012\n2013\n2014\n2015\n2016\n2017\n2018\n2019\n2020\n2021\n2022\n2023\n2024"
   },
   {
    "fieldname": "registration_of_the_organisaiton",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Registration of the Organisation",
-   "options": "\nTrust\nSociety\nSection 8",
-   "reqd": 1
+   "options": "\nTrust\nSociety\nSection 8"
   },
   {
    "fieldname": "primary_domain",
    "fieldtype": "Link",
    "label": "Primary Domain",
-   "options": "Themes",
-   "reqd": 1
+   "options": "Themes"
   },
   {
    "fieldname": "website",
@@ -145,7 +143,8 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Active\nInactive"
+   "options": "Active\nInactive",
+   "read_only_depends_on": "eval:frappe.boot.user_team == \"NGO\""
   },
   {
    "fieldname": "about_organisation",
@@ -298,7 +297,8 @@
   {
    "fieldname": "work_history_tab",
    "fieldtype": "Tab Break",
-   "label": "Experiences"
+   "hidden": 1,
+   "label": "Work History"
   },
   {
    "fieldname": "80g_certificate_number",
@@ -317,23 +317,27 @@
    "label": "Due diligence"
   },
   {
+   "default": "No",
    "depends_on": "eval:frappe.mgrant_settings.module == \"Donor\"",
    "fieldname": "is_due_diligence_cleared",
    "fieldtype": "Select",
    "label": "Is due diligence cleared?",
-   "options": "\nYes\nNo"
+   "options": "Yes\nNo",
+   "read_only_depends_on": "eval:frappe.boot.user_team == \"NGO\""
   },
   {
    "depends_on": "eval:doc.is_due_diligence_cleared == 'Yes'",
    "fieldname": "due_diligence_validation",
    "fieldtype": "Date",
-   "label": "Due diligence clearance valid until."
+   "label": "Due diligence clearance valid until",
+   "read_only_depends_on": "eval:frappe.boot.user_team == \"NGO\""
   },
   {
-   "depends_on": "eval: doc.reasons.map((reason) => reason.reason).some((reason) => reason === 'Other' || reason === 'Others')",
+   "depends_on": "eval: (doc.reasons.map((reason) => reason.reason).some((reason) => reason === 'Other' || reason === 'Others') && frappe.boot.user_team != \"NGO\")",
    "fieldname": "reason_for_due_diligence_fail",
    "fieldtype": "Small Text",
-   "label": "Reason for due diligence fail."
+   "label": "Reason for due diligence fail",
+   "read_only_depends_on": "eval:frappe.boot.user_team == \"NGO\""
   },
   {
    "fieldname": "bank_details_tab",
@@ -393,11 +397,12 @@
    "read_only": 1
   },
   {
-   "depends_on": "eval:doc.is_due_diligence_cleared == 'No'",
+   "depends_on": "eval:(doc.is_due_diligence_cleared == 'No' && frappe.boot.user_team != \"NGO\")",
    "fieldname": "reasons",
    "fieldtype": "Table MultiSelect",
    "label": "Reasons",
-   "options": "DDFR Child"
+   "options": "DDFR Child",
+   "read_only_depends_on": "eval:frappe.boot.user_team == \"NGO\""
   },
   {
    "fetch_from": "state.state_name",
@@ -420,7 +425,8 @@
    "fieldname": "ngo_status",
    "fieldtype": "Select",
    "label": "NGO Status",
-   "options": "\nProspect\nGrantee\nBlacklisted"
+   "options": "\nProspect\nGrantee\nBlacklisted",
+   "read_only_depends_on": "eval:frappe.boot.user_team == \"NGO\""
   },
   {
    "depends_on": "eval:!doc.__islocal",
@@ -521,14 +527,6 @@
    "hidden": 1
   },
   {
-   "fieldname": "column_break_dbsz",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_hoof",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "section_break_nugo",
    "fieldtype": "Section Break"
   },
@@ -561,11 +559,29 @@
   {
    "fieldname": "ngo_users",
    "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "contact_first_name",
+   "fieldtype": "Data",
+   "label": "Contact First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contact_last_name",
+   "fieldtype": "Data",
+   "label": "Contact Last Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contact_full_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Contact Full Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-13 11:42:37.934607",
+ "modified": "2025-02-14 16:02:09.091380",
  "modified_by": "Administrator",
  "module": "mGrant - NGO",
  "name": "NGO",
