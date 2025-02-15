@@ -1,8 +1,8 @@
 {
  "app": "mgrant",
  "charts": [],
- "content": "[{\"id\":\"oCHUJ9QoqJ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Masters</b></span>\",\"col\":12}},{\"id\":\"NZkSiacTAS\",\"type\":\"card\",\"data\":{\"card_name\":\"Programme Masters\",\"col\":4}},{\"id\":\"0TTWy5PdRq\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}},{\"id\":\"WWbwg4lPx7\",\"type\":\"card\",\"data\":{\"card_name\":\"Geo Masters\",\"col\":4}},{\"id\":\"ODuqIcXKpZ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Settings &amp; Integrations</b></span>\",\"col\":12}},{\"id\":\"PfR6vrfK59\",\"type\":\"card\",\"data\":{\"card_name\":\"Settings\",\"col\":4}},{\"id\":\"hRgft8mlSS\",\"type\":\"card\",\"data\":{\"card_name\":\"Integrations\",\"col\":4}},{\"id\":\"RGdSEBSs3r\",\"type\":\"card\",\"data\":{\"card_name\":\"Roles & User Settings\",\"col\":4}}]",
- "creation": "2024-08-15 17:05:20.162609",
+ "content": "[{\"id\":\"oCHUJ9QoqJ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Masters</b></span>\",\"col\":12}},{\"id\":\"NZkSiacTAS\",\"type\":\"card\",\"data\":{\"card_name\":\"Programme Masters\",\"col\":4}},{\"id\":\"0TTWy5PdRq\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}},{\"id\":\"WWbwg4lPx7\",\"type\":\"card\",\"data\":{\"card_name\":\"Geography List\",\"col\":4}},{\"id\":\"ODuqIcXKpZ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Settings &amp; Integrations</b></span>\",\"col\":12}},{\"id\":\"PfR6vrfK59\",\"type\":\"card\",\"data\":{\"card_name\":\"mGrant Settings\",\"col\":4}},{\"id\":\"L0HSEN51JP\",\"type\":\"card\",\"data\":{\"card_name\":\"Data\",\"col\":4}},{\"id\":\"hRgft8mlSS\",\"type\":\"card\",\"data\":{\"card_name\":\"Integrations\",\"col\":4}},{\"id\":\"RGdSEBSs3r\",\"type\":\"card\",\"data\":{\"card_name\":\"Roles & User Settings\",\"col\":4}}]",
+ "creation": "2025-02-15 13:18:06.901792",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -17,7 +17,202 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Geo Masters",
+   "label": "Masters",
+   "link_count": 5,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Demography Group",
+   "link_count": 0,
+   "link_to": "Demography Group",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Department",
+   "link_count": 0,
+   "link_to": "Department",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Designation",
+   "link_count": 0,
+   "link_to": "Designation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "KPIs",
+   "link_count": 0,
+   "link_to": "KPIs",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Units",
+   "link_count": 0,
+   "link_to": "Units",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Integrations",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "mGrant API Integrations",
+   "link_count": 0,
+   "link_to": "mGrant API Integrations",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Roles & User Settings",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Role Profile",
+   "link_count": 0,
+   "link_to": "Role Profile",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Users",
+   "link_count": 0,
+   "link_to": "SVA User",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Data",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Deletion Log",
+   "link_count": 0,
+   "link_to": "Deleted Document",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Activity Log",
+   "link_count": 0,
+   "link_to": "Version",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "mGrant Settings",
+   "link_count": 5,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Org Settings",
+   "link_count": 0,
+   "link_to": "mGrant Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "My Theme",
+   "link_count": 0,
+   "link_to": "My Theme",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "mGrant Letter Head",
+   "link_count": 0,
+   "link_to": "mGrant Letter Head",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Datatable Configuration",
+   "link_count": 0,
+   "link_to": "SVADatatable Configuration",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Print Format",
+   "link_count": 0,
+   "link_to": "Print Format",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Geography List",
    "link_count": 5,
    "link_type": "DocType",
    "onboard": 0,
@@ -95,7 +290,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Budget heads",
+   "label": "Budget Heads",
    "link_count": 0,
    "link_to": "Budget heads",
    "link_type": "DocType",
@@ -141,205 +336,9 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Integrations",
-   "link_count": 1,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "mGrant API Integrations",
-   "link_count": 0,
-   "link_to": "mGrant API Integrations",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Roles & User Settings",
-   "link_count": 2,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Role Profile",
-   "link_count": 0,
-   "link_to": "Role Profile",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Users",
-   "link_count": 0,
-   "link_to": "SVA User",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Settings",
-   "link_count": 7,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "mGrant Settings",
-   "link_count": 0,
-   "link_to": "mGrant Settings",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "My Theme",
-   "link_count": 0,
-   "link_to": "My Theme",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "mGrant Letter Head",
-   "link_count": 0,
-   "link_to": "mGrant Letter Head",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Datatable Configuration",
-   "link_count": 0,
-   "link_to": "SVADatatable Configuration",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Action log",
-   "link_count": 0,
-   "link_to": "Version",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Deleted log",
-   "link_count": 0,
-   "link_to": "Deleted Document",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Print Format",
-   "link_count": 0,
-   "link_to": "Print Format",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Masters",
-   "link_count": 6,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Demography Group",
-   "link_count": 0,
-   "link_to": "Demography Group",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Department",
-   "link_count": 0,
-   "link_to": "Department",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Designation",
-   "link_count": 0,
-   "link_to": "Designation",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "KPIs",
-   "link_count": 0,
-   "link_to": "KPIs",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Units",
-   "link_count": 0,
-   "link_to": "Units",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Village",
-   "link_count": 0,
-   "link_to": "Village",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
   }
  ],
- "modified": "2025-02-07 14:24:13.891352",
+ "modified": "2025-02-15 14:39:46.699859",
  "modified_by": "Administrator",
  "module": "Mgrant",
  "name": "Settings",
@@ -359,7 +358,7 @@
    "role": "Donor Admin"
   }
  ],
- "sequence_id": 14.0,
+ "sequence_id": 8.0,
  "shortcuts": [],
  "title": "Settings",
  "type": "Workspace"
