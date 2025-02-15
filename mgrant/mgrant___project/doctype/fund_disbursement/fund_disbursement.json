@@ -13,6 +13,7 @@
   "disbursed_amount",
   "utr_number",
   "section_break_aaeg",
+  "memo_template",
   "grant",
   "financial_year",
   "fund_request",
@@ -132,11 +133,18 @@
    "fieldname": "utr_number",
    "fieldtype": "Data",
    "label": "UTR Number"
+  },
+  {
+   "fieldname": "memo_template",
+   "fieldtype": "Attach",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Memo Template"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-11 17:38:47.174865",
+ "modified": "2025-02-14 23:51:56.634850",
  "modified_by": "Administrator",
  "module": "mGrant - Project",
  "name": "Fund Disbursement",
