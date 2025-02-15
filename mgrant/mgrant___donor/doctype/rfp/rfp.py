@@ -3,6 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
+from datetime import datetime
 
 
 class RFP(Document):
@@ -34,14 +35,16 @@ class RFP(Document):
 	
 		return list(new_rows.values())
 
+
 	def on_update(self):
 			for row in self.get("invitation"):
 				if row.invitee_type == "Existing" and row.email and row.status == "Draft":
+					formatted_deadline_date = datetime.strptime(self.deadline, "%Y-%m-%d").strftime("%d-%m-%Y")
 					baseurl = frappe.get_conf().get('hostname')
 					url = f"{baseurl}/api/method/mgrant.apis.rfp.rfp.get_rfp_list?rfp={self.name}&donor={self.donor}&ngo={row.ngo}"
 					if frappe.db.exists("Print Format", "Existing RFP"):
 						print_format_template = frappe.get_doc("Print Format", "Existing RFP").html
-						rfp_template = frappe.render_template(print_format_template, {"doc": self,"url":url,"ngo_name":row.full_name})
+						rfp_template = frappe.render_template(print_format_template, {"data": self,"url":url,"ngo_name":row.full_name,"deadline":formatted_deadline_date})
 						
 						frappe.sendmail(
 							recipients=row.email,
