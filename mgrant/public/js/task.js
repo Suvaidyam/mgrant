@@ -470,7 +470,7 @@ class mGrantTask {
         });
     }
     async form(data = null, action, frm) {
-        let label = frm.active_tab_map[frm.doc.name].label;
+        let label = cur_frm.active_tab_map[cur_frm.doc.name].label;
         let title = action === 'New Task' ? 'New '+label : 'Edit '+label;
         let primaryActionLabel = action === 'New Task' ? 'Save' : 'Update';
 
