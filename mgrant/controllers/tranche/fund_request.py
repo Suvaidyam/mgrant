@@ -1,5 +1,61 @@
 import frappe
+from frappe import enqueue
+from frappe.utils.pdf import get_pdf
+from frappe.utils.file_manager import save_file
+from frappe.utils import money_in_words
+from datetime import datetime
 from mgrant.utils import get_state_closure, get_positive_state_closure
+
+
+def generate_disbursement_memo_pdf(doc):
+    if frappe.db.exists("Print Format", "Disbursement Memo Template"):
+        print_format_template = frappe.get_doc("Print Format", "Disbursement Memo Template").html
+        if isinstance(doc["modified"], str):
+            formatted_approval_date = datetime.strptime(doc["modified"], "%Y-%m-%d %H:%M:%S.%f").strftime("%d-%m-%Y")
+        else:
+            formatted_approval_date = doc["modified"].strftime("%d-%m-%Y")
+            
+        approval_amount_in_words = money_in_words(doc.disbursed_amount)
+
+        if frappe.db.exists("NGO", doc.ngo):
+            ngo = frappe.get_doc("NGO", doc.ngo)
+        else:
+            ngo = {}    
+        if frappe.db.exists("Donor", doc.donor):
+            donor = frappe.get_doc("Donor", doc.donor)
+        else:
+            donor = {}    
+
+        doc['sr_no'] = 1
+        doc['formatted_approval_date'] = formatted_approval_date
+        doc['approval_amount_in_words'] = approval_amount_in_words
+        memo_template = frappe.render_template(print_format_template ,{"data":doc, "ngo":ngo, "donor":donor})
+        try:
+            pdf = get_pdf(memo_template)
+            return pdf
+        except Exception as e:
+            frappe.log_error("PDF generation exception in memo template", frappe.get_traceback())
+            return e
+    else:
+        frappe.throw("Print Format 'Disbursement Memo Template' not found ")        
+
+def generate_disbursement_memo(doc):
+    pdf = generate_disbursement_memo_pdf(doc)
+    file_name = f"{doc.name}.pdf"
+    try:
+        saved_file = save_file(
+            fname=file_name,
+            content=pdf,
+            dt="Fund Disbursement",
+            dn=doc.name,
+            is_private=0
+        )
+        if saved_file:
+            frappe.db.set_value("Fund Disbursement", doc.name, "memo_template", saved_file.file_url,update_modified=False)
+
+    except Exception as e:
+        frappe.log_error("PDF save exception in memo template", frappe.get_traceback())
+
 
 def validate(self):
     if self.request_date:
@@ -44,6 +100,14 @@ def on_update(self):
         _doc.description = f"Disbursement of Fund ({self.description})"
         _doc.as_on_date = frappe.utils.now_datetime()
         _doc.insert()
+
+        enqueue(
+            method=generate_disbursement_memo,
+            queue="default",
+            timeout=300,
+            job_name=f"generate_disbursement_memo{_doc.name}",
+            doc = _doc.as_dict()
+        )    
 
 def on_trash(self):
     positive_state = get_positive_state_closure(self.doctype)
