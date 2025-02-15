@@ -69,6 +69,9 @@ extend_bootinfo = "mgrant.boot.boot_session"
 # include js, css files in header of web template
 # web_include_css = "/assets/mgrant/css/mgrant.css"
 # web_include_js = "/assets/mgrant/js/mgrant.js"
+permission_query_conditions = {
+    "ToDo":"mgrant.query_filters.task.list_query",
+}
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "mgrant/public/scss/website"

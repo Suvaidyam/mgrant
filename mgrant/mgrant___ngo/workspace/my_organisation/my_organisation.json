@@ -1,25 +1,25 @@
 {
  "app": "mgrant",
  "charts": [],
- "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Gallery.\"}}]",
- "creation": "2024-12-10 13:29:32.892736",
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"My Profile\"}}]",
+ "creation": "2025-02-15 13:18:07.902590",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "image",
+ "icon": "organization",
  "idx": 0,
  "indicator_color": "green",
  "is_hidden": 0,
- "label": "Files",
- "link_to": "File",
+ "label": "My Organisation",
+ "link_to": "NGO",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-02-05 14:39:50.514173",
+ "modified": "2025-02-15 16:40:10.148851",
  "modified_by": "Administrator",
- "module": "Mgrant",
- "name": "Files",
+ "module": "mGrant - NGO",
+ "name": "My Organisation",
  "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
@@ -27,17 +27,14 @@
  "quick_lists": [],
  "roles": [
   {
-   "role": "Administrator"
-  },
-  {
    "role": "NGO Admin"
   },
   {
    "role": "Donor Admin"
   }
  ],
- "sequence_id": 6.0,
+ "sequence_id": 24.0,
  "shortcuts": [],
- "title": "Files",
+ "title": "My Organisation",
  "type": "Link"
 }
